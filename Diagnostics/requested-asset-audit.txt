@@ -1,0 +1,595 @@
+452/594 requested paths found in currently installed archives
+FOUND /anim/creature/am_astromech.xml swtor_main_anim_creature_a_1.tor /resources/anim/creature/am_astromech.xml
+FOUND /anim/creature/am_battledroidboss.xml swtor_main_anim_creature_a_1.tor /resources/anim/creature/am_battledroidboss.xml
+FOUND /anim/creature/am_bull.xml swtor_main_anim_creature_a_1.tor /resources/anim/creature/am_bull.xml
+FOUND /anim/creature/am_colicoid.xml swtor_main_anim_creature_a_1.tor /resources/anim/creature/am_colicoid.xml
+FOUND /anim/creature/am_colicoiddroid.xml swtor_main_anim_creature_a_1.tor /resources/anim/creature/am_colicoiddroid.xml
+FOUND /anim/creature/am_hovertank.xml swtor_main_zed_1.tor /resources/anim/creature/am_hovertank.xml
+FOUND /anim/creature/am_mote.xml swtor_main_anim_creature_b_1.tor /resources/anim/creature/am_mote.xml
+FOUND /anim/creature/am_probe.xml swtor_main_anim_creature_b_1.tor /resources/anim/creature/am_probe.xml
+FOUND /anim/creature/am_rakghoul.xml swtor_main_anim_creature_b_1.tor /resources/anim/creature/am_rakghoul.xml
+FOUND /anim/creature/am_rancor.xml swtor_main_anim_creature_b_1.tor /resources/anim/creature/am_rancor.xml
+FOUND /anim/creature/am_wampaboss.xml swtor_main_anim_creature_b_1.tor /resources/anim/creature/am_wampaboss.xml
+FOUND /anim/creature/bull/anim_sharing.mph.amx swtor_main_anim_creature_a_1.tor /resources/anim/creature/bull/anim_sharing.mph.amx
+FOUND /anim/creature/cat/anim_sharing.mph.amx swtor_main_anim_creature_a_1.tor /resources/anim/creature/cat/anim_sharing.mph.amx
+FOUND /anim/creature/dewbackboss/anim_sharing.mph.amx swtor_main_anim_creature_a_1.tor /resources/anim/creature/dewbackboss/anim_sharing.mph.amx
+FOUND /anim/creature/hovertank/anim_sharing.mph.amx swtor_main_zed_1.tor /resources/anim/creature/hovertank/anim_sharing.mph.amx
+FOUND /anim/creature/manta/anim_sharing.mph.amx swtor_main_anim_creature_b_1.tor /resources/anim/creature/manta/anim_sharing.mph.amx
+FOUND /anim/creature/rakghoul/anim_sharing.mph.amx swtor_main_anim_creature_b_1.tor /resources/anim/creature/rakghoul/anim_sharing.mph.amx
+FOUND /anim/creature/rakghoulboss/anim_sharing.mph.amx swtor_main_anim_creature_b_1.tor /resources/anim/creature/rakghoulboss/anim_sharing.mph.amx
+FOUND /anim/creature/rakghoulinffemale/anim_sharing.mph.amx swtor_main_anim_creature_b_1.tor /resources/anim/creature/rakghoulinffemale/anim_sharing.mph.amx
+FOUND /anim/creature/rakghoulinfmale/anim_sharing.mph.amx swtor_main_anim_creature_b_1.tor /resources/anim/creature/rakghoulinfmale/anim_sharing.mph.amx
+FOUND /anim/creature/rancorboss/anim_sharing.mph.amx swtor_main_anim_creature_b_1.tor /resources/anim/creature/rancorboss/anim_sharing.mph.amx
+FOUND /anim/creature/terentatek/anim_sharing.mph.amx swtor_main_anim_creature_b_1.tor /resources/anim/creature/terentatek/anim_sharing.mph.amx
+FOUND /anim/creature/terentatekboss/anim_sharing.mph.amx swtor_main_anim_creature_b_1.tor /resources/anim/creature/terentatekboss/anim_sharing.mph.amx
+FOUND /anim/creature/turretneusmall/anim_sharing.mph.amx swtor_main_anim_creature_b_1.tor /resources/anim/creature/turretneusmall/anim_sharing.mph.amx
+FOUND /anim/creature/wampa/anim_sharing.mph.amx swtor_main_anim_creature_b_1.tor /resources/anim/creature/wampa/anim_sharing.mph.amx
+FOUND /anim/creature/wampaboss/anim_sharing.mph.amx swtor_main_anim_creature_b_1.tor /resources/anim/creature/wampaboss/anim_sharing.mph.amx
+FOUND /anim/droid/am_walkerkephess.xml swtor_main_anim_creature_b_1.tor /resources/anim/droid/am_walkerkephess.xml
+FOUND /anim/droid/battle/anim_sharing.mph.amx swtor_main_anim_creature_a_1.tor /resources/anim/droid/battle/anim_sharing.mph.amx
+FOUND /anim/droid/battledroidboss/anim_sharing.mph.amx swtor_main_anim_creature_a_1.tor /resources/anim/droid/battledroidboss/anim_sharing.mph.amx
+FOUND /anim/droid/walkerkephess/anim_sharing.mph.amx swtor_main_anim_creature_b_1.tor /resources/anim/droid/walkerkephess/anim_sharing.mph.amx
+FOUND /anim/humanoid/am_dwarf.xml swtor_main_anim_misc_1.tor /resources/anim/humanoid/am_dwarf.xml
+FOUND /anim/humanoid/am_humanoid_npc.xml swtor_main_anim_misc_1.tor /resources/anim/humanoid/am_humanoid_npc.xml
+FOUND /anim/humanoid/am_protocol.xml swtor_main_anim_misc_1.tor /resources/anim/humanoid/am_protocol.xml
+FOUND /anim/humanoid/bfanew/anim_sharing.mph.amx swtor_main_anim_humanoid_bfab_1.tor /resources/anim/humanoid/bfanew/anim_sharing.mph.amx
+FOUND /anim/humanoid/bfbnew/anim_sharing.mph.amx swtor_main_anim_humanoid_bfab_1.tor /resources/anim/humanoid/bfbnew/anim_sharing.mph.amx
+FOUND /anim/humanoid/bfnnew/anim_sharing.mph.amx swtor_main_anim_humanoid_bfns_1.tor /resources/anim/humanoid/bfnnew/anim_sharing.mph.amx
+FOUND /anim/humanoid/bfsnew/anim_sharing.mph.amx swtor_main_anim_humanoid_bfns_1.tor /resources/anim/humanoid/bfsnew/anim_sharing.mph.amx
+FOUND /anim/humanoid/bmsnew/anim_sharing.mph.amx swtor_main_anim_humanoid_bmns_1.tor /resources/anim/humanoid/bmsnew/anim_sharing.mph.amx
+FOUND /anim/npc/am_npc_geonosian.xml swtor_main_anim_creature_a_1.tor /resources/anim/npc/am_npc_geonosian.xml
+FOUND /anim/npc/am_npc_hutt.xml swtor_main_anim_creature_a_1.tor /resources/anim/npc/am_npc_hutt.xml
+FOUND /anim/npc/am_npc_quest_giver.xml swtor_main_zed_1.tor /resources/anim/npc/am_npc_quest_giver.xml
+FOUND /anim/npc/dwarf/anim_sharing.mph.amx swtor_main_anim_creature_npc_1.tor /resources/anim/npc/dwarf/anim_sharing.mph.amx
+FOUND /anim/pet/am_pet.xml swtor_main_anim_misc_1.tor /resources/anim/pet/am_pet.xml
+FOUND /anim/pet/petrakghoul/anim_sharing.mph.amx swtor_main_anim_misc_1.tor /resources/anim/pet/petrakghoul/anim_sharing.mph.amx
+FOUND /anim/pet/pettauntaun/anim_sharing.mph.amx swtor_main_anim_misc_1.tor /resources/anim/pet/pettauntaun/anim_sharing.mph.amx
+FOUND /art/defaultassets/black.dds swtor_main_area_misc_1.tor /resources/art/defaultassets/black.dds
+FOUND /art/defaultassets/black.tex swtor_main_area_misc_1.tor /resources/art/defaultassets/black.tex
+FOUND /art/defaultassets/blacknoalpha.dds swtor_main_art_misc_1.tor /resources/art/defaultassets/blacknoalpha.dds
+FOUND /art/defaultassets/blacknoalpha.tex swtor_main_art_misc_1.tor /resources/art/defaultassets/blacknoalpha.tex
+FOUND /art/defaultassets/default.dds swtor_main_art_misc_1.tor /resources/art/defaultassets/default.dds
+FOUND /art/defaultassets/default.tex swtor_main_art_misc_1.tor /resources/art/defaultassets/default.tex
+FOUND /art/defaultassets/default_cube_map.dds swtor_main_art_misc_1.tor /resources/art/defaultassets/default_cube_map.dds
+FOUND /art/defaultassets/default_cube_map.tex swtor_main_art_misc_1.tor /resources/art/defaultassets/default_cube_map.tex
+FOUND /art/defaultassets/flat_n.dds swtor_main_area_misc_1.tor /resources/art/defaultassets/flat_n.dds
+FOUND /art/defaultassets/flat_n.tex swtor_main_area_misc_1.tor /resources/art/defaultassets/flat_n.tex
+FOUND /art/defaultassets/flat_r.dds swtor_main_art_misc_1.tor /resources/art/defaultassets/flat_r.dds
+FOUND /art/defaultassets/flat_r.tex swtor_main_art_misc_1.tor /resources/art/defaultassets/flat_r.tex
+FOUND /art/defaultassets/gray50.dds swtor_main_area_misc_1.tor /resources/art/defaultassets/gray50.dds
+FOUND /art/defaultassets/gray50.tex swtor_main_area_misc_1.tor /resources/art/defaultassets/gray50.tex
+FOUND /art/defaultassets/light_box.dds swtor_main_art_misc_1.tor /resources/art/defaultassets/light_box.dds
+FOUND /art/defaultassets/light_box.tex swtor_main_art_misc_1.tor /resources/art/defaultassets/light_box.tex
+FOUND /art/defaultassets/linearramp.dds swtor_main_art_misc_1.tor /resources/art/defaultassets/linearramp.dds
+FOUND /art/defaultassets/linearramp.tex swtor_main_art_misc_1.tor /resources/art/defaultassets/linearramp.tex
+FOUND /art/defaultassets/scan_pattern.dds swtor_main_art_misc_1.tor /resources/art/defaultassets/scan_pattern.dds
+FOUND /art/defaultassets/white.tex swtor_main_art_fx_1.tor /resources/art/defaultassets/white.tex
+FOUND /art/dynamic/spec/acklay.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/acklay.dat
+FOUND /art/dynamic/spec/acklay.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/acklay.dyc
+FOUND /art/dynamic/spec/acklay_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/acklay_skeleton.gr2
+FOUND /art/dynamic/spec/acklaydroid.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/acklaydroid.dat
+FOUND /art/dynamic/spec/acklaydroid_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/acklaydroid_skeleton.gr2
+FOUND /art/dynamic/spec/assassin.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/assassin.dat
+FOUND /art/dynamic/spec/assassin.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/assassin.dyc
+FOUND /art/dynamic/spec/astromech.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/astromech.dat
+FOUND /art/dynamic/spec/astromech.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/astromech.dyc
+FOUND /art/dynamic/spec/astromech_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/astromech_skeleton.gr2
+FOUND /art/dynamic/spec/bantha.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bantha.dat
+FOUND /art/dynamic/spec/bantha.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bantha.dyc
+FOUND /art/dynamic/spec/bantha_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/bantha_skeleton.gr2
+FOUND /art/dynamic/spec/banthaboss.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/banthaboss.dat
+FOUND /art/dynamic/spec/banthaboss.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/banthaboss.dyc
+FOUND /art/dynamic/spec/banthaboss_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/banthaboss_skeleton.gr2
+FOUND /art/dynamic/spec/battledroid.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/battledroid.dat
+FOUND /art/dynamic/spec/battledroid_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/battledroid_skeleton.gr2
+FOUND /art/dynamic/spec/battledroidboss.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/battledroidboss.dat
+FOUND /art/dynamic/spec/battledroidboss.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/battledroidboss.dyc
+FOUND /art/dynamic/spec/battledroidboss_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/battledroidboss_skeleton.gr2
+FOUND /art/dynamic/spec/battlewarbotrakataboss.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/battlewarbotrakataboss.dyc
+FOUND /art/dynamic/spec/battlewarbotrakataboss_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/battlewarbotrakataboss_skeleton.gr2
+FOUND /art/dynamic/spec/bfa.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bfa.dat
+FOUND /art/dynamic/spec/bfa.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bfa.dyc
+FOUND /art/dynamic/spec/bfanew.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bfanew.dat
+FOUND /art/dynamic/spec/bfanew.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bfanew.dyc
+FOUND /art/dynamic/spec/bfanew_skeleton.gr2 swtor_main_art_dynamic_mags_1.tor /resources/art/dynamic/spec/bfanew_skeleton.gr2
+FOUND /art/dynamic/spec/bfb.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bfb.dat
+FOUND /art/dynamic/spec/bfb.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bfb.dyc
+FOUND /art/dynamic/spec/bfbnew.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bfbnew.dat
+FOUND /art/dynamic/spec/bfbnew.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bfbnew.dyc
+FOUND /art/dynamic/spec/bfbnew_skeleton.gr2 swtor_main_art_dynamic_mags_1.tor /resources/art/dynamic/spec/bfbnew_skeleton.gr2
+FOUND /art/dynamic/spec/bfn.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bfn.dat
+FOUND /art/dynamic/spec/bfn.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bfn.dyc
+FOUND /art/dynamic/spec/bfnnew.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bfnnew.dat
+FOUND /art/dynamic/spec/bfnnew.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bfnnew.dyc
+FOUND /art/dynamic/spec/bfnnew_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/bfnnew_skeleton.gr2
+FOUND /art/dynamic/spec/bfs.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bfs.dat
+FOUND /art/dynamic/spec/bfs.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bfs.dyc
+FOUND /art/dynamic/spec/bfsnew.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bfsnew.dat
+FOUND /art/dynamic/spec/bfsnew_skeleton.gr2 swtor_main_art_dynamic_mags_1.tor /resources/art/dynamic/spec/bfsnew_skeleton.gr2
+FOUND /art/dynamic/spec/bma.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bma.dyc
+FOUND /art/dynamic/spec/bmanew.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bmanew.dat
+FOUND /art/dynamic/spec/bmanew.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bmanew.dyc
+FOUND /art/dynamic/spec/bmanew_skeleton.gr2 swtor_main_art_dynamic_mags_1.tor /resources/art/dynamic/spec/bmanew_skeleton.gr2
+FOUND /art/dynamic/spec/bmf.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bmf.dyc
+FOUND /art/dynamic/spec/bmfnew.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bmfnew.dat
+FOUND /art/dynamic/spec/bmfnew.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bmfnew.dyc
+FOUND /art/dynamic/spec/bmn.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bmn.dyc
+FOUND /art/dynamic/spec/bmnnew.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bmnnew.dat
+FOUND /art/dynamic/spec/bmnnew.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bmnnew.dyc
+FOUND /art/dynamic/spec/bmnnew_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/bmnnew_skeleton.gr2
+FOUND /art/dynamic/spec/bms.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bms.dyc
+FOUND /art/dynamic/spec/bmsnew.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bmsnew.dat
+FOUND /art/dynamic/spec/bmsnew.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bmsnew.dyc
+FOUND /art/dynamic/spec/bmsnew_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/bmsnew_skeleton.gr2
+FOUND /art/dynamic/spec/bull.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bull.dat
+FOUND /art/dynamic/spec/bull.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/bull.dyc
+FOUND /art/dynamic/spec/bull_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/bull_skeleton.gr2
+FOUND /art/dynamic/spec/cat.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/cat.dat
+FOUND /art/dynamic/spec/cat.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/cat.dyc
+FOUND /art/dynamic/spec/cat_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/cat_skeleton.gr2
+FOUND /art/dynamic/spec/catboss.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/catboss.dat
+FOUND /art/dynamic/spec/catboss.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/catboss.dyc
+FOUND /art/dynamic/spec/catboss_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/catboss_skeleton.gr2
+FOUND /art/dynamic/spec/chevin.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/chevin.dyc
+FOUND /art/dynamic/spec/chevin_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/chevin_skeleton.gr2
+FOUND /art/dynamic/spec/colicoid.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/colicoid.dat
+FOUND /art/dynamic/spec/colicoid.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/colicoid.dyc
+FOUND /art/dynamic/spec/colicoid_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/colicoid_skeleton.gr2
+FOUND /art/dynamic/spec/colicoiddroid.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/colicoiddroid.dat
+FOUND /art/dynamic/spec/colicoiddroid.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/colicoiddroid.dyc
+FOUND /art/dynamic/spec/colicoiddroid_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/colicoiddroid_skeleton.gr2
+FOUND /art/dynamic/spec/dewback.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/dewback.dat
+FOUND /art/dynamic/spec/dewback.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/dewback.dyc
+FOUND /art/dynamic/spec/dewback_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/dewback_skeleton.gr2
+FOUND /art/dynamic/spec/dewbackboss.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/dewbackboss.dat
+FOUND /art/dynamic/spec/dewbackboss.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/dewbackboss.dyc
+FOUND /art/dynamic/spec/dewbackboss_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/dewbackboss_skeleton.gr2
+FOUND /art/dynamic/spec/dog.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/dog.dat
+FOUND /art/dynamic/spec/dog.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/dog.dyc
+FOUND /art/dynamic/spec/dog_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/dog_skeleton.gr2
+FOUND /art/dynamic/spec/dragonbat.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/dragonbat.dat
+FOUND /art/dynamic/spec/dragonbat.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/dragonbat.dyc
+FOUND /art/dynamic/spec/dragonbat_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/dragonbat_skeleton.gr2
+FOUND /art/dynamic/spec/dwarf.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/dwarf.dat
+FOUND /art/dynamic/spec/dwarf.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/dwarf.dyc
+FOUND /art/dynamic/spec/dwarf_skeleton.gr2 swtor_main_art_creature_npc_1.tor /resources/art/dynamic/spec/dwarf_skeleton.gr2
+FOUND /art/dynamic/spec/eshka.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/eshka.dat
+FOUND /art/dynamic/spec/eshka_skeleton.gr2 swtor_main_art_creature_npc_1.tor /resources/art/dynamic/spec/eshka_skeleton.gr2
+FOUND /art/dynamic/spec/geonosian.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/geonosian.dat
+FOUND /art/dynamic/spec/geonosian.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/geonosian.dyc
+FOUND /art/dynamic/spec/geonosian_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/geonosian_skeleton.gr2
+FOUND /art/dynamic/spec/hovertank.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/hovertank.dat
+FOUND /art/dynamic/spec/hovertank.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/hovertank.dyc
+FOUND /art/dynamic/spec/hovertank_skeleton.gr2 swtor_main_art_dynamic_mags_1.tor /resources/art/dynamic/spec/hovertank_skeleton.gr2
+FOUND /art/dynamic/spec/hutt.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/hutt.dyc
+FOUND /art/dynamic/spec/hutt_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/hutt_skeleton.gr2
+FOUND /art/dynamic/spec/huttacklaydroid.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/huttacklaydroid.dat
+FOUND /art/dynamic/spec/huttacklaydroid.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/huttacklaydroid.dyc
+FOUND /art/dynamic/spec/huttacklaydroid_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/huttacklaydroid_skeleton.gr2
+FOUND /art/dynamic/spec/huttsit.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/huttsit.dat
+FOUND /art/dynamic/spec/huttsit.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/huttsit.dyc
+FOUND /art/dynamic/spec/huttsit_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/huttsit_skeleton.gr2
+FOUND /art/dynamic/spec/ithorian.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/ithorian.dat
+FOUND /art/dynamic/spec/ithorian.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/ithorian.dyc
+FOUND /art/dynamic/spec/ithorian_skeleton.gr2 swtor_main_art_creature_npc_1.tor /resources/art/dynamic/spec/ithorian_skeleton.gr2
+FOUND /art/dynamic/spec/klorslug.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/klorslug.dat
+FOUND /art/dynamic/spec/klorslug.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/klorslug.dyc
+FOUND /art/dynamic/spec/klorslug_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/klorslug_skeleton.gr2
+FOUND /art/dynamic/spec/klorslugboss.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/klorslugboss.dat
+FOUND /art/dynamic/spec/klorslugboss_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/klorslugboss_skeleton.gr2
+FOUND /art/dynamic/spec/lizard.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/lizard.dat
+FOUND /art/dynamic/spec/lizard_skeleton.gr2 swtor_main_art_creature_a_1.tor /resources/art/dynamic/spec/lizard_skeleton.gr2
+FOUND /art/dynamic/spec/manta.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/manta.dat
+FOUND /art/dynamic/spec/manta_skeleton.gr2 swtor_main_art_creature_b_1.tor /resources/art/dynamic/spec/manta_skeleton.gr2
+FOUND /art/dynamic/spec/mote.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/mote.dat
+FOUND /art/dynamic/spec/mote.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/mote.dyc
+FOUND /art/dynamic/spec/mote_skeleton.gr2 swtor_main_art_creature_b_1.tor /resources/art/dynamic/spec/mote_skeleton.gr2
+FOUND /art/dynamic/spec/mousedroidpet.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/mousedroidpet.dat
+FOUND /art/dynamic/spec/mousedroidpet.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/mousedroidpet.dyc
+FOUND /art/dynamic/spec/mousedroidpet_skeleton.gr2 swtor_main_art_creature_b_1.tor /resources/art/dynamic/spec/mousedroidpet_skeleton.gr2
+FOUND /art/dynamic/spec/mynock.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/mynock.dyc
+FOUND /art/dynamic/spec/mynock_skeleton.gr2 swtor_main_art_creature_b_1.tor /resources/art/dynamic/spec/mynock_skeleton.gr2
+FOUND /art/dynamic/spec/ortolan.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/ortolan.dat
+FOUND /art/dynamic/spec/ortolan.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/ortolan.dyc
+FOUND /art/dynamic/spec/ortolan_skeleton.gr2 swtor_main_art_creature_npc_1.tor /resources/art/dynamic/spec/ortolan_skeleton.gr2
+FOUND /art/dynamic/spec/petmouse.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/petmouse.dat
+FOUND /art/dynamic/spec/petmouse.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/petmouse.dyc
+FOUND /art/dynamic/spec/petmouse_skeleton.gr2 swtor_main_art_dynamic_mags_1.tor /resources/art/dynamic/spec/petmouse_skeleton.gr2
+FOUND /art/dynamic/spec/petprobe.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/petprobe.dat
+FOUND /art/dynamic/spec/petprobe.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/petprobe.dyc
+FOUND /art/dynamic/spec/petprobe_skeleton.gr2 swtor_main_art_dynamic_mags_1.tor /resources/art/dynamic/spec/petprobe_skeleton.gr2
+FOUND /art/dynamic/spec/petrakghoul.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/petrakghoul.dat
+FOUND /art/dynamic/spec/petrakghoul.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/petrakghoul.dyc
+FOUND /art/dynamic/spec/petrakghoul_skeleton.gr2 swtor_main_art_dynamic_mags_1.tor /resources/art/dynamic/spec/petrakghoul_skeleton.gr2
+FOUND /art/dynamic/spec/pettauntaun.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/pettauntaun.dat
+FOUND /art/dynamic/spec/pettauntaun.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/pettauntaun.dyc
+FOUND /art/dynamic/spec/pettauntaun_skeleton.gr2 swtor_main_art_dynamic_mags_1.tor /resources/art/dynamic/spec/pettauntaun_skeleton.gr2
+FOUND /art/dynamic/spec/probe.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/probe.dat
+FOUND /art/dynamic/spec/probe.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/probe.dyc
+FOUND /art/dynamic/spec/probe_skeleton.gr2 swtor_main_art_creature_b_1.tor /resources/art/dynamic/spec/probe_skeleton.gr2
+FOUND /art/dynamic/spec/protocol.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/protocol.dat
+FOUND /art/dynamic/spec/protocol.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/protocol.dyc
+FOUND /art/dynamic/spec/protocol_skeleton.gr2 swtor_main_art_creature_b_1.tor /resources/art/dynamic/spec/protocol_skeleton.gr2
+FOUND /art/dynamic/spec/rakghoul.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/rakghoul.dat
+FOUND /art/dynamic/spec/rakghoul.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/rakghoul.dyc
+FOUND /art/dynamic/spec/rakghoul_skeleton.gr2 swtor_main_art_creature_b_1.tor /resources/art/dynamic/spec/rakghoul_skeleton.gr2
+FOUND /art/dynamic/spec/rakghoulboss.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/rakghoulboss.dat
+FOUND /art/dynamic/spec/rakghoulboss.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/rakghoulboss.dyc
+FOUND /art/dynamic/spec/rakghoulboss_skeleton.gr2 swtor_main_art_creature_b_1.tor /resources/art/dynamic/spec/rakghoulboss_skeleton.gr2
+FOUND /art/dynamic/spec/rakghoulinffemale.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/rakghoulinffemale.dat
+FOUND /art/dynamic/spec/rakghoulinffemale.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/rakghoulinffemale.dyc
+FOUND /art/dynamic/spec/rakghoulinffemale_skeleton.gr2 swtor_main_art_creature_b_1.tor /resources/art/dynamic/spec/rakghoulinffemale_skeleton.gr2
+FOUND /art/dynamic/spec/rakghoulinfmale.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/rakghoulinfmale.dat
+FOUND /art/dynamic/spec/rakghoulinfmale.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/rakghoulinfmale.dyc
+FOUND /art/dynamic/spec/rakghoulinfmale_skeleton.gr2 swtor_main_art_creature_b_1.tor /resources/art/dynamic/spec/rakghoulinfmale_skeleton.gr2
+FOUND /art/dynamic/spec/rancor.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/rancor.dat
+FOUND /art/dynamic/spec/rancor.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/rancor.dyc
+FOUND /art/dynamic/spec/rancor_skeleton.gr2 swtor_main_art_creature_b_1.tor /resources/art/dynamic/spec/rancor_skeleton.gr2
+FOUND /art/dynamic/spec/rancorboss.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/rancorboss.dat
+FOUND /art/dynamic/spec/rancorboss_skeleton.gr2 swtor_main_art_creature_b_1.tor /resources/art/dynamic/spec/rancorboss_skeleton.gr2
+FOUND /art/dynamic/spec/tauntaun.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/tauntaun.dat
+FOUND /art/dynamic/spec/tauntaun.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/tauntaun.dyc
+FOUND /art/dynamic/spec/terentatek.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/terentatek.dat
+FOUND /art/dynamic/spec/terentatek.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/terentatek.dyc
+FOUND /art/dynamic/spec/terentatek_skeleton.gr2 swtor_main_art_creature_b_1.tor /resources/art/dynamic/spec/terentatek_skeleton.gr2
+FOUND /art/dynamic/spec/terentatekboss.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/terentatekboss.dat
+FOUND /art/dynamic/spec/terentatekboss_skeleton.gr2 swtor_main_art_creature_b_1.tor /resources/art/dynamic/spec/terentatekboss_skeleton.gr2
+FOUND /art/dynamic/spec/turretneusmall.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/turretneusmall.dat
+FOUND /art/dynamic/spec/turretneusmall.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/turretneusmall.dyc
+FOUND /art/dynamic/spec/turretneusmall_skeleton.gr2 swtor_main_art_creature_b_1.tor /resources/art/dynamic/spec/turretneusmall_skeleton.gr2
+FOUND /art/dynamic/spec/walker.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/walker.dyc
+FOUND /art/dynamic/spec/walker_skeleton.gr2 swtor_main_art_creature_b_1.tor /resources/art/dynamic/spec/walker_skeleton.gr2
+FOUND /art/dynamic/spec/walkerhw.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/walkerhw.dat
+FOUND /art/dynamic/spec/walkerhw_skeleton.gr2 swtor_main_art_creature_b_1.tor /resources/art/dynamic/spec/walkerhw_skeleton.gr2
+FOUND /art/dynamic/spec/walkerkephess.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/walkerkephess.dat
+FOUND /art/dynamic/spec/walkerkephess.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/walkerkephess.dyc
+FOUND /art/dynamic/spec/wampa.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/wampa.dat
+FOUND /art/dynamic/spec/wampa.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/wampa.dyc
+FOUND /art/dynamic/spec/wampa_skeleton.gr2 swtor_main_art_creature_b_1.tor /resources/art/dynamic/spec/wampa_skeleton.gr2
+FOUND /art/dynamic/spec/wampaboss.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/wampaboss.dat
+FOUND /art/dynamic/spec/wampaboss.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/wampaboss.dyc
+FOUND /art/dynamic/spec/wampaboss_skeleton.gr2 swtor_main_art_creature_b_1.tor /resources/art/dynamic/spec/wampaboss_skeleton.gr2
+FOUND /art/dynamic/spec/wraid.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/wraid.dat
+FOUND /art/dynamic/spec/wraid.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/wraid.dyc
+FOUND /art/dynamic/spec/wraid_skeleton.gr2 swtor_main_art_creature_b_1.tor /resources/art/dynamic/spec/wraid_skeleton.gr2
+FOUND /art/dynamic/spec/wraidboss.dat swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/wraidboss.dat
+FOUND /art/dynamic/spec/wraidboss.dyc swtor_main_anim_misc_1.tor /resources/art/dynamic/spec/wraidboss.dyc
+FOUND /art/dynamic/spec/wraidboss_skeleton.gr2 swtor_main_art_creature_b_1.tor /resources/art/dynamic/spec/wraidboss_skeleton.gr2
+FOUND /art/environmentmaps/z_shared/eyecubemap.dds swtor_main_art_misc_1.tor /resources/art/environmentmaps/z_shared/eyecubemap.dds
+FOUND /art/environmentmaps/z_shared/eyecubemap.tex swtor_main_art_misc_1.tor /resources/art/environmentmaps/z_shared/eyecubemap.tex
+FOUND /art/lights/holo_lightramp_v04.dds swtor_main_art_misc_1.tor /resources/art/lights/holo_lightramp_v04.dds
+FOUND /art/lights/holo_lightramp_v04.tex swtor_main_art_misc_1.tor /resources/art/lights/holo_lightramp_v04.tex
+FOUND /art/lights/round_fourpix_falloff2.dds swtor_main_art_misc_1.tor /resources/art/lights/round_fourpix_falloff2.dds
+FOUND /art/lights/round_fourpix_falloff2.tex swtor_main_art_misc_1.tor /resources/art/lights/round_fourpix_falloff2.tex
+FOUND /art/lodschemas3.lod swtor_main_art_zed_1.tor /resources/art/lodschemas3.lod
+FOUND /art/noise_texture.dds swtor_main_art_zed_1.tor /resources/art/noise_texture.dds
+FOUND /art/noise_texture.tex swtor_main_art_zed_1.tor /resources/art/noise_texture.tex
+FOUND /en-us/str/abl.stb swtor_en-us_global_1.tor /resources/en-us/str/abl.stb
+FOUND /en-us/str/abl/player/grant_codex_xp.stb swtor_en-us_global_1.tor /resources/en-us/str/abl/player/grant_codex_xp.stb
+FOUND /en-us/str/abl/player/grant_exploration_xp.stb swtor_en-us_global_1.tor /resources/en-us/str/abl/player/grant_exploration_xp.stb
+FOUND /en-us/str/abl/player/grant_quest_xp.stb swtor_en-us_global_1.tor /resources/en-us/str/abl/player/grant_quest_xp.stb
+FOUND /en-us/str/abl/player/harvest.stb swtor_en-us_global_1.tor /resources/en-us/str/abl/player/harvest.stb
+FOUND /en-us/str/abl/player/loot.stb swtor_en-us_global_1.tor /resources/en-us/str/abl/player/loot.stb
+FOUND /en-us/str/abl/player/mount.stb swtor_en-us_global_1.tor /resources/en-us/str/abl/player/mount.stb
+FOUND /en-us/str/abl/player/proficiency.stb swtor_en-us_global_1.tor /resources/en-us/str/abl/player/proficiency.stb
+FOUND /en-us/str/abl/player/recently_died.stb swtor_en-us_global_1.tor /resources/en-us/str/abl/player/recently_died.stb
+FOUND /en-us/str/abl/player/skill_trees.stb swtor_en-us_global_1.tor /resources/en-us/str/abl/player/skill_trees.stb
+FOUND /en-us/str/abl/player/summon_companion.stb swtor_en-us_global_1.tor /resources/en-us/str/abl/player/summon_companion.stb
+FOUND /en-us/str/abl/pvp/guard_stancereq.stb swtor_en-us_global_1.tor /resources/en-us/str/abl/pvp/guard_stancereq.stb
+FOUND /en-us/str/abl/pvp/warzone.stb swtor_en-us_global_1.tor /resources/en-us/str/abl/pvp/warzone.stb
+FOUND /en-us/str/abl/test/mhays.stb swtor_en-us_global_1.tor /resources/en-us/str/abl/test/mhays.stb
+FOUND /en-us/str/cdx.stb swtor_en-us_global_1.tor /resources/en-us/str/cdx.stb
+FOUND /en-us/str/cnv/misc/generic_lines.stb swtor_en-us_global_1.tor /resources/en-us/str/cnv/misc/generic_lines.stb
+FOUND /en-us/str/gui/abilities.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/abilities.stb
+FOUND /en-us/str/gui/advanceddescriptions.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/advanceddescriptions.stb
+FOUND /en-us/str/gui/alignment.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/alignment.stb
+FOUND /en-us/str/gui/arenascorecard.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/arenascorecard.stb
+FOUND /en-us/str/gui/backgrounddescriptions.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/backgrounddescriptions.stb
+FOUND /en-us/str/gui/backgroundnames.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/backgroundnames.stb
+FOUND /en-us/str/gui/badges.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/badges.stb
+FOUND /en-us/str/gui/bank.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/bank.stb
+FOUND /en-us/str/gui/bug.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/bug.stb
+FOUND /en-us/str/gui/charactercreate.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/charactercreate.stb
+FOUND /en-us/str/gui/characterselect.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/characterselect.stb
+FOUND /en-us/str/gui/charactersheet.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/charactersheet.stb
+FOUND /en-us/str/gui/charcreateabilities.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/charcreateabilities.stb
+FOUND /en-us/str/gui/charcreateabilitiestitle.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/charcreateabilitiestitle.stb
+FOUND /en-us/str/gui/charcreateadvance.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/charcreateadvance.stb
+FOUND /en-us/str/gui/charcreateadvancedbullets.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/charcreateadvancedbullets.stb
+FOUND /en-us/str/gui/charcreatecombatrole.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/charcreatecombatrole.stb
+FOUND /en-us/str/gui/charcreatecombatroletitle.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/charcreatecombatroletitle.stb
+FOUND /en-us/str/gui/charcreateequipment.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/charcreateequipment.stb
+FOUND /en-us/str/gui/charcreateequipmenttitle.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/charcreateequipmenttitle.stb
+FOUND /en-us/str/gui/charcreatestory.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/charcreatestory.stb
+FOUND /en-us/str/gui/charcreatestorytitle.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/charcreatestorytitle.stb
+FOUND /en-us/str/gui/chat.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/chat.stb
+FOUND /en-us/str/gui/classdescriptions.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/classdescriptions.stb
+FOUND /en-us/str/gui/classnames.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/classnames.stb
+FOUND /en-us/str/gui/colornames.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/colornames.stb
+FOUND /en-us/str/gui/companion.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/companion.stb
+FOUND /en-us/str/gui/companiongallery.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/companiongallery.stb
+FOUND /en-us/str/gui/companionmissions.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/companionmissions.stb
+FOUND /en-us/str/gui/container.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/container.stb
+FOUND /en-us/str/gui/contextmenu.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/contextmenu.stb
+FOUND /en-us/str/gui/conversation.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/conversation.stb
+FOUND /en-us/str/gui/conversationgui.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/conversationgui.stb
+FOUND /en-us/str/gui/crafting.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/crafting.stb
+FOUND /en-us/str/gui/craftingtrainer.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/craftingtrainer.stb
+FOUND /en-us/str/gui/credits.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/credits.stb
+FOUND /en-us/str/gui/customersupport.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/customersupport.stb
+FOUND /en-us/str/gui/death.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/death.stb
+FOUND /en-us/str/gui/dialog.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/dialog.stb
+FOUND /en-us/str/gui/dressingroom.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/dressingroom.stb
+FOUND /en-us/str/gui/effect.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/effect.stb
+FOUND /en-us/str/gui/effectresults.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/effectresults.stb
+FOUND /en-us/str/gui/elev_dest_names.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/elev_dest_names.stb
+FOUND /en-us/str/gui/elevator.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/elevator.stb
+FOUND /en-us/str/gui/emotegrouping.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/emotegrouping.stb
+FOUND /en-us/str/gui/emotes.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/emotes.stb
+FOUND /en-us/str/gui/energybar.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/energybar.stb
+FOUND /en-us/str/gui/equipslot.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/equipslot.stb
+FOUND /en-us/str/gui/experiencebar.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/experiencebar.stb
+FOUND /en-us/str/gui/facialreconstruction.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/facialreconstruction.stb
+FOUND /en-us/str/gui/flashpoint.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/flashpoint.stb
+FOUND /en-us/str/gui/flytext.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/flytext.stb
+FOUND /en-us/str/gui/galaxymap.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/galaxymap.stb
+FOUND /en-us/str/gui/gameoptions.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/gameoptions.stb
+FOUND /en-us/str/gui/gift.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/gift.stb
+FOUND /en-us/str/gui/group.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/group.stb
+FOUND /en-us/str/gui/grouplootrules.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/grouplootrules.stb
+FOUND /en-us/str/gui/guildbank.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/guildbank.stb
+FOUND /en-us/str/gui/guildwindow.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/guildwindow.stb
+FOUND /en-us/str/gui/helptips.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/helptips.stb
+FOUND /en-us/str/gui/iconbrowser.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/iconbrowser.stb
+FOUND /en-us/str/gui/instance.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/instance.stb
+FOUND /en-us/str/gui/inventory.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/inventory.stb
+FOUND /en-us/str/gui/itemenhancement.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/itemenhancement.stb
+FOUND /en-us/str/gui/items.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/items.stb
+FOUND /en-us/str/gui/kbarticlelinks.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/kbarticlelinks.stb
+FOUND /en-us/str/gui/keys.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/keys.stb
+FOUND /en-us/str/gui/keysabbreviated.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/keysabbreviated.stb
+FOUND /en-us/str/gui/legacy.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/legacy.stb
+FOUND /en-us/str/gui/lockoutwindow.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/lockoutwindow.stb
+FOUND /en-us/str/gui/loot.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/loot.stb
+FOUND /en-us/str/gui/mail.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/mail.stb
+FOUND /en-us/str/gui/map.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/map.stb
+FOUND /en-us/str/gui/misc.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/misc.stb
+FOUND /en-us/str/gui/missionboard.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/missionboard.stb
+FOUND /en-us/str/gui/missionlog.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/missionlog.stb
+FOUND /en-us/str/gui/options.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/options.stb
+FOUND /en-us/str/gui/partybar.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/partybar.stb
+FOUND /en-us/str/gui/portraitbar.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/portraitbar.stb
+FOUND /en-us/str/gui/preferences.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/preferences.stb
+FOUND /en-us/str/gui/profession.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/profession.stb
+FOUND /en-us/str/gui/questcategories.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/questcategories.stb
+FOUND /en-us/str/gui/queue.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/queue.stb
+FOUND /en-us/str/gui/quicktravel.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/quicktravel.stb
+FOUND /en-us/str/gui/rollpriority.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/rollpriority.stb
+FOUND /en-us/str/gui/sc_ships.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/sc_ships.stb
+FOUND /en-us/str/gui/scaleform.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/scaleform.stb
+FOUND /en-us/str/gui/scoreboard.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/scoreboard.stb
+FOUND /en-us/str/gui/scoreboardbadges.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/scoreboardbadges.stb
+FOUND /en-us/str/gui/scorecard.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/scorecard.stb
+FOUND /en-us/str/gui/securetrade.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/securetrade.stb
+FOUND /en-us/str/gui/shardselect.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/shardselect.stb
+FOUND /en-us/str/gui/sharemission.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/sharemission.stb
+FOUND /en-us/str/gui/shipscorecard.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/shipscorecard.stb
+FOUND /en-us/str/gui/skilltree.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/skilltree.stb
+FOUND /en-us/str/gui/spacecombat.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/spacecombat.stb
+FOUND /en-us/str/gui/spacecombat_items.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/spacecombat_items.stb
+FOUND /en-us/str/gui/splitstack.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/splitstack.stb
+FOUND /en-us/str/gui/stats.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/stats.stb
+FOUND /en-us/str/gui/system.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/system.stb
+FOUND /en-us/str/gui/targetbar.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/targetbar.stb
+FOUND /en-us/str/gui/taxi.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/taxi.stb
+FOUND /en-us/str/gui/test/qa/bvt/loc_db_test.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/test/qa/bvt/loc_db_test.stb
+FOUND /en-us/str/gui/test/qa/jgibbs/54515.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/test/qa/jgibbs/54515.stb
+FOUND /en-us/str/gui/test/qa/jgibbs/test.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/test/qa/jgibbs/test.stb
+FOUND /en-us/str/gui/tooltips.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/tooltips.stb
+FOUND /en-us/str/gui/trade.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/trade.stb
+FOUND /en-us/str/gui/trainer.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/trainer.stb
+FOUND /en-us/str/gui/tutorials.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/tutorials.stb
+FOUND /en-us/str/gui/vendor.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/vendor.stb
+FOUND /en-us/str/gui/warzonejoin.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/warzonejoin.stb
+FOUND /en-us/str/gui/wholist.stb swtor_en-us_global_1.tor /resources/en-us/str/gui/wholist.stb
+FOUND /en-us/str/itm.stb swtor_en-us_global_1.tor /resources/en-us/str/itm.stb
+FOUND /en-us/str/itm/enhancement/categories.stb swtor_en-us_global_1.tor /resources/en-us/str/itm/enhancement/categories.stb
+FOUND /en-us/str/itm/enhancement/messages.stb swtor_en-us_global_1.tor /resources/en-us/str/itm/enhancement/messages.stb
+FOUND /en-us/str/itm/enhancement/stations.stb swtor_en-us_global_1.tor /resources/en-us/str/itm/enhancement/stations.stb
+FOUND /en-us/str/itm/enhancement/types.stb swtor_en-us_global_1.tor /resources/en-us/str/itm/enhancement/types.stb
+FOUND /en-us/str/itm/loot/quality.stb swtor_en-us_global_1.tor /resources/en-us/str/itm/loot/quality.stb
+FOUND /en-us/str/itm/modifiers.stb swtor_en-us_global_1.tor /resources/en-us/str/itm/modifiers.stb
+FOUND /en-us/str/itm/setbonuses.stb swtor_en-us_global_1.tor /resources/en-us/str/itm/setbonuses.stb
+FOUND /en-us/str/lgc/unlocks.stb swtor_en-us_global_1.tor /resources/en-us/str/lgc/unlocks.stb
+FOUND /en-us/str/misc/mail/bounty_hunter.stb swtor_en-us_global_1.tor /resources/en-us/str/misc/mail/bounty_hunter.stb
+FOUND /en-us/str/misc/mail/chapter_1_imp.stb swtor_en-us_global_1.tor /resources/en-us/str/misc/mail/chapter_1_imp.stb
+FOUND /en-us/str/misc/mail/chapter_1_rep.stb swtor_en-us_global_1.tor /resources/en-us/str/misc/mail/chapter_1_rep.stb
+FOUND /en-us/str/misc/mail/chapter_2_imp.stb swtor_en-us_global_1.tor /resources/en-us/str/misc/mail/chapter_2_imp.stb
+FOUND /en-us/str/misc/mail/chapter_2_rep.stb swtor_en-us_global_1.tor /resources/en-us/str/misc/mail/chapter_2_rep.stb
+FOUND /en-us/str/misc/mail/chapter_3_imp.stb swtor_en-us_global_1.tor /resources/en-us/str/misc/mail/chapter_3_imp.stb
+FOUND /en-us/str/misc/mail/chapter_3_rep.stb swtor_en-us_global_1.tor /resources/en-us/str/misc/mail/chapter_3_rep.stb
+FOUND /en-us/str/misc/mail/imperial_agent.stb swtor_en-us_global_1.tor /resources/en-us/str/misc/mail/imperial_agent.stb
+FOUND /en-us/str/misc/mail/jedi_consular.stb swtor_en-us_global_1.tor /resources/en-us/str/misc/mail/jedi_consular.stb
+FOUND /en-us/str/misc/mail/jedi_knight.stb swtor_en-us_global_1.tor /resources/en-us/str/misc/mail/jedi_knight.stb
+FOUND /en-us/str/misc/mail/mail_body.stb swtor_en-us_global_1.tor /resources/en-us/str/misc/mail/mail_body.stb
+FOUND /en-us/str/misc/mail/mail_title.stb swtor_en-us_global_1.tor /resources/en-us/str/misc/mail/mail_title.stb
+FOUND /en-us/str/misc/mail/sender_name.stb swtor_en-us_global_1.tor /resources/en-us/str/misc/mail/sender_name.stb
+FOUND /en-us/str/misc/mail/sith_inquisitor.stb swtor_en-us_global_1.tor /resources/en-us/str/misc/mail/sith_inquisitor.stb
+FOUND /en-us/str/misc/mail/sith_warrior.stb swtor_en-us_global_1.tor /resources/en-us/str/misc/mail/sith_warrior.stb
+FOUND /en-us/str/misc/mail/smuggler.stb swtor_en-us_global_1.tor /resources/en-us/str/misc/mail/smuggler.stb
+FOUND /en-us/str/misc/mail/system_messages.stb swtor_en-us_global_1.tor /resources/en-us/str/misc/mail/system_messages.stb
+FOUND /en-us/str/misc/mail/trooper.stb swtor_en-us_global_1.tor /resources/en-us/str/misc/mail/trooper.stb
+FOUND /en-us/str/mnt/mounts.stb swtor_en-us_global_1.tor /resources/en-us/str/mnt/mounts.stb
+FOUND /en-us/str/mpn.stb swtor_en-us_global_1.tor /resources/en-us/str/mpn.stb
+FOUND /en-us/str/npc.stb swtor_en-us_global_1.tor /resources/en-us/str/npc.stb
+FOUND /en-us/str/pc/title.stb swtor_en-us_global_1.tor /resources/en-us/str/pc/title.stb
+FOUND /en-us/str/pc/titles/prefix.stb swtor_en-us_global_1.tor /resources/en-us/str/pc/titles/prefix.stb
+FOUND /en-us/str/pc/titles/suffix.stb swtor_en-us_global_1.tor /resources/en-us/str/pc/titles/suffix.stb
+FOUND /en-us/str/pcs.stb swtor_en-us_global_1.tor /resources/en-us/str/pcs.stb
+FOUND /en-us/str/plc.stb swtor_en-us_global_1.tor /resources/en-us/str/plc.stb
+FOUND /en-us/str/plc/generic/containers.stb swtor_en-us_global_1.tor /resources/en-us/str/plc/generic/containers.stb
+FOUND /en-us/str/plc/generic/environment.stb swtor_en-us_global_1.tor /resources/en-us/str/plc/generic/environment.stb
+FOUND /en-us/str/plc/generic/medcenters.stb swtor_en-us_global_1.tor /resources/en-us/str/plc/generic/medcenters.stb
+FOUND /en-us/str/prf/items.stb swtor_en-us_global_1.tor /resources/en-us/str/prf/items.stb
+FOUND /en-us/str/prf/professions.stb swtor_en-us_global_1.tor /resources/en-us/str/prf/professions.stb
+FOUND /en-us/str/prf/system.stb swtor_en-us_global_1.tor /resources/en-us/str/prf/system.stb
+FOUND /en-us/str/prf/workstations.stb swtor_en-us_global_1.tor /resources/en-us/str/prf/workstations.stb
+FOUND /en-us/str/qa/ggarrett/bvt_9feb2012.stb swtor_en-us_global_1.tor /resources/en-us/str/qa/ggarrett/bvt_9feb2012.stb
+FOUND /en-us/str/qa/landerson/bvt_01mar2012.stb swtor_en-us_global_1.tor /resources/en-us/str/qa/landerson/bvt_01mar2012.stb
+FOUND /en-us/str/qst.stb swtor_en-us_global_1.tor /resources/en-us/str/qst.stb
+FOUND /en-us/str/rdd.stb swtor_en-us_global_1.tor /resources/en-us/str/rdd.stb
+FOUND /en-us/str/svy.stb swtor_en-us_global_1.tor /resources/en-us/str/svy.stb
+MISSING /en-us/str/svy/bug/gui.stb
+MISSING /en-us/str/svy/cohort/alpha2/abilities.stb
+MISSING /en-us/str/svy/cohort/alpha2/advanced_class.stb
+MISSING /en-us/str/svy/cohort/alpha2/advanced_class2.stb
+MISSING /en-us/str/svy/cohort/alpha2/calltoarms.stb
+MISSING /en-us/str/svy/cohort/alpha2/companion.stb
+MISSING /en-us/str/svy/cohort/alpha2/flashpoint.stb
+MISSING /en-us/str/svy/cohort/alpha2/grouping.stb
+MISSING /en-us/str/svy/cohort/alpha2/heroic_quest2.stb
+MISSING /en-us/str/svy/cohort/alpha2/heroic_quest3.stb
+MISSING /en-us/str/svy/cohort/alpha2/jediprisoner.stb
+MISSING /en-us/str/svy/cohort/alpha2/levelup/1st_hour.stb
+MISSING /en-us/str/svy/cohort/alpha2/levelup/week1.stb
+MISSING /en-us/str/svy/cohort/alpha2/levelup/week2a.stb
+MISSING /en-us/str/svy/cohort/alpha2/levelup/week2b.stb
+MISSING /en-us/str/svy/cohort/alpha2/quest_complete/week1.stb
+MISSING /en-us/str/svy/cohort/alpha2/quit.stb
+MISSING /en-us/str/svy/cohort/alpha2/quit2.stb
+MISSING /en-us/str/svy/cohort/alpha2/skilltree.stb
+MISSING /en-us/str/svy/cohort/alpha2/space_combat.stb
+MISSING /en-us/str/svy/cohort/alpha2/warzone.stb
+MISSING /en-us/str/svy/cohort/auction_house.stb
+MISSING /en-us/str/svy/cohort/class_quest.stb
+MISSING /en-us/str/svy/cohort/companion.stb
+MISSING /en-us/str/svy/cohort/crewskills/gathering.stb
+MISSING /en-us/str/svy/cohort/crewskills/production.stb
+MISSING /en-us/str/svy/cohort/death.stb
+MISSING /en-us/str/svy/cohort/flashpoint.stb
+MISSING /en-us/str/svy/cohort/group_composition.stb
+MISSING /en-us/str/svy/cohort/heroic_quest.stb
+MISSING /en-us/str/svy/cohort/level.stb
+MISSING /en-us/str/svy/cohort/levelup/npe.stb
+MISSING /en-us/str/svy/cohort/levelup/week1.stb
+MISSING /en-us/str/svy/cohort/levelup/week2.stb
+MISSING /en-us/str/svy/cohort/levelup/week3.stb
+MISSING /en-us/str/svy/cohort/levelup/week4.stb
+MISSING /en-us/str/svy/cohort/map.stb
+MISSING /en-us/str/svy/cohort/net_promoter.stb
+MISSING /en-us/str/svy/cohort/performance.stb
+MISSING /en-us/str/svy/cohort/quest.stb
+MISSING /en-us/str/svy/cohort/quest_complete/week1.stb
+MISSING /en-us/str/svy/cohort/quest_complete/week2.stb
+MISSING /en-us/str/svy/cohort/questabandoned.stb
+MISSING /en-us/str/svy/cohort/quit.stb
+MISSING /en-us/str/svy/test/bbannon/testsurvey.stb
+MISSING /en-us/str/svy/test/bmatt/surevey1.stb
+MISSING /en-us/str/svy/test/bmatt/survey2.stb
+MISSING /en-us/str/svy/test/bmatt/survey3.stb
+MISSING /en-us/str/svy/test/damion/test.stb
+MISSING /en-us/str/svy/test/damion/test2.stb
+MISSING /en-us/str/svy/test/damion/test3.stb
+MISSING /en-us/str/svy/test/jwalker/surveywithstrings.stb
+MISSING /en-us/str/svy/test/qa/he8/jgibbs/test_survey01.stb
+MISSING /en-us/str/svy/test/qa/jkoch/he15/test.stb
+MISSING /en-us/str/svy/test/qa/sperasoft/itsinovkin/test.stb
+FOUND /en-us/str/sys/codexcategories.stb swtor_en-us_global_1.tor /resources/en-us/str/sys/codexcategories.stb
+FOUND /en-us/str/sys/currencycategory.stb swtor_en-us_global_1.tor /resources/en-us/str/sys/currencycategory.stb
+FOUND /en-us/str/sys/factions.stb swtor_en-us_global_1.tor /resources/en-us/str/sys/factions.stb
+FOUND /en-us/str/sys/flashpoint.stb swtor_en-us_global_1.tor /resources/en-us/str/sys/flashpoint.stb
+FOUND /en-us/str/sys/groupfinder.stb swtor_en-us_global_1.tor /resources/en-us/str/sys/groupfinder.stb
+FOUND /en-us/str/sys/localizedslashcommands.stb swtor_en-us_global_1.tor /resources/en-us/str/sys/localizedslashcommands.stb
+FOUND /en-us/str/sys/pvp.stb swtor_en-us_global_1.tor /resources/en-us/str/sys/pvp.stb
+FOUND /en-us/str/sys/signs.stb swtor_en-us_global_1.tor /resources/en-us/str/sys/signs.stb
+FOUND /en-us/str/sys/tips.stb swtor_en-us_global_1.tor /resources/en-us/str/sys/tips.stb
+FOUND /en-us/str/sys/titles.stb swtor_en-us_global_1.tor /resources/en-us/str/sys/titles.stb
+FOUND /en-us/str/sys/worldmap.stb swtor_en-us_global_1.tor /resources/en-us/str/sys/worldmap.stb
+FOUND /en-us/str/tax/terminals.stb swtor_en-us_global_1.tor /resources/en-us/str/tax/terminals.stb
+MISSING /en-us/str/test/abl.stb
+MISSING /en-us/str/test/cdx.stb
+MISSING /en-us/str/test/itm.stb
+MISSING /en-us/str/test/mpn.stb
+MISSING /en-us/str/test/npc.stb
+MISSING /en-us/str/test/pcs.stb
+MISSING /en-us/str/test/plc.stb
+MISSING /en-us/str/test/qa/bchafin.stb
+MISSING /en-us/str/test/qa/bvt_22412.stb
+MISSING /en-us/str/test/qa/emulkey/smoketest.stb
+MISSING /en-us/str/test/qa/emulkey/smoketest02.stb
+MISSING /en-us/str/test/qa/fparker/bvt_09mar2012.stb
+MISSING /en-us/str/test/qa/ggarret/bvt_10nov2011.stb
+MISSING /en-us/str/test/qa/ggarret/bvt_29oct2011.stb
+MISSING /en-us/str/test/qa/ggarrett/bvt_14jan2012.stb
+MISSING /en-us/str/test/qa/ggarrett/bvt_15dec2011.stb
+MISSING /en-us/str/test/qa/ggarrett/bvt_17nov2011.stb
+MISSING /en-us/str/test/qa/ggarrett/bvt_1dec2011.stb
+MISSING /en-us/str/test/qa/ggarrett/bvt_20jan2011.stb
+MISSING /en-us/str/test/qa/ggarrett/bvt_22dec2011.stb
+MISSING /en-us/str/test/qa/ggarrett/bvt_27_jan2012.stb
+MISSING /en-us/str/test/qa/ggarrett/bvt_29nov2011.stb
+MISSING /en-us/str/test/qa/ggarrett/bvt_2feb2012.stb
+MISSING /en-us/str/test/qa/ggarrett/bvt_5jan2012.stb
+MISSING /en-us/str/test/qa/ggarrett/bvt_9dec2011.stb
+MISSING /en-us/str/test/qa/jsklarew/bvt/bvt_02162012.stb
+MISSING /en-us/str/test/qa/jsklarew/bvt/bvt_02242012.stb
+MISSING /en-us/str/test/qa/mhadley.stb
+MISSING /en-us/str/test/qst.stb
+MISSING /en-us/str/test/rdd.stb
+MISSING /en-us/str/test/svy.stb
+MISSING /engine/black.tex
+MISSING /engine/white.tex
+MISSING /guixml/_aidebugger.xml.
+MISSING /guixml/_aidebugpropertyeditor.xml.
+MISSING /guixml/_cleanenginealert.xml.
+MISSING /guixml/_cleanenginebaseborders.xml.
+MISSING /guixml/_cleanenginebasebutton.xml.
+MISSING /guixml/_cleanenginebasegroupbox.xml.
+MISSING /guixml/_cleanenginebasegui.xml.
+MISSING /guixml/_cleanenginebasemenus.xml.
+MISSING /guixml/_cleanenginebasescrollbar.xml.
+MISSING /guixml/_cleanenginebasesliders.xml.
+MISSING /guixml/_cleanenginebasetabs.xml.
+MISSING /guixml/_cleanenginebasewindow.xml.
+MISSING /guixml/_cleanenginecharacterselectiongui.xml.
+MISSING /guixml/_cleanenginecmgr.xml.
+MISSING /guixml/_cleanenginedropdownbox.xml.
+MISSING /guixml/_cleanengineiconmaker.xml.
+MISSING /guixml/_cleanengineloadingicon.xml.
+MISSING /guixml/_cleanengineminimap.xml.
+MISSING /guixml/_cleanengineselectbox.xml.
+MISSING /guixml/_cleanenginesortablecollection.xml.
+MISSING /guixml/_cleanenginetextureviewer.xml.
+MISSING /guixml/_colorviewer.xml.
+MISSING /guixml/_confirmdialog.xml.
+MISSING /guixml/_cursors.xml.
+MISSING /guixml/_heguixml.lst.
+MISSING /guixml/_hotspot.xml.
+MISSING /guixml/_nodepropertyeditormarshaltimer.xml.
+MISSING /guixml/_territorygui.xml.
+MISSING /guixml/_tooltip.xml.
+MISSING /guixml/collapsablecategory.xml.
+MISSING /guixml/defaults.xml.
+MISSING /guixml/guieditor.xml.
+MISSING /guixml/guixml.lst.
+MISSING /guixml/he_areaeditlockinggui.xml.
+MISSING /guixml/he_charcreationpanel.xml.
+MISSING /guixml/he_confirmdialog.xml.
+MISSING /guixml/he_controlpanelclassaddremovepanel.xml.
+MISSING /guixml/he_controlpanelglommedclass.xml.
+MISSING /guixml/he_controlpanelmainwindow.xml.
+MISSING /guixml/he_whogui.xml.
+MISSING /guixml/modelfaderpropertypanel_v2.xml.
+MISSING /guixml/nodepropertyeditor.xml.
+MISSING /guixml/nodepropertyeditorboolean.xml.
+MISSING /guixml/nodepropertyeditorbuttons.xml.
+MISSING /guixml/smartnamevaluepairinput.xml.
+MISSING /guixml/smarttextinputbox.xml.
+MISSING /guixml/specoracleaddspec.xml.
+MISSING /guixml/specoraclechooser.xml.
+MISSING /guixml/specoracleglomclassesdialog.xml.
+MISSING /guixml/specoraclepropertyeditor.xml.
+MISSING /guixml/specoraclespecselector.xml.
+MISSING /guixml/stylesetgui.xml.
+MISSING /guixml/transform3dpropertypanel_v2.xml.
+MISSING /guixml/unsavedchangesdialog.xml.

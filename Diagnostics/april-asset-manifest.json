@@ -1,0 +1,639 @@
+[
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_anim_creature_a_1.tor",
+    "size": 188461553,
+    "md5": "bd296979ccb2e1536f74203f53a85ac0"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_anim_creature_b_1.tor",
+    "size": 189074753,
+    "md5": "107875c6bb87d344ab465c32e5a1d7ad"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_anim_creature_npc_1.tor",
+    "size": 627069890,
+    "md5": "f4479a73a68ac019515c27f1cbfdff0d"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_anim_humanoid_bfab_1.tor",
+    "size": 335322446,
+    "md5": "c413b15d4ff27c87fb11a2e640946cb1"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_anim_humanoid_bfns_1.tor",
+    "size": 334689744,
+    "md5": "bd6f6cc868051430f1ba90ad88fad664"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_anim_humanoid_bmaf_1.tor",
+    "size": 338300029,
+    "md5": "77d33fb3ecb09b531fc0d0f90ed9669d"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_anim_humanoid_bmns_1.tor",
+    "size": 337713211,
+    "md5": "fb7475cbc3f639bf1d33ee87322c9e88"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_anim_misc_1.tor",
+    "size": 5646192,
+    "md5": "eb92c07a21a62d27ddfb5676628b59d3"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_areadat_1.tor",
+    "size": 452102897,
+    "md5": "866f519557a5d5a884aa9bebdd6b4473"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_areadat_epsilon_1.tor",
+    "size": 47635735,
+    "md5": "79cabeda4f941bdb5db954ad2943d65f"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_area_alderaan_1.tor",
+    "size": 187860440,
+    "md5": "910c41be5ace9fcbf322d477fd56c604"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_area_balmorra_1.tor",
+    "size": 106286440,
+    "md5": "be682f96ff9c76391a83acf336f0763a"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_area_belsavis_1.tor",
+    "size": 175318472,
+    "md5": "0d6b235ef0f8fb001cc441757b8bd64e"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_area_corellia_1.tor",
+    "size": 165142319,
+    "md5": "1295a84773c7c16d4d1980971c9a59cd"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_area_coruscant_1.tor",
+    "size": 82815748,
+    "md5": "b6d5d2e9d3990628d422b7cd49b33930"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_area_dromund_kaas_1.tor",
+    "size": 109507165,
+    "md5": "f108538e2b7530ce7eadabee9bd1e4bd"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_area_epsilon_1.tor",
+    "size": 579155,
+    "md5": "7006de4029e5858c2473e6689e6f2f9a"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_area_hoth_1.tor",
+    "size": 352974496,
+    "md5": "a949847ecfc7fbe95a52560f0982762e"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_area_hutta_1.tor",
+    "size": 66512997,
+    "md5": "e94946030977a284b1b6f6835bdd7bb3"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_area_ilum_1.tor",
+    "size": 30963068,
+    "md5": "94ae2cb7e696c14d0eb05f53f1675357"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_area_korriban_1.tor",
+    "size": 102350285,
+    "md5": "8126b4fea40f21cad8f7eb1167152b52"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_area_misc_1.tor",
+    "size": 299416733,
+    "md5": "66fad93bd6b2d20100c9d984e13ab06c"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_area_nar_shaddaa_1.tor",
+    "size": 98112649,
+    "md5": "6df0a909fe298dd66c3005c6cc9b94dc"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_area_open_worlds_1.tor",
+    "size": 20229679,
+    "md5": "fde30e22315dd779cb7977a0e3e43d70"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_area_ord_mantell_1.tor",
+    "size": 39219379,
+    "md5": "7219323120f254462ad238575d000fd9"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_area_quesh_1.tor",
+    "size": 54711881,
+    "md5": "058cedfaab3379fdcf1626d8d5a91615"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_area_raid_1.tor",
+    "size": 8908499,
+    "md5": "e6545551c5ff256863d28cf06712ce14"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_area_taris_1.tor",
+    "size": 99829313,
+    "md5": "a93c2e23fab295ec86d9a5b50e4ad140"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_area_tatooine_1.tor",
+    "size": 153545189,
+    "md5": "ba5becfdc6c3a1be39dac833cee9b0c9"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_area_tython_1.tor",
+    "size": 99311800,
+    "md5": "19b9cfdcb1f46f74d13cd539d9a127a1"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_area_voss_1.tor",
+    "size": 214193907,
+    "md5": "97ff477b3af0ac79e4b40a671ad0e58e"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_area_zed_1.tor",
+    "size": 35023,
+    "md5": "7ad62c4695d766eb087ea9519fa1442a"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_art_area_all_arch_a_1.tor",
+    "size": 190628925,
+    "md5": "97cf84d4e1ce604e12b1c6c8174e54e3"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_art_area_all_arch_b_1.tor",
+    "size": 355094780,
+    "md5": "81475d37572b6a4dcc615c2e6c9455c0"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_art_area_all_item_1.tor",
+    "size": 371591248,
+    "md5": "9564769c4072f01ec23cb689f62e77d4"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_art_creature_a_1.tor",
+    "size": 386667817,
+    "md5": "8ae3a23f909aec9bda9fc017e1aa5a63"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_art_creature_b_1.tor",
+    "size": 179053048,
+    "md5": "f1c1146cb67555f40e0b41092555322f"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_art_creature_npc_1.tor",
+    "size": 103153860,
+    "md5": "014a0485657cfe603a6c9e22995034fa"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_art_dynamic_cape_1.tor",
+    "size": 501135053,
+    "md5": "aca584491b6981250bf325ede36b1cd1"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_art_dynamic_chest_1.tor",
+    "size": 487163309,
+    "md5": "b6eb09c86a32d57414f31c47f163524d"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_art_dynamic_chest_tight_1.tor",
+    "size": 445892200,
+    "md5": "9e87a7f03a9faa5a5682d23a7c119a5b"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_art_dynamic_hand_1.tor",
+    "size": 158252583,
+    "md5": "61827cbf14f408bb746cc57909aca350"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_art_dynamic_head_1.tor",
+    "size": 604080547,
+    "md5": "545fd663ac74d8b24eaa0aa7c87c3771"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_art_dynamic_lower_1.tor",
+    "size": 532079012,
+    "md5": "fcc472db46f9265f2ba4b5ad713bb941"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_art_dynamic_mags_1.tor",
+    "size": 41894714,
+    "md5": "46f6a685e5dc9a2c49ea40fd51a729f1"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_art_fx_1.tor",
+    "size": 173175920,
+    "md5": "89e95419da0baa36b86e8d5e506f1799"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_art_harvesting_1.tor",
+    "size": 9734246,
+    "md5": "beabfc9751ea45f16d5f65c8cdcf9e7f"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_art_misc_1.tor",
+    "size": 33477219,
+    "md5": "fe738d44c267d728a39160b90ca8b9c7"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_art_space_combat_1.tor",
+    "size": 256198177,
+    "md5": "feb696f19c76adca9302b8269b62ad3e"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_art_vehicle_1.tor",
+    "size": 167925528,
+    "md5": "6121f320d4fc6f982c1694e339c8cf48"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_art_weapon_1.tor",
+    "size": 91793048,
+    "md5": "023c893193eab61cf64729b551e2a4ac"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_art_zed_1.tor",
+    "size": 79988436,
+    "md5": "24411dc574e4b49193cf1aa4cbb47e75"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_bnk_audiodata_1.tor",
+    "size": 8692293,
+    "md5": "3f286ef0203fb44d0c53920c6402ab28"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_bnk_audio_1.tor",
+    "size": 171488472,
+    "md5": "c441aaa0af75c4559d43388f5975b7a2"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_bnk_location_1.tor",
+    "size": 570599193,
+    "md5": "548e6d22bb7f09bb42e359f54352353a"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_bnk_streamed_a_1.tor",
+    "size": 316418825,
+    "md5": "4b6f722fd105921a2f74bed6e3f50a71"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_bnk_streamed_b_1.tor",
+    "size": 347808645,
+    "md5": "b8584c2a14f6ec0d7db14b8fde9a1737"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_bnk_streamed_c_1.tor",
+    "size": 214597282,
+    "md5": "f0b160a80cd91f49bf6906c9abeaeae5"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_bnk_voc_1.tor",
+    "size": 180906614,
+    "md5": "81dd55f5cb90b5c74b337c27cfe0f07b"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_cnv_alien_1.tor",
+    "size": 356321567,
+    "md5": "e1a192e8b745c48b07c7cc8dd70c2b75"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_gamedata_1.tor",
+    "size": 8185786,
+    "md5": "df89680fb3b81c7bb4fbd239b936230a"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_gfx_1.tor",
+    "size": 173776295,
+    "md5": "0adfa4edd4a1eca524e84720724b8744"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_global_1.tor",
+    "size": 195205404,
+    "md5": "dc60ddb488d05fcd81a279611971620a"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_systemgenerated_gom_1.tor",
+    "size": 9766441,
+    "md5": "9c2d6b62a66713599f59c95b65563408"
+  },
+  {
+    "product": "d3-assets_swtor_main",
+    "release": 48,
+    "name": "swtor_main_zed_1.tor",
+    "size": 89183,
+    "md5": "105291db85437dd7d4e8ac4c848d9c2d"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_area_alderaan_1.tor",
+    "size": 309322239,
+    "md5": "8c427e6a7ef74249fa61d39a6a127c1e"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_area_balmorra_1.tor",
+    "size": 355275090,
+    "md5": "c888d3e7d2dd11e084aa30babf8af959"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_area_belsavis_1.tor",
+    "size": 282682566,
+    "md5": "c223b0c4e7ea58ed730a0e0c79bb5c26"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_area_corellia_1.tor",
+    "size": 336893242,
+    "md5": "f96003133e6b0cb7451fa0ace1562a21"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_area_coruscant_1.tor",
+    "size": 181973688,
+    "md5": "af9f7ad9e48beaa23c08dd8bd32b1971"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_area_dromund_kaas_1.tor",
+    "size": 226411268,
+    "md5": "eb0cf3a909716ea1edd1e0265481d57c"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_area_hoth_1.tor",
+    "size": 277675465,
+    "md5": "7c28eb18665ad43118a695ba4824519e"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_area_hutta_1.tor",
+    "size": 85480698,
+    "md5": "f024e1dcecdf98348b233b6921370d40"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_area_ilum_1.tor",
+    "size": 63796375,
+    "md5": "e441ac0c4ab7c791ad2468301f3d7153"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_area_korriban_1.tor",
+    "size": 92850762,
+    "md5": "5256bee12e804f6eabf748dca8077eb0"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_area_misc_1.tor",
+    "size": 235266480,
+    "md5": "8b18f8be4a24cb6ca5560c39437c7e91"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_area_nar_shaddaa_1.tor",
+    "size": 289375236,
+    "md5": "721e80fc936885a89d6521467aab9e55"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_area_open_worlds_1.tor",
+    "size": 571155233,
+    "md5": "eac808d23ce1be10089a204de1552489"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_area_ord_mantell_1.tor",
+    "size": 97093165,
+    "md5": "6cbffd599793c3b3a3d389143e66302e"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_area_quesh_1.tor",
+    "size": 42074370,
+    "md5": "93162b508dc3896173aa1e9ed128ba79"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_area_raid_1.tor",
+    "size": 30054007,
+    "md5": "377edfc98fc96a7ae0b0545191d4fae0"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_area_taris_1.tor",
+    "size": 331183483,
+    "md5": "8814ff235309c7ebbc4b3b0c900543a1"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_area_tatooine_1.tor",
+    "size": 264457441,
+    "md5": "7c23d29a3c59e35ae21cf8bd3eb354c1"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_area_tython_1.tor",
+    "size": 98088861,
+    "md5": "ab503e012c9760ddfd6906836181e946"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_area_voss_1.tor",
+    "size": 331570425,
+    "md5": "b1a71261cbe2d36d819c86af3dc609ff"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_cnv_comp_chars_imp_1.tor",
+    "size": 308237536,
+    "md5": "baac11f66169142873e06b185a558754"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_cnv_comp_chars_rep_1.tor",
+    "size": 278385881,
+    "md5": "1042b887742b176e29ca41149b3f8450"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_cnv_misc_1.tor",
+    "size": 126966827,
+    "md5": "0970b2292e8b6ae258fc69b0ae6a8598"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_cnv_transitions_1.tor",
+    "size": 71019657,
+    "md5": "a0a8c7ce57c86f1b0271db6770c517ff"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_global_1.tor",
+    "size": 12401994,
+    "md5": "9421eff3f67a4d0717e4284c05d89349"
+  },
+  {
+    "product": "d3-assets_swtor_en_us",
+    "release": 48,
+    "name": "swtor_en-us_zed_1.tor",
+    "size": 48112846,
+    "md5": "4e0c7797bf5e8bdbefc8be5994f102cc"
+  }
+]

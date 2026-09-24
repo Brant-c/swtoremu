@@ -1,0 +1,11 @@
+[19:34:27] [STARTUP] Concise progress and blockers: Diagnostics\startup-summary.log
+[19:35:36] [READY] Native script definitions registered; beginning game and GUI initialization.
+[19:35:38] [READY] GUI resources: both lists and 52 XML files completed their native callbacks.
+[19:35:42] [TEST] Delivering cached petmouse.dat through native resource callback with original request ID.
+[19:35:42] [TEST] Petmouse native resource completion returned; checking loader state.
+[19:35:48] [WAIT] Character-spec initialization: ready=0/74, waiting=74, failed=0. Pending examples: bmf, wraid, colicoiddroid, chevin, manta.
+[19:35:48] [BLOCKER] The native character-spec loader has not completed. Character selection cannot finish startup; pings only confirm the server connection is alive.
+[19:36:18] [WAIT] Character-spec initialization: ready=0/74, waiting=74, failed=0. Pending examples: bmf, wraid, colicoiddroid, chevin, manta.
+[19:36:18] [BLOCKER] The native character-spec loader has not completed. Character selection cannot finish startup; pings only confirm the server connection is alive.
+[19:36:48] [WAIT] Character-spec initialization: ready=0/74, waiting=74, failed=0. Pending examples: bmf, wraid, colicoiddroid, chevin, manta.
+[19:36:48] [BLOCKER] The native character-spec loader has not completed. Character selection cannot finish startup; pings only confirm the server connection is alive.

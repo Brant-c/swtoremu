@@ -1,0 +1,4 @@
+﻿=== dotnet write probe ===
+2026-09-18T02:09:31.2670561+00:00
+OK wrote D:\SWTORClassic\swtoremu\_dotnet_probe.txt in 2ms  exists=True
+target exists after: True

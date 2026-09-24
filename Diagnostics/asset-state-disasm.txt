@@ -1,0 +1,419 @@
+Microsoft (R) COFF/PE Dumper Version 14.51.36257.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file nexusclient\nexusclient\swtor-emu.exe
+
+File Type: EXECUTABLE IMAGE
+
+  007AD8F0: 51                 push        ecx
+  007AD8F1: 8B 46 04           mov         eax,dword ptr [esi+4]
+  007AD8F4: 48                 dec         eax
+  007AD8F5: 83 F8 05           cmp         eax,5
+  007AD8F8: 77 6B              ja          007AD965
+  007AD8FA: FF 24 85 70 D9 7A  jmp         dword ptr [eax*4+007AD970h]
+            00
+  007AD901: 8B 0D 00 29 49 01  mov         ecx,dword ptr ds:[01492900h]
+  007AD907: 8B 01              mov         eax,dword ptr [ecx]
+  007AD909: 8B 50 10           mov         edx,dword ptr [eax+10h]
+  007AD90C: FF D2              call        edx
+  007AD90E: 83 F8 05           cmp         eax,5
+  007AD911: 74 52              je          007AD965
+  007AD913: 85 C0              test        eax,eax
+  007AD915: 74 40              je          007AD957
+  007AD917: 59                 pop         ecx
+  007AD918: C3                 ret
+  007AD919: 80 3D 38 D0 38 01  cmp         byte ptr ds:[0138D038h],0
+            00
+  007AD920: 75 35              jne         007AD957
+  007AD922: 80 3D 39 D0 38 01  cmp         byte ptr ds:[0138D039h],0
+            00
+  007AD929: 75 3A              jne         007AD965
+  007AD92B: 59                 pop         ecx
+  007AD92C: C3                 ret
+  007AD92D: 8B CE              mov         ecx,esi
+  007AD92F: E8 AC F8 FF FF     call        007AD1E0
+  007AD934: EB 1C              jmp         007AD952
+  007AD936: 8B CE              mov         ecx,esi
+  007AD938: E8 E3 F8 FF FF     call        007AD220
+  007AD93D: EB 13              jmp         007AD952
+  007AD93F: 8B 4E 20           mov         ecx,dword ptr [esi+20h]
+  007AD942: 8B 01              mov         eax,dword ptr [ecx]
+  007AD944: 8B 50 04           mov         edx,dword ptr [eax+4]
+  007AD947: FF D2              call        edx
+  007AD949: 84 C0              test        al,al
+  007AD94B: EB 16              jmp         007AD963
+  007AD94D: E8 1E F9 FF FF     call        007AD270
+  007AD952: 83 F8 02           cmp         eax,2
+  007AD955: 75 09              jne         007AD960
+  007AD957: C7 46 04 07 00 00  mov         dword ptr [esi+4],7
+            00
+  007AD95E: 59                 pop         ecx
+  007AD95F: C3                 ret
+  007AD960: 83 F8 01           cmp         eax,1
+  007AD963: 75 07              jne         007AD96C
+  007AD965: 8B C6              mov         eax,esi
+  007AD967: E8 34 FE FF FF     call        007AD7A0
+  007AD96C: 59                 pop         ecx
+  007AD96D: C3                 ret
+  007AD96E: 8B FF              mov         edi,edi
+  007AD970: 01 D9              add         ecx,ebx
+  007AD972: 7A 00              jp          007AD974
+  007AD974: 19 D9              sbb         ecx,ebx
+  007AD976: 7A 00              jp          007AD978
+  007AD978: 2D D9 7A 00 36     sub         eax,36007AD9h
+  007AD97D: D9 7A 00           fnstcw      word ptr [edx]
+  007AD980: 3F                 aas
+  007AD981: D9 7A 00           fnstcw      word ptr [edx]
+  007AD984: 4D                 dec         ebp
+  007AD985: D9 7A 00           fnstcw      word ptr [edx]
+  007AD988: CC                 int         3
+  007AD989: CC                 int         3
+  007AD98A: CC                 int         3
+  007AD98B: CC                 int         3
+  007AD98C: CC                 int         3
+  007AD98D: CC                 int         3
+  007AD98E: CC                 int         3
+  007AD98F: CC                 int         3
+  007AD990: 55                 push        ebp
+  007AD991: 8B EC              mov         ebp,esp
+  007AD993: 6A FF              push        0FFFFFFFFh
+  007AD995: 68 68 6A FE 00     push        0FE6A68h
+  007AD99A: 64 A1 00 00 00 00  mov         eax,dword ptr fs:[00000000h]
+  007AD9A0: 50                 push        eax
+  007AD9A1: 64 89 25 00 00 00  mov         dword ptr fs:[00000000h],esp
+            00
+  007AD9A8: 83 EC 08           sub         esp,8
+  007AD9AB: 56                 push        esi
+  007AD9AC: 51                 push        ecx
+  007AD9AD: 8B F1              mov         esi,ecx
+  007AD9AF: 89 65 EC           mov         dword ptr [ebp-14h],esp
+  007AD9B2: 89 75 F0           mov         dword ptr [ebp-10h],esi
+  007AD9B5: 89 65 EC           mov         dword ptr [ebp-14h],esp
+  007AD9B8: E8 B3 D7 F3 FF     call        006EB170
+  007AD9BD: C7 45 FC 00 00 00  mov         dword ptr [ebp-4],0
+            00
+  007AD9C4: 8B CE              mov         ecx,esi
+  007AD9C6: E8 55 01 00 00     call        007ADB20
+  007AD9CB: 89 46 14           mov         dword ptr [esi+14h],eax
+  007AD9CE: C7 46 18 00 00 00  mov         dword ptr [esi+18h],0
+            00
+  007AD9D5: C7 45 FC FF FF FF  mov         dword ptr [ebp-4],0FFFFFFFFh
+            FF
+  007AD9DC: 8B 4D F4           mov         ecx,dword ptr [ebp-0Ch]
+  007AD9DF: 8B C6              mov         eax,esi
+  007AD9E1: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+            00
+  007AD9E8: 5E                 pop         esi
+  007AD9E9: 8B E5              mov         esp,ebp
+  007AD9EB: 5D                 pop         ebp
+  007AD9EC: C3                 ret
+  007AD9ED: CC                 int         3
+  007AD9EE: CC                 int         3
+  007AD9EF: CC                 int         3
+  007AD9F0: 55                 push        ebp
+  007AD9F1: 8B EC              mov         ebp,esp
+  007AD9F3: 6A FF              push        0FFFFFFFFh
+  007AD9F5: 68 78 F0 FF 00     push        0FFF078h
+  007AD9FA: 64 A1 00 00 00 00  mov         eax,dword ptr fs:[00000000h]
+  007ADA00: 50                 push        eax
+  007ADA01: 64 89 25 00 00 00  mov         dword ptr fs:[00000000h],esp
+            00
+  007ADA08: 51                 push        ecx
+  007ADA09: 56                 push        esi
+  007ADA0A: 8B F1              mov         esi,ecx
+  007ADA0C: 57                 push        edi
+  007ADA0D: 89 75 F0           mov         dword ptr [ebp-10h],esi
+  007ADA10: C7 45 FC 00 00 00  mov         dword ptr [ebp-4],0
+            00
+  007ADA17: E8 B4 01 00 00     call        007ADBD0
+  007ADA1C: 8B 7E 14           mov         edi,dword ptr [esi+14h]
+  007ADA1F: 85 FF              test        edi,edi
+  007ADA21: 74 18              je          007ADA3B
+  007ADA23: 80 3D A9 E9 48 01  cmp         byte ptr ds:[0148E9A9h],0
+            00
+  007ADA2A: 75 05              jne         007ADA31
+  007ADA2C: E8 CF 35 C5 FF     call        00401000
+  007ADA31: A1 58 1D 06 01     mov         eax,dword ptr ds:[01061D58h]
+  007ADA36: 8B 08              mov         ecx,dword ptr [eax]
+  007ADA38: 57                 push        edi
+  007ADA39: FF D1              call        ecx
+  007ADA3B: C7 46 14 00 00 00  mov         dword ptr [esi+14h],0
+            00
+  007ADA42: C7 45 FC FF FF FF  mov         dword ptr [ebp-4],0FFFFFFFFh
+            FF
+  007ADA49: 8B CE              mov         ecx,esi
+  007ADA4B: E8 90 71 F5 FF     call        00704BE0
+  007ADA50: 8B 4D F4           mov         ecx,dword ptr [ebp-0Ch]
+  007ADA53: 5F                 pop         edi
+  007ADA54: 5E                 pop         esi
+  007ADA55: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+            00
+  007ADA5C: 8B E5              mov         esp,ebp
+  007ADA5E: 5D                 pop         ebp
+  007ADA5F: C3                 ret
+  007ADA60: 55                 push        ebp
+  007ADA61: 8B EC              mov         ebp,esp
+  007ADA63: 83 E4 F8           and         esp,0FFFFFFF8h
+  007ADA66: 6A FF              push        0FFFFFFFFh
+  007ADA68: 68 AB 9E FD 00     push        0FD9EABh
+  007ADA6D: 64 A1 00 00 00 00  mov         eax,dword ptr fs:[00000000h]
+  007ADA73: 50                 push        eax
+  007ADA74: 64 89 25 00 00 00  mov         dword ptr fs:[00000000h],esp
+            00
+  007ADA7B: 83 EC 10           sub         esp,10h
+  007ADA7E: 8B 45 0C           mov         eax,dword ptr [ebp+0Ch]
+  007ADA81: 53                 push        ebx
+  007ADA82: 8B 1D 64 1A 06 01  mov         ebx,dword ptr ds:[01061A64h]
+  007ADA88: 56                 push        esi
+  007ADA89: 8B 75 10           mov         esi,dword ptr [ebp+10h]
+  007ADA8C: 57                 push        edi
+  007ADA8D: 8B F9              mov         edi,ecx
+  007ADA8F: 89 44 24 10        mov         dword ptr [esp+10h],eax
+  007ADA93: 85 C0              test        eax,eax
+  007ADA95: 75 09              jne         007ADAA0
+  007ADA97: FF D3              call        ebx
+  007ADA99: 8B 45 0C           mov         eax,dword ptr [ebp+0Ch]
+  007ADA9C: 85 C0              test        eax,eax
+  007ADA9E: 74 04              je          007ADAA4
+  007ADAA0: 8B 00              mov         eax,dword ptr [eax]
+  007ADAA2: EB 02              jmp         007ADAA6
+  007ADAA4: 33 C0              xor         eax,eax
+  007ADAA6: 8B 4D 10           mov         ecx,dword ptr [ebp+10h]
+  007ADAA9: 3B 48 14           cmp         ecx,dword ptr [eax+14h]
+  007ADAAC: 75 02              jne         007ADAB0
+  007ADAAE: FF D3              call        ebx
+  007ADAB0: 8B 55 10           mov         edx,dword ptr [ebp+10h]
+  007ADAB3: 8B 02              mov         eax,dword ptr [edx]
+  007ADAB5: 89 45 10           mov         dword ptr [ebp+10h],eax
+  007ADAB8: 89 74 24 10        mov         dword ptr [esp+10h],esi
+  007ADABC: 3B 77 14           cmp         esi,dword ptr [edi+14h]
+  007ADABF: 74 3A              je          007ADAFB
+  007ADAC1: 8B 46 04           mov         eax,dword ptr [esi+4]
+  007ADAC4: 8B 0E              mov         ecx,dword ptr [esi]
+  007ADAC6: 89 08              mov         dword ptr [eax],ecx
+  007ADAC8: 8B 16              mov         edx,dword ptr [esi]
+  007ADACA: 8B 46 04           mov         eax,dword ptr [esi+4]
+  007ADACD: 89 42 04           mov         dword ptr [edx+4],eax
+  007ADAD0: 83 CB FF           or          ebx,0FFFFFFFFh
+  007ADAD3: 89 5C 24 24        mov         dword ptr [esp+24h],ebx
+  007ADAD7: 8D 4E 08           lea         ecx,[esi+8]
+  007ADADA: E8 01 F1 FF FF     call        007ACBE0
+  007ADADF: 80 3D A9 E9 48 01  cmp         byte ptr ds:[0148E9A9h],0
+            00
+  007ADAE6: 75 05              jne         007ADAED
+  007ADAE8: E8 13 35 C5 FF     call        00401000
+  007ADAED: 8B 0D 58 1D 06 01  mov         ecx,dword ptr ds:[01061D58h]
+  007ADAF3: 8B 11              mov         edx,dword ptr [ecx]
+  007ADAF5: 56                 push        esi
+  007ADAF6: FF D2              call        edx
+  007ADAF8: 01 5F 18           add         dword ptr [edi+18h],ebx
+  007ADAFB: 8B 4D 10           mov         ecx,dword ptr [ebp+10h]
+  007ADAFE: 8B 17              mov         edx,dword ptr [edi]
+  007ADB00: 8B 45 08           mov         eax,dword ptr [ebp+8]
+  007ADB03: 5F                 pop         edi
+  007ADB04: 89 48 04           mov         dword ptr [eax+4],ecx
+  007ADB07: 8B 4C 24 18        mov         ecx,dword ptr [esp+18h]
+  007ADB0B: 5E                 pop         esi
+  007ADB0C: 89 10              mov         dword ptr [eax],edx
+  007ADB0E: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+            00
+  007ADB15: 5B                 pop         ebx
+  007ADB16: 8B E5              mov         esp,ebp
+  007ADB18: 5D                 pop         ebp
+  007ADB19: C2 0C 00           ret         0Ch
+  007ADB1C: CC                 int         3
+  007ADB1D: CC                 int         3
+  007ADB1E: CC                 int         3
+  007ADB1F: CC                 int         3
+  007ADB20: 55                 push        ebp
+  007ADB21: 8B EC              mov         ebp,esp
+  007ADB23: 6A FF              push        0FFFFFFFFh
+  007ADB25: 68 80 72 FD 00     push        0FD7280h
+  007ADB2A: 64 A1 00 00 00 00  mov         eax,dword ptr fs:[00000000h]
+  007ADB30: 50                 push        eax
+  007ADB31: 64 89 25 00 00 00  mov         dword ptr fs:[00000000h],esp
+            00
+  007ADB38: 83 EC 10           sub         esp,10h
+  007ADB3B: 53                 push        ebx
+  007ADB3C: 56                 push        esi
+  007ADB3D: 57                 push        edi
+  007ADB3E: 89 65 F0           mov         dword ptr [ebp-10h],esp
+  007ADB41: 89 4D E8           mov         dword ptr [ebp-18h],ecx
+  007ADB44: 6A 68              push        68h
+  007ADB46: A1 44 1D 06 01     mov         eax,dword ptr ds:[01061D44h]
+  007ADB4B: 8B 08              mov         ecx,dword ptr [eax]
+  007ADB4D: FF D1              call        ecx
+  007ADB4F: 8B F0              mov         esi,eax
+  007ADB51: 89 75 EC           mov         dword ptr [ebp-14h],esi
+  007ADB54: 85 F6              test        esi,esi
+  007ADB56: 75 10              jne         007ADB68
+  007ADB58: A1 80 AD 38 01     mov         eax,dword ptr ds:[0138AD80h]
+  007ADB5D: 85 C0              test        eax,eax
+  007ADB5F: 74 07              je          007ADB68
+  007ADB61: 6A 68              push        68h
+  007ADB63: FF D0              call        eax
+  007ADB65: 83 C4 04           add         esp,4
+  007ADB68: 80 3D A9 E9 48 01  cmp         byte ptr ds:[0148E9A9h],0
+            00
+  007ADB6F: 75 05              jne         007ADB76
+  007ADB71: E8 8A 34 C5 FF     call        00401000
+  007ADB76: C7 45 FC 00 00 00  mov         dword ptr [ebp-4],0
+            00
+  007ADB7D: 85 F6              test        esi,esi
+  007ADB7F: 74 02              je          007ADB83
+  007ADB81: 89 36              mov         dword ptr [esi],esi
+  007ADB83: C7 45 E4 01 00 00  mov         dword ptr [ebp-1Ch],1
+            00
+  007ADB8A: 8D 46 04           lea         eax,[esi+4]
+  007ADB8D: 85 C0              test        eax,eax
+  007ADB8F: 74 02              je          007ADB93
+  007ADB91: 89 30              mov         dword ptr [eax],esi
+  007ADB93: C7 45 FC FF FF FF  mov         dword ptr [ebp-4],0FFFFFFFFh
+            FF
+  007ADB9A: 8B C6              mov         eax,esi
+  007ADB9C: 8B 4D F4           mov         ecx,dword ptr [ebp-0Ch]
+  007ADB9F: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+            00
+  007ADBA6: 5F                 pop         edi
+  007ADBA7: 5E                 pop         esi
+  007ADBA8: 5B                 pop         ebx
+  007ADBA9: 8B E5              mov         esp,ebp
+  007ADBAB: 5D                 pop         ebp
+  007ADBAC: C3                 ret
+  007ADBAD: 6A 01              push        1
+  007ADBAF: 8B 55 EC           mov         edx,dword ptr [ebp-14h]
+  007ADBB2: 52                 push        edx
+  007ADBB3: 8B 4D E8           mov         ecx,dword ptr [ebp-18h]
+  007ADBB6: 83 C1 08           add         ecx,8
+  007ADBB9: E8 22 8A D0 FF     call        004B65E0
+  007ADBBE: 6A 00              push        0
+  007ADBC0: 6A 00              push        0
+  007ADBC2: E8 0B 0C 48 00     call        00C2E7D2
+  007ADBC7: CC                 int         3
+  007ADBC8: CC                 int         3
+  007ADBC9: CC                 int         3
+  007ADBCA: CC                 int         3
+  007ADBCB: CC                 int         3
+  007ADBCC: CC                 int         3
+  007ADBCD: CC                 int         3
+  007ADBCE: CC                 int         3
+  007ADBCF: CC                 int         3
+  007ADBD0: 55                 push        ebp
+  007ADBD1: 8B EC              mov         ebp,esp
+  007ADBD3: 6A FF              push        0FFFFFFFFh
+  007ADBD5: 68 8A FA FD 00     push        0FDFA8Ah
+  007ADBDA: 64 A1 00 00 00 00  mov         eax,dword ptr fs:[00000000h]
+  007ADBE0: 50                 push        eax
+  007ADBE1: 64 89 25 00 00 00  mov         dword ptr fs:[00000000h],esp
+            00
+  007ADBE8: 83 EC 10           sub         esp,10h
+  007ADBEB: 8B 41 14           mov         eax,dword ptr [ecx+14h]
+  007ADBEE: 53                 push        ebx
+  007ADBEF: 8B 18              mov         ebx,dword ptr [eax]
+  007ADBF1: 89 00              mov         dword ptr [eax],eax
+  007ADBF3: 8B 41 14           mov         eax,dword ptr [ecx+14h]
+  007ADBF6: 89 40 04           mov         dword ptr [eax+4],eax
+  007ADBF9: 89 4D E8           mov         dword ptr [ebp-18h],ecx
+  007ADBFC: 89 5D EC           mov         dword ptr [ebp-14h],ebx
+  007ADBFF: C7 41 18 00 00 00  mov         dword ptr [ecx+18h],0
+            00
+  007ADC06: 3B 59 14           cmp         ebx,dword ptr [ecx+14h]
+  007ADC09: 0F 84 B0 00 00 00  je          007ADCBF
+  007ADC0F: 56                 push        esi
+  007ADC10: 57                 push        edi
+  007ADC11: 8B 03              mov         eax,dword ptr [ebx]
+  007ADC13: 89 45 F0           mov         dword ptr [ebp-10h],eax
+  007ADC16: C7 45 FC FF FF FF  mov         dword ptr [ebp-4],0FFFFFFFFh
+            FF
+  007ADC1D: 8D 73 08           lea         esi,[ebx+8]
+  007ADC20: 89 75 EC           mov         dword ptr [ebp-14h],esi
+  007ADC23: C7 45 FC 02 00 00  mov         dword ptr [ebp-4],2
+            00
+  007ADC2A: 8D 4E 44           lea         ecx,[esi+44h]
+  007ADC2D: FF 15 BC 14 06 01  call        dword ptr ds:[010614BCh]
+  007ADC33: C6 45 FC 01        mov         byte ptr [ebp-4],1
+  007ADC37: 8D 7E 20           lea         edi,[esi+20h]
+  007ADC3A: 89 7D E4           mov         dword ptr [ebp-1Ch],edi
+  007ADC3D: C6 45 FC 01        mov         byte ptr [ebp-4],1
+  007ADC41: 8B 07              mov         eax,dword ptr [edi]
+  007ADC43: 85 C0              test        eax,eax
+  007ADC45: 74 1F              je          007ADC66
+  007ADC47: A8 01              test        al,1
+  007ADC49: 75 15              jne         007ADC60
+  007ADC4B: 83 E0 FE           and         eax,0FFFFFFFEh
+  007ADC4E: 8B 00              mov         eax,dword ptr [eax]
+  007ADC50: 8D 4F 08           lea         ecx,[edi+8]
+  007ADC53: 85 C0              test        eax,eax
+  007ADC55: 74 09              je          007ADC60
+  007ADC57: 6A 02              push        2
+  007ADC59: 51                 push        ecx
+  007ADC5A: 51                 push        ecx
+  007ADC5B: FF D0              call        eax
+  007ADC5D: 83 C4 0C           add         esp,0Ch
+  007ADC60: C7 07 00 00 00 00  mov         dword ptr [edi],0
+  007ADC66: C7 45 FC FF FF FF  mov         dword ptr [ebp-4],0FFFFFFFFh
+            FF
+  007ADC6D: 8B 06              mov         eax,dword ptr [esi]
+  007ADC6F: 85 C0              test        eax,eax
+  007ADC71: 74 1F              je          007ADC92
+  007ADC73: A8 01              test        al,1
+  007ADC75: 75 15              jne         007ADC8C
+  007ADC77: 83 E0 FE           and         eax,0FFFFFFFEh
+  007ADC7A: 8B 00              mov         eax,dword ptr [eax]
+  007ADC7C: 8D 4E 08           lea         ecx,[esi+8]
+  007ADC7F: 85 C0              test        eax,eax
+  007ADC81: 74 09              je          007ADC8C
+  007ADC83: 6A 02              push        2
+  007ADC85: 51                 push        ecx
+  007ADC86: 51                 push        ecx
+  007ADC87: FF D0              call        eax
+  007ADC89: 83 C4 0C           add         esp,0Ch
+  007ADC8C: C7 06 00 00 00 00  mov         dword ptr [esi],0
+  007ADC92: 80 3D A9 E9 48 01  cmp         byte ptr ds:[0148E9A9h],0
+            00
+  007ADC99: 75 05              jne         007ADCA0
+  007ADC9B: E8 60 33 C5 FF     call        00401000
+  007ADCA0: 8B 0D 58 1D 06 01  mov         ecx,dword ptr ds:[01061D58h]
+  007ADCA6: 8B 11              mov         edx,dword ptr [ecx]
+  007ADCA8: 53                 push        ebx
+  007ADCA9: FF D2              call        edx
+  007ADCAB: 8B 5D F0           mov         ebx,dword ptr [ebp-10h]
+  007ADCAE: 8B 45 E8           mov         eax,dword ptr [ebp-18h]
+  007ADCB1: 89 5D EC           mov         dword ptr [ebp-14h],ebx
+  007ADCB4: 3B 58 14           cmp         ebx,dword ptr [eax+14h]
+  007ADCB7: 0F 85 54 FF FF FF  jne         007ADC11
+  007ADCBD: 5F                 pop         edi
+  007ADCBE: 5E                 pop         esi
+  007ADCBF: 8B 4D F4           mov         ecx,dword ptr [ebp-0Ch]
+  007ADCC2: 5B                 pop         ebx
+  007ADCC3: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+            00
+  007ADCCA: 8B E5              mov         esp,ebp
+  007ADCCC: 5D                 pop         ebp
+  007ADCCD: C3                 ret
+  007ADCCE: CC                 int         3
+  007ADCCF: CC                 int         3
+  007ADCD0: 55                 push        ebp
+  007ADCD1: 8B EC              mov         ebp,esp
+  007ADCD3: 6A FF              push        0FFFFFFFFh
+  007ADCD5: 68 90 9E FD 00     push        0FD9E90h
+  007ADCDA: 64 A1 00 00 00 00  mov         eax,dword ptr fs:[00000000h]
+  007ADCE0: 50                 push        eax
+  007ADCE1: 64 89 25 00 00 00  mov         dword ptr fs:[00000000h],esp
+            00
+  007ADCE8: 83 EC 10           sub         esp,10h
+  007ADCEB: 53                 push        ebx
+  007ADCEC: 56                 push        esi
+  007ADCED: 57                 push        edi
+  007ADCEE: 89 65 F0           mov         dword ptr [ebp-10h],esp
+  007ADCF1: 8B F9              mov         edi,ecx
+  007ADCF3: 89 7D E4           mov         dword ptr [ebp-1Ch],edi
+  007ADCF6: 6A 68              push        68h
+  007ADCF8: A1 44 1D 06 01     mov         eax,dword ptr ds:[01061D44h]
+  007ADCFD: 8B 08              mov         ecx,dword ptr [eax]
+  007ADCFF: FF D1              call        ecx
+
+  Summary
+
+      C60000 .text

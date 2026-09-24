@@ -1,4 +1,4 @@
-﻿namespace NexusToRServer
+namespace NexusToRServer
 {
     public enum CPacketType : uint
     {
@@ -34,6 +34,14 @@
         CharacterListRequest = 0xFB2047CE,
         CharacterListReply = 0x0EC2A425,
         SetTrackingInfo = 0xD0D38F43,
+        SendScriptError = 0x09AB71E5,
+        WorldByteReport = 0x8EB28DE9,
+        RepositoryDataReceipt = 0xB4BF82C3,
+        RepositoryDataRequest = 0x463B0D17,
+        RepositoryDataNotFound = 0x2F7A6A25,
+        RepositorySyncRequest = 0x45F77B86,
+        RepositorySyncReply = 0x26959B72,
+        RepositoryRevision = 0xA08C1ACF,
         RequestClose = 0x43DB3479,
         WorldNotifyGauntletVersion = 0x25ACBEF4,
         WorldRequestRPC = 0x25E86D5C,
@@ -63,6 +71,33 @@
         HasMail = 0x4AA61E6B,
         AreaAwarenessEntered = 0xA1D9E226,
         SMsg23B61238 = 0x23B61238,
-        SystemRequestRPC = 0x2D0B9303
+        SystemRequestRPC = 0x2D0B9303,
+
+        // Opcodes seen from the client during world entry but never handled.
+        // Naming them gives them a symbolic name in the packet log and gives the
+        // handler an explicit case, so their traffic is decoded rather than
+        // reported as an anonymous 'Unknown Packet'.
+        CMsgC586BD22 = 0xC586BD22,
+        CMsgF96DCDB0 = 0xF96DCDB0,
+        CMsg4A765897 = 0x4A765897,
+        CMsgCCACB51D = 0xCCACB51D,
+        CMsg61116AD5 = 0x61116AD5,
+
+        // Server->client RPC result message. The client's inbound handler
+        // (client RVA 0x25214E -> handler 0x2521A4) reads two strings:
+        //     string1 (0x97D270), string2 (0x97D270), then the end-of-message
+        //     check (0x97D020), and dispatches both to the scripting layer.
+        // Used to answer the client's own CMsgF96DCDB0 / CMsg4A765897 RPC
+        // requests; without a result the client's script layer never completes
+        // and it re-fires the same request forever.
+        SMsgResults = 0xD5280283,
+
+        // Server->client "enter world" signals, handled by the client's message
+        // dispatch (0x2B4792AE at 0x64F4BC, 0xADEAFCA3 at 0x6501DD in the client
+        // disassembly). Body layouts were decoded from those handlers:
+        //   SetRendezvousPoint = (u64, u32, vec3, vec3, u8)
+        //   ChangeState        = (u64, string)
+        CharacterSetRendezvousPoint = 0x2B4792AE,
+        CharacterChangeState = 0xADEAFCA3
     }
 }

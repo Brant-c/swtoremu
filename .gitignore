@@ -26,7 +26,18 @@
 *.a
 *.lib
 
+*.dmp
+*.tor
+
 # Executables
 *.exe
 *.out
 *.app
+/nexusclient/nexusclient/swtor/logs
+/Diagnostics/Captures
+/Diagnostics/GomCompatibility/ResourceCache
+/Diagnostics/GomCompatibility
+/Assets2012April
+/Client/Hook/.vs/SWToR-Hook/FileContentIndex
+Diagnostics/swtor-disasm.txt
+Diagnostics/asset-compression-results.txt

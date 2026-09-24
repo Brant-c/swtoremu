@@ -1,0 +1,2 @@
+D:\SWTORClassic\swtoremu\Tools\tor_tools\TorArchive\obj\Debug\TorLib.csproj.AssemblyReference.cache
+D:\SWTORClassic\swtoremu\Tools\tor_tools\TorArchive\obj\Debug\TorLib.csproj.CoreCompileInputs.cache

@@ -1,0 +1,11 @@
+set shardaddress @${server}:${port}:${instance}
+
+server install HeroEngine
+server start HeroEngine://test1@null::IpcConsole:1 dual=true username=${username} password=${password} shardaddress=${shardaddress} environment=${environment} platform=${platform} lang=${lang} torsets=${torsets}
+
+autotick
+
+server stop HeroEngine://test1@null::IpcConsole:1
+server uninstall HeroEngine
+
+exit

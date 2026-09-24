@@ -1,0 +1,6 @@
+Get-Process: D:\SWTORClassic\swtoremu\Diagnostics\Read-CharacterSpecStates.ps1:10
+Line |
+  10 |  foreach($client in Get-Process swtor-emu) {
+     |                     ~~~~~~~~~~~~~~~~~~~~~
+     | Cannot find a process with the name "swtor-emu". Verify the process name and call the cmdlet again.
+

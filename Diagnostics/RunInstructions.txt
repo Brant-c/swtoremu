@@ -1,0 +1,10 @@
+Trace cmd now exports (and echoes) SWTOR_AREA_ENTER_MODE=both at server start.
+- NexusToRServer.exe built fresh to match the current AreaEnterSignals.cs.
+- To run: fully kill servers FIRST (env is snapshotted at process start):
+    taskkill /im NexusToRServer.exe /f /t
+    taskkill /im ShardListServer.exe /f /t
+    taskkill /im swtor-emu.exe /f /t
+  then launch D:\SWTORClassic\swtoremu\Run-SWTORClassic-Trace-Tython.cmd.
+- Confirm at startup: "[trace] SWTOR_AREA_ENTER_MODE=both" (proves the exe read the env).
+- Then: login in-client -> select the Tython level-1 char -> wait ~30s.
+- Paste me the server log: NexusToR.log (I will grep for AreaEnterSignals and AREA-PAYLOAD lines).

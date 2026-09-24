@@ -1,35 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 using System.IO;
-using System.Linq;
-using System.Text;
+using NexusToRServer.NET;
 using NexusToRServer.NET.Packets.Server;
 
 namespace NexusToRServer.NET.Packets.Client
 {
     class ModulesList : TORGameClientPacket
     {
-        /// <summary>
-        /// Reads and Parses the information stored in the Packet
-        /// </summary>
+        private byte[] _body;
+
         public override void ReadImplementation()
         {
-            ReadUInt32(); // Packet Type
-            ReadUInt32(); // Packet Component
+            ReadUInt32();
+            ReadUInt32();
+            int remaining = (int)(_stream.Length - _stream.Position);
+            _body = remaining > 0 ? ReadBytes(remaining) : new byte[0];
         }
 
-        /// <summary>
-        /// Runs the final Packet Implementation
-        /// </summary>
         public override void RunImplementation()
         {
-
+            TORGameClient client = GetClient();
+            if (client == null) { Log.Write(LogLevel.Warning, "ModulesList: no client."); return; }
+            string hex = _body == null ? "(null)" : BitConverter.ToString(_body);
+            int n = _body == null ? 0 : _body.Length;
+            Log.Write(LogLevel.Client, "ModulesList: len={0} startupSent={1} hex={2}", n, client.StartupPacketsSent, hex);
+            if (client.StartupPacketsSent) return;
+            client.SendPacket(new WorldNotifyGauntletVersion(client.WorldServiceID));
+            client.SendPacket(new WorldShouldSendScriptErrors(true, client.WorldServiceID));
+            client.SendPacket(new TrackingServerInit(client.TrackingServiceID));
+            client.SendPacket(new GameSystemNotifyID(client.GameSystemsServiceID));
+            client.SendPacket(new WorldHackPack(client.WorldServiceID));
+            client.SendPacket(new WorldRequestRPC(client.WorldServiceID));
+            client.StartupPacketsSent = true;
+            Log.Write(LogLevel.Client, "Sent deferred world startup packets after ModulesList readiness.");
         }
 
-        /// <summary>
-        /// Returns the PacketType of the specified Packet
-        /// </summary>
-        /// <returns>PacketType of specified Packet</returns>
         public override PacketType GetType()
         {
             return PacketType.ModulesList;

@@ -38,6 +38,10 @@ namespace NexusToRServer.NET
         private byte[] _salsaIV02;
 
         private DateTime _connectionStartTime;
+        private bool _startupPacketsSent;
+        private bool _areaStartupPacketsSent;
+        private bool _areaEnterSignalsSent;
+        private UInt16 _worldServiceID, _gameSystemsServiceID, _trackingServiceID;
 
         // TODO
         private TOR.Character _activeCharacter;
@@ -51,6 +55,9 @@ namespace NexusToRServer.NET
             _entryPoint = 1; // TODO: Change that?
             _username = "UnkownJedi";
             _trackingInfo = "";
+            _startupPacketsSent = false;
+            _areaStartupPacketsSent = false;
+            _areaEnterSignalsSent = false;
 
             // TODO: Get user connection hash and find ID from DataBase
             _userID = 9001;
@@ -101,6 +108,35 @@ namespace NexusToRServer.NET
                 _trackingInfo = value;
             }
         }
+
+        public bool StartupPacketsSent
+        {
+            get { return _startupPacketsSent; }
+            set { _startupPacketsSent = value; }
+        }
+
+        // World startup is triggered by the first ModulesList poll. The area
+        // startup bundle (character placement, awareness, CRT replication,
+        // effect events and area RPCs) is triggered by the first AreaModulesList
+        // poll, mirroring how the C++ handler waits for ModulesList before it
+        // emits the world packet set. This must only fire once per area attach.
+        public bool AreaStartupPacketsSent
+        {
+            get { return _areaStartupPacketsSent; }
+            set { _areaStartupPacketsSent = value; }
+        }
+
+        public bool AreaEnterSignalsSent
+        {
+            get { return _areaEnterSignalsSent; }
+            set { _areaEnterSignalsSent = value; }
+        }
+
+        public UInt16 WorldServiceID { get { return _worldServiceID; } set { _worldServiceID = value; } }
+        public UInt16 RepositoryServiceID { get; set; }
+        public UInt16 AreaServiceID { get; set; }
+        public UInt16 GameSystemsServiceID { get { return _gameSystemsServiceID; } set { _gameSystemsServiceID = value; } }
+        public UInt16 TrackingServiceID { get { return _trackingServiceID; } set { _trackingServiceID = value; } }
 
         public IPAddress Address
         {
@@ -190,6 +226,20 @@ namespace NexusToRServer.NET
 
         public void SendPacket(TORGameServerPacket outPacket)
         {
+            if (outPacket.SuppressSend)
+            {
+                Log.Write(LogLevel.Warning, "Suppressed Packet [{0}]", outPacket.GetType().ToString());
+                return;
+            }
+
+
+            var areaPacket = outPacket as TORAreaServerPacket;
+            if (areaPacket != null)
+            {
+                if (AreaServiceID == 0)
+                    throw new InvalidOperationException("Cannot send area data before area-service attachment.");
+                areaPacket.ClientAreaServiceID = AreaServiceID;
+            }
             outPacket.InitBuffers();
             outPacket.Write();
 

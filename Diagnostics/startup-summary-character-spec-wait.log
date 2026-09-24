@@ -1,0 +1,9 @@
+[18:32:47] [STARTUP] Concise progress and blockers: Diagnostics\startup-summary.log
+[18:33:57] [READY] Native script definitions registered; beginning game and GUI initialization.
+[18:33:58] [READY] GUI resources: both lists and 52 XML files completed their native callbacks.
+[18:33:59] [WAIT] Character-spec initialization: ready=0/74, waiting=74, failed=0. Pending examples: bmf, wraid, colicoiddroid, chevin, manta.
+[18:33:59] [BLOCKER] The native character-spec loader has not completed. Character selection cannot finish startup; pings only confirm the server connection is alive.
+[18:34:29] [WAIT] Character-spec initialization: ready=0/74, waiting=74, failed=0. Pending examples: bmf, wraid, colicoiddroid, chevin, manta.
+[18:34:29] [BLOCKER] The native character-spec loader has not completed. Character selection cannot finish startup; pings only confirm the server connection is alive.
+[18:34:59] [WAIT] Character-spec initialization: ready=0/74, waiting=74, failed=0. Pending examples: bmf, wraid, colicoiddroid, chevin, manta.
+[18:34:59] [BLOCKER] The native character-spec loader has not completed. Character selection cannot finish startup; pings only confirm the server connection is alive.

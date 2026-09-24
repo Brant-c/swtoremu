@@ -1,0 +1,19 @@
+﻿=== state probe 2026-09-18T02:38:54.5227388+00:00 ===
+
+--- tasklist NexusToRServer ---
+INFO: No tasks are running which match the specified criteria.
+
+--- tasklist ShardListServer ---
+INFO: No tasks are running which match the specified criteria.
+
+--- tasklist TimeServer ---
+INFO: No tasks are running which match the specified criteria.
+
+--- CRT3 dir ---
+[ok] CRT dir exists, items=17
+
+--- exe ---
+EXISTS len=797184 LWT=2026-09-18T02:12:31.1552009Z sha=[hash-failed]
+
+--- log ---
+log len=7732639 LWT=2026-09-18T02:28:46.7724546Z

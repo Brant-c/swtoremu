@@ -1,0 +1,1 @@
+Set-Location -Path 'D:\SWTORClassic\swtoremu'; $proc = Start-Process -FilePath 'Launch-Trace-Tython.cmd' -WorkingDirectory 'D:\SWTORClassic\swtoremu' -PassThru -WindowStyle Normal; Start-Sleep -Seconds 10; if ($proc.HasExited) { Write-Host ('Launcher exited early with code ' + $proc.ExitCode) } else { Write-Host ('Launcher running, PID=' + $proc.Id) }

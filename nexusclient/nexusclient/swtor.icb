@@ -1,0 +1,17 @@
+set shardaddress @${server}:${port}:${instance}
+
+server install RemoteRenderer
+server start RemoteRenderer://test1@shared::IpcConsole:1
+
+server install HeroEngine
+server start HeroEngine://test1@null::IpcConsole:1 username=${username} password=${password} environment=${environment} platform=${platform} shardaddress=${shardaddress} lang=${lang} torsets=${torsets}
+
+autotick
+
+server stop RemoteRenderer://test1@shared::IpcConsole:1
+server uninstall RemoteRenderer
+
+server stop HeroEngine://test1@null::IpcConsole:1
+server uninstall HeroEngine
+
+exit

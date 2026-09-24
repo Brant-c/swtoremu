@@ -1,0 +1,6 @@
+D:\SWTORClassic\swtoremu\Diagnostics\AreaWireBuild\obj\NexusToRServer.csprojResolveAssemblyReference.cache
+D:\SWTORClassic\swtoremu\Diagnostics\AreaWireBuild\NexusToRServer.exe.config
+D:\SWTORClassic\swtoremu\Diagnostics\AreaWireBuild\obj\NexusToRServer.exe
+D:\SWTORClassic\swtoremu\Diagnostics\AreaWireBuild\obj\NexusToRServer.pdb
+D:\SWTORClassic\swtoremu\Diagnostics\AreaWireBuild\NexusToRServer.exe
+D:\SWTORClassic\swtoremu\Diagnostics\AreaWireBuild\NexusToRServer.pdb

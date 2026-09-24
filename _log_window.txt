@@ -1,0 +1,124 @@
+﻿=== log window: last 120 lines + CMsgC586BD22 first-occurrence context ===
+[begin] 2026-09-18T03:09:52.8906640+00:00
+log LWT=2026-09-18T03:09:51.9816432Z
+total lines=71905
+
+L71816: [2026-09-17 23:09:17] TORGamePacketHandler: Received a packet [3433870621]
+L71817: [2026-09-17 23:09:17] TORGamePacketHandler: Received Unknown Packet [CCACB51D] name=3433870621 on State 'AUTHED'
+L71818:    1D B5 AC CC 08 00 B3 65 30 00 00 00 F0 DE 49 6F BA DC | .......e0.....Io..
+L71819:    94 F5 20 D6 BE B7 F6 A8 C8 88 FB DD C4 1E AB 90 14 EA | .. ...............
+L71820:    76 EC 25 F1 D9 A8 0A B0 AB 05 3E 1C 9D B6 04 00 CC 2B | v.%.......>......+
+L71821:    45 93 31 F8 32 14                                     | E.1.2.
+L71822: 
+L71823:   decode: bytes=60 type=0xCCACB51D routing=0x65B30008 source=0x65B3 destination=0x0008 sourceIsAreaServer=yes declaredLength=48 bodyBytes=48 delta=0 body(48)=f0 de 49 6f ba dc 94 f5 20 d6 be b7 f6 a8 c8 88 fb dd c4 1e ab 90 14 ea 76 ec 25 f1 d9 a8 0a b0 ab 05 3e 1c 9d b6 04 00 cc 2b 45 93 31 f8 32 14
+L71824: [2026-09-17 23:09:17] TORGamePacketHandler: Received a packet [CMsgF96DCDB0]
+L71825: [2026-09-17 23:09:17] CMsgF96DCDB0: CMsgF96DCDB0: replying to area-entry request (body 13 bytes)
+L71826: [2026-09-17 23:09:17] TORGameServerPacket: Constructing Packet [AreaRequestRPC]
+L71827: [2026-09-17 23:09:17] TORGameServerPacket: AREA-PAYLOAD type=AreaRequestRPC bytes=25 prefixBytes=25 hex=BF-F9-DF-0A-B3-65-08-00-0D-00-00-00-09-00-00-00-C7-71-C3-79-12-F2-40-F5-F5
+L71828: [2026-09-17 23:09:17] TORGamePacketHandler: Received a packet [SendScriptError]
+L71829: [2026-09-17 23:09:17] SendScriptError: Client script error: RPC error: Request with invalid script ID: 0From Script SID: 0
+L71830: RPC error: Request with invalid script ID: 0From Script SID: 0
+L71831: 09/17/2026 23:09:17
+L71832: Call trace:
+L71833: starting method/function 
+L71834: starting me[id=0, invalid]
+L71835: Character=4611687178631283612 Area=4611686019869492753
+L71836: [2026-09-17 23:09:18] TORGamePacketHandler: Received a packet [CMsgC26464A9]
+L71837: [2026-09-17 23:09:19] TORGamePacketHandler: Received a packet [CMsg7CB9A193]
+L71838: [2026-09-17 23:09:21] TORGamePacketHandler: Received a packet [Pong]
+L71839: [2026-09-17 23:09:21] TORGameServerPacket: Constructing Packet [Pong]
+L71840: [2026-09-17 23:09:21] TORGamePacketHandler: Received a packet [AreaModulesList]
+L71841: [2026-09-17 23:09:25] TORGamePacketHandler: Received a packet [HackNotifyData]
+L71842: [2026-09-17 23:09:25] TORGamePacketHandler: Received a packet [WorldByteReport]
+L71843: [2026-09-17 23:09:25] WorldByteReport: World report 8EB28DE9: 48 bytes received; no reply defined by the existing C++ handler.
+L71844: [2026-09-17 23:09:26] TORGamePacketHandler: Received a packet [ModulesList]
+L71845: [2026-09-17 23:09:26] TORGamePacketHandler: Received a packet [Pong]
+L71846: [2026-09-17 23:09:26] TORGameServerPacket: Constructing Packet [Pong]
+L71847: [2026-09-17 23:09:27] TORGamePacketHandler: Received a packet [3433870621]
+L71848: [2026-09-17 23:09:27] TORGamePacketHandler: Received Unknown Packet [CCACB51D] name=3433870621 on State 'AUTHED'
+L71849:    1D B5 AC CC 08 00 B3 65 30 00 00 00 67 2F C1 C9 25 85 | .......e0...g/..%.
+L71850:    D3 80 CE 48 85 28 35 5B 22 1A FB DD C4 1E AB 90 14 EA | ...H.(5[".........
+L71851:    76 EC 25 F1 D9 A8 0A B0 AB 05 3E 1C 9D B6 04 00 CC 2B | v.%.......>......+
+L71852:    45 93 31 F8 32 14                                     | E.1.2.
+L71853: 
+L71854:   decode: bytes=60 type=0xCCACB51D routing=0x65B30008 source=0x65B3 destination=0x0008 sourceIsAreaServer=yes declaredLength=48 bodyBytes=48 delta=0 body(48)=67 2f c1 c9 25 85 d3 80 ce 48 85 28 35 5b 22 1a fb dd c4 1e ab 90 14 ea 76 ec 25 f1 d9 a8 0a b0 ab 05 3e 1c 9d b6 04 00 cc 2b 45 93 31 f8 32 14
+L71855: [2026-09-17 23:09:31] TORGamePacketHandler: Received a packet [CMsgC26464A9]
+L71856: [2026-09-17 23:09:31] TORGamePacketHandler: Received a packet [Pong]
+L71857: [2026-09-17 23:09:31] TORGameServerPacket: Constructing Packet [Pong]
+L71858: [2026-09-17 23:09:35] TORGamePacketHandler: Received a packet [HackNotifyData]
+L71859: [2026-09-17 23:09:35] TORGamePacketHandler: Received a packet [WorldByteReport]
+L71860: [2026-09-17 23:09:35] WorldByteReport: World report 8EB28DE9: 48 bytes received; no reply defined by the existing C++ handler.
+L71861: [2026-09-17 23:09:36] TORGamePacketHandler: Received a packet [Pong]
+L71862: [2026-09-17 23:09:36] TORGameServerPacket: Constructing Packet [Pong]
+L71863: [2026-09-17 23:09:36] TORGamePacketHandler: Received a packet [AreaModulesList]
+L71864: [2026-09-17 23:09:37] TORGamePacketHandler: Received a packet [CMsg7CB9A193]
+L71865: [2026-09-17 23:09:37] TORGamePacketHandler: Received a packet [3433870621]
+L71866: [2026-09-17 23:09:37] TORGamePacketHandler: Received Unknown Packet [CCACB51D] name=3433870621 on State 'AUTHED'
+L71867:    1D B5 AC CC 08 00 B3 65 30 00 00 00 44 88 7C EF FA 5F | .......e0...D.|.._
+L71868:    1C 49 51 9A 9A FF A5 30 DD DD FB DD C4 1E AB 90 14 EA | .IQ....0..........
+L71869:    76 EC 25 F1 D9 A8 0A B0 AB 05 3E 1C 9D B6 04 00 CC 2B | v.%.......>......+
+L71870:    45 93 31 F8 32 14                                     | E.1.2.
+L71871: 
+L71872:   decode: bytes=60 type=0xCCACB51D routing=0x65B30008 source=0x65B3 destination=0x0008 sourceIsAreaServer=yes declaredLength=48 bodyBytes=48 delta=0 body(48)=44 88 7c ef fa 5f 1c 49 51 9a 9a ff a5 30 dd dd fb dd c4 1e ab 90 14 ea 76 ec 25 f1 d9 a8 0a b0 ab 05 3e 1c 9d b6 04 00 cc 2b 45 93 31 f8 32 14
+L71873: [2026-09-17 23:09:38] TORGamePacketHandler: Received a packet [ModulesList]
+L71874: [2026-09-17 23:09:41] TORGamePacketHandler: Received a packet [Pong]
+L71875: [2026-09-17 23:09:41] TORGameServerPacket: Constructing Packet [Pong]
+L71876: [2026-09-17 23:09:44] TORGamePacketHandler: Received a packet [CMsgC26464A9]
+L71877: [2026-09-17 23:09:45] TORGamePacketHandler: Received a packet [HackNotifyData]
+L71878: [2026-09-17 23:09:45] TORGamePacketHandler: Received a packet [WorldByteReport]
+L71879: [2026-09-17 23:09:45] WorldByteReport: World report 8EB28DE9: 48 bytes received; no reply defined by the existing C++ handler.
+L71880: [2026-09-17 23:09:46] TORGamePacketHandler: Received a packet [Pong]
+L71881: [2026-09-17 23:09:46] TORGameServerPacket: Constructing Packet [Pong]
+L71882: [2026-09-17 23:09:47] TORGamePacketHandler: Received a packet [3433870621]
+L71883: [2026-09-17 23:09:47] TORGamePacketHandler: Received Unknown Packet [CCACB51D] name=3433870621 on State 'AUTHED'
+L71884:    1D B5 AC CC 08 00 B3 65 30 00 00 00 D5 DC 7F 3E FA DC | .......e0......>..
+L71885:    3C 79 D4 8A 1D F6 9E 23 0F C5 FB DD C4 1E AB 90 14 EA | <y.....#..........
+L71886:    76 EC 25 F1 D9 A8 0A B0 AB 05 3E 1C 9D B6 04 00 CC 2B | v.%.......>......+
+L71887:    45 93 31 F8 32 14                                     | E.1.2.
+L71888: 
+L71889:   decode: bytes=60 type=0xCCACB51D routing=0x65B30008 source=0x65B3 destination=0x0008 sourceIsAreaServer=yes declaredLength=48 bodyBytes=48 delta=0 body(48)=d5 dc 7f 3e fa dc 3c 79 d4 8a 1d f6 9e 23 0f c5 fb dd c4 1e ab 90 14 ea 76 ec 25 f1 d9 a8 0a b0 ab 05 3e 1c 9d b6 04 00 cc 2b 45 93 31 f8 32 14
+L71890: [2026-09-17 23:09:47] TORGamePacketHandler: Received a packet [CMsgF96DCDB0]
+L71891: [2026-09-17 23:09:47] CMsgF96DCDB0: CMsgF96DCDB0: replying to area-entry request (body 13 bytes)
+L71892: [2026-09-17 23:09:47] TORGameServerPacket: Constructing Packet [AreaRequestRPC]
+L71893: [2026-09-17 23:09:47] TORGameServerPacket: AREA-PAYLOAD type=AreaRequestRPC bytes=25 prefixBytes=25 hex=BF-F9-DF-0A-B3-65-08-00-0D-00-00-00-09-00-00-00-C7-71-C3-79-12-F2-40-F5-F5
+L71894: [2026-09-17 23:09:47] TORGamePacketHandler: Received a packet [SendScriptError]
+L71895: [2026-09-17 23:09:48] SendScriptError: Client script error: RPC error: Request with invalid script ID: 0From Script SID: 0
+L71896: RPC error: Request with invalid script ID: 0From Script SID: 0
+L71897: 09/17/2026 23:09:47
+L71898: Call trace:
+L71899: starting method/function 
+L71900: starting me[id=0, invalid]
+L71901: Character=4611687178631283612 Area=4611686019869492753
+L71902: [2026-09-17 23:09:50] TORGamePacketHandler: Received a packet [ModulesList]
+L71903: [2026-09-17 23:09:51] TORGamePacketHandler: Received a packet [Pong]
+L71904: [2026-09-17 23:09:51] TORGameServerPacket: Constructing Packet [Pong]
+L71905: [2026-09-17 23:09:51] TORGamePacketHandler: Received a packet [AreaModulesList]
+
+=== first occurrences of the three opcodes in the log ===
+
+--- first CMsgC586BD22 at L59454 ---
+L59452: 
+L59453:   decode: bytes=60 type=0xCCACB51D routing=0x65B30008 source=0x65B3 destination=0x0008 sourceIsAreaServer=yes declaredLength=48 bodyBytes=48 delta=0 body(48)=a6 3b 92 81 05 63 eb 5c 6b 31 52 48 9a 54 15 4a fb dd c4 1e ab 90 14 ea 76 ec 25 f1 d9 a8 0a b0 ab 05 3e 1c 9d b6 04 00 cc 2b 45 93 31 f8 32 14
+L59454: [2026-09-17 18:14:37] TORGamePacketHandler: Received a packet [CMsgC586BD22]
+L59455: [2026-09-17 18:14:37] TORGamePacketHandler: Received AreaEntry Opcode [C586BD22] name=CMsgC586BD22 on State 'AUTHED'
+L59456:    22 BD 86 C5 08 00 B3 65 01 00 00 00                   | "......e....
+L59457: 
+L59458:   decode: bytes=12 type=0xC586BD22 routing=0x65B30008 source=0x65B3 destination=0x0008 sourceIsAreaServer=yes declaredLength=1 bodyBytes=0 delta=-1
+
+--- first CMsgF96DCDB0 at L59459 ---
+L59457: 
+L59458:   decode: bytes=12 type=0xC586BD22 routing=0x65B30008 source=0x65B3 destination=0x0008 sourceIsAreaServer=yes declaredLength=1 bodyBytes=0 delta=-1
+L59459: [2026-09-17 18:14:37] TORGamePacketHandler: Received a packet [CMsgF96DCDB0]
+L59460: [2026-09-17 18:14:37] TORGamePacketHandler: Received AreaEntry Opcode [F96DCDB0] name=CMsgF96DCDB0 on State 'AUTHED'
+L59461:    B0 CD 6D F9 08 00 B3 65 09 00 00 00 C7 71 C3 79 12 2C | ..m....e.....q.y.,
+L59462:    EF 39 EF                                              | .9.
+L59463: 
+
+--- first CMsg4A765897 at L59465 ---
+L59463: 
+L59464:   decode: bytes=21 type=0xF96DCDB0 routing=0x65B30008 source=0x65B3 destination=0x0008 sourceIsAreaServer=yes declaredLength=9 bodyBytes=9 delta=0 body(9)=c7 71 c3 79 12 2c ef 39 ef
+L59465: [2026-09-17 18:14:37] TORGamePacketHandler: Received a packet [CMsg4A765897]
+L59466: [2026-09-17 18:14:37] TORGamePacketHandler: Received AreaEntry Opcode [4A765897] name=CMsg4A765897 on State 'AUTHED'
+L59467:    97 58 76 4A 09 00 AC 65 09 00 00 00 CF 6F 6F 2E 93 B7 | .XvJ...e.....oo...
+L59468:    43 63 6C                                              | Ccl
+L59469: 

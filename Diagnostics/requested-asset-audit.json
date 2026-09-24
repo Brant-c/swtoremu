@@ -1,0 +1,85 @@
+{
+  "/anim/pet/am_pet.xml": [
+    {
+      "archive": "swtor_main_anim_misc_1.tor",
+      "path": "/resources/anim/pet/am_pet.xml",
+      "size": 9771
+    }
+  ],
+  "/art/defaultassets/white.tex": [
+    {
+      "archive": "swtor_main_art_fx_1.tor",
+      "path": "/resources/art/defaultassets/white.tex",
+      "size": 515
+    }
+  ],
+  "/art/dynamic/spec/petmouse.dat": [
+    {
+      "archive": "swtor_main_anim_misc_1.tor",
+      "path": "/resources/art/dynamic/spec/petmouse.dat",
+      "size": 726
+    }
+  ],
+  "/art/dynamic/spec/petmouse.dyc": [
+    {
+      "archive": "swtor_main_anim_misc_1.tor",
+      "path": "/resources/art/dynamic/spec/petmouse.dyc",
+      "size": 105
+    }
+  ],
+  "/engine/white.tex": [],
+  "/guixml/_aidebugger.xml.": [],
+  "/guixml/_aidebugpropertyeditor.xml.": [],
+  "/guixml/_cleanenginealert.xml.": [],
+  "/guixml/_cleanenginebaseborders.xml.": [],
+  "/guixml/_cleanenginebasebutton.xml.": [],
+  "/guixml/_cleanenginebasegroupbox.xml.": [],
+  "/guixml/_cleanenginebasegui.xml.": [],
+  "/guixml/_cleanenginebasemenus.xml.": [],
+  "/guixml/_cleanenginebasescrollbar.xml.": [],
+  "/guixml/_cleanenginebasesliders.xml.": [],
+  "/guixml/_cleanenginebasetabs.xml.": [],
+  "/guixml/_cleanenginebasewindow.xml.": [],
+  "/guixml/_cleanenginecharacterselectiongui.xml.": [],
+  "/guixml/_cleanenginecmgr.xml.": [],
+  "/guixml/_cleanenginedropdownbox.xml.": [],
+  "/guixml/_cleanengineiconmaker.xml.": [],
+  "/guixml/_cleanengineloadingicon.xml.": [],
+  "/guixml/_cleanengineminimap.xml.": [],
+  "/guixml/_cleanengineselectbox.xml.": [],
+  "/guixml/_cleanenginesortablecollection.xml.": [],
+  "/guixml/_cleanenginetextureviewer.xml.": [],
+  "/guixml/_colorviewer.xml.": [],
+  "/guixml/_confirmdialog.xml.": [],
+  "/guixml/_cursors.xml.": [],
+  "/guixml/_heguixml.lst.": [],
+  "/guixml/_hotspot.xml.": [],
+  "/guixml/_nodepropertyeditormarshaltimer.xml.": [],
+  "/guixml/_territorygui.xml.": [],
+  "/guixml/_tooltip.xml.": [],
+  "/guixml/collapsablecategory.xml.": [],
+  "/guixml/defaults.xml.": [],
+  "/guixml/guieditor.xml.": [],
+  "/guixml/guixml.lst.": [],
+  "/guixml/he_areaeditlockinggui.xml.": [],
+  "/guixml/he_charcreationpanel.xml.": [],
+  "/guixml/he_confirmdialog.xml.": [],
+  "/guixml/he_controlpanelclassaddremovepanel.xml.": [],
+  "/guixml/he_controlpanelglommedclass.xml.": [],
+  "/guixml/he_controlpanelmainwindow.xml.": [],
+  "/guixml/he_whogui.xml.": [],
+  "/guixml/modelfaderpropertypanel_v2.xml.": [],
+  "/guixml/nodepropertyeditor.xml.": [],
+  "/guixml/nodepropertyeditorboolean.xml.": [],
+  "/guixml/nodepropertyeditorbuttons.xml.": [],
+  "/guixml/smartnamevaluepairinput.xml.": [],
+  "/guixml/smarttextinputbox.xml.": [],
+  "/guixml/specoracleaddspec.xml.": [],
+  "/guixml/specoraclechooser.xml.": [],
+  "/guixml/specoracleglomclassesdialog.xml.": [],
+  "/guixml/specoraclepropertyeditor.xml.": [],
+  "/guixml/specoraclespecselector.xml.": [],
+  "/guixml/stylesetgui.xml.": [],
+  "/guixml/transform3dpropertypanel_v2.xml.": [],
+  "/guixml/unsavedchangesdialog.xml.": []
+}

@@ -1,0 +1,435 @@
+﻿=== locate IPacket / SPacket / TORGameClientPacket ===
+[begin] 2026-09-18T02:59:11.0697337+00:00
+
+--- D:\SWTORClassic\swtoremu\SharpServer\NET\IPacket.cs ---
+  MISSING
+
+--- D:\SWTORClassic\swtoremu\SharpServer\NET\Packet.cs ---
+  MISSING
+
+--- D:\SWTORClassic\swtoremu\SharpServer\NET\Packet\IPacket.cs ---
+  EXISTS len=2715 LWT=2026-09-10T19:57:50.9667994Z
+  CONTENT:
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.IO;
+    using MiscUtil.Conversion;
+    using System.Security.Cryptography;
+    
+    namespace NexusToRServer.NET
+    {
+        public abstract class IPacket
+        {
+            public byte[] _buffer;
+            public MemoryStream _stream;
+            private TORGameClient _client;
+    
+            public void SetClient(TORGameClient inClient)
+            {
+                _client = inClient;
+            }
+    
+            public TORGameClient GetClient()
+            {
+                return _client;
+            }
+    
+            public byte GenerateChecksum(byte[] inBuffer)
+            {
+                return (byte)(inBuffer[0] ^ inBuffer[1] ^ inBuffer[2] ^ inBuffer[3] ^ inBuffer[4]);
+            }
+    
+            #region Packet Reader
+    
+            private EndianBinaryReader _reader;
+    
+            public abstract Boolean Read();
+            public abstract void Run();
+    
+            protected Int16 ReadInt16()
+            {
+                return _reader.ReadInt16();
+            }
+    
+            protected Int32 ReadInt32()
+            {
+                return _reader.ReadInt32();
+            }
+    
+            protected Int64 ReadInt64()
+            {
+                return _reader.ReadInt64();
+            }
+    
+            protected UInt16 ReadUInt16()
+            {
+                return _reader.ReadUInt16();
+            }
+    
+            protected UInt32 ReadUInt32()
+            {
+                return _reader.ReadUInt32();
+            }
+    
+            protected UInt64 ReadUInt64()
+            {
+                return _reader.ReadUInt64();
+            }
+    
+            protected byte ReadByte()
+            {
+                return _reader.ReadByte();
+            }
+    
+            protected Boolean ReadBoolean()
+            {
+                return _reader.ReadBoolean();
+            }
+    
+            protected String ReadString()
+            {
+                UInt32 pLength = _reader.ReadUInt32();
+                byte[] sData = _reader.ReadBytes((int)pLength);
+                
+                if (sData[sData.Length - 1] == 0x00)
+                    pLength--;
+    
+                return _reader.Encoding.GetString(sData, 0, (int)pLength);
+            }
+    
+            protected byte[] ReadBytes(int count)
+            {
+                return _reader.ReadBytes(count);
+            }
+    
+            protected float ReadFloat()
+            {
+                return _reader.ReadSingle();
+            }
+    
+            public void SetBuffers(byte[] inBuffer)
+            {
+                _buffer = inBuffer;
+                _stream = new MemoryStream(_buffer);
+                _reader = new EndianBinaryReader(EndianBitConverter.Little, _stream);
+            }
+    
+            public void Dispose()
+            {
+                _buffer = null;
+                _stream.Dispose();
+                _reader.Dispose();
+            }
+    
+            #endregion
+        }
+    }
+    
+
+--- D:\SWTORClassic\swtoremu\SharpServer\NET\Packet\Packet.cs ---
+  EXISTS len=3257 LWT=2026-09-10T19:57:50.9667994Z
+  CONTENT:
+    using System;
+    using System.IO;
+    using System.Security.Cryptography;
+    using ComponentAce.Compression.Libs.zlib;
+    
+    namespace NexusToRServer
+    {
+        class Packet
+        {
+            public byte[] RSAData;
+            public MemoryStream Stream;
+            public EndianBinaryReader Reader;
+            public EndianBinaryWriter Writer;
+            public CPacketType PacketID;
+            public byte Module;
+            public UInt32 Unk01;
+    
+            public byte[] Data;
+            public bool IsValid;
+    
+            public Packet()
+            {
+            }
+    
+            public Packet(CPacketType inType, UInt32 Component, byte Module)
+            {
+                this.Module = Module;
+                this.Stream = new MemoryStream();
+                this.Writer = new EndianBinaryWriter(MiscUtil.Conversion.EndianBitConverter.Little, this.Stream);
+    
+                this.PacketID = inType;
+    
+                this.Writer.Write((UInt32)inType);
+                this.Writer.Write(Component); // TODO
+            }
+    
+            public void Construct(ZStream dStream)
+            {
+                Log.Write(LogLevel.Client, "Constructing Packet [{0}]", this.PacketID.ToString());
+                
+                // Compress buffer
+                byte[] cData = this.Stream.ToArray();
+    
+                MemoryStream lStream = new MemoryStream();
+    
+                dStream.avail_in = cData.Length;
+                dStream.next_in = cData;
+                dStream.next_in_index = 0;
+    
+                byte[] dData = new byte[cData.Length * 2];
+    
+                dStream.avail_out = cData.Length * 2;
+                dStream.next_out = dData;
+                dStream.next_out_index = 0;
+    
+                dStream.deflate(2);
+    
+                lStream.Write(dData, 0, (cData.Length * 2) - dStream.avail_out);
+                cData = lStream.ToArray();
+                lStream.Dispose();
+    
+                //Log.Write(LogLevel.Error, "SHIEEEEEEEEEE\n{0}", cData.ToHEX(cData.Length));
+                
+    
+                MemoryStream oStream = new MemoryStream();
+                EndianBinaryWriter oWriter = new EndianBinaryWriter(MiscUtil.Conversion.EndianBitConverter.Little, oStream);
+    
+                oWriter.Write((byte)this.Module);
+                oWriter.Write((UInt32)cData.Length + 2);
+                oWriter.Write((byte)GenerateChecksum(oStream.ToArray()));
+                oWriter.Write(cData, 0, cData.Length - 4);
+    
+                this.Data = oStream.ToArray();
+            }
+    
+            public byte[] Finalize()
+            {
+                return Data;
+            }
+    
+            public byte[] Finalize(IStreamCipher pEncryptor)
+            {
+                //Log.Write(LogLevel.Warning, "\n{0}", this.Data.ToHEX(this.Data.Length));
+                byte[] oData = new byte[Data.Length];
+                pEncryptor.ProcessBytes(Data, 0, Data.Length, oData, 0);
+                return oData;
+            }
+            
+            private byte GenerateChecksum(byte[] inBuffer)
+            {
+                return (byte)(inBuffer[0] ^ inBuffer[1] ^ inBuffer[2] ^ inBuffer[3] ^ inBuffer[4]);
+            }
+    
+            public bool VerifyChecksum(byte[] pBuffer, int pChecksum, int index = 0)
+            {
+                if ((byte)pChecksum == (pBuffer[index + 0] ^ pBuffer[index + 1] ^ pBuffer[index + 2] ^ pBuffer[index + 3] ^ pBuffer[index + 4]))
+                    return true;
+                return false;
+            }
+        }
+    }
+    
+
+--- D:\SWTORClassic\swtoremu\SharpServer\NET\TorGameClientPacket.cs ---
+  EXISTS len=1414 LWT=2026-09-10T19:57:50.9719486Z
+  CONTENT:
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    
+    namespace NexusToRServer.NET
+    {
+        public abstract class TORGameClientPacket : IPacket
+        {
+    
+            public abstract void RunImplementation();
+            public abstract void ReadImplementation();
+            public abstract PacketType GetType();
+    
+            private UInt32 _component;
+    
+            public UInt32 Component
+            {
+                get { return _component; }
+                set { _component = value; }
+            }
+    
+            public override bool Read()
+            {
+                try
+                {
+                    ReadImplementation();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    Log.Write(LogLevel.Error, "Failed reading '{0}':\n{1}", GetType().ToString(), ex.ToString());
+                }
+                return false;
+            }
+    
+            public override void Run()
+            {
+                try
+                {
+                    RunImplementation();
+    
+                    // TODO: Possibly spawn protection
+                }
+                catch(Exception e)
+                {
+                    Log.Write(LogLevel.Error, "Failed running '{0}'\n{1}", GetType().ToString(), e);
+    
+                    // TODO: Check if the error occured when the player was entering the world
+                    // If so, kick him out of the game
+                }
+            }
+        }
+    }
+    
+
+--- D:\SWTORClassic\swtoremu\SharpServer\NET\TORGameClientPacket.cs ---
+  EXISTS len=1414 LWT=2026-09-10T19:57:50.9719486Z
+  CONTENT:
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    
+    namespace NexusToRServer.NET
+    {
+        public abstract class TORGameClientPacket : IPacket
+        {
+    
+            public abstract void RunImplementation();
+            public abstract void ReadImplementation();
+            public abstract PacketType GetType();
+    
+            private UInt32 _component;
+    
+            public UInt32 Component
+            {
+                get { return _component; }
+                set { _component = value; }
+            }
+    
+            public override bool Read()
+            {
+                try
+                {
+                    ReadImplementation();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    Log.Write(LogLevel.Error, "Failed reading '{0}':\n{1}", GetType().ToString(), ex.ToString());
+                }
+                return false;
+            }
+    
+            public override void Run()
+            {
+                try
+                {
+                    RunImplementation();
+    
+                    // TODO: Possibly spawn protection
+                }
+                catch(Exception e)
+                {
+                    Log.Write(LogLevel.Error, "Failed running '{0}'\n{1}", GetType().ToString(), e);
+    
+                    // TODO: Check if the error occured when the player was entering the world
+                    // If so, kick him out of the game
+                }
+            }
+        }
+    }
+    
+
+=== grep Data / SetBuffers / GetClient in SharpServer ===
+[hits count=79]
+  D:\SWTORClassic\swtoremu\SharpServer\AreaServer\CRT.cs  [byte\[\] Data]
+  D:\SWTORClassic\swtoremu\SharpServer\Base\Crypto\BerDecodeError.cs  [public.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\Base\Crypto\BigInteger.cs  [private.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\Base\MiscUtil\EndianBinaryReader.cs  [byte\[\] Data]
+  D:\SWTORClassic\swtoremu\SharpServer\Base\MiscUtil\EndianBinaryWriter.cs  [byte\[\] Data]
+  D:\SWTORClassic\swtoremu\SharpServer\Base\Zlib\Deflate.cs  [readonly.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\Base\Zlib\InfBlocks.cs  [private.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\Base\Zlib\InfCodes.cs  [private.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\Base\Zlib\Inflate.cs  [private.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\Base\Zlib\InfTree.cs  [private.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\Base\Zlib\Zlib.cs  [public.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\Base\Zlib\ZStream.cs  [private.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\Base\Database.cs  [public.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\Base\TorArchive.cs  [byte\[\] Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\IO\BsonBinaryReader.cs  [public.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\IO\BsonBinaryWriter.cs  [public.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\IO\BsonBuffer.cs  [private.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\IO\BsonDocumentReader.cs  [public.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\IO\BsonDocumentWriter.cs  [public.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\IO\BsonReader.cs  [public.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\IO\BsonWriter.cs  [public.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\IO\JsonReader.cs  [private.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\IO\JsonWriter.cs  [public.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\ObjectModel\BsonBinaryData.cs  [public.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\ObjectModel\BsonValue.cs  [public.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\Serialization\IdGenerators\IdGenerators.cs  [private.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\Serialization\Serializers\BsonValueSerializers.cs  [private.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Builders\MapReduceOptionsBuilder.cs  [string Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Core\CommandResults\CollectionStatsResult.cs  [public.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Core\CommandResults\DatabaseStatsResult.cs  [public.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Core\CommandResults\MapReduceResult.cs  [string Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Core\CommandResults\ValidateCollectionResult.cs  [public.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Core\MongoCollection.cs  [private.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Core\MongoCollectionSettings.cs  [public.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Core\MongoConnectionStringBuilder.cs  [string Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Core\MongoCredentialsStore.cs  [string Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Core\MongoCursor.cs  [private.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Core\MongoDatabase.cs  [string Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Core\MongoDatabaseSettings.cs  [string Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Core\MongoDBRef.cs  [string Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Core\MongoServer.cs  [string Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Core\MongoServerSettings.cs  [string Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Core\MongoUrl.cs  [string Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Core\MongoUrlBuilder.cs  [string Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\GridFS\MongoGridFS.cs  [byte\[\] Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\GridFS\MongoGridFSCreateOptions.cs  [private.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\GridFS\MongoGridFSFileInfo.cs  [private.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\GridFS\MongoGridFSSettings.cs  [public.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\GridFS\MongoGridFSStream.cs  [private.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Internal\IndexCache.cs  [string Data]
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Internal\MongoConnection.cs  [string Data]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packet\IPacket.cs  [SetBuffers]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packet\Packet.cs  [byte\[\] Data]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packet\PacketStream.cs  [byte\[\] Data]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packet\SPacket.cs  [GetClient\(\)]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\CharacterListRequest.cs  [GetClient\(\)]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\CMsg4A765897.cs  [GetClient\(\)]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\CMsgC586BD22.cs  [GetClient\(\)]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\CMsgF96DCDB0.cs  [GetClient\(\)]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\ConnectionHandshake.cs  [byte\[\] Data]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\CreateCharacterRequest.cs  [GetClient\(\)]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\ModulesList.cs  [GetClient\(\)]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\ObjectReply.cs  [GetClient\(\)]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\Ping.cs  [GetClient\(\)]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\RepositoryDataReceipt.cs  [public.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\RepositoryDataRequest.cs  [byte\[\] Data]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\RepositorySyncRequest.cs  [GetClient\(\)]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\SelectCharacterRequest.cs  [GetClient\(\)]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\ServiceRequest.cs  [GetClient\(\)]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\SetTrackingInfo.cs  [GetClient\(\)]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\TimeRequesterRequest.cs  [GetClient\(\)]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Server\AreaHackPack.cs  [private.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Server\AreaTalk.cs  [private.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Server\ClientReplicationTransaction.cs  [byte\[\] Data]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Server\RepositoryDataNotFound.cs  [public.*Data]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Server\RepositoryDataReply.cs  [byte\[\] Data]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\TORGamePacketHandler.cs  [byte\[\] Data]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\UnknownPacketTrace.cs  [byte\[\] Data]
+  D:\SWTORClassic\swtoremu\SharpServer\ShardListServer\Program.cs  [public.*Data]

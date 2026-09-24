@@ -1,0 +1,14 @@
+PROCESS 34532
+EXCEPTION pid=34532 code=0xE06D7363 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+CPP TYPE: .?AV?$clone_impl@Ubad_alloc_@exception_detail@boost@@@exception_detail@boost@@
+EXCEPTION pid=34532 code=0xE06D7363 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+CPP TYPE: 
+EXCEPTION pid=34532 code=0xC0000005 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+ACCESS operation=0 address=0x00000000
+EXCEPTION pid=34532 code=0xC0000005 firstChance=0 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+ACCESS operation=0 address=0x00000000
+EXIT pid=34532 code=0xC0000005

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,6 +38,17 @@ namespace NexusToRServer.NET
             set { _def = value; }
         }
 
+        /// <summary>
+        /// True when this packet must not be transmitted at all. Used by the area
+        /// replication packet so that 'send no packet' can be distinguished from
+        /// 'send an empty packet' while diagnosing world entry, because a
+        /// zero-length replication transaction is itself malformed.
+        /// </summary>
+        public virtual Boolean SuppressSend
+        {
+            get { return false; }
+        }
+
         public override void Write()
         {
             try
@@ -56,7 +67,24 @@ namespace NexusToRServer.NET
 
             byte[] cData = _stream.ToArray();
 
-            //Log.Write(LogLevel.Error, "{0}", cData.ToHEX());
+            // Opt-in diagnostics at the plaintext serialization boundary.
+            // Do not include login/repository traffic or unbounded payloads.
+            if (this is TORAreaServerPacket &&
+                Environment.GetEnvironmentVariable("SWTOR_TRACE_AREA_PAYLOADS") == "1")
+            {
+                int prefixLength = Math.Min(cData.Length, 256);
+                Log.Write(LogLevel.Client,
+                    "AREA-PAYLOAD type={0} bytes={1} prefixBytes={2} hex={3}",
+                    GetType().ToString(), cData.Length, prefixLength,
+                    BitConverter.ToString(cData, 0, prefixLength));
+            }
+
+            if (this is Packets.Server.SMsgResults)
+            {
+                Log.Write(LogLevel.Client,
+                    "SMSG-RESULTS-PLAINTEXT bytes={0} hex={1}",
+                    cData.Length, BitConverter.ToString(cData));
+            }
 
             if (_def)
             {

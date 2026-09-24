@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +9,11 @@ namespace NexusToRServer.NET.Packets.Server
     class WorldHackPack : TORGameServerPacket
     {
         private byte _module;
+        private UInt16 _serviceID;
 
-        public WorldHackPack()
+        public WorldHackPack(UInt16 ServiceID = 0x0003)
         {
-            //
+            _serviceID = ServiceID;
         }
 
         /// <summary>
@@ -21,7 +22,7 @@ namespace NexusToRServer.NET.Packets.Server
         public override void WriteImplementation()
         {
             WriteUInt32((UInt32)GetType()); // Packet Type
-            WriteUInt32(0x000329ED); // Packet Component
+            WriteUInt32(((UInt32)_serviceID << 16) | 0x65AB); // Packet Component
 
             // TODO: Properly implement this
             WriteUInt32(0x00000230);

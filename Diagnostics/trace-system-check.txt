@@ -1,0 +1,181 @@
+PROCESS 33120
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+EXCEPTION pid=33120 code=0xE06D7363 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+CPP TYPE: .?AV?$clone_impl@Ubad_alloc_@exception_detail@boost@@@exception_detail@boost@@
+STACK \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+STACK \\?\C:\Windows\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.9635_none_508ff82ebcbafee0\msvcr90.dll + 0x5DF60
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x991DD
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x96586
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0xC31F0A
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x82E4B3
+STACK \\?\C:\Windows\SysWOW64\kernel32.dll + 0x15D49
+STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E1FB
+STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E181
+EXCEPTION pid=33120 code=0xE06D7363 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+CPP TYPE: 
+STACK \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+STACK \\?\C:\Windows\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.9635_none_508ff82ebcbafee0\msvcr90.dll + 0x5DF60
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x8FC28
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x8FF1C
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x991E6
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x96586
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0xC31F0A
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x82E4B3
+STACK \\?\C:\Windows\SysWOW64\kernel32.dll + 0x15D49
+STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E1FB
+STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E181
+PROBE address=004918EC EAX=0438C2F0 ESI=0438C2F0
+SYSTEM CHECK DETAIL: PlatformInfo Errors:Unable to initialize platform object.
+DIALOG STACK C:\WINDOWS\System32\win32u.dll + 0x11AC
+DIALOG STACK C:\WINDOWS\System32\USER32.dll + 0x32661
+DIALOG STACK D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x4A84BF
+DIALOG STACK D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x46A504
+DIALOG STACK D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x76895
+DIALOG STACK D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x818BA
+DIALOG STACK D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x82E543
+DIALOG STACK C:\WINDOWS\System32\KERNEL32.DLL + 0x15D49
+DIALOG STACK C:\WINDOWS\SYSTEM32\ntdll.dll + 0x6E1FB
+DIALOG STACK C:\WINDOWS\SYSTEM32\ntdll.dll + 0x6E181
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+TIMEOUT: ending only processes launched by this diagnostic

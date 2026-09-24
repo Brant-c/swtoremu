@@ -1,0 +1,4 @@
+[18:41:46] [STARTUP] Concise progress and blockers: Diagnostics\startup-summary.log
+[18:42:01] [READY] Native client received repository synchronization reply.
+[18:42:01] [READY] Native repository synchronization completion callback entered.
+[18:43:09] [READY] Native script definitions registered; beginning game and GUI initialization.

@@ -1,0 +1,59 @@
+﻿=== csproj tail lines 425..472 ===
+L425:     <Compile Include="NET\Packets\Server\TrackingServerInit.cs" />
+L426:     <Compile Include="NET\Packets\Server\WorldHackPack.cs" />
+L427:     <Compile Include="NET\Packets\Server\WorldNotifyGauntletVersion.cs" />
+L428:     <Compile Include="NET\Packets\Server\WorldRequestRPC.cs" />
+L429:     <Compile Include="NET\Packets\Server\WorldSendToArea.cs" />
+L430:     <Compile Include="NET\Packets\Server\WorldShouldSendScriptErrors.cs" />
+L431:     <Compile Include="NET\Packets\Server\WorldTravelPending.cs" />
+L432:     <Compile Include="NET\Packets\Server\WorldTravelStatus.cs" />
+L433:     <Compile Include="NET\Packet\SPacket.cs" />
+L434:     <Compile Include="NET\TORGameClient.cs" />
+L435:     <Compile Include="NET\Packet\Packet.cs" />
+L436:     <Compile Include="Base\Crypto\Salsa20.cs" />
+L437:     <Compile Include="NET\Packet\PacketStream.cs" />
+L438:     <Compile Include="NET\Packet\IPacket.cs" />
+L439:     <Compile Include="NET\Packet\PacketTypes.cs" />
+L440:     <Compile Include="NET\TCPClient.cs" />
+L441:     <Compile Include="LoginServer\Handler.cs" />
+L442:     <Compile Include="LoginServer\Router.cs" />
+L443:     <Compile Include="NET\TORGameClientPacket.cs" />
+L444:     <Compile Include="NET\TORGamePacketHandler.cs" />
+L445:     <Compile Include="NET\TORGameServerPacket.cs" />
+L446:     <Compile Include="NET\TORAreaServerPacket.cs" />
+L447:     <Compile Include="NET\UnknownPacketTrace.cs" />
+L448:     <Compile Include="PlatformServer\Handler.cs" />
+L449:     <Compile Include="PlatformServer\HTTP.cs" />
+L450:     <Compile Include="Program.cs" />
+L451:     <Compile Include="Properties\AssemblyInfo.cs" />
+L452:     <Compile Include="NET\TCPServer.cs" />
+L453:     <Compile Include="ShardServer\Handler.cs" />
+L454:     <Compile Include="TimeServer\Handler.cs" />
+L455:     <Compile Include="TOR\Character.cs" />
+L456:   </ItemGroup>
+L457:   <ItemGroup>
+L458:     <None Include="app.config">
+L459:       <SubType>Designer</SubType>
+L460:     </None>
+L461:   </ItemGroup>
+L462:   <ItemGroup />
+L463:   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+L464:   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+L465:        Other similar extension points exist, see Microsoft.Common.targets.
+L466:   <Target Name="BeforeBuild">
+L467:   </Target>
+L468:   <Target Name="AfterBuild">
+L469:   </Target>
+L470:   -->
+L471: </Project>
+
+=== client CMsg Compile includes context ===
+L379:     <Compile Include="NET\Packets\Client\CMsg7CB9A193.cs" />
+L380:     <Compile Include="NET\Packets\Client\CMsgC26464A9.cs" />
+L387:     <Compile Include="NET\Packets\Client\SelectCharacterRequest.cs" />
+L458:     <None Include="app.config">
+L462:   <ItemGroup />
+L463:   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
+=== csproj total line count ===
+472

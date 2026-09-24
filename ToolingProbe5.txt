@@ -1,0 +1,11 @@
+﻿=== which git ===
+
+
+=== which msbuild ===
+
+
+=== which csc ===
+
+
+=== VS2022 Community MSBuild.exe ===
+NOT FOUND at expected path

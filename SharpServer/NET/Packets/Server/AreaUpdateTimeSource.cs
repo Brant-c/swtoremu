@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +6,7 @@ using System.IO;
 
 namespace NexusToRServer.NET.Packets.Server
 {
-    class AreaUpdateTimeSource : TORGameServerPacket
+    class AreaUpdateTimeSource : TORAreaServerPacket
     {
         private byte _module;
 
@@ -21,7 +21,7 @@ namespace NexusToRServer.NET.Packets.Server
         public override void WriteImplementation()
         {
             WriteUInt32((UInt32)GetType()); // Packet Type
-            WriteUInt32(0x00040000); // Packet Component
+            WriteAreaComponent();
 
             // TODO: Figure out what these are
             WriteUInt64(0x05557892); 

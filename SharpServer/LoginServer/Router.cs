@@ -186,17 +186,21 @@ namespace NexusToRServer.LoginServer
             RSAParameters privParams = keyParser.ParseRSAPrivateKey();
             RSAProv.ImportParameters(privParams);
 
-            //byte[] Blocks = new byte[256];
+            if (iPacket.RSAData.Length == 0 || iPacket.RSAData.Length % 256 != 0)
+                throw new InvalidDataException("Login RSA payload is not made of 256-byte blocks.");
 
-            byte[] Block = new byte[256];
-            Buffer.BlockCopy(iPacket.RSAData, 0, Block, 0, 256);
-            byte[] decData = RSAProv.Decrypt(Block, false);
-            //Buffer.BlockCopy(decData, 0, Blocks, 0, decData.Length);
-
-            /*byte[] Block2 = new byte[128];
-            Buffer.BlockCopy(iPacket.RSAData, 128, Block2, 0, 128);
-            byte[] decDatakey = RSAProv.Decrypt(Block2, false);
-            Buffer.BlockCopy(decDatakey, 0, Blocks, decData.Length, decDatakey.Length);*/
+            byte[] decData;
+            using (MemoryStream decrypted = new MemoryStream())
+            {
+                for (int offset = 0; offset < iPacket.RSAData.Length; offset += 256)
+                {
+                    byte[] block = new byte[256];
+                    Buffer.BlockCopy(iPacket.RSAData, offset, block, 0, block.Length);
+                    byte[] plain = RSAProv.Decrypt(block, false);
+                    decrypted.Write(plain, 0, plain.Length);
+                }
+                decData = decrypted.ToArray();
+            }
 
             Log.Write(LogLevel.Info, "\n{0}", decData.ToHEX(decData.Length));
 

@@ -1,0 +1,7 @@
+[18:32:38] [STARTUP] Concise progress and blockers: Diagnostics\startup-summary.log
+[18:32:53] [TEST] Restoring native asset-revision notification for local revision 1.
+[18:32:53] [TEST] Resuming native resource-manager initialization after revision delivery.
+[18:32:53] [TEST] Native asset-revision notification returned.
+[18:32:54] [READY] Native client received repository synchronization reply.
+[18:32:54] [READY] Native repository synchronization completion callback entered.
+[18:34:01] [READY] Native script definitions registered; beginning game and GUI initialization.

@@ -33,7 +33,9 @@ namespace NexusToRServer.NET.Packets.Client
         /// </summary>
         public override void RunImplementation()
         {
-            Log.Write(LogLevel.Client, "Received Service Request [{0}:{1}]", _server, _service);
+            Log.Write(LogLevel.Client,
+                      "Received Service Request [{0}:{1}] object='{2}' hash='{3}' details='{4}'/'{5}'/'{6}'",
+                      _server, _service, _obj, _hash, _unk01, _unk02, _unk03);
 
             string[] Parts = _server.Split('-');
             _server = Parts[0];
@@ -55,6 +57,18 @@ namespace NexusToRServer.NET.Packets.Client
                 case "biomonserver":
                     /**/
                     GetClient().SendPacket(new ObjectRequest(_obj, 0x1C, 0x00));
+                    break;
+                case "RepositoryServer":
+                    GetClient().SendPacket(new ObjectRequest(_obj, 0x00, 0x00));
+                    break;
+                case "ScriptCompilerServer":
+                case "ScriptCompilerClient":
+                case "SearchServer":
+                    // These are HeroEngine system services.  Route their named
+                    // objects through the same system component as RepositoryServer;
+                    // subsequent object traffic will reveal any service-specific
+                    // methods the retail client actually needs.
+                    GetClient().SendPacket(new ObjectRequest(_obj, 0x00, 0x00));
                     break;
                 case "WorldServer":
                     /**/

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,11 +10,12 @@ namespace NexusToRServer.NET.Packets.Server
     {
         private byte _module;
         private bool _send;
+        private UInt16 _serviceID;
 
-        public WorldShouldSendScriptErrors(Boolean Send)
+        public WorldShouldSendScriptErrors(Boolean Send, UInt16 ServiceID = 0x0003)
         {
-            //
             _send = Send;
+            _serviceID = ServiceID;
         }
 
         /// <summary>
@@ -23,7 +24,7 @@ namespace NexusToRServer.NET.Packets.Server
         public override void WriteImplementation()
         {
             WriteUInt32((UInt32)GetType()); // Packet Type
-            WriteUInt32(0x000329ED); // Packet Component
+            WriteUInt32(((UInt32)_serviceID << 16) | 0x65AB); // Packet Component
             WriteBoolean(_send);
         }
 

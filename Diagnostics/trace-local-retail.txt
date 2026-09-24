@@ -1,0 +1,298 @@
+PROCESS 44712
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+EXCEPTION pid=44712 code=0xE06D7363 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+CPP TYPE: .?AV?$clone_impl@Ubad_alloc_@exception_detail@boost@@@exception_detail@boost@@
+STACK \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+STACK \\?\C:\Windows\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.9635_none_508ff82ebcbafee0\msvcr90.dll + 0x5DF60
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x991DD
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x96586
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0xC31F0A
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x82E4B3
+STACK \\?\C:\Windows\SysWOW64\kernel32.dll + 0x15D49
+STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E1FB
+STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E181
+EXCEPTION pid=44712 code=0xE06D7363 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+CPP TYPE: 
+STACK \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+STACK \\?\C:\Windows\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.9635_none_508ff82ebcbafee0\msvcr90.dll + 0x5DF60
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x8FC28
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x8FF1C
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x991E6
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x96586
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0xC31F0A
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x82E4B3
+STACK \\?\C:\Windows\SysWOW64\kernel32.dll + 0x15D49
+STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E1FB
+STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E181
+PROCESS 48996
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+EXCEPTION pid=48996 code=0xE06D7363 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+CPP TYPE: .?AV?$clone_impl@Ubad_alloc_@exception_detail@boost@@@exception_detail@boost@@
+STACK \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+STACK \\?\C:\Windows\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.9635_none_508ff82ebcbafee0\msvcr90.dll + 0x5DF60
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x991DD
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x96586
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0xC31F0A
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x82E4B3
+STACK \\?\C:\Windows\SysWOW64\kernel32.dll + 0x15D49
+STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E1FB
+STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E181
+EXCEPTION pid=48996 code=0xE06D7363 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+CPP TYPE: 
+STACK \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+STACK \\?\C:\Windows\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.9635_none_508ff82ebcbafee0\msvcr90.dll + 0x5DF60
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x8FC28
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x8FF1C
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x991E6
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x96586
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0xC31F0A
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x82E4B3
+STACK \\?\C:\Windows\SysWOW64\kernel32.dll + 0x15D49
+STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E1FB
+STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E181
+EXCEPTION pid=44712 code=0x406D1388 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+EXCEPTION pid=44712 code=0x406D1388 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+EXCEPTION pid=44712 code=0x406D1388 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+EXCEPTION pid=44712 code=0x406D1388 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+EXCEPTION pid=44712 code=0x406D1388 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+EXCEPTION pid=44712 code=0x406D1388 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Star Wars�: The Old Republic�
+EXCEPTION pid=44712 code=0x406D1388 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+EXCEPTION pid=44712 code=0x406D1388 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+EXCEPTION pid=44712 code=0x406D1388 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+ORIGIN REG EAX=00000024 EBX=0A6119C0 ECX=0E3BFC8C EDX=00000003 ESI=FDA59EB0 EDI=00000003 EBP=0E3BFC98 ESP=0E3BFC78
+REQUEST[00]=010CA4D8
+REQUEST[04]=FDD96440
+REQUEST[08]=FDD96454
+REQUEST[0C]=FDD96455
+REQUEST[10]=0AEF4CAC
+REQUEST[14]=358D0000
+REQUEST[18]=000F4242
+REQUEST[1C]=00000000
+REQUEST[20]=00000010
+REQUEST[24]=00000001
+REQUEST[28]=00000000
+REQUEST[2C]=0000A187
+REQUEST[30]=E6EB1E0F
+REQUEST[34]=EAD5E6D9
+REQUEST[38]=00000000
+REQUEST[3C]=00000004
+REQUEST[40]=00000000
+REQUEST[44]=00010000
+REQUEST[48]=00000000
+REQUEST[4C]=00000000
+FRAME[0]=0A8E0A20
+FRAME[1]=0A8E0B18
+FRAME[2]=00000019
+FRAME[3]=FDA80FA8
+FRAME[4]=FDA59EB0
+FRAME[5]=00000010
+FRAME[6]=90C2122F
+RESOURCE FAILURE at=00B55328 status=00000000 EAX=00000024 detail=
+RESOURCE NAME: 
+ARG[0]=FDA59EB0
+ARG[1]=FDA80E7C
+ARG[2]=00000000
+ARG[3]=0E3BFC74
+ARG[4]=00000003
+ARG[5]=0E3BFCD4
+CLIENT ERROR REPORT pid=44712 code=4255649404 caller=FDA59EB0 ECX=0E3BFC8C EAX=00000024
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x745329
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x3B3301
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x7462A6
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x746C8F
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x310715
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x3046FD
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x75897
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x7595E
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x7F1EA
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x2577A0
+ERROR STACK \\?\C:\Windows\SysWOW64\kernel32.dll + 0x15D49
+ERROR STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E1FB
+ERROR STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E181
+ORIGIN REG EAX=FFFFFF01 EBX=0A8E0A20 ECX=012C26C8 EDX=00000001 ESI=0A6119C0 EDI=0A8E0B18 EBP=0E3BFC5C ESP=0E3BFC44
+REQUEST[00]=00000002
+REQUEST[04]=00000003
+REQUEST[08]=000F4242
+REQUEST[0C]=00000000
+REQUEST[10]=007C1E90
+REQUEST[14]=00000010
+REQUEST[18]=00000000
+REQUEST[1C]=00000000
+REQUEST[20]=00000000
+REQUEST[24]=00000000
+REQUEST[28]=00000000
+REQUEST[2C]=00000000
+REQUEST[30]=00000000
+REQUEST[34]=5438E4B2
+REQUEST[38]=00000000
+REQUEST[3C]=00000000
+REQUEST[40]=00000000
+REQUEST[44]=00000000
+REQUEST[48]=00000000
+REQUEST[4C]=00000000
+FRAME[0]=0A6119C0
+FRAME[1]=FDA59EE0
+FRAME[2]=FDA59ED8
+FRAME[3]=00000000
+FRAME[4]=00000000
+FRAME[5]=FDA59EB0
+FRAME[6]=FDA80E7C
+RESOURCE FAILURE at=00B550AA status=00000000 EAX=FFFFFF01 detail=
+RESOURCE NAME: 
+ARG[0]=FFFFFFFF
+ARG[1]=FDA59EE0
+ARG[2]=0A6119C0
+ARG[3]=0E3BFC8C
+ARG[4]=00FA9758
+ARG[5]=FFFFFFFF
+CLIENT ERROR REPORT pid=44712 code=4255489760 caller=FFFFFFFF ECX=012C26C8 EAX=FFFFFF01
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x7450AB
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x745363
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x3B3301
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x7462A6
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x746C8F
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x310715
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x3046FD
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x75897
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x7595E
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x7F1EA
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x2577A0
+ERROR STACK \\?\C:\Windows\SysWOW64\kernel32.dll + 0x15D49
+ERROR STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E1FB
+ERROR STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E181
+ORIGIN REG EAX=FACE0004 EBX=0A8E0A20 ECX=012D8234 EDX=0A569800 ESI=0A6119C0 EDI=00000000 EBP=0E3BFC5C ESP=0E3BFC44
+REQUEST[00]=00000003
+REQUEST[04]=00000003
+REQUEST[08]=000F4242
+REQUEST[0C]=00000000
+REQUEST[10]=007C1E90
+REQUEST[14]=00000010
+REQUEST[18]=00000000
+REQUEST[1C]=00000000
+REQUEST[20]=00000000
+REQUEST[24]=00000000
+REQUEST[28]=00000000
+REQUEST[2C]=00000000
+REQUEST[30]=00000000
+REQUEST[34]=5438E4B2
+REQUEST[38]=00000000
+REQUEST[3C]=00000000
+REQUEST[40]=00000000
+REQUEST[44]=00000000
+REQUEST[48]=00000000
+REQUEST[4C]=00000000
+FRAME[0]=0A6119C0
+FRAME[1]=FDA59EE0
+FRAME[2]=FDA59ED8
+FRAME[3]=0A569800
+FRAME[4]=00000003
+FRAME[5]=FDA59EB0
+FRAME[6]=FDA80E7C
+RESOURCE FAILURE at=00B5519E status=00000000 EAX=FACE0004 detail=
+RESOURCE NAME: 
+ARG[0]=FFFFFFFF
+ARG[1]=FDA59EE0
+ARG[2]=0A6119C0
+ARG[3]=0E3BFC8C
+ARG[4]=00FA9758
+ARG[5]=00000002
+CLIENT ERROR REPORT pid=44712 code=4255489760 caller=FFFFFFFF ECX=012D8234 EAX=FACE0004
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x74519F
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x745363
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x3B3301
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x7462A6
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x746C8F
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x310715
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x3046FD
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x75897
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x7595E
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x7F1EA
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x2577A0
+ERROR STACK \\?\C:\Windows\SysWOW64\kernel32.dll + 0x15D49
+ERROR STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E1FB
+ERROR STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E181
+ORIGIN REG EAX=FACE000F EBX=00000000 ECX=045B5E50 EDX=0E3BFBDC ESI=FFFFFFFF EDI=0E3BFBDC EBP=0E3BFBC4 ESP=0E3BFB68
+REQUEST[00]=00000000
+REQUEST[04]=00000000
+REQUEST[08]=00000000
+REQUEST[0C]=00000000
+REQUEST[10]=00000000
+REQUEST[14]=00000000
+REQUEST[18]=00000000
+REQUEST[1C]=00000000
+REQUEST[20]=00000000
+REQUEST[24]=00000000
+REQUEST[28]=00000000
+REQUEST[2C]=00000000
+REQUEST[30]=00000000
+REQUEST[34]=00000000
+REQUEST[38]=00000000
+REQUEST[3C]=00000000
+REQUEST[40]=00000000
+REQUEST[44]=00000000
+REQUEST[48]=00000000
+REQUEST[4C]=00000000
+FRAME[0]=0E3BFBDC
+FRAME[1]=FFFFFFFF
+FRAME[2]=0A613240
+FRAME[3]=0A8E0A20
+FRAME[4]=FACE000F
+FRAME[5]=010CA384
+FRAME[6]=000F4243
+RESOURCE FAILURE at=0083D371 status=FACE000F EAX=FACE000F detail=
+RESOURCE NAME: /systemgenerated/client.gom
+ARG[0]=0083D340
+ARG[1]=FFFFFFFF
+ARG[2]=00000000
+ARG[3]=FDDE1F00
+ARG[4]=0A8E0CC0
+ARG[5]=0E3BFB88
+CLIENT ERROR REPORT pid=44712 code=4294967295 caller=0083D340 ECX=045B5E50 EAX=FACE000F
+ERROR CALLER \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x42D340
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x42D372
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x74327D
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x7451E7
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x745363
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x3B3301
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x7462A6
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x746C8F
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x310715
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x3046FD
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x75897
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x7595E
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x7F1EA
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x2577A0
+ERROR STACK \\?\C:\Windows\SysWOW64\kernel32.dll + 0x15D49
+ERROR STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E1FB
+ERROR STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E181
+EXCEPTION pid=44712 code=0x80000004 firstChance=1 address=0x0071E561
+MODULE \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x30E561
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Star Wars�: The Old Republic�
+EXIT pid=48996 code=0x00000000
+EXIT pid=44712 code=0x00000000

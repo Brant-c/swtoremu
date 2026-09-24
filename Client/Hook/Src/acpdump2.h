@@ -236,7 +236,10 @@ void acp_dump(FILE *fd, int type, int protocol, uint32_t src_ip, uint16_t src_po
     }
 
     // use the following if gettimeofday doesn't exist on Windows
-    acp_pck.ts.tv_sec  = time(NULL);
+    const time_t timestamp = time(NULL);
+    // The legacy capture format stores a signed 32-bit timestamp.
+    if (timestamp < 0 || timestamp > 2147483647LL) return;
+    acp_pck.ts.tv_sec = static_cast<int32_t>(timestamp);
     acp_pck.ts.tv_usec = GetTickCount();
     //gettimeofday((struct timeval *)&(acp_pck.ts), NULL);
 
@@ -351,5 +354,6 @@ void acp_dump_handshake(FILE *fd, int type, int protocol, uint32_t src_ip, uint1
 
     (*seq2)++;
 }
+
 
 

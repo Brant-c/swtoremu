@@ -1,0 +1,4 @@
+r'''
+Clean-run instructions for Option A: force the full in-world init + the two
+enter-world signals to emit on every CMsgC586BD22 and run a FRESH session so
+something new is actually sent.

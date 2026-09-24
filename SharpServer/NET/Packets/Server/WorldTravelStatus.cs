@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,12 +10,20 @@ namespace NexusToRServer.NET.Packets.Server
     {
         private byte _module;
         private UInt16 _unk01, _unk02;
+        private UInt32 _status = 0x01;
 
         public WorldTravelStatus(UInt16 Unk01, UInt16 Unk02)
         {
-            //
             _unk01 = Unk01;
             _unk02 = Unk02;
+            _status = 0x01;
+        }
+
+        public WorldTravelStatus(UInt16 Unk01, UInt16 Unk02, UInt32 status)
+        {
+            _unk01 = Unk01;
+            _unk02 = Unk02;
+            _status = status;
         }
 
         /// <summary>
@@ -27,8 +35,7 @@ namespace NexusToRServer.NET.Packets.Server
             WriteUInt16(_unk01);
             WriteUInt16(_unk02);
 
-            WriteUInt32(0x01);
-
+            WriteUInt32(_status);
         }
 
         /// <summary>

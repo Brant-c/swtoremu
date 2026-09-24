@@ -1,0 +1,16 @@
+﻿=== exe string presence check v3 (UTF-16LE aware) ===
+[begin] 2026-09-18T03:03:22.3170622+00:00
+CMsgC586BD22: replying | ascii-in-exe=False | utf16-in-exe=True
+CMsgF96DCDB0: replying | ascii-in-exe=False | utf16-in-exe=True
+CMsg4A765897: replying | ascii-in-exe=False | utf16-in-exe=True
+replying to area-entry | ascii-in-exe=False | utf16-in-exe=True
+CMsgC586BD22() | ascii-in-exe=False | utf16-in-exe=False
+CMsgF96DCDB0() | ascii-in-exe=False | utf16-in-exe=False
+CMsg4A765897() | ascii-in-exe=False | utf16-in-exe=False
+
+--- handler dispatch ---
+CMsgC586BD22 case+new-in-handler = True
+CMsgF96DCDB0 case+new-in-handler = True
+CMsg4A765897 case+new-in-handler = True
+
+[end] 2026-09-18T03:03:44.1302125+00:00

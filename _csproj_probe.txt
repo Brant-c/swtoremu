@@ -1,0 +1,4 @@
+﻿FOUND at index 25787
+context: [   <Compile Include="NET\Packets\Client\CMsgC26464A9.cs" />
+    <Compile Includ]
+full line: [    <Compile Include="NET\Packets\Client\CMsgC26464A9.cs" />]

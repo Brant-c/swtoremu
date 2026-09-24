@@ -1,0 +1,12 @@
+﻿=== CRT3 Status (via Set-Crt3Variant.ps1 Status) ===
+status           len=55  sha=6BA5BC0300D7AFF8A0CA30E3A2E11052BB23C9A1643BF66B70C8CC0FC0199C35
+                 head32=37 ab 0d 00  seq32=0x000DAB37 (895799)  MODIFIED
+No file was written.
+
+=== CRT3 fixture file hash/len ===
+EXISTS: D:\SWTORClassic\swtoremu\SharpServer\bin\Debug\AreaServer\CRT\tython_blockout-4611686019869492753-1.3.acrt
+len: 55
+SHA256: 6ba5bc0300d7aff8a0ca30e3a2e11052bb23c9a1643bf66b70c8cc0fc0199c35
+head32 hex: 37 AB 0D 00
+head32 uint32: 0x000DAB37
+tail byte: 0x00

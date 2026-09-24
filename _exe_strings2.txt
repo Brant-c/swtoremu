@@ -1,0 +1,16 @@
+﻿=== exe string presence check v2 ===
+[begin] 2026-09-18T03:01:59.2799734+00:00
+CMsgC586BD22 found=True idx=580332
+CMsgF96DCDB0 found=True idx=576942
+CMsg4A765897 found=True idx=583430
+replying found=False idx=-1
+AreaRequestRPC found=True idx=584619
+SystemRequestRPC found=True idx=584650
+
+--- handler dispatch (raw source) ---
+CMsgC586BD22 case-in-handler = True
+CMsgC586BD22 new-in-handler = False
+CMsgF96DCDB0 case-in-handler = True
+CMsgF96DCDB0 new-in-handler = False
+CMsg4A765897 case-in-handler = True
+CMsg4A765897 new-in-handler = False

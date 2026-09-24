@@ -1,0 +1,21 @@
+﻿=== state probe 2 ===
+[begin] 2026-09-18T02:56:23.0337798+00:00
+
+EXE: D:\SWTORClassic\swtoremu\SharpServer\bin\Debug\NexusToRServer.exe
+  LWT=2026-09-18T02:12:31.1552009Z
+  len=797184
+
+--- new reply .cs files ---
+CMsgC586BD22.cs  EXISTS  LWT=2026-09-18T02:33:50.6045880Z  len=2042
+CMsgF96DCDB0.cs  EXISTS  LWT=2026-09-18T02:33:50.7552025Z  len=1704
+CMsg4A765897.cs  EXISTS  LWT=2026-09-18T02:33:50.9077444Z  len=1646
+
+--- csproj mentions ---
+CMsgC586BD22.cs  in-csproj=False
+CMsgF96DCDB0.cs  in-csproj=False
+CMsg4A765897.cs  in-csproj=False
+
+--- server process ---
+NexusToRServer NOT running
+
+CRT3_DISABLED=YES  (D:\SWTORClassic\swtoremu\SharpServer\bin\Debug\AreaServer\CRT\tython_blockout-4611686019869492753-1.3.acrt.disabled)

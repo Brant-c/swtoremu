@@ -96,8 +96,6 @@ namespace ShardListServer
 
     class Program
     {
-        static TcpListener listener;
-
         static HttpListener httpListener;
 
         static ShardList shardList;
@@ -112,9 +110,10 @@ namespace ShardListServer
 
             Console.WriteLine("Loaded " + shardList.ShardCount + " shards.");
 
-            listener = new TcpListener(IPAddress.Any, 8888);
-            listener.Start();
-            BeginAcceptClient();
+            // The original 2012 launcher points the client at HTTPS port 443.
+            // Keep 8888 available for the newer diagnostic launchers as well.
+            StartListener(443);
+            StartListener(8888);
 
             Console.ReadLine();
 
@@ -168,13 +167,17 @@ namespace ShardListServer
             }*/
         }
 
-        static void BeginAcceptClient()
+        static void StartListener(int port)
         {
-            listener.BeginAcceptTcpClient(new AsyncCallback(EndAcceptClient), null);
+            TcpListener listener = new TcpListener(IPAddress.Any, port);
+            listener.Start();
+            listener.BeginAcceptTcpClient(new AsyncCallback(EndAcceptClient), listener);
+            Console.WriteLine("Listening for HTTPS shard-list requests on port " + port + ".");
         }
 
         static void EndAcceptClient(IAsyncResult ar)
         {
+            TcpListener listener = (TcpListener)ar.AsyncState;
             TcpClient client = listener.EndAcceptTcpClient(ar);
             Console.WriteLine("new client");
             new Thread(new ThreadStart(() =>
@@ -182,7 +185,7 @@ namespace ShardListServer
                     ProcessTcpClient(client);
                 })).Start();
 
-            BeginAcceptClient();
+            listener.BeginAcceptTcpClient(new AsyncCallback(EndAcceptClient), listener);
         }
 
         static void ProcessTcpClient(TcpClient client)
@@ -333,8 +336,8 @@ namespace ShardListServer
                 Check(NativeMethods.CryptAcquireContextW(
                     out providerContext,
                     containerName,
-                    null,
-                    1, // PROV_RSA_FULL
+                    "Microsoft Enhanced RSA and AES Cryptographic Provider",
+                    24, // PROV_RSA_AES
                     8)); // CRYPT_NEWKEYSET
 
                 Check(NativeMethods.CryptGenKey(
@@ -389,7 +392,7 @@ namespace ShardListServer
 
                 CryptKeyProviderInformation kpi = new CryptKeyProviderInformation();
                 kpi.ContainerName = containerName;
-                kpi.ProviderType = 1; // PROV_RSA_FULL
+                kpi.ProviderType = 24; // PROV_RSA_AES
                 kpi.KeySpec = 1; // AT_KEYEXCHANGE
 
                 certContext = NativeMethods.CertCreateSelfSignCertificate(
@@ -486,8 +489,8 @@ namespace ShardListServer
                     NativeMethods.CryptAcquireContextW(
                         out providerContext,
                         containerName,
-                        null,
-                        1, // PROV_RSA_FULL
+                        "Microsoft Enhanced RSA and AES Cryptographic Provider",
+                        24, // PROV_RSA_AES
                         0x10); // CRYPT_DELETEKEYSET
                 }
             }

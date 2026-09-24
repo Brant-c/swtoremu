@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NexusToRServer</RootNamespace>
     <AssemblyName>NexusToRServer</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -32,6 +32,7 @@
     <DefineConstants>DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -41,6 +42,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -68,6 +70,7 @@
     <Compile Include="Base\Crypto\ParametersWithIV.cs" />
     <Compile Include="Base\Crypto\Strings.cs" />
     <Compile Include="Base\Database.cs" />
+    <Compile Include="Base\TorArchive.cs" />
     <Compile Include="Base\Extensions.cs" />
     <Compile Include="Base\Log.cs" />
     <Compile Include="Base\MiscUtil\BigEndianBitConverter.cs" />
@@ -373,9 +376,15 @@
     <Compile Include="MongoDB\Driver\MongoDefaults.cs" />
     <Compile Include="MongoDB\Driver\MongoUtils.cs" />
     <Compile Include="NET\Packets\Client\AreaModulesList.cs" />
+    <Compile Include="NET\Packets\Client\AreaPollExperiment.cs" />
     <Compile Include="NET\Packets\Client\CharacterListRequest.cs" />
     <Compile Include="NET\Packets\Client\CMsg7CB9A193.cs" />
     <Compile Include="NET\Packets\Client\CMsgC26464A9.cs" />
+    <Compile Include="NET\Packets\Client\CMsgC586BD22.cs" />
+    <Compile Include="NET\Packets\Client\CMsgF96DCDB0.cs" />
+    <Compile Include="NET\Packets\Client\CMsg4A765897.cs" />
+    <Compile Include="NET\Packets\Client\CMsgCCACB51D.cs" />
+    <Compile Include="NET\Packets\Client\CMsg61116AD5.cs" />
     <Compile Include="NET\Packets\Client\ConnectionHandshake.cs" />
     <Compile Include="NET\Packets\Client\CreateCharacterRequest.cs" />
     <Compile Include="NET\Packets\Client\ModulesList.cs" />
@@ -387,17 +396,39 @@
     <Compile Include="NET\Packets\Client\ServiceRequest.cs" />
     <Compile Include="NET\Packets\Client\HackNotifyData.cs" />
     <Compile Include="NET\Packets\Client\SetTrackingInfo.cs" />
+    <Compile Include="NET\Packets\Client\SendScriptError.cs" />
+    <Compile Include="NET\Packets\Client\WorldByteReport.cs" />
+    <Compile Include="NET\Packets\Client\RepositoryDataReceipt.cs" />
+    <Compile Include="NET\Packets\Client\RepositoryDataRequest.cs" />
+    <Compile Include="NET\Packets\Server\RepositoryDataNotFound.cs" />
+    <Compile Include="NET\Packets\Server\RepositoryDataReply.cs" />
+    <Compile Include="NET\Packets\Client\RepositorySyncRequest.cs" />
+    <Compile Include="NET\Packets\Server\RepositorySyncReply.cs" />
+    <Compile Include="NET\Packets\Server\RepositoryRevision.cs" />
+    <Compile Include="NET\Packets\Server\AreaVectorPollAck.cs" />
+    <Compile Include="NET\Packets\Server\AreaModulesListAck.cs" />
+    <Compile Include="NET\Packets\Server\AreaStartupBundle.cs" />
     <Compile Include="NET\Packets\Server\AreaAwarenessEntered.cs" />
     <Compile Include="NET\Packets\Server\AreaClientReplicationTransaction.cs" />
     <Compile Include="NET\Packets\Server\AreaEffEventMessage.cs" />
     <Compile Include="NET\Packets\Server\AreaHackPack.cs" />
     <Compile Include="NET\Packets\Server\AreaRequestRPC.cs" />
+    <Compile Include="NET\Packets\Server\AreaRPCPollAck.cs" />
     <Compile Include="NET\Packets\Server\AreaSendAwarenessRange.cs" />
     <Compile Include="NET\Packets\Server\AreaSetCharacter.cs" />
     <Compile Include="NET\Packets\Server\AreaTalk.cs" />
     <Compile Include="NET\Packets\Server\AreaTeleportCharacter.cs" />
     <Compile Include="NET\Packets\Server\AreaUpdateTimeSource.cs" />
+    <Compile Include="NET\Packets\Server\RpcReply.cs" />
+    <Compile Include="NET\Packets\Server\SMsgResults.cs" />
+    <Compile Include="NET\Packets\Server\CharacterSetRendezvousPoint.cs" />
+    <Compile Include="NET\Packets\Server\CharacterChangeState.cs" />
+    <Compile Include="NET\Packets\Server\AreaEnterSignals.cs" />
     <Compile Include="NET\Packets\Server\CharacterListReply.cs" />
+    <Compile Include="NET\Packets\Server\ClientRPCAck.cs" />
+    <Compile Include="NET\Packets\Server\CMsg7CB9A193Ack.cs" />
+    <Compile Include="NET\Packets\Server\CMsgC26464A9Ack.cs" />
+    <Compile Include="NET\Packets\Server\CMsg61116AD5Ack.cs" />
     <Compile Include="NET\Packets\Server\ClientHello.cs" />
     <Compile Include="NET\Packets\Server\ClientInformation.cs" />
     <Compile Include="NET\Packets\Server\ClientReplicationTransaction.cs" />
@@ -432,6 +463,8 @@
     <Compile Include="NET\TORGameClientPacket.cs" />
     <Compile Include="NET\TORGamePacketHandler.cs" />
     <Compile Include="NET\TORGameServerPacket.cs" />
+    <Compile Include="NET\TORAreaServerPacket.cs" />
+    <Compile Include="NET\UnknownPacketTrace.cs" />
     <Compile Include="PlatformServer\Handler.cs" />
     <Compile Include="PlatformServer\HTTP.cs" />
     <Compile Include="Program.cs" />

@@ -1,0 +1,8 @@
+Clean one-run test: post-sync state delivery (signals + one fresh RPC), no CRT re-send.
+- RpcReply.cs, CMsgF96DCDB0.cs, CMsg4A765897.cs now log per-request-id maps (LogLevel.Client).
+- New AreaPostSyncSignals.cs fires a 60s timer once after CMsg61116AD5 first arrives,
+  sending SMSG_CHARACTER_SET_RENDEZVOUS_POINT + SMSG_CHARACTER_CHANGE_STATE + one
+  fresh AreaRequestRPC(01 00). Does NOT re-touch CRTs/awareness -> no collision.
+- Run instructions: kill servers, Run-SWTORClassic-Trace-Tython.cmd, log in, select Tython,
+  sit ~90s, kill client. Then paste NexusToR.log.
+- I grep for [post-sync] [area-rpc] [char-sync] [crt] [enter-signals] in the log.

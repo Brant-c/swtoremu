@@ -1,0 +1,18 @@
+[2026-09-11 17:36:21] TORGamePacketHandler: Received a packet [CharacterListRequest]
+[2026-09-11 17:36:21] CharacterListRequest: CharacterListRequest: reply routing content=0x0007 transport=0x65AB
+[2026-09-11 17:36:21] TORGameServerPacket: Constructing Packet [CharacterListReply]
+[2026-09-11 17:36:21] TORGamePacketHandler: Received a packet [SendScriptError]
+[2026-09-11 17:36:21] SendScriptError: Client script error: Call to function TELLCHARACTERSELECTIONINFO with mismatched arguments
+Call to function TELLCHARACTERSELECTIONINFO with mismatched arguments
+09/11/2026 17:36:21
+Call trace:
+  Script 14988129110554817399 line 457 me[id=1000000001 class=92829000023,40012,4611686018429790039]
+starting method/function TELLCHARACTERSELECTIONINFO
+starting me[id=1000000001 class=92829000023,40012,4611686018429790039]
+Character=1 Area=0
+[2026-09-11 17:36:22] TORGamePacketHandler: Received a packet [HackNotifyData]
+[2026-09-11 17:36:25] TORGamePacketHandler: Received a packet [Pong]
+[2026-09-11 17:36:25] TORGameServerPacket: Constructing Packet [Pong]
+[2026-09-11 17:36:26] TORGamePacketHandler: Received a packet [CMsgC26464A9]
+[2026-09-11 17:36:30] TORGamePacketHandler: Received a packet [Pong]
+[2026-09-11 17:36:30] TORGameServerPacket: Constructing Packet [Pong]

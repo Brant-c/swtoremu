@@ -1,0 +1,11 @@
+server install RemoteRenderer
+
+server start RemoteRenderer://test1@shared::IpcConsole:1
+
+autotick
+
+server stop RemoteRenderer://test1@shared::IpcConsole:1
+
+server uninstall RemoteRenderer
+
+exit

@@ -1,0 +1,359 @@
+﻿=== PacketAnalyser + C# TOR.Character probe ===
+[begin] 2026-09-18T03:36:33.6258703+00:00
+
+--- PacketAnalyser root ---
+items count=8
+  Classes  len=[dir]  LWT=2026-09-10T19:57:51.0310867Z
+  Forms  len=[dir]  LWT=2026-09-10T19:57:51.0341317Z
+  PCAP  len=[dir]  LWT=2026-09-10T19:57:51.0455999Z
+  Properties  len=[dir]  LWT=2026-09-10T19:57:51.0548256Z
+  app.config  len=144  LWT=2026-09-10T19:57:51.0548256Z
+  PacketAnalyser.csproj  len=20421  LWT=2026-09-10T19:57:51.0543169Z
+  PacketAnalyser.sln  len=869  LWT=2026-09-10T19:57:51.0543169Z
+  Program.cs  len=554  LWT=2026-09-10T19:57:51.0543169Z
+
+--- PacketAnalyser recurse (exe/dll/config/json/md/txt/cs/csproj) ---
+found count=242
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\app.config  len=144  LWT=2026-09-10T19:57:51.0548256Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PacketAnalyser.csproj  len=20421  LWT=2026-09-10T19:57:51.0543169Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Program.cs  len=554  LWT=2026-09-10T19:57:51.0543169Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\aConsole.cs  len=1308  LWT=2026-09-10T19:57:51.0310867Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\CaptureLoader.cs  len=176  LWT=2026-09-10T19:57:51.0250164Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Packet.cs  len=8086  LWT=2026-09-10T19:57:51.0265377Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Utils.cs  len=2627  LWT=2026-09-10T19:57:51.0265377Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Crypto\BigInteger.cs  len=95945  LWT=2026-09-10T19:57:51.0250164Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Crypto\ICipherParameters.cs  len=181  LWT=2026-09-10T19:57:51.0250164Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Crypto\IStreamCipher.cs  len=1883  LWT=2026-09-10T19:57:51.0250164Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Crypto\KeyParameter.cs  len=901  LWT=2026-09-10T19:57:51.0250164Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Crypto\ParametersWithIV.cs  len=998  LWT=2026-09-10T19:57:51.0250164Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Crypto\Salsa20.cs  len=11176  LWT=2026-09-10T19:57:51.0250164Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Crypto\Strings.cs  len=2405  LWT=2026-09-10T19:57:51.0250164Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\MiscUtil\EndianBinaryReader.cs  len=17434  LWT=2026-09-10T19:57:51.0265377Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\MiscUtil\EndianBinaryWriter.cs  len=11457  LWT=2026-09-10T19:57:51.0265377Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib\CRC32.cs  len=29548  LWT=2026-09-10T19:57:51.0265377Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib\Deflate.cs  len=77650  LWT=2026-09-10T19:57:51.0265377Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib\DeflateStream.cs  len=31364  LWT=2026-09-10T19:57:51.0265377Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib\GZipStream.cs  len=42346  LWT=2026-09-10T19:57:51.0265377Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib\Inflate.cs  len=74651  LWT=2026-09-10T19:57:51.0280567Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib\InfTree.cs  len=29787  LWT=2026-09-10T19:57:51.0265377Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib\ParallelDeflateOutputStream.cs  len=57496  LWT=2026-09-10T19:57:51.0280567Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib\Tree.cs  len=19949  LWT=2026-09-10T19:57:51.0280567Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib\Zlib.cs  len=22373  LWT=2026-09-10T19:57:51.0280567Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib\ZlibBaseStream.cs  len=23431  LWT=2026-09-10T19:57:51.0280567Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib\ZlibCodec.cs  len=30988  LWT=2026-09-10T19:57:51.0290596Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib\ZlibConstants.cs  len=4966  LWT=2026-09-10T19:57:51.0290596Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib\ZlibStream.cs  len=29645  LWT=2026-09-10T19:57:51.0290596Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib2\Adler32.cs  len=4734  LWT=2026-09-10T19:57:51.0295619Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib2\Deflate.cs  len=59301  LWT=2026-09-10T19:57:51.0295619Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib2\InfBlocks.cs  len=20139  LWT=2026-09-10T19:57:51.0295619Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib2\InfCodes.cs  len=21168  LWT=2026-09-10T19:57:51.0295619Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib2\Inflate.cs  len=13845  LWT=2026-09-10T19:57:51.0295619Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib2\InfTree.cs  len=18511  LWT=2026-09-10T19:57:51.0295619Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib2\StaticTree.cs  len=7235  LWT=2026-09-10T19:57:51.0295619Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib2\SupportClass.cs  len=6182  LWT=2026-09-10T19:57:51.0295619Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib2\Tree.cs  len=16833  LWT=2026-09-10T19:57:51.0310867Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib2\ZInputStream.cs  len=6199  LWT=2026-09-10T19:57:51.0310867Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib2\Zlib.cs  len=4332  LWT=2026-09-10T19:57:51.0310867Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib2\ZOutputStream.cs  len=9194  LWT=2026-09-10T19:57:51.0310867Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib2\ZStream.cs  len=8392  LWT=2026-09-10T19:57:51.0310867Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Classes\Zlib2\ZStreamException.cs  len=3423  LWT=2026-09-10T19:57:51.0310867Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Forms\LiveForm.cs  len=22492  LWT=2026-09-10T19:57:51.0341317Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Forms\LiveForm.Designer.cs  len=15618  LWT=2026-09-10T19:57:51.0341317Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Forms\MainFrm.cs  len=17310  LWT=2026-09-10T19:57:51.0341317Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Forms\MainFrm.Designer.cs  len=23296  LWT=2026-09-10T19:57:51.0341317Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Forms\Controls\HexBox\BuiltInContextMenu.cs  len=9825  LWT=2026-09-10T19:57:51.0310867Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Forms\Controls\HexBox\ByteCharConverters.cs  len=3354  LWT=2026-09-10T19:57:51.0310867Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Forms\Controls\HexBox\ByteCollection.cs  len=3221  LWT=2026-09-10T19:57:51.0310867Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Forms\Controls\HexBox\BytePositionInfo.cs  len=650  LWT=2026-09-10T19:57:51.0310867Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Forms\Controls\HexBox\DataBlock.cs  len=794  LWT=2026-09-10T19:57:51.0310867Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Forms\Controls\HexBox\DataMap.cs  len=8217  LWT=2026-09-10T19:57:51.0310867Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Forms\Controls\HexBox\DynamicByteProvider.cs  len=3992  LWT=2026-09-10T19:57:51.0326092Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Forms\Controls\HexBox\DynamicFileByteProvider.cs  len=21124  LWT=2026-09-10T19:57:51.0326092Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Forms\Controls\HexBox\FileByteProvider.cs  len=6191  LWT=2026-09-10T19:57:51.0326092Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Forms\Controls\HexBox\FileDataBlock.cs  len=2408  LWT=2026-09-10T19:57:51.0326092Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Forms\Controls\HexBox\HexBox.cs  len=104437  LWT=2026-09-10T19:57:51.0326092Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Forms\Controls\HexBox\HexCasing.cs  len=492  LWT=2026-09-10T19:57:51.0326092Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Forms\Controls\HexBox\IByteProvider.cs  len=2359  LWT=2026-09-10T19:57:51.0326092Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Forms\Controls\HexBox\MemoryDataBlock.cs  len=2330  LWT=2026-09-10T19:57:51.0326092Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Forms\Controls\HexBox\NativeMethods.cs  len=770  LWT=2026-09-10T19:57:51.0326092Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Forms\Controls\HexBox\Util.cs  len=1085  LWT=2026-09-10T19:57:51.0326092Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\ApplicationPacket.cs  len=1110  LWT=2026-09-10T19:57:51.0351355Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\ARPFields.cs  len=4600  LWT=2026-09-10T19:57:51.0341317Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\ARPOperation.cs  len=3482  LWT=2026-09-10T19:57:51.0341317Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\ARPPacket.cs  len=16633  LWT=2026-09-10T19:57:51.0341317Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\DataLinkPacket.cs  len=1043  LWT=2026-09-10T19:57:51.0351355Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\EthernetFields.cs  len=2110  LWT=2026-09-10T19:57:51.0351355Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\EthernetPacket.cs  len=13396  LWT=2026-09-10T19:57:51.0351355Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\EthernetPacketType.cs  len=5780  LWT=2026-09-10T19:57:51.0356394Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\ICMPv4Fields.cs  len=2434  LWT=2026-09-10T19:57:51.0356394Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\ICMPv4Packet.cs  len=9435  LWT=2026-09-10T19:57:51.0356394Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\ICMPv4TypeCodes.cs  len=4084  LWT=2026-09-10T19:57:51.0356394Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\ICMPv6Fields.cs  len=2081  LWT=2026-09-10T19:57:51.0356394Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\ICMPv6Packet.cs  len=8686  LWT=2026-09-10T19:57:51.0356394Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\ICMPv6Types.cs  len=1649  LWT=2026-09-10T19:57:51.0356394Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Ieee80211FrameControlField.cs  len=8434  LWT=2026-09-10T19:57:51.0371472Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Ieee80211MacFields.cs  len=2027  LWT=2026-09-10T19:57:51.0371472Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Ieee80211MacFrame.cs  len=12084  LWT=2026-09-10T19:57:51.0371472Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Ieee80211RadioFields.cs  len=2570  LWT=2026-09-10T19:57:51.0371472Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Ieee80211RadioPacket.cs  len=8882  LWT=2026-09-10T19:57:51.0371472Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Ieee80211RadioTapChannelFlags.cs  len=1772  LWT=2026-09-10T19:57:51.0371472Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Ieee80211RadioTapFields.cs  len=22298  LWT=2026-09-10T19:57:51.0379914Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Ieee80211RadioTapFlags.cs  len=1560  LWT=2026-09-10T19:57:51.0379914Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Ieee80211RadioTapType.cs  len=6417  LWT=2026-09-10T19:57:51.0379914Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\IGMPMessageType.cs  len=1199  LWT=2026-09-10T19:57:51.0356394Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\IGMPv2Fields.cs  len=2467  LWT=2026-09-10T19:57:51.0356394Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\IGMPv2Packet.cs  len=7912  LWT=2026-09-10T19:57:51.0356394Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\ILogInactive.cs  len=8379  LWT=2026-09-10T19:57:51.0356394Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\InternetLinkLayerPacket.cs  len=2662  LWT=2026-09-10T19:57:51.0379914Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\InternetPacket.cs  len=1154  LWT=2026-09-10T19:57:51.0379914Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\IpPacket.cs  len=11557  LWT=2026-09-10T19:57:51.0385017Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\IpPort.cs  len=2098  LWT=2026-09-10T19:57:51.0385017Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\IPProtocolType.cs  len=2718  LWT=2026-09-10T19:57:51.0366439Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\IPv4Fields.cs  len=4660  LWT=2026-09-10T19:57:51.0366439Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\IPv4Packet.cs  len=25117  LWT=2026-09-10T19:57:51.0366439Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\IPv6Fields.cs  len=3781  LWT=2026-09-10T19:57:51.0366439Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\IPv6Packet.cs  len=17806  LWT=2026-09-10T19:57:51.0366439Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\IpVersion.cs  len=1097  LWT=2026-09-10T19:57:51.0385017Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LinkLayers.cs  len=3724  LWT=2026-09-10T19:57:51.0410441Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LinuxSLLFields.cs  len=3339  LWT=2026-09-10T19:57:51.0410441Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LinuxSLLPacket.cs  len=8625  LWT=2026-09-10T19:57:51.0410441Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LinuxSLLType.cs  len=1650  LWT=2026-09-10T19:57:51.0410441Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LLDPPacket.cs  len=11821  LWT=2026-09-10T19:57:51.0410441Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Packet.cs  len=15949  LWT=2026-09-10T19:57:51.0425643Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\PacketOrByteArraySegment.cs  len=3133  LWT=2026-09-10T19:57:51.0425643Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\PayloadType.cs  len=1028  LWT=2026-09-10T19:57:51.0425643Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\PPPFields.cs  len=1532  LWT=2026-09-10T19:57:51.0425643Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\PPPoECode.cs  len=2193  LWT=2026-09-10T19:57:51.0425643Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\PPPoEFields.cs  len=2524  LWT=2026-09-10T19:57:51.0425643Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\PPPoEPacket.cs  len=11007  LWT=2026-09-10T19:57:51.0425643Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\PPPPacket.cs  len=7454  LWT=2026-09-10T19:57:51.0425643Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\PPPProtocol.cs  len=1203  LWT=2026-09-10T19:57:51.0425643Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\SessionPacket.cs  len=1065  LWT=2026-09-10T19:57:51.0425643Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\StringOutputType.cs  len=1401  LWT=2026-09-10T19:57:51.0425643Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\TcpFields.cs  len=4471  LWT=2026-09-10T19:57:51.0455999Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\TcpPacket.cs  len=27810  LWT=2026-09-10T19:57:51.0455999Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\TransportPacket.cs  len=4157  LWT=2026-09-10T19:57:51.0455999Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\UdpFields.cs  len=2274  LWT=2026-09-10T19:57:51.0455999Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\UdpPacket.cs  len=11882  LWT=2026-09-10T19:57:51.0455999Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\WakeOnLanPacket.cs  len=12057  LWT=2026-09-10T19:57:51.0455999Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LLDP\AddressFamily.cs  len=1672  LWT=2026-09-10T19:57:51.0385017Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LLDP\CapabilityOptions.cs  len=2032  LWT=2026-09-10T19:57:51.0390131Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LLDP\ChassisID.cs  len=11677  LWT=2026-09-10T19:57:51.0390131Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LLDP\ChassisSubTypes.cs  len=1923  LWT=2026-09-10T19:57:51.0390131Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LLDP\EndOfLLDPDU.cs  len=2207  LWT=2026-09-10T19:57:51.0390131Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LLDP\InterfaceNumbering.cs  len=1219  LWT=2026-09-10T19:57:51.0390131Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LLDP\ManagementAddress.cs  len=12148  LWT=2026-09-10T19:57:51.0395241Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LLDP\NetworkAddress.cs  len=6888  LWT=2026-09-10T19:57:51.0395241Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LLDP\OrganizationSpecific.cs  len=6317  LWT=2026-09-10T19:57:51.0395241Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LLDP\PortDescription.cs  len=2428  LWT=2026-09-10T19:57:51.0395241Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LLDP\PortID.cs  len=8446  LWT=2026-09-10T19:57:51.0395241Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LLDP\PortSubTypes.cs  len=1965  LWT=2026-09-10T19:57:51.0395241Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LLDP\StringTLV.cs  len=3901  LWT=2026-09-10T19:57:51.0395241Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LLDP\SystemCapabilities.cs  len=5895  LWT=2026-09-10T19:57:51.0395241Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LLDP\SystemDescription.cs  len=2482  LWT=2026-09-10T19:57:51.0395241Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LLDP\SystemName.cs  len=2006  LWT=2026-09-10T19:57:51.0395241Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LLDP\TimeToLive.cs  len=3723  LWT=2026-09-10T19:57:51.0410441Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LLDP\TLV.cs  len=5200  LWT=2026-09-10T19:57:51.0395241Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LLDP\TLVCollection.cs  len=3010  LWT=2026-09-10T19:57:51.0395241Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LLDP\TLVTypeLength.cs  len=4629  LWT=2026-09-10T19:57:51.0410441Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\LLDP\TLVTypes.cs  len=4963  LWT=2026-09-10T19:57:51.0410441Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\MiscUtil\Conversion\BigEndianBitConverter.cs  len=2713  LWT=2026-09-10T19:57:51.0410441Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\MiscUtil\Conversion\DoubleConverter.cs  len=7973  LWT=2026-09-10T19:57:51.0410441Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\MiscUtil\Conversion\EndianBitConverter.cs  len=30939  LWT=2026-09-10T19:57:51.0410441Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\MiscUtil\Conversion\Endianness.cs  len=403  LWT=2026-09-10T19:57:51.0425643Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\MiscUtil\Conversion\LittleEndianBitConverter.cs  len=2690  LWT=2026-09-10T19:57:51.0425643Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\MiscUtil\IO\EndianBinaryReader.cs  len=21343  LWT=2026-09-10T19:57:51.0425643Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\MiscUtil\IO\EndianBinaryWriter.cs  len=13456  LWT=2026-09-10T19:57:51.0425643Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Tcp\AlternateChecksumData.cs  len=2777  LWT=2026-09-10T19:57:51.0440848Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Tcp\AlternateChecksumRequest.cs  len=2624  LWT=2026-09-10T19:57:51.0440848Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Tcp\ChecksumAlgorighmType.cs  len=1527  LWT=2026-09-10T19:57:51.0440848Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Tcp\Echo.cs  len=1658  LWT=2026-09-10T19:57:51.0440848Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Tcp\EchoReply.cs  len=1815  LWT=2026-09-10T19:57:51.0440848Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Tcp\EndOfOptions.cs  len=2299  LWT=2026-09-10T19:57:51.0440848Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Tcp\MaximumSegmentSize.cs  len=2598  LWT=2026-09-10T19:57:51.0440848Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Tcp\MD5Signature.cs  len=2720  LWT=2026-09-10T19:57:51.0440848Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Tcp\NoOperation.cs  len=2331  LWT=2026-09-10T19:57:51.0440848Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Tcp\Option.cs  len=3384  LWT=2026-09-10T19:57:51.0440848Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Tcp\OptionTypes.cs  len=3784  LWT=2026-09-10T19:57:51.0440848Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Tcp\SACK.cs  len=3500  LWT=2026-09-10T19:57:51.0440848Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Tcp\SACKPermitted.cs  len=1776  LWT=2026-09-10T19:57:51.0440848Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Tcp\TimeStamp.cs  len=2982  LWT=2026-09-10T19:57:51.0440848Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Tcp\UserTimeout.cs  len=3294  LWT=2026-09-10T19:57:51.0440848Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Tcp\WindowScaleFactor.cs  len=2882  LWT=2026-09-10T19:57:51.0455999Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Utils\AnsiEscapeSequences.cs  len=4245  LWT=2026-09-10T19:57:51.0455999Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Utils\ByteArraySegment.cs  len=8054  LWT=2026-09-10T19:57:51.0455999Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Utils\ChecksumUtils.cs  len=3850  LWT=2026-09-10T19:57:51.0455999Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Utils\HexPrinter.cs  len=1907  LWT=2026-09-10T19:57:51.0455999Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\PacketDotNet\Utils\RandomUtils.cs  len=1950  LWT=2026-09-10T19:57:51.0455999Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\ARP.cs  len=8639  LWT=2026-09-10T19:57:51.0455999Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\CaptureDeviceList.cs  len=6546  LWT=2026-09-10T19:57:51.0491554Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\CaptureEventArgs.cs  len=1929  LWT=2026-09-10T19:57:51.0491554Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\CaptureStoppedEventHandler.cs  len=1044  LWT=2026-09-10T19:57:51.0491554Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\CaptureStoppedEventStatus.cs  len=1179  LWT=2026-09-10T19:57:51.0491554Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\DeviceMode.cs  len=1416  LWT=2026-09-10T19:57:51.0491554Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\DeviceNotReadyException.cs  len=1188  LWT=2026-09-10T19:57:51.0491554Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\ICaptureDevice.cs  len=5982  LWT=2026-09-10T19:57:51.0491554Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\ICaptureStatistics.cs  len=1347  LWT=2026-09-10T19:57:51.0491554Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\InvalidOperationDuringBackgroundCaptureException.cs  len=1346  LWT=2026-09-10T19:57:51.0491554Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\NotSupportedOnCaptureFileException.cs  len=1243  LWT=2026-09-10T19:57:51.0501593Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\PacketArrivalEventHandler.cs  len=996  LWT=2026-09-10T19:57:51.0501593Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\Pcap.cs  len=3508  LWT=2026-09-10T19:57:51.0521425Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\PcapException.cs  len=1177  LWT=2026-09-10T19:57:51.0521425Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\PosixTimeval.cs  len=9157  LWT=2026-09-10T19:57:51.0521425Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\RawCapture.cs  len=2739  LWT=2026-09-10T19:57:51.0521425Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\StatisticsException.cs  len=1207  LWT=2026-09-10T19:57:51.0521425Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\Version.cs  len=1531  LWT=2026-09-10T19:57:51.0521425Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\WinPcapRequiredException.cs  len=1266  LWT=2026-09-10T19:57:51.0536682Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\AirPcap\AirPcapAdapterBus.cs  len=1557  LWT=2026-09-10T19:57:51.0471243Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\AirPcap\AirPcapAdapterId.cs  len=1466  LWT=2026-09-10T19:57:51.0471243Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\AirPcap\AirPcapBands.cs  len=1137  LWT=2026-09-10T19:57:51.0471243Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\AirPcap\AirPcapChannelInfo.cs  len=3104  LWT=2026-09-10T19:57:51.0471243Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\AirPcap\AirPcapChannelInfoFlags.cs  len=1604  LWT=2026-09-10T19:57:51.0471243Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\AirPcap\AirPcapDecryptionState.cs  len=1379  LWT=2026-09-10T19:57:51.0471243Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\AirPcap\AirPcapDevice.cs  len=34976  LWT=2026-09-10T19:57:51.0471243Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\AirPcap\AirPcapDeviceCapabilities.cs  len=4256  LWT=2026-09-10T19:57:51.0471243Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\AirPcap\AirPcapDeviceDescription.cs  len=1813  LWT=2026-09-10T19:57:51.0471243Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\AirPcap\AirPcapDeviceList.cs  len=8296  LWT=2026-09-10T19:57:51.0471243Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\AirPcap\AirPcapDeviceTimestamp.cs  len=2263  LWT=2026-09-10T19:57:51.0471243Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\AirPcap\AirPcapKey.cs  len=2383  LWT=2026-09-10T19:57:51.0471243Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\AirPcap\AirPcapKeyType.cs  len=1351  LWT=2026-09-10T19:57:51.0471243Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\AirPcap\AirPcapLinkTypes.cs  len=1690  LWT=2026-09-10T19:57:51.0471243Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\AirPcap\AirPcapMacFlags.cs  len=2055  LWT=2026-09-10T19:57:51.0471243Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\AirPcap\AirPcapMediumType.cs  len=1216  LWT=2026-09-10T19:57:51.0471243Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\AirPcap\AirPcapPacketHeader.cs  len=2990  LWT=2026-09-10T19:57:51.0471243Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\AirPcap\AirPcapSafeNativeMethods.cs  len=58429  LWT=2026-09-10T19:57:51.0486436Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\AirPcap\AirPcapStatistics.cs  len=2926  LWT=2026-09-10T19:57:51.0486436Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\AirPcap\AirPcapUnmanagedStructures.cs  len=12533  LWT=2026-09-10T19:57:51.0486436Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\AirPcap\AirPcapValidationType.cs  len=1638  LWT=2026-09-10T19:57:51.0486436Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\AirPcap\AirPcapVersion.cs  len=2208  LWT=2026-09-10T19:57:51.0491554Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\AirPcap\Win32SafeNativeMethods.cs  len=1171  LWT=2026-09-10T19:57:51.0491554Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\LibPcap\CaptureFileReaderDevice.cs  len=3484  LWT=2026-09-10T19:57:51.0491554Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\LibPcap\CaptureFileWriterDevice.cs  len=8905  LWT=2026-09-10T19:57:51.0501593Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\LibPcap\LibPcapLiveDevice.cs  len=9935  LWT=2026-09-10T19:57:51.0501593Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\LibPcap\LibPcapLiveDeviceList.cs  len=7606  LWT=2026-09-10T19:57:51.0501593Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\LibPcap\LibPcapSafeNativeMethods.cs  len=11721  LWT=2026-09-10T19:57:51.0501593Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\LibPcap\PcapAddress.cs  len=3090  LWT=2026-09-10T19:57:51.0501593Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\LibPcap\PcapDevice.cs  len=20480  LWT=2026-09-10T19:57:51.0501593Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\LibPcap\PcapDeviceCaptureLoop.cs  len=16954  LWT=2026-09-10T19:57:51.0501593Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\LibPcap\PcapHeader.cs  len=6001  LWT=2026-09-10T19:57:51.0501593Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\LibPcap\PcapInterface.cs  len=6639  LWT=2026-09-10T19:57:51.0501593Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\LibPcap\PcapStatistics.cs  len=4952  LWT=2026-09-10T19:57:51.0501593Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\LibPcap\PcapUnmanagedStructures.cs  len=11106  LWT=2026-09-10T19:57:51.0501593Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\LibPcap\Sockaddr.cs  len=6411  LWT=2026-09-10T19:57:51.0501593Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\WinPcap\AuthenticationTypes.cs  len=1140  LWT=2026-09-10T19:57:51.0521425Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\WinPcap\CaptureMode.cs  len=1328  LWT=2026-09-10T19:57:51.0521425Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\WinPcap\OpenFlags.cs  len=1758  LWT=2026-09-10T19:57:51.0521425Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\WinPcap\RemoteAuthentication.cs  len=2078  LWT=2026-09-10T19:57:51.0521425Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\WinPcap\SafeNativeMethods.cs  len=9484  LWT=2026-09-10T19:57:51.0521425Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\WinPcap\SendQueue.cs  len=7389  LWT=2026-09-10T19:57:51.0521425Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\WinPcap\SendQueueTransmitModes.cs  len=1262  LWT=2026-09-10T19:57:51.0521425Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\WinPcap\StatisticsModeEventArgs.cs  len=1772  LWT=2026-09-10T19:57:51.0521425Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\WinPcap\StatisticsModeEventHandler.cs  len=1107  LWT=2026-09-10T19:57:51.0521425Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\WinPcap\StatisticsModePacket.cs  len=2119  LWT=2026-09-10T19:57:51.0536682Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\WinPcap\UnmanagedStructures.cs  len=1219  LWT=2026-09-10T19:57:51.0536682Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\WinPcap\WinPcapDevice.cs  len=10716  LWT=2026-09-10T19:57:51.0536682Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\WinPcap\WinPcapDeviceList.cs  len=10004  LWT=2026-09-10T19:57:51.0536682Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Properties\AssemblyInfo.cs  len=1440  LWT=2026-09-10T19:57:51.0543169Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Properties\Resources.Designer.cs  len=2856  LWT=2026-09-10T19:57:51.0548256Z
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\Properties\Settings.Designer.cs  len=1097  LWT=2026-09-10T19:57:51.0548256Z
+
+--- nexusclient top-level (dirs + files) ---
+items count=29
+  .vs  len=[dir]  LWT=2026-09-12T00:05:11.9347790Z
+  LoadingScreens  len=[dir]  LWT=2012-04-15T05:25:32.0000000Z
+  shaders  len=[dir]  LWT=2012-04-15T05:25:32.0000000Z
+  swtor  len=[dir]  LWT=2026-09-10T20:45:07.9704076Z
+  Temp  len=[dir]  LWT=2012-09-25T19:03:36.0000000Z
+  binkw32.dll  len=230752  LWT=2012-04-13T08:03:00.0000000Z
+  bugslayerutil.dll  len=105824  LWT=2012-04-13T08:03:00.0000000Z
+  client_defaults.ini  len=580  LWT=2026-09-16T22:18:40.5333464Z
+  go1.bat  len=595  LWT=2026-09-11T18:21:45.9516856Z
+  granny2.dll  len=525664  LWT=2012-04-13T08:03:00.0000000Z
+  main_gfx_1.release83.tor  len=15198418  LWT=2026-09-11T21:07:02.4398156Z
+  main_gfx_1.tor  len=12955175  LWT=2026-09-11T21:14:00.8975136Z
+  MemoryMan.dll  len=143360  LWT=2026-09-10T20:38:54.6914662Z
+  MemoryMan.dll.before-detours4-20260910-163918.bak  len=35328  LWT=2012-09-25T22:40:11.0000000Z
+  MemoryMan2.dll  len=96256  LWT=2012-04-07T21:52:16.0000000Z
+  MemoryMan222.dll  len=46432  LWT=2012-04-13T08:03:00.0000000Z
+  Nexus.dll  len=40448  LWT=2012-03-30T15:34:00.0000000Z
+  PlatformInfo.dll  len=69984  LWT=2012-04-13T08:03:00.0000000Z
+  PlatformLib.dll  len=17248  LWT=2012-04-13T08:03:00.0000000Z
+  RemoteRenderer.dll  len=814432  LWT=2012-04-13T08:03:00.0000000Z
+  RemoteRendererClient.dll  len=220512  LWT=2012-04-13T08:03:00.0000000Z
+  RemoteRendererServer.icb  len=203  LWT=2011-11-05T05:49:00.0000000Z
+  RzSDKEng.dll  len=1648480  LWT=2012-04-13T08:03:00.0000000Z
+  RzSDKMod.dll  len=1624416  LWT=2012-04-13T08:03:00.0000000Z
+  SpeedTreeRT.dll  len=333664  LWT=2012-04-13T08:03:00.0000000Z
+  swtor-emu.exe  len=17862496  LWT=2012-04-12T22:13:57.0000000Z
+  swtor.icb  len=566  LWT=2011-11-05T05:49:00.0000000Z
+  swtor_dual.icb  len=393  LWT=2011-11-05T05:49:00.0000000Z
+  version.txt  len=57  LWT=2012-04-13T08:05:00.0000000Z
+
+=== locate C# TOR.Character ===
+TOR.Character / TOR namespace candidate files count=17
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\CharacterListRequest.cs  [.cs]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\CMsgC586BD22.cs  [.cs]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\CMsgF96DCDB0.cs  [.cs]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\CreateCharacterRequest.cs  [.cs]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\SelectCharacterRequest.cs  [.cs]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Server\CharacterListReply.cs  [.cs]
+  D:\SWTORClassic\swtoremu\SharpServer\NET\TORGameClient.cs  [.cs]
+  D:\SWTORClassic\swtoremu\SharpServer\TOR\Character.cs  [.cs]
+  D:\SWTORClassic\swtoremu\Tools\PacketAnalyser\PCAP\SharpPcap\AirPcap\AirPcapMacFlags.cs  [.cs]
+  D:\SWTORClassic\swtoremu\Tools\SCPTExtractor\Properties\Resources.Designer.cs  [.cs]
+  D:\SWTORClassic\swtoremu\Tools\SCPTExtractor\Properties\Settings.Designer.cs  [.cs]
+  D:\SWTORClassic\swtoremu\Tools\SCPTExtractor\App.xaml.cs  [.cs]
+  D:\SWTORClassic\swtoremu\Tools\SCPTExtractor\Extensions.cs  [.cs]
+  D:\SWTORClassic\swtoremu\Tools\SCPTExtractor\HeroScript.cs  [.cs]
+  D:\SWTORClassic\swtoremu\Tools\SCPTExtractor\MainWindow.xaml.cs  [.cs]
+  D:\SWTORClassic\swtoremu\Tools\SCPTExtractor\SCPTExtractor.csproj  [.csproj]
+  D:\SWTORClassic\swtoremu\Tools\SCPTExtractor\ScriptDialog.xaml.cs  [.cs]
+
+=== TOR.* references in SharpServer .cs + .csproj ===
+TOR.* reference lines count=46
+  D:\SWTORClassic\swtoremu\SharpServer\Program.cs: Log.Init("NexusToR.log", LogLevel.Client | LogLevel.Debug | LogLevel.Error | LogLevel.Info | LogLevel.Warning, false);
+  D:\SWTORClassic\swtoremu\SharpServer\Base\Crypto\BigInteger.cs: //    - Added overloading of ^ operator.
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\IO\BsonBuffer.cs: throw new FileFormatException("String is missing null terminator.");
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\ObjectModel\BsonArray.cs: /// <returns>An enumerator.</returns>
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\ObjectModel\BsonDocument.cs: idGenerator = BsonBinaryDataGuidGenerator.GetInstance(idBinaryData.GuidRepresentation);
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\ObjectModel\BsonTypeMapper.cs: var list = (IList<object>)Activator.CreateInstance(options.MapBsonArrayTo);
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\Serialization\BsonClassMap.cs: /// Gets the discriminator.
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\Serialization\BsonClassMapSerializer.cs: discriminator.WriteTo(bsonWriter);
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\Serialization\BsonDefaultSerializer.cs: /// <param name="discriminator">The discriminator.</param>
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\Serialization\BsonMemberMap.cs: /// Gets the Id generator.
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\Serialization\BsonSerializer.cs: /// Looks up an IdGenerator.
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\Serialization\TypeNameDiscriminator.cs: /// Resolves a type name discriminator.
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\Serialization\Attributes\BsonDiscriminatorAttribute.cs: /// <param name="discriminator">The discriminator.</param>
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\Serialization\Conventions\DiscriminatorConventions.cs: if (discriminator.IsBsonArray)
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\Serialization\Conventions\IdGeneratorConventions.cs: /// <returns>An Id generator.</returns>
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\Serialization\IdGenerators\IdGenerators.cs: /// Gets an instance of ObjectIdGenerator.
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\Serialization\Serializers\ArraySerializer.cs: bsonWriter.WriteString("_t", TypeNameDiscriminator.GetDiscriminator(actualType));
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\Serialization\Serializers\BsonIBsonSerializableSerializer.cs: var value = (IBsonSerializable)Activator.CreateInstance(nominalType, true); // private default constructor OK
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\Serialization\Serializers\CollectionGenericSerializers.cs: var list = (nominalType == typeof(List<T>) || nominalType.IsInterface) ? new List<T>() : (ICollection<T>)Activator.CreateInstance(nominalType);
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\Serialization\Serializers\CollectionSerializers.cs: bsonWriter.WriteString("_t", TypeNameDiscriminator.GetDiscriminator(actualType));
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\Serialization\Serializers\DictionaryGenericSerializer.cs: bsonWriter.WriteString("_t", TypeNameDiscriminator.GetDiscriminator(actualType));
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Bson\Serialization\Serializers\DictionarySerializer.cs: bsonWriter.WriteString("_t", TypeNameDiscriminator.GetDiscriminator(actualType));
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Core\MongoCollection.cs: if (idGenerator != null && idGenerator.IsEmpty(id))
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Core\MongoCursor.cs: /// Creates a new MongoCursor. It is very unlikely that you will call this constructor. Instead, see all the Find methods in MongoCollection.
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Core\MongoCursorEnumerator.cs: /// Disposes of any resources held by this enumerator.
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Core\MongoDatabase.cs: var commandResult = (CommandResult)Activator.CreateInstance(commandResultType); // constructor can't have arguments
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Core\MongoServer.cs: directConnector.Connect(timeout);
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Core\CommandResults\CollectionStatsResult.cs: /// Gets the padding factor.
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Core\CommandResults\GeoHaystackSearchResult.cs: /// <returns>An enumerator.</returns>
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Core\CommandResults\GeoNearResult.cs: /// <returns>An enumerator.</returns>
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Internal\BlockingQueue.cs: Monitor.Wait(_syncRoot, timeRemaining);
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Internal\MongoConnectionPool.cs: Monitor.Wait(_connectionPoolLock, timeRemaining);
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Linq\MongoQueryProvider.cs: var translatedQuery = MongoQueryTranslator.Translate(this, ((IQueryable)query).Expression);
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Linq\Expressions\ExpressionVisitor.cs: /// An abstract base class for an Expression visitor.
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Linq\Translators\MongoQueryTranslator.cs: expression = PartialEvaluator.Evaluate(expression, provider.CanBeEvaluatedLocally);
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Linq\Translators\PartialEvaluator.cs: return Evaluate(expression, PartialEvaluator.CanBeEvaluatedLocally);
+  D:\SWTORClassic\swtoremu\SharpServer\MongoDB\Driver\Linq\Translators\SelectQuery.cs: var projector = Activator.CreateInstance(projectorType, cursor, projection);
+  D:\SWTORClassic\swtoremu\SharpServer\NET\TCPClient.cs: this.Encryptor.Reset();
+  D:\SWTORClassic\swtoremu\SharpServer\NET\TORGameClient.cs: private TOR.Character _activeCharacter;
+  D:\SWTORClassic\swtoremu\SharpServer\NET\TORGameServerPacket.cs: encryptor.ProcessBytes(fData, 0, fData.Length, eData, 0);
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packet\Packet.cs: pEncryptor.ProcessBytes(Data, 0, Data.Length, oData, 0);
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packet\PacketStream.cs: mpDecryptor.ProcessBytes(mpBuffer, 0, mpLength, dBuffer, 0);
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\CMsgC586BD22.cs: client.ActiveCharacter = new TOR.Character(charID);
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\CMsgF96DCDB0.cs: client.ActiveCharacter = new TOR.Character(charID);
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\CreateCharacterRequest.cs: TOR.Character nChar = new TOR.Character();
+  D:\SWTORClassic\swtoremu\SharpServer\NET\Packets\Client\SelectCharacterRequest.cs: GetClient().ActiveCharacter = new TOR.Character(CharID + 1); // Is this needed?

@@ -4,7 +4,7 @@
 // Author: NoFaTe
 // ==========================================================
 
-#include "detours.h"
+#include <detours.h>
 
 #ifndef TOR_H
 #define TOR_H

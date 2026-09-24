@@ -1,0 +1,239 @@
+<createControlType class='_GUILayer' type='_layer' description="Clean Engine GUI Layer" treePath='CleanEngine' ignoreMouseEvents='true'>
+  <size x='1' y='1'/>
+  <position x='0' y='0'/>
+  <defaultStatePresentation>
+    <color r='0' g='0' b='0' a='0'/>
+  </defaultStatePresentation>
+  <anchor left='true' right='true' top='true' bottom='true'/>
+</createControlType>
+
+<createControlType class='_GUIPopupLayer' type='_popupLayer' description="Clean Engine Popup Layer" treePath='CleanEngine' ignoreMouseEvents='true'>
+  <size x='1' y='1'/>
+  <position x='0' y='0'/>
+  <defaultStatePresentation>
+    <color r='0' g='0' b='0' a='0'/>
+  </defaultStatePresentation>
+  <anchor left='true' right='true' top='true' bottom='true'/>
+</createControlType>
+
+<createControlType class='_GUIMasterLayer' type='_masterLayer' description="Clean Engine Master Layer" treePath='CleanEngine' ignoreMouseEvents='true'>
+  <size x='1' y='1'/>
+  <position x='0' y='0'/>
+  <defaultStatePresentation>
+    <color r='0' g='0' b='0' a='0'/>
+  </defaultStatePresentation>
+  <anchor left='true' right='true' top='true' bottom='true'/>
+</createControlType>
+
+<createControlType class='_GUIModalLayer' type='_modalLayer' description="Clean Engine Modal Layer" treePath='CleanEngine' ignoreMouseEvents='true'>
+  <size x='1' y='1'/>
+  <position x='0' y='0'/>
+  <defaultStatePresentation>
+    <color r='0' g='0' b='0' a='0'/>
+  </defaultStatePresentation>
+  <anchor left='true' right='true' top='true' bottom='true'/>
+</createControlType>
+
+<createControlType class='_GUIClickShield' type='_clickShield' description="Panel to prevent access to controls covered by a modal layer" treePath='CleanEngine' skipTextureAlphaTest='true' gotoTopOnMouseDown='false' ignoreMouseEvents='false'>
+  <size x='1' y='1'/>
+  <position x='0' y='0'/>
+  <defaultStatePresentation>
+    <color r='0' g='0' b='0' a='0.5'/>
+  </defaultStatePresentation>
+</createControlType>
+
+<createControlType class='_GUIAnnotation' type='_annotation' description="Panel to flash and get attention" treePath='CleanEngine' skipTextureAlphaTest='true' gotoTopOnMouseDown='false' additiveBlending='true' ignoreMouseEvents='false' dockMode='NONE'>
+  <size x='1' y='1'/>
+  <position x='0' y='0'/>
+  <defaultStatePresentation>
+    <color r='0.8' g='0.8' b='0.64' a='0.2'/>
+  </defaultStatePresentation>
+</createControlType>
+
+<createControlType class='GUIPanel' type='_spacer' description="Clean Engine Spacer" treePath="CleanEngine" ignoreMouseEvents='true'>
+  <size x='1.0' y='1.0'/>
+  <defaultStatePresentation>
+    <color a='0'/>
+  </defaultStatePresentation>
+</createControlType>
+
+<createControlType class='GUIPanel' type='_panel' description="Clean Engine Panel" treePath="CleanEngine" ignoreMouseEvents='true'>
+  <size x='1.0' y='1.0'/>
+</createControlType>
+
+<createControlType class='_GUIIcon' type='_icon' description="Clean Engine Icon" treePath="CleanEngine" inheritHoveringState='false' inheritDisabledState='false' inheritSelectedState='false'>
+  <size x='1.0' y='1.0'/>
+</createControlType>
+
+<createControlType class='_GUIDraggableIcon' type='_draggableIcon' description="Clean Engine Draggable Icon" treePath="CleanEngine" inheritHoveringState='false' inheritDisabledState='false' inheritSelectedState='false'>
+  <size x='1.0' y='1.0'/>
+</createControlType>
+
+<createControlType class='GUIMovePanel' type='_movePanel' description="Clean Engine Move Panel" treePath="CleanEngine">
+  <size x='1.0' y='1.0'/>
+  <defaultStatePresentation>
+    <color a='0'/>
+  </defaultStatePresentation>
+</createControlType>
+
+<createControlType class='GUILabel' type='_label' description="Clean Engine Static Text Label" treePath="CleanEngine" ignoreMouseEvents='true' justification='TOPLEFT'>
+  <size x='100.0' y='20.0'/>
+  <defaultStatePresentation>
+    <color r='0.2' g='0.2' b='0.2' a='1'/>
+  </defaultStatePresentation>
+  <disabledStatePresentation>
+    <color r='0.4' g='0.4' b='0.4'/>
+  </disabledStatePresentation>
+  <textFormat wordBreak='true'/>
+</createControlType>
+
+<createControlType class='GUICheckBox' type='_checkBox' description='Clean Engine Checkbox' treePath='CleanEngine' texture="GUI\_CleanEngineGUI.dds" inheritHoveringState='false' inheritselectedstate='false'>
+  <size x='14.0' y='14.0'/>
+  <defaultStatePresentation>
+    <size x='14.0' y='14.0'/>
+    <position x='3.0' y='3.0'/>
+  </defaultStatePresentation>
+  <hoverStatePresentation>
+    <size x='14.0' y='14.0'/>
+    <position x='3.0' y='23.0'/>
+  </hoverStatePresentation>
+  <disabledStatePresentation>
+    <size x='14.0' y='14.0'/>
+    <position x='3.0' y='3.0'/>
+    <color r='0.4' g='0.4' b='0.4'/>
+  </disabledStatePresentation>
+  <selectedStatePresentation>
+    <size x='14.0' y='14.0'/>
+    <position x='3.0' y='43.0'/>
+  </selectedStatePresentation>
+  <selectedDisabledStatePresentation>
+    <size x='14.0' y='14.0'/>
+    <position x='3.0' y='43.0'/>
+    <color r='0.4' g='0.4' b='0.4'/>
+  </selectedDisabledStatePresentation>
+</createControlType>
+
+<createControlType class='GUIRadioButton' type='_radioButton' description='Clean Engine Radio Button' treePath='CleanEngine' texture="GUI\_CleanEngineGUI.dds" inheritHoveringState='false'>
+  <size x='14.0' y='14.0'/>
+  <defaultStatePresentation>
+    <size x='14.0' y='14.0'/>
+    <position x='3.0' y='83.0'/>
+  </defaultStatePresentation>
+  <hoverStatePresentation>
+    <size x='14.0' y='14.0'/>
+    <position x='3.0' y='103.0'/>
+  </hoverStatePresentation>
+  <disabledStatePresentation>
+    <size x='14.0' y='14.0'/>
+    <position x='3.0' y='83.0'/>
+    <color r='0.4' g='0.4' b='0.4'/>
+  </disabledStatePresentation>
+  <selectedStatePresentation>
+    <size x='14.0' y='14.0'/>
+    <position x='3.0' y='123.0'/>
+  </selectedStatePresentation>
+  <selectedDisabledStatePresentation>
+    <size x='14.0' y='14.0'/>
+    <position x='3.0' y='123.0'/>
+    <color r='0.4' g='0.4' b='0.4'/>
+  </selectedDisabledStatePresentation>
+</createControlType>
+
+<createControlType class='GUITextInputBox' type='_textInputBox' description="Clean Engine Text Input Box" treePath="CleanEngine" maxLen='1024' historySize='25' textDefaultColor="#0.9,0.9,0.9,1.0" textDisabledColor="#0.55,0.55,0.55,1.0">
+  <size x='30.0' y='20.0'/>
+  <defaultStatePresentation>
+    <color r='0.2' g='0.2' b='0.2'/>
+  </defaultStatePresentation>
+  <selectedStatePresentation>
+    <color r='0' g='0.49' b='0.74' a='1'/>
+  </selectedStatePresentation>
+  <disabledStatePresentation>
+    <color r='0.4' g='0.4' b='0.4'/>
+  </disabledStatePresentation>
+</createControlType>
+
+<createControlType class='GUINumericField' type='_numericInputBox' description="Clean Engine Numeric Field" treePath="CleanEngine" forceInteger='true' textdefaultcolor='#0.9,0.9,0.9,1.0' textdisabledcolor='#0.55,0.55,0.55,1.0' maxLen='11' historySize='0' inheritHoveringState='false'>
+  <size x='50.0' y='20.0'/>
+  <defaultStatePresentation>
+    <color r='0.2' g='0.2' b='0.2'/>
+  </defaultStatePresentation>
+  <selectedStatePresentation>
+    <color r='0' g='0.45' b='0.50' a='1'/>
+  </selectedStatePresentation>
+  <disabledStatePresentation>
+    <color r='0.4' g='0.4' b='0.4'/>
+  </disabledStatePresentation>
+  <range min='-100' max='100'/>
+</createControlType>
+
+<createControlType class='GUINumericUpDownButton' type='_numericUpButton' description="Clean Engine Numeric Up Button" treePath="CleanEngine" texture="GUI\_CleanEngineGUI.dds" skipTextureAlphaTest='true'>
+  <size x='11' y='10'/>
+  <defaultStatePresentation>
+    <size x='11' y='10'/>
+    <position x='4' y='185'/>
+  </defaultStatePresentation>
+  <hoverStatePresentation>
+    <size x='11' y='10'/>
+    <position x='4' y='212'/>
+  </hoverStatePresentation>
+  <disabledStatePresentation>
+    <size x='11' y='10'/>
+    <position x='4' y='185'/>
+  </disabledStatePresentation>
+</createControlType>
+
+<createControlType class='GUINumericUpDownButton' type='_numericDownButton' description="Clean Engine Numeric Down Button" treePath="CleanEngine" texture="GUI\_CleanEngineGUI.dds" skipTextureAlphaTest='true' goesDown='true'>
+  <size x='11' y='10'/>
+  <defaultStatePresentation>
+    <size x='11' y='10'/>
+    <position x='4' y='201'/>
+  </defaultStatePresentation>
+  <hoverStatePresentation>
+    <size x='11' y='10'/>
+    <position x='4' y='230'/>
+  </hoverStatePresentation>
+  <disabledStatePresentation>
+    <size x='11' y='10'/>
+    <position x='4' y='201'/>
+  </disabledStatePresentation>
+</createControlType>
+
+<createControlType class='GUINumericUpDownDragZone' type='_numericUpDownDragZone' cursorName='SIZENS' description="Clean Engine NumericUpDownDragZone" treePath="CleanEngine" texture="GUI\_CleanEngineGUI.dds" skipTextureAlphaTest='true' inheritHoveringState='false'>
+  <size x='11' y='26'/>
+  <defaultStatePresentation>
+    <color r='0' g='0' b='0' a='0'/>
+  </defaultStatePresentation>
+  <_numericUpButton name='up'/>
+  <_numericDownButton name='down'>
+    <position x='0' y='16'/>
+  </_numericDownButton>
+</createControlType>
+
+<createControlType class='GUIPanel' type='_numericField' description="Clean Engine Numeric Input Field" treePath="CleanEngine" ignoreMouseEvents='true'>
+  <size x='70' y='26'/>
+  <defaultStatePresentation>
+    <color a='0'/>
+  </defaultStatePresentation>
+  <_numericUpDownDragZone name='drag' dockMode='RIGHT'/>
+  <_numericInputBox name='input'>
+    <position x='0' y='3'/>
+    <anchor left='true' right='true'/>
+  </_numericInputBox>
+</createControlType>
+
+<createControlType class='GUICollection' type='_collection' columns='1' description="Clean Engine GUI Collection" treePath="CleanEngine" ignoreMouseEvents='true' dockMode="FILL">
+  <size x='1280.0' y='806.0'/>
+  <maximumSize x='16384.0' y='16384.0'/>
+  <defaultStatePresentation>
+    <color r='0.0' g='0.0' b='0.0' a='0.0'/>
+  </defaultStatePresentation>
+  <area x='0.0' y='0.0'/>
+</createControlType>
+
+<createControlType class='_GUIFlowLayoutContainer' type='_flowLayoutContainer' description='A GUIFlowLayoutContainer' treePath='CleanEngine'>
+  <size x='262.0' y='256.0'/>
+  <maximumSize x='16384.0' y='16384.0'/>
+  <defaultStatePresentation>
+    <color a='0.0'/>
+  </defaultStatePresentation>
+</createControlType>

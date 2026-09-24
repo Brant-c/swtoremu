@@ -1,0 +1,122 @@
+[
+  {
+    "name": "LoadingScreens/LoadingIconAnim.dds",
+    "md5": "cea29f8edf74834851d295e8a315e06c",
+    "size": 524416,
+    "actual": "cea29f8edf74834851d295e8a315e06c"
+  },
+  {
+    "name": "LoadingScreens/LoadingScreen.jpg",
+    "md5": "297fd10b1d9166c39d0b84788cfead1f",
+    "size": 1609037,
+    "actual": "297fd10b1d9166c39d0b84788cfead1f"
+  },
+  {
+    "name": "shaders/shaders.bin",
+    "md5": "e0c194ee31f8cb21ce213dd4b3264639",
+    "size": 21323408,
+    "actual": "e0c194ee31f8cb21ce213dd4b3264639"
+  },
+  {
+    "name": "binkw32.dll",
+    "md5": "359e035f68da239535cec205506c4034",
+    "size": 230752,
+    "actual": "328a0a62f5752d376486e6c6f58c4b54"
+  },
+  {
+    "name": "bugslayerutil.dll",
+    "md5": "841eaa4ed677c0be337678b0f5b6977b",
+    "size": 105824,
+    "actual": "3f4ddbe2c1c5a5883b497c68becfd0a7"
+  },
+  {
+    "name": "client_defaults.ini",
+    "md5": "16a9754b056e12869f06828868499e83",
+    "size": 549,
+    "actual": "b8f5d1cfb329be96af3bf6649dd2e1c9"
+  },
+  {
+    "name": "granny2.dll",
+    "md5": "15ce1ba74279e04425a403085521242a",
+    "size": 525664,
+    "actual": "cf6f147a0879a1d18cca3223357a6f59"
+  },
+  {
+    "name": "MemoryMan.dll",
+    "md5": "06d4a8afb890d6505d6732a992b1d321",
+    "size": 46432,
+    "actual": "a5d8a55aedf7c56a4384a913430b354f"
+  },
+  {
+    "name": "PlatformInfo.dll",
+    "md5": "1895f38985fed58051ed80a6bccfaa5b",
+    "size": 69984,
+    "actual": "dfb71c47ccc60d19c9c11d54489a9b8c"
+  },
+  {
+    "name": "PlatformLib.dll",
+    "md5": "bd68e712d34464de61f46f47a181b56a",
+    "size": 17248,
+    "actual": "47a609c4f4b3e5eaec5802813254dadd"
+  },
+  {
+    "name": "RemoteRenderer.dll",
+    "md5": "356bcac580fa0b1cee0bd9a88b0e0e8a",
+    "size": 814432,
+    "actual": "66265daaebedd5dad03ee6e976d4e64f"
+  },
+  {
+    "name": "RemoteRendererClient.dll",
+    "md5": "b9c37add5f6fb17ce555fd6373e8fde9",
+    "size": 220512,
+    "actual": "21afcc50550a412d83e6faf53538e403"
+  },
+  {
+    "name": "RemoteRendererServer.icb",
+    "md5": "e8fa998ebf6cccda874ee6a3150a168f",
+    "size": 203,
+    "actual": "e8fa998ebf6cccda874ee6a3150a168f"
+  },
+  {
+    "name": "RzSDKEng.dll",
+    "md5": "5ada7f5a083190330b20c65fbcc3da5d",
+    "size": 1648480,
+    "actual": "1d390becf91120e39042c3dc16f8d98e"
+  },
+  {
+    "name": "RzSDKMod.dll",
+    "md5": "2d72f4ae0288b028b7df638e32a58636",
+    "size": 1624416,
+    "actual": "969a4841890d7e0eb9c19dd010cbc0b7"
+  },
+  {
+    "name": "SpeedTreeRT.dll",
+    "md5": "224d1cd21fbced08e70a8d303a52b6d7",
+    "size": 333664,
+    "actual": "13cd0bf8e96dc28809803fb7e46041f7"
+  },
+  {
+    "name": "swtor.exe",
+    "md5": "c2fc455757121ca4ba36caf30428eafe",
+    "size": 17862496,
+    "actual": null
+  },
+  {
+    "name": "swtor.icb",
+    "md5": "2d429c816106846cebc5a60c5b1760ba",
+    "size": 566,
+    "actual": "2d429c816106846cebc5a60c5b1760ba"
+  },
+  {
+    "name": "swtor_dual.icb",
+    "md5": "46d23c1b77fd2b7905be349b5f7ae169",
+    "size": 393,
+    "actual": "46d23c1b77fd2b7905be349b5f7ae169"
+  },
+  {
+    "name": "version.txt",
+    "md5": "7f2a048177eb001bad903f5c37103462",
+    "size": 56,
+    "actual": "bbb1a493bfff01f8880d8c70237f8f29"
+  }
+]

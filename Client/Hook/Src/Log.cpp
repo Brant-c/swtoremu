@@ -6,6 +6,11 @@
 
 #include "StdAfx.h"
 #include "Log.h"
+#include <stdio.h>
+
+// File-based log written next to the game executable so we can
+// inspect travel-state hook output after the session ends.
+static FILE* g_logFile = NULL;
 
 HWND Log::WindowHandle = NULL;
 HWND Log::ListBoxHandle = NULL;
@@ -93,6 +98,21 @@ void Log::ILogWindow()
 
 void Log::Init()
 {
+	// Open a persistent file log so travel-state messages survive after the session.
+	char exePath[MAX_PATH] = {};
+	GetModuleFileNameA(NULL, exePath, sizeof(exePath));
+	// Place nexus_hook.log in the same directory as the executable.
+	char* lastSlash = strrchr(exePath, '\\');
+	if (lastSlash) *(lastSlash + 1) = '\0';
+	char logPath[MAX_PATH] = {};
+	_snprintf(logPath, sizeof(logPath), "%snexus_hook.log", exePath);
+	g_logFile = fopen(logPath, "a");
+	if (g_logFile)
+	{
+		fprintf(g_logFile, "=== NexusToR Hook started ===\n");
+		fflush(g_logFile);
+	}
+
 	CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)ILogWindow, NULL, NULL, NULL);
 	
 	// Start the log queue
@@ -136,5 +156,10 @@ void Log::Write(char* pCaller, char* pText, ...)
 
 	LogQueue.push_back(std::string(logBuff));
 
-	// TODO: Write to file
+	// Also write to file so the output survives the session.
+	if (g_logFile)
+	{
+		fputs(logBuff, g_logFile);
+		fflush(g_logFile);
+	}
 }

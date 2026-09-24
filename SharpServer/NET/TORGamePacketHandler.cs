@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -101,6 +101,21 @@ namespace NexusToRServer.NET
                 case ClientState.AUTHED:
                     switch (Type)
                     {
+                        case PacketType.WorldByteReport:
+                            iPacket = new WorldByteReport();
+                            break;
+                        case PacketType.RepositoryDataReceipt:
+                            iPacket = new RepositoryDataReceipt();
+                            break;
+                        case PacketType.RepositoryDataRequest:
+                            iPacket = new RepositoryDataRequest();
+                            break;
+                        case PacketType.RepositorySyncRequest:
+                            iPacket = new RepositorySyncRequest();
+                            break;
+                        case PacketType.SendScriptError:
+                            iPacket = new SendScriptError();
+                            break;
                         case PacketType.CreateCharacterRequest:
                             Log.Write(LogLevel.Warning, "\n{0}", Data.ToHEX());
                             iPacket = new CreateCharacterRequest();
@@ -144,14 +159,49 @@ namespace NexusToRServer.NET
                         case PacketType.Ping:
                             iPacket = new Ping();
                             break;
+                        case PacketType.CMsgC586BD22:
+                            Log.Write(LogLevel.Client, "CMsgC586BD22 rx {0}", Data.ToHEX());
+                            iPacket = new CMsgC586BD22();
+                            break;
+                        case PacketType.CMsgF96DCDB0:
+                            Log.Write(LogLevel.Client, "CMsgF96DCDB0 rx {0}", Data.ToHEX());
+                            iPacket = new CMsgF96DCDB0();
+                            break;
+                        case PacketType.CMsg4A765897:
+                            Log.Write(LogLevel.Client, "CMsg4A765897 rx {0}", Data.ToHEX());
+                            iPacket = new CMsg4A765897();
+                            break;
+                        case PacketType.CMsgCCACB51D:
+                            Log.Write(LogLevel.Client, "CMsgCCACB51D rx {0}", Data.ToHEX());
+                            iPacket = new CMsgCCACB51D();
+                            break;
+                        case PacketType.CMsg61116AD5:
+                            Log.Write(LogLevel.Client, "CMsg61116AD5 rx {0}", Data.ToHEX());
+                            iPacket = new CMsg61116AD5();
+                            break;
                         default:
-                            Log.Write(LogLevel.Warning, "Received Unknown Packet [{0:X}] on State '{1}'\n{2}", Type, State.ToString(), Data.ToHEX());
+                            Log.Write(LogLevel.Warning, "Received Unknown Packet [{0:X}] name={1} on State '{2}'\n{3}\n{4}", Type, Type.ToString(), State.ToString(), Data.ToHEX(), UnknownPacketTrace.Describe(Data));
                             break;
                     }
                     break;
                 case ClientState.IN_GAME:
                     switch (Type)
                     {
+                        case PacketType.WorldByteReport:
+                            iPacket = new WorldByteReport();
+                            break;
+                        case PacketType.RepositoryDataReceipt:
+                            iPacket = new RepositoryDataReceipt();
+                            break;
+                        case PacketType.RepositoryDataRequest:
+                            iPacket = new RepositoryDataRequest();
+                            break;
+                        case PacketType.RepositorySyncRequest:
+                            iPacket = new RepositorySyncRequest();
+                            break;
+                        case PacketType.SendScriptError:
+                            iPacket = new SendScriptError();
+                            break;
                         case PacketType.RequestClose:
                             iPacket = new RequestClose();
                             break;

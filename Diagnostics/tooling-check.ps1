@@ -1,0 +1,15 @@
+# swtoremu: tooling presence check (read-only)
+"=== which git ===" | Out-File -FilePath "D:\SWTORClassic\swtoremu\Diagnostics\ToolingCheck.txt" -Encoding utf8
+where git 2>$null | Out-File -Append -FilePath "D:\SWTORClassic\swtoremu\Diagnostics\ToolingCheck.txt"
+"" | Out-File -Append -FilePath "D:\SWTORClassic\swtoremu\Diagnostics\ToolingCheck.txt"
+"=== which msbuild ===" | Out-File -Append -FilePath "D:\SWTORClassic\swtoremu\Diagnostics\ToolingCheck.txt"
+where msbuild 2>$null | Out-File -Append -FilePath "D:\SWTORClassic\swtoremu\Diagnostics\ToolingCheck.txt"
+"" | Out-File -Append -FilePath "D:\SWTORClassic\swtoremu\Diagnostics\ToolingCheck.txt"
+"=== which csc ===" | Out-File -Append -FilePath "D:\SWTORClassic\swtoremu\Diagnostics\ToolingCheck.txt"
+where csc 2>$null | Out-File -Append -FilePath "D:\SWTORClassic\swtoremu\Diagnostics\ToolingCheck.txt"
+"" | Out-File -Append -FilePath "D:\SWTORClassic\swtoremu\Diagnostics\ToolingCheck.txt"
+"=== Visual Studio dirs ===" | Out-File -Append -FilePath "D:\SWTORClassic\swtoremu\Diagnostics\ToolingCheck.txt"
+Get-ChildItem -Path "C:\Program Files\Microsoft Visual Studio" -Directory -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Name | Out-File -Append -FilePath "D:\SWTORClassic\swtoremu\Diagnostics\ToolingCheck.txt"
+"" | Out-File -Append -FilePath "D:\SWTORClassic\swtoremu\Diagnostics\ToolingCheck.txt"
+"=== VS 2022 Community full paths ===" | Out-File -Append -FilePath "D:\SWTORClassic\swtoremu\Diagnostics\ToolingCheck.txt"
+Get-ChildItem -Recurse -Path "C:\Program Files\Microsoft Visual Studio\2022\Community" -Directory -Depth 3 -ErrorAction SilentlyContinue | Where-Object { $_.Name -match "Community" } | Select-Object -ExpandProperty FullName | Sort-Object -Unique | Out-File -Append -FilePath "D:\SWTORClassic\swtoremu\Diagnostics\ToolingCheck.txt"

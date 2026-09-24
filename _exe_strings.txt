@@ -1,0 +1,13 @@
+﻿=== exe string presence check ===
+[begin] 2026-09-18T03:01:33.9047593+00:00
+CMsgC586BD22: replying = False
+CMsgF96DCDB0: replying = False
+CMsg4A765897: replying = False
+
+--- handler dispatch cases present ---
+CMsgC586BD22 case in handler = True
+CMsgC586BD22 new instantiation in handler = False
+CMsgF96DCDB0 case in handler = True
+CMsgF96DCDB0 new instantiation in handler = False
+CMsg4A765897 case in handler = True
+CMsg4A765897 new instantiation in handler = False

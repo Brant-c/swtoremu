@@ -1,0 +1,8 @@
+[20:43:52] [STARTUP] Concise progress and blockers: Diagnostics\startup-summary.log
+[20:44:07] [READY] Native client received repository synchronization reply.
+[20:44:07] [READY] Native repository synchronization completion callback entered.
+[20:45:15] [READY] Native script definitions registered; beginning game and GUI initialization.
+[20:45:48] [WAIT] Character-spec initialization: ready=0/74, waiting=74, failed=0. Pending examples: bmf, wraid, colicoiddroid, chevin, manta.
+[20:45:48] [BLOCKER] The native character-spec loader has not completed. Character selection cannot finish startup; pings only confirm the server connection is alive.
+[20:46:18] [WAIT] Character-spec initialization: ready=0/74, waiting=74, failed=0. Pending examples: bmf, wraid, colicoiddroid, chevin, manta.
+[20:46:18] [BLOCKER] The native character-spec loader has not completed. Character selection cannot finish startup; pings only confirm the server connection is alive.

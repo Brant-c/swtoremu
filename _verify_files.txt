@@ -1,0 +1,14 @@
+﻿=== verify files 2026-09-18T02:39:02.8707814+00:00 ===
+
+CRT3.disabled EXISTS  len=55  LWT=2026-09-18T02:13:54.4217311Z
+  [sha failed: Method invocation failed because [System.Byte] does not contain a method named 'Replace'.]
+
+--- new reply .cs files ---
+EXISTS: CMsgC586BD22.cs  len=2042  LWT=2026-09-18T02:33:50.6045880Z
+EXISTS: CMsgF96DCDB0.cs  len=1704  LWT=2026-09-18T02:33:50.7552025Z
+EXISTS: CMsg4A765897.cs  len=1646  LWT=2026-09-18T02:33:50.9077444Z
+
+--- csproj tail: does it contain our 3 files? ---
+CMsgC586BD22.cs in csproj: False
+CMsgF96DCDB0.cs in csproj: False
+CMsg4A765897.cs in csproj: False

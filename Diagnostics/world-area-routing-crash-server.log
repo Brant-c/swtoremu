@@ -1,0 +1,300 @@
+[2026-09-16 19:43:37] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:43:37] RepositoryDataRequest: Repository asset unavailable: request=75, path='/en-us/str/test/qa/ggarrett/bvt_14jan2012.stb'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:43:37] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:43:37] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:43:37] RepositoryDataRequest: Repository asset unavailable: request=76, path='/en-us/str/test/qa/ggarrett/bvt_15dec2011.stb'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:43:37] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:43:37] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:43:37] RepositoryDataRequest: Repository asset unavailable: request=77, path='/en-us/str/test/qa/ggarrett/bvt_17nov2011.stb'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:43:37] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:43:37] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:43:37] RepositoryDataRequest: Repository asset unavailable: request=78, path='/en-us/str/test/qa/ggarrett/bvt_1dec2011.stb'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:43:37] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:43:37] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:43:37] RepositoryDataRequest: Repository asset unavailable: request=79, path='/en-us/str/test/qa/ggarrett/bvt_20jan2011.stb'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:43:37] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:43:37] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:43:37] RepositoryDataRequest: Repository asset unavailable: request=80, path='/en-us/str/test/qa/ggarrett/bvt_22dec2011.stb'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:43:37] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:43:37] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:43:37] RepositoryDataRequest: Repository asset unavailable: request=81, path='/en-us/str/test/qa/ggarrett/bvt_27_jan2012.stb'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:43:37] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:43:37] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:43:37] RepositoryDataRequest: Repository asset unavailable: request=82, path='/en-us/str/test/qa/ggarrett/bvt_29nov2011.stb'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:43:37] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:43:37] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:43:37] RepositoryDataRequest: Repository asset unavailable: request=83, path='/en-us/str/test/qa/ggarrett/bvt_2feb2012.stb'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:43:37] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:43:37] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:43:37] RepositoryDataRequest: Repository asset unavailable: request=84, path='/en-us/str/test/qa/ggarrett/bvt_5jan2012.stb'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:43:37] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:43:37] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:43:37] RepositoryDataRequest: Repository asset unavailable: request=85, path='/en-us/str/test/qa/ggarrett/bvt_9dec2011.stb'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:43:37] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:43:37] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:43:37] RepositoryDataRequest: Repository asset unavailable: request=86, path='/en-us/str/test/qa/jsklarew/bvt/bvt_02162012.stb'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:43:37] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:43:37] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:43:37] RepositoryDataRequest: Repository asset unavailable: request=87, path='/en-us/str/test/qa/jsklarew/bvt/bvt_02242012.stb'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:43:37] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:43:37] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:43:37] RepositoryDataRequest: Repository asset unavailable: request=88, path='/en-us/str/test/qa/mhadley.stb'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:43:37] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:43:37] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:43:37] RepositoryDataRequest: Repository asset unavailable: request=89, path='/en-us/str/test/qst.stb'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:43:37] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:43:37] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:43:37] RepositoryDataRequest: Repository asset unavailable: request=90, path='/en-us/str/test/rdd.stb'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:43:37] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:43:37] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:43:37] RepositoryDataRequest: Repository asset unavailable: request=91, path='/en-us/str/test/svy.stb'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:43:37] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:37] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:37] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:37] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:37] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:37] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:37] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:37] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:38] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [Pong]
+[2026-09-16 19:43:38] TORGameServerPacket: Constructing Packet [Pong]
+[2026-09-16 19:43:38] TORGamePacketHandler: Received a packet [CMsgC26464A9]
+[2026-09-16 19:43:41] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:43:41] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:43:41] RepositoryDataRequest: Repository asset unavailable: request=92, path='/engine/staging/engine_staging_human_01.gr2'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:43:41] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:43:41] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:43:41] RepositoryDataRequest: Repository asset unavailable: request=93, path='/engine/staging/engine_staging_human_02.gr2'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:43:41] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:41] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:41] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:41] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:41] TORGamePacketHandler: Received a packet [CharacterListRequest]
+[2026-09-16 19:43:41] CharacterListRequest: CharacterListRequest: reply routing content=0x0007 transport=0x65AB
+[2026-09-16 19:43:41] TORGameServerPacket: Constructing Packet [CharacterListReply]
+[2026-09-16 19:43:41] TORGamePacketHandler: Received a packet [SetTrackingInfo]
+[2026-09-16 19:43:41] TORGameClient: Setting client tracking info to Character Selection
+[2026-09-16 19:43:41] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:43:41] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:43:41] RepositoryDataRequest: Repository asset unavailable: request=94, path='/world/areas/1/mapnotes.not'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:43:41] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:43:41] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:43:41] RepositoryDataRequest: Repository asset unavailable: request=95, path='/server/facefx/lepi_base.fxa'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:43:41] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:41] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:41] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:41] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:42] TORGamePacketHandler: Received a packet [WorldByteReport]
+[2026-09-16 19:43:42] WorldByteReport: World report 8EB28DE9: 48 bytes received; no reply defined by the existing C++ handler.
+[2026-09-16 19:43:42] TORGamePacketHandler: Received a packet [HackNotifyData]
+[2026-09-16 19:43:42] TORGamePacketHandler: Received a packet [Pong]
+[2026-09-16 19:43:42] TORGameServerPacket: Constructing Packet [Pong]
+[2026-09-16 19:43:44] TORGamePacketHandler: Received a packet [CharacterListRequest]
+[2026-09-16 19:43:44] CharacterListRequest: CharacterListRequest: reply routing content=0x0007 transport=0x65AB
+[2026-09-16 19:43:44] TORGameServerPacket: Constructing Packet [CharacterListReply]
+[2026-09-16 19:43:45] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:43:45] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:43:45] RepositoryDataRequest: Repository asset unavailable: request=96, path='/art/shaders/materials/handbma.mat'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:43:45] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:46] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:46] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:43:46] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:43:46] RepositoryDataRequest: Repository asset unavailable: request=97, path='/.tex'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:43:46] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:43:46] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:43:47] TORGamePacketHandler: Received a packet [Pong]
+[2026-09-16 19:43:47] TORGameServerPacket: Constructing Packet [Pong]
+[2026-09-16 19:43:50] TORGamePacketHandler: Received a packet [CMsgC26464A9]
+[2026-09-16 19:43:52] TORGamePacketHandler: Received a packet [WorldByteReport]
+[2026-09-16 19:43:52] WorldByteReport: World report 8EB28DE9: 48 bytes received; no reply defined by the existing C++ handler.
+[2026-09-16 19:43:52] TORGamePacketHandler: Received a packet [HackNotifyData]
+[2026-09-16 19:43:52] TORGamePacketHandler: Received a packet [Pong]
+[2026-09-16 19:43:52] TORGameServerPacket: Constructing Packet [Pong]
+[2026-09-16 19:43:56] TORGamePacketHandler: Received a packet [ModulesList]
+[2026-09-16 19:43:57] TORGamePacketHandler: Received a packet [Pong]
+[2026-09-16 19:43:57] TORGameServerPacket: Constructing Packet [Pong]
+[2026-09-16 19:44:02] TORGamePacketHandler: Received a packet [WorldByteReport]
+[2026-09-16 19:44:02] WorldByteReport: World report 8EB28DE9: 48 bytes received; no reply defined by the existing C++ handler.
+[2026-09-16 19:44:02] TORGamePacketHandler: Received a packet [HackNotifyData]
+[2026-09-16 19:44:02] TORGamePacketHandler: Received a packet [Pong]
+[2026-09-16 19:44:02] TORGameServerPacket: Constructing Packet [Pong]
+[2026-09-16 19:44:03] TORGamePacketHandler: Received a packet [CMsgC26464A9]
+[2026-09-16 19:44:07] TORGamePacketHandler: Received a packet [Pong]
+[2026-09-16 19:44:07] TORGameServerPacket: Constructing Packet [Pong]
+[2026-09-16 19:44:08] TORGamePacketHandler: Received a packet [ModulesList]
+[2026-09-16 19:44:12] TORGamePacketHandler: Received a packet [WorldByteReport]
+[2026-09-16 19:44:12] WorldByteReport: World report 8EB28DE9: 48 bytes received; no reply defined by the existing C++ handler.
+[2026-09-16 19:44:12] TORGamePacketHandler: Received a packet [HackNotifyData]
+[2026-09-16 19:44:12] TORGamePacketHandler: Received a packet [Pong]
+[2026-09-16 19:44:12] TORGameServerPacket: Constructing Packet [Pong]
+[2026-09-16 19:44:16] TORGamePacketHandler: Received a packet [CMsgC26464A9]
+[2026-09-16 19:44:17] TORGamePacketHandler: Received a packet [Pong]
+[2026-09-16 19:44:17] TORGameServerPacket: Constructing Packet [Pong]
+[2026-09-16 19:44:20] TORGamePacketHandler: Received a packet [ModulesList]
+[2026-09-16 19:44:22] TORGamePacketHandler: Received a packet [WorldByteReport]
+[2026-09-16 19:44:22] WorldByteReport: World report 8EB28DE9: 48 bytes received; no reply defined by the existing C++ handler.
+[2026-09-16 19:44:22] TORGamePacketHandler: Received a packet [HackNotifyData]
+[2026-09-16 19:44:22] TORGamePacketHandler: Received a packet [SelectCharacterRequest]
+[2026-09-16 19:44:22] TORGameServerPacket: Constructing Packet [SelectCharacterReply]
+[2026-09-16 19:44:22] TORGameServerPacket: Constructing Packet [WorldTravelPending]
+[2026-09-16 19:44:22] TORGameServerPacket: Constructing Packet [WorldTravelStatus]
+[2026-09-16 19:44:22] TORGameServerPacket: Constructing Packet [WorldSendToArea]
+[2026-09-16 19:44:22] TORGamePacketHandler: Received a packet [Pong]
+[2026-09-16 19:44:22] TORGameServerPacket: Constructing Packet [Pong]
+[2026-09-16 19:44:23] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:44:23] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:44:23] RepositoryDataRequest: Repository asset unavailable: request=98, path='/art/dynamic/spec/all_item_construction_forklift_animated.mag'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:44:23] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:44:23] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:44:25] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:44:25] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:44:25] RepositoryDataRequest: Repository asset unavailable: request=99, path='/engine/staging/engine_staging_human_01.gr2'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:44:25] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:44:25] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:44:25] RepositoryDataRequest: Repository asset unavailable: request=100, path='/engine/staging/engine_staging_human_02.gr2'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:44:25] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:44:25] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:44:25] RepositoryDataRequest: Repository asset unavailable: request=101, path='/art/shaders/materials/material #27.mat'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:44:25] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-16 19:44:25] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-16 19:44:25] RepositoryDataRequest: Repository asset unavailable: request=102, path='/art/shaders/materials/speedtree_collision.mat'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-16 19:44:26] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:44:26] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:44:26] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:44:26] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:44:26] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:44:26] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:44:26] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-16 19:44:26] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-16 19:44:27] TORGamePacketHandler: Received a packet [ServiceRequest]
+[2026-09-16 19:44:27] ServiceRequest: Received Service Request [AreaServer-tython_blockout-4611686019869492753-1-:areaserver] object='omegaareaobject' hash='e00aebae:29f2db17' details=''/''/''
+[2026-09-16 19:44:27] TORGameServerPacket: Constructing Packet [ObjectRequest]
+[2026-09-16 19:44:27] TORGamePacketHandler: Received a packet [SetTrackingInfo]
+[2026-09-16 19:44:27] TORGameClient: Setting client tracking info to tython_blockout
+[2026-09-16 19:44:27] TORGamePacketHandler: Received a packet [ObjectReply]
+[2026-09-16 19:44:27] ObjectReply: Received Object Reply service=0x0008 id='omegaareaobject' hash='e00aebae:29f2db17' target='Client'
+[2026-09-16 19:44:27] ObjectReply: Area service attached: server=0x65B3 client=0x0008. Routing area startup packets to this pair.
+[2026-09-16 19:44:27] TORGameServerPacket: Constructing Packet [SignatureResponse]
+[2026-09-16 19:44:27] TORGameServerPacket: Constructing Packet [AreaHackPack]
+[2026-09-16 19:44:27] TORGameServerPacket: Constructing Packet [AreaUpdateTimeSource]
+[2026-09-16 19:44:27] TORGameServerPacket: Constructing Packet [AreaSendAwarenessRange]
+[2026-09-16 19:44:27] TORGameServerPacket: Constructing Packet [AreaRequestRPC]
+[2026-09-16 19:44:27] TORGameServerPacket: Constructing Packet [SetMailboxInteraction]
+[2026-09-16 19:44:27] TORGameServerPacket: Constructing Packet [AreaTeleportCharacter]
+[2026-09-16 19:44:27] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-16 19:44:27] TORGameServerPacket: Constructing Packet [AreaRequestRPC]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaRequestRPC]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaRequestRPC]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaRequestRPC]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaRequestRPC]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaTalk]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaSetCharacter]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaSetCharacter]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaEffEventMessage]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [SystemRequestRPC]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaRequestRPC]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaRequestRPC]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaRequestRPC]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [HasMail]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaRequestRPC]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaAwarenessEntered]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [SMsg23B61238]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaEffEventMessage]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaEffEventMessage]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaEffEventMessage]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaEffEventMessage]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaEffEventMessage]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaEffEventMessage]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaEffEventMessage]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaAwarenessEntered]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-16 19:44:28] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-16 19:44:28] TORGamePacketHandler: Received a packet [3313941794]
+[2026-09-16 19:44:28] TORGamePacketHandler: Received Unknown Packet [C586BD22] on State 'AUTHED'
+   22 BD 86 C5 08 00 B3 65 01 00 00 00                   | "......e....
+
+[2026-09-16 19:44:28] TORGamePacketHandler: Received a packet [4184722864]
+[2026-09-16 19:44:28] TORGamePacketHandler: Received Unknown Packet [F96DCDB0] on State 'AUTHED'
+   B0 CD 6D F9 08 00 B3 65 09 00 00 00 C7 71 C3 79 12 2C | ..m....e.....q.y.,
+   EF 39 EF                                              | .9.
+
+[2026-09-16 19:44:28] TORGamePacketHandler: Received a packet [1249269911]
+[2026-09-16 19:44:28] TORGamePacketHandler: Received Unknown Packet [4A765897] on State 'AUTHED'
+   97 58 76 4A 09 00 AC 65 09 00 00 00 CF 6F 6F 2E 93 B7 | .XvJ...e.....oo...
+   43 63 6C                                              | Ccl
+
+[2026-09-16 19:44:28] TORGamePacketHandler: Received a packet [4184722864]
+[2026-09-16 19:44:28] TORGamePacketHandler: Received Unknown Packet [F96DCDB0] on State 'AUTHED'
+   B0 CD 6D F9 08 00 B3 65 0B 00 00 00 CF 14 63 F5 32 F5 | ..m....e......c.2.
+   5F 35 EB 02 64                                        | _5..d
+
+[2026-09-16 19:44:28] Handler: Client '14913774' disconnected from Shard01
+[2026-09-16 19:44:28] Handler: Client '6656660' disconnected from TimeServer

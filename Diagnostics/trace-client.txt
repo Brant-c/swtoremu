@@ -1,0 +1,58 @@
+PROCESS 22756
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+EXCEPTION pid=22756 code=0xE06D7363 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+CPP TYPE: .?AV?$clone_impl@Ubad_alloc_@exception_detail@boost@@@exception_detail@boost@@
+EXCEPTION pid=22756 code=0xE06D7363 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+CPP TYPE: 
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C7
+
+Incompatible system. Please verify your system is compatible with this game.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+EXIT pid=22756 code=0x00000001

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +9,11 @@ namespace NexusToRServer.NET.Packets.Server
     class GameSystemNotifyID : TORGameServerPacket
     {
         private byte _module;
+        private UInt16 _serviceID;
 
-        public GameSystemNotifyID()
+        public GameSystemNotifyID(UInt16 ServiceID = 0x0005)
         {
-            //
+            _serviceID = ServiceID;
         }
 
         /// <summary>
@@ -21,7 +22,7 @@ namespace NexusToRServer.NET.Packets.Server
         public override void WriteImplementation()
         {
             WriteUInt32((UInt32)GetType()); // Packet Type
-            WriteUInt32(0x000529F2); // Packet Component
+            WriteUInt32(((UInt32)_serviceID << 16) | 0x65AC); // Packet Component
             WriteUInt64(0x00);
         }
 

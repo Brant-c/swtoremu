@@ -26,6 +26,9 @@ namespace NexusToRServer.NET.Packets.Client
         /// </summary>
         public override void RunImplementation()
         {
+            Log.Write(LogLevel.Client,
+                "CharacterListRequest: reply routing content=0x{0:X4} transport=0x{1:X4}",
+                _unk01, _unk02);
             GetClient().SendPacket(new CharacterListReply(_unk01, _unk02));
         }
 

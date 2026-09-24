@@ -31,7 +31,8 @@ namespace NexusToRServer
         private static ConsoleColor DGRAY = ConsoleColor.DarkGray;
         private static ConsoleColor GRAY = ConsoleColor.Gray;
 
-        private static List<LogItem> LogQueue = new List<LogItem>();
+        private static readonly Queue<LogItem> LogQueue = new Queue<LogItem>();
+        private static readonly object LogQueueLock = new object();
 
         private static string _fname;
         private static LogLevel _level;
@@ -85,13 +86,14 @@ namespace NexusToRServer
         {
             while (true)
             {
-                if (LogQueue.Count > 0)
+                LogItem item = null;
+                lock (LogQueueLock)
                 {
-                    outputLog(0);
-                    while (!LogQueue[0].IsDone)
-                        Thread.Sleep(5);
-                    LogQueue.RemoveAt(0);
+                    if (LogQueue.Count > 0)
+                        item = LogQueue.Dequeue();
                 }
+                if (item != null)
+                    outputLog(item);
                 Thread.Sleep(5);
             }
         }
@@ -99,12 +101,12 @@ namespace NexusToRServer
         private static void finalLog(LogLevel level, string caller, string text)
         {
             LogItem _lItem = new LogItem(level, caller, text);
-            LogQueue.Add(_lItem);
+            lock (LogQueueLock)
+                LogQueue.Enqueue(_lItem);
         }
 
-        private static void outputLog(int iIndex)
+        private static void outputLog(LogItem lItem)
         {
-            LogItem lItem = LogQueue[iIndex];
 
             DateTime thisDate = DateTime.Now;
             CultureInfo culture = new CultureInfo("en-US");

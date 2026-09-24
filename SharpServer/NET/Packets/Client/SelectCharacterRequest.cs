@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,21 +11,16 @@ namespace NexusToRServer.NET.Packets.Client
     {
         UInt16 _unk01, _unk02;
 
-        /// <summary>
-        /// Reads and Parses the information stored in the Packet
-        /// </summary>
         public override void ReadImplementation()
         {
-            ReadUInt32(); // Packet Type
+            ReadUInt32();
             _unk01 = ReadUInt16();
             _unk02 = ReadUInt16();
             UInt64 CharID = ReadUInt64();
-            GetClient().ActiveCharacter = new TOR.Character(CharID + 1); // Is this needed?
+            GetClient().ActiveCharacter = new TOR.Character(CharID);
+            Log.Write(LogLevel.Client, "SelectCharacterRequest: selected char={0} routing content=0x{1:X4} transport=0x{2:X4}", CharID, _unk01, _unk02);
         }
 
-        /// <summary>
-        /// Runs the final Packet Implementation
-        /// </summary>
         public override void RunImplementation()
         {
             GetClient().SendPacket(new SelectCharacterReply(_unk02, _unk01));
@@ -34,10 +29,6 @@ namespace NexusToRServer.NET.Packets.Client
             GetClient().SendPacket(new WorldSendToArea(_unk02, _unk01));
         }
 
-        /// <summary>
-        /// Returns the PacketType of the specified Packet
-        /// </summary>
-        /// <returns>PacketType of specified Packet</returns>
         public override PacketType GetType()
         {
             return PacketType.SelectCharacterRequest;
