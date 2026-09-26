@@ -1,0 +1,494 @@
+var K_FADEOUT_SECONDS = 1.0
+var LOADING_SCREEN_NO_REPO_TIMEOUT = 15000
+var LOADING_SCREEN_REPO_TIMEOUT = 45000
+var LOADING_SCREEN_STB_TIMEOUT = 10000
+var STRING_LOADING_PRESS_SPACEBAR_TO_CONTINUE = 307
+self handler OnFadingIn(Me)
+  SetHitchLogSupression(false)
+  unk_f04ce3d7(false)
+.
+self handler OnFadingOut(Me)
+  SetHitchLogSupression(true)
+  unk_f04ce3d7(true)
+.
+public function Preload(Me)
+  var node = GetGui()
+  if node = None
+    node = Create()
+    if node != None
+      node.visible = false
+    .
+  .
+.
+public function Create() as NodeRef of guiGFxLoadingScreen
+  var node = GetGui()
+  if node = None
+    node = CreateNodeFromPrototype("guiScaleFormGFxProto")
+    GlomClass("guiGFxLoadingScreen", node)
+    node.Build()
+    if node is kindof guiGFxLoadingScreen
+      var classView = HM.GetClassViewFromNodeRef(node, guiGFxLoadingScreen)
+      classView.guiGfxLoadingFadedOut = 1
+    .
+  .
+  return node
+.
+public function Uncreate(Me)
+  var node = GetGui()
+  if node != None
+    SF_GFx_ClearParams()
+    SF_GFx_InvokeRegisteredWithParams(Me, 1, "cleanUp")
+    node.visible = false
+    call event node:OnFadingIn node:OnFadingIn
+  .
+  EnableCollisionEscapeBlacklist(true)
+.
+public function GetGui() as NodeRef of guiGFxLoadingScreen
+  return FindGUIControlByName(None, "GFx_LoadingScreen")
+.
+public method Build(Me)
+  if Me is kindof SF_GFx_GUIControl
+    var classView = HM.GetClassViewFromNodeRef(Me, SF_GFx_GUIControl)
+    classView.build = true
+    var enum1 = HM.ConvertFromStringEnum(11, "FILL")
+    var classView2 = HM.GetClassViewFromNodeRef(Me, SF_GFx_GUIControl)
+    classView2.dockMode = enum1
+    var str = $LOADING.guiLoadingGetMovieFQN("bwaui_loading_screen")
+    var classView3 = HM.GetClassViewFromNodeRef(Me, SF_GFx_GUIControl)
+    classView3.gfxFilename = str
+    var id1 = Me
+    SF_GFx_RegisterExternalInterfaceHandler(Me, id1)
+    var classView4 = HM.GetClassViewFromNodeRef(Me, SF_GFx_GUIControl)
+    classView4.name = "GFx_LoadingScreen"
+    var classView5 = HM.GetClassViewFromNodeRef(Me, SF_GFx_GUIControl)
+    classView5.visible = true
+  .
+.
+public method cmdAnyKeyPressed(Me)
+  Me.OnCmdAnyKeyPressed()
+.
+public method SF_GFx_onLoaded(a1 as NodeRef of SF_GFx_GUIControl, a2 as String, a3 as String, a4 as Boolean) as Boolean
+  var id1 = Me
+  SF_GFx_RegisterExternalInterfaceHandler(Me, id1)
+  SF_GFx_RegisterPath(Me, 2, "_global.api.vars")
+  SF_GFx_SetIsResident(a1, true)
+  return true
+.
+public method SetupStory(Me, a1 as ClassView cdxStory, a2 as String, a3 as Enum chrGenderEnum, a4 as Integer)
+  var node = GetGui()
+  if node != None
+    var node3 = $STATIC.cdxBitToFQNPrototype
+    if node3 = None
+      var str = "default"
+      if a4 == 1086966210362573345  // "republic"
+        str = "republic_overlay"
+      else if a4 == 16591463407040943397  // "empire"
+        str = "imp_overlay"
+      .
+      SF_GFx_ClearAndReserveParams(5)
+      SF_GFx_AddParamString("")
+      SF_GFx_AddParamString("")
+      SF_GFx_AddParamString("")
+      SF_GFx_AddParamString("")
+      SF_GFx_AddParamString(str)
+      SF_GFx_InvokeRegisteredWithParams(Me, 1, "classLoadscreen")
+      node.visible = true
+    else
+      var lookup = node3.cdxBitToFQNList
+      if lookup has a1.cdxStoryTitleBitIndex
+        var id1 = lookup[a1.cdxStoryTitleBitIndex]
+        var node6 = getPrototypeByID(id1)
+      .
+      var lookup3 = node3.cdxBitToFQNList
+      if lookup3 has a1.cdxStoryArcBitIndex
+        var lookup4 = node3.cdxBitToFQNList
+        var id2 = lookup4[a1.cdxStoryArcBitIndex]
+        var node8 = getPrototypeByID(id2)
+      .
+      var lookup5 = node3.cdxBitToFQNList
+      if lookup5 has a1.cdxStoryClassBitIndex
+        var lookup6 = node3.cdxBitToFQNList
+        var id3 = lookup6[a1.cdxStoryClassBitIndex]
+        var node10 = getPrototypeByID(id3)
+      .
+      var lookup7 = node3.cdxBitToFQNList
+      if lookup7 has a1.cdxStoryQuestBitIndex
+        var lookup8 = node3.cdxBitToFQNList
+        var id4 = lookup8[a1.cdxStoryQuestBitIndex]
+        var node12 = getPrototypeByID(id4)
+      .
+      var str2 = "default"
+      if a4 == 1086966210362573345  // "republic"
+        str2 = "republic_overlay"
+      else if a4 == 16591463407040943397  // "empire"
+        str2 = "imp_overlay"
+      .
+      list1 as List of String
+      add back a2 to list1
+      SF_GFx_ClearAndReserveParams(5)
+      if node6 != None
+        SF_GFx_AddParamString(node6.GetTextWithArguments(list1))
+      else
+        SF_GFx_AddParamString("Error finding codex: " + a1.cdxStoryTitleBitIndex)
+      .
+      if node8 != None
+        SF_GFx_AddParamString(node8.GetTextWithArgumentsAndGender(list1, a3))
+      else
+        SF_GFx_AddParamString("Error finding codex: " + a1.cdxStoryArcBitIndex)
+      .
+      if node10 != None
+        SF_GFx_AddParamString(node10.GetTextWithArgumentsAndGender(list1, a3))
+      else
+        SF_GFx_AddParamString("Error finding codex: " + a1.cdxStoryClassBitIndex)
+      .
+      if node12 != None
+        SF_GFx_AddParamString(node12.GetTextWithArgumentsAndGender(list1, a3))
+      else
+        SF_GFx_AddParamString("Error finding codex: " + a1.cdxStoryQuestBitIndex)
+      .
+      SF_GFx_AddParamString(str2)
+      SF_GFx_InvokeRegisteredWithParams(Me, 1, "classLoadscreen")
+      node.visible = true
+    .
+  .
+.
+public method SetupTipFromCharacter(Me, a1 as NodeRef of chrPlayerCharacter, a2 as String)
+  var int1 = a1.GetLevel()
+  var id1 = a1.GetCharacterClass()
+  Me.SetupTip(int1, id1, a2, a1.GetBaseFaction())
+.
+public method SetupTip(Me, a1 as Integer, a2 as ID, a3 as String, a4 as Integer)
+  var node = GetGui()
+  if node != None
+    SF_GFx_ClearAndReserveParams(5)
+    var str = "default"
+    var bool1 = false
+    if a4 == 1086966210362573345  // "republic"
+      str = "republic_overlay"
+    else if a4 == 16591463407040943397  // "empire"
+      str = "imp_overlay"
+    .
+    var node4 = getPrototypeByID(16141027983273011989)  // loadingAreaLoadScreenPrototype
+    if node4 != None
+      var int1 = ComputeStableIdentifier(a3)
+      var lookup = node4.ldgAreaNameToLoadScreen
+      if lookup has int1
+        var classView = lookup[int1]
+        str = classView.ldgScreenName
+        bool1 = classView.ldgHasNameplate
+        var str2 = classView.ldgOverlayName
+      .
+    else
+      // unknown
+    .
+    SF_GFx_AddParamString(str)
+    var int2 = tipLoadingScreenTipsClassMethods:GetRandomTipIndex(a1, a2, a3)
+    if int2 != 0
+      var classView2 = tipLoadingScreenTipsClassMethods:GetTip(int2)
+      var int4 = classView2.tipStringId
+      var str6 = $STRING.LocalizeString(STR_SYS_TIPS, ID_STR_SYS_TIPS | int4, HIDWORD(ID_STR_SYS_TIPS) | HIDWORD(int4))
+      SF_GFx_AddParamString(classView2.tipIcon)
+      SF_GFx_AddParamString(str6)
+    else
+      SF_GFx_AddParamString("")
+      SF_GFx_AddParamString("")
+    .
+    SF_GFx_AddParamBoolean(bool1)
+    SF_GFx_AddParamString(str2)
+    SF_GFx_InvokeRegisteredWithParams(Me, 1, "planetLoadscreen")
+    node.visible = true
+  .
+.
+public function IsFadedOut() as Boolean
+  var node2 = GetGui()
+  if node2 != None
+    return node2.visible
+  else
+    return false
+  .
+.
+public function isWorldFadedOut() as Boolean
+  var node2 = GetGui()
+  return node2.guiGfxLoadingFadedOut == 1
+.
+public function DoWorldFadeOut(Me, a1 as Integer)
+  var node = GetGui()
+  if node != None
+    if node.guiGfxLoadingFadedOut == 0
+      WorldFadeOut(K_FADEOUT_SECONDS)
+      if node.guiGfxLoadingFadeTimer.timerState != 1
+        timer::stop(node.guiGfxLoadingFadeTimer)
+      .
+      TimeInterval interval = timeInSeconds(K_FADEOUT_SECONDS)
+      node.guiGfxLoadingFadeTimer.fireRate = interval
+      node.guiGfxLoadingFadeTimer.script = $THISSCRIPT
+      timer::start(node.guiGfxLoadingFadeTimer)
+      $MUSIC.OnWorldFadeOut()
+      call event node:OnFadingOut node:OnFadingOut
+    .
+    node.guiGfxLoadingFadedOut = 1
+  .
+.
+public function DoWorldFadeOutStoryFromSummary(Me, a1 as NodeRef of chrSummary, a2 as Boolean)
+  var node = GetGui()
+  if node != None
+    if node.guiGfxLoadingFadedOut == 0
+      var id1 = a1.GetCharacterClass()
+      var classView = $STATIC.chrCreationTablePrototype.chrCreationClasses[id1]
+      var classView2 = a1.chrSummaryCodexStory
+      node.SetupStory(classView2, a1.chrSummaryName, chrOracleClassMethods:GetGenderFromCharSpec(a1.chrSummarySpec), classView.chrCreationClassFaction)
+      node.guiGfxLoadingNewFadeOut = true
+      if a2
+        $MUSIC.OnCharacterSelectFadeOut()
+      else
+        $MUSIC.OnWorldFadeOut()
+      .
+      call event node:OnFadingOut node:OnFadingOut
+    .
+    node.guiGfxLoadingFadedOut = 1
+  .
+.
+public function DoWorldFadeOutTipFromSummary(Me, a1 as NodeRef of chrSummary, a2 as Integer, a3 as ID)
+  var node = GetGui()
+  if node != None
+    if node.guiGfxLoadingFadedOut == 0
+      var id1 = a1.GetCharacterClass()
+      node.SetupTip(1, id1, chrExplorationComponentClassMethods:GetAreaAlias(a3), a2)
+      node.guiGfxLoadingNewFadeOut = true
+      $MUSIC.OnWorldFadeOut()
+      call event node:OnFadingOut node:OnFadingOut
+    .
+    node.guiGfxLoadingFadedOut = 1
+  .
+.
+public function DoWorldFadeOutTipFromCharacter(Me, a1 as NodeRef of chrPlayerCharacter, a2 as String)
+  var node = GetGui()
+  if node != None
+    if node.guiGfxLoadingFadedOut == 0
+      node.SetupTipFromCharacter(a1, a1.GetDestinationPlanetName(a2))
+      node.guiGfxLoadingNewFadeOut = true
+      $MUSIC.OnWorldFadeOut()
+      call event node:OnFadingOut node:OnFadingOut
+    .
+    node.guiGfxLoadingFadedOut = 1
+  .
+.
+public function DoWorldFadeIn(Me)
+  var node = GetGui()
+  if node != None
+    if node.guiGfxLoadingFadedOut >= 1
+      node.guiGfxLoadingFadedOut = node.guiGfxLoadingFadedOut - 1
+      var int2 = node.guiGfxLoadingFadedOut
+      var bool1 = (_DWORD)int2 != 0
+      var bool2 = SHIDWORD(int2) >= 1
+      if not HIDWORD(int2)
+        bool2 = bool1
+      .
+      if not bool2
+        node.guiGfxLoadingFadedOut = 0
+        if node.guiGfxLoadingAssetLoadingTimer.timerState == 1
+          if $STRING.STBCheckForManifestLoadComplete()
+            if GetRepositoryThunkRequestCount() == 0
+              node.CheckContinue()
+            else
+              LoadingProgress("Loading Repository Assets", 0, 0)
+              node.guiGfxLoadingRepositorAssetCount = GetRepositoryThunkRequestCount()
+              node.guiGfxLoadingAssetLoadingTimer.script = $THISSCRIPT
+              node.guiGfxLoadingAssetLoadingTimer.fireRate = 100
+              node.guiGfxLoadingAssetLoadingTimer.realTime = 1
+              timer::start(node.guiGfxLoadingAssetLoadingTimer)
+              var dateTime1 = $NOW + 45000;  // 45 seconds
+              node.guiGfxLoadingAssetTimeoutAt = dateTime1
+            .
+          else if node.guiGfxLoadingStringTableTimer.timerState == 1
+            LoadingProgress("Loading String Table Assets", 0, 0)
+            node.guiGfxLoadingStringTableTimer.script = $THISSCRIPT
+            node.guiGfxLoadingStringTableTimer.fireRate = 100
+            node.guiGfxLoadingStringTableTimer.realTime = 1
+            timer::start(node.guiGfxLoadingStringTableTimer)
+            var dateTime2 = $NOW + 10000;  // 10 seconds
+            node.guiGfxLoadingAssetTimeoutAt = dateTime2
+          .
+        .
+      .
+    .
+  .
+.
+public function OnTimerTick(Me, a1 as ID)
+  var node2 = GetGui()
+  if node2 != None
+    if a1 == guiGfxLoadingFadeTimer
+      node2.FadeTimerTick()
+    else if a1 == guiGfxLoadingAssetLoadingTimer
+      node2.AssetLoadingTimerTick()
+    else
+      if a1 != guiGfxLoadingStringTableTimer
+        return
+      .
+      node2.STBLoadingTimerTick()
+    .
+  .
+.
+public method FadeTimerTick(Me)
+  timer::stop(Me.guiGfxLoadingFadeTimer)
+  call event Me:OnFadedOut Me:OnFadedOut
+.
+public method AssetLoadingTimerTick(Me)
+  Boolean bool1
+  var int1 = GetRepositoryThunkRequestCount()
+  if int1 != 0
+    if Me.guiGfxLoadingAssetTimeoutAt >= $NOW
+      bool1 = false
+    else
+      bool1 = true
+    .
+  else
+    bool1 = true
+  .
+  if bool1
+    timer::stop(Me.guiGfxLoadingAssetLoadingTimer)
+    Me.CheckContinue()
+  else
+    if Me.guiGfxLoadingRepositorAssetCount <= int1
+      Me.guiGfxLoadingRepositorAssetCount = int1
+    .
+    var float1 = (Float)Me.guiGfxLoadingRepositorAssetCount
+    var float2 = (Float)int1
+    var TimerElapsedTime = (Float)Me.guiGfxLoadingAssetLoadingTimer.elapsedTime
+    FuncRef LoadingProgress = HM.PrepareCallLocal(48)
+    LoadingProgress(Me, "Loading Repository Assets", K_FADEOUT_SECONDS - (float2 / float1), TimerElapsedTime / 1000.0)
+  .
+.
+public method STBLoadingTimerTick(Me)
+  Boolean bool2
+  if not $STRING.STBCheckForManifestLoadComplete()
+    if Me.guiGfxLoadingAssetTimeoutAt < $NOW
+      bool2 = true
+    else
+      bool2 = false
+    .
+  else
+    bool2 = true
+  .
+  if bool2
+    timer::stop(Me.guiGfxLoadingStringTableTimer)
+    Me.CheckContinue()
+  .
+.
+public function LoadingProgress(a1 as String, a2 as Float, a3 as Float) as Boolean
+  var node = GetGui()
+  if node = None
+    return false
+  .
+  if not node.guiGfxLoadingNewFadeOut
+    return false
+  .
+  if not node.guiGfxLoadingProgressBarOn
+    SF_GFx_ClearParams()
+    SF_GFx_InvokeRegisteredWithParams(node, 1, "enableLoadingBar")
+    node.guiGfxLoadingProgressBarOn = true
+  .
+  var lookup = $STATIC.guiLoadingStagesPrototype.guiLoadingStageCompletionTotals
+  if not (lookup has a1)
+    // unknown
+  else if node.guiLoadingStageProgress[a1] >= a2
+      // unknown
+  else
+    var lookup3 = node.guiLoadingStageProgress
+    lookup3[a1] = a2
+    var float1 = 0.0
+    foreach key in lookup
+      key as String
+      if lookup3 has key
+        key as String
+        var lookupCur = lookup[key]
+        float1 += (lookup3[key] * lookupCur)
+        key as String
+        var unused = lookup3[key]
+      .
+    .
+    SF_GFx_ClearAndReserveParams(1)
+    SF_GFx_AddParamFloat(float1 / 100.0)
+    SF_GFx_InvokeRegisteredWithParams(node, 1, "updateLoadingBar")
+  .
+  return true
+.
+public method FadeIn(Me)
+  var node2 = GetGui()
+  SF_GFx_ClearAndReserveParams(2)
+  SF_GFx_AddParamFloat(0.0)
+  SF_GFx_AddParamString("")
+  SF_GFx_InvokeRegisteredWithParams(node2, 1, "updateLoadingBar")
+  $INPUT.sysInputHandler_SetLayerActive(4203606806608061225, false)  // "he_loadingscreen"
+  $HUD.showHudIfEnabled()
+  if Me.guiGfxLoadingNewFadeOut
+    Me.guiGfxLoadingNewFadeOut = false
+    Uncreate()
+    WorldFadeIn(0.0)
+  else
+    WorldFadeIn(K_FADEOUT_SECONDS)
+    call event Me:OnFadingIn Me:OnFadingIn
+  .
+  $MUSIC.OnWorldFadeIn()
+  $PHASE.OnWorldFadeIn()
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None
+    pc2.OnWorldFadeIn()
+  .
+  Me.guiGfxLoadingProgressBarOn = false
+  clear Me.guiLoadingStageProgress keep
+.
+public method CheckContinue(Me)
+  int v5
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None and not $CONVERSATION.IsInConversation()
+    pc2.CheckPhaseNeedsContinue(v5)
+  else
+    PhaseNeedsContinue(0)
+  .
+.
+public function PhaseNeedsContinue(Me, a1 as Boolean)
+  int v10
+  var node2 = GetGui()
+  if node2 != None
+    if not a1
+      node2.FadeIn(v10)
+    else
+      $INPUT.sysInputHandler_SetLayerActive(4203606806608061225, true)  // "he_loadingscreen"
+      RegisterForPerFrameCallback($THISSCRIPT)
+      SF_GFx_ClearAndReserveParams(3)
+      SF_GFx_AddParamFloat(K_FADEOUT_SECONDS)
+      SF_GFx_AddParamString($STRING.LocalizeStringWithPlayerGender(STR_GUI_SYSTEM, ID_STR_GUI_SYSTEM | STRING_LOADING_PRESS_SPACEBAR_TO_CONTINUE, HIDWORD(ID_STR_GUI_SYSTEM)))  // "Press SPACEBAR to Continue"
+      SF_GFx_AddParamBoolean(true)
+      SF_GFx_InvokeRegisteredWithParams(node2, 1, "updateLoadingBar")
+      $HUD.startLoadingScreenFadeToBlack(0.0)
+    .
+  .
+.
+public method OnCmdAnyKeyPressed(Me)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None
+    pc2.PhaseContinue()
+  .
+  $HUD.startFadeToBlackTimeOut()
+  Me.FadeIn()
+.
+public method getsGUIColorTable(Me)
+  guiColorTable:SendHUDColorTable(Me)
+.
+public function OnFrameUpdate(Me, a1 as TimeInterval)
+  if $INPUT.sysInputHandler_IsInputActive(4203606806608061225, 230) or $INPUT.sysInputHandler_IsInputActive(998714694868508617, sysInputEvent_StartChat)  // "he_loadingscreen", "he_ui"
+    if $MOVIE.IsPlaying()
+      // unknown
+    else
+      UnregisterForPerFrameCallback($THISSCRIPT)
+      var node3 = GetGui()
+      if node3 != None
+        node3.OnCmdAnyKeyPressed()
+      .
+    .
+  .
+.

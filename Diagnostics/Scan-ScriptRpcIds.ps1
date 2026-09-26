@@ -2,10 +2,17 @@ param(
     [Parameter(Mandatory = $false, Position = 0)]
     [string[]] $Target = @('0x1279C371'),
 
-    [string] $InputDirectory = (Join-Path $PSScriptRoot 'Scripts2012')
+    [string] $InputDirectory
 )
 
 $ErrorActionPreference = 'Stop'
+
+# $PSScriptRoot is not reliably populated while PowerShell evaluates default
+# parameter expressions. Resolve the repository-local archive after binding so
+# the scanner works both directly and through the trace launcher.
+if ([string]::IsNullOrWhiteSpace($InputDirectory)) {
+    $InputDirectory = Join-Path $PSScriptRoot 'Scripts2012'
+}
 
 function Convert-Target([string] $Value) {
     $clean = $Value.Trim()
@@ -90,4 +97,3 @@ foreach ($file in $files) {
 'Scanned {0} v5 SCPT files ({1} non-v5/rejected).' -f $scanned, $rejected
 'Targets: ' + (($targets | ForEach-Object { '0x{0:X8}' -f $_ }) -join ', ')
 if ($hits -eq 0) { 'No exact 32-bit references found in either byte order.' }
-

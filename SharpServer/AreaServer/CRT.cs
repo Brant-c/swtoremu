@@ -21,6 +21,21 @@ namespace NexusToRServer.AreaServer
             // TODO (?)
             String FileName = String.Format(@"{0}-{1}-{2}.{3}.acrt", Area, AreaID, AreaCode, AwarenessID);
             String FilePath = @"AreaServer\CRT\" + FileName;
+            String OverrideDirectory = Environment.GetEnvironmentVariable("SWTOR_CRT_OVERRIDE_DIRECTORY");
+            if (!String.IsNullOrEmpty(OverrideDirectory))
+            {
+                String OverridePath = Path.Combine(OverrideDirectory, FileName);
+                if (File.Exists(OverridePath))
+                {
+                    byte[] OverrideData = File.ReadAllBytes(OverridePath);
+                    Log.Write(LogLevel.Warning,
+                        "CRT diagnostic override [{0}] path=[{1}] bytes={2} sha256={3}",
+                        FileName, OverridePath, OverrideData.Length, Sha256(OverrideData));
+                    if (TraceEmit)
+                        Log.Write(LogLevel.Client, "CRT bytes [{0}] {1}", FileName, Hex(OverrideData));
+                    return OverrideData;
+                }
+            }
 
             if (File.Exists(FilePath))
             {

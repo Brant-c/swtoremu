@@ -345,6 +345,88 @@ static std::string executableDirectory() {
     return slash == std::string::npos ? "." : value.substr(0, slash);
 }
 
+// Match generated Hero machine code while ignoring relocated CALL operands.
+// A mask byte of zero is a wildcard; nonzero bytes must match exactly.
+static DWORD_PTR findRemotePattern(HANDLE process, const BYTE *needle,
+                                   const BYTE *mask, SIZE_T needleSize) {
+    SYSTEM_INFO system = {};
+    GetSystemInfo(&system);
+    // All recovered loaded HeroMachine methods in this client build occupy
+    // the high private allocation band (RequestWorldFadeIn=EB677750 and
+    // Replication_Create=F01F0010 in the reference dump). Limiting the scan
+    // prevents multi-gigabyte asset pages from pausing the debugged client.
+    DWORD_PTR cursor = 0xE0000000;
+    const DWORD_PTR limit = 0xF4000000;
+    MEMORY_BASIC_INFORMATION page = {};
+    while (cursor < limit && VirtualQueryEx(process, (void *)cursor, &page, sizeof(page))) {
+        // The 2011 client predates modern DEP assumptions and HeroMachine's
+        // translated x86 may live in committed readable/writable allocations
+        // without an executable protection bit. Scan all readable pages; the
+        // long masked signatures and post-match opcode checks keep this exact.
+        if (page.State == MEM_COMMIT &&
+            !(page.Protect & (PAGE_GUARD | PAGE_NOACCESS)) && page.RegionSize >= needleSize) {
+            const SIZE_T chunkSize = 1024 * 1024;
+            std::vector<BYTE> data;
+            for (SIZE_T offset = 0; offset < page.RegionSize; offset += chunkSize) {
+                SIZE_T wanted = page.RegionSize - offset;
+                if (wanted > chunkSize) wanted = chunkSize;
+                data.resize(wanted);
+                SIZE_T got = 0;
+                if (!ReadProcessMemory(process, (void *)(cursor + offset), &data[0], wanted, &got))
+                    continue;
+                for (SIZE_T i = 0; i + needleSize <= got; ++i) {
+                    bool match = true;
+                    for (SIZE_T j = 0; j < needleSize; ++j)
+                        if (mask[j] && data[i + j] != needle[j]) { match = false; break; }
+                    if (match) return cursor + offset + i;
+                }
+            }
+        }
+        DWORD_PTR next = cursor + page.RegionSize;
+        if (next <= cursor) break;
+        cursor = next;
+    }
+    return 0;
+}
+
+// Compatibility fallback for the loading screen's final phase-confirmation
+// decision.  Asset and string-table waits remain untouched.  Once the native
+// script calls CheckContinue, route it through its own no-player/conversation
+// fallback, which is exactly PhaseNeedsContinue(false) -> FadeIn.  This avoids
+// inventing a phase reply when the legacy server has no matching phase RPC.
+static bool installLoadingContinueFallback(HANDLE process, DWORD_PTR &methodOut) {
+    static const BYTE signature[] = {
+        0x53,0x57,0x56,0x83,0xEC,0x38,
+        0xC7,0x04,0x24,0xDA,0x01,0x00,0x00,
+        0xE8,0,0,0,0,
+        0x8D,0x74,0x24,0x30
+    };
+    static const BYTE mask[] = {
+        1,1,1,1,1,1, 1,1,1,1,1,1,1, 1,0,0,0,0, 1,1,1,1
+    };
+    DWORD_PTR method = findRemotePattern(process, signature, mask, sizeof(signature));
+    if (!method) return false;
+
+    // CheckContinue+0x73 is the byte-exact
+    //   JE  CheckContinue+0xCE
+    // following IsNodeRefValid.  Replace it with an unconditional JMP to the
+    // same local PhaseNeedsContinue(false) block.  The sixth byte is padding.
+    const BYTE expected[] = {0x0F,0x84,0x55,0x00,0x00,0x00};
+    const BYTE replacement[] = {0xE9,0x56,0x00,0x00,0x00,0x90};
+    BYTE current[sizeof(expected)] = {};
+    SIZE_T got = 0;
+    DWORD_PTR site = method + 0x73;
+    if (!ReadProcessMemory(process, (void *)site, current, sizeof(current), &got) ||
+        got != sizeof(current) || memcmp(current, expected, sizeof(expected)) != 0)
+        return false;
+    if (!WriteProcessMemory(process, (void *)site, replacement,
+                            sizeof(replacement), &got) || got != sizeof(replacement))
+        return false;
+    FlushInstructionCache(process, (void *)site, sizeof(replacement));
+    methodOut = method;
+    return true;
+}
+
 static BOOL CALLBACK revealGameWindow(HWND window, LPARAM ownerPid) {
     DWORD pid = 0;
     GetWindowThreadProcessId(window, &pid);
@@ -458,6 +540,15 @@ int main(int argc, char **argv) {
     std::map<DWORD, DWORD_PTR> readBreakpoint;
     std::map<DWORD, std::map<DWORD_PTR, BYTE> > probes;
     bool worldTravelStarted = false;
+    std::map<DWORD, DWORD_PTR> loadingContinueFallbackMethod;
+    std::map<DWORD, bool> loadingContinueFallbackSearched;
+    // Diagnostic opt-out: allow the original CheckContinue player path to
+    // issue its genuine CheckPhaseNeedsContinue server RPC.  The compatibility
+    // fallback remains the default for ordinary runs.
+    const bool loadingContinueFallbackEnabled =
+        getenv("SWTOR_DISABLE_LOADING_CONTINUE_FALLBACK") == NULL;
+    printf("LoadingContinueFallback: %s\n",
+           loadingContinueFallbackEnabled ? "enabled" : "disabled for phase-RPC capture");
     std::map<DWORD, DWORD_PTR> pending;
     std::map<DWORD, WaitingRepositoryCall> waitingRepositoryCalls;
     std::map<DWORD, DWORD_PTR> releaseAfterShard;
@@ -646,6 +737,23 @@ int main(int argc, char **argv) {
                         ContinueDebugEvent(event.dwProcessId, event.dwThreadId, DBG_CONTINUE);
                         continue;
                     }
+        // Keep the compatibility fix independent of optional breakpoint
+        // observers. A busy client may never let WaitForDebugEvent time out,
+        // so retry from the event path after travel as well.
+        if (loadingContinueFallbackEnabled && worldTravelStarted) {
+            for (std::map<DWORD, HANDLE>::const_iterator candidate = processes.begin();
+                 candidate != processes.end(); ++candidate) {
+                const DWORD scanPid = candidate->first;
+                if (loadingContinueFallbackMethod[scanPid]) continue;
+                DWORD_PTR method = 0;
+                if (installLoadingContinueFallback(candidate->second, method)) {
+                    loadingContinueFallbackMethod[scanPid] = method;
+                    printf("LoadingContinueFallback: CheckContinue=%08lX patched to local PhaseNeedsContinue(false); asset waits preserved (event path).\n",
+                           (DWORD)method);
+                    fflush(stdout);
+                }
+            }
+        }
                     if (gomReturnBreakpoint.count(event.dwProcessId) &&
                         address == gomReturnBreakpoint[event.dwProcessId]) {
                         SIZE_T count = 0;

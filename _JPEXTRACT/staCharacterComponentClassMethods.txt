@@ -1,0 +1,1450 @@
+var COMBAT_STATE_ALERTED = 1
+var COMBAT_STATE_COMBAT = 2
+var COMBAT_STATE_NONE = 0
+var stringIdEnterCombat = 8017
+var stringIdExitCombat = 8018
+public method staCharacter_ConfigureBaseStates(Me)
+  Me._RectifyCombatState()
+  Me._SetCharDeathRecoverable((Me is kindof chrPlayerCharacter or Me is kindof chrCompanionComponent))
+  Me._RectifyBrainState()
+  Me._staWeapon_UpdateWeaponSocket()
+  Me._UpdateCharClassPose()
+  Me._CacheWeaponStatesForGUI()
+  Me.UpdateStealth()
+  if Me.staCharacterCoverObject != 0
+    var id1 = Me.staCharacterCoverObject
+    Me.SetCoverObject(None)
+    Me.EnterCover(id1)
+  else
+    Me.staCharacterUsingPortableCoverLocal = false
+  .
+  if Me.staCharacter_IsShowingLocalCover()
+    if Me is kindof cvrVisualizer
+      var classView = HM.GetClassViewFromNodeRef(Me, cvrVisualizer)
+      classView.cvrVisualizerVisualizing = true
+    .
+  .
+  $COMBAT.cbtCoverShowAll = true
+  Me.staCurrentBrainRepPrevious = Me.staCurrentBrain
+  Me.staInputStanceAnimCpId = GetAnimControlParameterGlobalHandle("Input_Stance")
+.
+public method staCharacter_AddHydraAnimAction(Me, a1 as Integer, a2 as String)
+  if GetAnimMetadataBool(Me, a2, "isAmbient")
+    Me.staCharacter_AddHydraLoopingAnimAction(a1, a2)
+  .
+.
+public method staCharacter_AddHydraLoopingAnimAction(Me, a1 as Integer, a2 as String)
+  Me.staCharacter_HydraLoopingAnimActions[a1] = a2
+.
+public method staCharacter_AddHydraAnimActionToRetry(Me, a1 as String)
+  add back a1 to Me.staCharacter_HydraAnimActionsToRetry
+.
+public method staCharacter_RetryHydraAnimActions(Me)
+  foreach cur in Me.staCharacter_HydraAnimActionsToRetry
+    var int1 = $COMBAT.cbtOracle_GetNextScriptHandleForAction()
+    $COMBAT.cbtOracle_AnimAttack(Me, Me, cur, 1, false, 0.0, 0.0, int1, 7, 7, -((Float)COMBAT_STATE_ALERTED), -((Float)COMBAT_STATE_ALERTED), ((Float)COMBAT_STATE_ALERTED))
+    if GetAnimMetadataBool(Me, cur, "isAmbient")
+      Me.staCharacter_AddHydraLoopingAnimAction(int1, cur)
+    .
+  .
+  clear Me.staCharacter_HydraAnimActionsToRetry keep
+.
+public method staCharacter_StopHydraLoopingAnims(Me)
+  foreach key in Me.staCharacter_HydraLoopingAnimActions
+    $COMBAT.cbtOracle_StopAmbient(Me, key)
+  .
+  clear Me.staCharacter_HydraLoopingAnimActions keep
+.
+public method staCharacter_ConfigureLoopingAnimation(Me, a1 as Boolean)
+  CallFrame _callFrame
+  if not Me is kindof chrNonPlayerCharacter
+    return
+  .
+  if Me.staEnterIdle
+    if Me.staAnimLoop != ""
+      var int1 = $COMBAT.cbtOracle_GetNextScriptHandleForAction()
+      if a1
+        $COMBAT.cbtOracle_AnimAttackWithBlendIn(Me, Me, Me.staAnimLoop, 1, false, 0.0, 0.0, int1, 7, 7, -((Float)COMBAT_STATE_ALERTED), -((Float)COMBAT_STATE_ALERTED), ((Float)COMBAT_STATE_ALERTED), 0.0)
+      else
+        $COMBAT.cbtOracle_AnimAttack(Me, Me, Me.staAnimLoop, 1, false, 0.0, 0.0, int1, 7, 7, -((Float)COMBAT_STATE_ALERTED), -((Float)COMBAT_STATE_ALERTED), ((Float)COMBAT_STATE_ALERTED))
+      .
+      Me.staCharacter_AddHydraAnimAction(int1, Me.staAnimLoop)
+    .
+    Me.staCharacter_RetryHydraAnimActions()
+    if Me.staEppLoop != 0
+      if a1
+        list1 as List of ID
+        var id3 = Me
+        add back id3 to list1
+        node2 as NodeRef
+        var id4 = Me.staEppLoop
+        FuncRef ApplyAppearanceEx = HM.PrepareCallNodeRef2(19, $EFFECT, &_callFrame)
+        ApplyAppearanceEx(node2, _callFrame, 16141015010245413293, id4, id3, list1, 1, 43, 0, 0, false)  // abl.utility.apply_appearance
+        Me.staIdleEppEvent = node2
+      else
+        var id6 = Me.staEppLoop
+        var node3 = $EFFECT.ApplyAppearanceToNode(id6, Me, Me, effResultOk)
+        Me.staIdleEppEvent = node3
+      .
+      if Me.staIdleEppEvent != None
+        Me.staIdleEppEvent.effEvent_AddRef()
+      .
+    .
+  else
+    if Me.staIdleEppEvent != None
+      if Me.staIdleEppEvent.effEventEffectAppearance != None
+        Me.staIdleEppEvent.effEventEffectAppearance.effAppearanceRemove(Me.staIdleEppEvent, false)
+      .
+      Me.staIdleEppEvent.effEvent_RemoveRef()
+      Me.staIdleEppEvent = None
+    .
+    Me.staCharacter_StopHydraLoopingAnims()
+  .
+.
+public method IsCombatantCharacter() as Boolean
+  return Me.chrAnim_GetAnimNetworkType() == "Combatant"
+.
+public method IsCreatureCombatantCharacter() as Boolean
+  return Me.chrAnim_GetAnimNetworkType() == "CreatureCombatant"
+.
+public method IsConversationCharacter() as Boolean
+  return Me.chrAnim_GetAnimNetworkType() == "Conversable"
+.
+public method IsAmbientCharacter() as Boolean
+  return Me.chrAnim_GetAnimNetworkType() == "Ambient"
+.
+public function OnTimerTick(Me, a1 as ID)
+  if a1 == staCharacterRectificationTimer
+    staCharacterRectificationTimer_tick()
+  else if a1 == staCharacterCoverEvaluationTimer
+    staCharacterRectificationTimer_tick()
+  else
+    if a1 != staCharacterPostureRectificationTimer
+      return
+    .
+    staCharacterRectificationTimer_tick()
+  .
+.
+public function staCharacterRectificationTimer_tick(Me)
+  if Me is kindof staCharacterComponent
+    var classView = HM.GetClassViewFromNodeRef(Me, staCharacterComponent)
+    if classView.staCharacterRectificationTimer.timerState == 2
+      var classView2 = HM.GetClassViewFromNodeRef(Me, staCharacterComponent)
+      timer::stop(classView2.staCharacterRectificationTimer)
+    .
+    Me._RectifyBrainState()
+  .
+.
+public method staCharacter_GetBrainState() as Enum staBrainType
+  return Me.staCurrentBrain
+.
+public method staCharacter_GetPreviousBrainState() as Enum staBrainType
+  return Me.staPreviousBrain
+.
+public method staCharacter_IsStunned() as Boolean
+  return Me.staCharacter_GetBrainState() == staBrainStunned
+.
+public method staCharacter_IsLucid() as Boolean
+  return Me.staCharacter_GetBrainState() == staBrainLucid
+.
+public method staCharacter_IsVisuallyDying() as Boolean
+  var bool1 = Me.staCharacter_IsDead()
+  var out = false
+  if not bool1
+    return out
+  else if Me.staCharacter_IsVisuallyDead()
+    return out
+  else
+    out = true
+    return out
+  .
+.
+public method staCharacter_IsDead() as Boolean
+  return Me.staCharacter_GetBrainState() == staBrainDead
+.
+public method staCharacter_IsVisuallyDead() as Boolean
+  return BrainState_Dead == Me.chrAnim_GetAnimInput(cpid_input_BrainState)
+.
+public method staCharacter_IsVisuallyStunned() as Boolean
+  return BrainState_Stunned == Me.chrAnim_GetAnimInput(cpid_input_BrainState)
+.
+public method GetCharMobilityState() as Enum staMobilityType
+  return Me.staCharacter_GetMobilityState()
+.
+public method CharStateIsStunned() as Boolean
+  CallFrame _callFrame
+  FuncRef staCharacter_IsStunned = HM.PrepareCallNodeRef2(35, Me, &_callFrame)
+  return staCharacter_IsStunned(_callFrame) & 1
+.
+public method CharStateIsLucid() as Boolean
+  CallFrame _callFrame
+  FuncRef staCharacter_IsLucid = HM.PrepareCallNodeRef2(36, Me, &_callFrame)
+  return staCharacter_IsLucid(_callFrame) & 1
+.
+public method CharStateIsDead() as Boolean
+  CallFrame _callFrame
+  FuncRef staCharacter_IsDead = HM.PrepareCallNodeRef2(31, Me, &_callFrame)
+  return staCharacter_IsDead(_callFrame) & 1
+.
+public method staCharacter_IsInCombat() as Boolean
+  return Me.staFighting
+.
+public method CharStateIsInCombat() as Boolean
+  CallFrame _callFrame
+  FuncRef staCharacter_IsInCombat = HM.PrepareCallNodeRef2(37, Me, &_callFrame)
+  return staCharacter_IsInCombat(_callFrame) & 1
+.
+public method CharStateIsAlerted() as Boolean
+  var int1 = Me.staAlertedRefCount
+  var bool1 = (_DWORD)int1 != 0
+  var bool2 = SHIDWORD(int1) >= 1
+  if not HIDWORD(int1)
+    return bool1
+  .
+  return bool2
+.
+public method CharStateSetAlerted(Me, a1 as Integer)
+  Me.staAlertedRefCount = a1
+  call event Me:OnCharacterStateChanged Me:OnCharacterStateChanged
+.
+public method CharacterCombatState() as Integer
+  if Me.CharStateIsInCombat()
+    return 2
+  else if Me.CharStateIsAlerted()
+    return 1
+  else
+    return 0
+  .
+.
+public function GetCharAutoAttackState(a1 as NodeRef of staCharacterComponent) as Boolean
+  return a1.staAutoAttack
+.
+public method CharStateIsAutoAttacking() as Boolean
+  return Me.staAutoAttack
+.
+public method CharStateGetStance() as Enum staStanceType
+  return Me.staStance
+.
+public function IsCharCombatAnimLocked(a1 as NodeRef) as Boolean
+  return INPUT_COMBATANIMLOCKED_YES == a1.chrAnim_GetAnimInput(cpid_input_CombatAnimLocked)
+.
+public method staCharacter_GetMobilityState() as Enum staMobilityType
+  return Me.staMobility
+.
+public method staCharacter_GetEnemyCount() as Integer
+  return Me.staCharacterEnemyCount
+.
+public method staCharacter_PostureIsUpright() as Boolean
+  return "Posture_Upright" == GetAnimInput(Me, "Posture")
+.
+public method staCharacter_CalculateCanMove(Me, a1 as Boolean)
+  var bool1 = Me.staCharacterCanMove
+  Me.staCharacterCanRotate = true
+  Me.staCharacterCanMove = true
+  if a1
+    Me.staCharacterCanMove = false
+    Me.staCharacterCanRotate = false
+    return
+  .
+  if IsCharCombatAnimLocked(Me)
+    Me.staCharacterCanMove = false
+    Me.staCharacterCanRotate = false
+    return
+  .
+  if Me is kindof staCharacterComponent
+    if Me.staCharacter_GetMobilityState() == staMobilityLockedNoRotate
+      Me.staCharacterCanMove = false
+      Me.staCharacterCanRotate = false
+      return
+    .
+    var enum2 = Me.staCharacter_GetMobilityState()
+    if enum2 == staMobilityLocked
+      Me.staCharacterCanMove = false
+    .
+  .
+  var int1 = Me.chrAnim_GetAnimInput(cpid_input_BrainState)
+  if int1 != 0 and BrainState_Lucid != int1
+    Me.staCharacterCanMove = false
+    Me.staCharacterCanRotate = false
+  else if Me is kindof chrBehavior
+    var classView = HM.GetClassViewFromNodeRef(Me, chrBehavior)
+    if classView.chrBehaviorCover != None
+      var classView2 = HM.GetClassViewFromNodeRef(Me, chrBehavior)
+      if classView2.chrBehaviorCover.chrBehaviorIsEnteringCover()
+        Me.staCharacterCanMove = false
+        Me.staCharacterCanRotate = false
+      else
+        // unknown
+      .
+    else
+      // unknown
+    .
+  else
+    // unknown
+  .
+.
+public function staCharacterAnimCanMove(a1 as NodeRef of staCharacterComponent) as Boolean
+  return a1.staCharacterCanMove
+.
+public function staCharacterAnimCanRotate(a1 as NodeRef of staCharacterComponent) as Boolean
+  return a1.staCharacterCanRotate
+.
+public method isTargettable() as Boolean
+  CallFrame _callFrame
+  FuncRef CharStateIsDead = HM.PrepareCallNodeRef2(45, Me, &_callFrame)
+  return (CharStateIsDead(_callFrame) & 1) == 0
+.
+public method staCharacter_IsInCover() as Boolean
+  var node = Me.GetCoverObject()
+  var bool1 = true
+  if node = None
+    if not Me.IsUsingPortableCover()
+      bool1 = false
+    .
+  .
+  var out = true
+  if bool1
+    return out
+  else if Me.IsUsingDynamicCover()
+    return out
+  else
+    out = false
+    return out
+  .
+.
+public method staCharacter_IsEnteringCover() as Boolean
+  return false
+.
+public method IsUsingDynamicCover() as Boolean
+  NodeRef pc
+  var bool1 = COVER_USE_DYNAMIC and Me.staCharacterUsingDynamicCover
+  return bool1 and (pc = HM.ConstructNodeRef(3), GetPlayerCharacterNode(pc), Me == pc)
+.
+public method GetCoverObject() as NodeRef
+  var id1 = Me.staCharacterCoverObjectLocal
+  return id1
+.
+public method GetPreviousCoverObject() as NodeRef
+  var id1 = Me.staCharacterPrevCoverObjectLocal
+  return id1
+.
+public method SetCoverObject(Me, a1 as NodeRef)
+  var id1 = Me.staCharacterCoverObjectLocal
+  Me.staCharacterPrevCoverObjectLocal = id1
+  var id2 = a1
+  Me.staCharacterCoverObjectLocal = id2
+  var id3 = Me.staCharacterPrevCoverObjectLocal
+  if Me.staCharacterCoverObjectLocal != id3
+    var pc = GetPlayerCharacterNode()
+    if Me == pc
+      Me._UpdateCurrentCoverPointVisualization(true)
+    .
+  .
+.
+public method GetCoverNode() as NodeRef
+  if Me.IsUsingPortableCover() or Me.IsUsingDynamicCover()
+    return Me
+  else
+    var id1 = Me.staCharacterCoverObjectLocal
+    return id1
+  .
+.
+public method EnterPortableCover(Me)
+  Me.SetCoverAnimHeight(0.125)
+  Me.staCharacterUsingPortableCoverLocal = true
+  var pc = GetPlayerCharacterNode()
+  if Me == pc
+    Me.UpdateCoverEligibleTargets()
+    ctlInputMovement:HaltMovement()
+  .
+  Me.BehaviorGetCover().chrBehaviorCoverOnEntered()
+.
+public method EnterCover(Me, a1 as NodeRef)
+  Vector3 vec
+  var node2 = Me.GetCoverObject()
+  if node2 == a1 and not COVER_USE_DYNAMIC
+    // unknown
+  else
+    if COVER_USE_DYNAMIC
+      Me.staCharacterUsingDynamicCover = true
+    .
+    var node5 = Me.BehaviorGetCover()
+    if node2 != None
+      Me._LeaveCoverInternal()
+      node5.chrBehaviorCoverOnChanged(node2)
+    .
+    Me.SetCoverObject(a1)
+    if a1 != None
+      if a1["cvrDirection"] == "CVR_TOP"
+        vec.x = 0.0
+        vec.y = 0.0
+        vec.z = 0.0
+        var vec2 = HM.ConvertFromStringVector3(a1["cvrEdgePoint"])
+        vec = vec2
+        Me.SetCoverAnimHeight(vec2.y)
+      .
+    .
+    var pc = GetPlayerCharacterNode()
+    if Me == pc
+      Me.UpdateCoverEligibleTargets()
+      ctlInputMovement:HaltMovement()
+    .
+    node5.chrBehaviorCoverOnEntered()
+  .
+.
+public method SetCoverAnimHeight(Me, a1 as Float)
+  var float1 = a1
+  if a1 < 0.075
+    float1 = 0.075
+  .
+  if float1 > 0.125
+    float1 = 0.125
+  .
+  SetAnimControlParameterEnumFloat(Me, 2, (float1 - 0.075) / (0.125 - 0.075), 0.0)
+.
+public method IsInCover() as Boolean
+  CallFrame _callFrame
+  FuncRef staCharacter_IsInCover = HM.PrepareCallNodeRef2(59, Me, &_callFrame)
+  return staCharacter_IsInCover(_callFrame) & 1
+.
+public method IsUsingPortableCover() as Boolean
+  return Me.staCharacterUsingPortableCoverLocal
+.
+public method LeaveCover(Me)
+  if Me.staCharacter_IsInCover()
+    Me._LeaveCoverInternal()
+    var pc = GetPlayerCharacterNode()
+    if Me == pc
+      Me.ClearCoverEligibleTargets()
+    .
+    Me.BehaviorGetCover().chrBehaviorCoverOnLeaved()
+    Me.staCharacterUsingPortableCoverLocal = false
+  .
+.
+public method ChooseCoverObject(a1 as Vector3) as NodeRef
+  var bool1 = false
+  var node2 = $CHARACTER.GetTarget()
+  var pc = GetPlayerCharacterNode()
+  var pc4 = pc
+  if $COMBAT.cbtCoverChooseDebug
+    vec.x = 0.0
+    vec.y = 0.0
+    vec.z = 0.0
+    GetNodePosition_w(pc4, &vec)
+    vec2.x = vec.x + *(Float *)LODWORD(a1.x)
+    vec2.y = vec.y + *(Float *)(LODWORD(a1.x) + 4)
+    vec2.z = vec.z + *(Float *)(LODWORD(a1.x) + 8)
+    DrawArrow(vec, vec2, 0.01, COLOR_WHITE, ((Float)COMBAT_STATE_ALERTED), None)
+  .
+  if Me != pc4
+    v4 = HM.ConstructNodeRef(3)
+    v4 = None
+    return v4
+  .
+  if Me.staCharacter_IsInCover()
+    v4 = node5
+    node5 = Me.staCharacterLastChooseCoverNode
+    return v4
+  .
+  var bool3 = false
+  if node2 != None and node2 is kindof staCharacterComponent
+    var bool5 = not node2.CharStateIsDead() and Me.IsHostileTo(node2)
+    bool3 = bool5
+  .
+  var bool7 = false
+  if Me is kindof cvrVisualizer
+    var classView = HM.GetClassViewFromNodeRef(Me, cvrVisualizer)
+    var bool8 = classView.cvrVisualizerVisualizing or (COVER_USE_DYNAMIC and (pc2 = HM.ConstructNodeRef(3), GetPlayerCharacterNode(pc2), Me == pc2) ? (bool9 = true) : (bool9 = false), bool9)
+    bool7 = bool8
+  .
+  if not bool3 and not bool7
+    v4 = HM.ConstructNodeRef(3)
+    v4 = None
+    return v4
+  .
+  if bool7
+    var list1 = Me.staCharacterLastChooseCoverList
+    if list1.length == 0
+LABEL_32:
+      bool1 = true
+      goto LABEL_52
+    .
+  .
+  if Me == pc4
+    var node6 = Me.staCharacterLastChooseCoverTarget
+    if node6 != node2
+      goto LABEL_32
+    .
+  .
+  if cbtCover:CoverPointInUse(Me.staCharacterLastChooseCoverNode)
+    var node8 = Me.staCharacterLastChooseCoverNode
+    if not cbtCover:CoverPointInUseBy(node8, Me)
+      goto LABEL_32
+    .
+  .
+  var float1 = (Float)($NOW - Me.staCharacterLastChooseCoverTime) / 1000.0
+  if float1 <= 0.1
+    var node9 = Me.staCharacterLastChooseCoverNode
+    if node9 != None and COVER_USE_CVREDGE
+      vec4.x = 0.0
+      vec4.y = 0.0
+      vec4.z = 0.0
+      var vec5 = GetWorldSpacePosition(Me)
+      var node10 = Me.staCharacterLastChooseCoverNode
+      var vec6 = cbtCover:GenerateCoverPositionOnLineSegment(node10, vec5)
+      Me.staCharacterCoverPosition = vec6
+      bool1 = false
+    .
+    goto LABEL_52
+  .
+  vec7.x = 0.0
+  vec7.y = 0.0
+  vec7.z = 0.0
+  var vec8 = GetWorldSpacePosition(Me)
+  vec7 = vec8
+  var vec9 = Me.staCharacterLastChooseCoverDirection
+  vec10.x = *(Float *)LODWORD(a1.x) - vec9.x
+  vec10.y = *(Float *)(LODWORD(a1.x) + 4) - vec9.y
+  vec10.z = *(Float *)(LODWORD(a1.x) + 8) - vec9.z
+  var float2 = VectorLengthSq(vec10)
+  if float2 > 0.0001 or (&vec11 = Me.staCharacterLastChooseCoverPosition, vec12.x = vec7.x - vec11.x, vec12.y = vec7.y - vec11.y, vec12.z = vec7.z - vec11.z, float3 = VectorLengthSq(vec12), float3 > 0.0001)
+    goto LABEL_32
+  .
+LABEL_52:
+  if bool1
+    var list2 = Me.staCharacterLastChooseCoverList
+    clear list2 keep
+    var list3 = Me.staCharacterLastChooseCoverFromTargetList
+    clear list3 keep
+    list4 = HM.ConstructList(24)
+    Me.staCharacterLastChooseCoverTime = $NOW
+    Me.staCharacterLastChooseCoverDirection = (Vector3 *)LODWORD(a1.x)
+    var vec13 = GetWorldSpacePosition(Me)
+    Me.staCharacterLastChooseCoverPosition = vec13
+    Me.staCharacterLastChooseCoverTarget = node2
+    Me.staCharacterLastChooseCoverNode = None
+    if COVER_USE_DYNAMIC and (pc3 = HM.ConstructNodeRef(3), GetPlayerCharacterNode(pc3), Me == pc3)
+      vec14.x = 0.0
+      vec14.y = 0.0
+      vec14.z = 0.0
+      var float4 = COVER_DYNAMIC_ROLL_DIST
+      var float5 = cbtCover:CalculateCoverRollToPosition(Me, a1.x, float4, &vec14)
+      if float5 > 0.0
+        Me.staCharacterCoverPosition = vec14
+      .
+    else if $COMBAT.cbtCoverShowAll
+      node12 = HM.ConstructNodeRef(3)
+      float6 = -((Float)COMBAT_STATE_ALERTED)
+      vec15.x = 0.0
+      vec15.y = 0.0
+      vec15.z = 0.0
+      if bool3 and node2 != pc4
+        if pc4.IsHostileTo(node2)
+          var list5 = Me.staCharacterLastChooseCoverFromTargetList
+          var list6 = Me.staCharacterLastChooseCoverList
+          var float7 = cbtCover:ChooseCoverObject2(Me, a1.x, 3.0, &list5, list6, true, &node12, &vec15)
+          float6 = float7
+        .
+      .
+      node13 = HM.ConstructNodeRef(3)
+      float8 = -((Float)COMBAT_STATE_ALERTED)
+      if bool7 or (node2 != None and (not node2 == pc4 and pc4.IsHostileTo(node2) ? (bool14 = false) : (bool14 = true), bool14) ? (bool15 = true) : (bool15 = false), bool15)
+        var float9 = Me.GetMaxCoverDistance()
+        var list7 = Me.staCharacterLastChooseCoverList
+        var list8 = Me.staCharacterLastChooseCoverFromTargetList
+        var float10 = cbtCover:ChooseCoverObject2(Me, a1.x, float9 + 0.5, &list7, list8, false, &node13, &vec15)
+        float8 = float10
+      .
+      Me.staCharacterCoverPositionValid = false
+      if float6 > 0.0
+        Me.staCharacterLastChooseCoverNode = node12
+        Me.staCharacterCoverPosition = vec15
+        Me.staCharacterCoverPositionValid = true
+      .
+      if float8 > 0.0
+        if ((node12 = None or float6 > float8) & 1) != 0
+          Me.staCharacterLastChooseCoverNode = node13
+          Me.staCharacterCoverPosition = vec15
+          Me.staCharacterCoverPositionValid = true
+        .
+      .
+    else
+      var bool16 = node2 = None or node2 == pc4
+      if bool16 or not pc4.IsHostileTo(node2)
+        var float11 = Me.GetMaxCoverDistance()
+        var list9 = Me.staCharacterLastChooseCoverList
+        var node14 = cbtCover:ChooseCoverObject_debug(Me, a1.x, float11 + 0.5, &list9, &list4)
+        Me.staCharacterLastChooseCoverNode = node14
+      else
+        var list10 = Me.staCharacterLastChooseCoverList
+        var node15 = cbtCover:ChooseCoverObjectFromTarget(Me, a1.x, 3.0, &list10, &list4)
+        Me.staCharacterLastChooseCoverNode = node15
+      .
+    .
+  .
+  v4 = node16
+  node16 = Me.staCharacterLastChooseCoverNode
+  return v4
+.
+public method GetMaxCoverDistance() as Float
+  return COVER_MAX_RANGE_FOR_USABLE
+.
+public method ActivateEnterCoverAbility(Me, a1 as NodeRef)
+  if Me is kindof ablUserComponent
+    var node2 = Me.GetAbility(16141004427569886527)  // abl.state.take_cover
+    if node2 != None
+      var enum1 = HM.GetEnumDefaultValue(11)
+      Me.AbilityActivate(node2, a1, &enum1)
+      if enum1 != 1
+        Me.ActivatePortableCoverAbility()
+      .
+    .
+  .
+.
+public method ActivatePortableCoverAbility(Me)
+  if Me is kindof ablUserComponent
+    var node2 = Me.GetAbility(16141078692876113151)  // abl.state.take_portable_cover
+    if node2 != None
+      var enum1 = HM.GetEnumDefaultValue(11)
+      Me.AbilityActivate(node2, Me, &enum1)
+    .
+  .
+.
+public method TryToLeaveCover(Me)
+  if not Me.staCharacter_IsInCover()
+    // unknown
+  else
+    if Me is kindof chrPlayerCharacter
+      if Me is kindof effContainerComponent
+        list1 as List of NodeRef of effEffect
+        Me.FindEffectsByTag(3003705135635781568, &list1)  // "cover"
+        Me.FindEffectsByTag(1470507870431877398, &list1)  // "tag.abl.buff.cover"
+        foreach cur in list1
+          $EFFECT.RequestEffectRemove(Me, cur)
+        .
+      .
+    .
+    Me.LeaveCover()
+  .
+.
+public method _UpdateCurrentCoverPointVisualization(Me, a1 as Boolean)
+  Boolean bool3
+  if Me is kindof cvrVisualizer
+    if not Me.IsUsingPortableCover()
+      var id1 = Me.GetTargetID()
+      var bool2 = Me.IsUsingUsefulCoverAgainstTarget(id1)
+      unsigned __int8 v15 = bool2
+      if a1 or (bool3 = Me.staCharacterTakingUsefulCover, ((bool3 ^ v15) & 1) != 0)
+        Me.staCharacterTakingUsefulCover = v15
+        Me.UpdateOccupiedCoverPoint(Me.GetCoverObject(), v15)
+        Me.updateGuiCoverbar(true, v15)
+      .
+    .
+  .
+.
+public method UpdateCoverEligibleTargets(Me)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 = None
+    return
+  .
+  var float2 = Me.GetRangedAttackRangeMax()
+  vec.x = 0.0
+  vec.y = 0.0
+  vec.z = 0.0
+  GetNodePosition_w(pc2, &vec)
+  list1 as List of NodeRef
+  list2 as List of NodeRef
+  list2 = GetCharactersInRange(vec, float2 + 0.5, false)
+  list1 = list2
+  lookup as LookupList indexed by ID of Boolean
+  foreach cur in list1
+    lookup[cur] = false
+  .
+  foreach cur in Me.staCharacterCoveredTargets
+    lookup[cur] = true
+  .
+  clear Me.staCharacterCoveredTargets keep
+  if Me.GetCoverNode() != None
+    foreach key in lookup
+      unsigned __int8 v50 = 0
+      if key != None
+        if Me.IsHostileTo(key)
+          if not key.CharStateIsDead()
+            var node6 = HM.CopyConstructNodeRef(30, key)
+            FuncRef IsHiddenBehindCover = HM.PrepareCallNodeRef2(89, Me, &_callFrame)
+            unsigned __int8 v12 = IsHiddenBehindCover(_callFrame, node6) & 1
+            v50 = v12
+          .
+        .
+      .
+      if ((v50 ^ lookup[key]) & 1) != 0
+        if (v50 & 1) != 0 and $COMBAT.IsCoverIconsEnabled()
+          CreatePropBucket("Cover Icon")
+          var node8 = AddAssetSpecToPropBucketCB("Cover Icon", "\art\static\point_static.gr2", key)
+          chrAssetRequestManagerClassMethods:chrAssetRegisterRequest(key, "Cover", node8)
+        else if key != None
+          key._clearCoverIcon(v35, v36, v37)
+        .
+      .
+      if (v50 & 1) != 0
+        add back key to Me.staCharacterCoveredTargets
+      .
+    .
+    var id1 = Me.GetTargetID()
+    node9 = id1
+    Me._UpdateCurrentCoverPointVisualization(false)
+    timer1 = Me.staCharacterCoverEvaluationTimer
+    if timer1.timerState == 2
+      timer2 = Me.staCharacterCoverEvaluationTimer
+      timer::stop(timer2)
+    .
+    timer3 = Me.staCharacterCoverEvaluationTimer
+    timer3.script = $THISSCRIPT
+    timer4 = Me.staCharacterCoverEvaluationTimer
+    timer4.fireRate = 250
+    timer5 = Me.staCharacterCoverEvaluationTimer
+    timer::start(timer5)
+  else
+    var id1 = Me.GetTargetID()
+    node9 = id1
+    Me._UpdateCurrentCoverPointVisualization(false)
+    timer1 = Me.staCharacterCoverEvaluationTimer
+    if timer1.timerState == 2
+      timer2 = Me.staCharacterCoverEvaluationTimer
+      timer::stop(timer2)
+    .
+    timer3 = Me.staCharacterCoverEvaluationTimer
+    timer3.script = $THISSCRIPT
+    timer4 = Me.staCharacterCoverEvaluationTimer
+    timer4.fireRate = 250
+    timer5 = Me.staCharacterCoverEvaluationTimer
+    timer::start(timer5)
+  .
+.
+public method IsUsingUsefulCoverAgainstTarget(a1 as NodeRef) as Boolean
+  CallFrame _callFrame
+  Vector3 vec
+  Vector3 vec3
+  Vector3 vec5
+  if a1 = None
+    // unknown
+  else if not Me.IsHostileTo(a1)
+    // unknown
+  else if a1.CharStateIsDead()
+    // unknown
+  else if not Me.IsInCover()
+    // unknown
+  else if Me.IsUsingPortableCover()
+    var bool5 = cbtCover:IsTargetAffectedByPortableCover(Me, a1)
+    return bool5
+  .
+  if Me.IsUsingDynamicCover()
+    var bool5 = cbtCover:IsTargetAffectedByPortableCover(Me, a1)
+    return bool5
+  .
+  var node3 = Me.GetCoverObject()
+  if node3 = None
+      // unknown
+  else
+    vec.x = 0.0
+    vec.y = 0.0
+    vec.z = 0.0
+    var vec2 = node3.GetPosition_w()
+    vec = vec2
+    vec3.x = 0.0
+    vec3.y = 0.0
+    vec3.z = 0.0
+    var vec4 = a1.GetPosition_w()
+    vec3 = vec4
+    vec5.x = vec.x - vec4.x
+    vec5.y = vec.y - vec4.y
+    vec5.z = vec.z - vec4.z
+    if VectorLength(vec5) > 3.0
+        // unknown
+    else
+      FuncRef IsTargetAffectedByCoverNode = HM.PrepareCallScriptSameMe2(100, 14987980270095166017, Me, &_callFrame)
+      var bool7 = IsTargetAffectedByCoverNode(_callFrame, a1, node3, node3["cvrDirection"]) & 1
+      return bool7
+    .
+  .
+  return false
+.
+public method IsTargetCoverAffected(a1 as NodeRef) as Boolean
+  CallFrame _callFrame
+  if a1 = None
+    // unknown
+  else if Me.IsUsingPortableCover()
+    var bool2 = cbtCover:IsTargetAffectedByPortableCover(Me, a1)
+    return bool2
+  .
+  if Me.IsUsingDynamicCover()
+    var bool2 = cbtCover:IsTargetAffectedByPortableCover(Me, a1)
+    return bool2
+  .
+  var node3 = Me.GetCoverObject()
+  if node3 = None
+      // unknown
+  else
+    FuncRef IsTargetAffectedByCoverNode = HM.PrepareCallScriptSameMe2(100, 14987980270095166017, Me, &_callFrame)
+    var bool4 = IsTargetAffectedByCoverNode(_callFrame, a1, node3, node3["cvrDirection"]) & 1
+    return bool4
+  .
+  return false
+.
+public method ClearCoverEligibleTargets(Me)
+  foreach cur in Me.staCharacterCoveredTargets
+    if cur != None
+      cur._clearCoverIcon()
+    .
+  .
+  clear Me.staCharacterCoveredTargets keep
+  if Me.staCharacterCoverEvaluationTimer.timerState == 2
+    timer::stop(Me.staCharacterCoverEvaluationTimer)
+  .
+.
+public function staCharacterCoverEvaluationTimer_Tick(Me)
+  Me.UpdateCoverEligibleTargets()
+.
+public method CoverIconAssetSpecReady(Me, a1 as NodeRef of HBSpec, a2 as Boolean)
+  if not a2
+    if Me.staCharacterCoverIcon = None
+      var id1 = CreateInstanceFromPropBucket("Cover Icon", a1)
+      Me.staCharacterCoverIcon = id1
+      vec.x = 0.0
+      vec.y = 0.0
+      vec.z = 0.0
+      vec2.x = 0.0
+      vec2.y = 0.0
+      vec2.z = 0.0
+      Me.GetTransform_w(&vec, &vec2)
+      SetNodeTransform_w(Me.staCharacterCoverIcon, vec, vec2)
+      Me.staCharacterCoverIcon["LODFactor"] = 3
+      vec3.x = 0.0
+      vec3.y = 1.57
+      vec3.z = 1.57
+      if utlNode:IsCharacter(Me) and (str5 = HM.ConstructString(), &str5 = utlGlobalConstantsCameraBone, NodeHasBone = HM.PrepareCallNodeRef2(105, Me, &_callFrame), bool5 = NodeHasBone(_callFrame, str5), HM.UnprepareCall(), bool5)
+        var vec4 = VECTOR_ZERO
+        HoldNodeWithOffset(Me, Me.staCharacterCoverIcon, utlGlobalConstantsCameraBone, vec4, vec4)
+      else if utlNode:isSpawner(Me)
+        Me.staCharacterCoverIcon["ParentInstance"] = Me
+        vec6.x = 0.0
+        vec6.y = 0.3
+        vec6.z = 0.0
+        SetNodePosition(Me.staCharacterCoverIcon, vec6)
+        SetNodeRotation(Me.staCharacterCoverIcon, vec3)
+      else
+        var vec7 = GetNodeBoundingBox(HM.CopyConstructNodeRef(23, Me))
+        var float1 = vec7.y + 0.1
+        if (vec7.y + 0.1) <= 0.2
+          float1 = 0.23
+        .
+        if utlNode:IsCharacter(Me) or utlNode:IsMAG(Me)
+          vec8.x = 0.0
+          vec8.y = float1
+          vec8.z = 0.0
+          HoldNodeWithOffset(Me, Me.staCharacterCoverIcon, "GrannyRootBone", vec8, vec3)
+          var id2 = Me.staCharacterCoverIcon
+          ActivateInstance(id2, "")
+          var id3 = $FXSYSTEM.HardcodedFxPlayOnNode(Me.staCharacterCoverIcon, Me.staCharacterCoverIcon, fxCharacterCoverIcon)
+          Me.staCharacterCoverIconFxHandle = id3
+          return
+        .
+        Me.staCharacterCoverIcon["ParentInstance"] = Me
+        vec9.x = 0.0
+        vec9.y = float1
+        vec9.z = 0.0
+        SetNodePosition(Me.staCharacterCoverIcon, vec9)
+        SetNodeRotation(Me.staCharacterCoverIcon, vec3)
+      .
+      var id2 = Me.staCharacterCoverIcon
+      ActivateInstance(id2, "")
+      var id3 = $FXSYSTEM.HardcodedFxPlayOnNode(Me.staCharacterCoverIcon, Me.staCharacterCoverIcon, fxCharacterCoverIcon)
+      Me.staCharacterCoverIconFxHandle = id3
+    .
+  .
+.
+public method RegisterStunAnim(Me, a1 as ID, a2 as String, a3 as Integer)
+  classView as ClassView
+  classView.stunAnimEffect = a1
+  classView.stunAnimName = a2
+  classView.stunAnimPriority = a3
+  add back classView to Me.staStunAnims
+.
+function GetHighestStunAnim() as ClassView
+  List list3
+  ClassView out
+  var int1 = -1
+  var int2 = 0
+  loop i from 1 to list3.length
+    var cur = Me.staStunAnims[i]
+    if cur.stunAnimPriority > int1
+      var cur2 = Me.staStunAnims[i]
+      int1 = cur2.stunAnimPriority
+      int2 = i
+    .
+  .
+  var bool1 = int2 <= -1
+  if not HIDWORD(int2)
+    bool1 = (_DWORD)int2 == 0
+  .
+  if not bool1
+    out = Me.staStunAnims[int2]
+  else
+    out = $CHARACTER.chrEmptyStunAnimInfo
+  .
+  HM.CheckClassViewNotContext(out)
+  return out
+.
+public method RemoveStunAnimForEffect(Me, a1 as ID)
+  var bool1 = false
+  var classView = Me.GetHighestStunAnim()
+  if classView.stunAnimEffect == a1
+    bool1 = true
+  .
+  var list1Length = Me.staStunAnims.length
+  while true
+    HM.ExpirationCheck()
+    var bool2 = list1Length <= -1
+    if not HIDWORD(list1Length)
+      bool2 = (_DWORD)list1Length == 0
+    .
+    if bool2
+      break
+    .
+    var classView2 = Me.staStunAnims[list1Length]
+    if classView2.stunAnimEffect == a1
+      remove Me.staStunAnims at list1Length keep
+      if not Me.HasStunAnim()
+        if Me.staCharacter_IsLucid()
+          if GetAnimInput(Me, "BrainState") == "Stunned"
+            Me._RectifyBrainState()
+          .
+        .
+      .
+    .
+    --list1Length
+  .
+  if bool1
+    var classView3 = Me.GetHighestStunAnim()
+    if classView3.stunAnimName != ""
+      var int1 = $COMBAT.cbtOracle_GetNextScriptHandleForAction()
+      $COMBAT.cbtOracle_AnimAttack(Me, Me, classView3.stunAnimName, 0, false, 0.0, 0.0, int1, classView3.stunAnimPriority, classView3.stunAnimPriority, -((Float)COMBAT_STATE_ALERTED), -((Float)COMBAT_STATE_ALERTED), ((Float)COMBAT_STATE_ALERTED))
+    .
+  .
+.
+public method HasStunAnim() as Boolean
+  var list1Length = Me.staStunAnims.length
+  var bool1 = (_DWORD)list1Length != 0
+  var bool2 = SHIDWORD(list1Length) >= 1
+  if not HIDWORD(list1Length)
+    return bool1
+  .
+  return bool2
+.
+public method ClearStunAnims(Me)
+  clear Me.staStunAnims keep
+.
+public method staCharacterInsertTransitionActionIfNeededWithEvent(a1 as NodeRef of effEvent, a2 as String, o3 references String, o4 references Integer) as Boolean
+  // unknown
+  if Me.staCharacter_IsInCover()
+    return Me.BehaviorGetCover().chrBehaviorCover_InsertTransitionActionIfNeededWithEvent(a1, a2, &o3, &o4)
+  else
+    return false
+  .
+.
+public method staCharacter_IsShowingLocalCover() as Boolean
+  CallFrame _callFrame
+  FuncRef HasEffectByAbilitySpec = HM.PrepareCallNodeRef2(117, Me, &_callFrame)
+  return HasEffectByAbilitySpec(_callFrame, 16141018170249269621) & 1  // abl.state.show_cover
+.
+public method staCharacter_IsControllingVehicle() as Boolean
+  return Me.staCharacterOwnedVehicle != 0
+.
+public method staCharacter_IsControllingSpaceShip() as Boolean
+  var id1 = Me.staCharacterOwnedVehicle
+  return id1 != None
+.
+public method staCharacter_GetOwnedVehicle() as NodeRef of spnVehicle
+  var id1 = Me.staCharacterOwnedVehicle
+  return id1
+.
+public method staCharacter_CanJump() as Boolean
+  return true
+.
+public method _RectifyBrainState(Me)
+  Me.staShouldReviveInstantly = false
+  var enum1 = Me.staCurrentBrain
+  if enum1 == staBrainLucid
+    $COMBAT.setAnimationInput(Me, "BrainState", "Lucid")
+    $COMBAT.setAnimationInput(Me, "Posture", "Posture_Upright")
+  else if enum1 == staBrainStunned
+    $COMBAT.setAnimationInput(Me, "BrainState", "Stunned")
+  else
+    if enum1 != staBrainDead
+      return
+    .
+    var int1 = $EFFECT.effmOracleGetEffAppearancePriority(effAppPriority_pcDeath)
+    var int2 = $COMBAT.cbtOracle_GetNextScriptHandleForAction()
+    $COMBAT.cbtOracle_AnimAttack(Me, 0, 0, "DieInstantly", 1, 0, 0, 0, 0, int2, int1, int1, 1092616192, -1082130432, 1065353216)
+  .
+.
+public method _RectifyBrainStateDelayed(Me, a1 as Float)
+  if Me.staCharacterRectificationTimer.timerState == 2
+    timer::stop(Me.staCharacterRectificationTimer)
+  .
+  Me.staCharacterRectificationTimer.script = $THISSCRIPT
+  TimeInterval interval = timeInSeconds(a1)
+  Me.staCharacterRectificationTimer.fireRate = interval
+  timer::start(Me.staCharacterRectificationTimer)
+.
+public method OnBrainStateVisualChange(Me)
+  Me.staCharacterBrainStateChanged_HE15 = false
+  if Me.staCurrentBrain == Me.staPreviousBrain
+    return
+  .
+  var bool1 = false
+  var enum2 = Me.staCurrentBrain
+  if enum2 == staBrainLucid
+    $COMBAT.simpleAction(Me, "BecomeLucid")
+    if Me.staPreviousBrain == staBrainDead
+      $COMBAT.setAnimationInput(Me, "BrainState", "Lucid")
+      if Me is kindof guiDeathScreenComponent
+        var pc = GetPlayerCharacterNode()
+        if Me == pc
+          Me.RemoveDeathScreen()
+        .
+      .
+      if Me is kindof chrCompanionComponent
+        var pc2 = GetPlayerCharacterNode()
+        if pc2 == Me.GetCompanionMaster()
+          Me.CompanionRevived()
+        .
+      .
+    .
+    SetCharacterBrainStateLucid(Me)
+    var enum3 = Me.staPreviousBrain
+    call event Me:OnBecomeLucid Me:OnBecomeLucid
+    if Me.staShouldReviveInstantly
+      var int1 = $EFFECT.effmOracleGetEffAppearancePriority(effAppPriority_pcDeath)
+      $COMBAT.basicInterruptAttack(Me, "GetUpInstantly", int1 + 1, (unsigned __int64)(int1 + 1) >> 32, int1, HIDWORD(int1))
+      ResetSimulatedParts(Me, false)
+      Me.staShouldReviveInstantly = false
+    else
+      Me.chrCharacter_TryToGetUp()
+    .
+    Me.ClearStunAnims()
+    Me.staWeapon_PopWeaponInOrTurnWeaponOnVisually()
+    if Me.staPreviousBrain == staBrainDead
+      SetCharacterCollisionResponse(Me, true)
+      Me["behave"] = "flying false"
+      Me["behave"] = "snap true"
+    .
+    bool1 = true
+    if bool1
+      $SELECTED_TARGET.RefreshHighlight(Me)
+    .
+    call event Me:OnCharacterStateChanged Me:OnCharacterStateChanged
+    return
+  .
+  if enum2 == staBrainStunned
+    if Me.staPreviousBrain == staBrainDead
+      if Me is kindof guiDeathScreenComponent
+        var pc3 = GetPlayerCharacterNode()
+        if Me == pc3
+          Me.RemoveDeathScreen()
+        .
+      .
+    .
+    $COMBAT.simpleAction(Me, "BecomeStunned")
+    var enum4 = Me.staPreviousBrain
+    call event Me:OnBecomeStunned Me:OnBecomeStunned
+    bool1 = true
+    if bool1
+      $SELECTED_TARGET.RefreshHighlight(Me)
+    .
+    call event Me:OnCharacterStateChanged Me:OnCharacterStateChanged
+  else
+    if enum2 == staBrainDead
+      if GetAnimInput(Me, "BrainState") != "Dead" and not GetBehaveIsCharacterBrainStateDead(Me)
+        var int2 = $EFFECT.effmOracleGetEffAppearancePriority(effAppPriority_pcDeath)
+        var bool2 = GetAnimInput(Me, "WillKnockDown") == "Yes" or (str3 = HM.ConstructString(), GetAnimInput(str3, Me, "Posture"), str3 == "Posture_KnockedDown")
+        if bool2 and (not Me.IsCombatantCharacter() and not Me.IsCreatureCombatantCharacter() ? (bool5 = false) : (bool5 = true), bool5)
+          basicAttack = HM.PrepareCallNodeRef2(139, $COMBAT, &_callFrame)
+          v32 = HIDWORD(int2)
+          basicAttack(_callFrame, Me, "Die", int2, v32, v33)
+        else
+          basicAttack = HM.PrepareCallNodeRef2(128, $COMBAT, &_callFrame)
+          v32 = HIDWORD(int2)
+          basicAttack(_callFrame, Me, "Die", int2, v32, int2)
+        .
+      .
+      Me.ClearStunAnims()
+      call event Me:OnDeath Me:OnDeath
+      SetCharacterBrainStateDead(Me)
+      Me.staWeapon_TurnWeaponOffVisually()
+      if Me is kindof guiDeathScreenComponent
+        var pc4 = GetPlayerCharacterNode()
+        if Me == pc4
+          Me.ShowDeathScreen()
+          $CONTROL.ctlOracle_SetAutoForwardEnabled(false)
+        .
+      .
+    .
+    if bool1
+      $SELECTED_TARGET.RefreshHighlight(Me)
+    .
+    call event Me:OnCharacterStateChanged Me:OnCharacterStateChanged
+  .
+.
+public method _SetCharDeathRecoverable(Me, a1 as Boolean)
+  if not Me.IsCombatantCharacter() and not Me.IsCreatureCombatantCharacter()
+    // unknown
+  else if a1
+    $COMBAT.setAnimationInput(Me, "DeathRecoverable", "Yes")
+  else
+    $COMBAT.setAnimationInput(Me, "DeathRecoverable", "No")
+  .
+.
+public method _UpdateCharClassPose(Me)
+  if not Me.IsCombatantCharacter()
+    // unknown
+  else if Me is kindof chrPlayerCharacter
+    if Me is kindof chrClassComponent
+      $COMBAT.setAnimationInput(Me, "CharacterClass", ToUpper(Me.GetCharacterClass_ShortName()))
+    .
+  .
+.
+public method _OnUpdateIsFighting(Me)
+  Me._RectifyCombatState()
+  call event Me:OnCharacterStateChanged Me:OnCharacterStateChanged
+  if Me is kindof chrPlayerCharacter or Me is kindof chrNonPlayerCharacter
+    Me.determineConversationVisible()
+  .
+  if Me.staFighting
+    $COMBAT._CombatSpamSystemMessage(Me, Me, stringIdEnterCombat, "")
+    call event Me:OnEnterCombat Me:OnEnterCombat
+  else
+    call event Me:OnExitCombat Me:OnExitCombat
+    $COMBAT._CombatSpamSystemMessage(Me, Me, stringIdExitCombat, "")
+  .
+.
+public method _RectifyCombatState(Me)
+  int v8
+  int v9
+  if not Me.IsCombatantCharacter()
+    if not Me.IsCreatureCombatantCharacter()
+      return
+    .
+  .
+  if Me.staFighting or Me is kindof chrPlayerCharacter
+    $COMBAT.setAnimationInput(Me, "Combat", "Yes")
+  else
+    $COMBAT.setAnimationInput(Me, "Combat", "No")
+    if Me = None
+      return
+    .
+    Me.RectifyCombatState(0, v8, v9)
+  .
+.
+public method _CharStateRectifyStance(Me)
+  if not Me.IsCombatantCharacter() and not Me.IsCreatureCombatantCharacter()
+    // unknown
+  else
+    var str = GetAnimInput(Me, "Stance")
+    var str4 = Me.staWeapon_GetWeaponStance()
+    var enum1 = Me.staStance
+    if enum1 == staStanceNormal
+      if str != "Normal"
+        str = "Normal"
+      .
+    else if enum1 == staStanceCombat
+      if str != "Combat"
+        str = "Combat"
+      .
+    .
+    $COMBAT.setAnimationInput(Me, "Weapon", str4)
+    $COMBAT.setAnimationInput(Me, "Stance", str)
+    if Me.staWeapon_IsWeaponDrawn()
+      Me.staWeapon_DrawWeaponVisually()
+    else
+      Me.staWeapon_StowWeaponVisually()
+    .
+  .
+.
+public method _resetCoverVisibility(Me)
+  var pc = GetPlayerCharacterNode()
+  if Me == pc
+    var node2 = Me.GetAbility(16141018170249269621)  // abl.state.show_cover
+    if node2 != None
+      Me.AbilityDeactivate(node2)
+    .
+  .
+.
+public method UpdateStealth(Me)
+  // unknown
+  if Me.chrAnim_GetBodyType() == effAppBodyType_Humanoid
+    if Me is kindof chrStealthComponent and Me.IsStealthed()
+      $COMBAT.setAnimationInput(Me, "Stealth", "Yes")
+    else
+      $COMBAT.setAnimationInput(Me, "Stealth", "No")
+    .
+    Me._RectifyCombatState()
+  .
+.
+public method _LeaveCoverInternal(Me)
+  list1 as List of Association
+  list1 = queryAssociation(None, "CoverNodeToUser", Me)
+  foreach cur in list1
+    removeAssociation(HM.GetAssocSource(cur), "CoverNodeToUser", Me)
+  .
+  Me.SetCoverObject(None)
+  Me.staCharacterUsingDynamicCover = false
+.
+public method _clearCoverIcon(Me)
+  if Me.staCharacterCoverIcon != None
+    var id1 = Me.staCharacterCoverIconFxHandle
+    $FXSYSTEM.FxStopHandle(id1)
+    Me.staCharacterCoverIconFxHandle = 0
+    RemoveInstanceFromPropBucket("Cover Icon", Me.staCharacterCoverIcon)
+    Me.staCharacterCoverIcon = None
+  .
+.
+public method _OnReplicationUpdateReservedCover(Me)
+  list1 as List of Association
+  list1 = queryAssociation(None, "CoverNodeToUser", Me)
+  foreach cur in list1
+    removeAssociation(HM.GetAssocSource(cur), "CoverNodeToUser", Me)
+  .
+  foreach cur in Me.staCharacterReservedCover
+    if cur != None
+      addAssociation(cur, "CoverNodeToUser", Me)
+    else
+      // unknown
+    .
+  .
+.
+self handler Replication_Create(Me, a1 as Integer)
+  Me.staCharacter_ConfigureBaseStates()
+  if Me.staCharacterOwnedVehicle != 0
+    var id1 = Me.staCharacterOwnedVehicle
+    var node2 = id1
+    if node2 != None
+      var id2 = Me
+      node2.attachPlayerIfNecessary(id2)
+    .
+  .
+  if not Me.staCharacterHydraLoopingAnim != ""
+    goto LABEL_8
+  .
+  var length = Me.staCharacter_HydraLoopingAnimActions.length
+  var bool1 = (_DWORD)length != 0
+  var bool2 = SHIDWORD(length) >= 1
+  if not HIDWORD(length)
+    bool2 = bool1
+  .
+  if not bool2
+    var bool3 = true
+  else
+LABEL_8:
+    bool3 = false
+  .
+  if bool3
+    Me.staCharacter_AddHydraAnimActionToRetry(Me.staCharacterHydraLoopingAnim)
+  .
+  Me.staCharacter_ConfigureLoopingAnimation(true)
+.
+self handler Replication_Destroy(Me, a1 as Integer)
+  Me._clearCoverIcon()
+.
+self handler Replication_Update(Me, a1 as Integer, a2 as List of ID)
+  var bool1 = false
+  foreach listCur in a2
+    if listCur == staCurrentBrain
+      Me.staPreviousBrain = Me.staCurrentBrainRepPrevious
+      Me.staCurrentBrainRepPrevious = Me.staCurrentBrain
+    else if listCur == staFighting
+      var bool2 = Me.staCharacter_IsVisuallyDead()
+      staCharacter_IsDead = HM.PrepareCallNodeRef2(31, Me, &_callFrame)
+      v6 = bool2 ^ staCharacter_IsDead(_callFrame)
+      if (v6 & 1) == 0
+        Me._OnUpdateIsFighting()
+      .
+      pc = GetPlayerCharacterNode()
+      if Me == pc
+        $PHASE.UpdateAllGateways(v31)
+      .
+    else if listCur == staAutoAttack
+      v32 = &v35
+      call event Me:OnCharacterStateChanged Me:OnCharacterStateChanged
+    else
+      if listCur == staStance
+        bool1 = true
+        continue
+      .
+      if listCur == staWeaponMode
+        bool1 = true
+        continue
+      .
+      if listCur == staWeaponState
+        bool1 = true
+        continue
+      .
+      if listCur == staCharacterCoverObject
+        if Me.staCharacterCoverObject != 0
+          continue
+        .
+        Me.TryToLeaveCover(v31)
+        continue
+      .
+      if listCur == staCharacterUsingPortableCover
+        if Me.staCharacterUsingPortableCover
+          continue
+        .
+        Me.TryToLeaveCover(v31)
+        continue
+      .
+      if listCur == staCharacterReservedCover
+        Me._OnReplicationUpdateReservedCover(v31)
+        continue
+      .
+      if listCur == staEnterIdle
+        Me.staCharacter_ConfigureLoopingAnimation(false)
+        continue
+      .
+      if listCur == staCharacterHydraLoopingAnim
+        if not Me.staCharacterHydraLoopingAnim != ""
+          goto LABEL_31
+        .
+        var lookup = Me.staCharacter_HydraLoopingAnimActions
+        length = lookup.length
+        var bool3 = (_DWORD)length != 0
+        bool4 = SHIDWORD(length) >= 1
+        if not HIDWORD(length)
+          bool4 = bool3
+        .
+        if not bool4
+          bool5 = true
+        else
+LABEL_31:
+          bool5 = false
+        .
+        if bool5
+          Me.staCharacter_AddHydraAnimActionToRetry(Me.staCharacterHydraLoopingAnim)
+          Me.staCharacter_ConfigureLoopingAnimation(false)
+        .
+      else if listCur != staCharacterEnemyCount
+        if listCur == staKnockedDown
+          if not Me.staKnockedDown
+            if not Me.chrCharacter_TryToGetUp()
+              Me._RectifyPostureStateDelayed(((Float)COMBAT_STATE_ALERTED))
+            .
+          .
+        .
+      .
+    .
+  .
+  if bool1
+    var enum3 = Me.staStance
+    if not Me.SwitchStanceInstantly(enum3, Me.staWeapon_GetWeaponMode(), v32)
+      var enum6 = Me.staWeapon_GetWeaponMode()
+      Me.playStanceSwitchAppearance(enum3, enum6)
+    .
+  .
+.
+public method SwitchStanceInstantly(a1 as Enum staStanceType, a2 as Enum staCombatModeType) as Boolean
+  var bool1 = Me is kindof chrMountComponent and Me.IsRidingMount()
+  if bool1 and a1 == staStanceNormal
+    Me.staWeapon_StowWeaponVisually()
+    var int1 = $EFFECT.effmOracleGetEffAppearancePriority(effAppPriority_pcWeaponSwitch)
+    $COMBAT.basicInterruptAttack(Me, "ResetStanceToNormal", int1 + 1, (unsigned __int64)(int1 + 1) >> 32, int1, HIDWORD(int1))
+    return true
+  else
+    return false
+  .
+.
+public method playStanceSwitchAppearance(Me, a1 as Enum staStanceType, a2 as Enum staCombatModeType)
+  String str
+  String str6
+  String str9
+  if a1 == staStanceNormal
+    if Me.staPendingStanceChange or (str = HM.ConstructString(), GetAnimInput(str, Me, "Stance"), str != "Normal")
+      RegisterControlParameterChangeCallback(Me, Me, Me.staInputStanceAnimCpId)
+      Me.staPendingStanceChange = true
+      var node = $EFFECT.ApplyAppearanceToNode(16140970063441288810, Me, Me, effResultOk)  // epp.state.switch_stance_to_normal
+    .
+  else
+    var str3 = Me.staWeapon_GetWeaponStanceForMode(a2)
+    RegisterControlParameterChangeCallback(Me, Me, Me.staInputStanceAnimCpId)
+    if GetAnimInput(Me, "Stance") != "Combat"
+      if GetAnimInput(Me, "Weapon") != str3
+        $COMBAT.setAnimationInput(Me, "Weapon", str3)
+      .
+    .
+    if Me.staPendingStanceChange or (str6 = HM.ConstructString(), GetAnimInput(str6, Me, "Stance"), str6 != "Combat") or (str9 = HM.ConstructString(), GetAnimInput(str9, Me, "Weapon"), str9 != str3)
+      var id3 = utlFQN:toIDTemp("epp.state.switch_weapon_stance." + ToLower(str3))
+      var node3 = $EFFECT.ApplyAppearanceToNode(id3, Me, Me, effResultOk)
+      return
+    .
+  .
+.
+public shared method onControlParameterChangedCallback(Me, a1 as Integer)
+  Me.staPendingStanceChange = false
+  UnregisterControlParameterChangeCallback(Me, a1)
+.
+public method prepareForSpaceCombat(Me, a1 as NodeRef of phsSpaceCombatPhasedInstance)
+  if a1 != None
+    var id1 = $BASECLIENT._GetInstanceID()
+    if id1 != 0
+      utlNode:SetCharacterHidden(Me, true)
+      Me["behave"] = "flying true"
+    .
+  .
+.
+remote function UpdateAlertedState(Me, a1 as ID, a2 as Integer)
+  if a1 != None
+    a1.CharStateSetAlerted(a2)
+  .
+.
+public method IsHiddenBehindCover(a1 as NodeRef of cbtEnemiesComponent) as Boolean
+  if not Me.IsInCover()
+    // unknown
+  else
+    var enum1 = HM.GetEnumDefaultValue(49)
+    var enum2 = chrLineOfSight:chrGetLOSType(HM.CopyConstructNodeRef(18, a1), Me)
+    enum1 = enum2
+    if enum2 == utlLosEnum_Character or enum1 == 4
+      // unknown
+    else
+      return true
+    .
+  .
+  return false
+.
+public function staCharacterPostureRectificationTimer_tick(Me)
+  if Me is kindof staCharacterComponent
+    var classView = HM.GetClassViewFromNodeRef(Me, staCharacterComponent)
+    if classView.staCharacterRectificationTimer.timerState == 2
+      var classView2 = HM.GetClassViewFromNodeRef(Me, staCharacterComponent)
+      timer::stop(classView2.staCharacterRectificationTimer)
+    .
+    Me._RectifyPostureState()
+  .
+.
+public method _RectifyPostureState(Me)
+  var int1 = Me.chrAnim_GetPosture()
+  if Posture_Upright != int1 and Me.staCharacter_IsLucid()
+    Me.chrCharacter_TryToGetUp()
+  else
+    timer::stop(Me.staCharacterPostureRectificationTimer)
+  .
+.
+public method _RectifyPostureStateDelayed(Me, a1 as Float)
+  if Me.staCharacterPostureRectificationTimer.timerState == 2
+    timer::stop(Me.staCharacterPostureRectificationTimer)
+  .
+  Me.staCharacterPostureRectificationTimer.script = $THISSCRIPT
+  TimeInterval interval = timeInSeconds(a1)
+  Me.staCharacterPostureRectificationTimer.fireRate = interval
+  timer::start(Me.staCharacterPostureRectificationTimer)
+.

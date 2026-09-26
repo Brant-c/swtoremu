@@ -222,6 +222,96 @@ static EventDispatch_t EventDispatch_r = NULL;
 static volatile LONG g_eventDispatchCount[5] = { 0 };
 static DWORD g_lastEventHash[5] = { 0 };
 
+// Class-1 event bridge at static VA 0x00BD4910. The bridge resolves the
+// concrete recipient with 0x006340E0 and invokes virtual slot +4. Keeping the
+// active recipient in TLS lets the nested AreaRpc hook identify which runtime
+// object actually generated a readiness poll without changing client state.
+typedef void* (__cdecl * ResolveClass1Recipient_t)();
+typedef void (__cdecl * Class1EventBridge_t)(void* unused, void* payload);
+static ResolveClass1Recipient_t ResolveClass1Recipient_r = NULL;
+static Class1EventBridge_t Class1EventBridge_r = NULL;
+static __declspec(thread) void* g_class1Recipient = NULL;
+static __declspec(thread) void* g_class1Method = NULL;
+
+// Generic replicated-field string copier at static VA 0x00923C20. Earlier
+// diagnostics called this a script dispatch function, but static disassembly
+// proves callers pass one source string and use ECX as the destination field.
+// The additional values below are caller-stack context, not formal arguments;
+// retain the sampling hook only to correlate field application with the poll.
+typedef DWORD (__thiscall * ScriptDispatch_t)(void* pThis, DWORD a1, DWORD a2,
+	DWORD a3, DWORD a4, DWORD a5, DWORD a6, DWORD a7, DWORD a8);
+static ScriptDispatch_t ScriptDispatch_r = NULL;
+static volatile LONG g_scriptDispatchCount = 0;
+struct ScriptDispatchSample
+{
+	DWORD tick;
+	DWORD callerRva;
+	DWORD pThis;
+	DWORD args[8];
+	DWORD result;
+};
+static __declspec(thread) ScriptDispatchSample g_scriptSamples[16] = { 0 };
+static __declspec(thread) DWORD g_scriptSampleNext = 0;
+static __declspec(thread) ScriptDispatchSample g_activeScriptDispatch[16] = { 0 };
+static __declspec(thread) DWORD g_activeScriptDepth = 0;
+static void FormatRpcStack(char* output, size_t outputSize);
+static volatile LONG g_readinessVmDeepDumped = 0;
+static volatile LONG g_readinessCodeDumped = 0;
+
+static void LogReadinessMemory(const char* label, DWORD address)
+{
+	if (!address)
+	{
+		Log::Write("ReadinessVmHook", "%s=null", label);
+		return;
+	}
+
+	__try
+	{
+		BYTE* bytes = (BYTE*)address;
+		char hex[3 * 64 + 1] = { 0 };
+		char ascii[65] = { 0 };
+		for (DWORD i = 0; i < 64; ++i)
+		{
+			_snprintf(hex + i * 3, sizeof(hex) - i * 3,
+				"%02X%s", bytes[i], (i < 63) ? " " : "");
+			ascii[i] = (bytes[i] >= 0x20 && bytes[i] <= 0x7E)
+				? (char)bytes[i] : '.';
+		}
+		Log::Write("ReadinessVmHook", "%s=%p bytes=%s ascii=%s",
+			label, (void*)address, hex, ascii);
+	}
+	__except (EXCEPTION_EXECUTE_HANDLER)
+	{
+		Log::Write("ReadinessVmHook", "%s=%p unreadable", label, (void*)address);
+	}
+}
+
+static void LogReadinessPointers(const char* label, DWORD address)
+{
+	if (!address) return;
+	__try
+	{
+		DWORD* values = (DWORD*)address;
+		for (DWORD i = 0; i < 16; ++i)
+		{
+			DWORD candidate = values[i];
+			if (candidate < 0x00010000) continue;
+			MEMORY_BASIC_INFORMATION info = { 0 };
+			if (!VirtualQuery((void*)candidate, &info, sizeof(info)) ||
+				info.State != MEM_COMMIT || (info.Protect & (PAGE_NOACCESS | PAGE_GUARD)))
+				continue;
+			char childLabel[64] = { 0 };
+			_snprintf(childLabel, sizeof(childLabel), "%s[%02X]", label, i * 4);
+			LogReadinessMemory(childLabel, candidate);
+		}
+	}
+	__except (EXCEPTION_EXECUTE_HANDLER)
+	{
+		Log::Write("ReadinessVmHook", "%s=%p pointer-scan-failed", label, (void*)address);
+	}
+}
+
 // Generic packed-string reader. We only log calls returning into the two
 // SMSG_RESULTS fields, so this does not spam unrelated packet parsing.
 typedef void (__thiscall * ReadPackedString_t)(void* reader, void* output);
@@ -248,6 +338,193 @@ static RouteLookup_t RouteLookup_r = NULL;
 static __declspec(thread) DWORD g_parsedInboundOpcode = 0;
 static __declspec(thread) WORD g_parsedInboundFirst = 0;
 static __declspec(thread) WORD g_parsedInboundSecond = 0;
+
+// Central GOM definition lookup at static VA 0x004A95B0. The second explicit
+// argument points to a 64-bit type ID. Keep this observer opt-in and filter
+// before calling any logging code: this routine is hot during normal loading.
+// It is read-only and never changes the lookup key, result, or returned value.
+typedef DWORD (__thiscall * GomDefinitionLookup_t)(void* pThis, void* output,
+	const ULONGLONG* typeId);
+static GomDefinitionLookup_t GomDefinitionLookup_r = NULL;
+static volatile LONG g_loadingGomLookupCount = 0;
+
+// HeroClass::getField at static VA 0x004F5A00. The two DWORD arguments form
+// the requested 64-bit field ID and output receives the client-owned field
+// value interface. This observer never calls the getter independently and
+// never modifies the class, output, or returned interface.
+typedef void* (__thiscall * HeroClassGetField_t)(void* pThis, void* output,
+	DWORD fieldLow, DWORD fieldHigh);
+static HeroClassGetField_t HeroClassGetField_r = NULL;
+static volatile LONG g_playerFieldAccessCount = 0;
+
+// HM.SetNodeFieldEnum at static VA 0x005D9FF0. This binding is verified from
+// the patched call target in the loaded _BaseClientClassMethods module, not
+// inferred from a neighboring native routine. The third argument is the enum
+// value itself; the native helper passes its address into the typed assignment
+// path. This observer forwards all three arguments unchanged.
+typedef void (__cdecl * SetNodeFieldEnum_t)(void* node, DWORD fieldOperand,
+	DWORD enumValue);
+static SetNodeFieldEnum_t SetNodeFieldEnum_r = NULL;
+static volatile LONG g_enumFieldWriteCount = 0;
+
+static const char* PlayerFieldName(ULONGLONG id)
+{
+	switch (id)
+	{
+	case 0x4000000365D249CBULL: return "chrIsMe";
+	case 0x400000045A767612ULL: return "_GameState";
+	case 0x400000077CDF593BULL: return "chrCharacterPlayMode";
+	case 0x4000000886E130D2ULL: return "chrCharacterPhaseMode";
+	case 0x4000000D5DF53477ULL: return "chrPlayerLoaded";
+	case 0x40000000009654C3ULL: return "guiHud2";
+	case 0x40000000009C971FULL: return "gfxLoaded";
+	default: return NULL;
+	}
+}
+
+void* __fastcall HeroClassGetField_Hook(void* pThis, void* EDX, void* output,
+	DWORD fieldLow, DWORD fieldHigh)
+{
+	void* result = HeroClassGetField_r
+		? HeroClassGetField_r(pThis, output, fieldLow, fieldHigh) : NULL;
+	ULONGLONG id = ((ULONGLONG)fieldHigh << 32) | fieldLow;
+	const char* name = PlayerFieldName(id);
+	if (!name) return result;
+
+	__try
+	{
+		DWORD valueInterface = output ? *(DWORD*)output : 0;
+		DWORD words[8] = { 0 };
+		if (valueInterface)
+			for (DWORD i = 0; i < ARRAYSIZE(words); ++i)
+				words[i] = *(DWORD*)((BYTE*)valueInterface + i * 4);
+		char stack[512] = { 0 };
+		FormatRpcStack(stack, sizeof(stack));
+		LONG count = InterlockedIncrement(&g_playerFieldAccessCount);
+		Log::Write("PlayerFieldHook",
+			"count=%ld name=%s id=0x%08X%08X class=%p output=%p interface=%p result=%p words=%08X,%08X,%08X,%08X,%08X,%08X,%08X,%08X stack=%s",
+			count, name, fieldHigh, fieldLow, pThis, output,
+			(void*)valueInterface, result, words[0], words[1], words[2], words[3],
+			words[4], words[5], words[6], words[7], stack);
+	}
+	__except (EXCEPTION_EXECUTE_HANDLER)
+	{
+		Log::Write("PlayerFieldHook",
+			"name=%s id=0x%08X%08X class=%p output=%p result=%p inspection-failed",
+			name, fieldHigh, fieldLow, pThis, output, result);
+	}
+	return result;
+}
+
+void __cdecl SetNodeFieldEnum_Hook(void* node, DWORD fieldOperand,
+	DWORD enumValue)
+{
+	// In the recovered loaded _BaseClientClassMethods module the return address
+	// after this call is exactly 0x7A bytes after _SetGameState's unique
+	// prologue. Validate both ends so unrelated SetNodeFieldEnum calls remain
+	// completely silent; the unfiltered helper is extremely hot during enum
+	// initialization.
+	BYTE* caller = (BYTE*)_ReturnAddress();
+	bool isBaseClientSetGameState = false;
+	__try
+	{
+		static const BYTE methodPrologue[] =
+			{ 0x53, 0x57, 0x56, 0x83, 0xEC, 0x10, 0xC7, 0x04, 0x24, 0x1F, 0, 0, 0 };
+		static const BYTE afterCall[] =
+			{ 0x83, 0xC4, 0x10, 0x5E, 0x5F, 0x5B };
+		isBaseClientSetGameState = caller &&
+			memcmp(caller - 0x7A, methodPrologue, sizeof(methodPrologue)) == 0 &&
+			memcmp(caller, afterCall, sizeof(afterCall)) == 0;
+	}
+	__except (EXCEPTION_EXECUTE_HANDLER)
+	{
+		isBaseClientSetGameState = false;
+	}
+	if (isBaseClientSetGameState)
+	{
+		char stack[512] = { 0 };
+		FormatRpcStack(stack, sizeof(stack));
+		LONG count = InterlockedIncrement(&g_enumFieldWriteCount);
+		Log::Write("SetNodeFieldEnumHook",
+			"count=%ld method=_BaseClient._SetGameState caller=%p node=%p fieldOperand=0x%08X enumValue=%u stack=%s",
+			count, caller, node, fieldOperand, enumValue, stack);
+	}
+	if (SetNodeFieldEnum_r)
+		SetNodeFieldEnum_r(node, fieldOperand, enumValue);
+}
+
+struct LoadingGomId
+{
+	ULONGLONG id;
+	const char* name;
+};
+
+static const LoadingGomId g_loadingGomIds[] =
+{
+	{ 0x40000009C9065DB8ULL, "guiGFxLoadingScreen" },
+	{ 0x4000000A90024EB7ULL, "guiGfxLoadingProgressBarOn" },
+	{ 0x4000003509BC9B13ULL, "guiGfxLoadingStringTableTimer" },
+	{ 0x4000000E661E635BULL, "guiGfxLoadingFadeTimer" },
+	{ 0x4000000A69705858ULL, "guiGfxLoadingAssetLoadingTimer" },
+	{ 0x4000000CB7723D57ULL, "guiGfxLoadingAssetTimeoutAt" },
+	{ 0x4000000A69705859ULL, "guiGfxLoadingAssetLoadingTimerZeroCounter" },
+	{ 0x4000000A69705857ULL, "guiGfxLoadingFadedOut" },
+	{ 0x4000000A6970585AULL, "guiGfxLoadingNewFadeOut" },
+	{ 0x4000000A90024EB8ULL, "guiGfxLoadingRepositorAssetCount" },
+	{ 0x4000003551CDB3D1ULL, "guiLoadingStageProgress" },
+	{ 0x4000000A51B758D7ULL, "guiAssetsLoadedTimer" }
+};
+
+static const char* LoadingGomName(ULONGLONG id)
+{
+	for (DWORD i = 0; i < ARRAYSIZE(g_loadingGomIds); ++i)
+		if (g_loadingGomIds[i].id == id) return g_loadingGomIds[i].name;
+	return NULL;
+}
+
+DWORD __fastcall GomDefinitionLookup_Hook(void* pThis, void* EDX,
+	void* output, const ULONGLONG* typeId)
+{
+	ULONGLONG id = 0;
+	const char* name = NULL;
+	__try
+	{
+		if (typeId)
+		{
+			id = *typeId;
+			name = LoadingGomName(id);
+		}
+	}
+	__except (EXCEPTION_EXECUTE_HANDLER)
+	{
+		name = NULL;
+	}
+
+	DWORD result = GomDefinitionLookup_r
+		? GomDefinitionLookup_r(pThis, output, typeId) : 0;
+	if (!name) return result;
+
+	__try
+	{
+		DWORD first = output ? *(DWORD*)output : 0;
+		DWORD second = output ? *(DWORD*)((BYTE*)output + 4) : 0;
+		char stack[512] = { 0 };
+		FormatRpcStack(stack, sizeof(stack));
+		LONG count = InterlockedIncrement(&g_loadingGomLookupCount);
+		Log::Write("LoadingGomHook",
+			"count=%ld name=%s id=0x%08X%08X manager=%p output=%p values=%08X,%08X result=0x%08X stack=%s",
+			count, name, (DWORD)(id >> 32), (DWORD)id, pThis, output,
+			first, second, result, stack);
+		if (first) LogReadinessMemory(name, first);
+	}
+	__except (EXCEPTION_EXECUTE_HANDLER)
+	{
+		Log::Write("LoadingGomHook",
+			"name=%s id=0x%08X%08X result=0x%08X output-inspection-failed",
+			name, (DWORD)(id >> 32), (DWORD)id, result);
+	}
+	return result;
+}
 
 void __cdecl ParseInboundFrame_Hook(void* frame, DWORD* opcode,
 	WORD* firstHandle, WORD* secondHandle)
@@ -358,6 +635,10 @@ void __cdecl EventDispatch_Hook(DWORD eventClass, void* envelope)
 {
 	__try
 	{
+		void* caller = _ReturnAddress();
+		DWORD callerRva = (g_clientImageBase && (DWORD)caller >= g_clientImageBase &&
+			(DWORD)caller < g_clientImageBase + g_clientImageSize)
+			? (DWORD)caller - g_clientImageBase : 0;
 		BYTE* payload = envelope ? ((BYTE*)envelope + 0x14) : NULL;
 		DWORD manager = g_clientImageBase
 			? *(DWORD*)(g_clientImageBase + (0x01491A54 - 0x00400000)) : 0;
@@ -375,18 +656,20 @@ void __cdecl EventDispatch_Hook(DWORD eventClass, void* envelope)
 		// This remains useful during a long hang without generating an unbounded log.
 		if (count <= 100 || changed || (count && (count % 250) == 0))
 		{
+			char stack[1024] = { 0 };
+			FormatRpcStack(stack, sizeof(stack));
 			char hex[3 * 64 + 1] = { 0 };
 			for (DWORD i = 0; payload && i < 64; ++i)
 				_snprintf(hex + i * 3, sizeof(hex) - i * 3, "%02X%s",
 					payload[i], (i < 63) ? " " : "");
 			Log::Write("EventDispatchHook",
-				"class=%u count=%ld envelope=%p payload=%p logicalLen=%u hash=0x%08X changed=%u manager=%p vtable=%p handler=%p handlerRva=0x%08X bytes=%s",
-				eventClass, count, envelope, payload, logicalLength, hash, changed ? 1 : 0,
+				"class=%u count=%ld caller=%p callerRva=0x%08X envelope=%p payload=%p logicalLen=%u hash=0x%08X changed=%u manager=%p vtable=%p handler=%p handlerRva=0x%08X bytes=%s stack=%s",
+				eventClass, count, caller, callerRva, envelope, payload, logicalLength, hash, changed ? 1 : 0,
 				(void*)manager, (void*)vtable, (void*)handler,
 				(g_clientImageBase && handler >= g_clientImageBase &&
 				 handler < g_clientImageBase + g_clientImageSize)
 					? handler - g_clientImageBase : 0,
-				hex);
+				hex, stack);
 		}
 	}
 	__except (EXCEPTION_EXECUTE_HANDLER)
@@ -398,12 +681,115 @@ void __cdecl EventDispatch_Hook(DWORD eventClass, void* envelope)
 		EventDispatch_r(eventClass, envelope);
 }
 
+void __cdecl Class1EventBridge_Hook(void* unused, void* payload)
+{
+	void* previousRecipient = g_class1Recipient;
+	void* previousMethod = g_class1Method;
+	__try
+	{
+		void* recipient = ResolveClass1Recipient_r ? ResolveClass1Recipient_r() : NULL;
+		void* vtable = recipient ? *(void**)recipient : NULL;
+		void* method = vtable ? *(void**)((BYTE*)vtable + 4) : NULL;
+		g_class1Recipient = recipient;
+		g_class1Method = method;
+		Log::Write("Class1BridgeHook",
+			"phase=enter recipient=%p vtable=%p method=%p methodRva=0x%08X unused=%p payload=%p",
+			recipient, vtable, method,
+			(g_clientImageBase && (DWORD)method >= g_clientImageBase &&
+			 (DWORD)method < g_clientImageBase + g_clientImageSize)
+				? (DWORD)method - g_clientImageBase : 0,
+			unused, payload);
+	}
+	__except (EXCEPTION_EXECUTE_HANDLER)
+	{
+		Log::Write("Class1BridgeHook", "phase=inspection-failed payload=%p", payload);
+	}
+
+	if (Class1EventBridge_r)
+		Class1EventBridge_r(unused, payload);
+
+	Log::Write("Class1BridgeHook", "phase=return recipient=%p payload=%p",
+		g_class1Recipient, payload);
+	g_class1Recipient = previousRecipient;
+	g_class1Method = previousMethod;
+}
+
+DWORD __fastcall ScriptDispatch_Hook(void* pThis, void* EDX, DWORD a1, DWORD a2,
+	DWORD a3, DWORD a4, DWORD a5, DWORD a6, DWORD a7, DWORD a8)
+{
+	LONG count = InterlockedIncrement(&g_scriptDispatchCount);
+	void* caller = _ReturnAddress();
+	DWORD callerRva = g_clientImageBase ? (DWORD)caller - g_clientImageBase : 0;
+	if (count <= 20)
+		Log::Write("ScriptDispatchHook",
+			"phase=enter count=%ld this=%p callerRva=0x%08X args=%08X,%08X,%08X,%08X,%08X,%08X,%08X,%08X",
+			count, pThis, callerRva, a1, a2, a3, a4, a5, a6, a7, a8);
+
+	// This stack signature repeatedly encloses the readiness poll. It identifies
+	// a chrPlayerCharacter replication path, but does not identify a Hero method.
+	// Dump the correlated objects without modifying them.
+	if (a3 == 0x7D03034B && a4 == 0xD000199A)
+	{
+		Log::Write("ReadinessVmHook",
+			"phase=enter this=%p callerRva=0x%08X character=%08X%08X method=%08X%08X contexts=%08X,%08X,%08X,%08X",
+			pThis, callerRva, a2, a1, a4, a3, a5, a6, a7, a8);
+		LogReadinessMemory("this", (DWORD)pThis);
+		LogReadinessMemory("context5", a5);
+		LogReadinessMemory("context6", a6);
+		LogReadinessMemory("context7", a7);
+		LogReadinessMemory("context8", a8);
+		if (InterlockedCompareExchange(&g_readinessVmDeepDumped, 1, 0) == 0)
+		{
+			Log::Write("ReadinessVmHook", "phase=deep-dump begin");
+			LogReadinessPointers("this.ptr", (DWORD)pThis);
+			LogReadinessPointers("context5.ptr", a5);
+			LogReadinessPointers("context6.ptr", a6);
+			LogReadinessPointers("context7.ptr", a7);
+			Log::Write("ReadinessVmHook", "phase=deep-dump end");
+		}
+		char stack[512] = { 0 };
+		FormatRpcStack(stack, sizeof(stack));
+		Log::Write("ReadinessVmHook", "phase=enter stack=%s", stack);
+	}
+
+	DWORD activeIndex = g_activeScriptDepth < ARRAYSIZE(g_activeScriptDispatch)
+		? g_activeScriptDepth : ARRAYSIZE(g_activeScriptDispatch) - 1;
+	ScriptDispatchSample* active = &g_activeScriptDispatch[activeIndex];
+	active->tick = GetTickCount();
+	active->callerRva = callerRva;
+	active->pThis = (DWORD)pThis;
+	active->args[0] = a1; active->args[1] = a2; active->args[2] = a3; active->args[3] = a4;
+	active->args[4] = a5; active->args[5] = a6; active->args[6] = a7; active->args[7] = a8;
+	active->result = 0;
+	++g_activeScriptDepth;
+
+	DWORD result = ScriptDispatch_r
+		? ScriptDispatch_r(pThis, a1, a2, a3, a4, a5, a6, a7, a8) : 0;
+	if (g_activeScriptDepth) --g_activeScriptDepth;
+	active->result = result;
+
+	ScriptDispatchSample* sample = &g_scriptSamples[g_scriptSampleNext % ARRAYSIZE(g_scriptSamples)];
+	sample->tick = GetTickCount();
+	sample->callerRva = callerRva;
+	sample->pThis = (DWORD)pThis;
+	sample->args[0] = a1; sample->args[1] = a2; sample->args[2] = a3; sample->args[3] = a4;
+	sample->args[4] = a5; sample->args[5] = a6; sample->args[6] = a7; sample->args[7] = a8;
+	sample->result = result;
+	++g_scriptSampleNext;
+
+	if (count <= 20)
+		Log::Write("ScriptDispatchHook",
+			"phase=return count=%ld callerRva=0x%08X result=0x%08X",
+			count, callerRva, result);
+	return result;
+}
+
 static void FormatRpcStack(char* output, size_t outputSize)
 {
 	if (!output || outputSize == 0) return;
 	output[0] = '\0';
 
-	PVOID frames[12] = { 0 };
+	PVOID frames[32] = { 0 };
 	USHORT count = CaptureStackBackTrace(0, ARRAYSIZE(frames), frames, NULL);
 	size_t used = 0;
 	for (USHORT i = 0; i < count && used + 24 < outputSize; ++i)
@@ -424,6 +810,34 @@ static void FormatRpcStack(char* output, size_t outputSize)
 		}
 		if (written <= 0 || (size_t)written >= outputSize - used) break;
 		used += written;
+	}
+}
+
+// Capture executable frames outside the main client image once. These may be
+// hooks or other loaded modules; they are correlation evidence only and must
+// not be labelled as generated Hero code without separately identifying their
+// allocation/module owner.
+static void LogGeneratedRpcFrames()
+{
+	PVOID frames[16] = { 0 };
+	USHORT count = CaptureStackBackTrace(0, ARRAYSIZE(frames), frames, NULL);
+	for (USHORT i = 0; i < count; ++i)
+	{
+		DWORD address = (DWORD)frames[i];
+		MEMORY_BASIC_INFORMATION info = { 0 };
+		if (!VirtualQuery((void*)address, &info, sizeof(info)) ||
+			info.State != MEM_COMMIT)
+			continue;
+		if (g_clientImageBase && address >= g_clientImageBase &&
+			address < g_clientImageBase + g_clientImageSize)
+			continue;
+		DWORD protection = info.Protect & 0xff;
+		if (protection != PAGE_EXECUTE && protection != PAGE_EXECUTE_READ &&
+			protection != PAGE_EXECUTE_READWRITE && protection != PAGE_EXECUTE_WRITECOPY)
+			continue;
+		char label[64] = { 0 };
+		_snprintf(label, sizeof(label), "external-exec-frame[%u]-minus32", i);
+		LogReadinessMemory(label, address >= 32 ? address - 32 : address);
 	}
 }
 
@@ -448,12 +862,48 @@ void __fastcall AreaRpcSend_Hook(void* pThis, void* EDX, void* blob)
 			? *(DWORD*)(bytes + 1) : 0;
 		DWORD operationId = (bytes && length >= 9 && bytes[0] == 0xC7)
 			? *(DWORD*)(bytes + 5) : 0;
+		if (operationId == 0xF5F540F2)
+		{
+			if (InterlockedCompareExchange(&g_readinessCodeDumped, 1, 0) == 0)
+				LogGeneratedRpcFrames();
+			Log::Write("ReadinessActiveHook", "depth=%u", g_activeScriptDepth);
+			DWORD activeCount = g_activeScriptDepth < ARRAYSIZE(g_activeScriptDispatch)
+				? g_activeScriptDepth : ARRAYSIZE(g_activeScriptDispatch);
+			for (DWORD i = 0; i < activeCount; ++i)
+			{
+				ScriptDispatchSample* active = &g_activeScriptDispatch[i];
+				Log::Write("ReadinessActiveHook",
+					"depth=%u ageMs=%u this=%p callerRva=0x%08X args=%08X,%08X,%08X,%08X,%08X,%08X,%08X,%08X",
+					i + 1, GetTickCount() - active->tick, (void*)active->pThis,
+					active->callerRva, active->args[0], active->args[1],
+					active->args[2], active->args[3], active->args[4], active->args[5],
+					active->args[6], active->args[7]);
+			}
+			DWORD available = g_scriptSampleNext < ARRAYSIZE(g_scriptSamples)
+				? g_scriptSampleNext : ARRAYSIZE(g_scriptSamples);
+			DWORD now = GetTickCount();
+			for (DWORD offset = available; offset > 0; --offset)
+			{
+				DWORD sequence = g_scriptSampleNext - offset;
+				ScriptDispatchSample* sample = &g_scriptSamples[sequence % ARRAYSIZE(g_scriptSamples)];
+				Log::Write("ReadinessContextHook",
+					"sequence=%u ageMs=%u callerRva=0x%08X args=%08X,%08X,%08X,%08X,%08X,%08X,%08X,%08X result=0x%08X",
+					sequence, now - sample->tick, sample->callerRva,
+					sample->args[0], sample->args[1], sample->args[2], sample->args[3],
+					sample->args[4], sample->args[5], sample->args[6], sample->args[7],
+					sample->result);
+			}
+		}
 		char stack[512] = { 0 };
 		FormatRpcStack(stack, sizeof(stack));
 		Log::Write("AreaRpcHook",
-			"sender=%p blob=%p len=%u marker=0x%02X target=0x%08X operation=0x%08X bytes=%s%s stack=%s",
+			"sender=%p blob=%p len=%u marker=0x%02X target=0x%08X operation=0x%08X class1Recipient=%p class1Method=%p class1MethodRva=0x%08X bytes=%s%s stack=%s",
 			pThis, blob, length, (bytes && length) ? bytes[0] : 0,
-			targetId, operationId, hex, (length > shown) ? " ..." : "", stack);
+			targetId, operationId, g_class1Recipient, g_class1Method,
+			(g_clientImageBase && (DWORD)g_class1Method >= g_clientImageBase &&
+			 (DWORD)g_class1Method < g_clientImageBase + g_clientImageSize)
+				? (DWORD)g_class1Method - g_clientImageBase : 0,
+			hex, (length > shown) ? " ..." : "", stack);
 	}
 	__except (EXCEPTION_EXECUTE_HANDLER)
 	{
@@ -546,6 +996,24 @@ void ToR::InitHooks()
 			else
 				Log::Write("EventDispatchHook", "Unsupported client bytes at %p; event hook not installed", candidate);
 
+			BYTE* class1Bridge = (BYTE*)(baseAddr + (0x00BD4910 - 0x00400000));
+			static const BYTE expectedClass1Bridge[] = { 0x55, 0x8B, 0xEC, 0xE8 };
+			if (memcmp(class1Bridge, expectedClass1Bridge, sizeof(expectedClass1Bridge)) == 0)
+			{
+				Class1EventBridge_r = (Class1EventBridge_t)class1Bridge;
+				ResolveClass1Recipient_r = (ResolveClass1Recipient_t)
+					(baseAddr + (0x006340E0 - 0x00400000));
+			}
+			else
+				Log::Write("Class1BridgeHook", "Unsupported client bytes at %p; bridge hook not installed", class1Bridge);
+
+			BYTE* scriptDispatch = (BYTE*)(baseAddr + (0x005BE0E0 - 0x00400000));
+			static const BYTE expectedScriptDispatch[] = { 0x55, 0x8B, 0xEC, 0x6A, 0xFF };
+			if (memcmp(scriptDispatch, expectedScriptDispatch, sizeof(expectedScriptDispatch)) == 0)
+				ScriptDispatch_r = (ScriptDispatch_t)scriptDispatch;
+			else
+				Log::Write("ScriptDispatchHook", "Unsupported client bytes at %p; script hook not installed", scriptDispatch);
+
 			BYTE* stringReader = (BYTE*)(baseAddr + (0x0097D270 - 0x00400000));
 			static const BYTE expectedStringReader[] = { 0x55, 0x8B, 0xEC, 0x56, 0x8B, 0xF1 };
 			if (memcmp(stringReader, expectedStringReader, sizeof(expectedStringReader)) == 0)
@@ -574,6 +1042,45 @@ void ToR::InitHooks()
 			else
 				Log::Write("InboundRouteHook", "Unsupported lookup bytes at %p; route hook not installed", routeLookup);
 		}
+
+		char traceLoadingScreen[8] = { 0 };
+		if (GetEnvironmentVariableA("SWTOR_TRACE_LOADING_SCREEN", traceLoadingScreen,
+			sizeof(traceLoadingScreen)) > 0 && traceLoadingScreen[0] == '1')
+		{
+			BYTE* gomLookup = (BYTE*)(baseAddr + (0x004A95B0 - 0x00400000));
+			static const BYTE expectedGomLookup[] = { 0x55, 0x8B, 0xEC, 0x6A, 0xFF };
+			if (memcmp(gomLookup, expectedGomLookup, sizeof(expectedGomLookup)) == 0)
+				GomDefinitionLookup_r = (GomDefinitionLookup_t)gomLookup;
+			else
+				Log::Write("LoadingGomHook",
+					"Unsupported client bytes at %p; loading-screen GOM observer not installed",
+					gomLookup);
+		}
+
+		char tracePlayerFields[8] = { 0 };
+		if (GetEnvironmentVariableA("SWTOR_TRACE_PLAYER_FIELDS", tracePlayerFields,
+			sizeof(tracePlayerFields)) > 0 && tracePlayerFields[0] == '1')
+		{
+			BYTE* getField = (BYTE*)(baseAddr + (0x004F5A00 - 0x00400000));
+			static const BYTE expectedGetField[] =
+				{ 0x55, 0x8B, 0xEC, 0x83, 0xE4, 0xF8, 0x6A, 0xFF };
+			if (memcmp(getField, expectedGetField, sizeof(expectedGetField)) == 0)
+				HeroClassGetField_r = (HeroClassGetField_t)getField;
+			else
+				Log::Write("PlayerFieldHook",
+					"Unsupported client bytes at %p; player-field observer not installed",
+					getField);
+
+			BYTE* setEnum = (BYTE*)(baseAddr + (0x005D9FF0 - 0x00400000));
+			static const BYTE expectedSetEnum[] =
+				{ 0x55, 0x8B, 0xEC, 0x83, 0xE4, 0xF8, 0x8B, 0x4D, 0x08 };
+			if (memcmp(setEnum, expectedSetEnum, sizeof(expectedSetEnum)) == 0)
+				SetNodeFieldEnum_r = (SetNodeFieldEnum_t)setEnum;
+			else
+				Log::Write("SetNodeFieldEnumHook",
+					"Unsupported client bytes at %p; enum-field write observer not installed",
+					setEnum);
+		}
     }
 
     LONG result = DetourTransactionBegin();
@@ -591,10 +1098,15 @@ void ToR::InitHooks()
     if (result == NO_ERROR) result = DetourAttach(&(PVOID&)SSL_CTX_set_verify_r, (PVOID)SSL_CTX_set_verify);
 	if (result == NO_ERROR && AreaRpcSend_r) result = DetourAttach(&(PVOID&)AreaRpcSend_r, (PVOID)AreaRpcSend_Hook);
 	if (result == NO_ERROR && EventDispatch_r) result = DetourAttach(&(PVOID&)EventDispatch_r, (PVOID)EventDispatch_Hook);
+	if (result == NO_ERROR && Class1EventBridge_r) result = DetourAttach(&(PVOID&)Class1EventBridge_r, (PVOID)Class1EventBridge_Hook);
+	if (result == NO_ERROR && ScriptDispatch_r) result = DetourAttach(&(PVOID&)ScriptDispatch_r, (PVOID)ScriptDispatch_Hook);
 	if (result == NO_ERROR && ReadPackedString_r) result = DetourAttach(&(PVOID&)ReadPackedString_r, (PVOID)ReadPackedString_Hook);
 	if (result == NO_ERROR && OmegaMessage_r) result = DetourAttach(&(PVOID&)OmegaMessage_r, (PVOID)OmegaMessage_Hook);
 	if (result == NO_ERROR && ParseInboundFrame_r) result = DetourAttach(&(PVOID&)ParseInboundFrame_r, (PVOID)ParseInboundFrame_Hook);
 	if (result == NO_ERROR && RouteLookup_r) result = DetourAttach(&(PVOID&)RouteLookup_r, (PVOID)RouteLookup_Hook);
+	if (result == NO_ERROR && GomDefinitionLookup_r) result = DetourAttach(&(PVOID&)GomDefinitionLookup_r, (PVOID)GomDefinitionLookup_Hook);
+	if (result == NO_ERROR && HeroClassGetField_r) result = DetourAttach(&(PVOID&)HeroClassGetField_r, (PVOID)HeroClassGetField_Hook);
+	if (result == NO_ERROR && SetNodeFieldEnum_r) result = DetourAttach(&(PVOID&)SetNodeFieldEnum_r, (PVOID)SetNodeFieldEnum_Hook);
     // Disabled while diagnosing a client freeze during world entry. This hook is
     // kept as a diagnostic logger only and must not intercept or mutate the area
     // object state until the call contract is verified.
@@ -611,8 +1123,11 @@ void ToR::InitHooks()
         Log::Write("NexusToR", "Hook transaction failed: %ld", result);
         return;
     }
-	Log::Write("NexusToR", "Network and SSL hooks installed; RPC trace=%s event trace=%s",
-		AreaRpcSend_r ? "enabled" : "disabled", EventDispatch_r ? "enabled" : "disabled");
+	Log::Write("NexusToR", "Network and SSL hooks installed; RPC trace=%s event trace=%s loading-screen trace=%s player-field read=%s write=%s",
+		AreaRpcSend_r ? "enabled" : "disabled", EventDispatch_r ? "enabled" : "disabled",
+		GomDefinitionLookup_r ? "enabled" : "disabled",
+		HeroClassGetField_r ? "enabled" : "disabled",
+		SetNodeFieldEnum_r ? "enabled" : "disabled");
 }
 ToR::ToR()
 {

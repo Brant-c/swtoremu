@@ -1,0 +1,345 @@
+Live
+
+Server script	14988130739858368730  chrCharacterClassMethods
+Client script	14988232461720378822  _clientchrCharacterClassMethods
+Parent classes	visible_character
+CharacterNode
+chrAttributeComponent
+chrLevelComponent
+conEquipmentComponent
+effContainerComponent
+cbtAttackerComponent
+cbtDefenderComponent
+utlSpatialComponent
+staCharacterComponent
+staWeaponComponent
+effTargetComponent
+sndFootstepOwnerComponent
+chrClassComponent
+chrBehavior
+chrAssetRequestManager
+hydScriptComponent
+phsEntity
+utlVfxComponent
+cbtFactionComponent
+chrAnim
+chrAnimActions
+modStatComponent
+modMetaStatComponent
+modDerivedStatComponent
+hydFx
+kynMsg
+chrLocoAi
+itmSetBonusManagerComponent
+chrLookat
+tgtTargetableComponent
+chrStealthComponent
+ablContainerComponent
+ablUserComponent
+tmrContainerComponent
+cbtEnemiesComponent
+Fields	
+Beta · 6	visible_character	character_position	Vector3
+Beta · 6	visible_character	character_rotation	Vector3
+Beta · 6	chrLevelComponent	chrXp	Int
+Beta · 6	chrLevelComponent	chrXpNeeded	Int
+Beta · 6	staCharacterComponent	staCurrentBrain	Enum staBrainType
+Beta · 6	staCharacterComponent	staFighting	Boolean
+Beta · 6	HBNode	phyPosition	Vector3
+Beta · 6	staCharacterComponent	staAutoAttack	Boolean
+Beta · 6	staCharacterComponent	staMobility	Enum staMobilityType
+Beta · 6	ablUserComponent	ablUserCacheAngle	Float
+Beta · 6	ablUserComponent	ablUserCacheIsLucid	Boolean
+Beta · 6	chrAttributeComponent	chrScale	Float
+Beta · 6	ablUserComponent	ablUserCacheTarget	ID
+Beta · 6	ablUserComponent	ablUserCacheActionPointsF	Float
+Beta · 6	ablUserComponent	ablUserCacheEnergyF	Float
+Beta · 6	ablUserComponent	ablUserCacheForceF	Float
+Beta · 6	ablUserComponent	ablUserCacheGlobalTimerRunning	Boolean
+Beta · 6	conEquipmentComponent	conEquipmentComponentHasRangedWeapon	Boolean
+Beta · 6	conEquipmentComponent	conEquipmentComponentHasMeleeWeapon	Boolean
+Beta · 6	conEquipmentComponent	conEquipmentComponentMeleeWeaponSocket	String
+Beta · 6	conEquipmentComponent	conEquipmentComponentRangedWeaponSocket	String
+Beta · 6	staCharacterComponent	staCharacterCoverStartPos	Vector3
+Beta · 6	staCharacterComponent	staCharacterCoverStartRot	Vector3
+Beta · 6	staCharacterComponent	staCharacterCoverStartTime	DateTime
+Beta · 6	staCharacterComponent	staCharacterCoverDurationSeconds	Float
+Beta · 6	ablUserComponent	ablUserCacheIsDead	Boolean
+Beta · 6	ablUserComponent	ablUserCacheIsStunned	Boolean
+Beta · 6	ablUserComponent	ablUserActionUsableCache2	LookupList indexed by String of ClassView guiActionUsable
+Beta · 6	staCharacterComponent	staCharacterCoverReached	Boolean
+Beta · 6	staCharacterComponent	staCharacterCoverDirection	String
+Beta · 6	chrAttributeComponent	chrMeleeDistance	Float
+Beta · 6	staCharacterComponent	staCharacterCoverObject	ID
+Beta · 6	ablUserComponent	ablUserTarget	NodeRef
+Beta · 6	staCharacterComponent	staStunAnims	List of ClassView staStunAnim
+Beta · 6	chrAttributeComponent	chrBehavior	NodeRef of chrBehavior
+Beta · 6	chrBehavior	chrBehaviorLastState	ClassView chrBehaviorState
+Beta · 6	staCharacterComponent	staCharacterCoverEvaluationTimer	Timer
+Beta · 6	staCharacterComponent	staCharacterCoveredTargets	List of ID
+Beta · 6	chrAssetRequestManager	chrAssetRegisteredRequests	LookupList indexed by ID of String
+Beta · 6	staWeaponComponent	staWeaponState	Enum staWeaponStateType
+Beta · 6	chrBehavior	chrBehaviorStartTime	DateTime
+Beta · 6	ablUserComponent	ablUserClearCasting	Int
+Beta · 6	staWeaponComponent	staWeaponMode	Enum staCombatModeType
+Beta · 6	staCharacterComponent	staStance	Enum staStanceType
+Beta · 6	chrBehavior	chrBehaviorSendCounter	Int
+Beta · 6	ablUserComponent	ablUserCacheIsCoverAffected	Boolean
+Beta · 6	chrBehavior	chrBehaviorSimulate	Int
+Beta · 6	chrBehavior	chrBehaviorLookaheadDegrees	Float
+Beta · 6	chrBehavior	chrBehaviorBankingRotation_w	Vector3
+Beta · 6	ablUserComponent	ablUserRightClickAbility	String
+Beta · 6	chrBehavior	chrBehaviorIsGlancing	Boolean
+Beta · 6	chrBehavior	chrBehaviorGlancingTime	DateTime
+Beta · 6	chrBehavior	chrBehaviorAutoFaceNode	NodeRef
+Beta · 6	chrBehavior	chrBehaviorRecorder	NodeRef of chrBehaviorRecorder
+Beta · 6	chrBehavior	chrBehaviorPreCollisionPosition_w	Vector3
+Beta · 6	chrBehavior	chrBehaviorCombatMoving	Boolean
+Beta · 6	chrStealthComponent	chrStealthIsStealthed	Boolean
+1.0.0c	ablUserComponent	ablUserTargetPosition	Vector3
+Beta · 6	staCharacterComponent	staCharacterRectificationTimer	Timer
+Beta · 6	sndFootstepOwnerComponent	sndFootstepMap	LookupList indexed by String of NodeRef of HBNode
+Beta · 6	staCharacterComponent	staCharacterCoverIcon	NodeRef of HBNode
+Beta · 6	ablUserComponent	ablUserCacheTargetOk	LookupList indexed by Enum tgtTargettingRule of Boolean
+Beta · 6	ablUserComponent	ablUserCacheCombatModeOk	LookupList indexed by Enum staCombatModeType of Boolean
+Beta · 6	staCharacterComponent	staCharacterCoverOverrideRotationEvent	Int
+Beta · 6	staCharacterComponent	staCharacterCoverExposedState	Enum cvrExposeState
+Beta · 6	staCharacterComponent	staCharacterCoverIconFxHandle	ID
+Beta · 6	chrBehavior	chrBehaviorBearingOffsetDegrees	Float
+Beta · 6	chrBehavior	chrBehaviorCover	NodeRef of chrBehaviorCover
+Beta · 6	staCharacterComponent	staCharacterLastChooseCoverTime	DateTime
+Beta · 6	staCharacterComponent	staCharacterLastChooseCoverDirection	Vector3
+Beta · 6	staCharacterComponent	staCharacterLastChooseCoverNode	NodeRef
+Beta · 6	staCharacterComponent	staCharacterLastChooseCoverList	List of NodeRef
+Beta · 6	staCharacterComponent	staCharacterLastChooseCoverPosition	Vector3
+Beta · 6	hydScriptComponent	hydActionBlockTimer	Timer
+Beta · 6	ablUserComponent	ablUserCacheTargetIsDead	Boolean
+Beta · 6	staCharacterComponent	staCharacterLastChooseCoverTarget	NodeRef of HBNode
+Beta · 6	staCharacterComponent	staCharacterOwnedVehicle	ID
+Beta · 6	phsEntity	phsPhase	ID
+Beta · 6		chrBallisticSimulator	NodeRef of chrBallisticSimulator
+Beta · 6	conEquipmentComponent	eqpEquipment	NodeRef of eqpContainer
+Beta · 6	hydObjectComponent	hydAbilityTargets	LookupList indexed by ID of ID
+Beta · 6	hydObjectComponent	hydActionWaitTimer	Timer
+Beta · 6	staCharacterComponent	staCharacterLastChooseCoverFromTargetList	List of NodeRef
+Beta · 6	chrBehavior	m_chrStateMan	NodeRef of chrBehaviorStateMan
+Beta · 6	staCharacterComponent	staCharacterRollLeftCoverNode	NodeRef
+Beta · 6	staCharacterComponent	staCharacterRollRightCoverNode	NodeRef
+Beta · 6	effContainerComponent	effContainerPositive	NodeRef of effContainer
+Beta · 6	effContainerComponent	effContainerNegative	NodeRef of effContainer
+Beta · 6	effContainerComponent	effContainerOther	NodeRef of effContainer
+Beta · 6	chrBehavior	m_chrLookAt_DidSupportCheck	Int
+Beta · 6	staCharacterComponent	staAnimLoop	String
+Beta · 6	staCharacterComponent	staCharacterUsingPortableCover	Boolean
+Beta · 6	staCharacterComponent	staKnockedDown	Boolean
+Beta · 6	hydObjectComponent	hydActionWaitHandle	Int
+Beta · 6	ablUserComponent	ablUserCacheForceMaxF	Float
+Beta · 6	chrBehavior	chrBehaviorDirectionRangeKnob	Float
+Beta · 6	effTargetComponent	effReplicationDummy	Int
+Beta · 6	ablUserComponent	ablUserCacheHealthF	Float
+Beta · 6	ablUserComponent	ablUserCacheHealthMaxF	Float
+Beta · 6	ablUserComponent	ablUserCacheEnergyMaxF	Float
+Beta · 6	ablUserComponent	ablUserCacheActionPointsMaxF	Float
+Beta · 6		chrHasIncomingPhyPath	Boolean
+Beta · 6	staCharacterComponent	staCurrentBrainRepPrevious	Enum staBrainType
+Beta · 6	staCharacterComponent	staPreviousBrain	Enum staBrainType
+Beta · 6	chrBehavior	chrBehaveRenderTarget	Boolean
+Beta · 6	staCharacterComponent	staCharacterUsingPortableCoverLocal	Boolean
+Beta · 6	staCharacterComponent	staCharacterCoverObjectLocal	ID
+Beta · 6	staCharacterComponent	staCharacterPrevCoverObjectLocal	ID
+Beta · 6	staCharacterComponent	staCharacterReservedCover	List of ID
+Beta · 6	chrBehavior	chrBehaviorConstructed	Boolean
+Beta · 6	chrBehavior	chrBehavior_DesiredHeading_w	Float
+Beta · 6	chrBehavior	chrBehavior_DesiredPitch_w	Float
+Beta · 6	chrBehavior	m_chrBehaviorJumpMan	NodeRef of chrBehaviorJumpMan
+Beta · 6	utlVfxComponent	utlVfxHidden	Boolean
+Beta · 6	ablUserComponent	ablUserLastResult	Enum effResult
+Beta · 6	ablUserComponent	ablUserLastResultMessageTime	DateTime
+Beta · 6	chrBehavior	chrBehaviorDelegate	NodeRef of chrBehaviorDelegate
+Beta · 6	chrBehavior	chrBehavior_bearingDegrees_o	Float
+Beta · 6	staCharacterComponent	staCharacterBrainStateChanged_HE15	Boolean
+Beta · 6	staCharacterComponent	staCharacterCanMove	Boolean
+Beta · 6	chrBehavior	chrBehaviorIdleStartTime	DateTime
+Beta · 6	tmrContainerComponent	tmrContainer	NodeRef of tmrContainer
+Beta · 6	staCharacterComponent	staCharacterReplicationCreated	Boolean
+Beta · 6	staCharacterComponent	staCharacterAnimAgentReady	Boolean
+Beta · 6	chrBehavior	chrBehavior_Paused	Boolean
+Beta · 6	ablUserComponent	ablUserEffectEvent_Client	NodeRef of effEvent
+Beta · 6	modStatComponent	modStatComputed	LookupList indexed by Enum modStatEnum of Float
+Beta · 6	modStatComponent	modStatBase	LookupList indexed by Enum modStatEnum of Float
+Beta · 6	modStatComponent	modStatComputedRepPrevious	LookupList indexed by Enum modStatEnum of Float
+Beta · 6	baseAttributeComponent	statHealth	Float
+Beta · 6	modStatComponent	modStatBaseRepPrevious	LookupList indexed by Enum modStatEnum of Float
+Beta · 6	ablContainerComponent	ablContainer_AbilityPackageCacheDirty	Boolean
+Beta · 6	ablContainerComponent	ablContainer_AbilityPackageTabsDirty	Boolean
+Beta · 6	ablContainerComponent	ablContainer_AbilityPackageTabs	List of String
+Beta · 6	staCharacterComponent	staEnterIdle	Boolean
+Beta · 6	cbtDefenderComponent	cbtToughnessEnum	Enum cbtToughnessEnum
+Beta · 6	effTargetComponent	effTargetActiveSnare	Float
+Beta · 6	effTargetComponent	effTargetActiveHaste	Float
+Beta · 6	chrAnim	chrAnim_Ready	Boolean
+Beta · 6	chrBehavior	chrBehavior_ActionDesiredTransformLastActionHandle	Int
+Beta · 6	chrBehavior	chrBehavior_ActionDesiredTransformsByHandle	LookupList indexed by Int of ClassView utlTransform
+Beta · 6		chrCharacter_WhenCanStopUpdatingBehavior	DateTime
+Beta · 6	staCharacterComponent	staCharacterEnemyCount	Int
+Beta · 6	staCharacterComponent	staCharacter_HydraLoopingAnimActions	LookupList indexed by Int of String
+Beta · 6	staCharacterComponent	staCharacter_HydraAnimActionsToRetry	List of String
+Beta · 6	staCharacterComponent	staCharacterBaseStatesConfigured	Boolean
+Beta · 6	staCharacterComponent	staCharacterHydraLoopingAnim	String
+Beta · 6	CharacterNode	BlobShadowSpec	String
+Beta · 6	hydFx	hydVfxToId	LookupList indexed by String of ID
+Beta · 6	staCharacterComponent	staCharacterTakingUsefulCover	Boolean
+Beta · 6	chrBehavior	chrBehaviorPlatformOn	Boolean
+Beta · 6	chrBehavior	chrBehaviorPlatform	NodeRef of plcPlatformComponent
+Beta · 6	chrBehavior	chrBehaviorPlatformOffset	Vector3
+Beta · 6	modStatComponent	modStatModifiersRepPrevious	LookupList indexed by Enum modStatEnum of Float
+Beta · 6	chrClassComponent	chrClassShortName	String
+Beta · 6	chrBehavior	chrBehavior_ActionHasLaunched	Boolean
+Beta · 6	chrBehavior	chrBehavior_ActionLaunchedTime	Float
+Beta · 6	chrBehavior	chrBehavior_ActionLandTime	Float
+Beta · 6	effContainerComponent	effContainerTagMap	LookupList indexed by Int of List of NodeRef of effEffect
+Beta · 6	effContainerComponent	effContainerEffectlessTags	LookupList indexed by Int of Boolean
+Beta · 6	chrClassComponent	chrClassDataPrototype	NodeRef of chrClassData
+Beta · 6	ablContainerComponent	ablContainer_AIUsableAbilitiesList	List of NodeRef of ablAbility
+Beta · 6	tmrContainerComponent	tmrGlobalCooldownTimer_Client	Timer
+Beta · 6	kynMsg	kynMsg_EndTime	Float
+Beta · 6	kynMsg	kynMsg_StartTime	Float
+Beta · 6	kynMsg	kynMsg_EndPos	Vector3
+Beta · 6	kynMsg	kynMsg_EndYaw	Float
+Beta · 6	staWeaponComponent	staWeapons	LookupList indexed by Enum conSlotId of Enum staWeaponStateType
+Beta · 6	cbtFactionComponent	cbtWarzoneTeam	Enum wzTeamEnum
+Beta · 6	sndFootstepOwnerComponent	sndFootstepOutfit	String
+Beta · 6	kynMsg	kynMsg_StartPos	Vector3
+Beta · 6	kynMsg	kynMsg_ClientElapsed	Float
+Beta · 6	kynMsg	kynMsg_StartYaw	Float
+Beta · 6	chrLocoAi	chrLocoAi_EndPos	Vector3
+Beta · 6	chrLocoAi	chrLocoAi_EndYaw	Float
+Beta · 6	chrLocoAi	chrLocoAi_EndTime	DateTime
+Beta · 6	chrLocoAi	chrLocoAi_Active	Boolean
+Beta · 6	chrLocoAi	chrLocoAi_Speed	Float
+Beta · 6	chrLocoAi	chrLocoAi_LastTurnSpeed	Float
+Beta · 6	chrLookat	chrLookat_LookVector_w	Vector3
+Beta · 6	chrLookat	chrLookat_LookVector_o	Vector3
+Beta · 6	chrLookat	chrLookat_LookVector_w_Valid	Boolean
+Beta · 6	chrLookat	chrLookat_LookTarget	NodeRef
+Beta · 6	chrBehavior	chrBehavior_ActionLaunchedHandle	Int
+Beta · 6	modMetaStatComponent	modMetaStatComputed_Shared	LookupList indexed by Int of LookupList indexed by Enum modStatEnum of Float
+Beta · 6	staCharacterComponent	staLoopWeaponMode	Enum staCombatModeType
+Beta · 6	baseAttributeComponent	statHealth_RepPrevious	Float
+Beta · 6	staCharacterComponent	staIdleEppEvent	NodeRef of effEvent
+Beta · 6	utlVfxComponent	utlVfxDetails	LookupList indexed by Enum utlVfxKey of ClassView utlVfxDetail
+Beta · 6		chrCharacter_LastStuckPosition	Vector3
+Beta · 6	cbtFactionComponent	cbtTemporaryFactions	List of Int
+Beta · 6	staCharacterComponent	staConversationHidden	Boolean
+Beta · 6	chrLocoAi	chrLocoAi_CustomLocoNetworkSupportsMovement	Boolean
+Beta · 6		chrCharacter_CustomLocoNetwork	String
+Beta · 6	chrLevelComponent	chrOldLevel	Int
+Beta · 6		chrCharacterActionBundleHandles	List of Int
+Beta · 6	ablContainerComponent	ablContainer_AbilityPackageCache	LookupList indexed by ID of ID
+Beta · 6	effContainerComponent	effContainerSpecMap	LookupList indexed by ID of List of NodeRef of effEffect
+Beta · 6	effContainerComponent	effContainerAblSpecMap	LookupList indexed by ID of List of NodeRef of effEffect
+Beta · 6	ablUserComponent	ablUserAbilitySpecShared	ID
+Beta · 6	ablUserComponent	ablUserAbilitySpecShared_Previous	ID
+Beta · 6	ablUserComponent	ablUserAbilitySpecShared_Previous_Replicated	ID
+Beta · 6	ablUserComponent	ablUserPrecastingAbility	ID
+Beta · 6	itmSetBonusManagerComponent	itmSetBonusEquippedItemsClient	LookupList indexed by Int of LookupList indexed by ID of NodeRef of itmEquipableComponent
+Beta · 6	itmSetBonusManagerComponent	itmSetBonusUnusedItems	LookupList indexed by Int of List of NodeRef of itmEquipableComponent
+Beta · 6	ablUserComponent	ablUserCacheTimersRunning	LookupList indexed by ID of Int
+Beta · 6	tgtTargetableComponent	tgtTargetIsTargetable	Boolean
+Beta · 6	sndFootstepOwnerComponent	sndLastContinuousMovementSurface	String
+Beta · 6	sndFootstepOwnerComponent	sndContinuousMovementSoundTimer	Timer
+Beta · 6	cbtFactionComponent	cbtFaction	Int
+Beta · 6	cbtEnemiesComponent	cbtEnemiesAttackers	List of ID
+Beta · 6	ablUserComponent	ablUserSpellPushbackCount	Int
+Beta · 6		chrCharacter_PreloadActionBundleHandles	LookupList indexed by Int of Boolean
+Beta · 6		chrCharacter_PreloadAnimationsRequested	Boolean
+Beta · 6		chrCharacter_PreloadCombatAnimationsRequested	Boolean
+Beta · 6	kynMsg	kynMsg_MoveSpeed	Float
+Beta · 6	cbtDefenderComponent	cbtDefender_LastFlinchTime	DateTime
+Beta · 6	cbtFactionComponent	cbtDemeanorCacheMap	LookupList indexed by ID of Enum cbtDemeanorEnum
+Beta · 6	chrLocoAi	chrLocoAi_PrevEndPos	Vector3
+Beta · 6	kynMsg	kynMsg_TurnSpeed	Float
+Beta · 6	kynMsg	kynMsg_TurnAccel	Float
+Beta · 6	kynMsg	kynMsg_MoveAccel	Float
+Beta · 6		chrCharacterLoadedActionBundleHandles	List of Int
+Beta · 6	modStatComponent	modStat_Fixed	LookupList indexed by Enum modStatEnum of LookupList indexed by ID of Float
+Beta · 6	modStatComponent	modStat_PercentOfCurrent	LookupList indexed by Enum modStatEnum of LookupList indexed by ID of Float
+Beta · 6	ablUserComponent	ablQueuedAbilitySpec	ID
+Beta · 6	chrLevelComponent	chrRestVolumeEnterTime	DateTime
+Beta · 6		chrCharacterBallisticsHandle	Int
+Beta · 6	ablUserComponent	ablLastQueueAttempt	DateTime
+Beta · 6	kynMsg	kynMsg_FacingMode	Enum kynFacingModeType
+Beta · 6	ablUserComponent	ablCastTimeEnd	DateTime
+Beta · 6	tmrContainerComponent	tmrAbilitiesCooldownTimer_Client	LookupList indexed by ID of NodeRef of ablCooldownTimer
+Beta · 6	chrClassComponent	chrClass	ID
+Beta · 6	ablUserComponent	ablActiveRequestId	Int
+Beta · 6	visible_character	_characterSpecification	Int
+Beta · 6	staCharacterComponent	staCharacterCoverPosition	Vector3
+Beta · 6		chrCharacter_FallStart	Float
+Beta · 6		chrCharacter_Falling	Boolean
+Beta · 6		chrCharacter_prevY	Float
+Beta · 6	ablUserComponent	ablUserCustomFailureMessage	Int
+Beta · 6	chrAttributeComponent	statResourceType	Enum chrResourceTypeEnum
+Beta · 6	staCharacterComponent	staCharacterUsingDynamicCover	Boolean
+Beta · 6	ablContainerComponent	ablContainer	NodeRef of ablContainer
+Beta · 6	ablContainerComponent	ablContainerAbilityRanks	LookupList indexed by ID of Int
+Beta · 6	ablContainerComponent	ablContainerAbilityLevels	LookupList indexed by ID of Int
+Beta · 6	ablContainerComponent	ablPackageSpecList	List of IDLookupList indexed by ID of Enum ablAbilityType
+Beta · 6	ablContainerComponent	ablContainerGrantedAbilityRanks	LookupList indexed by ID of Int
+Beta · 6	ablContainerComponent	ablContainerSkillRanks	LookupList indexed by ID of Int
+Beta · 6	chrLevelComponent	chrRestCurrentModifier	Int
+Beta · 6	staCharacterComponent	staCharacterCoverPositionValid	Boolean
+Beta · 6	staCharacterComponent	staShouldReviveInstantly	Boolean
+Beta · 6	chrLevelComponent	chrLevel	Int
+Beta · 6	chrAttributeComponent	statResource_RepPrevious	Float
+Beta · 6	chrAttributeComponent	statResource	Float
+Beta · 6	chrLevelComponent	chrRestXp	Float
+Beta · 6	staCharacterComponent	staAlertedRefCount	Int
+Beta · 6	ablUserComponent	ablUserAutoCastActive	LookupList indexed by ID of Boolean
+Beta · 6	ablUserComponent	ablUserModalActiveSpecs_Previous	List of ID
+Beta · 6	ablUserComponent	ablUserModalActiveSpecs	List of ID
+Beta · 6	hydScriptComponent	hydRunScriptProtoId	ID
+Beta · 0	staCharacterComponent	staEppLoop	ID
+Beta · 6		chrCharacter_HasBeenDestroyed	Boolean
+Beta · 6	kynMsg	kynMsg_InfoFlags	Int
+Beta · 0	hydScriptComponent	hydNextAvailableRuntimeId	Int
+Beta · 0	hydScriptComponent	hydRuntimeExecutionMap	LookupList indexed by Int of ClassView hydScriptRuntimeExecution
+Beta · 0	hydScriptComponent	hydHeartbeatRuntimeScriptIds	List of Int
+Beta · 0	hydScriptComponent	hydPrimaryScriptId	Int
+Beta · 0	hydScriptComponent	hydTimeToRuntimeExecutionIdMap	LookupList indexed by DateTime of List of Int
+Beta · 0	hydScriptComponent	hydCurrentExecutingScriptId	Int
+Beta · 0	hydObjectComponent	hydAbilityTargetsList	LookupList indexed by ID of List of ID
+Beta · 0	hydObjectComponent	hydQueuedScriptActions	LookupList indexed by ID of LookupList indexed by Int of List of ClassView hydCompiledOAV
+Beta · 0	hydObjectComponent	hydQueueTimerToQueuedScriptInfo	LookupList indexed by DateTime of List of ClassView hydQueuedScriptInfo
+Beta · 0	hydObjectComponent	hydQueueProcessingActions	Boolean
+Beta · 0	hydObjectComponent	hydQueuedTimerToCallbackInfoList	LookupList indexed by DateTime of List of ClassView hydQueuedCallbackInfo
+Beta · 0	hydObjectComponent	hydQueueProcessingCallbacks	Boolean
+Beta · 0	ablUserComponent	ablUnverifiedActivations	LookupList indexed by ID of LookupList indexed by Int of Boolean
+Beta · 0	ablUserComponent	effCurrentAppearanceSpec	ID
+Beta · 0	ablUserComponent	effCurrentAppearanceRequest	ID
+Beta · 0	hydObjectComponent	hydPendingQueueTimerToQueuedScriptInfo	LookupList indexed by DateTime of List of ClassView hydQueuedScriptInfo
+Beta · 0	hydObjectComponent	hydPendingQueuedTimerToCallbackInfoList	LookupList indexed by DateTime of List of ClassView hydQueuedCallbackInfo
+Beta · 0	hydScriptComponent	hydPendingTimeToRuntimeExecutionIdMap	LookupList indexed by DateTime of List of Int
+Beta · 0	hydObjectComponent	hydQueueProcessingRefCounter	Int
+Beta · 0	hydObjectComponent	hydQueuePendingTimeRemovalList	List of DateTime
+Beta · 0	hydObjectComponent	hydQueuePendingCallbackTimeRemovalList	List of DateTime
+Beta · 0	hydObjectComponent	hydQueueProcessingCallbackRefCounter	Int
+1.0.0	staCharacterComponent	staCharacterCanRotate	Boolean
+1.0.0	ablUserComponent	ablUserCacheIsFrozen	Boolean
+1.0.0c	chrLevelComponent	chrOldXp	Int
+1.0.0c	ablUserComponent	ablCastDuration	Float
+1.0.0c	staCharacterComponent	staInputStanceAnimCpId	Int
+1.0.0c	staCharacterComponent	staPendingStanceChange	Boolean
+1.2.0	ablContainerComponent	ablContainerUnlockRanks	LookupList indexed by ID of Int
+1.0.0	ablUserComponent	ablUserPrecastingItem	NodeRef of itmItem
+1.1.1	tmrContainerComponent	tmrGlobalCooldownRequestId	Int
+1.2.0	itmSetBonusManagerComponent	itmSetBonusTracker	LookupList indexed by ID of ID
+1.2.0	itmSetBonusManagerComponent	itmSetBonusEquippedItems	LookupList indexed by Int of LookupList indexed by ID of LookupList indexed by ID of Boolean
+1.2.0	staCharacterComponent	staCharacterPostureRectificationTimer	Timer
+1.2.0	itmSetBonusManagerComponent	itmSetBonusTooltipDescriptions	LookupList indexed by Int of String
+Beta · 6	ablUserComponent	ablUserCacheRange	Float
+Beta · 6		chrCharacter_lastTransactionId	Int
+Beta · 6		chrCharacter_blockingTransactionID	Int
+NodeRef in fields	chrMotion_character
+itmRestrictionOwner
+itmEligibleLootCharacters

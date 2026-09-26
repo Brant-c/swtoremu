@@ -1,0 +1,419 @@
+function GetContainerSlotTypes() as List
+  var out = $CONTAINER.effContainerSlotTypes[Me.effSlotType]
+  HM.CheckNotContext(out)
+  return out
+.
+public method GetIconSpec() as String
+  return Me.GetEffectIcon()
+.
+public method toString() as String
+  var str = "id=" + Me
+  var id1 = Me.conEntitySpec
+  var str5 = utlFQN:fromIDDebug(id1)
+  str = str + " spec=" + str5
+  var id2 = Me.GetEffectCasterId()
+  str = str + " caster=" + id2
+  str = str + " rank=" + Me.effEffectCasterRank
+  var node2 = Me.GetEffectTarget()
+  var vec = Me.GetEffectTargetPosition()
+  str = str + " target=" + node2 + vec
+  TimeInterval interval = Me.GetEffectTimeRemaining2()
+  var str19 = HM.GetIntervalString(interval)
+  str = str + " remaining=" + str19
+  if Me is kindof effChargesComponent
+    var int2 = Me.GetEffectCharges()
+    var int3 = Me.GetEffectMaxCharges()
+    str = str + " charges=" + int2 + "/" + int3
+  .
+  return str
+.
+public method GetEffectDebugString() as String
+  return "TODO: re-implement GetEffectDebugString()"
+.
+public method SetEffectAbilitySpec(Me, a1 as ID)
+  $EFFECT._traceMe(Me, 3, a1)
+  Me.effAbilitySpec = a1
+.
+public method GetEffectAbilitySpec() as ID
+  return Me.effAbilitySpec
+.
+public method GetEffectAbility() as NodeRef of ablAbility
+  var id1 = Me.effAbilitySpec
+  return $ABILITY.GetAbilityPrototype(id1)
+.
+public method SetEffectNumber(Me, a1 as Integer)
+  $EFFECT._traceMe(Me, 3, a1)
+  Me.effNumber = a1
+.
+public method GetEffectNumber() as Integer
+  return Me.effNumber
+.
+public method SetEffectSlotType(Me, a1 as Enum conSlotId)
+  $EFFECT._traceMe(Me, 3, a1)
+  Me.effSlotType = a1
+.
+public method GetEffectSlotType() as Enum conSlotId
+  if not (Me.effSlotType == conSlotEffectPositive or Me.effSlotType == conSlotEffectNegative) and Me.effSlotType != conSlotEffectOther
+    var id1 = Me.GetEffectAbilitySpec()
+    var node2 = $ABILITY.GetAbility(id1)
+    if node2 != None
+      if node2.GetAbilityTargetRule() == tgtRuleAttackable
+        Me.effSlotType = 25
+      else
+        Me.effSlotType = 24
+      .
+    .
+  .
+  return Me.effSlotType
+.
+public method IsEffectPositive() as Boolean
+  return Me.GetEffectSlotType() == conSlotEffectPositive
+.
+public method IsEffectNegative() as Boolean
+  return Me.GetEffectSlotType() == conSlotEffectNegative
+.
+public method IsEffectOther() as Boolean
+  return Me.GetEffectSlotType() == conSlotEffectOther
+.
+public method IsEffectHidden() as Boolean
+  return Me.effIsHidden
+.
+public method SetEffectIsHidden(Me, a1 as Boolean)
+  Me.effIsHidden = a1
+.
+public method IsEffectPassive() as Boolean
+  return Me.effIsPassive
+.
+public method SetEffectIsPassive(Me, a1 as Boolean)
+  Me.effIsPassive = a1
+.
+public method SetEffectPersistsAfterDeath(Me, a1 as Boolean)
+  Me.effDoesPersistAfterDeath = a1
+.
+public method GetEffectDuration() as TimeInterval
+  CallFrame _callFrame
+  var dateTime1 = Me.GetEffectEndTime()
+  FuncRef GetEffectStartTime = HM.PrepareCallNodeRef2(15, Me, &_callFrame)
+  return dateTime1 - GetEffectStartTime(_callFrame)
+.
+public method GetModifiedEffectDuration() as TimeInterval
+  var pc = GetPlayerCharacterNode()
+  return timeInSeconds(Me.GetEffectStat(pc, STAT_eff_time_duration))
+.
+public method GetBaseEffectDuration() as TimeInterval
+  return Me.effDuration
+.
+public method SetEffectDuration(Me, a1 as TimeInterval)
+  Me.effDuration = a1
+.
+public method SetEffectDurationIsRealtime(Me, a1 as Boolean)
+  Me.effIsDurationRealtime = a1
+.
+public method IsEffectDurationRealtime() as Boolean
+  return Me.effIsDurationRealtime
+.
+public method SetEffectDurationIsHidden(Me, a1 as Boolean)
+  Me.effIsDurationHidden = a1
+.
+public method IsEffectDurationHidden() as Boolean
+  return Me.effIsDurationHidden
+.
+public method SetEffectUseableOnTaxi(Me, a1 as Boolean)
+  Me.effIsUseableOnTaxi = a1
+.
+public method IsEffectUseableOnTaxi() as Boolean
+  return Me.effIsUseableOnTaxi
+.
+public method GetEffectIgnoreAlacrity() as Boolean
+  return Me.effIgnoreAlacrity
+.
+public method SetEffectIgnoreAlacrity(Me, a1 as Boolean)
+  Me.effIgnoreAlacrity = a1
+.
+public method GetEffectInterval() as TimeInterval
+  TimeInterval out = Me.effInterval
+  var bool1 = out <= -1
+  if not HIDWORD(out)
+    bool1 = (_DWORD)out == 0
+  .
+  if not bool1
+    var node2 = Me.GetEffectCaster()
+    var node5 = Me.GetEffectAbility()
+    var bool2 = false
+    if node2 != None and node5 != None
+      if node5.GetAbilityChannelingTimeBase() > 0.0
+        bool2 = true
+      .
+    .
+    var bool3 = false
+    if bool2
+      if not node5.DoesAbilityIgnoreAlacrity()
+        bool3 = true
+      .
+    .
+    if bool3 and not Me.GetEffectIgnoreAlacrity()
+      var float2 = node2.GetStatComputed(STAT_cbt_spell_channeling_reduction_percentage)
+      if float2 != 0.0
+        out -= (Integer)(float2 * (Float)out)
+      .
+    .
+  .
+  return out
+.
+public method SetEffectInterval(Me, a1 as TimeInterval)
+  $EFFECT._traceMe(Me, 3, HM.GetIntervalString(a1))
+  Me.effInterval = a1
+.
+public method SetEffectTags(Me, a1 as LookupList indexed by Integer of Boolean)
+  Me.effTags = a1
+.
+function GetEffectTags() as LookupList
+  var out = Me.effTags
+  HM.CheckNotContext(out)
+  return out
+.
+public method HasEffectTag(a1 as Integer) as Boolean
+  return Me.effTags has a1
+.
+public method GetEffectCaster() as NodeRef
+  var id1 = Me.effCasterId
+  return id1
+.
+public method GetEffectCasterId() as ID
+  return Me.effCasterId
+.
+public method SetEffectCasterId(Me, a1 as ID)
+  Me.effCasterId = a1
+.
+public method GetEffectTarget() as NodeRef
+  var id1 = Me.effTargetId
+  return id1
+.
+public method SetEffectTargetId(Me, a1 as ID)
+  Me.effTargetId = a1
+.
+public method GetEffectTargetDefaultId() as ID
+  return Me.effTargetDefaultId
+.
+public method GetEffectRank() as Integer
+  return Me.effEffectCasterRank
+.
+public method SetEffectTargetDefaultId(Me, a1 as ID)
+  Me.effTargetDefaultId = a1
+.
+public method GetEffectTargetPosition() as Vector3
+  return Me.effTargetPosition
+.
+public method IsEffectReverse() as Boolean
+  return Me.effIsReverse
+.
+public method SetEffectIsReverse(Me, a1 as Boolean)
+  Me.effIsReverse = a1
+.
+public method SetEffectTargetPosition(Me, a1 as Vector3)
+  Me.effTargetPosition = a1
+.
+public method GetEffectNameStringID() as Integer
+  var out = 0
+  if Me.effNameStringId != 0
+    out = Me.effNameStringId
+  else
+    var node2 = Me.GetEffectAbility()
+    if node2 != None
+      out = node2.GetAbilityNameStringID()
+    .
+  .
+  return out
+.
+public method GetEffectName() as String
+  var node2 = Me.GetEffectAbility()
+  if node2 != None
+    if Me.effNameStringId != 0
+      var str = node2.GetLocalizedAbilityString(Me.effNameStringId, true)
+    .
+    if str == ""
+      str = node2.GetAbilityName()
+    .
+  .
+  return str
+.
+public method GetEffectDescription() as String
+  if Me.effDescriptionStringId != 0
+    var id1 = Me.GetEffectAbilitySpec()
+    var node2 = $ABILITY.GetAbility(id1)
+    if node2 != None
+      var str2 = node2.GetLocalizedAbilityString(Me.effDescriptionStringId, true)
+    .
+  .
+  return str2
+.
+public method GetEffectIcon() as String
+  if Me.effIcon == ""
+    var id1 = Me.GetEffectAbilitySpec()
+    var node2 = $ABILITY.GetAbility(id1)
+    if node2 != None
+      return node2.GetAbilityIconSpec()
+    .
+  .
+  return Me.effIcon
+.
+public method SetEffectIcon(Me, a1 as String)
+  $EFFECT._traceMe(Me, 3, a1)
+  Me.effIcon = a1
+.
+public method GetEffectAppearanceForSubEffect(a1 as Integer) as String
+  if Me.effNumber == 0
+    if a1 == 3
+      var node2 = Me.GetEffectAbility()
+      if node2 != None
+        return node2.GetAbilityAppearanceSpec()
+      .
+    .
+    return ""
+  else
+    var lookup = Me.effSubEffectEppDetails
+    if lookup has a1
+      var classView = lookup[a1]
+      return classView.effSubEffectEppSpec
+    .
+    return ""
+  .
+.
+public method GetEffectAppearanceDependentOnCallingEffect(a1 as Integer) as Boolean
+  var lookup = Me.effSubEffectEppDetails
+  if lookup has a1
+    var classView = lookup[a1]
+    return classView.effSubEffectEppDependent
+  else
+    return false
+  .
+.
+public method IsEffectAppearancePlayedOnApply(a1 as Integer) as Boolean
+  var lookup = Me.effSubEffectEppDetails
+  if lookup has a1
+    var classView = lookup[a1]
+    return classView.effSubEffectEppOnApply
+  else
+    return false
+  .
+.
+public method GetPreviousSubEffectResult() as Enum effResult
+  return Me.effPreviousSubEffectResult
+.
+public method SetPreviousSubEffectResult(Me, a1 as Enum effResult)
+  $EFFECT._traceMe(Me, 3, a1)
+  Me.effPreviousSubEffectResult = a1
+.
+public method effEffect_AddEffectEvent(Me, a1 as NodeRef of effEvent)
+  if a1 != None
+    add back a1 to Me.effEffectEvents
+    a1.effEvent_AddRef()
+    if Me.effEffectLoopingEppTimer.timerState != 1
+      timer::stop(Me.effEffectLoopingEppTimer)
+    .
+  .
+.
+public method effEffect_ClearEffectEvents(Me, a1 as Boolean)
+  foreach cur in Me.effEffectEvents
+    if cur != None
+      if a1
+        if cur.effEventEffectAppearance != None
+          cur.effEventEffectAppearance.effAppearanceRemove(cur, true)
+        .
+      .
+      cur.effEvent_RemoveRef()
+    .
+  .
+  clear Me.effEffectEvents keep
+  if Me.effEffectLoopingEppTimer.timerState != 1
+    timer::stop(Me.effEffectLoopingEppTimer)
+  .
+.
+public function OnTimerTick(Me, a1 as ID)
+  if a1 == effEffectLoopingEppTimer
+    Me.effEffectLoopingEppTimer_tick()
+  .
+.
+public method effEffectLoopingEppTimer_tick(Me)
+  timer::stop(Me.effEffectLoopingEppTimer)
+  Me.effEffect_ReplayLoopingEpp()
+.
+public method effEffect_ReplayLoopingEpp(Me)
+  CallFrame _callFrame
+  var node2 = Me.GetOwner()
+  if node2 = None
+    // unknown
+  else
+    list1 as List of ID
+    var id1 = node2
+    add back id1 to list1
+    var node5 = Me.GetEffectCaster()
+    var lookup = Me.effSubEffectEppDetails
+    foreach key in lookup
+      var cur = lookup[key]
+      if cur.effSubEffectEppOnApply
+        node7 as NodeRef
+        var id2 = utlFQN:toIDTemp(cur.effSubEffectEppSpec)
+        var id3 = node5
+        var id4 = Me
+        FuncRef ApplyAppearanceEx = HM.PrepareCallNodeRef2(38, $EFFECT, &_callFrame)
+        ApplyAppearanceEx(node7, _callFrame, 16141015010245413293, id2, id3, list1, 1, 38, 0, id4, false)  // abl.utility.apply_appearance
+        Me.effEffect_AddEffectEvent(node7)
+      .
+    .
+  .
+.
+public method EffectHasEppOnApply() as Boolean
+  var lookup = Me.effSubEffectEppDetails
+  foreach key in lookup
+    var cur = lookup[key]
+    if cur.effSubEffectEppOnApply
+      return true
+    .
+  .
+  return false
+.
+self handler Replication_Create(Me, a1 as Integer)
+  if Me.EffectHasEppOnApply()
+    if Me.effEffectLoopingEppTimer.timerState != 1
+      timer::stop(Me.effEffectLoopingEppTimer)
+    .
+    Me.effEffectLoopingEppTimer.script = $THISSCRIPT
+    TimeInterval interval = timeInSeconds(0.1)
+    Me.effEffectLoopingEppTimer.fireRate = interval
+    timer::start(Me.effEffectLoopingEppTimer)
+  .
+  SetCallOnPreDestroy(Me, true)
+.
+self handler Replication_Destroy(Me, a1 as Integer)
+  // unknown
+.
+self handler OnPreDestroy(Me, a1 as Boolean)
+  Me.effEffect_ClearEffectEvents(false)
+.
+public method GetEffectStat_Caster(a1 as Enum modStatEnum) as Float
+  var node2 = Me.GetEffectCaster()
+  if node2 != None
+    var id1 = Me.GetSpec()
+    return node2.GetMetaStat(id1, a1)
+  else
+    return 0.0
+  .
+.
+public method GetEffectStat_Target(a1 as Enum modStatEnum) as Float
+  var node2 = Me.GetEffectTarget()
+  if node2 != None
+    var id1 = Me.GetSpec()
+    return node2.GetMetaStat(id1, a1)
+  else
+    return 0.0
+  .
+.
+public method GetEffectStat(a1 as NodeRef, a2 as Enum modStatEnum) as Float
+  if a1 != None and a1 is kindof modMetaStatComponent
+    var id1 = Me.GetSpec()
+    return a1.GetMetaStat(id1, a2)
+  else
+    return 0.0
+  .
+.

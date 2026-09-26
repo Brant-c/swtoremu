@@ -12,9 +12,16 @@ namespace NexusToRServer.NET.Packets.Server
         private byte[] _aeff;
 
         public AreaEffEventMessage(String Area, String AreaID, String AreaCode, int EffectID)
+            : this(Area, AreaID, AreaCode, EffectID, 0)
+        {
+        }
+
+        public AreaEffEventMessage(String Area, String AreaID, String AreaCode, int EffectID, UInt64 CharacterID)
         {
             //
-            _aeff = AreaServer.EffectEvents.Get(Area, AreaID, AreaCode, EffectID);
+            _aeff = CapturedCharacterRemap.Apply(
+                AreaServer.EffectEvents.Get(Area, AreaID, AreaCode, EffectID), CharacterID,
+                "effect " + EffectID.ToString());
         }
 
         /// <summary>

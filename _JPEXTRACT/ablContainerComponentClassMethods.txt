@@ -1,0 +1,144 @@
+public method OnReplicationNodePreCreate(Me, a1 as Integer)
+  call event Me:Replication_PreCreate Me:Replication_PreCreate
+.
+public method OnReplicationNodeCreate(Me, a1 as Integer)
+  call event Me:Replication_Create Me:Replication_Create
+.
+public method OnReplicationNodeUpdate(Me, a1 as Integer, a2 as List of ID)
+  call event Me:Replication_Update Me:Replication_Update
+.
+public method OnReplicationNodeDestroy(Me, a1 as Integer)
+  call event Me:Replication_Destroy Me:Replication_Destroy
+.
+self handler Replication_Update(Me, a1 as Integer, a2 as List of ID)
+  foreach cur in a2
+    call event Me:ContainableUpdated Me:ContainableUpdated
+  .
+.
+public method toString() as String
+  var str = Me.GetMySlotName()
+  var id1 = Me.conEntitySpec
+  return "slot=" + str + ", spec=" + utlFQN:fromIDDebug(id1)
+.
+public method GetMySlotName() as String
+  var node2 = GetParentOfNode(Me)
+  if node2 = None
+    return ""
+  .
+  var int1 = node2.FindSlotByID(Me)
+  var bool1 = int1 <= -1
+  if not HIDWORD(int1)
+    bool1 = (_DWORD)int1 == 0
+  .
+  if not bool1
+    return node2.GetSlotNameForSlot(int1)
+  else
+    return ""
+  .
+.
+public method GetMySlotType() as Enum conSlotId
+  var node2 = GetParentOfNode(Me)
+  if node2 != None
+    var int1 = node2.FindSlotByID(Me)
+    var bool1 = int1 <= -1
+    if not HIDWORD(int1)
+      bool1 = (_DWORD)int1 == 0
+    .
+    if not bool1
+      return node2.GetSlotTypeForSlot(int1)
+    .
+  .
+  return conSlotInvalid
+.
+public shared method GetSpec() as ID
+  return Me.conEntitySpec
+.
+public method GetContainer() as NodeRef of conSlotted
+  var id1 = Me
+  if isPrototype(id1)
+    return None
+  else
+    return GetParentOfNode(Me)
+  .
+.
+public method GetVisualOwner() as NodeRef
+  NodeRef *v3
+  NodeRef node3
+  var id1 = Me
+  if isPrototype(id1)
+    v3 = HM.ConstructNodeRef(2)
+    v3 = None
+  else
+    var node2 = GetParentOfNode(Me)
+    if node2 = None
+      v3 = HM.ConstructNodeRef(2)
+      v3 = None
+    else
+      v3 = node3
+      node3 = node2.GetVisualOwner()
+    .
+  .
+  return v3
+.
+public method GetOwner() as NodeRef
+  NodeRef *v3
+  NodeRef node3
+  NodeRef node5
+  var id1 = Me
+  if isPrototype(id1)
+    v3 = HM.ConstructNodeRef(2)
+    v3 = None
+  else
+    var node2 = GetParentOfNode(Me)
+    if node2 is kindof conSlotted
+      v3 = node3
+      node3 = node2.GetOwner()
+    else if node2 != None
+      v3 = node5
+      node5 = GetParentOfNode(node2)
+    else
+      v3 = HM.ConstructNodeRef(2)
+      v3 = None
+    .
+  .
+  return v3
+.
+public method IsLocked() as Boolean
+  return Me.conLockedRef != None
+.
+public method GetLock() as NodeRef of conSlotLock
+  return Me.conLockedRef
+.
+function GetContainerSlotTypes() as List
+  var out = $CONTAINER.conEmptyContainerSlotTypes
+  HM.CheckNotContext(out)
+  return out
+.
+public method GetIconSpec() as String
+  return ""
+.
+public method GI_CheckQuantityChange(Me)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None
+    if Me.GetOwner() == pc2
+      var node4 = $GUI_API.getApi()
+      var id1 = Me.conEntitySpec
+      var int1 = node4.GetInterestInSpec(id1)
+      if (int1 & GI_QUANTITY_DETAIL_CHANGES) != 0
+        node4.InterestingSpecQuantityChanged(id1, pc2.InventoryCountBySpec(id1))
+      .
+      if (int1 & GI_QUANTITY_GENERAL_CHANGES) != 0
+        var node5 = HM.CopyConstructNodeRef(16, pc2)
+        var id4 = Me.conEntitySpec
+        $PROFESSION.UpdateSchematicsNumberCraftable(node5, id4)
+      .
+    .
+  .
+.
+public method GetPickupSound() as String
+  return GUI_INTERFACE_SOUND_PICKUP_DEFAULT
+.
+public method GetDropSound() as String
+  return GUI_INTERFACE_SOUND_DROP_DEFAULT
+.

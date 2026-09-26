@@ -1,8 +1,12 @@
-[20:43:52] [STARTUP] Concise progress and blockers: Diagnostics\startup-summary.log
-[20:44:07] [READY] Native client received repository synchronization reply.
-[20:44:07] [READY] Native repository synchronization completion callback entered.
-[20:45:15] [READY] Native script definitions registered; beginning game and GUI initialization.
-[20:45:48] [WAIT] Character-spec initialization: ready=0/74, waiting=74, failed=0. Pending examples: bmf, wraid, colicoiddroid, chevin, manta.
-[20:45:48] [BLOCKER] The native character-spec loader has not completed. Character selection cannot finish startup; pings only confirm the server connection is alive.
-[20:46:18] [WAIT] Character-spec initialization: ready=0/74, waiting=74, failed=0. Pending examples: bmf, wraid, colicoiddroid, chevin, manta.
-[20:46:18] [BLOCKER] The native character-spec loader has not completed. Character selection cannot finish startup; pings only confirm the server connection is alive.
+[14:22:33] [STARTUP] Concise progress and blockers: Diagnostics\startup-summary.log
+[14:22:45] [READY] Native client received repository synchronization reply.
+[14:22:45] [READY] Native repository synchronization completion callback entered.
+[14:23:53] [READY] Native script definitions registered; beginning game and GUI initialization.
+[14:24:25] [WAIT] Character-spec initialization: ready=0/74, waiting=74, failed=0. Pending examples: bmf, wraid, colicoiddroid, chevin, manta.
+[14:24:25] [BLOCKER] The native character-spec loader has not completed. Character selection cannot finish startup; pings only confirm the server connection is alive.
+[14:24:55] [WAIT] Character-spec initialization: ready=0/74, waiting=74, failed=0. Pending examples: bmf, wraid, colicoiddroid, chevin, manta.
+[14:24:55] [BLOCKER] The native character-spec loader has not completed. Character selection cannot finish startup; pings only confirm the server connection is alive.
+[14:25:14] [READY] Character-spec initialization: ready=74/74, waiting=0, failed=0. Pending examples: none.
+[14:25:16] [TRAVEL] Native area-load completion reached the active-area transition.
+[14:25:33] [TRAVEL] Native area-load completion reached the active-area transition.
+[14:25:33] [TRAVEL] Native client is connecting to the destination area service.

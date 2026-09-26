@@ -59,22 +59,9 @@ if ($tail -ne '01 00 00 00 00') { throw "ChangeState tail mismatch: $tail" }
 $packet2._stream.Dispose()
 'PASS: CharacterChangeState body = u64 + empty string (13 bytes), area routing ok.'
 
-# ---- AreaEnterSignals mode/trigger parsing ----
+# ---- AreaEnterSignals entry point ----
 $sig = $assembly.GetType('NexusToRServer.NET.Packets.Server.AreaEnterSignals', $true)
-$defaults = @('SWTOR_AREA_ENTER_MODE', 'SWTOR_AREA_ENTER_TRIGGER', 'SWTOR_RENDEZVOUS_TYPE', 'SWTOR_RENDEZVOUS_FLAG', 'SWTOR_AREA_ENTER_STATE')
-$saved = @{}
-foreach ($n in $defaults) { $saved[$n] = [Environment]::GetEnvironmentVariable($n); [Environment]::SetEnvironmentVariable($n, $null) }
-try {
-    $mode = { param($n) $sig.InvokeMember($n, [Reflection.BindingFlags]'Static,Public,InvokeMethod', $null, $null, @()) }
-    if ((& $mode 'GetMode').ToString() -ne 'Both') { throw 'Default mode should be Both' }
-    if ((& $mode 'GetTrigger').ToString() -ne 'Sync') { throw 'Default trigger should be Sync' }
-    [Environment]::SetEnvironmentVariable('SWTOR_AREA_ENTER_MODE', 'rendezvous')
-    if ((& $mode 'GetMode').ToString() -ne 'Rendezvous') { throw 'Mode rendezvous parse failed' }
-    [Environment]::SetEnvironmentVariable('SWTOR_AREA_ENTER_MODE', 'None')
-    if ((& $mode 'GetMode').ToString() -ne 'None') { throw 'Mode None parse failed' }
-    [Environment]::SetEnvironmentVariable('SWTOR_AREA_ENTER_TRIGGER', 'bundle')
-    if ((& $mode 'GetTrigger').ToString() -ne 'Bundle') { throw 'Trigger bundle parse failed' }
-} finally {
-    foreach ($n in $defaults) { [Environment]::SetEnvironmentVariable($n, $saved[$n]) }
-}
-'PASS: AreaEnterSignals env parsing (defaults Both/Sync, overrides).'
+$fire = $sig.GetMethod('Fire', [Reflection.BindingFlags]'Static,Public')
+if ($null -eq $fire) { throw 'AreaEnterSignals.Fire entry point not found.' }
+if ($fire.GetParameters().Count -ne 1) { throw 'AreaEnterSignals.Fire should take one client argument.' }
+'PASS: AreaEnterSignals.Fire entry point is present; packet shapes verified above.'

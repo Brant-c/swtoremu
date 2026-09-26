@@ -1,0 +1,416 @@
+function GetContainerSlotTypes() as List
+  var out = $CONTAINER.ablContainerSlotTypes
+  HM.CheckNotContext(out)
+  return out
+.
+public method toString() as String
+  var str = "id=" + Me
+  var id1 = Me.GetSpec()
+  var str5 = utlFQN:fromIDDebug(id1)
+  str = str + " spec=" + str5
+  var int1 = Me.GetAbilityEffectCount()
+  str = str + " #eff=" + int1
+  var bool1 = Me.IsAbilityValid()
+  str = str + " isValid=" + bool1
+  return str
+.
+function GetAbilityTags() as LookupList
+  LookupList out
+  var node2 = Me.GetEffectZero()
+  if node2 != None
+    out = node2.GetEffectTags()
+  else
+    out = $EFFECT.effEmptyTagList
+  .
+  HM.CheckNotContext(out)
+  return out
+.
+public method HasAbilityTag(a1 as Integer) as Boolean
+  var node2 = Me.GetEffectZero()
+  if node2 != None
+    return node2.HasEffectTag(a1)
+  else
+    return false
+  .
+.
+public method GetAbilityNameStringID() as Integer
+  return Me.GetStringID(15685385242400905286)  // "name"
+.
+public method GetAbilityName() as String
+  return Me.GetLocalizedText(15685385242400905286, true)  // "name"
+.
+public method GetAbilityAppearanceSpec() as String
+  return Me.ablAppearanceSpec
+.
+public method GetAbilityIconSpec() as String
+  return Me.ablIconSpec
+.
+public method GetAbilityDescription() as String
+  __int64 v11 = 1
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None
+    var id1 = Me.GetSpec()
+    var int1 = pc2.GetAbilityRank(id1)
+    v11 = int1
+  .
+  if v11 == 0
+    v11 = 1
+  .
+  return Me.GetAbilityDescriptionEx(v11)
+.
+public method GetAbilityDescriptionEx(a1 as Integer) as String
+  list1 as List of String
+  Me.GenerateDynamicTokenData(a1, &list1)
+  return Me.GetLocalizedTextWithTokenList(2806211896052149513, true, list1)  // "description"
+.
+public method GenerateDynamicTokenData(Me, a1 as Integer, o2 references List of String)
+  var node = Me.GetOwner()
+  if node = None
+    var pc = GetPlayerCharacterNode()
+    node = pc
+  .
+  var node5 = $GUI_API.getApi()
+  foreach cur in Me.ablDescriptionTokens
+    var enum1 = cur.ablDescriptionTokenType
+    if enum1 != ablDescriptionTokenTypeBindpoint
+      if enum1 == ablDescriptionTokenTypeRank
+        var float2 = cur.ablDescriptionTokenMultiplier
+        var float3 = (Float)a1
+        var float1 = float2 * float3
+        if (Float)((float2 * float3) - (Float)truncate(float2 * float3)) >= 0.1
+          var str2 = $STRING.LocalizedFormatFloat(float1, 1)
+          var str = str2
+          add back str to o2
+          continue
+        .
+        var str2 = $STRING.LocalizedFormatFloat(float1, 0)
+        str = str2
+        add back str to o2
+        continue
+      .
+      if enum1 == ablDescriptionTokenTypeDamage
+        var float6 = 0.0
+        var float7 = 0.0
+        var id1 = Me.GetSpec()
+        node5.guiGetAbilityMinMaxDamage(node, id1, cur.ablDescriptionTokenEffect, cur.ablDescriptionTokenSubEffect, a1, float6, float7)
+        float6 = float6 * cur.ablDescriptionTokenMultiplier
+        var float10 = float7
+        var float11 = cur.ablDescriptionTokenMultiplier
+        float7 = float10 * float11
+        if float6 != (float10 * float11)
+          str = "" + truncate(float6 + 0.5) + " - " + truncate(float7 + 0.5)
+          add back str to o2
+          continue
+        .
+        str = truncate(float6 + 0.5)
+        add back str to o2
+        continue
+      .
+      if enum1 == ablDescriptionTokenTypeHealing
+        var float13 = 0.0
+        var float14 = 0.0
+        var id2 = Me.GetSpec()
+        node5.guiGetAbilityMinMaxHealing(node, id2, cur.ablDescriptionTokenEffect, cur.ablDescriptionTokenSubEffect, a1, float13, float14)
+        float13 = float13 * cur.ablDescriptionTokenMultiplier
+        var float17 = float14
+        var float18 = cur.ablDescriptionTokenMultiplier
+        float14 = float17 * float18
+        if float13 != (float17 * float18)
+          str = "" + truncate(float13 + 0.5) + " - " + truncate(float14 + 0.5)
+          add back str to o2
+          continue
+        .
+        str = truncate(float13 + 0.5)
+        add back str to o2
+        continue
+      .
+      if enum1 == ablDescriptionTokenTypeDuration
+        var float19 = 0.0
+        var id3 = Me.GetSpec()
+        node5.guiGetAbilityDuration(node, id3, cur.ablDescriptionTokenEffect, &float19)
+        var float21 = float19 * cur.ablDescriptionTokenMultiplier
+        float19 = float21
+        if (Float)(float21 - (Float)truncate(float21)) >= 0.1
+          var str2 = $STRING.LocalizedFormatFloat(float19, 1)
+          str = str2
+          add back str to o2
+          continue
+        .
+        var str2 = $STRING.LocalizedFormatFloat(float19, 0)
+        str = str2
+        add back str to o2
+        continue
+      .
+      add back str to o2
+    else
+      add back str to o2
+      continue
+    .
+  .
+.
+public method IsAbilityHidden() as Boolean
+  return Me.ablIsHidden
+.
+public method IsAbilityCustom() as Boolean
+  return Me.ablIsCustom
+.
+public method IsAbilityPassive() as Boolean
+  return Me.ablIsPassive
+.
+public method DoesAbilityIgnoreAlacrity() as Boolean
+  return Me.ablIgnoreAlacrity
+.
+public method IsAbilityInstantCast(a1 as NodeRef) as Boolean
+  if Me.GetAbilityCastingTime(a1) != 0.0
+    return false
+  .
+  if Me.GetAbilityChannelingTime(a1) == 0.0
+    return true
+  .
+  return false
+.
+public method IsAbilityChanneled() as Boolean
+  return Me.GetAbilityChannelingTimeBase() > 0.0
+.
+public method IsAbilityModal() as Boolean
+  return Me.ablModalGroup != 0
+.
+public method GetAbilityModalGroup() as Integer
+  return Me.ablModalGroup
+.
+public method GetAbilityGlobalCooldownTime(a1 as Boolean) as Float
+  if not a1 and Me.ablGlobalCooldownTime < 0.0
+    return TMR_GLOBAL_COOLDOWN_DURATION
+  else
+    return Me.ablGlobalCooldownTime
+  .
+.
+public method IsAbilityUsingDefaultGlobalCooldown() as Boolean
+  return Me.ablGlobalCooldownTime < 0.0
+.
+public method GetSurrogateAbility() as NodeRef of ablAbility
+  var id1 = Me.GetSpec()
+  if id1 == 16141181490506594463  // abl.player.quick_travel_selection
+    return $ABILITY.GetAbility(16141012893024476424)  // abl.player.quick_travel
+  else
+    return None
+  .
+.
+public method GetVisibleAbility() as NodeRef of ablAbility
+  NodeRef node2
+  void *v2 = Me
+  var id1 = Me.GetSpec()
+  if id1 == 16141012893024476424  // abl.player.quick_travel
+    v2 = node2
+    node2 = $ABILITY.GetAbility(16141181490506594463)  // abl.player.quick_travel_selection
+  else
+    // unknown
+  .
+  return v2
+.
+public method GetAbilityLongestCooldownTime(a1 as NodeRef of modMetaStatComponent) as Float
+  var node2 = Me.GetSurrogateAbility()
+  if node2 != None
+    return node2.GetAbilityLongestCooldownTime(a1)
+  else
+    var float2 = Me.GetAbilityStat(a1, STAT_abl_time_cooldown)
+    var float3 = float2
+    foreach cur in Me.ablCooldownTimerSpecs
+      TimeInterval interval = $TIMER.GetTimerDatatable().GetTimerDefaultDurationBySpec(cur)
+      var float5 = interval / 1000.0
+      if float3 < float5
+        float3 = float5
+      .
+    .
+    return float3
+  .
+.
+public method GetAbilityCastingTime(a1 as NodeRef) as Float
+  var node2 = Me.GetSurrogateAbility()
+  if node2 != None
+    return node2.GetAbilityCastingTime(a1)
+  else
+    var float2 = Me.GetAbilityStat(a1, STAT_abl_time_casting)
+    if float2 > 0.0 and a1 != None and not Me.DoesAbilityIgnoreAlacrity()
+      var float4 = a1.GetStatComputed(STAT_cbt_spell_casting_reduction_percentage)
+      if float4 != 0.0
+        float2 -= (float2 * float4)
+      .
+    .
+    return float2
+  .
+.
+public method GetAbilityChannelingTime(a1 as NodeRef) as Float
+  var out = Me.GetAbilityStat(a1, STAT_abl_time_channeling)
+  if out > 0.0 and a1 != None and not Me.DoesAbilityIgnoreAlacrity()
+    var float2 = a1.GetStatComputed(STAT_cbt_spell_channeling_reduction_percentage)
+    if float2 != 0.0
+      out -= (float2 * out)
+    .
+  .
+  return out
+.
+public method GetAbilityCastingTimeBase() as Float
+  return Me.ablCastingTime
+.
+public method GetAbilityChannelingTimeBase() as Float
+  return Me.ablChannelingTime
+.
+public method GetAbilityForceCost(a1 as NodeRef) as Float
+  return Me.GetAbilityStat(a1, STAT_abl_cost_force)
+.
+public method GetAbilityEnergyCost(a1 as NodeRef) as Float
+  return Me.GetAbilityStat(a1, STAT_abl_cost_energy)
+.
+public method GetAbilityHeatCost(a1 as NodeRef) as Float
+  Float float3
+  var id1 = Me
+  if isPrototype(id1)
+    var float2 = Me.CalculateCustomCostFromPrototype(HM.CopyConstructNodeRef(25, a1), effAction_GenerateHeat)
+    float3 = float2
+  else
+    float3 = Me.ablHeatCost
+  .
+  var float1 = float3
+  var float4 = float1
+  var float5 = float1
+  var float6 = a1.GetStatComputed(STAT_eff_action_generate_heat_modifier_percentage)
+  float1 = (float5 * float6) + float4
+  var float7 = a1.GetStatComputed(STAT_eff_action_generate_heat_modifier_fixed)
+  return ((float5 * float6) + float4) + float7
+.
+public method GetAbilityActionPointCost(a1 as NodeRef) as Float
+  return Me.GetAbilityStat(a1, STAT_abl_cost_action_points)
+.
+public method GetAbilityMinRange(a1 as NodeRef) as Float
+  int v7
+  int v8
+  if a1 is kindof modMetaStatComponent
+    return Me.GetAbilityStat(a1, STAT_abl_range_min)
+  else
+    return Me.GetAbilityMinRangeBase(v7, v8)
+  .
+.
+public method GetAbilityMaxRange(a1 as NodeRef) as Float
+  int v7
+  int v8
+  if a1 is kindof modMetaStatComponent
+    return Me.GetAbilityStat(a1, STAT_abl_range_max)
+  else
+    return Me.GetAbilityMaxRangeBase(v7, v8)
+  .
+.
+public method GetAbilityMinRangeBase() as Float
+  return Me.ablMinRange
+.
+public method GetAbilityMaxRangeBase() as Float
+  return Me.ablMaxRange
+.
+public method GetAbilityTargetArc() as Float
+  return Me.ablTargetArc
+.
+public method GetAbilityTargetArcOffset() as Float
+  return Me.ablTargetArcOffset
+.
+public method GetAbilityTargetRule() as Enum tgtTargettingRule
+  return Me.ablTargetRule
+.
+public method unk_29580d67() as Boolean
+  return Me.ablTargetRule == tgtRuleGround
+.
+public method GetAbilityAiType() as Enum aiAbilityType
+  return Me.ablAiType
+.
+public method IsAbilityAiTypeFriendly() as Boolean
+  var enum1 = Me.ablAiType
+  if enum1 == aiAbilityHeal
+    // unknown
+  else if enum1 == aiAbilityBuff
+    // unknown
+  else
+    return false
+  .
+  return true
+.
+public method IsAbilityAiTypeHostile() as Boolean
+  var enum1 = Me.ablAiType
+  if enum1 == aiAbilityAttack
+    // unknown
+  else if enum1 == aiAbilityTaunt
+    // unknown
+  else if enum1 == aiAbilityDebuff
+    // unknown
+  else if enum1 == aiAbilityRoot
+    // unknown
+  else if enum1 == aiAbilityCc
+    // unknown
+  else if enum1 == aiAbilityInterrupt
+    // unknown
+  else
+    return false
+  .
+  return true
+.
+public method IsAbilityLineOfSightChecked() as Boolean
+  return Me.ablIsLineOfSightChecked
+.
+public method IsAbilityUseableOnTaxi() as Boolean
+  var node2 = Me.GetEffectZero()
+  if node2 != None
+    return node2.IsEffectUseableOnTaxi()
+  else
+    return false
+  .
+.
+public method GetAbilityWeaponMode() as Enum staCombatModeType
+  return Me.ablCombatMode
+.
+public method GetAbilityAutoAttackMode() as Enum ablAutoAttackMode
+  return Me.ablAutoAttackMode
+.
+public method GetLocalizedAbilityString(a1 as Integer, a2 as Boolean) as String
+  return Me.GetLocalizedText(a1, a2)
+.
+public method GetAbilityNameStringBucket() as String
+  return Me.GetStringBucket(15685385242400905286)  // "name"
+.
+public method GetAbilityStat(a1 as NodeRef, a2 as Enum modStatEnum) as Float
+  if a1 != None and a1 is kindof modMetaStatComponent
+    var id1 = Me.GetSpec()
+    return a1.GetMetaStat(id1, a2)
+  else
+    return 0.0
+  .
+.
+self handler Replication_Create(Me, a1 as Integer)
+  CallFrame _callFrame
+  NodeRef node4
+  FuncRef GetCC
+  var node2 = Me.GetOwner()
+  if node2 != None
+    var pc = GetPlayerCharacterNode()
+    if node2 == pc or (node4 = HM.ConstructNodeRef(10), $CHARACTER = HM.RefSystemNode(31, 16140943636100329568), GetCC = HM.PrepareCallNodeRef2(39, $CHARACTER, &_callFrame), GetCC(node4, _callFrame), HM.UnprepareCall(), node2 == node4)  // CHARACTER
+      Me.PreloadEffectAppearances()
+    .
+  .
+.
+public method PreloadEffectAppearances(Me)
+  var node2 = $EFFECT.GetEffectAppearance(Me.GetAbilityAppearanceSpec())
+  if node2 != None
+    node2.PreloadEffectAppearance()
+  .
+  foreach cur in Me.ablEffectIDs
+    var node6 = $EFFECT.GetEffectPrototype(cur)
+    if node6 != None
+      var lookup = node6.effSubEffectEppDetails
+      foreach key in lookup
+        var cur2 = lookup[key]
+        node2 = $EFFECT.GetEffectAppearance(cur2.effSubEffectEppSpec)
+        if node2 != None
+          node2.PreloadEffectAppearance()
+        .
+      .
+    .
+  .
+.

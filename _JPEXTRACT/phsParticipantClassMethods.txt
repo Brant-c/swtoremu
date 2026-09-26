@@ -1,0 +1,178 @@
+self handler OnPlayerCharacterNodeReady(Me)
+  $PHASE.OnPhasedInstanceUpdated()
+.
+self handler Replication_Update(Me, a1 as Integer, a2 as List of ID)
+  foreach cur in a2
+    if cur == phsHydraLockPass
+      foreach key in Me.phsHydraLockPass
+        $PHASE.UpdateGatewayForInstance(key)
+      .
+    else if cur == phsPhaseGuest
+      var pc = GetPlayerCharacterNode()
+      if pc == Me
+        call event Me:OnQuestStatusUpdate Me:OnQuestStatusUpdate
+      .
+    .
+  .
+.
+public method GetActivePhaseData() as NodeRef of phsPlayerPhaseData
+  return $PHASE.GetActivePhaseData()
+.
+public method HasUniqueActivePhase() as Boolean
+  if Me.GetActivePhaseData() != None
+    var node3 = Me.GetActivePhaseData()
+    var classView = node3.phsUniqueActivePhase
+    return classView.phsUniqueActivePhasedInstanceNameID != 0
+  else
+    return false
+  .
+.
+public method GetUniqueActivePhaseNameID() as Integer
+  if Me.GetActivePhaseData() != None
+    var node3 = Me.GetActivePhaseData()
+    var classView = node3.phsUniqueActivePhase
+    return classView.phsUniqueActivePhasedInstanceNameID
+  else
+    return 0
+  .
+.
+public method GetUniqueActiveFlashpointDifficulty() as Enum phsFlashpointDifficultyEnum
+  var node2 = Me.GetActivePhaseData()
+  if node2 != None
+    var classView = node2.phsUniqueActivePhase
+    return classView.phsUniqueActiveFlashpointDifficulty
+  else
+    return phsFlashpointDifficultyNone
+  .
+.
+public method GetCharacterAllowInstances() as Boolean
+  var node2 = Me.GetActivePhaseData()
+  if node2 != None
+    return node2.phsDebugInstanceAllowAll
+  else
+    return false
+  .
+.
+public method IsInstanceQuestAccessible(a1 as Integer) as Boolean
+  return Me.phsAccessibleInstancesForQuest has a1
+.
+public method CheckIfPhaseRequiresAll() as Boolean
+  var node2 = Me.GetPhaseInfo()
+  if node2 != None
+    return node2.DoesConversationRequireAll()
+  else
+    return false
+  .
+.
+public method IsOnMyShip() as Boolean
+  CallFrame _callFrame
+  NodeRef node4
+  FuncRef IsMyShipInstance
+  Boolean bool1
+  var node2 = Me.GetPhaseInfo()
+  return node2 != None and (node4 = HM.CopyConstructNodeRef(10, Me), IsMyShipInstance = HM.PrepareCallNodeRef2(8, node2, &_callFrame), bool1 = IsMyShipInstance(_callFrame, node4), HM.UnprepareCall(), bool1)
+.
+public method OnInstanceChanged(Me, a1 as NodeRef of phsPhasedInstance, a2 as NodeRef of phsPhasedInstance)
+  __int64 v26 = 0
+  if a2 != None
+    var bool1 = a2 is kindof phsShipPhasedInstance
+    guiApiGfxVarsClassMethods:setGuiPlayerIsOnAShip(bool1)
+    var int1 = a2.GetInstanceNameID()
+    v26 = int1
+    if bool1
+      if Me is kindof tutTutorialComponent
+        if Me.ShouldBeFired(39)
+          var node3 = Me.GetPhaseInfo()
+          if node3 != None
+            if node3.GetPhaseInfoOwner() == Me
+              Me.FireTutorialEvent(tutTutorialEvent_GalacticMap)
+              Me.FireTutorialEvent(tutTutorialEvent_SpaceCombatMovement)
+              Me.FireTutorialEvent(tutTutorialEvent_SpaceCombatBlasters)
+              Me.FireTutorialEvent(tutTutorialEvent_SpaceCombatMissiles)
+            .
+          .
+        .
+      .
+    .
+  .
+  guiApiGfxVarsClassMethods:setGuiInstanceNameID(v26)
+  $SPAWNER.UpdateClientOnlySpawnersInProximity()
+.
+public method CheckPhaseNeedsContinue(Me)
+  var node2 = $PHASE.GetCurrentInstance()
+  if node2 != None and node2.HasHydraHook("On Phase Needs Continue")
+    call server untrustedMethods:CheckPhaseNeedsContinue()
+  else
+    guiGfxLoadingScreenClassMethods:PhaseNeedsContinue(false)
+  .
+.
+remote function PhaseNeedsContinue(Me, a1 as Boolean)
+  guiGfxLoadingScreenClassMethods:PhaseNeedsContinue(a1)
+.
+public method PhaseContinue(Me)
+  call server untrustedMethods:PhaseContinue()
+.
+public method IsEntityInReachablePhase(a1 as NodeRef of phsEntity) as Boolean
+  var id1 = a1.GetPhase()
+  var id2 = Me.GetPhase()
+  if not HIDWORD(id1) ^ HIDWORD(id2) | id1 ^ id2
+    return true
+  else
+    return false
+  .
+.
+public method AllowResetOfEveryOwnedPhaseAssociatedWithQuest(a1 as ID) as Boolean
+  var node2 = $QUEST.GetQuestDefinition(a1)
+  if node2 = None
+    return false
+  else
+    list2 as List of NodeRef of phsPhaseInfo
+    $PHASE.GetOwnedPhases(&list2)
+    foreach cur in list2
+      var int1 = cur.GetNumberOfPlayers()
+      var bool1 = (_DWORD)int1 == 0
+      var bool2 = int1 <= -1
+      if not HIDWORD(int1)
+        bool2 = bool1
+      .
+      if not bool2
+        if utlList:FindIndexOfInteger(node2.qstAssociatedInstanceIDs, cur.GetInstanceNameID()) != 0
+          return false
+        .
+      .
+    .
+    return true
+  .
+.
+public method IsQuestForCurrentlyOccupiedFlashpoint(a1 as ID) as Boolean
+  LookupList lookup2
+  var node2 = $PHASE.GetPhasedInstanceImplicit()
+  var out = false
+  if node2 = None
+    return out
+  else if not (node2.phsAccessQuestIDs has a1) and (lookup2 = node2.phsHardModeAccessQuestIDs, not (lookup2 has a1))
+    return out
+  else
+    out = true
+    return out
+  .
+.
+public method GetFlashpointDifficultySetting(a1 as NodeRef of phsFlashpointPhasedInstance) as Enum phsFlashpointDifficultyEnum
+  var unused = HM.GetEnumDefaultValue(7)
+  var out = phsFlashpointDifficultyNone
+  var node2 = Me.GetGroup()
+  if node2 != None and node2.HasGroupMember(Me)
+    out = node2.GetFlashpointGroupDifficulty(a1.GetInstanceNameID())
+  .
+  if out == phsFlashpointDifficultyNone
+    if a1.HasNormalModeAccessQuest(Me)
+      out = phsFlashpointDifficultyNormal
+    else if a1.HasHardModeAccessQuest(Me)
+      out = phsFlashpointDifficultyHard
+    .
+  .
+  return out
+.
+public method IsPhaseGuest() as Boolean
+  return Me.phsPhaseGuest
+.

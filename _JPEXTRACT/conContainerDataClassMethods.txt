@@ -1,0 +1,142 @@
+public method OnReplicationNodePreCreate(Me, a1 as Integer)
+  // unknown
+.
+public method OnReplicationNodeCreate(Me, a1 as Integer)
+  // unknown
+.
+public method OnReplicationNodeDestroy(Me, a1 as Integer)
+  // unknown
+.
+public method OnReplicationNodeUpdate(Me, a1 as Integer, a2 as List of ID)
+  // unknown
+.
+public method GetSlotCountForExpansionLevel(a1 as Integer) as Integer
+  var out = 0
+  if Me.conContainerDataExpansionType != conSlotInvalid
+    if a1 == 0
+      out = Me.conContainerDataSlots[Me.conContainerDataExpansionType]
+    else
+      var list1 = Me.conContainerDataSlotExpansions[Me.conContainerDataExpansionType]
+      if utlList:IsValidIndex_Int(list1, a1)
+        out = list1[a1]
+      .
+    .
+  .
+  return out
+.
+public method CalculateTotalSlotCount(a1 as Integer) as Integer
+  CallFrame _callFrame
+  var out = 0
+  if Me.conContainerDataExpansionType != conSlotInvalid
+    loop i from 0 to a1
+      FuncRef GetSlotCountForExpansionLevel = HM.PrepareCallNodeRef2(1, Me, &_callFrame)
+      out = out + GetSlotCountForExpansionLevel(_callFrame, i)
+    .
+  else
+    out = Me.conContainerDataSlotLookUp.length
+  .
+  return out
+.
+public method GetExpansionCost(a1 as Integer) as Integer
+  var out = 0
+  if Me.conContainerDataExpansionType != conSlotInvalid
+    var list1 = Me.conContainerDataSlotExpansionCosts[Me.conContainerDataExpansionType]
+    if list1.length > a1
+      out = list1[a1 + 1]
+    .
+  .
+  return out
+.
+public method GetExpansionLevelRequirement(a1 as Integer) as Integer
+  var out = 0
+  if Me.conContainerDataExpansionType != conSlotInvalid
+    var list1 = Me.conContainerDataSlotExpansionLevels[Me.conContainerDataExpansionType]
+    if list1.length > a1
+      out = list1[a1 + 1]
+    .
+  .
+  return out
+.
+public method GetMaxExpansionLevel() as Integer
+  var out = 0
+  if Me.conContainerDataExpansionType != conSlotInvalid
+    out = Me.conContainerDataSlotExpansions[Me.conContainerDataExpansionType].length
+  .
+  return out
+.
+public method HasSlotType(a1 as Enum conSlotId) as Boolean
+  return Me.conContainerDataSlots has a1
+.
+public method SlotAcceptsSlotType(a1 as Integer, a2 as Enum conSlotId) as Boolean
+  if not (Me.conContainerDataSlotLookUp has a1)
+    return false
+  else
+    return Me.conContainerDataSlotLookUp[a1] == a2
+  .
+.
+public method GetSlotNameForSlot(a1 as Integer) as String
+  if not (Me.conContainerDataSlotLookUp has a1)
+    return ""
+  else
+    var unused = HM.GetEnumDefaultValue(5)
+    var enum1 = Me.conContainerDataSlotLookUp[a1]
+    return "" + enum1 + ":" + a1 - Me.conContainerDataSlotStarts[enum1]
+  .
+.
+public method GetSlotFromSlotType(a1 as Enum conSlotId, a2 as Integer) as Integer
+  var lookup = Me.conContainerDataSlotStarts
+  if lookup has a1
+    return lookup[a1] + a2
+  else
+    return 0
+  .
+.
+public method GetGuiSlotName(a1 as Integer) as String
+  var lookup = Me.conGuiSlotNameMap
+  if lookup has a1
+    return lookup[a1]
+  else
+    return "conSlotInvalid"
+  .
+.
+public method GetGuiSlotIndexFromName(a1 as String) as Integer
+  var lookup = Me.conGuiSlotIndexMap
+  if lookup has a1
+    return lookup[a1]
+  else
+    return -1
+  .
+.
+public method GetSlotTypeForSlot(a1 as Integer) as Enum conSlotId
+  var lookup = Me.conContainerDataSlotLookUp
+  if lookup has a1
+    return lookup[a1]
+  else
+    return conSlotInvalid
+  .
+.
+public method GetSlotSubslotForSlot(a1 as Integer) as Integer
+  var lookup = Me.conContainerDataSlotLookUp
+  if lookup has a1
+    var unused = HM.GetEnumDefaultValue(5)
+    return a1 - Me.conContainerDataSlotStarts[lookup[a1]]
+  else
+    return 0
+  .
+.
+function GetSlotsForSlotType(a1 as Enum) as List
+  LookupList out
+  var lookup = Me.conContainerDataTypeToSlots
+  if lookup has a1
+    out = lookup[a1]
+  else
+    out = $STATIC.utlEmptyIntegerList
+  .
+  HM.CheckNotContext(out)
+  return out
+.
+function GetSlotMap() as LookupList
+  var out = Me.conContainerDataSlotLookUp
+  HM.CheckNotContext(out)
+  return out
+.

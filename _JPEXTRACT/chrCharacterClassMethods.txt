@@ -1,0 +1,1936 @@
+var GRANNY_ROOT_BONE_NAME = "GrannyRootBone"
+var MINIMUM_OPTIONS_TABLE_STRING_SIZE = 6
+var PRELOAD_TRIGGERS_PROPBUCKET = "PreloadTriggers"
+var PROXIMITY_PRELOAD_COMBAT_ANIM_RANGE = 3.0
+var STRING_BINDPOINT_DISCOVERED = 2471427261333763  // "You have discovered <<1>>."
+var STRING_GENERAL_SLASHCOMMAND = 2266424177328165  // "/pvp"
+var STRING_LEGACY_TITLE = 259
+var STRING_LOGGING_OUT = 6
+var STRING_LOGGING_OUT_DUE_TO_INACTIVITY = 5
+var STRING_LOGGING_OUT_IN_AN_UNSAFE_AREA = 4
+var STRING_LOGOUT_CANCELLED = 1234
+var STRING_PVP_SLASHCOMMAND = 2266424177328165  // "/pvp"
+var STRING_QUIT_CANCELLED = 1235
+var STRING_QUITTING = 8
+var STRING_QUITTING_IN_AN_UNSAFE_AREA = 7
+var STRING_TITLE_UNLOCKED = 204
+var STRING_TRADE_SLASHCOMMAND = 2266424177328179  // "/trade"
+var STRING_YOU_ARE_IN_AN_UNSAFE_AREA_AND_WILL_LOGOUT_SHORTLY = 1233
+var STRING_YOU_WILL_BE_LOGGED_OUT_SHORTLY_DUE_TO_INACTIVITY = 1232
+var UNK_8B35DB2F = 293
+var UNK_90B1CD84 = 276
+var UNK_D71B8E8E = 6.7
+var UNK_E54C8503 = 63
+public method GetNearestMedCenter() as NodeRef
+  Vector3 vec
+  vec.x = 0.0
+  vec.y = 0.0
+  vec.z = 0.0
+  var vec2 = Me.GetPosition_w()
+  vec = vec2
+  var float1 = 0.0
+  var node2 = None
+  foreach key in Me.chrKnownMedCenters
+    if key = None
+      continue
+    .
+    var vec3 = key.GetPosition_w()
+    var float3 = utlMath:DistanceBetweenTwoVectors(vec, vec3)
+    if node2 != None
+      if float1 > float3
+        float1 = float3
+        node2 = key
+      .
+    else
+      float1 = float3
+      node2 = key
+    .
+  .
+  return node2
+.
+public method updateInteraction(Me)
+  var id1 = Me.chrCurrentInteraction
+  if id1 != None
+    RegisterForPerFrameMethodCallback($CHARACTER)
+  .
+  if Me.chrPreviousInteractionType != chrInteractionTypeNone
+    var id2 = Me.chrPreviousInteraction
+    node3 = id2
+    if node3 = None
+      goto LABEL_22
+    .
+    enum1 = Me.chrPreviousInteractionType
+    if enum1 == chrInteractionTypeAuction
+      CloseGui = HM.PrepareCallScriptSameMe2(3, 14988043331822894939, Me, &_callFrame)
+    else if enum1 == chrInteractionTypeMail
+      CloseGui = HM.PrepareCallScriptSameMe2(3, 14988256788175651014, Me, &_callFrame)
+    else if enum1 == chrInteractionTypeBank
+      CloseGui = HM.PrepareCallScriptSameMe2(3, 14988015356377214548, Me, &_callFrame)
+    else if enum1 == chrInteractionTypeWonkavator
+      CloseGui = HM.PrepareCallScriptSameMe2(3, 14988250329110908892, Me, &_callFrame)
+    else if enum1 == chrInteractionTypeVendor
+      CloseGui = HM.PrepareCallScriptSameMe2(3, 14988209929688085244, Me, &_callFrame)
+    else if enum1 == chrInteractionTypeTaxi
+      CloseGui = HM.PrepareCallScriptSameMe2(3, 14988178523977114911, Me, &_callFrame)
+    else if enum1 == chrInteractionTypeEnhancementStation
+      CloseGui = HM.PrepareCallScriptSameMe2(3, 14988049069734827552, Me, &_callFrame)
+    else if enum1 != chrInteractionTypeTrainer
+      if enum1 != chrInteractionTypeGuildBank
+        goto LABEL_22
+      .
+      gldBankComponentClassMethods:ForceCloseGuildBank()
+      goto LABEL_8
+    .
+    if node3 is kindof prfTrainerComponent
+      CloseGui = HM.PrepareCallScriptSameMe2(3, 14988010922038129041, Me, &_callFrame)
+    else
+      CloseGui = HM.PrepareCallScriptSameMe2(3, 14988259563500694932, Me, &_callFrame)
+    .
+    CloseGui(_callFrame)
+LABEL_8:
+  .
+LABEL_22:
+  if Me.chrCurrentInteractionType != chrInteractionTypeNone
+    if $PROFESSION.prfDisassembleOn
+      $PROFESSION.setDisassembleEnabled(false)
+    .
+  .
+  var enum2 = Me.chrCurrentInteractionType
+  if enum2 == chrInteractionTypeBank
+    if not id1 is kindof bnkComponent
+      return
+    .
+    id1.OpenBankWindow(Me, v16, v18)
+    return
+  .
+  if enum2 == chrInteractionTypeGuildBank
+    if not id1 is kindof gldBankComponent
+      return
+    .
+    gldBankComponentClassMethods:OpenGuildBank(Me, v16, v18)
+    return
+  .
+  if enum2 == chrInteractionTypeVendor
+    if not id1 is kindof vndVendorComponent
+      return
+    .
+    $GUI_API.getApi().updateGuiVendorId(Me, v16, v18)
+    return
+  .
+  if enum2 == chrInteractionTypeAuction
+    if not id1 is kindof ahTerminalComponent
+      return
+    .
+    id1.OpenAuctionWindow(Me, v16, v18)
+    return
+  .
+  if enum2 == chrInteractionTypeTaxi
+    if id1 is kindof taxTerminalComponent
+      var id3 = id1
+      Me.taxTerminalID = id3
+      var classView = HM.GetClassViewFromNodeRef(id1, taxTerminalComponent)
+      var id4 = classView.taxTerminalSpec
+      var node7 = $GUI_API.getApi()
+      node7.showTaxiMap(id4, false)
+    .
+  .
+.
+remote function ReceivePhaseAccumulatedState(Me, a1 as LookupList indexed by ID of Boolean)
+  foreach key in a1
+    hydAction:HydraSetVisible(key, a1[key])
+  .
+.
+public method GetPlayerId() as ID
+  return Me.chrPlayerId
+.
+self handler Replication_Create(Me, a1 as Integer)
+  int v64
+  int v65
+  int v66
+  var node = $CHARACTER
+  Me.OnAppearanceSlotsChanged()
+  Me.determineConversationVisible()
+  RegisterForEvents(Me, $SELECTED_TARGET)
+  var bool1 = Me.GetCharacterGender() == chrGenderMale
+  Me.chrNameWithGender = CreateGenderfiedName(Me.chrName, bool1)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if Me == pc2
+    Me.CachePlayerTitles()
+    call event Me:OnPlayerCharacterNodeReady Me:OnPlayerCharacterNodeReady
+    var node4 = guiGfxLoadingScreenClassMethods:GetGui()
+    if node4 != None
+      RegisterForEvents(node4, Me)
+    .
+    $BASECLIENT._SetGameState(GAMESTATE_WithinArea)
+    $BASECLIENT.RequestWorldFadeIn()
+    Me.AttachPreloadTrigger()
+    $MUSIC.EnterRegion($MUSIC.GetRegionForNode(Me))
+    call event node:onPlayerCharacterCreated node:onPlayerCharacterCreated
+    $GUI_API.getApi().setPlayerLoadingFinished(true)
+    $SOCIAL.LoadFriendComments()
+    RegisterForEvents($MAPNOTE, Me)
+    $QUEST.ClearAllMapNoteNodes()
+    $MATCHMAKING.RequeuePlayerIfDesired()
+    Me["MouseTargetable"] = false
+    var node7 = pc2.GetGroup()
+    if node7 != None
+      if node7.HasGroupMember(pc2)
+        node7.RegisterNearbyGroupMembersForEvents()
+      .
+    .
+    $Options.SendAllGUIOptions()
+    if not $Options.optOptionsCallbacksCalled and $Options.optOptionsServerOptionsReceived
+      $Options.CallAllCallbacks()
+    .
+    $CONVERSATION.CheckIfOwnerReady(Me, true)
+    Me.FireTutorialEvent(tutTutorialEvent_Welcome)
+    Me.FireTutorialEvent(tutTutorialEvent_Movement)
+    node.setupCloseObjectsTimer()
+    $CHAT.InitializeStringFilters()
+    var classView = Me.socSocialComponent
+    Me.socSocialComponent_prevRep = classView
+    EnableCollisionEscapeBlacklist(false)
+    if $PROFESSION.prfOracleTrainersNeedRefresh
+      $PROFESSION.RefreshCachedTrainerList(Me, v64, v65, v66)
+    .
+  else if pc2 != None
+    if pc2.IsGroupedWith(Me)
+      var node11 = pc2.GetGroup()
+      RegisterForEvents(Me, node11)
+      Me.UpdateGYPItemReadinessOverheadFX()
+      var id3 = Me.GetPrimaryTargetID()
+      if id3 != None
+        node11.SetPartyTarget(Me, 0, id3)
+      .
+    .
+  .
+  if Me != pc2
+    Me["Render"] = Me.chrPlayerLoaded
+    node.chrReplicatedPlayers[Me] = true
+    var node15 = Me.GetCompanion()
+    if node15 != None
+      node15.RefreshWearableAppearances()
+    .
+  .
+  Me.SetSafeZone(true, false)
+  var classView3 = HM.GetClassViewFromNodeRef(Me, chrPlayerMoveState)
+  var classView2 = HM.CopyClassViewToClassView(classView3)
+  if classView2.chrPlayerMoveState_SyncTime != $NULLTIME
+    Me.chrPlayerCharacter_processMoveState(classView2)
+  .
+  Me.chrUpdateSocialCenterPlayerCountTimer.script = $THISSCRIPT
+  Me.chrUpdateSocialCenterPlayerCountTimer.fireRate = 30000
+  timer::start(Me.chrUpdateSocialCenterPlayerCountTimer)
+  var id6 = Me
+  var str6 = Me.getName()
+  node.chrCharacterNameToID[str6] = id6
+.
+self handler Replication_Destroy(Me, a1 as Integer)
+  remove Me.getName() from $CHARACTER.chrCharacterNameToID keep
+  remove Me from $CHARACTER.chrReplicatedPlayers keep
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None
+    if Me == pc2
+      ReleaseWorldMapResources()
+    else if pc2.IsGroupedWith(Me)
+      var id2 = Me.GetPrimaryTargetID()
+      if id2 != 0
+        var node4 = pc2.GetGroup()
+        node4.SetPartyTarget(Me, id2, 0)
+      .
+    .
+  .
+.
+self handler OnPlayerCharacterNodeReady(Me)
+  $SPAWNER.CleanupClientOnlySpawners()
+  $SPAWNER.UpdateClientOnlySpawnersInProximity()
+  Me.SendStoredCustomChatChannelsToServer()
+  $SOCIAL._RestartAFKTimer()
+.
+self handler Replication_Update(Me, a1 as Integer, a2 as List of ID)
+  Id id2
+  classView as ClassView
+  var bool1 = false
+  foreach cur in a2
+    if cur == chrCurrentInteractionType
+      Me.updateInteraction()
+      Me.chrPreviousInteractionType = Me.chrCurrentInteractionType
+      var id1 = Me.chrCurrentInteraction
+      Me.chrPreviousInteraction = id1
+    else if cur == chrPlayerLoaded
+      var pc = GetPlayerCharacterNode()
+      if Me != pc
+        Me["Render"] = Me.chrPlayerLoaded
+      .
+    else if cur == chrPlayerIsAFK
+      var pc2 = GetPlayerCharacterNode()
+      if not Me == pc2
+        continue
+      .
+      if not Me.GetAFK()
+        $CHAT.ChatPlayerLocalizedUsingPlayerGender(chatChannel_SystemFeedback, STR_GUI_CHAT, ID_STR_GUI_CHAT | 0x213, HIDWORD(ID_STR_GUI_CHAT))  // "You are no longer away from keyboard."
+        Me.StopAFKPreLogout()
+      else
+        Me.StartAFKPreLogout()
+      .
+      $GUI_API.getApi().updateCharacterAFK()
+      continue
+    .
+    if cur == cbtFaction
+      Me.determineConversationVisible()
+      continue
+    .
+    if cur == chrPlayerEntityLocks
+      Me._OnUpdatePlayerEntityLocks()
+      continue
+    .
+    if cur == chrPlayerTitles
+      Me.DetermineTitleChanges()
+      continue
+    .
+    if cur == chrPlayerSelectedTitle
+      var unused = Me
+      var str3 = Me.GetNameWithAwardedTitle()
+      $NAMEPLATES.setNameplateTextByID()
+      continue
+    .
+    if cur == socSocialComponent
+      var classView2 = Me.socSocialComponent_prevRep
+      var classView3 = Me.socSocialComponent
+      $SOCIAL.HandlePlayerCharacterNotifications(&classView2, &classView3)
+      var pc3 = GetPlayerCharacterNode()
+      var pc32 = pc3
+      if pc32 != None
+        var int2 = pc32.GetFaction()
+        var int3 = Me.GetFaction()
+        if not HIDWORD(int2) ^ HIDWORD(int3) | int2 ^ int3
+          var bool4 = false
+          bool4 = classView3.socLFG
+          if ((bool4 ^ classView3.socLFGRepPrevious) & 1) != 0
+            classView3.socLFGRepPrevious = bool4
+            var unused2 = Me
+            $NAMEPLATES.setNameplateLFGByID()
+          .
+        .
+      .
+    else if cur == chrPlayerMoveState_MoveVec
+      bool1 = true
+      continue
+    .
+    if cur == chrPlayerMoveState_EndPosition
+      bool1 = true
+      continue
+    .
+    if cur == chrPlayerMoveState_Heading
+      bool1 = true
+      continue
+    .
+    if cur == chrPlayerMoveState_IsFwd
+      bool1 = true
+      continue
+    .
+    if cur == chrPlayerMoveState_Warp
+      bool1 = true
+      continue
+    .
+    if cur == chrPlayerMoveState_Platform
+      bool1 = true
+      continue
+    .
+    if cur == chrPlayerMoveState_PlatformOffset
+      bool1 = true
+      continue
+    .
+    if cur == chrPlayerMoveState_Jump
+      bool1 = true
+      continue
+    .
+    if cur == chrPlayerMoveState_SyncTime
+      bool1 = true
+      continue
+    .
+    if cur == chrPlayerMoveState_LastTransactionID
+      classView.chrPlayerMoveState_LastTransactionID = Me.chrPlayerMoveState_LastTransactionID
+      bool1 = true
+      continue
+    .
+    if cur == name
+      var bool5 = false
+      bool5 = Me.GetCharacterGender() == chrGenderMale
+      var str4 = CreateGenderfiedName(Me.chrName, bool5)
+      Me.chrNameWithGender = str4
+      continue
+    .
+    if cur == chrGender
+      var bool6 = false
+      var enum3 = Me.GetCharacterGender()
+      bool6 = enum3 == chrGenderMale
+      var str4 = CreateGenderfiedName(Me.chrName, bool6)
+      Me.chrNameWithGender = str4
+      continue
+    .
+    if cur == chrPlayerUnifyColors
+      Me.ResetAppearanceUser()
+      continue
+    .
+    if cur == chrPlayerCharacter_IsFollowingTarget
+      if not Me.chrPlayerCharacter_IsFollowingTarget
+        if Me.chrBehavior_GetDelegateType() == BEHAVIOR_REMOTE_AI
+          Me.chrBehaviorDelegate.chrBehavior.chrLocoAi_Stop()
+          Me.chrBehavior_SetDelegateType()
+        .
+      .
+    else if cur == chrIsHelmetHidden
+      Me.OnHelmetHiddenChanged()
+    else if cur == chrAppearanceCustomization
+      Me.OnAppearanceCustomizationChanged()
+    else if cur == chrPlayerAppearanceSlots
+      Me.OnAppearanceSlotsChanged()
+    else if cur == chrPlayerAllowSithAppearance
+      Me.InitializeAppearance()
+    else
+      if cur == chrLegacyDisplay
+        Me.updateLegacyDisplay()
+        continue
+      .
+      if cur == chrLegacySurname
+        Me.updateLegacyDisplay()
+        continue
+      .
+      if cur != chrAdvancedClass
+        continue
+      .
+      if Me.chrAdvancedClass != 0
+        id2 = Me.chrAdvancedClass
+      else
+        id2 = Me.chrClass
+      .
+      var unused3 = Me
+      $NAMEPLATES.SetNameplateClassByID()
+      continue
+    .
+  .
+  if bool1
+    var classView7 = HM.GetClassViewFromNodeRef(Me, chrPlayerMoveState)
+    classView = HM.CopyClassViewToClassView(classView7)
+    Me.chrPlayerCharacter_processMoveState(classView)
+  .
+.
+public method OnAppearanceSlotsChanged(Me)
+  var lookup = Me.chrPlayerAppearanceSlotData
+  clear lookup destroy
+  var node2 = sysCCSClassMethods:GetCustomizationSetForValues(Me.chrBackground, Me.chrGender)
+  var lookup2 = Me.chrPlayerAppearanceSlots
+  foreach key in lookup2
+    var node5 = CreateNodeFromClassID(appAppearanceSlot)
+    var lookup2Cur = lookup2[key]
+    var classView = node2.GetAppearanceSlotFromID(lookup2Cur)
+    node5.BuildFromAppearance(classView)
+    lookup[key] = node5
+  .
+  Me.InitializeAppearance()
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None
+    if Me == pc2
+      guiPortrait:UpdatePortrait(STAGENAME_PORTRAIT_PLAYER + Me, HM.CopyConstructNodeRef(14, Me), guiPortraitStyle_DynamicLookRight)
+      guiPortrait:UpdatePortrait(STAGENAME_PORTRAIT_INVENTORY, HM.CopyConstructNodeRef(14, Me), guiPortraitStyle_PlayerInventory)
+    else if pc2.IsGroupedWith(Me)
+      guiPortrait:UpdateGroupmatePortrait(Me)
+    .
+    if pc2.GetTradePartner() == Me
+      guiPortrait:UpdatePortrait(STAGENAME_PORTRAIT_TRADE_PARTNER, HM.CopyConstructNodeRef(14, Me), guiPortraitStyle_Trade)
+    .
+    var id3 = pc2.GetPrimaryTargetID()
+    var bool2 = Me == id3
+    if not bool2 and id3 is kindof stgActor
+      var id4 = Me
+      var id5 = id3.GetOriginal()
+      int v20 = HIDWORD(id4) ^ HIDWORD(id5) | id4 ^ id5
+      bool2 = v20 == 0
+    .
+    if bool2
+      guiPortrait:UpdatePortrait(STAGENAME_PORTRAIT_TARGET, HM.CopyConstructNodeRef(14, Me), guiPortraitStyle_DynamicLookLeft)
+    .
+  .
+  guiPortrait:UpdatePortraits(Me)
+.
+public method chrPlayerCharacter_processMoveState(Me, a1 as ClassView chrPlayerMoveState)
+  if Me.chrBehavior_GetDelegateType() == BEHAVIOR_NONE
+    Me.chrBehavior_SetDelegateType(BEHAVIOR_REMOTE_PLAYER)
+  .
+  var enum2 = Me.chrBehavior_GetDelegateType()
+  if enum2 == BEHAVIOR_REMOTE_PLAYER
+    Me.chrBehaviorDelegate.chrBehaviorRemotePlayer_processMoveState(a1)
+  .
+.
+public method HasDiscoveredBindpoint(a1 as ID) as Boolean
+  var id1 = $MAPNOTE.GetVariableIDForBindpointFQN(a1)
+  if id1 == 0
+    // unknown
+  else
+    var node3 = $QUEST.GetVariableDefinition(id1)
+    if node3 = None
+      // unknown
+    else
+      return Me.GetPermanentBoolVariableValue(node3.GetBitIndex()) != 0
+    .
+  .
+  return false
+.
+remote function OnBindpointDiscovered(Me, a1 as ID)
+  $GUI_API.getApi().setQuickTravelDataAsDirty()
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 = None
+    // unknown
+  else
+    var id1 = $MAPNOTE.GetBindpointFQNForVariableID(a1)
+    if id1 == 0
+      // unknown
+    else
+      var node4 = $MAPNOTE.GetNearestBindPointNoteByFqnSId(id1, pc2.GetPosition_w())
+      if node4 = None
+        // unknown
+      else
+        list1 as List of String
+        add back node4.GetLocalizedText(15685385242400905286, true) to list1  // "name"
+        var str3 = $STRING.LocalizeStringTokenizedWithPlayerGenderVariant(STR_GUI_MAP, STRING_BINDPOINT_DISCOVERED, list1)
+        $GUI_API.getApi().systemMessageEx(str3, COLOR_YELLOW)
+        $CHAT.ChatPlayerAlreadyLocalized(chatChannel_SystemFeedback, str3)
+        $SPAWNER.RefreshSpnRelationMapNoteVfx()
+        $MAPNOTE.unk_68df9c04(BindPoint)
+      .
+    .
+  .
+.
+other handler PostContainerRemove(Me, a1 as NodeRef of conContainableComponent, a2 as NodeRef of conSlotted, a3 as Integer)
+  var pc = GetPlayerCharacterNode()
+  if Me == pc
+    if a2.GetOwner() == Me
+      if Me.chrCurrentInteraction != 0 and Me.chrCurrentInteractionType == chrInteractionTypeVendor
+        var id1 = Me.chrCurrentInteraction
+        if id1 != None
+          if id1.vndVendorCanRepair
+            $VENDOR.RequestUpdateRepair(Me)
+          .
+        .
+      .
+    .
+  .
+.
+public method getName() as String
+  if Me.chrName == ""
+    var id1 = Me.chrSummaryId
+    if id1 != None
+      Me.chrName = id1.chrSummaryName
+    .
+  .
+  return Me.chrName
+.
+public method GetCharacterGender() as Enum chrGenderEnum
+  return Me.chrGender
+.
+public function CreateGenderfiedName(a1 as String, a2 as Boolean) as String
+  if a2
+    return a1 + "^M"
+  else
+    return a1 + "^F"
+  .
+.
+public method GetNameWithGender() as String
+  return Me.chrNameWithGender
+.
+public method GetAFK() as Boolean
+  return Me.chrPlayerIsAFK
+.
+public method GetQuickTravelAllowed() as Boolean
+  return not Me.chrQuickTravelForbidden
+.
+public method InitiateVendor(Me, a1 as NodeRef)
+  var node = $STATIC.ablCachedAblPlayerVendor
+  if a1 != None and node != None
+    if a1.IsUnfriendlyTo(HM.CopyConstructNodeRef(61, Me))
+      str = $EFFECT.GetEffectResultString(effResultNotFriend)
+      v6 = node5
+      node5 = HM.ConstructNodeRef(9)
+      $GUI_API = (NodeRef *)&v24
+    else
+      if Me.GetAbilityRangeToTarget(a1) <= node.GetAbilityMaxRangeBase()
+        $VENDOR.RequestInitiateVendor(Me, a1)
+        return
+      .
+      str = $EFFECT.GetEffectResultString(effResultTooFar)
+      v6 = node6
+      node6 = HM.ConstructNodeRef(9)
+      $GUI_API = (NodeRef *)&v21
+    .
+    v6 = $GUI_API.getApi()
+    v6.systemMessage(str, v15, v16)
+  .
+.
+public method InitiateTrainer(Me, a1 as NodeRef)
+  if a1 is kindof staCharacterComponent
+    if a1.CharStateIsDead()
+      $GUI_API.getApi().systemMessage($STRING.LocalizeStringWithPlayerGender(STR_GUI_TRAINER, ID_STR_GUI_TRAINER | 0x101, HIDWORD(ID_STR_GUI_TRAINER)))  // "This trainer is currently dead and unable to assist you."
+      return
+    .
+    if a1.CharStateIsInCombat()
+      $GUI_API.getApi().systemMessage($STRING.LocalizeStringWithPlayerGender(STR_GUI_TRAINER, ID_STR_GUI_TRAINER | 0x102, HIDWORD(ID_STR_GUI_TRAINER)))  // "This trainer is busy right now."
+    else
+      var bool3 = Me.CharStateIsInCombat()
+      if bool3
+        var str5 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_TRAINER, ID_STR_GUI_TRAINER | STRING_LEGACY_TITLE, HIDWORD(ID_STR_GUI_TRAINER))  // "Unable to train while in combat."
+        var node4 = $GUI_API.getApi()
+        node4.systemMessage(str5)
+      else
+        var id1 = a1
+        $TRAINER.RequestInitiateTrainer(Me, id1)
+      .
+    .
+  else
+    var bool3 = Me.CharStateIsInCombat()
+    if bool3
+      var str5 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_TRAINER, ID_STR_GUI_TRAINER | STRING_LEGACY_TITLE, HIDWORD(ID_STR_GUI_TRAINER))  // "Unable to train while in combat."
+      var node4 = $GUI_API.getApi()
+      node4.systemMessage(str5)
+    else
+      var id1 = a1
+      $TRAINER.RequestInitiateTrainer(Me, id1)
+    .
+  .
+.
+public method InitiateProfessionTrainer(Me, a1 as NodeRef)
+  if a1 is kindof staCharacterComponent
+    if a1.CharStateIsDead()
+      $GUI_API.getApi().systemMessage($STRING.LocalizeStringWithPlayerGender(STR_GUI_TRAINER, ID_STR_GUI_TRAINER | 0x101, HIDWORD(ID_STR_GUI_TRAINER)))  // "This trainer is currently dead and unable to assist you."
+      return
+    .
+    if a1.CharStateIsInCombat()
+      $GUI_API.getApi().systemMessage($STRING.LocalizeStringWithPlayerGender(STR_GUI_TRAINER, ID_STR_GUI_TRAINER | 0x102, HIDWORD(ID_STR_GUI_TRAINER)))  // "This trainer is busy right now."
+    else
+      var bool3 = Me.CharStateIsInCombat()
+      if bool3
+        var str5 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_TRAINER, ID_STR_GUI_TRAINER | STRING_LEGACY_TITLE, HIDWORD(ID_STR_GUI_TRAINER))  // "Unable to train while in combat."
+        var node4 = $GUI_API.getApi()
+        node4.systemMessage(str5)
+      else
+        var id1 = a1
+        $PROFESSION.RequestInitiateTrainer(Me, id1)
+      .
+    .
+  else
+    var bool3 = Me.CharStateIsInCombat()
+    if bool3
+      var str5 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_TRAINER, ID_STR_GUI_TRAINER | STRING_LEGACY_TITLE, HIDWORD(ID_STR_GUI_TRAINER))  // "Unable to train while in combat."
+      var node4 = $GUI_API.getApi()
+      node4.systemMessage(str5)
+    else
+      var id1 = a1
+      $PROFESSION.RequestInitiateTrainer(Me, id1)
+    .
+  .
+.
+public method InitiateGuildmaster(Me, a1 as NodeRef of gldMasterComponent)
+  if a1 = None
+    return
+  .
+  var bool1 = true
+  if a1 is kindof cbtFactionComponent
+    if not a1.IsFriend(Me)
+      bool1 = false
+      if not bool1
+        return
+      .
+      var bool3 = $GUILD.ValidateGuildmasterInteractionDistance(Me, a1)
+      if bool3
+        return
+      .
+      var str = $EFFECT.GetEffectResultString(effResultTooFar)
+      var node2 = $GUI_API.getApi()
+      node2.systemMessage(str)
+      return
+    .
+  .
+  if a1 is kindof staCharacterComponent
+    if a1.CharStateIsDead()
+      bool1 = false
+      if not bool1
+        return
+      .
+      var bool3 = $GUILD.ValidateGuildmasterInteractionDistance(Me, a1)
+      if bool3
+        return
+      .
+      var str = $EFFECT.GetEffectResultString(effResultTooFar)
+      var node2 = $GUI_API.getApi()
+      node2.systemMessage(str)
+      return
+    else
+      if a1.CharStateIsInCombat()
+        bool1 = false
+        $GUI_API.getApi().systemMessage("Target is busy!")
+      .
+      if not bool1
+        return
+      .
+      var bool3 = $GUILD.ValidateGuildmasterInteractionDistance(Me, a1)
+      if bool3
+        return
+      .
+      var str = $EFFECT.GetEffectResultString(effResultTooFar)
+      var node2 = $GUI_API.getApi()
+      node2.systemMessage(str)
+      return
+    .
+  .
+  if bool1
+    var bool3 = $GUILD.ValidateGuildmasterInteractionDistance(Me, a1)
+    if not bool3
+      var str = $EFFECT.GetEffectResultString(effResultTooFar)
+      var node2 = $GUI_API.getApi()
+      node2.systemMessage(str)
+    .
+  .
+.
+public method GroupInCombatNearby() as Boolean
+  Vector3 vec3
+  Boolean bool2
+  var node2 = $GROUP.GetGroupNode()
+  if node2 != None
+    var lookup = node2.GetGroupMembers()
+    foreach key in lookup
+      if key != Me and key != None
+        if key.staCharacter_IsInCombat()
+          var vec = key.GetPosition_w()
+          var vec2 = Me.GetPosition_w()
+          vec3.x = vec.x - vec2.x
+          vec3.y = vec.y - vec2.y
+          vec3.z = vec.z - vec2.z
+          var float1 = VectorLengthSq(vec3)
+          if float1 < $STATIC.dcvCombatSystemsPrototype.dcvNearbyDistanceForPartyCombatSq
+            bool2 = true
+          else
+            bool2 = false
+          .
+        else
+          bool2 = false
+        .
+        if bool2
+          return true
+        .
+      .
+    .
+  .
+  return false
+.
+public method _OnLockStateChanged(Me, a1 as NodeRef, a2 as Enum cbtRewardLockStateEnum)
+  if a1 != None
+    if a1 is kindof cbtRewardComponent
+      a1.SetRewardLockState(a2)
+    .
+    var classView = a1.GetRelativeColor()
+    $NAMEPLATES.setNameplateColorByID(a1, classView)
+    $SELECTED_TARGET.RefreshHighlight(a1)
+  .
+.
+public method _OnUpdatePlayerEntityLocks(Me)
+  NodeRef *v9
+  char v25
+  Id lookupIndex4
+  char v23
+  var lookup = Me.chrPlayerEntityLocks
+  foreach key in lookup
+    var lookup2 = Me.chrPlayerEntityLocksRepPrevious
+    if lookup2 has key
+      var lookup3 = Me.chrPlayerEntityLocksRepPrevious
+      if lookup[key] == lookup3[key]
+        continue
+      .
+      v9 = (NodeRef *)&v25
+    else
+      v9 = (NodeRef *)&v23
+    .
+    v9 = key
+    Me._OnLockStateChanged(v9, lookup[key])
+  .
+  foreach key in Me.chrPlayerEntityLocksRepPrevious
+    if not (Me.chrPlayerEntityLocks has key)
+      Me._OnLockStateChanged(key, cbtRewardUnlocked)
+    .
+  .
+  Me.chrPlayerEntityLocksRepPrevious = Me.chrPlayerEntityLocks
+.
+public method toString() as String
+  Vector3 vec3
+  str as String
+  str = str + " id=" + Me
+  var str6 = Me.getName()
+  str = str + " name=" + str6
+  var str9 = GetCharacterSpecification(Me)
+  str = str + " spec=" + str9
+  var enum1 = Me.chrAnim_GetBodyType()
+  str = str + " bodytype=" + enum1
+  var str15 = appOracleClassMethods:ConvertGenderEnumToString(Me.chrGender)
+  str = str + " gender=" + str15
+  var id1 = Me.GetCharacterClass()
+  var str18 = utlFQN:fromIDDebug(id1)
+  str = str + " class=" + str18
+  var id2 = Me.GetAdvancedClass()
+  var str21 = utlFQN:fromIDDebug(id2)
+  str = str + " advanced=" + str21
+  var int1 = Me.GetLevel()
+  str = str + " level=" + int1
+  var int2 = Me.GetXp()
+  var int3 = Me.GetXpNeeded()
+  str = str + " xp=" + int2 + "/" + int3
+  var int4 = Me.GetMoney()
+  str = str + " cash=" + int4
+  Me.attributesToString(&str)
+  var node2 = Me.GetCompanion()
+  str = str + " companion=" + node2
+  var id3 = Me.grpMemberGroupId
+  str = str + " groupId=" + id3
+  var id4 = Me.GetTargetID()
+  str = str + " target=" + id4
+  if id4 != None
+    var vec = HM.ConvertFromStringVector3(Me["position"])
+    var vec2 = HM.ConvertFromStringVector3(id4["position"])
+    vec3.x = vec.x - vec2.x
+    vec3.y = vec.y - vec2.y
+    vec3.z = vec.z - vec2.z
+    var float1 = VectorLength(vec3)
+    str = str + " distance_to_target=" + float1
+  .
+  return str
+.
+public method determineConversationVisible(Me)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  char v21 = 1
+  var bool1 = true
+  if pc2 = None
+    // unknown
+  else if pc2 == Me
+    v21 = 1
+    bool1 = false
+  else if $CONVERSATION.IsInConversation()
+    v21 = 0
+  .
+  if $STAGE.HasLiveActor(Me)
+    v21 = 0
+    bool1 = true
+  .
+  utlNode:SetCharacterHidden(Me, (v21 & 1) == 0)
+  SetCharacterCanFadeFlag(Me, bool1)
+  if not $STAGE.HasLiveActor(Me)
+    var node3 = Me.GetCompanion()
+    if node3 != None
+      utlNode:SetCharacterHidden(node3, (v21 & 1) == 0)
+      SetCharacterCanFadeFlag(node3, bool1)
+    .
+  .
+.
+public method InitializeAppearance(Me)
+  Me.AllowItemAppearances(true)
+  $APPEARANCE.InitPlayerDefaults(Me)
+  var lookup = Me.chrPlayerAppearanceSlotData
+  foreach key in lookup
+    var cur = lookup[key]
+    cur.ApplyAppearanceSlotToChar(Me)
+  .
+  Me.RefreshWearableAppearances()
+.
+public method CustomizationsToString() as String
+  var lookup = Me.chrPlayerAppearanceSlotData
+  var length = lookup.length
+  var str = "Character [" + Me + "] has " + length + " customization(s) set"
+  foreach key in lookup
+    var cur = lookup[key]
+    var list1Length = cur.appAppearanceSlotAttachments.length
+    str = str + "$R  slot [" + key + "]: model [" + cur.appAppearanceSlotModelID + "], slot [" + cur.appAppearanceSlotType + "], " + list1Length + " attachment(s)"
+  .
+  return str
+.
+public method WornIppsToString() as String
+  var int1 = 0
+  list1 as List of String
+  var lookup = Me.eqpEquipment.conContents
+  foreach key in lookup
+    var cur = lookup[key]
+    if cur != None
+      if cur.IsType_itmWearableComponent()
+        ++int1
+        var id1 = Me.GetCharacterClass()
+        var id2 = cur.GetItemAppearanceSpec(id1)
+        add back utlFQN:fromIDDebug(id2) to list1
+      .
+    .
+  .
+  var str2 = "Character [" + Me + "] has " + int1 + " IPPs in their equipment"
+  foreach cur in list1
+    str2 = str2 + "$R  [" + cur + "]"
+  .
+  return str2
+.
+public method GetAppearanceStatusString() as String
+  CallFrame _callFrame
+  var str = ""
+  str = str + "Unify colors is set to [" + Me.IsUnifyColorsSet() + "] Bitfield Value[" + Me.chrAppearanceCustomization + "]"
+  var str10 = Me.WornIppsToString()
+  str = str + "$R" + str10
+  var str13 = Me.CustomizationsToString()
+  str = str + "$R" + str13
+  FuncRef GetAppearanceStatusString = HM.PrepareCallExplicitClass2(153, appAppearanceUser, Me, &_callFrame)
+  var str16 = GetAppearanceStatusString(_callFrame)
+  str = str + "$R" + str16
+  return str
+.
+public method IsUnifyColorsSet() as Boolean
+  return (Me.chrAppearanceCustomization & UNK_E54C8503) != 0
+.
+public function _createPreloadTrigger(a1 as String, a2 as Float) as NodeRef of HBNode
+  if not DoesPropBucketExist(PRELOAD_TRIGGERS_PROPBUCKET)  // "PreloadTriggers"
+    CreatePropBucket(PRELOAD_TRIGGERS_PROPBUCKET)  // "PreloadTriggers"
+  .
+  var node3 = AddAssetSpecToPropBucket(PRELOAD_TRIGGERS_PROPBUCKET, $STATIC.GetHardcodedAssetPath(hcaKey_engineTrigger))  // "PreloadTriggers"
+  var id1 = node3
+  if IsAssetSpecReady(PRELOAD_TRIGGERS_PROPBUCKET, id1)  // "PreloadTriggers"
+    var id2 = CreateInstanceFromPropBucket(PRELOAD_TRIGGERS_PROPBUCKET, node3)  // "PreloadTriggers"
+    var node = id2
+    if node != None
+      node["Name"] = a1
+      node["Enter"] = true
+      node["Leave"] = true
+      node["Disappear"] = true
+      node["NPCSensitive"] = true
+      node["PlayerSensitive"] = true
+      node["Active"] = true
+      node["Width"] = a2
+      node["Height"] = a2
+      node["Depth"] = a2
+      node["Ellipsoid"] = true
+      GlomClass(a1, node)
+      var id3 = node
+      ActivateInstance(id3, "")
+    .
+  else
+    // unknown
+  .
+  return node
+.
+public method AttachPreloadTrigger(Me)
+  node2 as NodeRef
+  _createPreloadTrigger(node2, Me, "chrPreloadAnimTrigger", 1077936128)
+  if node2 != None
+    HoldNode(Me, node2, GRANNY_ROOT_BONE_NAME)  // "GrannyRootBone"
+    SetParentOfNode(node2, Me)
+  else
+    // unknown
+  .
+  if node2 = None
+    // unknown
+  .
+.
+public function GetTitleStringID(a1 as Integer) as Integer
+  Boolean bool2
+  var list1 = $STATIC.chrPlayerTitlesTablePrototype.chrPlayerTitlesMapping
+  var bool1 = a1 <= -1
+  if not HIDWORD(a1)
+    bool1 = (_DWORD)a1 == 0
+  .
+  if not bool1
+    if list1.length < a1
+      bool2 = false
+    else
+      bool2 = true
+    .
+  else
+    bool2 = false
+  .
+  if bool2
+    var classView = list1[a1]
+    return classView.titleDetailStringID
+  else
+    return 0
+  .
+.
+public method CachePlayerTitles(Me)
+  var int1 = 1
+  foreach cur in Me.chrPlayerTitles
+    for (Integer i = 1; ; ++i)
+      HM.ExpirationCheck()
+      var bool1 = i <= -1
+      if not HIDWORD(i)
+        bool1 = (unsigned int)i <= 64
+      .
+      if not bool1
+        break
+      .
+      if (cur & 1) != 0
+        var int2 = GetTitleStringID(int1)
+        if int2 != 0
+          Me.chrPlayerCachedTitles[int1] = int2
+        .
+      .
+      HIDWORD(cur) >>= 1
+      LODWORD(cur) = cur >> 1
+      ++int1
+    .
+  .
+  Me.chrPlayerTitlesRepPrevious = Me.chrPlayerTitles
+.
+public method DetermineTitleChanges(Me)
+  Integer list1Cur2
+  List list5
+  List list8
+  var int1 = 1
+  var list1Cur = 0
+  var int2 = 0
+  var bool1 = false
+  foreach list1Cur in Me.chrPlayerTitles
+    int v2 = HIDWORD(int1)
+    var list2Length = Me.chrPlayerTitlesRepPrevious.length
+    var bool2 = int1 > (unsigned int)list2Length
+    var bool3 = SHIDWORD(list2Length) < v2
+    if HIDWORD(list2Length) == v2
+      bool3 = bool2
+    .
+    if bool3 or (list1Cur2 = list1Cur, list5 = Me.chrPlayerTitlesRepPrevious, list5[int1] != list1Cur2)
+      int v10 = HIDWORD(int1)
+      var list3Length = Me.chrPlayerTitlesRepPrevious.length
+      var bool4 = int1 <= (unsigned int)list3Length
+      var bool5 = SHIDWORD(list3Length) >= v10
+      if HIDWORD(list3Length) == v10
+        bool5 = bool4
+      .
+      if not bool5
+        int2 = 0
+      else
+        int2 = Me.chrPlayerTitlesRepPrevious[int1]
+      .
+      __int64 v47 = 1
+      while true
+        HM.ExpirationCheck()
+        var bool6 = v47 <= -1
+        if not HIDWORD(v47)
+          bool6 = (unsigned int)v47 <= 64
+        .
+        if not bool6
+          break
+        .
+        bool1 = (list1Cur & 1) != 0
+        if bool1 != ((int2 & 1) != 0)
+          var int3 = v47 + (int1 << MINIMUM_OPTIONS_TABLE_STRING_SIZE) - 64
+          if bool1
+            var int5 = GetTitleStringID(int3)
+            if int5 != 0
+              Me.chrPlayerCachedTitles[int3] = int5
+              Me.AnnounceUnlockedTitle(int5)
+            .
+          else
+            remove int3 from Me.chrPlayerCachedTitles keep
+          .
+        .
+        HIDWORD(list1Cur) >>= 1
+        LODWORD(list1Cur) = list1Cur >> 1
+        HIDWORD(int2) >>= 1
+        LODWORD(int2) = int2 >> 1
+        ++v47
+      .
+    .
+    ++int1
+  .
+  int1 = Me.chrPlayerTitles.length + 1
+  loop i from int1 to list8.length
+    list1Cur = Me.chrPlayerTitlesRepPrevious[i]
+    __int64 v42 = 1
+    while true
+      HM.ExpirationCheck()
+      var bool7 = v42 <= -1
+      if not HIDWORD(v42)
+        bool7 = (unsigned int)v42 <= 64
+      .
+      if not bool7
+        break
+      .
+      if (list1Cur & 1) != 0
+        var lookup3 = Me.chrPlayerCachedTitles
+        remove v42 + (int1 << MINIMUM_OPTIONS_TABLE_STRING_SIZE) - 64 from lookup3 keep
+      .
+      HIDWORD(list1Cur) >>= 1
+      LODWORD(list1Cur) = list1Cur >> 1
+      ++v42
+    .
+    ++int1
+  .
+  $GUI_API.getApi().UpdateTitles()
+  Me.chrPlayerTitlesRepPrevious = Me.chrPlayerTitles
+.
+public method AnnounceUnlockedTitle(Me, a1 as Integer)
+  Boolean bool2
+  list1 as List of String
+  add back Me.LocalizeNameWithTitle(a1) to list1
+  $GUI_API.getApi().systemMessageEx($STRING.LocalizeStringTokenizedWithPlayerGenderVariant(STR_GUI_SYSTEM, ID_STR_GUI_SYSTEM | STRING_TITLE_UNLOCKED, HIDWORD(ID_STR_GUI_SYSTEM), list1), COLOR_GREEN)  // "Title Unlocked: <<1>>"
+  if Me.ShouldBeFired(tutTutorialEvent_Titles)
+    var int2 = Me.GetLevel()
+    var classView = $STATIC.tutorialDefinitionTable.tutTutorialDefinitionLookupList[66]
+    if classView.tutTutorialControlParameter <= int2
+      bool2 = true
+    else
+      bool2 = false
+    .
+  else
+    bool2 = false
+  .
+  if bool2
+    Me.FireTutorialEvent(tutTutorialEvent_Titles)
+  .
+.
+public method LocalizeNameWithTitle(a1 as Integer) as String
+  list1 as List of String
+  add back Me.getName() to list1
+  if Me.GetCharacterGender() == chrGenderMale
+    return $STRING.LocalizeStringWithTokenList(STR_PC_TITLE, ID_STR_PC_TITLE | a1, HIDWORD(ID_STR_PC_TITLE) | HIDWORD(a1), list1)
+  else
+    return $STRING.LocalizeStringTokenizedWithGenderVariant(STR_PC_TITLE, ID_STR_PC_TITLE | a1, HIDWORD(ID_STR_PC_TITLE) | HIDWORD(a1), list1, 3)
+  .
+.
+public method LocalizeNameLegacyWithTitle(a1 as Integer) as String
+  if Me.GetLegacySurname() != ""
+    var str3 = Me.getName()
+    var str5 = Me.GetLegacySurname()
+    var str = str3 + " " + str5
+  else
+    str = Me.getName()
+  .
+  list1 as List of String
+  add back str to list1
+  if Me.GetCharacterGender() == chrGenderMale
+    return $STRING.LocalizeStringWithTokenList(STR_PC_TITLE, ID_STR_PC_TITLE | a1, HIDWORD(ID_STR_PC_TITLE) | HIDWORD(a1), list1)
+  else
+    return $STRING.LocalizeStringTokenizedWithGenderVariant(STR_PC_TITLE, ID_STR_PC_TITLE | a1, HIDWORD(ID_STR_PC_TITLE) | HIDWORD(a1), list1, 3)
+  .
+.
+public method GetNameWithAwardedTitle() as String
+  CallFrame _callFrame
+  String str
+  String str6
+  FuncRef GetLegacySurname2
+  if Me.chrPlayerSelectedTitle != 0
+    var int2 = GetTitleStringID(Me.chrPlayerSelectedTitle)
+    if int2 != 0
+      if Me.LegacyDisplayOption() == legacyDisplaySurname
+        str = Me.LocalizeNameLegacyWithTitle(int2)
+      else
+        str = Me.LocalizeNameWithTitle(int2)
+      .
+      return str
+    .
+  .
+  var enum2 = Me.LegacyDisplayOption()
+  if enum2 == legacyDisplaySurname and (str6 = HM.ConstructString(), GetLegacySurname2 = HM.PrepareCallNodeRef2(172, Me, &_callFrame), GetLegacySurname(str6, _callFrame), HM.UnprepareCall(), str6 != "")
+    var str3 = Me.getName()
+    return str3 + " " + Me.GetLegacySurname()
+  .
+  return Me.getName()
+.
+public method GetIsAlien() as Boolean
+  return Me.chrIsAlien
+.
+public function GetLocalizedRaceNameWithGender(a1 as Enum chrPlayerRaces, a2 as Enum strVariantType) as String
+  int v10
+  if a1 != chrPlayerRace_None
+    var node = $STATIC.chrBackgroundTablePrototype
+    if node != None
+      var lookup = node.chrBackgroundSpecMap
+      foreach key in lookup
+        var cur = lookup[key]
+        if cur.chrBgDataCharacterRace == a1
+          var int2 = cur.chrBgDataDisplayNameID
+          return $STRING.LocalizeStringWithGenderVariant(STR_GUI_BACKGROUNDNAMES, ID_STR_GUI_BACKGROUNDNAMES | int2, HIDWORD(ID_STR_GUI_BACKGROUNDNAMES) | HIDWORD(int2), a2)
+        .
+      .
+    .
+    HM.ThrowScriptError("Missing return.", v10)
+  else
+    return ""
+  .
+.
+public function unk_29ca9225(a1 as String) as Enum chrPlayerRaces
+  var str2 = ToLower(a1)
+  when str2
+    is "chiss"
+      return chrPlayerRace_Chiss
+    .
+    is "cyborg"
+      return chrPlayerRace_Cyborg
+    .
+    is "human"
+      return chrPlayerRace_Human
+    .
+    is "miraluka"
+      return chrPlayerRace_Miraluka
+    .
+    is "mirialan"
+      return chrPlayerRace_Mirialan
+    .
+    is "rattataki"
+      return chrPlayerRace_Rattataki
+    .
+    is "sithpureblood"
+      return chrPlayerRace_SithPureblood
+    .
+    is "twilek"
+      return chrPlayerRace_Twilek
+    .
+    is "zabrak"
+      return chrPlayerRace_Zabrak
+    .
+    default
+      return chrPlayerRace_None
+    .
+  .
+.
+public method GetRace() as Enum chrPlayerRaces
+  var out = HM.GetEnumDefaultValue(84)
+  var node = $STATIC.chrBackgroundTablePrototype
+  if node != None
+    var lookup = node.chrBackgroundSpecMap
+    if lookup has Me.chrBackground
+      var classView = lookup[Me.chrBackground]
+      out = classView.chrBgDataCharacterRace
+    .
+  else
+    // unknown
+  .
+  return out
+.
+public method GetBackground() as Integer
+  return Me.chrBackground
+.
+public method GetSoundset() as String
+  var str2 = "_m"
+  if Me.GetCharacterGender() == chrGenderFemale
+    str2 = "_f"
+  .
+  return "player_" + Me.GetCharacterClass_ShortName() + str2
+.
+public method GetImpactClass() as String
+  var node2 = Me.GetEquipmentBySlotType(conSlotEquipHumanChest, 1)
+  if node2 != None
+    var str2 = node2.GetImpactClass()
+  .
+  if str2.length > 0
+    return str2
+  else
+    return IMPACT_CLASS_DEFAULT
+  .
+.
+public method GetVoiceStyle(a1 as Boolean) as Integer
+  var out = 0
+  var node2 = Me.GetEquipmentBySlotType(conSlotEquipHumanFace, 1)
+  if node2 != None and (not Me.IsHelmetHidden() and not a1)
+    var id1 = Me.GetCharacterClass()
+    out = node2.GetItemVoiceStyle(id1)
+  .
+  return out
+.
+public method GetCombatCreatureType() as Enum cbtCreatureType
+  return cbtCreatureTypeHumanoid
+.
+public method NotifyPlayerOfDeath(Me, a1 as String, a2 as ID)
+  if Me.GetCompanion() == a2
+    var str = $STRING.LocalizeStringWithTokenList(STR_GUI_DEATH, ID_STR_GUI_DEATH | 3, HIDWORD(ID_STR_GUI_DEATH), list1)  // "Your companion, <<1>>, has been defeated."
+    vec = &vec2
+    vec2 = COLOR_YELLOW
+    v8 = node3
+    node3 = HM.ConstructNodeRef(9)
+    v8 = HM.RefSystemNode(10, 16141090639199259705).getApi()  // GUI_API
+    v8.BannerMessageEx(str, vec)
+  else
+    var str3 = $STRING.LocalizeStringWithTokenList(STR_GUI_DEATH, ID_STR_GUI_DEATH | 2, HIDWORD(ID_STR_GUI_DEATH), list1)  // "<<1>> has been defeated."
+    vec = &vec3
+    vec3 = COLOR_YELLOW
+    v8 = node4
+    node4 = HM.ConstructNodeRef(9)
+    v8 = HM.RefSystemNode(10, 16141090639199259705).getApi()  // GUI_API
+    v8.BannerMessageEx(str3, vec)
+  .
+.
+public method ConversationIndicatorActivation(Me, a1 as Boolean)
+  int v4
+  if a1
+    Me.AddHardcodedVisualEffect(utlVfxKey_CNVIsConversing, fxChatBubble, utlVfxAttachmentStyle_Hover)
+  else
+    Me.RemoveVisualEffect(utlVfxKey_CNVIsConversing, v4)
+  .
+.
+public method AddValidMedCenter(Me, a1 as NodeRef of spnMedCenterComponent)
+  Me.chrKnownMedCenters[a1] = true
+.
+public method RemoveValidMedCenter(Me, a1 as NodeRef of spnMedCenterComponent)
+  remove a1 from Me.chrKnownMedCenters keep
+.
+public method NotifyNewChatChannel(Me)
+  var classView = Me.socSocialComponent
+  var classView2 = classView.socChatData
+  $CHAT.ChatPlayerLocalizedUsingPlayerGender(chatChannel_SystemFeedback, STR_GUI_CHAT, ID_STR_GUI_CHAT | classView2.socChatZoneNameID + 100)
+  if $Options.GetBooleanValue(15845631982909469438)  // "chat_general_channel_enabled"
+    $CHAT.ChatPlayerLocalizedUsingPlayerGender(chatChannel_SystemFeedback, STR_GUI_CHAT, ID_STR_GUI_CHAT | 0x4B0, HIDWORD(ID_STR_GUI_CHAT))  // "General Chat - Use /general or /1 to send messages."
+  .
+  if $Options.GetBooleanValue(8010294682918246560)  // "chat_pvp_channel_enabled"
+    $CHAT.ChatPlayerLocalizedUsingPlayerGender(chatChannel_SystemFeedback, STR_GUI_CHAT, ID_STR_GUI_CHAT | 0x4B1, HIDWORD(ID_STR_GUI_CHAT))  // "PvP Chat - Use /pvp or /2 to send messages."
+  .
+  if $Options.GetBooleanValue(1150189484793599608)  // "chat_trade_channel_enabled"
+    $CHAT.ChatPlayerLocalizedUsingPlayerGender(chatChannel_SystemFeedback, STR_GUI_CHAT, ID_STR_GUI_CHAT | 0x4B2, HIDWORD(ID_STR_GUI_CHAT))  // "Trade Chat - Use /trade or /3 to send messages."
+  .
+.
+other handler OnFadingIn(Me, a1 as NodeRef)
+  call server untrustedMethods:ClientIsLoaded()
+  UnregisterForEvents(a1, Me)
+.
+public method StartAFKPreLogout(Me)
+  if Me.chrAFKPreLogoutTimer.timerState == 1
+    Me.chrAFKPreLogoutTimer.script = $THISSCRIPT
+    TimeInterval interval = timeInSeconds((Float)$STATIC.utlTweakableInfoPrototype.utlTweakableIntegers[1279136230675506819])  // "afkautologouttimer"
+    Me.chrAFKPreLogoutTimer.fireRate = interval
+    timer::start(Me.chrAFKPreLogoutTimer)
+  .
+.
+public method StopAFKPreLogout(Me)
+  Me.StopAFKAutoLogout()
+  if Me.chrAFKPreLogoutTimer.timerState == 2
+    timer::stop(Me.chrAFKPreLogoutTimer)
+  .
+.
+public method AFKPreLogout(Me)
+  Me.StartAFKAutoLogout(false, false)
+.
+public method StartAFKAutoLogout(Me, a1 as Boolean, a2 as Boolean)
+  if Me.chrAFKAutoLogoutTimer.timerState == 1
+    call server untrustedMethods:OnBeginLogoutTimer()
+    Me.chrAFKAutoLogoutTimer.script = $THISSCRIPT
+    Me.chrAFKAutoLogoutTimer.fireRate = 20000
+    timer::start(Me.chrAFKAutoLogoutTimer)
+    var bool1 = false
+    $BASECLIENT.HasEntitlement(ENTITLEMENT_CMDS_ADMIN)
+    bool1 = false
+    if a1
+      Me.chrAFKAutoLogoutQuit = false
+      $CHAT.ChatPlayerLocalizedUsingPlayerGender(chatChannel_SystemFeedback, STR_GUI_CHAT, ID_STR_GUI_CHAT | STRING_YOU_ARE_IN_AN_UNSAFE_AREA_AND_WILL_LOGOUT_SHORTLY, HIDWORD(ID_STR_GUI_CHAT))  // "You are in an unsafe area and will log out shortly."
+      if bool1
+        var str2 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | 4, HIDWORD(ID_STR_GUI_DIALOG))  // "Logging out in an unsafe area"
+        var str4 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | MINIMUM_OPTIONS_TABLE_STRING_SIZE, HIDWORD(ID_STR_GUI_DIALOG))  // "LOGGING OUT"
+        var str6 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STRING_CANCEL, HIDWORD(ID_STR_GUI_DIALOG) | HIDWORD(STRING_CANCEL))  // "Cancel"
+        var str8 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STRING_IMMEDIATE, HIDWORD(ID_STR_GUI_DIALOG) | HIDWORD(STRING_IMMEDIATE))  // "Immediate"
+        v27 = node2
+        node2 = HM.ConstructNodeRef(9)
+        v27 = $GUI_API.getApi()
+        v27.showTimerDialog(str2, str4, 20, str6, str8, "cmdAutoLogoutCancel", "cmdAutoLogoutImmediate", 0, false)
+        return
+      .
+      str10 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | 4, HIDWORD(ID_STR_GUI_DIALOG))  // "Logging out in an unsafe area"
+      str12 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | MINIMUM_OPTIONS_TABLE_STRING_SIZE, HIDWORD(ID_STR_GUI_DIALOG))  // "LOGGING OUT"
+      str14 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STRING_CANCEL, HIDWORD(ID_STR_GUI_DIALOG) | HIDWORD(STRING_CANCEL))  // "Cancel"
+      v40 = node3
+      node3 = HM.ConstructNodeRef(9)
+      $GUI_API = (NodeRef *)&v113
+    else if a2
+      Me.chrAFKAutoLogoutQuit = true
+      $CHAT.ChatPlayerLocalizedUsingPlayerGender(chatChannel_SystemFeedback, STR_GUI_CHAT, ID_STR_GUI_CHAT | STRING_YOU_ARE_IN_AN_UNSAFE_AREA_AND_WILL_LOGOUT_SHORTLY, HIDWORD(ID_STR_GUI_CHAT))  // "You are in an unsafe area and will log out shortly."
+      if bool1
+        var str2 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | 4, HIDWORD(ID_STR_GUI_DIALOG))  // "Logging out in an unsafe area"
+        var str4 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STRING_QUITTING, HIDWORD(ID_STR_GUI_DIALOG))  // "Quitting"
+        var str6 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STRING_CANCEL, HIDWORD(ID_STR_GUI_DIALOG) | HIDWORD(STRING_CANCEL))  // "Cancel"
+        var str20 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STRING_IMMEDIATE, HIDWORD(ID_STR_GUI_DIALOG) | HIDWORD(STRING_IMMEDIATE))  // "Immediate"
+        v27 = node4
+        node4 = HM.ConstructNodeRef(9)
+        v27 = $GUI_API.getApi()
+        v27.showTimerDialog(str2, str4, 20, str6, str20, "cmdAutoLogoutCancel", "cmdAutoLogoutImmediate", 0, false)
+        return
+      .
+      str10 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | 4, HIDWORD(ID_STR_GUI_DIALOG))  // "Logging out in an unsafe area"
+      str12 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STRING_QUITTING, HIDWORD(ID_STR_GUI_DIALOG))  // "Quitting"
+      str14 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STRING_CANCEL, HIDWORD(ID_STR_GUI_DIALOG) | HIDWORD(STRING_CANCEL))  // "Cancel"
+      v40 = node5
+      node5 = HM.ConstructNodeRef(9)
+      $GUI_API = (NodeRef *)&v101
+    else
+      Me.chrAFKAutoLogoutQuit = false
+      $CHAT.ChatPlayerLocalizedUsingPlayerGender(chatChannel_SystemFeedback, STR_GUI_CHAT, ID_STR_GUI_CHAT | STRING_YOU_WILL_BE_LOGGED_OUT_SHORTLY_DUE_TO_INACTIVITY, HIDWORD(ID_STR_GUI_CHAT))  // "You will be logged out shortly due to inactivity."
+      str10 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STRING_LOGGING_OUT_DUE_TO_INACTIVITY, HIDWORD(ID_STR_GUI_DIALOG))  // "Logging out due to inactivity"
+      str12 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | MINIMUM_OPTIONS_TABLE_STRING_SIZE, HIDWORD(ID_STR_GUI_DIALOG))  // "LOGGING OUT"
+      str14 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STRING_CANCEL, HIDWORD(ID_STR_GUI_DIALOG) | HIDWORD(STRING_CANCEL))  // "Cancel"
+      v40 = node6
+      node6 = HM.ConstructNodeRef(9)
+      $GUI_API = (NodeRef *)&v95
+    .
+    v40 = $GUI_API.getApi()
+    v40.showTimerDialog(str10, str12, 20, str14, "", "cmdAutoLogoutCancel", "cmdAutoLogoutCancel", 0, false)
+  .
+.
+public method StopAFKAutoLogout(Me)
+  $GUI_API.getApi().cancelTimerDialog()
+  if Me.chrAFKAutoLogoutTimer.timerState == 2
+    timer::stop(Me.chrAFKAutoLogoutTimer)
+    if not Me.chrAFKAutoLogoutQuit
+      $CHAT.ChatPlayerLocalizedUsingPlayerGender(chatChannel_SystemFeedback, STR_GUI_CHAT, ID_STR_GUI_CHAT | STRING_LOGOUT_CANCELLED, HIDWORD(ID_STR_GUI_CHAT))  // "Logout cancelled"
+    else
+      $CHAT.ChatPlayerLocalizedUsingPlayerGender(chatChannel_SystemFeedback, STR_GUI_CHAT, ID_STR_GUI_CHAT | STRING_QUIT_CANCELLED, HIDWORD(ID_STR_GUI_CHAT))  // "Quit canceled"
+    .
+  .
+.
+public method DoLogoutOrQuit(Me)
+  $GUI_API.getApi().cancelTimerDialog()
+  if Me.chrAFKAutoLogoutQuit
+    $BASECLIENT.Quit()
+  else
+    $BASECLIENT.Logout()
+  .
+.
+public function OnTimerTick(Me, a1 as ID)
+  if a1 == chrAFKAutoLogoutTimer
+    var pc = GetPlayerCharacterNode()
+    var pc3 = pc
+    if pc3 = None
+      return
+    .
+    pc3.DoLogoutOrQuit()
+    return
+  .
+  if a1 == chrAFKPreLogoutTimer
+    var pc2 = GetPlayerCharacterNode()
+    var pc22 = pc2
+    if pc22 = None
+      return
+    .
+    timer::stop(pc22.chrAFKPreLogoutTimer)
+    if $BASECLIENT.HasEntitlement(ENTITLEMENT_CMDS_ADMIN)
+      return
+    .
+    pc22.AFKPreLogout()
+    return
+  .
+  if a1 != chrUpdateSocialCenterPlayerCountTimer
+    return
+  .
+  $CHARACTER.RequestUpdatePlayerCountForSocialCenter()
+.
+public method AutoLogoutCancel(Me)
+  socOracleClassMethods:SetAFKState(false, "")
+  Me.StopAFKAutoLogout()
+  Me.logoutDialogID = 0.0
+.
+public method SetSafeZone(Me, a1 as Boolean, a2 as Boolean)
+  if not Me.chrSafeZoneOverride or a2
+    Me.chrSafeZone = a1
+  .
+.
+function OverrideSafeZone(a1 as Boolean, a2 as Boolean)
+  unsigned __int8 v7 = a1
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  pc2.chrSafeZoneOverride = a2
+  if not a2
+    v7 = 1
+  .
+  pc2.SetSafeZone(v7, true)
+.
+public method IsHelmetHidden() as Boolean
+  return Me.chrIsHelmetHidden
+.
+public method OnHelmetHiddenChanged(Me)
+  var node2 = Me.GetEquipmentBySlotType(conSlotEquipHumanFace, 1)
+  if node2 != None and node2.IsType_itmWearableComponent()
+    if Me.IsHelmetHidden()
+      Me.DeactivateWearable(node2)
+    else
+      Me.ActivateWearable(node2)
+    .
+  .
+.
+public method LegacyDisplayOption() as Enum legacyDisplayType
+  return Me.chrLegacyDisplay
+.
+remote function OnVeryFirstLogin(Me)
+  if $GUI_API.getApi().isFullyLoaded()
+    var pc = GetPlayerCharacterNode()
+    var pc2 = pc
+    var id1 = pc2.GetCharacterClass()
+    $MOVIE.PlayHardcodedMovie(chrClassComponentClassMethods:GetIntroMovieFromClass(id1))
+  else
+    $MOVIE.QueueIntroMovieRequest()
+  .
+.
+remote function OnLogin(Me)
+  $CHAT.ClearChatInfo()
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None
+    pc2.NotifyNewChatChannel()
+  .
+.
+public method OnWorldFadeIn(Me)
+  if $CHARACTER.chrShowKickedFromWarzoneMsg
+    $GUI_API.getApi().BannerMessageEx($STRING.LocalizeString(STR_GUI_PVP, ID_STR_GUI_PVP | UNK_90B1CD84, HIDWORD(ID_STR_GUI_PVP)), COLOR_RED)  // "Your teammates have voted to remove you from the Warzone"
+    $CHARACTER.chrShowKickedFromWarzoneMsg = false
+  .
+.
+remote function unk_d0849161(Me, a1 as ID, a2 as DateTime)
+  // unknown
+  if a1 != None
+    var pc = GetPlayerCharacterNode()
+    if a1 == pc
+      $CHARACTER.chrShowKickedFromWarzoneMsg = true
+      $CHARACTER.4611686333857230012 = a2
+    .
+  .
+.
+remote function unk_e2495c56(Me, a1 as Enum mmsQueueResultsEnum, a2 as ID, a3 as DateTime)
+  CallFrame _callFrame
+  if a2 != None
+    var pc = GetPlayerCharacterNode()
+    if a2 == pc
+      if a1 == mmsQueueResult_Banned_Votekick
+        $CHARACTER.4611686333857230012 = a3
+        if mmsOracleClassMethods:unk_8c1069b1()
+          mmsOracleClassMethods:unk_ea8ea768()
+        .
+      else if a1 == mmsQueueResult_Banned_Deserter
+        var dateTime1 = GetSyncTime()
+        FuncRef unk_f85ec87e = HM.PrepareCallScriptSameMe2(212, 14988081761934699992, Me, &_callFrame)
+        var float1 = (Float)(a3 - dateTime1) / 60000.0
+        unk_f85ec87e(_callFrame, (Integer)float1 + 1)
+      .
+    .
+  .
+.
+public method unk_45cde9b6(Me, a1 as NodeRef of chrPlayerCharacter, a2 as Boolean)
+  RPC rpc
+  pc2 as NodeRef
+  var pc = GetPlayerCharacterNode()
+  pc2 = pc
+  if a1 != None
+    if Me.IsGroupedWith(a1)
+      if $PHASE.IsWarzoneArea()
+        if Me.4611686333857230013 has a1
+          if a2
+            return
+          .
+          rpc = HM.RPCBegin(0xBD5C312B'5C81080B);  // arbArbiterClassMethods.unk_5c81080b
+          var id2 = a1
+          HM.RPCSerializeID(&rpc, id2)
+          HM.RPCSerializeBoolean(&rpc, a2)
+        else if not a2
+          return
+        .
+          call server arbArbiterClassMethods:unk_5c81080b(a1, a2)
+      .
+    .
+  .
+.
+remote function DisplayPlayerVotekickWarning(Me, a1 as Integer)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None
+    list1 as List of String
+    add back a1 to list1
+    var str3 = $STRING.LocalizeStringWithTokenList(STR_GUI_PVP, ID_STR_GUI_PVP | UNK_8B35DB2F, HIDWORD(ID_STR_GUI_PVP), list1)  // "You must attack an enemy or move to defend an objective within <<1>> seconds or you will be removed from the warzone"
+    $GUI_API.getApi().BannerMessageTwoExWithDuration(str3, COLOR_RED, 22, "", COLOR_RED, 0, UNK_D71B8E8E)
+    $CHAT.ChatPlayerAlreadyLocalized(chatChannel_SystemFeedback, str3)
+  .
+.
+public method JoinChatChannel(Me, a1 as Integer)
+  list1 as List of String
+  if CHAT_CHANNEL_GEN == a1
+    var classView = Me.socSocialComponent
+    var classView2 = classView.socChatData
+    var str3 = GetChannelID(classView2.socChatZoneChannelName, a1)
+    var classView4 = classView.socChatData
+    if classView4.chatGeneralChannel != str3
+      $Options.SetBooleanValue(15845631982909469438, true)  // "chat_general_channel_enabled"
+      var str = "/1"
+      add back str to list1
+      add back $STRING.LocalizeString(STR_SYS_LOCALIZEDSLASH, STRING_GENERAL_SLASHCOMMAND) to list1  // "/pvp"
+      $CHAT.SendChatChannel(chatChannel_General, $STRING.LocalizeString(STR_GUI_CHAT, ID_STR_GUI_CHAT | 0x4EC, HIDWORD(ID_STR_GUI_CHAT)), str, &list1)  // "General"
+    else
+      $CHAT.ChatPlayerLocalized(chatChannel_SystemFeedback, STR_GUI_CHAT, ID_STR_GUI_CHAT | 0x2CF)  // "You are already joined to the General channel."
+    .
+  else if CHAT_CHANNEL_PVP == a1
+    var classView5 = Me.socSocialComponent
+    var classView6 = classView5.socChatData
+    var str12 = GetChannelID(classView6.socChatZoneChannelName, a1)
+    var classView7 = Me.socSocialComponent
+    var classView8 = classView7.socChatData
+    if classView8.chatPVPChannel != str12
+      $Options.SetBooleanValue(8010294682918246560, true)  // "chat_pvp_channel_enabled"
+      str = "/2"
+      add back str to list1
+      var str15 = $STRING.LocalizeString(STR_SYS_LOCALIZEDSLASH, STRING_GENERAL_SLASHCOMMAND)  // "/pvp"
+      add back str15 to list1
+      $CHAT.SendChatChannel(chatChannel_PVP, $STRING.LocalizeString(STR_GUI_CHAT, ID_STR_GUI_CHAT | 0x4EF, HIDWORD(ID_STR_GUI_CHAT)), str, &list1)  // "PvP"
+      return
+    .
+    $CHAT.ChatPlayerLocalized(chatChannel_SystemFeedback, STR_GUI_CHAT, ID_STR_GUI_CHAT | 0x2D0)  // "You are already joined to the PvP channel."
+  else
+    if CHAT_CHANNEL_TRA != a1
+      return
+    .
+    var classView9 = Me.socSocialComponent
+    var classView10 = classView9.socChatData
+    var str21 = GetChannelID(classView10.socChatZoneChannelName, a1)
+    var classView11 = Me.socSocialComponent
+    var classView12 = classView11.socChatData
+    if classView12.chatTradeChannel != str21
+      $Options.SetBooleanValue(1150189484793599608, true)  // "chat_trade_channel_enabled"
+      str = "/3"
+      add back str to list1
+      var str24 = $STRING.LocalizeString(STR_SYS_LOCALIZEDSLASH, STRING_TRADE_SLASHCOMMAND)  // "/trade"
+      add back str24 to list1
+      $CHAT.SendChatChannel(chatChannel_Trade, $STRING.LocalizeString(STR_GUI_CHAT, ID_STR_GUI_CHAT | 0x4F0, HIDWORD(ID_STR_GUI_CHAT)), str, &list1)  // "Trade"
+      return
+    .
+    $CHAT.ChatPlayerLocalized(chatChannel_SystemFeedback, STR_GUI_CHAT, ID_STR_GUI_CHAT | 0x2D1)  // "You are already joined to the Trade channel."
+  .
+.
+public method LeaveChatChannel(Me, a1 as Integer)
+  if CHAT_CHANNEL_GEN == a1
+    var classView = Me.socSocialComponent
+    var classView2 = classView.socChatData
+    var str2 = GetChannelID(classView2.socChatZoneChannelName, a1)
+    var classView4 = classView.socChatData
+    if classView4.chatGeneralChannel == str2
+      $Options.SetBooleanValue(15845631982909469438, false)  // "chat_general_channel_enabled"
+      $CHAT.RemoveChatChannel(chatChannel_General, v38, v42, v45)
+    else
+      $CHAT.ChatPlayerLocalized(chatChannel_SystemFeedback, STR_GUI_CHAT, ID_STR_GUI_CHAT | 0x2CC)  // "You are not joined to the General channel."
+    .
+  else if CHAT_CHANNEL_PVP == a1
+    var classView5 = Me.socSocialComponent
+    var classView6 = classView5.socChatData
+    var str7 = GetChannelID(classView6.socChatZoneChannelName, a1)
+    var classView7 = Me.socSocialComponent
+    var classView8 = classView7.socChatData
+    if classView8.chatPVPChannel == str7
+      $Options.SetBooleanValue(8010294682918246560, false)  // "chat_pvp_channel_enabled"
+      $CHAT.RemoveChatChannel(chatChannel_PVP, v40, v43, v47)
+      return
+    .
+    $CHAT.ChatPlayerLocalized(chatChannel_SystemFeedback, STR_GUI_CHAT, ID_STR_GUI_CHAT | 0x2CD)  // "You are not joined to the PvP channel."
+  else
+    if CHAT_CHANNEL_TRA != a1
+      return
+    .
+    var classView9 = Me.socSocialComponent
+    var classView10 = classView9.socChatData
+    var str12 = GetChannelID(classView10.socChatZoneChannelName, a1)
+    var classView11 = Me.socSocialComponent
+    var classView12 = classView11.socChatData
+    if classView12.chatTradeChannel == str12
+      $Options.SetBooleanValue(1150189484793599608, false)  // "chat_trade_channel_enabled"
+      $CHAT.RemoveChatChannel(chatChannel_Trade, v41, v44, v48)
+      return
+    .
+    $CHAT.ChatPlayerLocalized(chatChannel_SystemFeedback, STR_GUI_CHAT, ID_STR_GUI_CHAT | 0x2CE)  // "You are not joined to the Trade channel."
+  .
+.
+public method SendStoredCustomChatChannelsToServer(Me)
+  var str2 = $Options.GetStringValue(16114891334460188288)  // "chat_custom_channels"
+  var int1 = str2.length
+  var bool1 = (unsigned int)int1 <= STRING_LOGGING_OUT_DUE_TO_INACTIVITY
+  var bool2 = int1 <= -1
+  if not HIDWORD(int1)
+    bool2 = bool1
+  .
+  if not bool2
+    list1 as List of String
+    SplitBy(str2, ";", &list1)
+    for (Integer i = 1; ; i += 4)
+      HM.ExpirationCheck()
+      if list1.length < i
+        break
+      .
+      var list1Length = list1.length
+      var bool4 = SHIDWORD(list1Length) < (int)((unsigned __int64)(i + 3) >> 32)
+      if HIDWORD(list1Length) == (unsigned __int64)(i + 3) >> 32
+        bool4 = ((unsigned int)list1Length < (int)i + 3)
+      .
+      if not bool4
+        classView as ClassView
+        var cur = list1[i]
+        classView.customChatChannelName = cur
+        classView.customChatChannelPassword = list1[i + 1]
+        classView.customChatChannelId = list1[i + 2]
+        classView.customChatChannelServerId = list1[i + 3]
+        call server untrustedMethods:CreateCustomChatChannel(classView)
+        var classView2 = Me.socSocialComponent
+        var classView3 = classView2.socChatData
+        var lookup = classView3.chatCustomChannels
+        lookup[classView.customChatChannelId] = classView
+      .
+    .
+  .
+.
+remote function ReceiveCustomChatChannelCreated(Me, a1 as ClassView customChatChannel)
+  Integer i
+  CallFrame _callFrame
+  Boolean bool2
+  Integer int3
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None
+    var bool1 = false
+    loop i from 1 to GetCustomChatChannelCount(_callFrame)
+      var classView = pc2.socSocialComponent
+      var classView2 = classView.socChatData
+      if classView2.chatCustomChannels has i
+        var str = a1.customChatChannelName
+        var classView4 = classView.socChatData
+        var classView5 = classView4.chatCustomChannels[i]
+        if str == classView5.customChatChannelName
+          bool2 = true
+        else
+          bool2 = false
+        .
+      else
+        bool2 = false
+      .
+      if bool2 and (HM.TrackLine(1584), int3 = i, a1.customChatChannelId != int3)
+        var classView6 = pc2.socSocialComponent
+        var classView7 = classView6.socChatData
+        remove i from classView7.chatCustomChannels keep
+        $CHAT.RemoveChatChannel(sysChatHandlerClassMethods:GetPersonalChatChannelEnum(i))
+        var classView8 = pc2.socSocialComponent
+        var classView9 = classView8.socChatData
+        classView9.chatCustomChannels[a1.customChatChannelId] = a1
+        bool1 = true
+        break
+      .
+    .
+    if not bool1
+      var classView10 = pc2.socSocialComponent
+      var classView11 = classView10.socChatData
+      classView11.chatCustomChannels[a1.customChatChannelId] = a1
+      bool1 = true
+      list1 as List of String
+      var int6 = a1.customChatChannelId + CHAT_MAX_SYSTEM_CHANNELS
+      if int6 == 10
+        int6 = 0
+      .
+      var str3 = "/" + int6
+      add back str3 to list1
+      var enum2 = sysChatHandlerClassMethods:GetPersonalChatChannelEnum(a1.customChatChannelId)
+      $CHAT.SendChatChannel(enum2, a1.customChatChannelName, str3, &list1)
+    .
+    if bool1
+      pc2.UpdateCustomChatChannelsInOptionsTable()
+    .
+  .
+.
+public method UpdateCustomChatChannelsInOptionsTable(Me)
+  Integer i
+  CallFrame _callFrame
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None
+    str as String
+    loop i from 1 to GetCustomChatChannelCount(_callFrame)
+      var classView = pc2.socSocialComponent
+      var classView2 = classView.socChatData
+      if classView2.chatCustomChannels has i
+        var classView4 = classView.socChatData
+        var classView5 = classView4.chatCustomChannels[i]
+        str = str + classView5.customChatChannelName + ";"
+        str = str + classView5.customChatChannelPassword + ";"
+        str = str + classView5.customChatChannelId + ";"
+        str = str + classView5.customChatChannelServerId + ";"
+      .
+    .
+    strutils:TrimRightChar(&str, ";")
+    $Options.SetStringValue(16114891334460188288, str)  // "chat_custom_channels"
+  .
+.
+public method LeaveCustomChatChannel(Me, a1 as String)
+  var bool1 = false
+  var str2 = ToLower(a1)
+  var classView = Me.socSocialComponent
+  var classView2 = classView.socChatData
+  var lookup = classView2.chatCustomChannels
+  loop i from 1 to GetCustomChatChannelCount(_callFrame)
+    if lookup has i and (v8 = str2, str3 = HM.ConstructString(), classView3 = lookup[i], str4 = HM.ConstructString(), &str4 = classView3.customChatChannelName, ToLower(str3, str4), v8 == str3)
+      remove i from lookup keep
+      $CHAT.RemoveChatChannel(sysChatHandlerClassMethods:GetPersonalChatChannelEnum(i))
+      bool1 = true
+      break
+    .
+  .
+  if bool1
+    Me.UpdateCustomChatChannelsInOptionsTable()
+  .
+.
+public method IsPlayerLoaded() as Boolean
+  return Me.chrPlayerLoaded
+.
+public method IsRemoteHolo() as Boolean
+  CallFrame _callFrame
+  FuncRef HasEffectByAbilitySpec = HM.PrepareCallNodeRef2(227, Me, &_callFrame)
+  return HasEffectByAbilitySpec(_callFrame, 16141077505857215666) & 1  // abl.player.comport
+.
+public method IsWaitingForConversation() as Boolean
+  CallFrame _callFrame
+  FuncRef HasEffectByAbilitySpec = HM.PrepareCallNodeRef2(227, Me, &_callFrame)
+  return HasEffectByAbilitySpec(_callFrame, 16141126890092977468) & 1  // abl.holocom.use_holocom
+.
+public method CanConverse() as Boolean
+  var node2 = Me.GetPhaseInfo()
+  if node2 != None
+    return node2.CanPhaseOccupantConverse(Me)
+  else
+    return true
+  .
+.
+public method IsOnFriendsList(a1 as ID) as Boolean
+  var classView = Me.socSocialComponent
+  return classView.socCharacterFriendList has a1
+.
+public method IsOnIgnoreList(a1 as ID) as Boolean
+  var classView = Me.socSocialComponent
+  return classView.socCharacterIgnoreList has a1
+.
+public method IsCastingOrChanneling() as Boolean
+  if Me is kindof ablUserComponent
+    if Me.IsAbilityUserCasting()
+      return true
+    .
+    if not Me.IsAbilityUserChanneling()
+      return false
+    .
+    return true
+  else
+    return false
+  .
+.
+public method SetLegacyDataRef(Me, a1 as NodeRef of lgcAccountLegacyData)
+  Me.chrLegacyData = a1
+.
+public method GetLegacyDataRef() as NodeRef of lgcAccountLegacyData
+  return Me.chrLegacyData
+.
+public method GetLegacyXp() as Integer
+  return Me.chrLegacyXp
+.
+public method GetLegacyLevel() as Integer
+  return Me.chrLegacyLevel
+.
+public method GetLegacySurname() as String
+  return Me.chrLegacySurname
+.
+public method OnAppearanceCustomizationChanged(Me)
+  Me.ResetAppearanceUser()
+  var node3 = Me.GetEquipmentBySlotType(conSlotEquipHumanFace, 1)
+  if node3 != None
+    if node3.IsType_itmWearableComponent()
+      if chrAppearanceCustomization:IsHelmetHidden(HM.CopyConstructNodeRef(104, Me))
+        Me.DeactivateWearable(node3)
+      else
+        Me.ActivateWearable(node3)
+      .
+    .
+  .
+  $GUI_API.getApi().unk_2296eea6(HM.CopyConstructNodeRef(55, Me.eqpEquipment))
+.
+public function OpenLegacyErrorDialog(Me, a1 as String)
+  var str2 = $STRING.LocalizeString(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | 0x12D, HIDWORD(ID_STR_GUI_DIALOG))  // "ERROR"
+  var str5 = $STRING.LocalizeString(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | 3, HIDWORD(ID_STR_GUI_DIALOG))  // "Close"
+  SF_GFx_ClearAndReserveParams(9)
+  SF_GFx_AddParamString(str2)
+  SF_GFx_AddParamString(a1)
+  SF_GFx_AddParamString(str5)
+  SF_GFx_AddParamString("cmdCreateLegacySurname")
+  SF_GFx_AddParamInteger(0)
+  SF_GFx_AddParamNull()
+  SF_GFx_AddParamNull()
+  SF_GFx_AddParamInteger(0)
+  SF_GFx_AddParamBoolean(true)
+  $GUI_API.getApi().invokeWithParams("displayDialog")
+.
+public method AttemptToSetLegacyName(Me, a1 as String, a2 as Boolean, a3 as Boolean)
+  if a1 == ""
+    // unknown
+  else
+    var node2 = Me.GetLegacyDataRef()
+    var bool1 = node2 = None or not node2.IsInLegacy()
+    if bool1 or ((str7 = HM.ConstructString(), GetLegacySurname = HM.PrepareCallNodeRef2(172, node2, &_callFrame), GetLegacySurname(str7, _callFrame), HM.UnprepareCall(), str7 != "") and not a2 ? (bool4 = true) : (bool4 = false), bool4)
+      if a2
+        str as String
+        FuncRef LocalizeString = HM.PrepareCallNodeRef2(208, $STRING, &_callFrame)
+        str3 = str
+        str = LocalizeString(_callFrame, STR_GUI_DIALOG, ID_STR_GUI_DIALOG | 0x14FA, HIDWORD(ID_STR_GUI_DIALOG))
+      else
+        str4 as String
+        FuncRef LocalizeString2 = HM.PrepareCallNodeRef2(208, $STRING, &_callFrame)
+        str3 = str4
+        str4 = LocalizeString(_callFrame, STR_GUI_DIALOG, ID_STR_GUI_DIALOG | 0x14F9, HIDWORD(ID_STR_GUI_DIALOG))
+      .
+      OpenLegacyErrorDialog(str3)
+    else
+      str6 as String
+      if $CHARACTERCREATIONSYSTEM.ccsCheckName(a1, str6)
+        call server untrustedMethods:ServerAttemptToSetLegacyName(a1, a2, a3)
+      else
+        OpenLegacyErrorDialog(str6)
+      .
+    .
+  .
+.
+remote function OnLegacyUnlocked(Me)
+  $GUI_API.getApi().showLegacyWindow()
+.
+public method updateLegacyDisplay(Me)
+  CallFrame _callFrame
+  String str5
+  FuncRef GetLegacySurname2
+  $NAMEPLATES.setNameplateTextByID(Me, Me.GetNameWithAwardedTitle())
+  if Me.LegacyDisplayOption() == legacyDisplayTitle and Me.GetLegacyLevel() and (str5 = HM.ConstructString(), GetLegacySurname2 = HM.PrepareCallNodeRef2(172, Me, &_callFrame), GetLegacySurname(str5, _callFrame), HM.UnprepareCall(), str5 != "")
+    list1 as List of String
+    add back Me.GetLegacySurname() to list1
+    $NAMEPLATES.setNameplateLegacyByID(Me, $STRING.LocalizeStringWithTokenList(STR_GUI_LEGACY, ID_STR_GUI_LEGACY | STRING_LEGACY_TITLE, HIDWORD(ID_STR_GUI_LEGACY), list1))  // "The <<1>> Legacy"
+  else
+    $NAMEPLATES.setNameplateLegacyByID(Me, "")
+  .
+.
+public function OpenLegacyNameConfirmationDialog(Me, a1 as String)
+  var str2 = $STRING.LocalizeString(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | 0x14, HIDWORD(ID_STR_GUI_DIALOG))  // "LEGACY NAME CONFIRMATION"
+  var str4 = $STRING.LocalizeString(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | 0x15, HIDWORD(ID_STR_GUI_DIALOG))  // "Your legacy surname is <b>permanent</b>. It will be shared among all characters on this server, although you may choose to not display it.<br><br>Confirm legacy name: "
+  var str8 = $STRING.LocalizeString(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | 0x12C, HIDWORD(ID_STR_GUI_DIALOG))  // "OK"
+  var str11 = $STRING.LocalizeString(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | 9, HIDWORD(ID_STR_GUI_DIALOG))  // "Cancel"
+  str4 = str4 + " <b>" + a1 + "<b>"
+  SF_GFx_ClearAndReserveParams(9)
+  SF_GFx_AddParamString(str2)
+  SF_GFx_AddParamString(str4)
+  SF_GFx_AddParamString(str8)
+  SF_GFx_AddParamString("cmdSetLegacySurname")
+  SF_GFx_AddParamInteger(2)
+  SF_GFx_AddParamString(a1)
+  SF_GFx_AddParamBoolean(false)
+  SF_GFx_AddParamString(str11)
+  SF_GFx_AddParamString("cmdCreateLegacySurname")
+  SF_GFx_AddParamInteger(0)
+  SF_GFx_AddParamNull()
+  SF_GFx_AddParamNull()
+  SF_GFx_AddParamInteger(0)
+  SF_GFx_AddParamBoolean(true)
+  $GUI_API.getApi().invokeWithParams("displayDialog")
+.
+remote function OnLegacyNameValid(Me, a1 as String)
+  OpenLegacyNameConfirmationDialog(a1)
+.
+remote function OnBadWordsInLegacyName(Me)
+  OpenLegacyErrorDialog($STRING.LocalizeString(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | 0x1507, HIDWORD(ID_STR_GUI_DIALOG)))  // "That Legacy name is not valid!  Please try a different name."
+.
+public method unk_6ec9a6e0(Me)
+  call server chrPlayerCharacterClassMethods:unk_6ec9a6e0()
+.

@@ -41,3 +41,10 @@
 /Client/Hook/.vs/SWToR-Hook/FileContentIndex
 Diagnostics/swtor-disasm.txt
 Diagnostics/asset-compression-results.txt
+/Dependencies/python
+/Diagnostics/__pycache__
+nexusclient/DiskCacheArena
+/SharpServer/bin
+/Client/Hook/Bin
+/Client/Hook/Bin
+/SharpServer/bin

@@ -6,6 +6,7 @@ set RESULT=%errorlevel%
 :finished
 echo.
 echo The client run finished with code %RESULT%.
+if /I "%SWTOR_NO_STATUS_PAUSE%"=="1" exit /b %RESULT%
 echo This window will stay open so you can read the final status.
 pause
 exit /b %RESULT%

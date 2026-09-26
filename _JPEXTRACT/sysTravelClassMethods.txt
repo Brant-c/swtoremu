@@ -1,0 +1,172 @@
+var STRING_THIS_INSTANCE_WILL_BE_SHUTDOWN = 120
+var STRING_TRAVEL = 121
+var UNK_9B0120C3 = 5404
+var UNK_BAB8A1AA = 5405
+remote function OnInvalidTravelEntitlement(Me, a1 as String)
+  $GUI_API.getApi().systemMessage("You do not have the entitlement to travel to an edit instance of area " + a1)
+.
+remote function unk_c1785a9a(Me)
+  $GUI_API.getApi().DisplaySimpleMessageDialog(UNK_BAB8A1AA, UNK_9B0120C3)  // "ACCESS DENIED", "This account is prohibited from travelling to the selected location. <u><hl lid=$QBDJKJokAAAEADBDz$Q ></u>"
+.
+public method RequestAvailableInstanceList() as Boolean
+  if Me.trvInstanceListTime < $NOW
+    TimeInterval interval = timeInSeconds(60.0)
+    Me.trvInstanceListTime = $NOW + interval
+    var pc = GetPlayerCharacterNode()
+    var pc2 = pc
+    if pc2 != None
+      var id1 = grpGroupManagerClassMethods:GetGroupGSSID()
+      call server id1 untrustedMethods:GSSOnRequestAvailableInstanceList()
+      return true
+    .
+  .
+  return false
+.
+remote function ReceiveAvailableInstanceList(Me, a1 as LookupList indexed by ID of ClassView aisDescriptor)
+  $Travel.SetAvailableInstanceList(a1)
+.
+public method SetAvailableInstanceList(Me, a1 as LookupList indexed by ID of ClassView aisDescriptor)
+  Me.trvAvailableInstanceList = a1
+  Me.SendCurrentAvailableInstanceListToGui()
+.
+public method SendCurrentAvailableInstanceListToGui(Me)
+  $GUI_API.getApi().setGuiInstanceTravelData(Me.trvAvailableInstanceList)
+.
+function GetAvailableInstanceList() as LookupList
+  var out = Me.trvAvailableInstanceList
+  HM.CheckNotContext(out)
+  return out
+.
+public method GetInstanceGuildMembers(a1 as Integer) as Integer
+  var lookup = Me.trvAvailableInstanceList
+  if lookup has a1
+    var classView = lookup[a1]
+    return classView.aisNumberOfGuildmates
+  else
+    return 0
+  .
+.
+public method GetInstanceGroupMembers(a1 as Integer) as Integer
+  var lookup = Me.trvAvailableInstanceList
+  if lookup has a1
+    var classView = lookup[a1]
+    return classView.aisNumberOfGroupmates
+  else
+    return 0
+  .
+.
+public method GetInstanceFriends(a1 as Integer) as Integer
+  var lookup = Me.trvAvailableInstanceList
+  if lookup has a1
+    var classView = lookup[a1]
+    return classView.aisNumberOfFriends
+  else
+    return 0
+  .
+.
+public method GetInstanceAvailability(a1 as Integer) as Integer
+  var lookup = Me.trvAvailableInstanceList
+  if lookup has a1
+    var classView = lookup[a1]
+    return classView.aisAvailability & 0xFFFFFFFF
+  else
+    return 0
+  .
+.
+public method InstanceResetDepopulating(Me)
+  Me.trvInstanceDepopulating = false
+  if Me.trvInstanceDepopulatingWarningTimer.timerState == 2
+    timer::stop(Me.trvInstanceDepopulatingWarningTimer)
+  .
+.
+public method IsInstanceDepopulating() as Boolean
+  return Me.trvInstanceDepopulating
+.
+public method InstanceDepopulating(Me, a1 as DateTime)
+  Me.trvInstanceDepopulating = true
+  Me.trvInstanceDepopulatingWhen = a1
+  Me.WarnAboutDepopulation()
+  Me.ResetDepopulatingWarningTimer()
+.
+public method ResetDepopulatingWarningTimer(Me)
+  Timer timer5
+  if Me.trvInstanceDepopulatingWarningTimer.timerState == 2
+    timer::stop(Me.trvInstanceDepopulatingWarningTimer)
+  .
+  TimeInterval interval = Me.trvInstanceDepopulatingWhen - $NOW
+  __int64 v16 = (Integer)((Float)interval / 60000.0)
+  Me.trvInstanceDepopulatingWarningTimer.script = $THISSCRIPT
+  var bool1 = v16 <= -1
+  if not HIDWORD(v16)
+    bool1 = (unsigned int)v16 <= 30
+  .
+  if not bool1
+    Me.trvInstanceDepopulatingWarningTimer.fireRate = (interval | 0xFFFFFFFF00000000) + __PAIR64__(HIDWORD(interval), -1800000)
+    timer5 = Me.trvInstanceDepopulatingWarningTimer
+    timer::start(timer5)
+    return
+  .
+  var bool2 = v16 <= -1
+  if not HIDWORD(v16)
+    bool2 = (unsigned int)v16 <= 15
+  .
+  if not bool2
+    Me.trvInstanceDepopulatingWarningTimer.fireRate = (interval | 0xFFFFFFFF00000000) + __PAIR64__(HIDWORD(interval), -900000)
+    timer5 = Me.trvInstanceDepopulatingWarningTimer
+    timer::start(timer5)
+    return
+  .
+  var bool3 = v16 <= -1
+  if not HIDWORD(v16)
+    bool3 = (unsigned int)v16 <= 5
+  .
+  if not bool3
+    Me.trvInstanceDepopulatingWarningTimer.fireRate = (interval | 0xFFFFFFFF00000000) + __PAIR64__(HIDWORD(interval), -300000)
+    timer5 = Me.trvInstanceDepopulatingWarningTimer
+    timer::start(timer5)
+    return
+  .
+  var bool4 = v16 <= -1
+  if not HIDWORD(v16)
+    bool4 = (unsigned int)v16 <= 1
+  .
+  if not bool4
+    Me.trvInstanceDepopulatingWarningTimer.fireRate = (interval | 0xFFFFFFFF00000000) + __PAIR64__(HIDWORD(interval), -60000)
+    timer::start(Me.trvInstanceDepopulatingWarningTimer)
+  .
+.
+public function OnTimerTick(Me, a1 as ID)
+  $Travel.WarnAboutDepopulation()
+  $Travel.ResetDepopulatingWarningTimer()
+.
+public method CloseTravelDialog(Me)
+  if Me.guiDialogID != 0.0
+    SF_GFx_ClearAndReserveParams(1)
+    SF_GFx_AddParamFloat(Me.guiDialogID)
+    $GUI_API.getApi().invokeWithParams("onRemoveInviteNotification")
+    $GUI_API.getApi().invokeWithParams("killDialog")
+    Me.guiDialogID = 0.0
+  .
+.
+public method WarnAboutDepopulation(Me)
+  Me.CloseTravelDialog()
+  var dateTime1 = Me.trvInstanceDepopulatingWhen
+  TimeInterval interval = dateTime1 - $NOW
+  __int64 v31 = (Integer)((Float)interval / 60000.0)
+  list1 as List of String
+  add back $STRING.LocalizedFormatTimeMinutes(v31, false) to list1
+  var str3 = $STRING.LocalizeStringTokenizedWithPlayerGenderVariant(STR_GUI_INSTANCE, ID_STR_GUI_INSTANCE | STRING_THIS_INSTANCE_WILL_BE_SHUTDOWN, HIDWORD(ID_STR_GUI_INSTANCE), list1)  // "This instance will be shut down in <<1>>. Please choose a new instance from the world map."
+  SF_GFx_ClearAndReserveParams(9)
+  SF_GFx_AddParamString($STRING.LocalizeStringWithPlayerGender(STR_GUI_INSTANCE, ID_STR_GUI_INSTANCE | STRING_TRAVEL, HIDWORD(ID_STR_GUI_INSTANCE)))  // "TRAVEL"
+  SF_GFx_AddParamString(str3)
+  SF_GFx_AddParamString($STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STRING_OK, HIDWORD(ID_STR_GUI_DIALOG) | HIDWORD(STRING_OK)))  // "OK"
+  SF_GFx_AddParamNull()
+  SF_GFx_AddParamInteger(0)
+  SF_GFx_AddParamString("")
+  SF_GFx_AddParamNull()
+  SF_GFx_AddParamInteger(0)
+  SF_GFx_AddParamBoolean(false)
+  var float1 = Me.guiDialogID
+  $GUI_API.getApi().invokeWithParamsFloat("displayDialog", &float1)
+  Me.guiDialogID = float1
+.

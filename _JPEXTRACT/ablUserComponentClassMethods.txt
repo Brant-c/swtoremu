@@ -1,0 +1,2067 @@
+var UNK_9A93FECE = 6021
+var UNK_F96E8228 = 6022
+self handler Replication_Create(Me, a1 as Integer)
+  Me.ablUserModalActiveSpecs_Previous = Me.ablUserModalActiveSpecs
+  SetCallOnPreDestroy(Me, true)
+.
+self handler Replication_Update(Me, a1 as Integer, a2 as List of ID)
+  foreach cur in a2
+    if cur == ablUserModalActiveSpecs
+      foreach cur2 in Me.ablUserModalActiveSpecs_Previous
+        var bool1 = false
+        foreach cur3 in Me.ablUserModalActiveSpecs
+          if cur2 == cur3
+            bool1 = true
+            break
+          .
+        .
+        if not bool1
+          call event Me:OnAbilityToggledModalOff Me:OnAbilityToggledModalOff
+        .
+      .
+      foreach cur2 in Me.ablUserModalActiveSpecs
+        var bool2 = false
+        foreach cur3 in Me.ablUserModalActiveSpecs_Previous
+          if cur2 == cur3
+            bool2 = true
+            break
+          .
+        .
+        if not bool2
+          call event Me:OnAbilityToggledModalOn Me:OnAbilityToggledModalOn
+        .
+      .
+      Me.ablUserModalActiveSpecs_Previous = Me.ablUserModalActiveSpecs
+    else if cur == ablUserAbilitySpecShared
+      var id1 = Me.ablUserAbilitySpecShared_Previous_Replicated
+      Me.ablUserAbilitySpecShared_Previous = id1
+      var id2 = Me.ablUserAbilitySpecShared
+      Me.ablUserAbilitySpecShared_Previous_Replicated = id2
+    else if cur == ablUserSpellPushbackCount
+      var float1 = 1.0
+      TimeInterval interval = $ABILITY.GetPushbackBase()
+      if Me is kindof modMetaStatComponent
+        var id3 = Me.ablUserAbilitySpecShared
+        float1 = float1 - Me.GetMetaStat(id3, STAT_abl_time_pushback_modifier_percentage)
+      .
+      var float2 = (Float)(Integer)(float1 * (Float)interval) / 1000.0
+      if Me.IsAbilityUserCasting()
+        float2 = 0.0 - float2
+      .
+      Me.AddToClientCastTime(float2)
+      $GUI_API.getApi().updateGuiCharacterCastTime(Me, float2)
+      $NAMEPLATES.setNameplateCastPushbackTime(Me, float2)
+    .
+  .
+.
+public method GetAbilityUserDebugString() as String
+  str as String
+  var id1 = Me.ablUserAbilitySpecShared
+  var str3 = utlFQN:fromIDDebug(id1)
+  str = str + " ability=" + str3
+  var id2 = Me.ablUserAbilitySpecShared_Previous
+  var str6 = utlFQN:fromIDDebug(id2)
+  str = str + " ability_prev=" + str6
+  var bool1 = Me.IsAbilityUserCasting()
+  str = str + " isCasting=" + bool1
+  var bool2 = Me.IsAbilityUserChanneling()
+  str = str + " isChanneling=" + bool2
+  str = str + " target=" + Me.ablUserTarget
+  str = str + " modalActive="
+  foreach cur in Me.ablUserModalActiveSpecs
+    var node4 = $ABILITY.GetAbilityPrototype(cur)
+    var int1 = node4.GetAbilityModalGroup()
+    var str21 = utlFQN:fromIDDebug(cur)
+    str = str + int1 + ":" + str21 + ","
+  .
+  var id3 = Me.ablUserPrecastingAbility
+  var str25 = utlFQN:fromIDDebug(id3)
+  str = str + " precasting=" + str25
+  str = str + " clearcast=" + Me.ablUserClearCasting
+  var dateTime1 = Me.ablCastTimeEnd
+  var str31 = HM.GetTimeString(dateTime1)
+  str = str + " castTimeEnd=[" + str31 + "]"
+  str = str + " castDuration=" + Me.ablCastDuration
+  if Me.ablUserEffectEvent_Client != None
+    var str38 = Me.ablUserEffectEvent_Client.ToStringBrief()
+    str = str + " " + str38
+  .
+  return str
+.
+public method ablUserShouldCheckTargetArc() as Boolean
+  var out = true
+  var id1 = Me.ablUserCacheTarget
+  char v29 = 0
+  if Me != None
+    var node4 = HM.CopyConstructNodeRef(16, id1)
+    IsActivelyDuelingWith = HM.PrepareCallNodeRef2(17, Me, &_callFrame)
+    v3 = IsActivelyDuelingWith(_callFrame, node4) & 1
+    v29 = v3
+  .
+  var bool2 = false
+  var bool4 = $Options.GetBooleanValueWarnOnFailOptional(15434607462772731580, false) and ((node6 = HM.CopyConstructNodeRef(18, Me), node7 = HM.CopyConstructNodeRef(18, id1), $COMBAT = HM.RefSystemNode(19, 16141151885539941437), cbtAreHostilePvpPlayerCharacters = HM.PrepareCallNodeRef2(19, $COMBAT, &_callFrame), bool5 = cbtAreHostilePvpPlayerCharacters(_callFrame, node6, node7), HM.UnprepareCall(), not bool5) and not v29 ? (bool6 = false) : (bool6 = true), bool6)  // "pvp_always_check_ability_target_arc", COMBAT
+  bool2 = bool4
+  if not Me is kindof spnVehicle
+    if Me.staCharacter_IsInCover()
+      goto LABEL_19
+    .
+    if not bool2
+      pc = GetPlayerCharacterNode()
+      if Me == pc
+        if not $CONTROL.ctlOracle_GetIsMoving()
+LABEL_19:
+          out = false
+        .
+      .
+    .
+  .
+  if out and not bool2
+    var node8 = Me
+    if node8 != None
+      out = node8.chrBehaviorCombatMoving
+    else
+      out = false
+    .
+  .
+  return out
+.
+public method abilityOutOfRange(a1 as NodeRef of ablAbility, o2 references Enum effResult) as Boolean
+  var float2 = a1.GetAbilityMaxRange(Me)
+  if (((float2 > 0.0 and a1.ablTargetRule != tgtRuleSelf) and a1.ablTargetRule != tgtRuleSelfDead) and a1.ablTargetRule != tgtRuleSelfStunned) and a1.ablTargetRule != tgtRulePBAoE
+    var float4 = a1.GetAbilityMinRange(Me)
+    if Me.ablUserCacheRange < float4
+      *o2 = effResultTooClose
+      return true
+    .
+    if Me.ablUserCacheRange > float2
+      *o2 = effResultTooFar
+      return true
+    .
+  .
+  if Me.ablUserShouldCheckTargetArc()
+    var float5 = a1.GetAbilityMaxRange(Me)
+    var bool5 = false
+    if float5 > 0.0
+      if a1.ablTargetArc < 360.0
+        bool5 = true
+      .
+    .
+    var bool6 = false
+    if bool5
+      if a1.ablTargetArc > 0.0
+        bool6 = true
+      .
+    .
+    if (((bool6 and a1.ablTargetRule != tgtRuleSelf) and a1.ablTargetRule != tgtRuleSelfDead) and a1.ablTargetRule != tgtRuleSelfStunned) and a1.ablTargetRule != tgtRulePBAoE
+      var float8 = MungeHeadingDegrees(Me.ablUserCacheAngle - a1.ablTargetArcOffset)
+      if (0.0 - a1.ablTargetArc) > (float8 + float8) or a1.ablTargetArc < (float8 + float8)
+        *o2 = effResultNotFacing
+        return true
+      .
+    .
+  .
+  return false
+.
+public method AbilityValidateForAiCommand(a1 as NodeRef of ablAbility, a2 as NodeRef, o3 references Enum effResult) as Boolean
+  if a1 = None
+    *o3 = effResultError
+  else if not a1.ablIsValid
+    *o3 = effResultAbilityInvalid
+  else if Me.ablUserCacheTimersRunning has a1.conEntitySpec
+    *o3 = effResultNotReady
+  else
+    foreach cur in a1.ablCooldownTimerSpecs
+      if Me.ablUserCacheTimersRunning has cur
+        *o3 = effResultNotReady
+        return false
+      .
+    .
+    var enum1 = a1.GetAbilityTargetRule()
+    var bool1 = false
+    if enum1 == tgtRuleGround
+      if a1.IsAbilityAiTypeHostile()
+        bool1 = true
+      .
+    .
+    if bool1 and a2 = None
+      *o3 = effResultNoTarget
+    else if a2 != None and not Me._AbilityValidateTargetRule(a1.ablTargetRule, a2, &o3)
+        // unknown
+    else
+      return *o3 == effResultOk
+    .
+  .
+  return false
+.
+public method AbilityValidate(a1 as NodeRef of ablAbility, a2 as NodeRef, o3 references Enum effResult) as Boolean
+  CallFrame _callFrame
+  Me._CacheAbilityUserValues(a2)
+  classView as ClassView
+  FuncRef _AbilityValidateCached = HM.PrepareCallNodeRef2(31, Me, &_callFrame)
+  return _AbilityValidateCached(_callFrame, a1, a2, &o3, false, &classView) & 1
+.
+public method _AbilityValidateCached(a1 as NodeRef of ablAbility, a2 as NodeRef, o3 references Enum effResult, a4 as Boolean, o5 references ClassView guiActionUsable) as Boolean
+  Me.SetCustomAbilityFailure(0)
+  if a1 = None
+    *o3 = effResultError
+    if a4
+      guiActionUsable:populateGAU(false, false, false, *o3, &o5)
+    .
+    return false
+  .
+  if not a1.ablIsValid
+    *o3 = effResultAbilityInvalid
+    if a4
+      guiActionUsable:populateGAU(false, false, false, *o3, &o5)
+    .
+    return false
+  .
+  unsigned __int8 v134 = 0
+  char v133 = 1
+  unsigned __int8 v132 = 0
+  var enum3 = HM.GetEnumDefaultValue(22)
+  if Me is kindof staCharacterComponent
+    if Me.staCharacter_IsControllingVehicle()
+      if not a1.IsAbilityUseableOnTaxi()
+        if not Me.staCharacter_IsControllingSpaceShip()
+          *o3 = effResultUsingVehicle
+          if a4
+            v133 = 0
+          else
+            return false
+          .
+        .
+      .
+    .
+  .
+  if (((v133 & 1) != 0 and Me.ablUserCacheIsDead) and a1.ablTargetRule != tgtRuleSelfDead) and a1.ablTargetRule != tgtRuleAny
+    *o3 = effResultCasterDead
+    if a4
+      v133 = 0
+    else
+      return false
+    .
+  .
+  if (((v133 & 1) != 0 and Me.ablUserCacheIsStunned) and a1.ablTargetRule != tgtRuleSelfStunned) and a1.ablTargetRule != tgtRuleAny
+    *o3 = effResultCasterStunned
+    if a4
+      v133 = 0
+    else
+      return false
+    .
+  .
+  if (v133 & 1) != 0 and Me.ablUserCacheIsFrozen
+    *o3 = effResultNotReady
+    if a4
+      v133 = 0
+    else
+      return false
+    .
+  .
+  var unused = HM.GetEnumDefaultValue(22)
+  int v119 = 19
+  if (v133 & 1) != 0
+    if not (Me.ablUserCacheCombatModeOk has a1.ablCombatMode) or (lookup2 = Me.ablUserCacheCombatModeOk, enum5 = a1.ablCombatMode, not lookup2[enum5])
+      *o3 = effResultMissingWeapon
+      if a4
+        v133 = 0
+      else
+        return false
+      .
+    .
+  .
+  if a4
+    if Me.ablUserCacheTimersRunning has a1.conEntitySpec
+      *o3 = effResultNotReady
+      v134 = 1
+    else
+      foreach cur in a1.ablCooldownTimerSpecs
+        if Me.ablUserCacheTimersRunning has cur
+          *o3 = effResultNotReady
+          v134 = 1
+        .
+      .
+    .
+  else
+    var enum6 = Me.IsAbilityReady(a1, a2)
+    v119 = enum6
+    if enum6 == effResultNotReadyCurrentlyQueued
+      *o3 = effResultNotReadyCurrentlyQueued
+      return false
+    .
+    if v119 == 19
+      *o3 = effResultNotReady
+      return false
+    .
+    if Me.IsAbilityUserCasting()
+      if v119 != 74 and v119 != 1
+        *o3 = effResultIsCasting
+        return false
+      .
+    .
+    if Me.IsAbilityUserChanneling()
+      var id1 = Me.ablUserAbilitySpecShared
+      if a1.conEntitySpec == id1
+        if Me.ablUserTarget == a2
+          if v119 != 74
+            *o3 = effResultIsChanneling
+            return false
+          .
+        .
+      .
+    .
+    if v119 == 19
+      *o3 = effResultNotReady
+      return false
+    .
+  .
+  if (v133 & 1) != 0
+    if not Me._AbilityValidateTargetRule(a1.ablTargetRule, a2, o3)
+      if a4
+        if *o3 != effResultNoTarget
+          v133 = 0
+        .
+      else
+        return false
+      .
+    .
+  .
+  var pc = GetPlayerCharacterNode()
+  var float2 = a1.GetAbilityEnergyCost(pc)
+  if (v133 & 1) != 0 and float2 > 0.0
+    if float2 > Me.ablUserCacheEnergyF
+      *o3 = effResultNotEnoughEnergy
+      if a4
+        v133 = 0
+      else
+        return false
+      .
+    .
+  .
+  var pc2 = GetPlayerCharacterNode()
+  var float5 = a1.GetAbilityForceCost(pc2)
+  if (v133 & 1) != 0 and float5 > 0.0
+    if float5 > Me.ablUserCacheForceF
+      *o3 = effResultNotEnoughForce
+      if a4
+        v133 = 0
+      else
+        return false
+      .
+    .
+  .
+  var pc3 = GetPlayerCharacterNode()
+  var float8 = a1.GetAbilityActionPointCost(pc3)
+  if (v133 & 1) != 0 and float8 > 0.0
+    if float8 > Me.ablUserCacheActionPointsF
+      *o3 = effResultNotEnoughActionPoints
+      if a4
+        v133 = 0
+      else
+        return false
+      .
+    .
+  .
+  if (((((((((a2 != None and a2 != Me) and a1.ablTargetRule != tgtRuleCCMaster) and a1.ablTargetRule != tgtRuleSelf) and a1.ablTargetRule != tgtRuleSelfStunned) and a1.ablTargetRule != tgtRuleSelfDead) and a1.ablTargetRule != tgtRulePBAoE) and a1.ablTargetRule != tgtRuleCoverObject) and a1.ablTargetRule != tgtRuleCoverObjectLeft) and a1.ablTargetRule != tgtRuleCoverObjectRight) and a1.ablTargetRule != tgtRuleGround
+    if Me.abilityOutOfRange(a1, &o3)
+      if a4
+        v132 = 1
+      else
+        return false
+      .
+    .
+    enum3 = *o3
+    if not v132 and a1.ablIsLineOfSightChecked
+      if Me is kindof pcTargeterComponent
+        if not chrLineOfSight:chrCanSeeNode(HM.CopyConstructNodeRef(25, Me), a2)
+          *o3 = effResultTargetViewBlocked
+          if a4
+            v132 = 1
+          else
+            return false
+          .
+        .
+      .
+    .
+  .
+  var bool22 = a1.IsAbilityInstantCast(Me)
+  if Me is kindof staCharacterComponent
+    if staCharacterComponentClassMethods:staCharacterAnimCanMove(HM.CopyConstructNodeRef(25, Me))
+      if $CONTROL.ctlOracle_GetIsMoving() or (node5 = HM.ConstructNodeRef(26), chrBehavior_GetJumpMan = HM.PrepareCallNodeRef2(45, Me, &_callFrame), chrBehavior_GetJumpMan(node5, _callFrame), HM.UnprepareCall(), IsActive = HM.PrepareCallNodeRef2(46, node5, &_callFrame), bool26 = IsActive(_callFrame), HM.UnprepareCall(), bool26)
+        bool25 = true
+      else
+        bool25 = false
+      .
+    else
+      bool25 = false
+    .
+  else
+    bool25 = false
+  .
+  if bool25
+    if ((not bool22 and a1.ablTargetRule != tgtRuleGround) & 1) != 0
+      *o3 = effResultIsMoving
+      if not a4
+        return false
+      .
+    .
+  .
+  if not bool22 and Me is kindof chrCharacter
+    if Me.chrCharacter_IsGoingBallistic()
+      *o3 = effResultIsMoving
+      if not a4
+        return false
+      .
+    .
+  .
+  if (v133 & 1) != 0 and not a1.ExecuteAbilityCustomBehavior(Me, a2, 0, o3)
+    Me.SetCustomAbilityFailure(0, 0)
+    if a4
+      if *o3 != effResultNoTarget and *o3 != effResultTargetInvalid
+        v133 = 0
+      .
+    else
+      return false
+    .
+  .
+  if a1.ablIsCustom
+    if (v133 & 1) != 0 and not ablCustomComponentClassMethods:AbilityValidate(a1, Me, a2, o3)
+      if a4
+        v133 = 0
+        if a4
+          v60 = v133
+          guiActionUsable:populateGAU(v134, v132, (v60 & 1) == 0, enum3, &o5)
+          var bool29 = (v133 & 1) != 0 and not v132
+          return bool29 and not v134
+        else if v119 == 74
+          *o3 = effResultNotReadyQueue
+          return false
+        else
+          Me.SetQueuedAbilitySpec(0)
+          return true
+        .
+      .
+      return false
+    .
+  .
+  if a4
+    v60 = v133
+    guiActionUsable:populateGAU(v134, v132, (v60 & 1) == 0, enum3, &o5)
+    var bool29 = (v133 & 1) != 0 and not v132
+    return bool29 and not v134
+  else if v119 == 74
+    *o3 = effResultNotReadyQueue
+    return false
+  else
+    Me.SetQueuedAbilitySpec(0)
+    return true
+  .
+.
+public method _AbilityValidateTargetRule(a1 as Enum tgtTargettingRule, a2 as NodeRef, o3 references Enum effResult) as Boolean
+  if Me.ablUserCacheTargetOk[a1]
+    return true
+  .
+  if ((not Me.ablUserCacheTarget and a1 != tgtRuleCoverObject) and a1 != tgtRuleCoverObjectLeft) and a1 != tgtRuleCoverObjectRight
+    *o3 = effResultNoTarget
+    return false
+  .
+  if a1 == tgtRuleCoverObject
+    *o3 = effResultCoverObjectInvalid
+  else
+    if a1 == tgtRuleCoverObjectLeft
+      *o3 = effResultCoverObjectInvalid
+      return false
+    .
+    if a1 == tgtRuleCoverObjectRight
+      *o3 = effResultCoverObjectInvalid
+      return false
+    .
+    if a1 == tgtRuleAttackable
+      if Me.ablUserCacheTargetIsDead
+        *o3 = effResultTargetDead
+      else
+        *o3 = effResultNotEnemy
+      .
+      return false
+    .
+    if a1 == tgtRuleFriendly
+      if (a2 != None and a2 != Me) and a2 is kindof pvpDuelingPlayerComponent
+        if a2.GetDuelState() == pvpDuelingState_Dueling
+          *o3 = effResultTargetInDuel
+          return false
+        .
+      .
+      if Me.ablUserCacheTargetIsDead
+        // unknown
+      else
+        *o3 = effResultNotFriend
+        return false
+      .
+    else if a1 == tgtRuleSelf
+      *o3 = effResultCasterDead
+      return false
+    .
+    if a1 == tgtRuleSelfDead
+      *o3 = effResultCasterNotDead
+      return false
+    .
+    if a1 == tgtRuleSelfStunned
+      *o3 = effResultCasterNotStunned
+      return false
+    .
+    if a1 == tgtRuleCompanion
+      *o3 = effResultNotCompanion
+      return false
+    .
+    if a1 == tgtRuleFriendlyDead
+      if not Me.ablUserCacheTargetIsDead
+        *o3 = effResultTargetNotDead
+        return false
+      .
+      *o3 = effResultNotFriend
+      return false
+    .
+    if a1 == tgtRuleGrouped
+      if Me.ablUserCacheTargetIsDead
+          // unknown
+      else
+        *o3 = effResultNotPartyMember
+        return false
+      .
+    else
+      if a1 == tgtRuleLootHopper
+        *o3 = effResultCannotLoot
+      else
+        *o3 = effResultTargetInvalid
+      .
+      return false
+    .
+    *o3 = effResultTargetDead
+  .
+  return false
+.
+public method AbilityValidatePosition(a1 as NodeRef, a2 as NodeRef of ablAbility, a3 as Vector3, o4 references Enum effResult) as Boolean
+  if a2 = None
+    *o4 = effResultAbilityInvalid
+  else
+    vec.x = 0.0
+    vec.y = 0.0
+    vec.z = 0.0
+    var vec2 = Me.GetPosition_w()
+    vec = vec2
+    float1 = utlMath:DistanceBetweenTwoVectors(vec, a3)
+    if float1 > a2.GetAbilityMaxRange(a1)
+      *o4 = effResultTooFar
+    else
+      if float1 < a2.GetAbilityMinRange(a1)
+        *o4 = effResultTooClose
+      else
+        if a2.GetAbilityMaxRange(a1) <= 0.0
+          goto LABEL_17
+        .
+        if a2.ablTargetArc >= 360.0
+          goto LABEL_17
+        .
+        if a2.ablTargetArc <= 0.0
+          goto LABEL_17
+        .
+        vec3.x = 0.0
+        vec3.y = 0.0
+        vec3.z = 0.0
+        var vec4 = Me.GetRotation_w()
+        vec3 = vec4
+        var float5 = 0.0
+        var float6 = vec4.y
+        var float7 = float6 - AngleBetweenLikeCamera(vec, a3).y
+        var float8 = a2.ablTargetArcOffset
+        var float9 = MungeHeadingDegrees(float7 - float8)
+        float5 = float9 + float9
+        if (Float)(0.0 - a2.ablTargetArc) <= float5
+          if a2.ablTargetArc >= float5
+            bool1 = false
+          else
+            bool1 = true
+          .
+        else
+          bool1 = true
+        .
+        if bool1
+          *o4 = effResultNotFacing
+        else
+LABEL_17:
+          if a2.ablIsLineOfSightChecked
+            var node2 = HM.CopyConstructNodeRef(25, a1)
+            vec6.x = a3.x + 0.0
+            vec6.y = a3.y + 0.15
+            vec6.z = a3.z + 0.0
+            if not chrLineOfSight:chrCanSeePoint(node2, vec6)
+              *o4 = effResultTargetViewBlocked
+            else
+              *o4 = effResultOk
+              return true
+            .
+          else
+            *o4 = effResultOk
+            return true
+          .
+        .
+      .
+    .
+  .
+  return false
+.
+public method GetAbilityRangeToTarget(a1 as NodeRef) as Float
+  Vector3 vec
+  Vector3 vec2
+  if a1 = None
+    return 0.0
+  else
+    vec.x = 0.0
+    vec.y = 0.0
+    vec.z = 0.0
+    vec2.x = 0.0
+    vec2.y = 0.0
+    vec2.z = 0.0
+    var vec3 = a1.GetPosition_w()
+    vec = vec3
+    var vec4 = Me.GetPosition_w()
+    vec2 = vec4
+    var float1 = 0.0
+    var float2 = 0.0
+    if a1 is kindof chrAttributeComponent
+      var float3 = a1.chrAttribute_GetMeleeDistanceForward()
+      float1 = float3
+    .
+    if Me is kindof chrAttributeComponent
+      var float4 = Me.chrAttribute_GetMeleeDistanceForward()
+      float2 = float4
+    .
+    return MathMaxFloat(0.0, utlMath:DistanceBetweenTwoVectors(vec, vec2) - utlMath:max(float1, float2))
+  .
+.
+public method GetAbilityRangeToTargetSqr(a1 as NodeRef) as Float
+  return utlMath:Sqr(Me.GetAbilityRangeToTarget(a1))
+.
+public method IsAttackableTargetOk(a1 as NodeRef of chrCharacter) as Boolean
+  Boolean bool4
+  Boolean bool5
+  Boolean bool7
+  Boolean bool10
+  var a12 = a1
+  if a1 != None
+    if Me.IsFriend(a1)
+      if Me is kindof pcTargeterComponent
+        if Me.IsInheritedTargetingEnabled()
+          var id1 = a1.GetTargetID()
+          a12 = id1
+        .
+      .
+    .
+  .
+  if not a12 is kindof chrPetComponent
+    goto LABEL_15
+  .
+  var classView = HM.GetClassViewFromNodeRef(a12, chrPetComponent)
+  if classView.chrPetIsVanity
+    if not Me.IsHostileTo(a12.GetPetMaster())
+      bool4 = true
+    else
+      bool4 = false
+    .
+  else
+    bool4 = false
+  .
+  if bool4
+    // unknown
+  else
+LABEL_15:
+    bool5 = false
+    if a12 != None
+      if Me.IsHostileTo(a12)
+        bool5 = true
+      .
+    .
+    bool7 = false
+    if bool5
+      if not pvpParticipantComponentClassMethods:IsEntityPvpLocationSanctuary(Me) or not pvpParticipantComponentClassMethods:IsEntityPvpFlagged(a12)
+        bool7 = true
+      .
+    .
+    bool10 = false
+    if bool7
+      if not a12.CharStateIsDead()
+        bool10 = true
+      .
+    .
+    if bool10 and not a12.staCharacter_IsControllingVehicle()
+      return true
+    .
+  .
+  return false
+.
+public method _CacheAbilityUserValues(Me, a1 as NodeRef)
+  Me.ablUserCacheIsLucid = Me.CharStateIsLucid()
+  Me.ablUserCacheIsDead = Me.CharStateIsDead()
+  Me.ablUserCacheIsStunned = Me.CharStateIsStunned()
+  if not $CONVERSATION.IsInConversation()
+    if Me is kindof chrPlayerCharacter and (not Me.IsRemoteHolo() and Me.IsPlayerLoaded() ? (bool8 = false) : (bool8 = true), bool8)
+      bool5 = true
+    else
+      bool5 = false
+    .
+  else
+    bool5 = true
+  .
+  Me.ablUserCacheIsFrozen = bool5
+  var bool9 = false
+  var bool10 = not Me is kindof cbtFactionComponent or Me.IsFriend(a1)
+  bool9 = bool10
+  var bool12 = false
+  if a1 != None and a1 is kindof staCharacterComponent
+    var bool13 = a1.CharStateIsDead()
+    bool12 = bool13
+    FuncRef staCharacter_IsControllingVehicle = HM.PrepareCallNodeRef2(34, a1, &_callFrame)
+    char v19 = staCharacter_IsControllingVehicle(_callFrame) & 1
+  .
+  var id1 = a1
+  Me.ablUserCacheTarget = id1
+  Me.ablUserCacheTargetIsDead = bool12
+  var lookup = Me.ablUserCacheTargetOk
+  lookup[11] = true
+  lookup[1] = not Me.ablUserCacheIsDead
+  lookup[8] = not Me.ablUserCacheIsDead
+  lookup[6] = Me.ablUserCacheIsDead
+  lookup[15] = Me.ablUserCacheIsStunned
+  var bool18 = Me is kindof chrPetMasterComponent and Me.HasPetsExcludingVanity()
+  lookup[7] = bool18
+  lookup[2] = Me.IsAttackableTargetOk(HM.CopyConstructNodeRef(30, a1))
+  var bool21 = false
+  var bool22 = a1 is kindof pvpDuelingPlayerComponent and (a1.GetDuelState() == 5)
+  bool21 = bool22
+  var bool25 = (a1 = None or a1 == Me) or not bool9 or (bool9 and not bool21 ? (bool26 = true) : (bool26 = false), bool26)
+  lookup[3] = bool25
+  var bool28 = a1 != None and bool9 and bool12
+  lookup[5] = bool28
+  var bool31 = a1 != None and not bool12 and Me is kindof grpMemberComponent and Me.IsGroupedWith(a1)
+  lookup[4] = bool31
+  lookup[9] = true
+  var bool33 = a1 != None and a1 is kindof conLootHopperComponent
+  lookup[12] = bool33
+  lookup[16] = true
+  lookup[17] = true
+  lookup[19] = true
+  lookup[18] = true
+  if Me.GetAbility(16141004427569886527) != None  // abl.state.take_cover
+    if Me is kindof staCharacterComponent
+      var node5 = Me.ChooseCoverObject($CONTROL.ctlOracle_GetCoverMovementDirection_w())
+      lookup[10] = (node5 != None)
+      if COVER_USE_DYNAMIC
+        lookup[10] = true
+      .
+      var classView = HM.GetClassViewFromNodeRef(Me, staCharacterComponent)
+      lookup[13] = (classView.staCharacterRollLeftCoverNode != None)
+      var classView2 = HM.GetClassViewFromNodeRef(Me, staCharacterComponent)
+      lookup[14] = (classView2.staCharacterRollRightCoverNode != None)
+    .
+  else
+    var lookup21 = Me.ablUserCacheTargetOk
+    lookup21[10] = false
+    var lookup22 = Me.ablUserCacheTargetOk
+    lookup22[13] = false
+    var lookup23 = Me.ablUserCacheTargetOk
+    lookup23[14] = false
+  .
+  var lookup24 = Me.ablUserCacheCombatModeOk
+  lookup24[1] = true
+  lookup24[4] = true
+  if Me is kindof conEquipmentComponent
+    var classView3 = HM.GetClassViewFromNodeRef(Me, conEquipmentComponent)
+    lookup24[3] = classView3.conEquipmentComponentHasRangedWeapon
+    var classView4 = HM.GetClassViewFromNodeRef(Me, conEquipmentComponent)
+    lookup24[2] = classView4.conEquipmentComponentHasMeleeWeapon
+  .
+  if a1 = None
+    Me.ablUserCacheRange = 0.0
+    Me.ablUserCacheAngle = 0.0
+    Me.ablUserCacheIsCoverAffected = false
+  else
+    vec2.x = 0.0
+    vec2.y = 0.0
+    vec2.z = 0.0
+    var vec3 = a1.GetPosition_w()
+    vec2 = vec3
+    vec4.x = 0.0
+    vec4.y = 0.0
+    vec4.z = 0.0
+    var vec5 = Me.GetPosition_w()
+    vec4 = vec5
+    vec6.x = 0.0
+    vec6.y = 0.0
+    vec6.z = 0.0
+    var vec7 = Me.GetRotation_w()
+    vec6 = vec7
+    var float1 = Me.GetAbilityRangeToTarget(a1)
+    Me.ablUserCacheRange = float1
+    float1 = vec6.y
+    Me.ablUserCacheAngle = MungeHeadingDegrees(float1 - (AngleBetween(vec4, vec2).y + -90.0))
+    if Me is kindof staCharacterComponent
+      Me.ablUserCacheIsCoverAffected = Me.IsTargetCoverAffected(a1)
+    .
+  .
+  if Me is kindof modStatComponent
+    Me.ablUserCacheHealthMaxF = Me.GetStatComputed(STAT_cbt_health_max)
+    Me.ablUserCacheEnergyMaxF = Me.GetStatComputed(STAT_cbt_tech_energy_max)
+    Me.ablUserCacheForceMaxF = Me.GetStatComputed(STAT_cbt_force_force_max)
+    Me.ablUserCacheActionPointsMaxF = Me.GetStatComputed(STAT_cbt_action_points_max)
+  .
+  if Me is kindof baseAttributeComponent
+    Me.ablUserCacheHealthF = Me.GetHealth()
+    Me.ablUserCacheHealthMaxF = Me.GetStatComputed(STAT_cbt_health_max)
+    if Me is kindof chrAttributeComponent
+      Me.ablUserCacheEnergyF = Me.GetEnergy()
+      Me.ablUserCacheEnergyMaxF = Me.GetStatComputed(STAT_cbt_tech_energy_max)
+      Me.ablUserCacheForceF = Me.GetForce()
+      Me.ablUserCacheForceMaxF = Me.GetStatComputed(STAT_cbt_force_force_max)
+      Me.ablUserCacheActionPointsF = (Float)Me.GetActionPoints()
+      Me.ablUserCacheActionPointsMaxF = Me.GetStatComputed(STAT_cbt_action_points_max)
+    .
+  .
+  lookup28 as LookupList indexed by ID of Integer
+  lookup28 = Me.GetTimerList()
+  Me.ablUserCacheTimersRunning = lookup28
+.
+public method GetLongestActiveTimerForAbility(a1 as NodeRef of ablAbility) as ID
+  var node2 = a1.GetSurrogateAbility()
+  if node2 != None
+    var id1 = Me.GetLongestActiveTimerForAbility(node2)
+    return id1
+  else
+    var node42 = HM.ConstructNodeRef(35)
+    listCur = 0
+    if Me is kindof tmrContainerComponent
+      node4 = HM.ConstructNodeRef(35)
+      var id2 = a1.conEntitySpec
+      var node5 = Me.GetTimer(id2)
+      node4 = node5
+      if node4 = None
+        goto LABEL_10
+      .
+      if node42 != None
+        dateTime1 = node42.tmrEndTime
+        if node4.tmrEndTime <= dateTime1
+          bool1 = false
+        else
+          bool1 = true
+        .
+      else
+        bool1 = true
+      .
+      if bool1
+        bool2 = true
+      else
+LABEL_10:
+        bool2 = false
+      .
+      if bool2
+        listCur = a1.conEntitySpec
+      .
+      var list1 = a1.ablCooldownTimerSpecs
+      foreach listCur2 in list1
+        var node6 = Me.GetTimer(listCur2)
+        node4 = node6
+        if node4 != None
+          if node42 = None
+            goto LABEL_19
+          .
+          dateTime2 = node42.tmrEndTime
+          if node4.tmrEndTime <= dateTime2
+            bool3 = false
+          else
+LABEL_19:
+            bool3 = true
+          .
+          if bool3
+            var unused = node42 != None
+            node42 = node4
+          .
+        .
+      .
+    .
+    return listCur
+  .
+.
+public method _AbilitySelectTarget(a1 as NodeRef of ablAbility, a2 as NodeRef) as NodeRef
+  var enum1 = HM.GetEnumDefaultValue(23)
+  var enum2 = a1.GetAbilityTargetRule()
+  if enum2 == tgtRuleSelf
+    var node = Me
+    return node
+  .
+  if enum2 == tgtRuleSelfStunned
+    node = Me
+    return node
+  .
+  if enum2 == tgtRuleSelfDead
+    node = Me
+    return node
+  .
+  if enum2 == tgtRuleCompanion
+    if Me is kindof chrCompanionMasterComponent
+      node = Me.GetCompanion()
+    .
+    if node = None and Me is kindof chrPetMasterComponent
+      var list1 = Me.GetPets()
+      foreach cur in list1
+        if cur != None
+          if not cur.chrPetIsVanity
+            node = cur
+            break
+          .
+        .
+      .
+    .
+    if node = None and Me is kindof chrCompanionComponent
+      v10 = node4
+      node4 = Me.GetPetMaster(v34)
+      node = v10
+    .
+    return node
+  else
+    if enum2 == tgtRulePBAoE
+      v10 = (NodeRef *)&v54
+    else if enum2 == tgtRuleGround
+      v10 = (NodeRef *)&v53
+    else
+      if enum2 == tgtRuleCoverObject
+        if a2 = None or not a2 is kindof 0xDFFE87F2
+          v10 = node5
+          node5 = Me.ChooseCoverObject($CONTROL.ctlOracle_GetCoverMovementDirection_w())
+          node = v10
+          return node
+        .
+      else if enum2 == tgtRuleCoverObjectLeft
+        v10 = HM.ConstructNodeRef(2)
+        v10 = None
+        node = v10
+        return node
+      .
+      if enum2 == tgtRuleCoverObjectRight
+        v10 = HM.ConstructNodeRef(2)
+        v10 = None
+        node = v10
+        return node
+      .
+      if enum2 == tgtRuleFriendly
+        if Me is kindof pcTargeterComponent
+          if Me.GetSelfTargetOverride()
+            node = Me
+            return node
+          .
+        .
+        if a2 = None or not Me.IsFriend(a2) or (pvpParticipantComponentClassMethods:IsEntityPvpLocationSanctuary(Me) and pvpParticipantComponentClassMethods:IsEntityPvpFlagged(a2) ? (bool6 = true) : (bool6 = false), bool6)
+          node = Me
+          return node
+        .
+      else
+        if enum2 == tgtRuleAttackable
+          if a2 = None
+            var id1 = Me.GetTargetID()
+            node = id1
+          else
+            node = a2
+          .
+          var bool7 = Me is kindof pcTargeterComponent and Me.IsInheritedTargetingEnabled()
+          if bool7 and node != None
+            if Me.IsFriend(node)
+              var id2 = node.GetTargetID()
+              if id2 != None
+                if Me.IsHostileTo(id2)
+                  bool11 = true
+                else
+                  bool11 = false
+                .
+              else
+                bool11 = false
+              .
+              if bool11
+                v10 = id2
+                node = v10
+                return node
+              .
+            .
+          .
+        else
+          if enum2 == tgtRuleAny
+              // unknown
+          else if a2 = None
+            var id3 = Me.GetTargetID()
+            node = id3
+            return node
+          .
+          node = a2
+        .
+        return node
+      .
+      node = a2
+      return node
+    .
+    v10 = HM.ConstructNodeRef(2)
+    v10 = None
+    node = v10
+    return node
+  .
+.
+function DoClientAnticipation(a1 as NodeRef, a2 as Integer, a3 as NodeRef)
+  CallFrame _callFrame
+  var node = HM.CopyConstructNodeRef(2, a3)
+  var str2 = a1.GetAbilityAppearanceSpec()
+  if str2 == ""
+    // unknown
+  else
+    var unused = HM.GetEnumDefaultValue(39)
+    var enum1 = a1.GetAbilityWeaponMode()
+    int v33 = enum1
+    if enum1 == staCombatModeNone and Me is kindof staWeaponComponent
+      if a1.GetAbilityTargetRule() == tgtRuleAttackable
+        var enum3 = Me.PickWeaponModeForTarget(node)
+        v33 = enum3
+      .
+    .
+    if v33 != 1
+      var enum4 = a1.GetAbilityWeaponMode()
+      Me.playStanceSwitchAppearance(staStanceCombat, enum4)
+    .
+    node4 as NodeRef
+    var id1 = a1.GetAbilityEffectSpecByNumber(0)
+    var id2 = Me
+    FuncRef effEventOracle_SynthesizeEffectEvent = HM.PrepareCallNodeRef2(100, $EFFECT_EVENT, &_callFrame)
+    effEventOracle_SynthesizeEffectEvent(node4, _callFrame, id1, a2, 3, 7, id2, false, 1)
+    $EFFECT_EVENT.effEventOracle_AddSyntheticEffectEventTarget(node4, node, effResultOk, 0)
+    $EFFECT_EVENT.effEventOracle_AddSyntheticEffectEventAction(node4, node, effResultOk, effAction_PlayAppearance, str2)
+    node4.effEventConstruct()
+    $EFFECT_EVENT.effEventOracle_AddEvent(node4)
+  .
+.
+public method AbilityActivate(a1 as NodeRef of ablAbility, a2 as NodeRef, o3 references Enum effResult) as Boolean
+  var node = HM.CopyConstructNodeRef(2, a2)
+  if a1 = None
+    return false
+  else
+    var id1 = a1.GetSpec()
+    $CombatProfiler.OpenAbilityUseContext(utlFQN:fromIDTemp(id1), ABL_CONTEXT_ACTIVATE)
+    if a1.IsAbilityPassive()
+      Me._DisplayAbilityResultMessage(a1, -1, effResultAbilityInvalid)
+      $CombatProfiler.CloseAbilityUseContext(utlFQN:fromIDTemp(id1), ABL_CONTEXT_ACTIVATE)
+      return false
+    .
+    if a1.IsAbilityModal()
+      if Me.IsModalAbilityActive(id1)
+        if a1.GetAbilityTargetRule() != tgtRuleFriendly
+          $CombatProfiler.CloseAbilityUseContext(utlFQN:fromIDTemp(id1), ABL_CONTEXT_ACTIVATE)
+          return false
+        .
+      .
+    .
+    var enum2 = a1.GetAbilityTargetRule()
+    if enum2 == tgtRuleGround
+      if not Me.AbilityValidate(a1, node, o3)
+        Me._DisplayAbilityResultMessage(a1, -1, *o3)
+        $CombatProfiler.CloseAbilityUseContext(utlFQN:fromIDTemp(id1), ABL_CONTEXT_ACTIVATE)
+        Me.ClearMiniqueueAndNotifyServer()
+        return false
+      .
+      Me.SetPrecastingAbility(id1)
+    else
+      Me.ClearPrecastingAbility()
+      node = Me._AbilitySelectTarget(a1, node)
+      if node = None
+        var enum3 = a1.GetAbilityTargetRule()
+        if enum3 == tgtRuleAttackable
+          if Me is kindof pcTargeterComponent
+            var classView = HM.GetClassViewFromNodeRef(Me, pcTargeterComponent)
+            if classView.pcAutoTargetHostiles
+              ctlInputTargetting:StartCycleTarget(ctlTargetSelectionEnemies, true)
+              var id2 = Me.GetPrimaryTargetID()
+              node = id2
+            .
+          .
+        .
+      .
+      if not Me.AbilityValidate(a1, node, o3) and *o3 != effResultNotReadyQueue
+        Me._DisplayAbilityResultMessage(a1, -1, *o3)
+        $CombatProfiler.CloseAbilityUseContext(utlFQN:fromIDTemp(id1), ABL_CONTEXT_ACTIVATE)
+        if *o3 != effResultNotReadyCurrentlyQueued
+          Me.ClearMiniqueueAndNotifyServer()
+        .
+        return false
+      .
+      var bool6 = false
+      var pc = GetPlayerCharacterNode()
+      bool6 = Me == pc
+      if bool6
+        Me.IncrementActivateRequest()
+        var id3 = a1.GetAbilityEffectSpecByNumber(0)
+        Me.SaveUnverifiedAbilityActivation(id3, Me.ablActiveRequestId)
+      .
+      if *o3 != effResultNotReadyQueue
+        var float1 = Me.InitClientCastingTime(a1)
+        var node7 = node
+        if not node7 is kindof utlEntityComponent
+          node7 = None
+        .
+        if bool6
+          Me.DoClientAnticipation(a1, Me.ablActiveRequestId, node7)
+        .
+        var float2 = Me._CalculateDefaultGlobalCooldownOverride(float1, a1)
+        Me._AbilityDoGlobalCooldown(a1, float2, Me.ablActiveRequestId)
+      else
+        Me.SetQueuedAbilitySpec(id1)
+      .
+      $ABILITY.RequestAbilityActivate(Me, node, id1, Me.ablActiveRequestId, *o3 == effResultNotReadyQueue)
+      if $ABILITY.unk_d585e0c7()
+        if *o3 == effResultNotReadyQueue
+          TimeInterval interval = timeInSeconds(Me.GetTimeUntilAbilityReady(a1, node))
+          $ABILITY.unk_5946648b(Me.ablActiveRequestId, $NOW + interval)
+        else
+          $ABILITY.unk_5946648b(Me.ablActiveRequestId, $NOW)
+        .
+      .
+      if Me != None
+        if Me.ShouldBeFired(tutTutorialEvent_UsingAbilities) or Me.ShouldBeFired(11) and ((HM.TrackLine(1100), GetAbilityTargetRule4 = HM.PrepareCallNodeRef2(27, a1, &_callFrame), enum4 = GetAbilityTargetRule(_callFrame), HM.UnprepareCall(), enum4 == tgtRuleAttackable) and (pc2 = HM.ConstructNodeRef(2), GetPlayerCharacterNode(pc2), Me == pc2) ? (bool11 = true) : (bool11 = false), bool11)
+          Me.FireTutorialEvent(tutTutorialEvent_UsingAbilities)
+          Me.FireTutorialEvent(tutTutorialEvent_PlayerandEnemyStatus, v100)
+        else
+          v78 = id1
+          var str6 = utlFQN:fromIDTemp(v78)
+          $CombatProfiler.CloseAbilityUseContext(str6, ABL_CONTEXT_ACTIVATE)
+          return true
+        .
+      else
+        v78 = id1
+        var str6 = utlFQN:fromIDTemp(v78)
+        $CombatProfiler.CloseAbilityUseContext(str6, ABL_CONTEXT_ACTIVATE)
+        return true
+      .
+    .
+    v78 = id1
+    var str6 = utlFQN:fromIDTemp(v78)
+    $CombatProfiler.CloseAbilityUseContext(str6, ABL_CONTEXT_ACTIVATE)
+    return true
+  .
+.
+public method AbilityActivateAtPosition(a1 as NodeRef of ablAbility, a2 as Vector3, o3 references Enum effResult) as Boolean
+  if a1 = None
+    return false
+  .
+  var id1 = a1.GetSpec()
+  $CombatProfiler.OpenAbilityUseContext(utlFQN:fromIDTemp(id1), ABL_CONTEXT_ACTIVATE)
+  var node3 = Me.GetPrecastingItem()
+  Me.ClearPrecastingAbility()
+  if not Me.AbilityValidate(a1, None, o3) and *o3 != effResultNotReadyQueue
+    Me._DisplayAbilityResultMessage(a1, -1, *o3)
+    $CombatProfiler.CloseAbilityUseContext(utlFQN:fromIDTemp(id1), ABL_CONTEXT_ACTIVATE)
+    return false
+  .
+  if not Me.AbilityValidatePosition(Me, a1, a2, o3) and *o3 != effResultNotReadyQueue
+    Me._DisplayAbilityResultMessage(a1, -1, *o3)
+    $CombatProfiler.CloseAbilityUseContext(utlFQN:fromIDTemp(id1), ABL_CONTEXT_ACTIVATE)
+    return false
+  .
+  var id3 = a1.GetSpec()
+  $ABILITY.RequestAbilityActivateAtPosition(Me, a2, id3, node3)
+  $CombatProfiler.CloseAbilityUseContext(utlFQN:fromIDTemp(id1), ABL_CONTEXT_ACTIVATE)
+  if *o3 != effResultNotReadyQueue
+    Me._AbilityDoGlobalCooldown(a1, 0.0, 0)
+  .
+  return true
+.
+public method AbilityActivateItemBySpec(a1 as ID, a2 as NodeRef, o3 references Enum effResult) as Boolean
+  var node = HM.CopyConstructNodeRef(2, a2)
+  if Me is kindof conInventoryComponent
+    var node3 = Me.InventoryFindBySpec(a1)
+    return Me.AbilityActivateItem(node3, None, &o3)
+  else
+    return false
+  .
+.
+public method AbilityActivatePlaceable(a1 as NodeRef of plcPlaceable, o2 references Enum effResult) as Boolean
+  CallFrame _callFrame
+  if a1 != None
+    var id1 = a1.plcAbilitySpecOnUse
+    if id1 == 0
+      id1 = 16140993178632798065  // abl.placeables.using_default
+    .
+    str as String
+    FuncRef fromIDTemp = HM.PrepareCallScriptSameMe2(106, *(ScriptRef *)((char *)&inf.0 + 4), Me, &_callFrame)
+    fromIDTemp(str, _callFrame, id1)
+    $CombatProfiler.OpenAbilityUseContext(str, ABL_CONTEXT_ACTIVATE)
+    var node3 = $ABILITY.GetAbility(id1)
+    if node3 != None
+      Me.ClearPrecastingAbility()
+      if not Me.AbilityValidate(node3, None, o2)
+        Me._DisplayAbilityResultMessage(node3, -1, *o2)
+        return false
+      else
+        Me.InitClientCastingTime(node3)
+        Me._AbilityDoGlobalCooldown(node3, 0.0, 0)
+        $ABILITY.RequestAbilityActivatePlaceable(Me, a1, id1)
+        $CombatProfiler.CloseAbilityUseContext(id1, ABL_CONTEXT_ACTIVATE)
+        return false
+      .
+    else
+      if a1 != None
+        var str4 = a1.getName()
+      .
+      ScriptError("Ability spec " + id1 + " couldn't be found.  Please update placeable " + str4 + "'s AbilitySpecOnUse")
+      $CombatProfiler.CloseAbilityUseContext(id1, ABL_CONTEXT_ACTIVATE)
+      return false
+    .
+  else
+    return false
+  .
+.
+public method AbilityActivateLootPlaceable(a1 as NodeRef of plcPlaceable, o2 references Enum effResult) as Boolean
+  if a1 != None
+    var id1 = a1.plcAbilitySpecOnLoot
+    if id1 == 0
+      id1 = 16140923070333719028  // abl.placeables.looting_default
+    .
+    $CombatProfiler.OpenAbilityUseContext(utlFQN:fromIDTemp(id1), ABL_CONTEXT_ACTIVATE)
+    var node3 = $ABILITY.GetAbility(id1)
+    if node3 != None
+      Me.ClearPrecastingAbility()
+      Me.InitClientCastingTime(node3)
+      Me._AbilityDoGlobalCooldown(node3, 0.0, 0)
+      $ABILITY.RequestAbilityActivateLootPlaceable(Me, a1, id1)
+    else
+      if a1 != None
+        var str3 = a1.getName()
+      .
+      ScriptError("Ability spec " + utlFQN:fromIDDebug(id1) + " couldn't be found.  Please update placeable " + str3 + "'s AbilitySpecOnUse")
+    .
+    $CombatProfiler.CloseAbilityUseContext(utlFQN:fromIDTemp(id1), ABL_CONTEXT_ACTIVATE)
+    return node3 != None
+  else
+    return false
+  .
+.
+public method AbilityActivateProfession(a1 as NodeRef of ablAbility, a2 as Integer, a3 as NodeRef, a4 as Integer) as Boolean
+  if a1 = None
+    return false
+  else
+    var id1 = a1.GetSpec()
+    Me.ClearPrecastingAbility()
+    Me.InitClientCastingTime(a1)
+    var pc = GetPlayerCharacterNode()
+    if Me == pc
+      var a32 = a3
+      Me.DoClientAnticipation(a1, 0, a32)
+    .
+    Me._AbilityDoGlobalCooldown(a1, 0.0, 0)
+    $ABILITY.RequestAbilityActivateProfession((Me is kindof chrCompanionComponent), a3, id1, a2, a4)
+    return true
+  .
+.
+public method AbilityActivateHolocom(a1 as NodeRef of ablAbility, a2 as NodeRef, o3 references Enum effResult) as Boolean
+  NodeRef cur2
+  var node = HM.CopyConstructNodeRef(2, a2)
+  if a1 = None
+    return false
+  .
+  list1 as List of NodeRef of plcPlatformComponent
+  list1 = $SPAWNER.plcReplicatedPlatforms
+  var list1Length = list1.length
+  loop i from 1 to list1Length
+    var cur = list1[i]
+    if cur != None and cur.OnTriggerResidentList(node)
+      $GUI_API.getApi().systemMessage($EFFECT.GetEffectResultString(effResultIsMoving))
+      return false
+    .
+  .
+  var id1 = a1.GetSpec()
+  $CombatProfiler.OpenAbilityUseContext(utlFQN:fromIDTemp(id1), ABL_CONTEXT_ACTIVATE)
+  if not Me.AbilityValidate(a1, None, o3)
+    Me._DisplayAbilityResultMessage(a1, -1, *o3)
+    return false
+  .
+  Me.ClearPrecastingAbility()
+  Me.InitClientCastingTime(a1)
+  var node5 = node
+  if not node5 is kindof utlEntityComponent
+    node5 = None
+  .
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if Me == pc2
+    Me.playStanceSwitchAppearance(staStanceNormal, staCombatModeNone)
+    Me.DoClientAnticipation(a1, 0, node5)
+  .
+  Me._AbilityDoGlobalCooldown(a1, 0.0, 0)
+  $ABILITY.RequestAbilityActivateHolocom(Me, node, id1)
+  $CombatProfiler.CloseAbilityUseContext(utlFQN:fromIDTemp(id1), ABL_CONTEXT_ACTIVATE)
+  return true
+.
+public method AbilityActivateItem(a1 as NodeRef of itmItem, a2 as NodeRef, o3 references Enum effResult) as Boolean
+  int v73
+  Id id2
+  var node = HM.CopyConstructNodeRef(2, a2)
+  if a1 = None or not a1.IsType_itmUsableComponent()
+    return false
+  else
+    if a1.IsLocked()
+      a1.unk_8a1fe31f()
+      return false
+    .
+    var enum1 = HM.GetEnumDefaultValue(56)
+    var enum2 = a1.CheckItemRestrictionsForCharacter(HM.CopyConstructNodeRef(30, Me))
+    enum1 = enum2
+    if enum2 != conResultOk
+      $GUI_API.getApi().systemMessage($CONTAINER.GetContainerResultString(enum1))
+      return false
+    .
+    var node6 = a1.GetOwner()
+    if node6 != None
+      if a1.IsType_itmSchematicComponent()
+        if a1.IsType_itmRestrictedComponent()
+          if a1.CheckItemProfessionRestrictionForCharacter(node6) != conResultOk
+            $GUI_API.getApi().systemMessage($CONTAINER.GetContainerResultString(conResultItemRequiresProfession))
+            return false
+          .
+        .
+      .
+    .
+    var node9 = a1.GetItemAbility()
+    if node9 = None
+      return false
+    .
+    var id1 = node9.GetSpec()
+    $CombatProfiler.OpenAbilityUseContext(utlFQN:fromIDTemp(id1), ABL_CONTEXT_ACTIVATE)
+    if node9.GetAbilityTargetRule() == tgtRuleGround
+      if not Me.AbilityValidate(node9, node, o3)
+        Me._DisplayAbilityResultMessage(node9, -1, *o3)
+        $CombatProfiler.CloseAbilityUseContext(utlFQN:fromIDTemp(id1), ABL_CONTEXT_ACTIVATE)
+        return false
+      .
+      Me.SetPrecastingAbility(id1)
+      Me.SetPrecastingItem(a1, v73, id2, a1)
+    else
+      Me.ClearPrecastingAbility()
+      node = Me._AbilitySelectTarget(node9, node)
+      if a1.IsType_itmGiftComponent()
+        if Me is kindof chrCompanionMasterComponent
+          var unused = HM.GetEnumDefaultValue(22)
+          var enum5 = Me.ValidateGiftGiving(a1)
+          if enum5 != effResultOk
+            Me._DisplayAbilityResultMessage(node9, -1, enum5)
+            return false
+          .
+        .
+      .
+      if not Me.AbilityValidate(node9, node, o3)
+        Me._DisplayAbilityResultMessage(node9, -1, *o3)
+        $CombatProfiler.CloseAbilityUseContext(utlFQN:fromIDTemp(id1), ABL_CONTEXT_ACTIVATE)
+        return false
+      .
+      Me.InitClientCastingTime(node9)
+      var node15 = node
+      if not node15 is kindof utlEntityComponent
+        node15 = None
+      .
+      var pc = GetPlayerCharacterNode()
+      var pc2 = pc
+      if Me == pc2
+        Me.DoClientAnticipation(node9, 0, node15)
+      .
+      Me._AbilityDoGlobalCooldown(node9, 0.0, 0)
+      var id3 = Me
+      $ABILITY.SetPrecastingItem(id3, HIDWORD(id3), node, a1)
+    .
+    $CombatProfiler.CloseAbilityUseContext(utlFQN:fromIDTemp(id1), ABL_CONTEXT_ACTIVATE)
+    return true
+  .
+.
+remote function FireEnemyBlasterAppearance(Me, a1 as ID, a2 as DateTime, a3 as Vector3)
+  NodeRef node6
+  if a1 = None or (node6 = a1.scCombatLODAbl, node6 = None)
+    // unknown
+  else
+    var node3 = a1.scPrimaryTarget
+    if node3 = None
+      // unknown
+    else
+      SynthesizeServerEnemyWeaponAppearance(a1, a1.scCombatLODAbl, a1.scCombatLODAppearanceSpec, node3, a3.x, a2)
+    .
+  .
+.
+public function SynthesizeServerEnemyWeaponAppearance(Me, a1 as NodeRef of scEnemyShipBehavior, a2 as NodeRef of ablAbility, a3 as String, a4 as NodeRef of spnVehicle, a5 as Vector3, a6 as DateTime)
+  var id1 = a2.ablEffectIDs[2]
+  var node2 = $EFFECT_EVENT.effEventOracle_SynthesizeEffectEvent(id1, 0, 3, effTrigger_OnApply, a1, false, effResultOk)
+  $EFFECT_EVENT.effEventOracle_AddSyntheticEffectEventTarget(node2, a4, effResultOk, 0)
+  $EFFECT_EVENT.effEventOracle_AddSyntheticEffectEventAction(node2, a4, effResultOk, effAction_PlayAppearance, a3)
+  node2.effEventConstruct()
+  node2.effEventTargetPosition = a5
+  node2.effTimeStamp = a6
+  node2.effEventEffectAppearance.SetVarValue("clientInitiatedShot", "0")
+  $EFFECT_EVENT.effEventOracle_AddEvent(node2)
+.
+public function IsHighPriority(a1 as NodeRef of spnVehicle) as Boolean
+  ClassView classView
+  NodeRef node
+  if a1 is kindof scEnemyShipBehavior and (HM.TrackLine(1458), classView = HM.GetClassViewFromNodeRef(a1, scEnemyShipBehavior), node = classView.scParent, node = None)
+    return true
+  else
+    return false
+  .
+.
+public function SynthesizeEnemyWeaponAppearance(Me, a1 as NodeRef of scEnemyShipBehavior, a2 as NodeRef of ablAbility, a3 as String, a4 as NodeRef of spnVehicle, a5 as Vector3, a6 as DateTime)
+  var id1 = a2.ablEffectIDs[2]
+  var node2 = $EFFECT_EVENT.effEventOracle_SynthesizeEffectEvent(id1, 0, 3, effTrigger_OnApply, a1, false, effResultOk)
+  $EFFECT_EVENT.effEventOracle_AddSyntheticEffectEventTarget(node2, a4, effResultOk, 0)
+  $EFFECT_EVENT.effEventOracle_AddSyntheticEffectEventAction(node2, a4, effResultOk, effAction_PlayAppearance, a3)
+  node2.effEventConstruct()
+  node2.effEventTargetPosition = a5
+  node2.effTimeStamp = a6
+  if IsHighPriority(a4)
+    node2.effEventEffectAppearance.SetVarValue("clientInitiatedShot", "1")
+  else
+    var int1 = randomInteger(1, 5)
+    if int1 == 1
+      node2.effEventEffectAppearance.SetVarValue("clientInitiatedShot", "2")
+    else
+      node2.effEventEffectAppearance.SetVarValue("clientInitiatedShot", "1")
+    .
+  .
+  $EFFECT_EVENT.effEventOracle_AddEvent(node2)
+.
+public method _CalculateDefaultGlobalCooldownOverride(a1 as Float, a2 as NodeRef of ablAbility) as Float
+  var out = 0.0
+  if a1 < TMR_GLOBAL_COOLDOWN_DURATION and a2 != None
+    if a1 == 0.0 and not a2.DoesAbilityIgnoreAlacrity()
+      var float3 = a2.GetAbilityCastingTimeBase()
+      var float4 = a2.GetAbilityChannelingTimeBase()
+      var float5 = MathMaxFloat(float3, float4)
+      if float5 > 0.0
+        var float6 = Me.GetStatComputed(STAT_cbt_spell_casting_reduction_percentage)
+        if float6 != 0.0
+          var float7 = float5 - (float5 * float6)
+          if TMR_GLOBAL_COOLDOWN_DURATION > float7
+            out = float7
+          .
+        .
+      .
+    else
+      out = a1
+    .
+  .
+  return out
+.
+public method _AbilityDoGlobalCooldown(Me, a1 as NodeRef of ablAbility, a2 as Float, a3 as Integer)
+  if a1 = None
+    // unknown
+  else if not a1.IsAbilityPassive()
+    var float1 = a1.GetAbilityStat(Me, STAT_abl_time_global_cooldown)
+    var float2 = float1
+    if float2 > 0.0
+      if a1.IsAbilityUsingDefaultGlobalCooldown() and a2 > 0.0
+        float2 = a2
+      .
+    .
+    Me.unk_26c81d6a(float2, a3)
+  .
+.
+public method GetCustomAbilityFailure() as Integer
+  return Me.ablUserCustomFailureMessage
+.
+public method SetCustomAbilityFailure(Me, a1 as Integer)
+  Me.ablUserCustomFailureMessage = a1
+.
+public method AbilityDeactivate(a1 as NodeRef of ablAbility) as Boolean
+  if a1 = None
+    return false
+  .
+  var id1 = a1.GetSpec()
+  $CombatProfiler.OpenAbilityUseContext(utlFQN:fromIDTemp(id1), ABL_CONTEXT_DEACTIVATE)
+  var bool1 = false
+  if a1.IsAbilityModal()
+    if not Me.IsModalAbilityActive(id1)
+      $CombatProfiler.CloseAbilityUseContext(utlFQN:fromIDTemp(id1), ABL_CONTEXT_DEACTIVATE)
+      return false
+    .
+    var enum1 = HM.GetEnumDefaultValue(22)
+    var enum2 = Me.IsAbilityReady(a1, None)
+    enum1 = enum2
+    if enum2 != effResultOk
+      Me.OnAbilityResult(id1, 0, 0, enum1)
+      $CombatProfiler.CloseAbilityUseContext(utlFQN:fromIDTemp(id1), ABL_CONTEXT_DEACTIVATE)
+      return false
+    .
+    if a1.GetAbilityTargetRule() == tgtRuleFriendly
+      bool1 = true
+    .
+  else
+    if a1 != Me.GetAbilityInUse()
+      $CombatProfiler.CloseAbilityUseContext(utlFQN:fromIDTemp(id1), ABL_CONTEXT_DEACTIVATE)
+      return false
+    .
+    var node4 = None
+    call event Me:OnAbilityResultHandleProgressBar Me:OnAbilityResultHandleProgressBar
+  .
+  var id3 = a1.GetSpec()
+  $ABILITY.RequestAbilityDeactivate(Me, id3)
+  $CombatProfiler.CloseAbilityUseContext(utlFQN:fromIDTemp(id1), ABL_CONTEXT_DEACTIVATE)
+  if bool1
+    var enum4 = HM.GetEnumDefaultValue(22)
+    Me.AbilityActivate(a1, $CHARACTER.GetTarget(), &enum4)
+  .
+  return true
+.
+public method AbilityCancel() as Boolean
+  CallFrame _callFrame
+  var id1 = Me.GetAbilitySpecInUse()
+  if id1 != 0
+    var node3 = $ABILITY.GetAbility(id1)
+    unsigned __int8 v11 = 1
+    $ABILITY.RequestAbilityDeactivate(Me, id1)
+    call event Me:OnAbilityCancelled Me:OnAbilityCancelled
+    if node3 != None
+      FuncRef IsAbilityChanneled = HM.PrepareCallNodeRef2(181, node3, &_callFrame)
+      var bool1 = (IsAbilityChanneled(_callFrame) & 1) == 0
+      v11 = bool1
+    .
+    Me._InternalAbilityCancel(cbtOutcomeCancelled, 0, v11)
+  .
+  return true
+.
+public method _InternalAbilityCancel(Me, a1 as Enum cbtOutcome, a2 as Integer, a3 as Boolean)
+  if a3
+    Me.unk_9bc96508(a2)
+  .
+  Me.StopAbilityCastingAppearance(true, false, false)
+  var node2 = None
+  call event Me:OnAbilityResultHandleProgressBar Me:OnAbilityResultHandleProgressBar
+.
+public method IsModalAbilityActive(a1 as ID) as Boolean
+  foreach cur in Me.ablUserModalActiveSpecs
+    if cur == a1
+      return true
+    .
+  .
+  return false
+.
+public method AbilityAssignRightClick(Me, a1 as String)
+  Me.ablUserRightClickAbility = a1
+.
+public method AbilityGetRightClick() as String
+  return Me.ablUserRightClickAbility
+.
+public method AbilityActivateRightClick(Me, a1 as NodeRef, o2 references Enum effResult)
+  var id1 = utlFQN:toIDTemp(Me.ablUserRightClickAbility)
+  Me.AbilityActivate(Me.GetAbility(id1), a1, &o2)
+.
+public method AbilityCanAutoCast(a1 as NodeRef of ablAbility) as Boolean
+  var bool1 = false
+  if a1 != None and not a1.IsAbilityModal()
+    if not a1.IsAbilityPassive()
+      bool1 = true
+    .
+  .
+  var bool4 = false
+  if bool1
+    if not a1.IsAbilityHidden()
+      bool4 = true
+    .
+  .
+  var bool6 = false
+  if bool4
+    if a1.GetAbilityAiType() != aiAbilityNone
+      bool6 = true
+    .
+  .
+  var out = false
+  if not bool6
+    return out
+  else
+    var id1 = a1.GetSpec()
+    if Me.GetAbilityUsageChance(id1) <= 0.0
+      return out
+    else
+      out = true
+      return out
+    .
+  .
+.
+public method AbilityToggleAutoCast(a1 as ID, a2 as Boolean) as Boolean
+  if not Me.HasAbility(a1)
+    return false
+  else
+    $ABILITY.RequestAbilityToggleAutoCast(Me, a1, a2)
+    return true
+  .
+.
+public method OnAbilityToggleAutoCastResult(Me, a1 as ID, a2 as Boolean)
+  call event Me:OnAbilityToggledAutoCast Me:OnAbilityToggledAutoCast
+.
+public method IsAutoCastAbilityActive(a1 as ID) as Boolean
+  return Me.ablUserAutoCastActive has a1
+.
+public method SaveUnverifiedAbilityActivation(Me, a1 as ID, a2 as Integer)
+  if a1 != 0 and a2 != 0
+    Me.ablUnverifiedActivations[a1][a2] = true
+  .
+.
+public method VerifyAbilityActivation(Me, a1 as ID, a2 as Integer)
+  LookupList lookup4
+  if a2 != 0 and a1 != 0 and (lookup4 = Me.ablUnverifiedActivations, lookup4 has a1)
+    var lookup = Me.ablUnverifiedActivations
+    var lookup2 = lookup[a1]
+    if lookup2 has a2
+      remove a2 from lookup2 keep
+      if lookup2.length == 0
+        remove a1 from lookup keep
+      .
+    .
+  .
+.
+public method IsAbilityActivationVerified(a1 as ID, a2 as Integer) as Boolean
+  LookupList lookup2
+  LookupList lookup3
+  if a1 == 0 or a2 == 0
+    // unknown
+  .
+  if Me.ablUnverifiedActivations has a1 and (HM.TrackLine(1746), lookup2 = Me.ablUnverifiedActivations, lookup3 = lookup2[a1], lookup3 has a2)
+    return false
+  else
+    return true
+  .
+.
+public method GetAbilitySpecInUse() as ID
+  return Me.ablUserAbilitySpecShared
+.
+public method GetAbilityInUse() as NodeRef of ablAbility
+  var id1 = Me.GetAbilitySpecInUse()
+  return $ABILITY.GetAbility(id1)
+.
+public method GetAbilitySpecInUsePreviously() as ID
+  return Me.ablUserAbilitySpecShared_Previous
+.
+public method IncrementActivateRequest() as Integer
+  var int1 = Me.ablActiveRequestId
+  var bool1 = (unsigned int)int1 <= 255
+  var bool2 = int1 <= -1
+  if not HIDWORD(int1)
+    bool2 = bool1
+  .
+  if not bool2
+    Me.ablActiveRequestId = 1
+  .
+  Me.ablActiveRequestId = Me.ablActiveRequestId + 1
+  return Me.ablActiveRequestId
+.
+public method GetAbilityInUsePreviously() as NodeRef of ablAbility
+  var id1 = Me.GetAbilitySpecInUsePreviously()
+  return $ABILITY.GetAbility(id1)
+.
+public method GetAbilityTarget() as NodeRef
+  return Me.ablUserTarget
+.
+public method IsAbilityUserCasting() as Boolean
+  var node2 = Me.GetAbilityInUse()
+  var out = false
+  if node2 = None
+    return out
+  else if node2.GetAbilityCastingTime(Me) <= 0.0
+    return out
+  else
+    out = true
+    return out
+  .
+.
+public method IsAbilityUserChanneling() as Boolean
+  var node2 = Me.GetAbilityInUse()
+  var out = false
+  if node2 = None
+    return out
+  else if node2.GetAbilityChannelingTime(Me) <= 0.0
+    return out
+  else
+    out = true
+    return out
+  .
+.
+public method GetQueuedAbilitySpec() as ID
+  return Me.ablQueuedAbilitySpec
+.
+public method SetQueuedAbilitySpec(Me, a1 as ID)
+  Me.ablQueuedAbilitySpec = a1
+  Me.ablLastQueueAttempt = $NOW
+.
+public method ClearMiniqueueAndNotifyServer(Me)
+  Me.ablQueuedAbilitySpec = 0
+  $ABILITY.RequestClearMiniqueue()
+.
+public method GetTimeUntilAbilityReady(a1 as NodeRef of ablAbility, a2 as NodeRef) as Float
+  Float float3
+  var id1 = Me.GetLongestActiveTimerForAbility(a1)
+  var node3 = Me.GetTimer(id1)
+  var out = 0.0
+  if a1.ablGlobalCooldownTime > 0.0 or (float3 = a1.ablGlobalCooldownTime, float3 == -1.0)
+    if Me.IsGlobalCooldownRunning()
+      out = Me.GetGlobalCooldownTimeRemaining()
+    .
+  .
+  if node3 != None
+    var float5 = utlMath:max(out, node3.GetRemainingTime())
+    out = float5
+  .
+  if Me.IsAbilityUserCasting()
+    out = Me.GetClientCastTimeRemaining()
+  .
+  if Me.IsAbilityUserChanneling()
+    var id2 = Me.ablUserAbilitySpecShared
+    if a1.conEntitySpec == id2
+      if Me.ablUserTarget == a2
+        out = Me.GetClientCastTimeRemaining()
+      .
+    .
+  .
+  return out
+.
+public method IsAbilityReady(a1 as NodeRef of ablAbility, a2 as NodeRef) as Enum effResult
+  int v8
+  Float float3
+  var float2 = Me.GetTimeUntilAbilityReady(a1, a2)
+  if float2 <= 0.0
+    return effResultOk
+  else
+    var id1 = a1.GetSpec()
+    var id2 = Me.GetQueuedAbilitySpec()
+    v8 = HIDWORD(id1) ^ HIDWORD(id2) | id1 ^ id2
+    if v8
+      float3 = 0.0
+      when $Options.GetStringValue(7675024826264430113)  // "controls_abilityqueuelength"
+        is "loc:19019:preferences"
+          float3 = 0.25
+        .
+        is "loc:19020:preferences"
+          float3 = 0.5
+        .
+        is "loc:19021:preferences"
+          float3 = 0.75
+        .
+        is "loc:19022:preferences"
+          float3 = 1.0
+        .
+        default
+        .
+      .
+      var bool1 = (Float)($NOW - Me.ablLastQueueAttempt) / 1000.0 >= 0.05 and float2 <= float3
+      if bool1
+        return effResultNotReadyQueue
+      else
+        return effResultNotReady
+      .
+    else
+      return effResultNotReadyCurrentlyQueued
+    .
+  .
+.
+public method AttemptQueuedAbility(Me, a1 as ID, a2 as Integer)
+  if a1 != 0
+    var node2 = $ABILITY.GetAbility(a1)
+    var float1 = Me.InitClientCastingTime(node2)
+    var node4 = Me.ablUserTarget
+    if not node4 is kindof utlEntityComponent
+      node4 = None
+    .
+    var pc = GetPlayerCharacterNode()
+    var pc2 = pc
+    if Me == pc2
+      Me.DoClientAnticipation(node2, a2, node4)
+    .
+    var float2 = Me._CalculateDefaultGlobalCooldownOverride(float1, node2)
+    Me._AbilityDoGlobalCooldown(node2, float2, a2)
+    Me.SetQueuedAbilitySpec(0)
+  .
+.
+public method InitClientCastingTime(a1 as NodeRef of ablAbility) as Float
+  var out = MathMaxFloat(a1.GetAbilityCastingTime(Me), a1.GetAbilityChannelingTime(Me))
+  Me.SetClientCastingTime(out)
+  return out
+.
+public method SetClientCastingTime(Me, a1 as Float)
+  Me.ablCastDuration = a1
+  TimeInterval interval = timeInSeconds(a1)
+  Me.ablCastTimeEnd = $NOW + interval
+.
+public method GetClientCastingTime() as Float
+  return Me.ablCastDuration
+.
+public method GetClientCastTimeRemaining() as Float
+  var dateTime1 = Me.ablCastTimeEnd
+  TimeInterval interval = dateTime1 - $NOW
+  return utlMath:max(0.0, LODWORD((Float)interval / 1000.0))
+.
+public method AddToClientCastTime(Me, a1 as Float)
+  var dateTime1 = Me.ablCastTimeEnd
+  TimeInterval interval = timeInSeconds(a1)
+  Me.ablCastTimeEnd = dateTime1 + interval
+.
+public method IsPrecastingAbility() as Boolean
+  return Me.ablUserPrecastingAbility != 0
+.
+public method GetPrecastingAbility() as NodeRef of ablAbility
+  var id1 = Me.ablUserPrecastingAbility
+  return $ABILITY.GetAbility(id1)
+.
+public method SetPrecastingAbility(Me, a1 as ID)
+  Me.ablUserPrecastingAbility = a1
+.
+public method GetPrecastingItem() as NodeRef of itmItem
+  return Me.ablUserPrecastingItem
+.
+public method SetPrecastingItem(Me, a1 as NodeRef of itmItem)
+  Me.ablUserPrecastingItem = a1
+.
+public method ClearPrecastingAbility(Me)
+  Me.ablUserPrecastingAbility = 0
+  Me.ablUserPrecastingItem = None
+.
+public method RegisterAbilityCastingAppearance(Me, a1 as NodeRef of effEvent)
+  Me.StopAbilityCastingAppearance(false, true, false)
+  Me.ablUserEffectEvent_Client = a1
+  a1.effEvent_AddRef()
+  var id1 = a1.effEventEffectSpec
+  Me.effCurrentAppearanceSpec = id1
+  Me.effCurrentAppearanceRequest = a1.effEventActivateRequestId
+.
+public method IsCastingAppearanceInUse(a1 as ID, a2 as Integer) as Boolean
+  if Me.effCurrentAppearanceSpec == a1 and Me.effCurrentAppearanceRequest == a2
+    return true
+  else
+    return false
+  .
+.
+public method ClearAbilityCastingAppearance(Me, a1 as NodeRef of effEvent)
+  var id1 = Me.effCurrentAppearanceSpec
+  if a1.effEventEffectSpec == id1
+    var id2 = Me.effCurrentAppearanceRequest
+    if a1.effEventActivateRequestId == id2
+      Me.ablUserEffectEvent_Client.effEvent_RemoveRef()
+      Me.ablUserEffectEvent_Client = None
+      Me.effCurrentAppearanceSpec = 0
+      Me.effCurrentAppearanceRequest = 0
+    .
+  .
+.
+public method UsingAbilityWithGroundTarget() as Boolean
+  var out = false
+  var node2 = Me.GetAbilityInUse()
+  if node2 != None
+    var unused = HM.GetEnumDefaultValue(23)
+    var enum1 = node2.GetAbilityTargetRule()
+    out = enum1 == tgtRuleGround
+  .
+  return out
+.
+public method GetAblTargetPosition() as Vector3
+  return Me.ablUserTargetPosition
+.
+public method StopAbilityCastingAppearance(Me, a1 as Boolean, a2 as Boolean, a3 as Boolean)
+  if Me.ablUserEffectEvent_Client != None
+    if Me.ablUserEffectEvent_Client.effEventEffectAppearance != None
+      Me.ablUserEffectEvent_Client.effEventEffectAppearance.effAppearanceRemove(Me.ablUserEffectEvent_Client, (a1 or a2) or a3)
+    .
+    Me.ClearAbilityCastingAppearance(Me.ablUserEffectEvent_Client)
+    if (a1 or a2) or a3
+      if Me is kindof staWeaponComponent
+        Me.staWeapon_PopWeaponInVisually(true, true)
+      .
+    .
+  .
+.
+public method GetCurrentCastingEvent() as NodeRef of effEvent
+  return Me.ablUserEffectEvent_Client
+.
+public method OnAbilityResult(Me, a1 as ID, a2 as Integer, a3 as Integer, a4 as Enum effResult)
+  if (a4 != effResultOk and a4 != effResultNotReadyQueue) and a1 != 0
+    var node2 = $ABILITY.GetAbility(a1)
+    if node2 != None
+      var id1 = node2.GetAbilityEffectSpecByNumber(0)
+      Me.VerifyAbilityActivation(id1, a2)
+      Me._DisplayAbilityResultMessage(node2, a3, a4)
+      var pc = GetPlayerCharacterNode()
+      if Me == pc
+        OnCombatMovementIncomingAbilityExecute(Me)
+      .
+      if Me.GetPrecastingAbility() == node2
+        Me.ClearPrecastingAbility()
+      .
+      if Me.IsCastingAppearanceInUse(id1, a2)
+        Me._InternalAbilityCancel(cbtOutcomeCancelled, a2, true)
+      else
+        Me.unk_9bc96508(a2)
+      .
+    .
+  .
+  call event Me:OnAbilityResultHandleCleanup Me:OnAbilityResultHandleCleanup
+.
+function _DisplayAbilityResultMessage(a1 as NodeRef, a2 as Integer, a3 as Enum)
+  var enum1 = a3
+  if a1 = None
+    // unknown
+  else if Me is kindof scVehicle
+    // unknown
+  else
+    if Me.ablUserLastResult != enum1
+      goto LABEL_7
+    .
+    interval = $NOW - Me.ablUserLastResultMessageTime
+    bool1 = SHIDWORD(interval) >= 1
+    if not HIDWORD(interval)
+      bool1 = (unsigned int)interval >= 2000
+    .
+    if not bool1
+      bool2 = true
+    else
+LABEL_7:
+      bool2 = false
+    .
+    if bool2
+      // unknown
+    else
+      if enum1 != effResultNotReady
+        goto LABEL_32
+      .
+      idCarrier = 0
+      var id1 = a1.GetSpec()
+      idCarrier = id1
+      if id1 == 16141034720343955250 or idCarrier == 16141058824530033616 or idCarrier == 16141126813505967834 or idCarrier == 16141154651894001188 or idCarrier == 16140992320431734420 or idCarrier == 16140938118085690512 or idCarrier == 16141000718454844839 or idCarrier == 16140906050636863811  // abl.bounty_hunter.rapid_shots, abl.flurry.jedi_knight.strike_optimize, abl.flurry.jedi_consular.saber_strike_optimize, abl.flurry.sith_inquisitor.saber_strike_optimize, abl.flurry.sith_warrior.assault_optimize, abl.smuggler.flurry_of_bolts_optimize, abl.trooper.hammer_shot, abl.agent.rifle_shot_optimize
+        // unknown
+      else
+LABEL_32:
+        if enum1 == effResultCoverObjectInvalid
+          // unknown
+        else
+          Me.ablUserLastResult = enum1
+          Me.ablUserLastResultMessageTime = $NOW
+          if Me is kindof chrCompanionComponent and Me is kindof brkOwnerComponent
+            $BARK.PlayBarkEvent(HM.CopyConstructNodeRef(64, Me), 666409448012197330)  // "bark_cc_support_failed"
+          .
+          str = HM.ConstructString()
+          if a2 != -1
+            var str2 = a1.GetLocalizedAbilityString(a2, true)
+            str = str2
+          else
+            var str3 = $STRING.LocalizeString("", Me.GetCustomAbilityFailure())
+            str = str3
+          .
+          if str == ""
+            if enum1 == effResultNotEnoughActionPoints and Me is kindof chrAttributeComponent
+              var enum3 = GetResourceResult(Me.GetResourceType())
+              enum1 = enum3
+            .
+            var str4 = $EFFECT.GetEffectResultString(enum1)
+            str = str4
+          .
+          if str != ""
+            $GUI_API.getApi().systemMessage(str)
+          .
+        .
+      .
+    .
+  .
+.
+public function GetResourceResult(a1 as Enum chrResourceTypeEnum) as Enum effResult
+  if a1 == chrResourceTypeFocus
+    return effResultNotEnoughFocus
+  .
+  if a1 == chrResourceTypeRage
+    return effResultNotEnoughRage
+  .
+  if a1 == chrResourceTypeAmmoPlasma
+    // unknown
+  else if a1 == chrResourceTypeAmmoIon
+    // unknown
+  else if a1 == chrResourceTypeAmmoAP
+    // unknown
+  else if a1 == chrResourceTypeAmmoNormal
+    // unknown
+  else
+    return effResultNotEnoughActionPoints
+  .
+  return effResultNotEnoughAmmo
+.
+self handler OnDeath(Me)
+  Me.ClearPrecastingAbility()
+.
+self handler OnPreDestroy(Me, a1 as Boolean)
+  Me.StopAbilityCastingAppearance(true, false, false)
+.
+public method HandleAttemptQueueAbilityResult(Me, a1 as ID, a2 as Integer, a3 as Enum effResult)
+  if a3 == effResultOk
+    Me.AttemptQueuedAbility(a1, a2)
+    Me.SetQueuedAbilitySpec(0)
+  else
+    var node3 = $ABILITY.GetAbility(a1)
+    if node3 != None
+      var id1 = node3.GetAbilityEffectSpecByNumber(0)
+      Me.VerifyAbilityActivation(id1, a2)
+      if a3 != effResultMiniqueueCleared
+        if Me.IsCastingAppearanceInUse(id1, a2)
+          if not Me.ablUserEffectEvent_Client.effEventDoNotCancel
+            Me._InternalAbilityCancel(cbtOutcomeCancelled, a2, true)
+          .
+        .
+      .
+    .
+    var pc = GetPlayerCharacterNode()
+    if Me == pc
+      OnCombatMovementIncomingAbilityExecute(Me)
+    .
+  .
+.
+remote function OnEmoteUnlocked(Me, a1 as Integer)
+  Boolean bool1
+  var node2 = getPrototypeByID(16141090219079317947)  // cmdEmotePrototype
+  if a1 >= 0
+    if node2.cmdEmotesList.length < a1
+      bool1 = true
+    else
+      bool1 = false
+    .
+  else
+    bool1 = true
+  .
+  if bool1
+    // unknown
+  else
+    var classView2 = node2.cmdEmotesList[a1]
+    var classView = HM.CopyClassViewToClassView(classView2)
+    list3 as List of String
+    add back classView.cmdEmoteCommand to list3
+    $CHAT.ChatPlayerAndBannerLocalizedWithTokenList(chatChannel_SystemFeedback, STR_GUI_EMOTES, ID_STR_GUI_EMOTES | UNK_9A93FECE, HIDWORD(ID_STR_GUI_EMOTES), COLOR_YELLOW, list3)  // "You have unlocked the <<1>> emote!"
+    sndUtils:PlayEvent(None, GUI_INTERFACE_SOUND_DISCOVER_NEW_AREA)
+  .
+.
+remote function OnEmoteDenied(Me, a1 as Integer)
+  Boolean bool1
+  var node2 = getPrototypeByID(16141090219079317947)  // cmdEmotePrototype
+  if a1 >= 0
+    if node2.cmdEmotesList.length < a1
+      bool1 = true
+    else
+      bool1 = false
+    .
+  else
+    bool1 = true
+  .
+  if bool1
+    // unknown
+  else
+    var classView2 = node2.cmdEmotesList[a1]
+    var classView = HM.CopyClassViewToClassView(classView2)
+    list3 as List of String
+    add back classView.cmdEmoteCommand to list3
+    $CHAT.ChatPlayerLocalizedWithTokenList(chatChannel_SystemFeedback, STR_GUI_EMOTES, ID_STR_GUI_EMOTES | UNK_F96E8228, HIDWORD(ID_STR_GUI_EMOTES), list3)  // "You may not yet use the <<1>> emote.$R"
+  .
+.

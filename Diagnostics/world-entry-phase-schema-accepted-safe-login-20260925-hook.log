@@ -1,0 +1,996 @@
+=== NexusToR Hook started ===
+[13:21:01] NexusToR: Initializing NexusToR Client
+[13:21:01] AreaRpcHook: client image base=00E70000 size=0x0126B000
+[13:21:01] NexusToR: Network and SSL hooks installed; RPC trace=enabled event trace=enabled loading-screen trace=enabled player-field read=disabled write=disabled
+[13:21:03] WS2_32: GetAddrInfo (Brant-PC)
+[13:21:03] WS2_32: GetAddrInfo (localhost)
+[13:21:03] WS2_32: GetAddrInfo (127.0.0.1)
+[13:21:03] MainHook: WSARecv Called [127.0.0.1:7979]
+[13:21:03] MainHook: WSARecv Called [127.0.0.1:7979]
+[13:21:05] MainHook: WSASend Called [127.0.0.1:7979]
+[13:21:05] MainHook: WSASend Called [127.0.0.1:7979]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:7979]
+[13:21:05] MainHook: WSASend Called [127.0.0.1:7979]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:7979]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:7979]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSASend Called [127.0.0.1:7979]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20066]
+[13:21:05] MainHook: WSASend Called [127.0.0.1:20066]
+[13:21:05] MainHook: WSASend Called [127.0.0.1:20066]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20066]
+[13:21:05] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:10] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:10] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:12] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:12] MainHook: WSASend Called [127.0.0.1:20066]
+[13:21:12] MainHook: WSARecv Called [127.0.0.1:20066]
+[13:21:12] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:16] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:16] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:21] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:21] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:24] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:26] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:26] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:26] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:26] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:31] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:31] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:36] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:36] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:36] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:38] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:39] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:41] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:42] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:47] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:47] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:52] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:52] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:21:57] MainHook: WSASend Called [127.0.0.1:20060]
+[13:21:57] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:22:02] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:02] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:22:07] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:07] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:22:12] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:12] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:22:17] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:17] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:22:19] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:19] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:19] MainHook: WSASend Called [127.0.0.1:20066]
+[13:22:19] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:19] MainHook: WSARecv Called [127.0.0.1:20066]
+[13:22:23] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:23] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:22:28] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:28] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:22:30] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:30] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:32] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:32] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:33] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:33] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:22:38] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:38] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:22:41] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:43] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:43] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:22:43] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:45] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:48] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:48] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:22:51] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:51] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:54] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:54] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:22:56] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:58] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:59] MainHook: WSASend Called [127.0.0.1:20060]
+[13:22:59] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:01] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:01] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:01] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:01] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:01] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:01] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:01] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:01] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:01] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:01] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:01] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:01] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:01] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:01] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:01] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:01] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:01] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:01] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:01] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:02] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:02] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:02] ScriptDispatchHook: phase=enter count=1 this=F4B91BE4 callerRva=0x007D810C args=00000000,00000000,D4B84082,D000BEB8,01DB6DD4,FCC4B0A0,0E71F484,00000000
+[13:23:03] ScriptDispatchHook: phase=return count=1 callerRva=0x007D810C result=0x00000000
+[13:23:03] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:03] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:03] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:04] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:04] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:09] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:09] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:09] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:11] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:14] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:14] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:19] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:19] MainHook: WSASend Called [127.0.0.1:20066]
+[13:23:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:19] MainHook: WSARecv Called [127.0.0.1:20066]
+[13:23:21] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:25] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:25] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:25] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:30] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:30] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:33] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:35] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:35] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:36] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:37] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:37] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:37] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:38] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:38] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:38] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:38] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:38] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:38] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:39] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:39] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:39] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:39] WS2_32: GetAddrInfo (Brant-PC)
+[13:23:39] WS2_32: GetAddrInfo (Brant-PC)
+[13:23:39] WS2_32: GetAddrInfo (127.0.0.1)
+[13:23:39] WS2_32: GetAddrInfo (127.0.0.1)
+[13:23:39] MainHook: WSASend Called [127.0.0.1:62123]
+[13:23:39] MainHook: WSASend Called [127.0.0.1:62121]
+[13:23:39] MainHook: WSARecv Called [127.0.0.1:62124]
+[13:23:39] MainHook: WSARecv Called [127.0.0.1:62122]
+[13:23:40] MainHook: WSASend Called [127.0.0.1:443]
+[13:23:40] MainHook: WSASend Called [127.0.0.1:443]
+[13:23:40] MainHook: WSARecv Called [127.0.0.1:443]
+[13:23:40] MainHook: WSARecv Called [127.0.0.1:443]
+[13:23:40] MainHook: WSASend Called [127.0.0.1:443]
+[13:23:40] MainHook: WSASend Called [127.0.0.1:443]
+[13:23:40] MainHook: WSARecv Called [127.0.0.1:443]
+[13:23:40] MainHook: WSARecv Called [127.0.0.1:443]
+[13:23:40] MainHook: WSASend Called [127.0.0.1:443]
+[13:23:40] MainHook: WSARecv Called [127.0.0.1:443]
+[13:23:40] MainHook: WSARecv Called [127.0.0.1:443]
+[13:23:40] MainHook: WSASend Called [127.0.0.1:443]
+[13:23:40] MainHook: WSARecv Called [127.0.0.1:443]
+[13:23:40] MainHook: WSASend Called [127.0.0.1:62123]
+[13:23:40] MainHook: WSARecv Called [127.0.0.1:443]
+[13:23:40] MainHook: WSARecv Called [127.0.0.1:62124]
+[13:23:40] MainHook: WSASend Called [127.0.0.1:62121]
+[13:23:40] MainHook: WSARecv Called [127.0.0.1:62122]
+[13:23:40] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:40] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:40] ScriptDispatchHook: phase=enter count=2 this=F4B91BE4 callerRva=0x001BE4C7 args=00000000,00000000,6E3EA1B3,D000ACF8,01DF3F94,FCFEFB00,0E71F7DF,00000000
+[13:23:40] ScriptDispatchHook: phase=return count=2 callerRva=0x001BE4C7 result=0x00000000
+[13:23:41] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:41] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:41] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:41] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:42] ScriptDispatchHook: phase=enter count=3 this=F4B91BE4 callerRva=0x001C173B args=3B9ACA01,00000000,FA4FB377,D0008803,0E71F1A4,FD01EEC0,0E71F158,00000000
+[13:23:42] ScriptDispatchHook: phase=return count=3 callerRva=0x001C173B result=0x00000000
+[13:23:42] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:42] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:42] ScriptDispatchHook: phase=enter count=4 this=F4B91BE4 callerRva=0x007D810C args=00000000,00000000,04F75399,D000A78B,01DB6DD4,FCC4B0A0,0E71F484,00000000
+[13:23:42] ScriptDispatchHook: phase=return count=4 callerRva=0x007D810C result=0x00000000
+[13:23:42] ScriptDispatchHook: phase=enter count=5 this=F4B91BE4 callerRva=0x007D810C args=00000000,00000000,57F033CA,D0002802,01DB6DD4,FCC4B0A0,0E71F484,00000000
+[13:23:42] ScriptDispatchHook: phase=return count=5 callerRva=0x007D810C result=0x00000000
+[13:23:42] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:42] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:42] ScriptDispatchHook: phase=enter count=6 this=F4B91BE4 callerRva=0x007D810C args=00000000,00000000,5E8BD84B,D0001609,01DB6DD4,FCC4B0A0,0E71F46C,00000000
+[13:23:42] ScriptDispatchHook: phase=return count=6 callerRva=0x007D810C result=0x00000000
+[13:23:42] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:42] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:42] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:42] WS2_32: GetAddrInfo (server.emulatornexus.com)
+[13:23:43] ScriptDispatchHook: phase=enter count=7 this=F4B91BE4 callerRva=0x00806B9C args=00000000,00000000,57F033CA,D0002802,01DB712C,FCA87700,0E71F2A4,00000000
+[13:23:43] ScriptDispatchHook: phase=return count=7 callerRva=0x00806B9C result=0x00000000
+[13:23:43] ScriptDispatchHook: phase=enter count=8 this=F4B91BE4 callerRva=0x001C173B args=3B9ACA22,00000000,24F9B4C8,D0004688,0E71F764,FD01EEC0,0E71F718,00000000
+[13:23:43] ScriptDispatchHook: phase=return count=8 callerRva=0x001C173B result=0x00000000
+[13:23:43] ScriptDispatchHook: phase=enter count=9 this=F4B91BE4 callerRva=0x007D810C args=00000000,00000000,8D620C52,D0005B85,01DB6DD4,FCC4B0A0,0E71F484,00000000
+[13:23:43] ScriptDispatchHook: phase=return count=9 callerRva=0x007D810C result=0x00000000
+[13:23:43] ScriptDispatchHook: phase=enter count=10 this=F4B91BE4 callerRva=0x007D810C args=00000000,00000000,8D620C52,D0005B85,01DB6DD4,FCC4B0A0,0E71F484,00000000
+[13:23:43] ScriptDispatchHook: phase=return count=10 callerRva=0x007D810C result=0x00000000
+[13:23:43] ScriptDispatchHook: phase=enter count=11 this=F4B91BE4 callerRva=0x001C173B args=3B9ACA22,00000000,24F9B4C8,D0004688,0E71F764,FD01EEC0,0E71F718,00000000
+[13:23:43] ScriptDispatchHook: phase=return count=11 callerRva=0x001C173B result=0x00000000
+[13:23:43] ScriptDispatchHook: phase=enter count=12 this=F4B91BE4 callerRva=0x007D810C args=00000000,00000000,8D620C52,D0005B85,01DB6DD4,FCC4B0A0,0E71F484,00000000
+[13:23:43] ScriptDispatchHook: phase=return count=12 callerRva=0x007D810C result=0x00000000
+[13:23:43] ScriptDispatchHook: phase=enter count=13 this=F4B91BE4 callerRva=0x007D810C args=00000000,00000000,8D620C52,D0005B85,01DB6DD4,FCC4B0A0,0E71F484,00000000
+[13:23:43] ScriptDispatchHook: phase=return count=13 callerRva=0x007D810C result=0x00000000
+[13:23:43] ScriptDispatchHook: phase=enter count=14 this=F4B91BE4 callerRva=0x007D810C args=00000000,00000000,8D620C52,D0005B85,01DB6DD4,FCC4B0A0,0E71F484,00000000
+[13:23:43] ScriptDispatchHook: phase=return count=14 callerRva=0x007D810C result=0x00000000
+[13:23:43] ScriptDispatchHook: phase=enter count=15 this=F4B91BE4 callerRva=0x007D810C args=00000000,00000000,8D620C52,D0005B85,01DB6DD4,FCC4B0A0,0E71F484,00000000
+[13:23:43] ScriptDispatchHook: phase=return count=15 callerRva=0x007D810C result=0x00000000
+[13:23:43] ScriptDispatchHook: phase=enter count=16 this=F4B91BE4 callerRva=0x007D810C args=00000000,00000000,8D620C52,D0005B85,01DB6DD4,FCC4B0A0,0E71F484,00000000
+[13:23:43] ScriptDispatchHook: phase=return count=16 callerRva=0x007D810C result=0x00000000
+[13:23:43] ScriptDispatchHook: phase=enter count=17 this=F4B91BE4 callerRva=0x007D810C args=00000000,00000000,8D620C52,D0005B85,01DB6DD4,FCC4B0A0,0E71F484,00000000
+[13:23:43] ScriptDispatchHook: phase=return count=17 callerRva=0x007D810C result=0x00000000
+[13:23:43] ScriptDispatchHook: phase=enter count=18 this=F4B91BE4 callerRva=0x001C173B args=3B9ACA22,00000000,24F9B4C8,D0004688,0E71F764,FD01EEC0,0E71F718,00000000
+[13:23:43] ScriptDispatchHook: phase=return count=18 callerRva=0x001C173B result=0x00000000
+[13:23:43] ScriptDispatchHook: phase=enter count=19 this=F4B91BE4 callerRva=0x007D810C args=00000000,00000000,8D620C52,D0005B85,01DB6DD4,FCC4B0A0,0E71F484,00000000
+[13:23:43] ScriptDispatchHook: phase=return count=19 callerRva=0x007D810C result=0x00000000
+[13:23:43] ScriptDispatchHook: phase=enter count=20 this=F4B91BE4 callerRva=0x007D810C args=00000000,00000000,8D620C52,D0005B85,01DB6DD4,FCC4B0A0,0E71F484,00000000
+[13:23:43] ScriptDispatchHook: phase=return count=20 callerRva=0x007D810C result=0x00000000
+[13:23:45] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:45] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:45] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:45] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:46] EventDispatchHook: class=1 count=1 caller=ED131B20 callerRva=0x00000000 envelope=EC85FA20 payload=EC85FA34 logicalLen=11 hash=0x2B53B8F6 changed=1 manager=F4B91CBC vtable=01B35AD4 handler=01646550 handlerRva=0x007D6550 bytes=B8 E0 AD 01 00 04 00 00 00 00 00 00 0B 00 00 00 50 FA 85 EC 05 00 00 00 00 00 00 00 CF 14 63 F5 32 F5 5F 35 EB 02 64 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7AAD352A>7AAD2EFF>ED131B20>0102EC8F(+001BEC8F)>01644987(+007D4987)>0102E747(+001BE747)>010318B1(+001C18B1)>010720F3(+002020F3)>ED122F35
+[13:23:46] Class1BridgeHook: phase=enter recipient=0A5E0D50 vtable=01BAF108 method=010B2A20 methodRva=0x00242A20 unused=00000001 payload=EC85FA34
+[13:23:46] Class1BridgeHook: phase=return recipient=0A5E0D50 payload=EC85FA34
+[13:23:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:46] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:46] WS2_32: GetAddrInfo (server.emulatornexus.com)
+[13:23:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:46] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:50] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:50] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:51] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:54] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:54] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:54] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:54] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:54] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:54] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:54] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:54] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:55] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:55] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:56] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:56] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:56] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:56] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:56] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:57] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:58] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:58] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:58] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:58] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:23:59] EventDispatchHook: class=1 count=2 caller=F13264C4 callerRva=0x00000000 envelope=EC85FA20 payload=EC85FA34 logicalLen=15 hash=0x2706BD54 changed=1 manager=F4B91CBC vtable=01B35AD4 handler=01646550 handlerRva=0x007D6550 bytes=B8 E0 AD 01 00 04 00 00 00 00 00 00 0F 00 00 00 50 FA 85 EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 5B 66 8E A0 06 04 74 72 75 65 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7AAD352A>7AAD2EFF
+[13:23:59] Class1BridgeHook: phase=enter recipient=0A5E0D50 vtable=01BAF108 method=010B2A20 methodRva=0x00242A20 unused=00000001 payload=EC85FA34
+[13:23:59] AreaRpcHook: sender=EE10FD18 blob=EC85FA34 len=15 marker=0xC7 target=0x1279C371 operation=0xA08E665B class1Recipient=0A5E0D50 class1Method=010B2A20 class1MethodRva=0x00242A20 bytes=C7 71 C3 79 12 5B 66 8E A0 06 04 74 72 75 65 stack=7AAD352A>7AAD3A76>010B2A49(+00242A49)>01644929(+007D4929)>7AAD315D>010412E2(+001D12E2)>7AAD302C
+[13:23:59] Class1BridgeHook: phase=return recipient=0A5E0D50 payload=EC85FA34
+[13:23:59] MainHook: WSASend Called [127.0.0.1:20060]
+[13:23:59] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:01] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:01] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:04] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:06] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:06] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:06] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:09] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:11] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:11] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:13] EventDispatchHook: class=1 count=3 caller=ECFA1035 callerRva=0x00000000 envelope=EC85FA20 payload=EC85FA34 logicalLen=9 hash=0x3F9A250C changed=1 manager=F4B91CBC vtable=01B35AD4 handler=01646550 handlerRva=0x007D6550 bytes=B8 E0 AD 01 00 04 00 00 00 00 00 00 09 00 00 00 50 FA 85 EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 2C EF 39 EF 06 04 74 72 75 65 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7AAD352A>7AAD2EFF
+[13:24:13] Class1BridgeHook: phase=enter recipient=0A5E0D50 vtable=01BAF108 method=010B2A20 methodRva=0x00242A20 unused=00000001 payload=EC85FA34
+[13:24:13] AreaRpcHook: sender=EE10FD18 blob=EC85FA34 len=9 marker=0xC7 target=0x1279C371 operation=0xEF39EF2C class1Recipient=0A5E0D50 class1Method=010B2A20 class1MethodRva=0x00242A20 bytes=C7 71 C3 79 12 2C EF 39 EF stack=7AAD352A>7AAD3A76>010B2A49(+00242A49)>01644929(+007D4929)>7AAD315D>010412E2(+001D12E2)>7AAD302C
+[13:24:13] Class1BridgeHook: phase=return recipient=0A5E0D50 payload=EC85FA34
+[13:24:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:13] EventDispatchHook: class=1 count=4 caller=F13A6A43 callerRva=0x00000000 envelope=EC85FA20 payload=EC85FA34 logicalLen=9 hash=0x962556B7 changed=1 manager=F4B91CBC vtable=01B35AD4 handler=01646550 handlerRva=0x007D6550 bytes=B8 E0 AD 01 00 04 00 00 00 00 00 00 09 00 00 00 50 FA 85 EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 6B ED 20 CE 06 04 74 72 75 65 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7AAD352A>7AAD2EFF
+[13:24:13] Class1BridgeHook: phase=enter recipient=0A5E0D50 vtable=01BAF108 method=010B2A20 methodRva=0x00242A20 unused=00000001 payload=EC85FA34
+[13:24:13] AreaRpcHook: sender=EE10FD18 blob=EC85FA34 len=9 marker=0xC7 target=0x1279C371 operation=0xCE20ED6B class1Recipient=0A5E0D50 class1Method=010B2A20 class1MethodRva=0x00242A20 bytes=C7 71 C3 79 12 6B ED 20 CE stack=7AAD352A>7AAD3A76>010B2A49(+00242A49)>01644929(+007D4929)>7AAD315D>010412E2(+001D12E2)>7AAD302C
+[13:24:13] Class1BridgeHook: phase=return recipient=0A5E0D50 payload=EC85FA34
+[13:24:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:13] EventDispatchHook: class=1 count=5 caller=ED181CC3 callerRva=0x00000000 envelope=EC85FA20 payload=EC85FA34 logicalLen=9 hash=0x33C87505 changed=1 manager=F4B91CBC vtable=01B35AD4 handler=01646550 handlerRva=0x007D6550 bytes=B8 E0 AD 01 00 04 00 00 00 00 00 00 09 00 00 00 50 FA 85 EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 F2 40 F5 F5 06 04 74 72 75 65 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7AAD352A>7AAD2EFF>ED181CC3
+[13:24:13] Class1BridgeHook: phase=enter recipient=0A5E0D50 vtable=01BAF108 method=010B2A20 methodRva=0x00242A20 unused=00000001 payload=EC85FA34
+[13:24:13] ReadinessVmHook: external-exec-frame[0]-minus32=7AAD362E bytes=FF FF 6A 00 50 E8 38 45 00 00 83 C4 0C 8D 85 78 FF FF FF 6A 00 50 6A 10 6A 00 FF 15 48 C0 AE 7A 0F B7 C0 33 C9 33 F6 89 85 70 FF FF FF 66 3B C8 0F 83 CA 00 00 00 0F B7 C6 0F 57 C0 89 85 74 FF ascii=..j.P.8E.......x...j.Pj.j...H..z...3.3...p...f;...........W...t.
+[13:24:13] ReadinessVmHook: external-exec-frame[1]-minus32=7AAD38A9 bytes=F5 0F 85 8C 01 00 00 B9 01 00 00 00 BA 18 71 AF 7A 33 C0 F0 0F B1 0A 85 C0 75 05 E8 37 FD FF FF 64 8B 3D 2C 00 00 00 8B 35 50 71 AF 7A 8B 34 B7 FF B6 08 00 00 00 68 78 28 AF 7A 68 84 28 AF 7A ascii=..............q.z3.......u..7...d.=,....5Pq.z.4.......hx(.zh.(.z
+[13:24:13] ReadinessVmHook: external-exec-frame[4]-minus32=7AAD313D bytes=FF 83 C4 0C C7 45 FC FE FF FF FF 8B 7D DC 8B 5D E4 A1 C0 70 AF 7A 85 C0 74 09 56 FF 75 08 FF D0 83 C4 08 56 FF 37 68 D0 25 AF 7A 68 F8 25 AF 7A E8 7E E4 FF FF 83 C4 10 89 1F 8B 45 D8 8B 4D E0 ascii=.....E......}..]...p.z..t.V.u......V.7h.%.zh.%.z.~.........E..M.
+[13:24:13] ReadinessVmHook: external-exec-frame[6]-minus32=7AAD300C bytes=1C 25 AF 7A E8 DB E5 FF FF 83 C4 10 C7 45 FC FE FF FF FF A1 10 71 AF 7A 85 C0 74 07 57 56 FF D0 83 C4 08 8B 4D F0 64 89 0D 00 00 00 00 59 5F 5E 5B 8B 4D E4 33 CD E8 99 2D 00 00 8B E5 5D C3 CC ascii=.%.z.........E.......q.z..t.WV......M.d......Y_^[.M.3...-....]..
+[13:24:13] ReadinessVmHook: external-exec-frame[7]-minus32=ED181CA3 bytes=ED 86 3C 8E C7 04 24 0B 0A BF 0D E8 5D F5 EB 13 89 44 24 04 C7 04 24 01 00 00 00 E8 DD F5 EB 13 83 C4 0C C3 00 00 00 00 00 00 00 00 00 83 EC 04 8B 44 24 08 89 04 24 E8 B1 FF FF FF 83 C4 04 C3 ascii=..<...$.....]....D$...$..........................D$...$.........
+[13:24:13] ReadinessActiveHook: depth=0
+[13:24:13] ReadinessContextHook: sequence=5393 ageMs=312 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:13] ReadinessContextHook: sequence=5394 ageMs=312 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:13] ReadinessContextHook: sequence=5395 ageMs=312 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:13] ReadinessContextHook: sequence=5396 ageMs=312 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:13] ReadinessContextHook: sequence=5397 ageMs=296 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:13] ReadinessContextHook: sequence=5398 ageMs=296 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:13] ReadinessContextHook: sequence=5399 ageMs=296 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:13] ReadinessContextHook: sequence=5400 ageMs=296 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:13] ReadinessContextHook: sequence=5401 ageMs=296 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:13] ReadinessContextHook: sequence=5402 ageMs=296 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:13] ReadinessContextHook: sequence=5403 ageMs=296 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:13] ReadinessContextHook: sequence=5404 ageMs=296 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:13] ReadinessContextHook: sequence=5405 ageMs=281 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:13] ReadinessContextHook: sequence=5406 ageMs=281 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:13] ReadinessContextHook: sequence=5407 ageMs=281 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:13] ReadinessContextHook: sequence=5408 ageMs=281 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:13] AreaRpcHook: sender=EE10FD18 blob=EC85FA34 len=9 marker=0xC7 target=0x1279C371 operation=0xF5F540F2 class1Recipient=0A5E0D50 class1Method=010B2A20 class1MethodRva=0x00242A20 bytes=C7 71 C3 79 12 F2 40 F5 F5 stack=7AAD352A>7AAD3A76>010B2A49(+00242A49)>01644929(+007D4929)>7AAD315D>010412E2(+001D12E2)>7AAD302C>ED181CC3
+[13:24:13] Class1BridgeHook: phase=return recipient=0A5E0D50 payload=EC85FA34
+[13:24:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:13] EventDispatchHook: class=1 count=6 caller=ED126437 callerRva=0x00000000 envelope=EC85FA20 payload=EC85FA34 logicalLen=21 hash=0xB93A7A52 changed=1 manager=F4B91CBC vtable=01B35AD4 handler=01646550 handlerRva=0x007D6550 bytes=B8 E0 AD 01 00 04 00 00 00 00 00 00 15 00 00 00 50 FA 85 EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 CC 27 D5 17 02 C7 1C 1C E7 85 B2 80 36 8E 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7AAD352A>7AAD2EFF>ED126437
+[13:24:13] Class1BridgeHook: phase=enter recipient=0A5E0D50 vtable=01BAF108 method=010B2A20 methodRva=0x00242A20 unused=00000001 payload=EC85FA34
+[13:24:13] AreaRpcHook: sender=EE10FD18 blob=EC85FA34 len=21 marker=0xC7 target=0x1279C371 operation=0x17D527CC class1Recipient=0A5E0D50 class1Method=010B2A20 class1MethodRva=0x00242A20 bytes=C7 71 C3 79 12 CC 27 D5 17 02 C7 1C 1C E7 85 B2 80 36 8E 03 00 stack=7AAD352A>7AAD3A76>010B2A49(+00242A49)>01644929(+007D4929)>7AAD315D>010412E2(+001D12E2)>7AAD302C>ED126437
+[13:24:13] Class1BridgeHook: phase=return recipient=0A5E0D50 payload=EC85FA34
+[13:24:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:13] EventDispatchHook: class=1 count=7 caller=ED126437 callerRva=0x00000000 envelope=EC85FA20 payload=EC85FA34 logicalLen=21 hash=0x0F3A6ED5 changed=1 manager=F4B91CBC vtable=01B35AD4 handler=01646550 handlerRva=0x007D6550 bytes=B8 E0 AD 01 00 04 00 00 00 00 00 00 15 00 00 00 50 FA 85 EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 CC 27 D5 17 02 C7 53 67 7E EB A7 AD 4C 60 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7AAD352A>7AAD2EFF>ED126437
+[13:24:13] Class1BridgeHook: phase=enter recipient=0A5E0D50 vtable=01BAF108 method=010B2A20 methodRva=0x00242A20 unused=00000001 payload=EC85FA34
+[13:24:13] AreaRpcHook: sender=EE10FD18 blob=EC85FA34 len=21 marker=0xC7 target=0x1279C371 operation=0x17D527CC class1Recipient=0A5E0D50 class1Method=010B2A20 class1MethodRva=0x00242A20 bytes=C7 71 C3 79 12 CC 27 D5 17 02 C7 53 67 7E EB A7 AD 4C 60 03 00 stack=7AAD352A>7AAD3A76>010B2A49(+00242A49)>01644929(+007D4929)>7AAD315D>010412E2(+001D12E2)>7AAD302C>ED126437
+[13:24:13] Class1BridgeHook: phase=return recipient=0A5E0D50 payload=EC85FA34
+[13:24:13] EventDispatchHook: class=1 count=8 caller=ED126437 callerRva=0x00000000 envelope=EC85FA20 payload=EC85FA34 logicalLen=21 hash=0x5D8A190C changed=1 manager=F4B91CBC vtable=01B35AD4 handler=01646550 handlerRva=0x007D6550 bytes=B8 E0 AD 01 00 04 00 00 00 00 00 00 15 00 00 00 50 FA 85 EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 CC 27 D5 17 02 CF 4B 8B 68 67 5C 82 05 D4 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7AAD352A>7AAD2EFF>ED126437
+[13:24:13] Class1BridgeHook: phase=enter recipient=0A5E0D50 vtable=01BAF108 method=010B2A20 methodRva=0x00242A20 unused=00000001 payload=EC85FA34
+[13:24:13] AreaRpcHook: sender=EE10FD18 blob=EC85FA34 len=21 marker=0xC7 target=0x1279C371 operation=0x17D527CC class1Recipient=0A5E0D50 class1Method=010B2A20 class1MethodRva=0x00242A20 bytes=C7 71 C3 79 12 CC 27 D5 17 02 CF 4B 8B 68 67 5C 82 05 D4 03 00 stack=7AAD352A>7AAD3A76>010B2A49(+00242A49)>01644929(+007D4929)>7AAD315D>010412E2(+001D12E2)>7AAD302C>ED126437
+[13:24:13] Class1BridgeHook: phase=return recipient=0A5E0D50 payload=EC85FA34
+[13:24:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:13] EventDispatchHook: class=1 count=9 caller=ED131B20 callerRva=0x00000000 envelope=EC85FA20 payload=EC85FA34 logicalLen=11 hash=0x2B53B8F6 changed=1 manager=F4B91CBC vtable=01B35AD4 handler=01646550 handlerRva=0x007D6550 bytes=B8 E0 AD 01 00 04 00 00 00 00 00 00 0B 00 00 00 50 FA 85 EC 05 00 00 00 00 00 00 00 CF 14 63 F5 32 F5 5F 35 EB 02 64 4B 8B 68 67 5C 82 05 D4 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7AAD352A>7AAD2EFF>ED131B20>0102EC8F(+001BEC8F)>01644987(+007D4987)>0102E747(+001BE747)>010318B1(+001C18B1)>010720F3(+002020F3)>ED122C35
+[13:24:13] Class1BridgeHook: phase=enter recipient=0A5E0D50 vtable=01BAF108 method=010B2A20 methodRva=0x00242A20 unused=00000001 payload=EC85FA34
+[13:24:13] AreaRpcHook: sender=EE10FD18 blob=EC85FA34 len=11 marker=0xCF target=0x00000000 operation=0x00000000 class1Recipient=0A5E0D50 class1Method=010B2A20 class1MethodRva=0x00242A20 bytes=CF 14 63 F5 32 F5 5F 35 EB 02 64 stack=7AAD352A>7AAD3A76>010B2A49(+00242A49)>01644929(+007D4929)>7AAD315D>010412E2(+001D12E2)>7AAD302C>ED131B20>0102EC8F(+001BEC8F)>01644987(+007D4987)>0102E747(+001BE747)>010318B1(+001C18B1)>010720F3(+002020F3)>ED122C35
+[13:24:13] Class1BridgeHook: phase=return recipient=0A5E0D50 payload=EC85FA34
+[13:24:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:14] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:15] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:15] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:15] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:16] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:16] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:16] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:16] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:16] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:16] EventDispatchHook: class=1 count=10 caller=F12DBFC3 callerRva=0x00000000 envelope=EC85FA20 payload=EC85FA34 logicalLen=9 hash=0xC7C5BBF5 changed=1 manager=F4B91CBC vtable=01B35AD4 handler=01646550 handlerRva=0x007D6550 bytes=B8 E0 AD 01 00 04 00 00 00 00 00 00 09 00 00 00 50 FA 85 EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 E5 44 26 85 02 64 4B 8B 68 67 5C 82 05 D4 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7AAD352A>7AAD2EFF
+[13:24:16] Class1BridgeHook: phase=enter recipient=0A5E0D50 vtable=01BAF108 method=010B2A20 methodRva=0x00242A20 unused=00000001 payload=EC85FA34
+[13:24:16] AreaRpcHook: sender=EE10FD18 blob=EC85FA34 len=9 marker=0xC7 target=0x1279C371 operation=0x852644E5 class1Recipient=0A5E0D50 class1Method=010B2A20 class1MethodRva=0x00242A20 bytes=C7 71 C3 79 12 E5 44 26 85 stack=7AAD352A>7AAD3A76>010B2A49(+00242A49)>01644929(+007D4929)>7AAD315D>010412E2(+001D12E2)>7AAD302C
+[13:24:16] Class1BridgeHook: phase=return recipient=0A5E0D50 payload=EC85FA34
+[13:24:16] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:16] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:17] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:20] MainHook: WSASend Called [127.0.0.1:20066]
+[13:24:20] MainHook: WSARecv Called [127.0.0.1:20066]
+[13:24:21] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:21] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:21] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:23] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:26] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:26] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:26] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:28] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:28] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:30] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:31] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:31] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:33] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:33] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:34] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:34] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:35] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:35] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:35] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:35] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:35] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:35] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:35] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:36] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:36] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:36] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:36] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:36] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:36] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:36] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:36] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:36] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:36] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:36] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:36] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:36] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:37] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:37] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:37] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:37] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:37] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:37] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:37] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:37] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:37] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:38] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:41] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:41] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:43] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:43] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:43] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:43] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:43] ReadinessVmHook: phase=enter this=F4B91BE4 callerRva=0x001C173B character=4000010E218A839B method=D000199A7D03034B contexts=0E71F764,FD01EEC0,0E71F718,00000000
+[13:24:43] ReadinessVmHook: this=F4B91BE4 bytes=03 00 00 00 00 00 00 00 EC 1B B9 F4 EC 1B B9 F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 1C B9 F4 08 1C B9 F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2C CB DA 01 ascii=............................................................,...
+[13:24:43] ReadinessVmHook: context5=0E71F764 bytes=00 DE 10 F5 00 00 00 00 9A 19 00 D0 60 B6 53 29 72 2B B4 40 09 6C E0 62 A4 C2 BF 00 F1 61 43 00 36 06 00 00 00 00 00 00 00 00 00 00 A0 B5 47 0A CC 08 3F 0A FF FF FF FF 2B 2E FF F7 20 AC F4 59 ascii=............`.S)r+.@.l.b.....aC.6.............G...?.....+... ..Y
+[13:24:43] ReadinessVmHook: context6=FD01EEC0 bytes=64 30 00 FC B0 8D 4B 0A B8 8D 4B 0A B8 8D 4B 0A 00 00 00 00 08 00 00 00 C0 EE 01 FD C0 EE 01 FD 20 EA 01 FD E0 D2 01 FD A0 E5 01 FD 01 00 00 00 FC BC 62 0B D0 E6 00 E0 01 00 00 00 C0 09 A7 01 ascii=d0....K...K...K................. .................b.............
+[13:24:43] ReadinessVmHook: context7=0E71F718 bytes=70 5C 5F 3A 36 00 00 40 EC F7 71 0E 96 F0 02 01 9B 83 8A 21 0E 01 00 40 4B 03 03 7D 9A 19 00 D0 70 5C 5F 3A 36 00 00 40 A0 B5 47 0A BC 1C B9 F4 00 71 09 EF C4 F7 71 0E 00 2F 6E 77 80 08 3F 0A ascii=p\_:6..@..q........!...@K..}....p\_:6..@..G......q....q../nw..?.
+[13:24:43] ReadinessVmHook: context8=null
+[13:24:43] ReadinessVmHook: phase=deep-dump begin
+[13:24:43] ReadinessVmHook: this.ptr[08]=F4B91BEC bytes=EC 1B B9 F4 EC 1B B9 F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 1C B9 F4 08 1C B9 F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2C CB DA 01 2C CB DA 01 2E CB DA 01 ascii=....................................................,...,.......
+[13:24:43] ReadinessVmHook: this.ptr[0C]=F4B91BEC bytes=EC 1B B9 F4 EC 1B B9 F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 1C B9 F4 08 1C B9 F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2C CB DA 01 2C CB DA 01 2E CB DA 01 ascii=....................................................,...,.......
+[13:24:43] ReadinessVmHook: this.ptr[24]=F4B91C08 bytes=08 1C B9 F4 08 1C B9 F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2C CB DA 01 2C CB DA 01 2E CB DA 01 00 00 00 00 00 00 00 00 C0 9C AA FA C0 9C AA FA C0 DC AA FA 00 00 00 00 00 00 00 00 ascii=........................,...,...................................
+[13:24:43] ReadinessVmHook: this.ptr[28]=F4B91C08 bytes=08 1C B9 F4 08 1C B9 F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2C CB DA 01 2C CB DA 01 2E CB DA 01 00 00 00 00 00 00 00 00 C0 9C AA FA C0 9C AA FA C0 DC AA FA 00 00 00 00 00 00 00 00 ascii=........................,...,...................................
+[13:24:43] ReadinessVmHook: this.ptr[3C]=01DACB2C bytes=00 00 00 00 64 0F E6 09 00 00 00 00 00 00 00 00 80 0B 2B 0A E8 0D 2B 0A 58 0E 2B 0A 01 00 00 00 00 00 00 00 6E 6F 74 5F 66 6F 75 6E 64 00 00 00 00 00 00 00 09 00 00 00 0F 00 00 00 00 00 00 00 ascii=....d.............+...+.X.+.........not_found...................
+[13:24:43] ReadinessVmHook: context5.ptr[00]=F510DE00 bytes=7F 07 00 00 40 4D 1F F5 5A 4D 1F F5 5C 4D 1F F5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 7E 07 00 00 60 4D 1F F5 78 4D 1F F5 7A 4D 1F F5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ascii=....@M..ZM..\M..................~...`M..xM..zM..................
+[13:24:43] ReadinessVmHook: context5.ptr[08]=D000199A bytes=FF FF AB 78 2B 41 15 00 36 00 D2 1E 7F 7F 3D 46 DC 7F D1 D0 D0 40 FE FF FF FF F3 4A 7F 7F 56 24 CE 7F D1 D0 D0 40 15 00 37 00 FD 6D 7F 7F FE FF FF FF D1 D0 D0 40 12 00 38 00 E1 2E 7F 7F 49 3E ascii=...x+A..6.....=F.....@.....J..V$.....@..7..m.........@..8.....I>
+[13:24:43] ReadinessVmHook: context5.ptr[2C]=0A47B5A0 bytes=D4 94 B9 01 A4 2E EF D1 00 00 00 00 03 0A 00 00 3A 02 00 00 63 00 5C 00 7A 7D 4F 0A 38 0C 00 00 02 00 00 00 00 00 6C 00 44 08 4F 0A 38 0C 00 00 00 DB 01 E0 94 08 00 00 00 DB 01 E0 94 08 00 00 ascii=................:...c.\.z}O.8.........l.D.O.8...................
+[13:24:43] ReadinessVmHook: context5.ptr[30]=0A3F08CC bytes=F0 27 3A F6 01 03 00 00 DA EC 22 0D 00 EC 22 0D 6A 02 00 00 00 00 80 3F F0 27 3A F6 01 03 00 00 00 71 09 EF 18 71 09 EF 20 71 09 EF 6F 00 72 00 D0 06 D8 0D C0 0D 48 0A 01 00 00 00 00 00 00 00 ascii=.':......."...".j......?.':......q...q.. q..o.r.......H.........
+[13:24:43] ReadinessVmHook: context5.ptr[38]=F7FF2E2B bytes=89 56 71 23 FA 13 12 AD 74 EF B3 B4 72 B9 4B 33 57 3D 16 E9 AC 7C 58 54 E9 24 6A D4 4A AD C1 3A 74 D0 EB B5 6E 89 B6 2D 0C 85 F8 E7 04 E6 96 9C D0 16 86 42 2C 9C 0A 67 02 06 21 C0 37 53 76 31 ascii=.Vq#....t...r.K3W=...|XT.$j.J..:t...n..-...........B,..g..!.7Sv1
+[13:24:43] ReadinessVmHook: context6.ptr[00]=FC003064 bytes=60 AC 5E FC 70 AC 5E FC 70 AC 5E FC F4 F5 71 0E C0 EE 01 FD 00 00 00 00 00 00 00 00 B8 5E 83 28 62 76 57 43 01 00 E7 00 03 2F 51 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 99 29 00 00 ascii=`.^.p.^.p.^...q..............^.(bvWC...../Q..................)..
+[13:24:43] ReadinessVmHook: context6.ptr[04]=0A4B8DB0 bytes=00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 E0 8B 73 FB 00 00 00 00 00 00 00 00 ascii=......................................................s.........
+[13:24:43] ReadinessVmHook: context6.ptr[08]=0A4B8DB8 bytes=00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 E0 8B 73 FB 00 00 00 00 00 00 00 00 01 00 00 00 80 8C 73 FB ascii=..............................................s...............s.
+[13:24:43] ReadinessVmHook: context6.ptr[0C]=0A4B8DB8 bytes=00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 E0 8B 73 FB 00 00 00 00 00 00 00 00 01 00 00 00 80 8C 73 FB ascii=..............................................s...............s.
+[13:24:43] ReadinessVmHook: context6.ptr[18]=FD01EEC0 bytes=64 30 00 FC B0 8D 4B 0A B8 8D 4B 0A B8 8D 4B 0A 00 00 00 00 08 00 00 00 C0 EE 01 FD C0 EE 01 FD 20 EA 01 FD E0 D2 01 FD A0 E5 01 FD 01 00 00 00 FC BC 62 0B D0 E6 00 E0 01 00 00 00 C0 09 A7 01 ascii=d0....K...K...K................. .................b.............
+[13:24:43] ReadinessVmHook: context6.ptr[1C]=FD01EEC0 bytes=64 30 00 FC B0 8D 4B 0A B8 8D 4B 0A B8 8D 4B 0A 00 00 00 00 08 00 00 00 C0 EE 01 FD C0 EE 01 FD 20 EA 01 FD E0 D2 01 FD A0 E5 01 FD 01 00 00 00 FC BC 62 0B D0 E6 00 E0 01 00 00 00 C0 09 A7 01 ascii=d0....K...K...K................. .................b.............
+[13:24:43] ReadinessVmHook: context6.ptr[20]=FD01EA20 bytes=20 E8 01 FD A0 EC 01 FD E0 EE 01 FD 01 00 00 00 27 31 A8 A8 D6 E6 00 E0 03 00 00 00 C0 09 A7 01 00 00 00 00 00 00 00 00 60 EA 01 FD 01 00 00 00 DF 33 3C 44 D6 E6 00 E0 03 00 00 00 C0 09 A7 01 ascii= ...............'1......................`........3<D............
+[13:24:43] ReadinessVmHook: context6.ptr[24]=FD01D2E0 bytes=E0 D0 01 FD 20 D5 01 FD E0 EE 01 FD 01 00 00 00 98 E4 E4 3B CC E6 00 E0 03 00 00 00 C0 09 A7 01 00 00 00 00 00 00 00 00 20 D3 01 FD 01 00 00 00 0C 89 D6 39 CC E6 00 E0 03 00 00 00 C0 09 A7 01 ascii=.... ..............;.................... ..........9............
+[13:24:43] ReadinessVmHook: context6.ptr[28]=FD01E5A0 bytes=60 FD 01 FD E0 EE 01 FD 20 D7 01 FD 01 00 00 00 9D 0B B5 DF DB E6 00 E0 03 00 00 00 C0 09 A7 01 00 00 00 00 00 00 00 00 E0 E5 01 FD 01 00 00 00 B6 49 85 4F DB E6 00 E0 03 00 00 00 C0 09 A7 01 ascii=`....... ........................................I.O............
+[13:24:43] ReadinessVmHook: context6.ptr[30]=0B62BCFC bytes=DF 19 00 00 C0 52 00 00 E3 F2 B8 68 2A 46 6D A1 8A B3 1B 53 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 88 55 0B 00 00 00 00 40 04 32 C1 A1 0D 36 3A B1 6B 57 1F ascii=.....R.....h*Fm....S........................ .U.....@.2...6:.kW.
+[13:24:43] ReadinessVmHook: context6.ptr[34]=E000E6D0 bytes=A6 DF 6B BF 6E 66 2F 9A E9 AC ED 70 AE 69 B4 55 00 3C 7D 6E 4E 3F 7A 6C 53 29 72 E8 70 CA 9A 26 98 EC A2 5A 8B BC 54 8C 64 1A 67 BC 21 15 32 A1 AB C2 82 CA 48 46 B4 74 0A B7 C5 20 49 C1 42 48 ascii=..k.nf/....p.i.U.<}nN?zlS)r.p..&...Z..T.d.g.!.2.....HF.t... I.BH
+[13:24:43] ReadinessVmHook: context6.ptr[3C]=01A709C0 bytes=B8 1C CA CD 01 E9 02 DE C2 FF CC CC CC CC CC CC 8B 45 08 83 C0 08 50 E8 34 41 8D FF C3 8B 45 08 83 C0 24 50 E8 57 6B 6B FF C3 8B 4D 08 83 C1 40 E9 8B 6B 65 FF 8B 4D 08 83 C1 60 E9 80 6B 65 FF ascii=.................E....P.4A....E...$P.Wkk...M...@..ke..M...`..ke.
+[13:24:43] ReadinessVmHook: context7.ptr[08]=0E71F7EC bytes=6C F8 71 0E A7 EE 02 01 A0 B5 47 0A 74 7D 4F 0A 38 0C 00 00 FF FF FF FF 00 00 00 00 00 00 00 00 1E E7 13 01 00 00 00 00 80 08 3F 0A CC 08 3F 0A E4 1B B9 F4 D8 2F 3A F6 FF FF FF FF FA 01 00 00 ascii=l.q.......G.t}O.8.........................?...?....../:.........
+[13:24:43] ReadinessVmHook: context7.ptr[0C]=0102F096 bytes=DD 44 24 30 83 EC 08 DD 1C 24 8B F8 E8 69 8D 3B 00 DD D8 8B 44 24 24 8B 4C 24 20 8B 54 24 1C 83 C4 08 50 51 52 E8 70 9E F1 FF 84 C0 74 0D 8B 45 10 8B 4D 0C 50 51 E8 7F 0E F4 FF 8B C7 8B 4C 24 ascii=.D$0.....$...i.;....D$$.L$ .T$....PQR.p.....t..E..M.PQ........L$
+[13:24:43] ReadinessVmHook: context7.ptr[1C]=D000199A bytes=FF FF AB 78 2B 41 15 00 36 00 D2 1E 7F 7F 3D 46 DC 7F D1 D0 D0 40 FE FF FF FF F3 4A 7F 7F 56 24 CE 7F D1 D0 D0 40 15 00 37 00 FD 6D 7F 7F FE FF FF FF D1 D0 D0 40 12 00 38 00 E1 2E 7F 7F 49 3E ascii=...x+A..6.....=F.....@.....J..V$.....@..7..m.........@..8.....I>
+[13:24:43] ReadinessVmHook: context7.ptr[28]=0A47B5A0 bytes=D4 94 B9 01 A4 2E EF D1 00 00 00 00 03 0A 00 00 3A 02 00 00 63 00 5C 00 7A 7D 4F 0A 38 0C 00 00 02 00 00 00 00 00 6C 00 44 08 4F 0A 38 0C 00 00 00 DB 01 E0 94 08 00 00 00 DB 01 E0 94 08 00 00 ascii=................:...c.\.z}O.8.........l.D.O.8...................
+[13:24:43] ReadinessVmHook: context7.ptr[2C]=F4B91CBC bytes=D4 5A B3 01 30 03 00 00 00 00 00 00 F2 80 F0 27 D2 64 00 E0 0F 00 50 00 32 00 4F 00 D2 F4 83 02 00 00 00 40 00 00 00 00 00 00 50 00 D8 06 00 00 50 00 05 00 01 03 61 62 6C 2E 6A 65 64 69 5F 63 ascii=.Z..0..........'.d....P.2.O........@......P.....P.....abl.jedi_c
+[13:24:43] ReadinessVmHook: context7.ptr[30]=EF097100 bytes=FA 01 00 00 00 00 00 00 22 00 00 00 00 00 00 00 ED 01 00 00 00 00 00 00 04 00 00 00 00 00 00 00 63 3A 5C 77 69 6E 64 6F 77 73 5C 73 79 73 74 65 6D 33 32 5C 6F 6C 65 61 63 63 2E 64 6C 6C 00 00 ascii=........".......................c:\windows\system32\oleacc.dll..
+[13:24:43] ReadinessVmHook: context7.ptr[34]=0E71F7C4 bytes=F0 F7 71 0E 40 7E 3E 01 D8 F7 71 0E 48 AF BC 9A F2 D7 7A 3E F4 F7 71 0E A0 8F F2 00 FA 01 00 00 A0 B5 47 0A BC 1C B9 F4 6C F8 71 0E A7 EE 02 01 A0 B5 47 0A 74 7D 4F 0A 38 0C 00 00 FF FF FF FF ascii=..q.@~>...q.H.....z>..q...........G.....l.q.......G.t}O.8.......
+[13:24:43] ReadinessVmHook: context7.ptr[38]=776E2F00 bytes=66 39 74 24 10 74 25 84 DB 79 09 0F 01 F9 89 4C 24 2C EB 5A F6 C3 20 74 07 0F AE E8 0F 31 EB 4E F6 C3 10 74 03 0F AE F0 0F 31 EB 42 8D 44 24 40 89 44 24 18 8B 4C 24 18 CD 81 89 01 89 51 04 F6 ascii=f9t$.t%..y.....L$,.Z.. t.....1.N...t.....1.B.D$@.D$..L$......Q..
+[13:24:43] ReadinessVmHook: context7.ptr[3C]=0A3F0880 bytes=40 71 B9 01 03 00 00 00 80 C7 47 0A 80 C7 47 0A C0 C8 47 0A 00 00 00 00 00 00 00 00 63 00 5C 00 98 0F 4B 0A 9C 0F 4B 0A 9E 0F 4B 0A 6D 00 75 00 A0 0F 4B 0A A6 0F 4B 0A A8 0F 4B 0A 73 00 32 00 ascii=@q........G...G...G.........c.\...K...K...K.m.u...K...K...K.s.2.
+[13:24:43] ReadinessVmHook: phase=deep-dump end
+[13:24:43] ReadinessVmHook: phase=enter stack=7AAD352A>7AAD332D>0103173B(+001C173B)>0102F096(+001BF096)>0102EEA7(+001BEEA7)>0118078E(+0031078E)>011746FD(+003046FD)>00EE5897(+00075897)>00EE595E(+0007595E)>00EEF1EA(+0007F1EA)>010C77A0(+002577A0)>76495D49>776EE1FB>776EE181
+[13:24:43] EventDispatchHook: class=1 count=11 caller=ED181CC3 callerRva=0x00000000 envelope=EC85FA20 payload=EC85FA34 logicalLen=9 hash=0x33C87505 changed=1 manager=F4B91CBC vtable=01B35AD4 handler=01646550 handlerRva=0x007D6550 bytes=B8 E0 AD 01 00 04 00 00 00 00 00 00 09 00 00 00 50 FA 85 EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 F2 40 F5 F5 02 64 4B 8B 68 67 5C 82 05 D4 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7AAD352A>7AAD2EFF>ED181CC3>0102EC8F(+001BEC8F)>01644987(+007D4987)>0102E181(+001BE181)>7AAD33FF>0103173B(+001C173B)>0102F096(+001BF096)>0102EEA7(+001BEEA7)>0118078E(+0031078E)>011746FD(+003046FD)>00EE5897(+00075897)>00EE595E(+0007595E)>00EEF1EA(+0007F1EA)>010C77A0(+002577A0)>76495D49>776EE1FB>776EE181
+[13:24:43] Class1BridgeHook: phase=enter recipient=0A5E0D50 vtable=01BAF108 method=010B2A20 methodRva=0x00242A20 unused=00000001 payload=EC85FA34
+[13:24:43] ReadinessActiveHook: depth=1
+[13:24:43] ReadinessActiveHook: depth=1 ageMs=0 this=F4B91BE4 callerRva=0x001C173B args=218A839B,4000010E,7D03034B,D000199A,0E71F764,FD01EEC0,0E71F718,00000000
+[13:24:43] ReadinessContextHook: sequence=17033 ageMs=46 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:43] ReadinessContextHook: sequence=17034 ageMs=46 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:43] ReadinessContextHook: sequence=17035 ageMs=46 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:43] ReadinessContextHook: sequence=17036 ageMs=46 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:43] ReadinessContextHook: sequence=17037 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:43] ReadinessContextHook: sequence=17038 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:43] ReadinessContextHook: sequence=17039 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:43] ReadinessContextHook: sequence=17040 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:43] ReadinessContextHook: sequence=17041 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:43] ReadinessContextHook: sequence=17042 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:43] ReadinessContextHook: sequence=17043 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:43] ReadinessContextHook: sequence=17044 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:43] ReadinessContextHook: sequence=17045 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:43] ReadinessContextHook: sequence=17046 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:43] ReadinessContextHook: sequence=17047 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:43] ReadinessContextHook: sequence=17048 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:24:43] AreaRpcHook: sender=EE10FD18 blob=EC85FA34 len=9 marker=0xC7 target=0x1279C371 operation=0xF5F540F2 class1Recipient=0A5E0D50 class1Method=010B2A20 class1MethodRva=0x00242A20 bytes=C7 71 C3 79 12 F2 40 F5 F5 stack=7AAD352A>7AAD3A76>010B2A49(+00242A49)>01644929(+007D4929)>7AAD315D>010412E2(+001D12E2)>7AAD302C>ED181CC3>0102EC8F(+001BEC8F)>01644987(+007D4987)>0102E181(+001BE181)>7AAD33FF>0103173B(+001C173B)>0102F096(+001BF096)>0102EEA7(+001BEEA7)>0118078E(+0031078E)>011746FD(+003046FD)>00EE5897(+00075897)>00EE595E(+0007595E)>00EEF1EA(+0007F1EA)>010C77A0(+002577A0)>76495D49>776EE1FB>776EE181
+[13:24:43] Class1BridgeHook: phase=return recipient=0A5E0D50 payload=EC85FA34
+[13:24:43] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:45] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:46] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:48] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:51] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:51] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:53] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:56] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:56] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:56] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:24:56] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:57] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:58] MainHook: WSASend Called [127.0.0.1:20060]
+[13:24:58] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:25:01] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:01] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:25:03] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:05] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:06] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:06] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:25:06] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:09] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:11] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:11] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:25:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:25:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:13] ReadinessVmHook: phase=enter this=F4B91BE4 callerRva=0x001C173B character=4000010E218A839B method=D000199A7D03034B contexts=0E71F764,FD01EEC0,0E71F718,00000000
+[13:25:13] ReadinessVmHook: this=F4B91BE4 bytes=03 00 00 00 00 00 00 00 EC 1B B9 F4 EC 1B B9 F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 1C B9 F4 08 1C B9 F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2C CB DA 01 ascii=............................................................,...
+[13:25:13] ReadinessVmHook: context5=0E71F764 bytes=00 DE 10 F5 00 00 00 00 9A 19 00 D0 1D 76 3A EB 70 49 B4 40 09 6C E0 62 A4 C2 BF 00 ED 07 2A 00 40 06 00 00 00 00 00 00 00 00 00 00 A0 B5 47 0A CC 08 3F 0A FF FF FF FF 2B 2E FF F7 1F 80 1C 38 ascii=.............v:.pI.@.l.b......*.@.............G...?.....+......8
+[13:25:13] ReadinessVmHook: context6=FD01EEC0 bytes=64 30 00 FC B0 8D 4B 0A B8 8D 4B 0A B8 8D 4B 0A 00 00 00 00 08 00 00 00 C0 EE 01 FD C0 EE 01 FD 20 EA 01 FD E0 D2 01 FD A0 E5 01 FD 01 00 00 00 FC BC 62 0B D0 E6 00 E0 01 00 00 00 C0 09 A7 01 ascii=d0....K...K...K................. .................b.............
+[13:25:13] ReadinessVmHook: context7=0E71F718 bytes=70 5C 5F 3A 36 00 00 40 EC F7 71 0E 96 F0 02 01 9B 83 8A 21 0E 01 00 40 4B 03 03 7D 9A 19 00 D0 70 5C 5F 3A 36 00 00 40 A0 B5 47 0A BC 1C B9 F4 00 71 09 EF C4 F7 71 0E 00 2F 6E 77 80 08 3F 0A ascii=p\_:6..@..q........!...@K..}....p\_:6..@..G......q....q../nw..?.
+[13:25:13] ReadinessVmHook: context8=null
+[13:25:13] ReadinessVmHook: phase=enter stack=7AAD352A>7AAD332D>0103173B(+001C173B)>0102F096(+001BF096)>0102EEA7(+001BEEA7)>0118078E(+0031078E)>011746FD(+003046FD)>00EE5897(+00075897)>00EE595E(+0007595E)>00EEF1EA(+0007F1EA)>010C77A0(+002577A0)>76495D49>776EE1FB>776EE181
+[13:25:13] EventDispatchHook: class=1 count=12 caller=ED181CC3 callerRva=0x00000000 envelope=EC85FA20 payload=EC85FA34 logicalLen=9 hash=0x33C87505 changed=0 manager=F4B91CBC vtable=01B35AD4 handler=01646550 handlerRva=0x007D6550 bytes=B8 E0 AD 01 00 04 00 00 00 00 00 00 09 00 00 00 50 FA 85 EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 F2 40 F5 F5 02 64 4B 8B 68 67 5C 82 05 D4 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7AAD352A>7AAD2EFF>ED181CC3>0102EC8F(+001BEC8F)>01644987(+007D4987)>0102E181(+001BE181)>7AAD33FF>0103173B(+001C173B)>0102F096(+001BF096)>0102EEA7(+001BEEA7)>0118078E(+0031078E)>011746FD(+003046FD)>00EE5897(+00075897)>00EE595E(+0007595E)>00EEF1EA(+0007F1EA)>010C77A0(+002577A0)>76495D49>776EE1FB>776EE181
+[13:25:13] Class1BridgeHook: phase=enter recipient=0A5E0D50 vtable=01BAF108 method=010B2A20 methodRva=0x00242A20 unused=00000001 payload=EC85FA34
+[13:25:13] ReadinessActiveHook: depth=1
+[13:25:13] ReadinessActiveHook: depth=1 ageMs=0 this=F4B91BE4 callerRva=0x001C173B args=218A839B,4000010E,7D03034B,D000199A,0E71F764,FD01EEC0,0E71F718,00000000
+[13:25:13] ReadinessContextHook: sequence=29411 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:13] ReadinessContextHook: sequence=29412 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:13] ReadinessContextHook: sequence=29413 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:13] ReadinessContextHook: sequence=29414 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:13] ReadinessContextHook: sequence=29415 ageMs=16 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:13] ReadinessContextHook: sequence=29416 ageMs=16 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:13] ReadinessContextHook: sequence=29417 ageMs=16 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:13] ReadinessContextHook: sequence=29418 ageMs=16 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:13] ReadinessContextHook: sequence=29419 ageMs=16 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:13] ReadinessContextHook: sequence=29420 ageMs=16 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:13] ReadinessContextHook: sequence=29421 ageMs=16 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:13] ReadinessContextHook: sequence=29422 ageMs=16 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:13] ReadinessContextHook: sequence=29423 ageMs=0 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:13] ReadinessContextHook: sequence=29424 ageMs=0 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:13] ReadinessContextHook: sequence=29425 ageMs=0 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:13] ReadinessContextHook: sequence=29426 ageMs=0 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:13] AreaRpcHook: sender=EE10FD18 blob=EC85FA34 len=9 marker=0xC7 target=0x1279C371 operation=0xF5F540F2 class1Recipient=0A5E0D50 class1Method=010B2A20 class1MethodRva=0x00242A20 bytes=C7 71 C3 79 12 F2 40 F5 F5 stack=7AAD352A>7AAD3A76>010B2A49(+00242A49)>01644929(+007D4929)>7AAD315D>010412E2(+001D12E2)>7AAD302C>ED181CC3>0102EC8F(+001BEC8F)>01644987(+007D4987)>0102E181(+001BE181)>7AAD33FF>0103173B(+001C173B)>0102F096(+001BF096)>0102EEA7(+001BEEA7)>0118078E(+0031078E)>011746FD(+003046FD)>00EE5897(+00075897)>00EE595E(+0007595E)>00EEF1EA(+0007F1EA)>010C77A0(+002577A0)>76495D49>776EE1FB>776EE181
+[13:25:13] Class1BridgeHook: phase=return recipient=0A5E0D50 payload=EC85FA34
+[13:25:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:16] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:16] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:25:16] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:17] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:20] MainHook: WSASend Called [127.0.0.1:20066]
+[13:25:20] MainHook: WSARecv Called [127.0.0.1:20066]
+[13:25:21] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:21] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:21] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:21] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:21] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:21] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:25:21] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:21] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:22] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:22] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:22] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:23] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:26] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:26] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:25:26] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:28] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:28] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:25:31] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:31] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:25:33] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:33] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:35] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:36] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:36] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:25:36] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:39] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:40] EventDispatchHook: class=1 count=13 caller=ECEA0D0B callerRva=0x00000000 envelope=EC85FA20 payload=EC85FA34 logicalLen=16 hash=0x1F988A54 changed=1 manager=F4B91CBC vtable=01B35AD4 handler=01646550 handlerRva=0x007D6550 bytes=B8 E0 AD 01 00 04 00 00 00 00 00 00 10 00 00 00 50 FA 85 EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 31 A9 38 97 01 CC 1A C6 F6 DC 6D 82 05 D4 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7AAD352A>7AAD2EFF>ECEA0D0B
+[13:25:40] Class1BridgeHook: phase=enter recipient=0A5E0D50 vtable=01BAF108 method=010B2A20 methodRva=0x00242A20 unused=00000001 payload=EC85FA34
+[13:25:40] AreaRpcHook: sender=EE10FD18 blob=EC85FA34 len=16 marker=0xC7 target=0x1279C371 operation=0x9738A931 class1Recipient=0A5E0D50 class1Method=010B2A20 class1MethodRva=0x00242A20 bytes=C7 71 C3 79 12 31 A9 38 97 01 CC 1A C6 F6 DC 6D stack=7AAD352A>7AAD3A76>010B2A49(+00242A49)>01644929(+007D4929)>7AAD315D>010412E2(+001D12E2)>7AAD302C>ECEA0D0B
+[13:25:40] Class1BridgeHook: phase=return recipient=0A5E0D50 payload=EC85FA34
+[13:25:40] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:41] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:41] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:25:43] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:43] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:25:43] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:43] ReadinessVmHook: phase=enter this=F4B91BE4 callerRva=0x001C173B character=4000010E218A839B method=D000199A7D03034B contexts=0E71F764,FD01EEC0,0E71F718,00000000
+[13:25:43] ReadinessVmHook: this=F4B91BE4 bytes=03 00 00 00 00 00 00 00 EC 1B B9 F4 EC 1B B9 F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 1C B9 F4 08 1C B9 F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2C CB DA 01 ascii=............................................................,...
+[13:25:43] ReadinessVmHook: context5=0E71F764 bytes=00 DE 10 F5 00 00 00 00 9A 19 00 D0 93 4D 5E 09 73 67 B4 40 09 6C E0 62 A4 C2 BF 00 B2 AE 12 00 49 06 00 00 00 00 00 00 00 00 00 00 A0 B5 47 0A CC 08 3F 0A FF FF FF FF 2B 2E FF F7 95 E6 F0 18 ascii=.............M^.sg.@.l.b........I.............G...?.....+.......
+[13:25:43] ReadinessVmHook: context6=FD01EEC0 bytes=64 30 00 FC B0 8D 4B 0A B8 8D 4B 0A B8 8D 4B 0A 00 00 00 00 08 00 00 00 C0 EE 01 FD C0 EE 01 FD 20 EA 01 FD E0 D2 01 FD A0 E5 01 FD 01 00 00 00 FC BC 62 0B D0 E6 00 E0 01 00 00 00 C0 09 A7 01 ascii=d0....K...K...K................. .................b.............
+[13:25:43] ReadinessVmHook: context7=0E71F718 bytes=70 5C 5F 3A 36 00 00 40 EC F7 71 0E 96 F0 02 01 9B 83 8A 21 0E 01 00 40 4B 03 03 7D 9A 19 00 D0 70 5C 5F 3A 36 00 00 40 A0 B5 47 0A BC 1C B9 F4 00 71 09 EF C4 F7 71 0E 00 2F 6E 77 80 08 3F 0A ascii=p\_:6..@..q........!...@K..}....p\_:6..@..G......q....q../nw..?.
+[13:25:43] ReadinessVmHook: context8=null
+[13:25:43] ReadinessVmHook: phase=enter stack=7AAD352A>7AAD332D>0103173B(+001C173B)>0102F096(+001BF096)>0102EEA7(+001BEEA7)>0118078E(+0031078E)>011746FD(+003046FD)>00EE5897(+00075897)>00EE595E(+0007595E)>00EEF1EA(+0007F1EA)>010C77A0(+002577A0)>76495D49>776EE1FB>776EE181
+[13:25:43] EventDispatchHook: class=1 count=14 caller=ED181CC3 callerRva=0x00000000 envelope=EC85FA20 payload=EC85FA34 logicalLen=9 hash=0x33C87505 changed=1 manager=F4B91CBC vtable=01B35AD4 handler=01646550 handlerRva=0x007D6550 bytes=B8 E0 AD 01 00 04 00 00 00 00 00 00 09 00 00 00 50 FA 85 EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 F2 40 F5 F5 01 CC 1A C6 F6 DC 6D 82 05 D4 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7AAD352A>7AAD2EFF>ED181CC3>0102EC8F(+001BEC8F)>01644987(+007D4987)>0102E181(+001BE181)>7AAD33FF>0103173B(+001C173B)>0102F096(+001BF096)>0102EEA7(+001BEEA7)>0118078E(+0031078E)>011746FD(+003046FD)>00EE5897(+00075897)>00EE595E(+0007595E)>00EEF1EA(+0007F1EA)>010C77A0(+002577A0)>76495D49>776EE1FB>776EE181
+[13:25:43] Class1BridgeHook: phase=enter recipient=0A5E0D50 vtable=01BAF108 method=010B2A20 methodRva=0x00242A20 unused=00000001 payload=EC85FA34
+[13:25:43] ReadinessActiveHook: depth=1
+[13:25:43] ReadinessActiveHook: depth=1 ageMs=0 this=F4B91BE4 callerRva=0x001C173B args=218A839B,4000010E,7D03034B,D000199A,0E71F764,FD01EEC0,0E71F718,00000000
+[13:25:43] ReadinessContextHook: sequence=41700 ageMs=46 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:43] ReadinessContextHook: sequence=41701 ageMs=46 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:43] ReadinessContextHook: sequence=41702 ageMs=46 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:43] ReadinessContextHook: sequence=41703 ageMs=46 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:43] ReadinessContextHook: sequence=41704 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:43] ReadinessContextHook: sequence=41705 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:43] ReadinessContextHook: sequence=41706 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:43] ReadinessContextHook: sequence=41707 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:43] ReadinessContextHook: sequence=41708 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:43] ReadinessContextHook: sequence=41709 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:43] ReadinessContextHook: sequence=41710 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:43] ReadinessContextHook: sequence=41711 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:43] ReadinessContextHook: sequence=41712 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:43] ReadinessContextHook: sequence=41713 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:43] ReadinessContextHook: sequence=41714 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:43] ReadinessContextHook: sequence=41715 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:25:43] AreaRpcHook: sender=EE10FD18 blob=EC85FA34 len=9 marker=0xC7 target=0x1279C371 operation=0xF5F540F2 class1Recipient=0A5E0D50 class1Method=010B2A20 class1MethodRva=0x00242A20 bytes=C7 71 C3 79 12 F2 40 F5 F5 stack=7AAD352A>7AAD3A76>010B2A49(+00242A49)>01644929(+007D4929)>7AAD315D>010412E2(+001D12E2)>7AAD302C>ED181CC3>0102EC8F(+001BEC8F)>01644987(+007D4987)>0102E181(+001BE181)>7AAD33FF>0103173B(+001C173B)>0102F096(+001BF096)>0102EEA7(+001BEEA7)>0118078E(+0031078E)>011746FD(+003046FD)>00EE5897(+00075897)>00EE595E(+0007595E)>00EEF1EA(+0007F1EA)>010C77A0(+002577A0)>76495D49>776EE1FB>776EE181
+[13:25:43] Class1BridgeHook: phase=return recipient=0A5E0D50 payload=EC85FA34
+[13:25:43] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:45] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:46] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:25:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:48] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:51] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:51] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:25:53] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:56] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:56] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:56] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:25:56] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:56] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:57] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:58] MainHook: WSASend Called [127.0.0.1:20060]
+[13:25:58] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:26:01] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:01] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:01] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:26:03] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:06] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:06] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:26:06] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:09] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:11] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:11] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:26:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:26:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:13] ReadinessVmHook: phase=enter this=F4B91BE4 callerRva=0x001C173B character=4000010E218A839B method=D000199A7D03034B contexts=0E71F764,FD01EEC0,0E71F718,00000000
+[13:26:13] ReadinessVmHook: this=F4B91BE4 bytes=03 00 00 00 00 00 00 00 EC 1B B9 F4 EC 1B B9 F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 1C B9 F4 08 1C B9 F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2C CB DA 01 ascii=............................................................,...
+[13:26:13] ReadinessVmHook: context5=0E71F764 bytes=00 DE 10 F5 00 00 00 00 9A 19 00 D0 1F 48 DE 39 72 85 B4 40 09 6C E0 62 A4 C2 BF 00 3C 59 B9 00 52 06 00 00 00 00 00 00 00 00 00 00 A0 B5 47 0A CC 08 3F 0A FF FF FF FF 2B 2E FF F7 BC B9 70 F7 ascii=.............H.9r..@.l.b....<Y..R.............G...?.....+.....p.
+[13:26:13] ReadinessVmHook: context6=FD01EEC0 bytes=64 30 00 FC B0 8D 4B 0A B8 8D 4B 0A B8 8D 4B 0A 00 00 00 00 08 00 00 00 C0 EE 01 FD C0 EE 01 FD 20 EA 01 FD E0 D2 01 FD A0 E5 01 FD 01 00 00 00 FC BC 62 0B D0 E6 00 E0 01 00 00 00 C0 09 A7 01 ascii=d0....K...K...K................. .................b.............
+[13:26:13] ReadinessVmHook: context7=0E71F718 bytes=70 5C 5F 3A 36 00 00 40 EC F7 71 0E 96 F0 02 01 9B 83 8A 21 0E 01 00 40 4B 03 03 7D 9A 19 00 D0 70 5C 5F 3A 36 00 00 40 A0 B5 47 0A BC 1C B9 F4 00 71 09 EF C4 F7 71 0E 00 2F 6E 77 80 08 3F 0A ascii=p\_:6..@..q........!...@K..}....p\_:6..@..G......q....q../nw..?.
+[13:26:13] ReadinessVmHook: context8=null
+[13:26:13] ReadinessVmHook: phase=enter stack=7AAD352A>7AAD332D>0103173B(+001C173B)>0102F096(+001BF096)>0102EEA7(+001BEEA7)>0118078E(+0031078E)>011746FD(+003046FD)>00EE5897(+00075897)>00EE595E(+0007595E)>00EEF1EA(+0007F1EA)>010C77A0(+002577A0)>76495D49>776EE1FB>776EE181
+[13:26:13] EventDispatchHook: class=1 count=15 caller=ED181CC3 callerRva=0x00000000 envelope=EC85FA20 payload=EC85FA34 logicalLen=9 hash=0x33C87505 changed=0 manager=F4B91CBC vtable=01B35AD4 handler=01646550 handlerRva=0x007D6550 bytes=B8 E0 AD 01 00 04 00 00 00 00 00 00 09 00 00 00 50 FA 85 EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 F2 40 F5 F5 01 CC 1A C6 F6 DC 6D 82 05 D4 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7AAD352A>7AAD2EFF>ED181CC3>0102EC8F(+001BEC8F)>01644987(+007D4987)>0102E181(+001BE181)>7AAD33FF>0103173B(+001C173B)>0102F096(+001BF096)>0102EEA7(+001BEEA7)>0118078E(+0031078E)>011746FD(+003046FD)>00EE5897(+00075897)>00EE595E(+0007595E)>00EEF1EA(+0007F1EA)>010C77A0(+002577A0)>76495D49>776EE1FB>776EE181
+[13:26:13] Class1BridgeHook: phase=enter recipient=0A5E0D50 vtable=01BAF108 method=010B2A20 methodRva=0x00242A20 unused=00000001 payload=EC85FA34
+[13:26:13] ReadinessActiveHook: depth=1
+[13:26:13] ReadinessActiveHook: depth=1 ageMs=0 this=F4B91BE4 callerRva=0x001C173B args=218A839B,4000010E,7D03034B,D000199A,0E71F764,FD01EEC0,0E71F718,00000000
+[13:26:13] ReadinessContextHook: sequence=54029 ageMs=46 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:13] ReadinessContextHook: sequence=54030 ageMs=46 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:13] ReadinessContextHook: sequence=54031 ageMs=46 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:13] ReadinessContextHook: sequence=54032 ageMs=46 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:13] ReadinessContextHook: sequence=54033 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:13] ReadinessContextHook: sequence=54034 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:13] ReadinessContextHook: sequence=54035 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:13] ReadinessContextHook: sequence=54036 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:13] ReadinessContextHook: sequence=54037 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:13] ReadinessContextHook: sequence=54038 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:13] ReadinessContextHook: sequence=54039 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:13] ReadinessContextHook: sequence=54040 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:13] ReadinessContextHook: sequence=54041 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:13] ReadinessContextHook: sequence=54042 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:13] ReadinessContextHook: sequence=54043 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:13] ReadinessContextHook: sequence=54044 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:13] AreaRpcHook: sender=EE10FD18 blob=EC85FA34 len=9 marker=0xC7 target=0x1279C371 operation=0xF5F540F2 class1Recipient=0A5E0D50 class1Method=010B2A20 class1MethodRva=0x00242A20 bytes=C7 71 C3 79 12 F2 40 F5 F5 stack=7AAD352A>7AAD3A76>010B2A49(+00242A49)>01644929(+007D4929)>7AAD315D>010412E2(+001D12E2)>7AAD302C>ED181CC3>0102EC8F(+001BEC8F)>01644987(+007D4987)>0102E181(+001BE181)>7AAD33FF>0103173B(+001C173B)>0102F096(+001BF096)>0102EEA7(+001BEEA7)>0118078E(+0031078E)>011746FD(+003046FD)>00EE5897(+00075897)>00EE595E(+0007595E)>00EEF1EA(+0007F1EA)>010C77A0(+002577A0)>76495D49>776EE1FB>776EE181
+[13:26:13] Class1BridgeHook: phase=return recipient=0A5E0D50 payload=EC85FA34
+[13:26:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:14] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:16] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:16] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:26:16] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:20] MainHook: WSASend Called [127.0.0.1:20066]
+[13:26:20] MainHook: WSARecv Called [127.0.0.1:20066]
+[13:26:21] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:21] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:21] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:26:23] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:26] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:26] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:26:26] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:27] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:28] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:28] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:26:30] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:31] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:31] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:26:33] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:33] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:36] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:36] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:26:36] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:40] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:41] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:41] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:26:43] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:43] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:26:43] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:43] ReadinessVmHook: phase=enter this=F4B91BE4 callerRva=0x001C173B character=4000010E218A839B method=D000199A7D03034B contexts=0E71F764,FD01EEC0,0E71F718,00000000
+[13:26:43] ReadinessVmHook: this=F4B91BE4 bytes=03 00 00 00 00 00 00 00 EC 1B B9 F4 EC 1B B9 F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 1C B9 F4 08 1C B9 F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2C CB DA 01 ascii=............................................................,...
+[13:26:43] ReadinessVmHook: context5=0E71F764 bytes=00 DE 10 F5 00 00 00 00 9A 19 00 D0 52 A2 DB 01 73 A3 B4 40 09 6C E0 62 A4 C2 BF 00 01 34 A1 00 5B 06 00 00 00 00 00 00 00 00 00 00 A0 B5 47 0A CC 08 3F 0A FF FF FF FF 2B 2E FF F7 ED C7 34 D7 ascii=............R...s..@.l.b.....4..[.............G...?.....+.....4.
+[13:26:43] ReadinessVmHook: context6=FD01EEC0 bytes=64 30 00 FC B0 8D 4B 0A B8 8D 4B 0A B8 8D 4B 0A 00 00 00 00 08 00 00 00 C0 EE 01 FD C0 EE 01 FD 20 EA 01 FD E0 D2 01 FD A0 E5 01 FD 01 00 00 00 FC BC 62 0B D0 E6 00 E0 01 00 00 00 C0 09 A7 01 ascii=d0....K...K...K................. .................b.............
+[13:26:43] ReadinessVmHook: context7=0E71F718 bytes=70 5C 5F 3A 36 00 00 40 EC F7 71 0E 96 F0 02 01 9B 83 8A 21 0E 01 00 40 4B 03 03 7D 9A 19 00 D0 70 5C 5F 3A 36 00 00 40 A0 B5 47 0A BC 1C B9 F4 00 71 09 EF C4 F7 71 0E 00 2F 6E 77 80 08 3F 0A ascii=p\_:6..@..q........!...@K..}....p\_:6..@..G......q....q../nw..?.
+[13:26:43] ReadinessVmHook: context8=null
+[13:26:43] ReadinessVmHook: phase=enter stack=7AAD352A>7AAD332D>0103173B(+001C173B)>0102F096(+001BF096)>0102EEA7(+001BEEA7)>0118078E(+0031078E)>011746FD(+003046FD)>00EE5897(+00075897)>00EE595E(+0007595E)>00EEF1EA(+0007F1EA)>010C77A0(+002577A0)>76495D49>776EE1FB>776EE181
+[13:26:43] EventDispatchHook: class=1 count=16 caller=ED181CC3 callerRva=0x00000000 envelope=EC85FA20 payload=EC85FA34 logicalLen=9 hash=0x33C87505 changed=0 manager=F4B91CBC vtable=01B35AD4 handler=01646550 handlerRva=0x007D6550 bytes=B8 E0 AD 01 00 04 00 00 00 00 00 00 09 00 00 00 50 FA 85 EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 F2 40 F5 F5 01 CC 1A C6 F6 DC 6D 82 05 D4 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7AAD352A>7AAD2EFF>ED181CC3>0102EC8F(+001BEC8F)>01644987(+007D4987)>0102E181(+001BE181)>7AAD33FF>0103173B(+001C173B)>0102F096(+001BF096)>0102EEA7(+001BEEA7)>0118078E(+0031078E)>011746FD(+003046FD)>00EE5897(+00075897)>00EE595E(+0007595E)>00EEF1EA(+0007F1EA)>010C77A0(+002577A0)>76495D49>776EE1FB>776EE181
+[13:26:43] Class1BridgeHook: phase=enter recipient=0A5E0D50 vtable=01BAF108 method=010B2A20 methodRva=0x00242A20 unused=00000001 payload=EC85FA34
+[13:26:43] ReadinessActiveHook: depth=1
+[13:26:43] ReadinessActiveHook: depth=1 ageMs=0 this=F4B91BE4 callerRva=0x001C173B args=218A839B,4000010E,7D03034B,D000199A,0E71F764,FD01EEC0,0E71F718,00000000
+[13:26:43] ReadinessContextHook: sequence=66362 ageMs=46 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:43] ReadinessContextHook: sequence=66363 ageMs=46 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:43] ReadinessContextHook: sequence=66364 ageMs=46 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:43] ReadinessContextHook: sequence=66365 ageMs=46 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:43] ReadinessContextHook: sequence=66366 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:43] ReadinessContextHook: sequence=66367 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:43] ReadinessContextHook: sequence=66368 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:43] ReadinessContextHook: sequence=66369 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:43] ReadinessContextHook: sequence=66370 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:43] ReadinessContextHook: sequence=66371 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:43] ReadinessContextHook: sequence=66372 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:43] ReadinessContextHook: sequence=66373 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:43] ReadinessContextHook: sequence=66374 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:43] ReadinessContextHook: sequence=66375 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:43] ReadinessContextHook: sequence=66376 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:43] ReadinessContextHook: sequence=66377 ageMs=15 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:26:43] AreaRpcHook: sender=EE10FD18 blob=EC85FA34 len=9 marker=0xC7 target=0x1279C371 operation=0xF5F540F2 class1Recipient=0A5E0D50 class1Method=010B2A20 class1MethodRva=0x00242A20 bytes=C7 71 C3 79 12 F2 40 F5 F5 stack=7AAD352A>7AAD3A76>010B2A49(+00242A49)>01644929(+007D4929)>7AAD315D>010412E2(+001D12E2)>7AAD302C>ED181CC3>0102EC8F(+001BEC8F)>01644987(+007D4987)>0102E181(+001BE181)>7AAD33FF>0103173B(+001C173B)>0102F096(+001BF096)>0102EEA7(+001BEEA7)>0118078E(+0031078E)>011746FD(+003046FD)>00EE5897(+00075897)>00EE595E(+0007595E)>00EEF1EA(+0007F1EA)>010C77A0(+002577A0)>76495D49>776EE1FB>776EE181
+[13:26:43] Class1BridgeHook: phase=return recipient=0A5E0D50 payload=EC85FA34
+[13:26:43] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:45] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:46] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:26:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:47] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:51] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:51] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:26:53] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:53] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:56] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:56] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:26:56] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:57] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:58] MainHook: WSASend Called [127.0.0.1:20060]
+[13:26:58] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:27:01] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:01] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:27:03] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:04] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:06] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:06] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:06] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:27:06] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:09] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:11] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:11] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:27:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:13] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:27:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:13] ReadinessVmHook: phase=enter this=F4B91BE4 callerRva=0x001C173B character=4000010E218A839B method=D000199A7D03034B contexts=0E71F764,FD01EEC0,0E71F718,00000000
+[13:27:13] ReadinessVmHook: this=F4B91BE4 bytes=03 00 00 00 00 00 00 00 EC 1B B9 F4 EC 1B B9 F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 1C B9 F4 08 1C B9 F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2C CB DA 01 ascii=............................................................,...
+[13:27:13] ReadinessVmHook: context5=0E71F764 bytes=00 DE 10 F5 00 00 00 00 9A 19 00 D0 5F 77 BA F3 70 C1 B4 40 09 6C E0 62 A4 C2 BF 00 00 5E 87 00 64 06 00 00 00 00 00 00 00 00 00 00 A0 B5 47 0A CC 08 3F 0A FF FF FF FF 2B 2E FF F7 4F 16 B7 B4 ascii=............_w..p..@.l.b.....^..d.............G...?.....+...O...
+[13:27:13] ReadinessVmHook: context6=FD01EEC0 bytes=64 30 00 FC B0 8D 4B 0A B8 8D 4B 0A B8 8D 4B 0A 00 00 00 00 08 00 00 00 C0 EE 01 FD C0 EE 01 FD 20 EA 01 FD E0 D2 01 FD A0 E5 01 FD 01 00 00 00 FC BC 62 0B D0 E6 00 E0 01 00 00 00 C0 09 A7 01 ascii=d0....K...K...K................. .................b.............
+[13:27:13] ReadinessVmHook: context7=0E71F718 bytes=70 5C 5F 3A 36 00 00 40 EC F7 71 0E 96 F0 02 01 9B 83 8A 21 0E 01 00 40 4B 03 03 7D 9A 19 00 D0 70 5C 5F 3A 36 00 00 40 A0 B5 47 0A BC 1C B9 F4 00 71 09 EF C4 F7 71 0E 00 2F 6E 77 80 08 3F 0A ascii=p\_:6..@..q........!...@K..}....p\_:6..@..G......q....q../nw..?.
+[13:27:13] ReadinessVmHook: context8=null
+[13:27:13] ReadinessVmHook: phase=enter stack=7AAD352A>7AAD332D>0103173B(+001C173B)>0102F096(+001BF096)>0102EEA7(+001BEEA7)>0118078E(+0031078E)>011746FD(+003046FD)>00EE5897(+00075897)>00EE595E(+0007595E)>00EEF1EA(+0007F1EA)>010C77A0(+002577A0)>76495D49>776EE1FB>776EE181
+[13:27:13] EventDispatchHook: class=1 count=17 caller=ED181CC3 callerRva=0x00000000 envelope=EC85FA20 payload=EC85FA34 logicalLen=9 hash=0x33C87505 changed=0 manager=F4B91CBC vtable=01B35AD4 handler=01646550 handlerRva=0x007D6550 bytes=B8 E0 AD 01 00 04 00 00 00 00 00 00 09 00 00 00 50 FA 85 EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 F2 40 F5 F5 01 CC 1A C6 F6 DC 6D 82 05 D4 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7AAD352A>7AAD2EFF>ED181CC3>0102EC8F(+001BEC8F)>01644987(+007D4987)>0102E181(+001BE181)>7AAD33FF>0103173B(+001C173B)>0102F096(+001BF096)>0102EEA7(+001BEEA7)>0118078E(+0031078E)>011746FD(+003046FD)>00EE5897(+00075897)>00EE595E(+0007595E)>00EEF1EA(+0007F1EA)>010C77A0(+002577A0)>76495D49>776EE1FB>776EE181
+[13:27:13] Class1BridgeHook: phase=enter recipient=0A5E0D50 vtable=01BAF108 method=010B2A20 methodRva=0x00242A20 unused=00000001 payload=EC85FA34
+[13:27:13] ReadinessActiveHook: depth=1
+[13:27:13] ReadinessActiveHook: depth=1 ageMs=0 this=F4B91BE4 callerRva=0x001C173B args=218A839B,4000010E,7D03034B,D000199A,0E71F764,FD01EEC0,0E71F718,00000000
+[13:27:13] ReadinessContextHook: sequence=78679 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:13] ReadinessContextHook: sequence=78680 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:13] ReadinessContextHook: sequence=78681 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:13] ReadinessContextHook: sequence=78682 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:13] ReadinessContextHook: sequence=78683 ageMs=16 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:13] ReadinessContextHook: sequence=78684 ageMs=16 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:13] ReadinessContextHook: sequence=78685 ageMs=16 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:13] ReadinessContextHook: sequence=78686 ageMs=16 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:13] ReadinessContextHook: sequence=78687 ageMs=16 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:13] ReadinessContextHook: sequence=78688 ageMs=16 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:13] ReadinessContextHook: sequence=78689 ageMs=16 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:13] ReadinessContextHook: sequence=78690 ageMs=16 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:13] ReadinessContextHook: sequence=78691 ageMs=0 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:13] ReadinessContextHook: sequence=78692 ageMs=0 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:13] ReadinessContextHook: sequence=78693 ageMs=0 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:13] ReadinessContextHook: sequence=78694 ageMs=0 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:13] AreaRpcHook: sender=EE10FD18 blob=EC85FA34 len=9 marker=0xC7 target=0x1279C371 operation=0xF5F540F2 class1Recipient=0A5E0D50 class1Method=010B2A20 class1MethodRva=0x00242A20 bytes=C7 71 C3 79 12 F2 40 F5 F5 stack=7AAD352A>7AAD3A76>010B2A49(+00242A49)>01644929(+007D4929)>7AAD315D>010412E2(+001D12E2)>7AAD302C>ED181CC3>0102EC8F(+001BEC8F)>01644987(+007D4987)>0102E181(+001BE181)>7AAD33FF>0103173B(+001C173B)>0102F096(+001BF096)>0102EEA7(+001BEEA7)>0118078E(+0031078E)>011746FD(+003046FD)>00EE5897(+00075897)>00EE595E(+0007595E)>00EEF1EA(+0007F1EA)>010C77A0(+002577A0)>76495D49>776EE1FB>776EE181
+[13:27:13] Class1BridgeHook: phase=return recipient=0A5E0D50 payload=EC85FA34
+[13:27:13] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:16] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:16] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:27:16] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:19] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:20] MainHook: WSASend Called [127.0.0.1:20066]
+[13:27:20] MainHook: WSARecv Called [127.0.0.1:20066]
+[13:27:21] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:21] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:21] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:21] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:27:23] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:26] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:26] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:27:26] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:26] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:28] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:28] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:27:31] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:31] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:27:32] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:33] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:33] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:36] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:36] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:27:36] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:36] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:38] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:41] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:41] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:27:43] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:43] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:27:43] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:43] ReadinessVmHook: phase=enter this=F4B91BE4 callerRva=0x001C173B character=4000010E218A839B method=D000199A7D03034B contexts=0E71F764,FD01EEC0,0E71F718,00000000
+[13:27:43] ReadinessVmHook: this=F4B91BE4 bytes=03 00 00 00 00 00 00 00 EC 1B B9 F4 EC 1B B9 F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 1C B9 F4 08 1C B9 F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2C CB DA 01 ascii=............................................................,...
+[13:27:43] ReadinessVmHook: context5=0E71F764 bytes=00 DE 10 F5 00 00 00 00 9A 19 00 D0 B8 BD EE BE 70 DF B4 40 09 6C E0 62 A4 C2 BF 00 1E A2 6E 00 6E 06 00 00 00 00 00 00 00 00 00 00 A0 B5 47 0A CC 08 3F 0A FF FF FF FF 2B 2E FF F7 96 06 B2 93 ascii=................p..@.l.b......n.n.............G...?.....+.......
+[13:27:43] ReadinessVmHook: context6=FD01EEC0 bytes=64 30 00 FC B0 8D 4B 0A B8 8D 4B 0A B8 8D 4B 0A 00 00 00 00 08 00 00 00 C0 EE 01 FD C0 EE 01 FD 20 EA 01 FD E0 D2 01 FD A0 E5 01 FD 01 00 00 00 FC BC 62 0B D0 E6 00 E0 01 00 00 00 C0 09 A7 01 ascii=d0....K...K...K................. .................b.............
+[13:27:43] ReadinessVmHook: context7=0E71F718 bytes=70 5C 5F 3A 36 00 00 40 EC F7 71 0E 96 F0 02 01 9B 83 8A 21 0E 01 00 40 4B 03 03 7D 9A 19 00 D0 70 5C 5F 3A 36 00 00 40 A0 B5 47 0A BC 1C B9 F4 00 71 09 EF C4 F7 71 0E 00 2F 6E 77 80 08 3F 0A ascii=p\_:6..@..q........!...@K..}....p\_:6..@..G......q....q../nw..?.
+[13:27:43] ReadinessVmHook: context8=null
+[13:27:43] ReadinessVmHook: phase=enter stack=7AAD352A>7AAD332D>0103173B(+001C173B)>0102F096(+001BF096)>0102EEA7(+001BEEA7)>0118078E(+0031078E)>011746FD(+003046FD)>00EE5897(+00075897)>00EE595E(+0007595E)>00EEF1EA(+0007F1EA)>010C77A0(+002577A0)>76495D49>776EE1FB>776EE181
+[13:27:43] EventDispatchHook: class=1 count=18 caller=ED181CC3 callerRva=0x00000000 envelope=EC85FA20 payload=EC85FA34 logicalLen=9 hash=0x33C87505 changed=0 manager=F4B91CBC vtable=01B35AD4 handler=01646550 handlerRva=0x007D6550 bytes=B8 E0 AD 01 00 04 00 00 00 00 00 00 09 00 00 00 50 FA 85 EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 F2 40 F5 F5 01 CC 1A C6 F6 DC 6D 82 05 D4 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7AAD352A>7AAD2EFF>ED181CC3>0102EC8F(+001BEC8F)>01644987(+007D4987)>0102E181(+001BE181)>7AAD33FF>0103173B(+001C173B)>0102F096(+001BF096)>0102EEA7(+001BEEA7)>0118078E(+0031078E)>011746FD(+003046FD)>00EE5897(+00075897)>00EE595E(+0007595E)>00EEF1EA(+0007F1EA)>010C77A0(+002577A0)>76495D49>776EE1FB>776EE181
+[13:27:43] Class1BridgeHook: phase=enter recipient=0A5E0D50 vtable=01BAF108 method=010B2A20 methodRva=0x00242A20 unused=00000001 payload=EC85FA34
+[13:27:43] ReadinessActiveHook: depth=1
+[13:27:43] ReadinessActiveHook: depth=1 ageMs=0 this=F4B91BE4 callerRva=0x001C173B args=218A839B,4000010E,7D03034B,D000199A,0E71F764,FD01EEC0,0E71F718,00000000
+[13:27:43] ReadinessContextHook: sequence=90980 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:43] ReadinessContextHook: sequence=90981 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:43] ReadinessContextHook: sequence=90982 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:43] ReadinessContextHook: sequence=90983 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:43] ReadinessContextHook: sequence=90984 ageMs=31 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:43] ReadinessContextHook: sequence=90985 ageMs=16 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:43] ReadinessContextHook: sequence=90986 ageMs=16 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:43] ReadinessContextHook: sequence=90987 ageMs=16 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:43] ReadinessContextHook: sequence=90988 ageMs=16 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:43] ReadinessContextHook: sequence=90989 ageMs=16 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:43] ReadinessContextHook: sequence=90990 ageMs=16 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:43] ReadinessContextHook: sequence=90991 ageMs=16 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:43] ReadinessContextHook: sequence=90992 ageMs=0 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F10,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:43] ReadinessContextHook: sequence=90993 ageMs=0 callerRva=0x007EA039 args=00000000,00000000,6DF5C191,D000D9AC,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:43] ReadinessContextHook: sequence=90994 ageMs=0 callerRva=0x007EA039 args=00000000,00000000,E1C5502D,D0007C2F,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:43] ReadinessContextHook: sequence=90995 ageMs=0 callerRva=0x007EA039 args=00000000,00000000,5CE62020,D0002208,01DB6F08,FCCAEF00,0E71F844,00000000 result=0x00000000
+[13:27:43] AreaRpcHook: sender=EE10FD18 blob=EC85FA34 len=9 marker=0xC7 target=0x1279C371 operation=0xF5F540F2 class1Recipient=0A5E0D50 class1Method=010B2A20 class1MethodRva=0x00242A20 bytes=C7 71 C3 79 12 F2 40 F5 F5 stack=7AAD352A>7AAD3A76>010B2A49(+00242A49)>01644929(+007D4929)>7AAD315D>010412E2(+001D12E2)>7AAD302C>ED181CC3>0102EC8F(+001BEC8F)>01644987(+007D4987)>0102E181(+001BE181)>7AAD33FF>0103173B(+001C173B)>0102F096(+001BF096)>0102EEA7(+001BEEA7)>0118078E(+0031078E)>011746FD(+003046FD)>00EE5897(+00075897)>00EE595E(+0007595E)>00EEF1EA(+0007F1EA)>010C77A0(+002577A0)>76495D49>776EE1FB>776EE181
+[13:27:43] Class1BridgeHook: phase=return recipient=0A5E0D50 payload=EC85FA34
+[13:27:43] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:44] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:44] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:44] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:44] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:44] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:44] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:44] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:45] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:45] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:46] MainHook: WSARecv Called [127.0.0.1:20060]
+[13:27:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:46] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:47] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:47] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:47] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:47] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:47] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:47] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:47] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:47] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:47] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:47] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:47] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:47] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:48] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:48] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:48] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:48] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:48] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:48] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:48] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:51] MainHook: WSASend Called [127.0.0.1:20060]
+[13:27:51] MainHook: WSARecv Called [127.0.0.1:20060]

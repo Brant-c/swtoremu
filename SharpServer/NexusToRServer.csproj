@@ -410,6 +410,8 @@
     <Compile Include="NET\Packets\Server\AreaStartupBundle.cs" />
     <Compile Include="NET\Packets\Server\AreaAwarenessEntered.cs" />
     <Compile Include="NET\Packets\Server\AreaClientReplicationTransaction.cs" />
+    <Compile Include="NET\Packets\Server\AreaReplicationDestroy.cs" />
+    <Compile Include="NET\Packets\Server\AreaSafeLoginRemoval.cs" />
     <Compile Include="NET\Packets\Server\AreaEffEventMessage.cs" />
     <Compile Include="NET\Packets\Server\AreaHackPack.cs" />
     <Compile Include="NET\Packets\Server\AreaRequestRPC.cs" />
@@ -423,6 +425,7 @@
     <Compile Include="NET\Packets\Server\SMsgResults.cs" />
     <Compile Include="NET\Packets\Server\CharacterSetRendezvousPoint.cs" />
     <Compile Include="NET\Packets\Server\CharacterChangeState.cs" />
+    <Compile Include="NET\Packets\Server\CapturedCharacterRemap.cs" />
     <Compile Include="NET\Packets\Server\AreaEnterSignals.cs" />
     <Compile Include="NET\Packets\Server\CharacterListReply.cs" />
     <Compile Include="NET\Packets\Server\ClientRPCAck.cs" />

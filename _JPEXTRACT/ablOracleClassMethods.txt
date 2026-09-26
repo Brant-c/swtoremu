@@ -1,0 +1,396 @@
+public method _getOracleDebugChannelName() as String
+  return "ABILITY"
+.
+public method _getOracleDejaChannelName() as String
+  return "abl"
+.
+public method _getOracleScriptName() as String
+  return $THISSCRIPT
+.
+public method init(Me)
+.
+public method AreaUnload(a1 as ID, a2 as ID, a3 as String) as Boolean
+  clear Me.ablOracleModalAbilityGroupCounts keep
+  clear Me.ablOracleSharedAbilities destroy
+  return false
+.
+public method unk_11dca58b(Me)
+  var unused = HM.GetEnumDefaultValue(4)
+  unk_5c6ab633(ablLastActivationResponseTime, 4, "ability_activate_response_time")
+  Me.4611686333476530002 = true
+.
+public method unk_a58ebae7() as Boolean
+  return Me.4611686333476530002
+.
+public method GetAbilityEffectPrototypeID(a1 as ID, a2 as Integer) as ID
+  var node2 = getPrototypeByID(a1)
+  if node2 = None
+    goto LABEL_5
+  .
+  var list1Length = node2.ablEffectIDs.length
+  var bool2 = SHIDWORD(list1Length) < (int)((unsigned __int64)(a2 + 1) >> 32)
+  if HIDWORD(list1Length) == (unsigned __int64)(a2 + 1) >> 32
+    bool2 = ((unsigned int)list1Length < (int)a2 + 1)
+  .
+  if not bool2
+    var bool3 = true
+  else
+LABEL_5:
+    bool3 = false
+  .
+  if bool3
+    var list2 = node2.ablEffectIDs
+    return list2[a2 + 1]
+  else
+    return 0
+  .
+.
+public method IsValidSpec(a1 as String) as Boolean
+  CallFrame _callFrame
+  FuncRef startsWith = HM.PrepareCallScriptSameMe2(2, 14988065018138246426, Me, &_callFrame)
+  return startsWith(_callFrame, a1, "abl.") & 1
+.
+public method IncrementModalAbilityGroupCount(Me, a1 as String)
+  var lookup = Me.ablOracleModalAbilityGroupCounts
+  if lookup has a1
+    lookup[a1] = lookup[a1] + 1
+  else
+    Me.ablOracleModalAbilityGroupCounts[a1] = 1
+  .
+.
+public method DecrementModalAbilityGroupCount(Me, a1 as String)
+  var lookup = Me.ablOracleModalAbilityGroupCounts
+  if lookup has a1
+    var int1 = lookup[a1]
+    var bool1 = (unsigned int)int1 <= 1
+    var bool2 = int1 <= -1
+    if not HIDWORD(int1)
+      bool2 = bool1
+    .
+    if not bool2
+      lookup[a1] = lookup[a1] - 1
+    else
+      remove a1 from lookup keep
+    .
+  .
+.
+public method GetModalAbilityGroupCount(a1 as String) as Integer
+  var lookup = Me.ablOracleModalAbilityGroupCounts
+  if lookup has a1
+    return lookup[a1]
+  else
+    return 0
+  .
+.
+public method unk_d585e0c7() as Boolean
+  return Me.unk_a58ebae7()
+.
+public method unk_5946648b(Me, a1 as Integer, a2 as DateTime)
+  Me.ablOutstandingRequests[a1] = a2
+.
+public method unk_49196537(Me, a1 as Integer)
+  var lookup = Me.ablOutstandingRequests
+  if lookup has a1
+    TimeInterval interval = $NOW - lookup[a1]
+    remove a1 from lookup keep
+    var float1 = (Float)interval / 1000.0
+    Me.ablLastActivationResponseTime = float1
+    if Me.unk_a58ebae7()
+      unk_73cfbb54(ablLastActivationResponseTime, Me.ablLastActivationResponseTime)
+    .
+    unk_8587f13a(Me.ablLastActivationResponseTime * 1000.0)
+  .
+.
+public function unk_56836d42(Me, a1 as String)
+  // unknown
+.
+public method GetAbility(a1 as ID) as NodeRef of ablAbility
+  return Me.GetAbilityPrototype(a1)
+.
+public method GetAbilityPrototype(a1 as ID) as NodeRef of ablAbility
+  var lookup = Me.ablOracle_AbilityCache
+  if lookup has a1
+    return lookup[a1]
+  else if a1 != 0
+    var node3 = getPrototypeByID(a1)
+    if node3 != None
+      Me.ablOracle_AbilityCache[a1] = node3
+    .
+    return node3
+  else
+    return None
+  .
+.
+public method GetPushbackBase() as TimeInterval
+  return $STATIC.ablPushbackPrototype.ablPushbackBase
+.
+public method ConvertSurrogateAbilitySpecID(a1 as ID, a2 as Boolean) as ID
+  var out = a1
+  var node2 = Me.GetAbility(a1)
+  if node2 != None
+    if a2
+      out = node2.GetVisibleAbility()
+    else
+      var node6 = node2.GetSurrogateAbility()
+      if node6 != None
+        out = node6
+      .
+    .
+  .
+  return out
+.
+public method RequestClearMiniqueue(Me)
+  call server untrustedMethods:OnRequestClearMiniqueue()
+.
+public method RequestAbilityActivate(Me, a1 as ID, a2 as ID, a3 as ID, a4 as Integer, a5 as Boolean)
+  NodeRef pc
+  if a1 != None and (pc = HM.ConstructNodeRef(7), GetPlayerCharacterNode(pc), a1 == pc)
+    if a1 is kindof chrAttributeComponent
+      if not a1.staCharacter_IsVisuallyDead()
+        if not a1.staCharacter_IsDead()
+          a1.chrBehavior_ForceTransmission()
+        .
+      .
+    .
+    OnCombatMovementOutgoingAbilityExecute(a1)
+    var node4 = a2
+    call event a1:OnAbilityRequestActivation a1:OnAbilityRequestActivation
+    var dateTime1 = GetSyncTime()
+    call server untrustedMethods:OnRequestAbilityActivate(a2, a3, dateTime1, a4, a5)
+  else if a1 != None
+    var node7 = $CHARACTER.GetControlledVehicle()
+    if a1 == node7
+      var dateTime2 = GetSyncTime()
+      call server untrustedMethods:OnRequestAbilityActivateVehicle(a2, a3, dateTime2)
+    .
+  .
+.
+public method RequestCommandPetToUseAbility(Me, a1 as ID, a2 as ID, a3 as ID, a4 as ID)
+  NodeRef pc2
+  RPC rpc
+  if a2 != None and a1 != None
+    var pc = GetPlayerCharacterNode()
+    if a1 == pc
+      var unused = HM.GetEnumDefaultValue(17)
+      var node6 = a2.GetAbility(a4)
+      if not a2.AbilityValidateForAiCommand(node6, a3, effResultOk)
+        a1._DisplayAbilityResultMessage(node6, -1, effResultOk)
+      else
+        if a1 != None
+          pc2 = GetPlayerCharacterNode()
+          if a1 == pc2
+            var node11 = a1.GetCompanion()
+            if node11 == a2
+              a1.SetRequestedCompanionAbility(a4)
+            .
+            a1.chrBehavior_ForceTransmission()
+          .
+        .
+        call server untrustedMethods:OnRequestCommandPetToUseAbility(a2, a3, a4)
+      .
+    else
+      if a1 != None
+        pc2 = GetPlayerCharacterNode()
+        if a1 == pc2
+          var node11 = a1.GetCompanion()
+          if node11 == a2
+            a1.SetRequestedCompanionAbility(a4)
+          .
+          a1.chrBehavior_ForceTransmission()
+        .
+      .
+      call server untrustedMethods:OnRequestCommandPetToUseAbility(a2, a3, a4)
+    .
+  else
+    if a1 != None
+      pc2 = GetPlayerCharacterNode()
+      if a1 == pc2
+        var node11 = a1.GetCompanion()
+        if node11 == a2
+          a1.SetRequestedCompanionAbility(a4)
+        .
+        a1.chrBehavior_ForceTransmission()
+      .
+    .
+    call server untrustedMethods:OnRequestCommandPetToUseAbility(a2, a3, a4)
+  .
+.
+public method RequestAbilityActivateAtPosition(Me, a1 as ID, a2 as Vector3, a3 as ID, a4 as NodeRef of itmItem)
+  // unknown
+  if a1 != None
+    var pc = GetPlayerCharacterNode()
+    if a1 == pc
+      a1.chrBehavior_ForceTransmission()
+      OnCombatMovementOutgoingAbilityExecute(a1)
+    .
+  .
+  if a4 = None
+    var dateTime1 = GetSyncTime()
+    call server untrustedMethods:OnRequestAbilityActivateAtPosition(a2, a3, dateTime1)
+  else
+    var dateTime2 = GetSyncTime()
+    call server untrustedMethods:OnRequestAbilityActivateItem(0, a2, a4, dateTime2)
+  .
+.
+public method RequestAbilityActivateItem(Me, a1 as ID, a2 as ID, a3 as NodeRef of itmItem)
+  // unknown
+  if a1 != None
+    var pc = GetPlayerCharacterNode()
+    if a1 == pc
+      a1.chrBehavior_ForceTransmission()
+      OnCombatMovementOutgoingAbilityExecute(a1)
+    .
+  .
+  var dateTime1 = GetSyncTime()
+  call server untrustedMethods:OnRequestAbilityActivateItem(a2, VECTOR_ZERO, a3, dateTime1)
+.
+public method RequestAbilityActivateProfession(Me, a1 as Boolean, a2 as ID, a3 as ID, a4 as Integer, a5 as Integer)
+  if not a1
+    var pc = GetPlayerCharacterNode()
+    var pc2 = pc
+    pc2.chrBehavior_ForceTransmission()
+    OnCombatMovementOutgoingAbilityExecute(pc2)
+  .
+  var dateTime1 = GetSyncTime()
+  call server untrustedMethods:OnRequestAbilityActivateProfession(a1, a2, a3, a4, a5, dateTime1)
+.
+public method RequestAbilityActivateUtility(Me, a1 as ID, a2 as ID, a3 as ID)
+  // unknown
+  if a1 != None
+    var pc = GetPlayerCharacterNode()
+    if a1 == pc
+      a1.chrBehavior_ForceTransmission()
+      OnCombatMovementOutgoingAbilityExecute(a1)
+    .
+  .
+  var dateTime1 = GetSyncTime()
+  call server untrustedMethods:OnRequestAbilityActivateUtility(a2, a3, dateTime1)
+.
+public method RequestAbilityActivatePlaceable(Me, a1 as ID, a2 as ID, a3 as ID)
+  // unknown
+  if a1 != None
+    var pc = GetPlayerCharacterNode()
+    if a1 == pc
+      a1.chrBehavior_ForceTransmission()
+      OnCombatMovementOutgoingAbilityExecute(a1)
+    .
+  .
+  var dateTime1 = GetSyncTime()
+  call server untrustedMethods:OnRequestAbilityActivatePlaceable(a2, a3, dateTime1)
+.
+public method RequestAbilityActivateLootPlaceable(Me, a1 as ID, a2 as ID, a3 as ID)
+  // unknown
+  if a1 != None
+    var pc = GetPlayerCharacterNode()
+    if a1 == pc
+      a1.chrBehavior_ForceTransmission()
+      OnCombatMovementOutgoingAbilityExecute(a1)
+    .
+  .
+  var dateTime1 = GetSyncTime()
+  call server untrustedMethods:OnRequestAbilityActivateLootPlaceable(a2, a3, dateTime1)
+.
+public method RequestAbilityActivateHolocom(Me, a1 as ID, a2 as ID, a3 as ID)
+  // unknown
+  if a1 != None
+    var pc = GetPlayerCharacterNode()
+    if a1 == pc
+      a1.chrBehavior_ForceTransmission()
+      OnCombatMovementOutgoingAbilityExecute(a1)
+    .
+  .
+  var dateTime1 = GetSyncTime()
+  call server untrustedMethods:OnRequestAbilityActivateHolocom(a2, a3, dateTime1)
+.
+public method RequestAbilityDeactivate(Me, a1 as ID, a2 as ID)
+  RPC rpc2
+  if a1 is kindof chrCompanionComponent
+    call server untrustedMethods:OnRequestPetAbilityDeactivate(a2)
+    return
+  .
+  var pc = GetPlayerCharacterNode()
+  if a1 != pc
+    var node5 = $CHARACTER.GetControlledVehicle()
+    if not a1 == node5
+      return
+    .
+    rpc2 = HM.RPCBegin(0x8E3C86ED'7704741D);  // untrustedMethods.OnRequestVehicleAbilityDeactivate
+  else
+    rpc2 = HM.RPCBegin(0x8E3C86ED'0D69E863);  // untrustedMethods.OnRequestAbilityDeactivate
+  .
+  RPC *v5 = rpc2
+  HM.RPCSerializeID(&rpc2, a2)
+  HM.RPCSendClientToServer(1, &v5)
+.
+public method RequestAbilityToggleAutoCast(Me, a1 as ID, a2 as ID, a3 as Boolean)
+  call server untrustedMethods:OnRequestAbilityToggleAutoCast(a1, a2, a3)
+.
+remote function OnDebugLevelSet(Me, a1 as Integer)
+  $ABILITY._setOracleDebugLevel(a1)
+.
+remote function OnOracleReset(Me)
+  $CPULIMIT = 60000
+  $ABILITY._resetOracle()
+  $CHAT.ChatPlayerDebug("CLIENT: ablOracle reset")
+.
+remote function OnAbilityReset(Me, a1 as ID)
+  // unknown
+.
+remote function OnAbilityDump(Me, a1 as ID)
+  if a1 != None
+    $CHAT.ChatPlayerDebug("CLIENT: ablUser " + a1 + ": " + a1.GetAbilityUserDebugString())
+  .
+.
+remote function OnQueuedAbilityResult(Me, a1 as ID, a2 as Integer, a3 as Enum effResult)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None
+    pc2.HandleAttemptQueueAbilityResult(a1, a2, a3)
+  .
+.
+remote function OnCustomGCDActivated(Me, a1 as Float)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None
+    pc2.StartGlobalCooldown(a1)
+  .
+.
+remote function OnAbilityResult(Me, a1 as ID, a2 as Integer, a3 as ID, a4 as Integer, a5 as Integer)
+  if $ABILITY.unk_d585e0c7()
+    $ABILITY.unk_49196537(a4)
+  .
+  if a1 != None
+    HM.ValidateEnum64(17, a5)
+    a1.OnAbilityResult(a3, a4, a2, a5)
+  .
+.
+remote function OnAbilityAutoAcquired(Me, a1 as ID)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None and a1 != None
+    list1 as List of String
+    add back a1.GetAbilityName() to list1
+    $CHAT.ChatPlayerLocalizedWithTokenList(chatChannel_SystemFeedback, STR_GUI_QUEST, ID_STR_GUI_QUEST | 0x33, HIDWORD(ID_STR_GUI_QUEST), list1)
+    var str3 = $STRING.LocalizeStringTokenizedWithPlayerGenderVariant(STR_GUI_FLYTEXT, ID_STR_GUI_FLYTEXT | 0x12, HIDWORD(ID_STR_GUI_FLYTEXT), list1)  // "You have learned a new ability: <<1>>"
+    $GUI_API.getApi().systemMessageEx($STRING.LocalizeStringTokenizedWithPlayerGenderVariant(STR_GUI_TRAINER, ID_STR_GUI_TRAINER | 0x64, HIDWORD(ID_STR_GUI_TRAINER), list1), COLOR_YELLOW)  // "Ability <<1>> trained."
+  .
+.
+remote function OnAbilityToggleAutoCastResult(Me, a1 as ID, a2 as ID, a3 as Boolean)
+  // unknown
+  if a1 is kindof chrCompanionComponent
+    var node3 = a1.GetCompanionMaster()
+    var pc = GetPlayerCharacterNode()
+    if node3 == pc
+      a1.OnAbilityToggleAutoCastResult(a2, a3)
+    .
+  .
+.
+remote function ablClearCompanionQueuedAbility(Me)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None
+    pc2.ClearRequestedCompanionAbility()
+  .
+.
+public method _resetOracle(Me)
+.

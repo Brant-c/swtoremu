@@ -1,0 +1,783 @@
+public method _onAnimEvent(a1 as NodeRef of HBNode, a2 as Integer, a3 as Integer, a4 as Integer, a5 as Float, a6 as Float) as Boolean
+  var out = false
+  out = Me.__effEvent_onCombatNote(Me, a1, a2, a3, a4, a5, a6)
+  if a2 == 1
+    $STAGEPREVIEW.OnActionEnd(a3)
+  .
+  return out
+.
+public method _onSkippedAnimEvent(a1 as NodeRef of HBNode, a2 as Integer, a3 as Integer, a4 as Integer, a5 as Float, a6 as Float) as Boolean
+  Boolean bool2
+  var bool1 = SHIDWORD(a3) >= 1
+  if not HIDWORD(a3)
+    bool1 = (_DWORD)a3 != 0
+  .
+  if not bool1 and (a2 != 62 and a2 != 63 ? (bool2 = false) : (bool2 = true), bool2)
+    $STAGE.OnAnimationNote(a1, a2)
+    return false
+  else
+    return true
+  .
+.
+public method _onCombatNoteWithDuration(a1 as NodeRef of HBNode, a2 as Integer, a3 as Integer, a4 as Float, a5 as Float) as Boolean
+  return true
+.
+public method __effEvent_onCombatNote(a1 as NodeRef of sysBaseCharControl, a2 as NodeRef of HBNode, a3 as Integer, a4 as Integer, a5 as Integer, a6 as Float, a7 as Float) as Boolean
+  NodeRef node7
+  int v22
+  int v23
+  NodeRef node9
+  if a2 = None
+    return false
+  .
+  Me.__handleGenericNote(a2, a3, a4, a5, a6, a7)
+  var bool1 = SHIDWORD(a4) >= 1
+  if not HIDWORD(a4)
+    bool1 = (_DWORD)a4 != 0
+  .
+  if not bool1
+    $STAGE.OnAnimationNote(a2, a3)
+    return false
+  .
+  var node3 = $EFFECT_EVENT.effEventOracleGetEventByHandle(a4)
+  if node3 = None
+    return false
+  .
+  if a3 == 0
+    Me._HandleBeginNote(node3, a7, HM.CopyConstructNodeRef(11, a2))
+  .
+  var id1 = a2
+  if node3.effEventCaster == id1
+    node3.effEventEffectAppearanceTrigger_OnAnimationNote(a3)
+    var bool2 = false
+    if a3 == 1
+      var bool3 = Me._HandleEndNote(node3, HM.CopyConstructNodeRef(11, a2))
+      bool2 = bool3
+    else if node3.effEventHitNoteOverriden
+      bool2 = node3.effEventHitNote == a3
+    else
+      var bool4 = SHIDWORD(a3) >= 1
+      if not HIDWORD(a3)
+        bool4 = (unsigned int)a3 >= 65
+      .
+      if not bool4
+        var bool5 = SHIDWORD(a3) >= 1
+        if not HIDWORD(a3)
+          bool5 = (unsigned int)a3 >= 32
+        .
+        if not bool5
+          if a3 == 2
+            if node3.effEventEffectAppearance = None or (node7 = node3.effEventEffectAppearance, not node7.effAppearanceCasterEverPlayedHitProjectile)
+              bool2 = true
+              if bool2
+                $EFFECT_EVENT.effEventOracleTryToExecuteEvent(node3, v22, v23)
+              .
+              return false
+            .
+            var bool6 = node3.effEventEffectAppearance != None and (node9 = node3.effEventEffectAppearance, not node9.effAppearanceCasterEverPlayedHitProjectile)
+          else
+            if a3 == 12
+              bool2 = true
+              if bool2
+                $EFFECT_EVENT.effEventOracleTryToExecuteEvent(node3, v22, v23)
+              .
+            else if bool2
+              $EFFECT_EVENT.effEventOracleTryToExecuteEvent(node3, v22, v23)
+            .
+            return false
+          .
+        else
+          if a3 == 32
+            // unknown
+          else if a3 == 33
+            // unknown
+          else
+            if bool2
+              $EFFECT_EVENT.effEventOracleTryToExecuteEvent(node3, v22, v23)
+            .
+            return false
+          .
+          bool2 = true
+          if bool2
+            $EFFECT_EVENT.effEventOracleTryToExecuteEvent(node3, v22, v23)
+          .
+          return false
+        .
+      else
+        if a3 == 65
+          bool2 = true
+          if bool2
+            $EFFECT_EVENT.effEventOracleTryToExecuteEvent(node3, v22, v23)
+          .
+        else if bool2
+          $EFFECT_EVENT.effEventOracleTryToExecuteEvent(node3, v22, v23)
+        .
+        return false
+      .
+    .
+    if bool2
+      $EFFECT_EVENT.effEventOracleTryToExecuteEvent(node3, v22, v23)
+    .
+  else
+    node3.effEventEffectAppearanceTrigger_OnTargetAnimationNote(a2, a3)
+  .
+  return false
+.
+public method _HandleBeginNote(Me, a1 as NodeRef of effEvent, a2 as Float, a3 as NodeRef of ablUserComponent)
+  TimeInterval interval = $NOW + timeInSeconds(a2) + 500
+  a1.effEvent_SetExpirationTime(interval)
+.
+public method _HandleEndNote(a1 as NodeRef of effEvent, a2 as NodeRef of ablUserComponent) as Boolean
+  NodeRef node3
+  var out = false
+  a1.PerformRemainingVisualEffects()
+  if a1.effEventEffectAppearance = None or (node3 = a1.effEventEffectAppearance, not node3.effAppearanceCasterEverPlayedHitProjectile)
+    if not a1.effEventHasExecuted
+      out = true
+    .
+  .
+  if a2 != None
+    if a1 == a2.GetCurrentCastingEvent()
+      var id1 = a1.effEventEffectSpec
+      var node6 = $EFFECT.GetEffectPrototype(id1)
+      if node6 != None
+        if node6.GetEffectAbility() != None
+          if a2.GetClientCastTimeRemaining() <= 0.0
+            a2.StopAbilityCastingAppearance(false, false, false)
+          .
+        .
+      .
+    .
+  .
+  return out
+.
+public method __handleGenericNote(Me, a1 as NodeRef, a2 as Integer, a3 as Integer, a4 as Integer, a5 as Float, a6 as Float)
+  if Me.__handleFootstep(a1, a2)
+    // unknown
+  else if Me.__handleStgWeaponNote(HM.CopyConstructNodeRef(19, a1), a2, a4, a3)
+      // unknown
+  else
+    var bool3 = SHIDWORD(a2) >= 1
+    if not HIDWORD(a2)
+      bool3 = (unsigned int)a2 >= 80
+    .
+    if not bool3
+      var bool4 = SHIDWORD(a2) >= 1
+      if not HIDWORD(a2)
+        bool4 = (unsigned int)a2 >= 62
+      .
+      if not bool4
+        if a2 != 0
+          if a2 == 1
+            if a1 is kindof chrBehavior
+              ResetFlightControlData(a1, a4)
+            .
+            if a1 is kindof chrBehavior
+              a1.chrBehavior_GetJumpMan().chrBehaviorJumpMan_OnLaunchAnimNote(a3)
+            .
+            if a1 is kindof staCharacterComponent
+              if a1.IsInCover()
+                a1.BehaviorGetCover().chrBehaviorCover_HandleEndNote(a3)
+              .
+            .
+            if a3 <= -1
+              list1 as List of Association
+              list1 = queryAssociation(a1, "hydActionWaitAssociation", None)
+              foreach cur in list1
+                var node7 = HM.GetAssocTarget(cur)
+                var node6 = node7
+                if node6.hydActionWaitHandle == a3
+                  node6.hydActionWaitHandle = 0
+                  removeAssociation(a1, "hydActionWaitAssociation", node6)
+                  node6.ProcessWaitingActions()
+                .
+              .
+            .
+          else if a2 == 14
+            if a1 is kindof chrBehavior
+              a1.chrBehavior_GetJumpMan().chrBehaviorJumpMan_OnLaunchAnimNote(a3)
+            .
+          .
+        .
+      else if a2 == 62
+        if not $CONVERSATION.IsInConversation()
+          utlNode:SetCharacterHidden(a1, false)
+        .
+      else if a2 == 63
+        if not $CONVERSATION.IsInConversation()
+          utlNode:SetCharacterHidden(a1, true)
+        .
+      .
+    else if a2 == 80
+      if a1 is kindof chrBehavior
+        SetFlightControlData(a1, a4, GetAnimClock(), a6)
+      .
+    .
+  .
+.
+public method _IsFoleyEnabled(a1 as NodeRef) as Boolean
+  if a1 is kindof stgActor
+    return a1.IsFoleyEnabled()
+  else
+    return true
+  .
+.
+public method __handleFootstep(a1 as NodeRef, a2 as Integer) as Boolean
+  Boolean bool4
+  Boolean bool5
+  Boolean bool6
+  int v11
+  var out = true
+  if not a1 is kindof chrAnim
+    return false
+  .
+  if not Me._IsFoleyEnabled(a1)
+    return false
+  .
+  var unused = HM.GetEnumDefaultValue(26)
+  unused2 as List of String
+  unused3 as String
+  var bool3 = SHIDWORD(a2) >= 1
+  if not HIDWORD(a2)
+    bool3 = (unsigned int)a2 >= 96
+  .
+  if not bool3
+    bool4 = SHIDWORD(a2) >= 1
+    if not HIDWORD(a2)
+      bool4 = (unsigned int)a2 >= 77
+    .
+    if not bool4
+      bool5 = SHIDWORD(a2) >= 1
+      if not HIDWORD(a2)
+        bool5 = (unsigned int)a2 >= 43
+      .
+      if not bool5
+        bool6 = __CFADD__((_DWORD)a2, -8) + HIDWORD(a2) != 1
+        if __CFADD__((_DWORD)a2, -8) + HIDWORD(a2) == 1
+          bool6 = (unsigned int)(a2 - 8) >= 24
+        .
+        if not bool6
+          switch ( (int)a2 )
+          {
+            case 8:
+              if not a1 is kindof sndFootstepOwnerComponent
+                GlomClass("sndFootstepOwnerComponent", a1)
+              .
+              a1.RequestFootstep(sndFootstepLeftRun)
+              return out
+            case 9:
+              if not a1 is kindof sndFootstepOwnerComponent
+                GlomClass("sndFootstepOwnerComponent", a1)
+              .
+              a1.RequestFootstep(sndFootstepRightRun)
+              return out
+            case 10:
+              if not a1 is kindof sndFootstepOwnerComponent
+                GlomClass("sndFootstepOwnerComponent", a1)
+              .
+              a1.RequestFootstep(sndFootstepLeftWalk)
+              return out
+            case 11:
+              if not a1 is kindof sndFootstepOwnerComponent
+                GlomClass("sndFootstepOwnerComponent", a1)
+              .
+              a1.RequestFootstep(sndFootstepRightWalk)
+              return out
+            case 13:
+              v11 = sndFootstepLanding
+              break
+            case 14:
+              v11 = sndFootstepJump
+              break
+            case 17:
+              if not a1 is kindof sndFootstepOwnerComponent
+                GlomClass("sndFootstepOwnerComponent", a1)
+              .
+              a1.RequestFootstep(sndFootstepBodymove)
+              return out
+            case 29:
+              if not a1 is kindof sndFootstepOwnerComponent
+                GlomClass("sndFootstepOwnerComponent", a1)
+              .
+              a1.RequestFootstep(sndFootstepBodyfallHeadArms)
+              return out
+            case 30:
+              if not a1 is kindof sndFootstepOwnerComponent
+                GlomClass("sndFootstepOwnerComponent", a1)
+              .
+              a1.RequestFootstep(sndFootstepBodyfallLegs)
+              return out
+            case 31:
+              if not a1 is kindof sndFootstepOwnerComponent
+                GlomClass("sndFootstepOwnerComponent", a1)
+              .
+              a1.RequestFootstep(sndFootstepBodyfallTorso)
+              return out
+            case 12:
+            case 15:
+            case 16:
+            case 18:
+            case 19:
+            case 20:
+            case 21:
+            case 22:
+            case 23:
+            case 24:
+            case 25:
+            case 26:
+            case 27:
+            case 28:
+              return false
+        .
+          out = false
+          if not a1 is kindof sndFootstepOwnerComponent
+            GlomClass("sndFootstepOwnerComponent", a1)
+          .
+          a1.RequestFootstep(v11)
+          return out
+      .
+        return false
+    .
+      if a2 == 43
+        v11 = sndFootstepVocalize
+      else if a2 == 44
+        v11 = sndFootstepWingflapOneshot
+      else
+        return false
+      .
+    else if a2 == 77
+      v11 = sndFootstepRoll
+    else if a2 == 78
+      v11 = sndFootstepGearmove
+    else
+      return false
+    .
+  }
+  else if a2 == 96
+    v11 = sndFootstepHandClap
+  else
+    return false
+  .
+  if not a1 is kindof sndFootstepOwnerComponent
+    GlomClass("sndFootstepOwnerComponent", a1)
+  .
+  a1.RequestFootstep(v11)
+  return out
+.
+public method __handleStgWeaponNote(a1 as NodeRef of stgWeaponComponent, a2 as Integer, a3 as Integer, a4 as Integer) as Boolean
+  Boolean out
+  Boolean bool2
+  Boolean bool3
+  if a1 = None
+    return false
+  else
+    if not a1 is kindof chrAnim
+      return false
+    .
+    out = true
+    bool2 = SHIDWORD(a2) >= 1
+    if not HIDWORD(a2)
+      bool2 = (unsigned int)a2 >= 22
+    .
+    if bool2
+      bool3 = __CFADD__((_DWORD)a2, -22) + HIDWORD(a2) != 1
+      if __CFADD__((_DWORD)a2, -22) + HIDWORD(a2) == 1
+        bool3 = (unsigned int)(a2 - 22) >= 4
+      .
+      if not bool3
+        when (int)a2
+          is 22
+            a1.stgWeapon_DrawWeaponVisually()
+          .
+          is 23
+            a1.stgWeapon_TurnWeaponOffVisually()
+          .
+          is 24
+            a1.stgWeapon_TurnWeaponOnVisually()
+          .
+          is 25
+            a1.stgWeapon_StowWeaponVisually()
+          .
+        .
+        return out
+      .
+    else if a2 == 1
+      a1.stgWeapon_RectifyWeaponState()
+      return out
+    .
+    out = false
+    return out
+  .
+.
+public method sysBaseCharControlSetDebugNotes(Me, a1 as Boolean)
+  Me.sysBaseCharControlDebugNotes = a1
+.
+public method _onAnimNotesChanged(Me, a1 as List of String)
+  Me.sysBaseCharControlNoteNames = a1
+.
+public method _insertTransitionActionIfNeeded(a1 as NodeRef, a2 as String, o3 references String, o4 references Integer) as Boolean
+  CallFrame _callFrame
+  FuncRef _insertTransitionActionIfNeededWithEvent = HM.PrepareCallNodeRef2(42, Me, &_callFrame)
+  return _insertTransitionActionIfNeededWithEvent(_callFrame, a1, -1, a2, &o3, &o4) & 1
+.
+public method _insertTransitionActionIfNeededWithTarget(a1 as NodeRef, a2 as NodeRef, a3 as String, o4 references String, o5 references Integer) as Boolean
+  CallFrame _callFrame
+  FuncRef _insertTransitionActionIfNeededWithEvent = HM.PrepareCallNodeRef2(42, Me, &_callFrame)
+  return _insertTransitionActionIfNeededWithEvent(_callFrame, a1, -1, a3, &o4, &o5) & 1
+.
+public method _insertTransitionActionIfNeededWithEvent(a1 as NodeRef, a2 as Integer, a3 as String, o4 references String, o5 references Integer) as Boolean
+  if (a1 = None or not a1 is kindof staCharacterComponent) or a1.staCharacter_IsVisuallyDead()
+    // unknown
+  else
+    var str2 = GetAnimInput(a1, "Posture")
+    if str2 == "Posture_Sitting" or str2 == "Posture_Kneeling"
+      if GetAnimInput(a1, "BrainState") == "Lucid"
+        if a3 != "Stand" and GetAnimMetadataBool(a1, a3, "isDuration")
+          o4 = "Stand"
+          *o5 = $EFFECT.effmOracleGetEffAppearancePriority(effAppPriority_pcGetUp)
+          return true
+        .
+      .
+    .
+    if a1 is kindof staCharacterComponent
+      if a1.staCharacter_IsInCover()
+        return a1.staCharacterInsertTransitionActionIfNeededWithEvent($EFFECT_EVENT.effEventOracleGetEventByHandle(a2), a3, &o4, &o5)
+      .
+    .
+  .
+  return false
+.
+public method _UnstickCharacter(Me, a1 as NodeRef, a2 as Vector3)
+  Vector3 vec2
+  if a1 is kindof chrCharacter
+    var classView = HM.GetClassViewFromNodeRef(a1, chrCharacter)
+    var vec = classView.chrCharacter_LastStuckPosition
+    vec2.x = 0.03
+    vec2.y = 0.03
+    vec2.z = 0.03
+    if not utlMath:SortaEqualVec3(vec, a2.x, vec2)
+      var classView2 = HM.GetClassViewFromNodeRef(a1, chrCharacter)
+      classView2.chrCharacter_LastStuckPosition = (Vector3 *)LODWORD(a2.x)
+    .
+    var pc = GetPlayerCharacterNode()
+    if a1 == pc
+      a1.unk_6ec9a6e0()
+    .
+  .
+.
+public method _PreAnimUpdate_PreCacheCanMove(Me, a1 as NodeRef)
+  CallFrame _callFrame
+  var bool1 = a1 is kindof staCharacterComponent
+  var bool2 = a1 is kindof chrCharacter
+  unsigned __int8 v6 = 0
+  if bool2
+    FuncRef chrCharacter_IsGoingBallistic = HM.PrepareCallNodeRef2(52, a1, &_callFrame)
+    unsigned __int8 v3 = chrCharacter_IsGoingBallistic(_callFrame) & 1
+    v6 = v3
+  .
+  if bool1
+    a1.staCharacter_CalculateCanMove(v6)
+  .
+.
+public method _PreAnimUpdate_DoUnhiddenBehavior(Me, a1 as NodeRef of chrCharacter, a2 as Float)
+  var bool1 = false
+  var pc = GetPlayerCharacterNode()
+  bool1 = pc == a1
+  var bool2 = GetBehaveIsActionKeepalive(a1)
+  var bool3 = IsNodeHidden(a1)
+  if bool3
+    bool3 = not bool2
+  .
+  if not bool3 or bool1
+    chrTargetAdjuster:AdjustTargets(a1)
+  .
+.
+public method _PreAnimUpdate_DetermineUpdatability(a1 as NodeRef of chrCharacter) as Boolean
+  CallFrame _callFrame
+  FuncRef chrCharacter_IsGoingBallistic
+  var bool1 = false
+  var pc = GetPlayerCharacterNode()
+  bool1 = pc == a1
+  if bool1
+    // unknown
+  else if GetBehaveIsActionKeepalive(a1)
+    // unknown
+  else
+    var node = a1.chrBehavior_GetDelegate()
+    if node = None
+      goto LABEL_7
+    .
+    var node3 = a1.chrBehavior_GetDelegate()
+    if node3.chrBehaviorDelegate_ShouldKeepActive()
+      // unknown
+    else
+LABEL_7:
+      if fabs(a1.chrAnim_GetAnimControlParameterEnumFloat(cpid_Turning)) > 0.001
+        // unknown
+      else
+        var id1 = a1
+        if $CNVAMBIENT.IsInAmbientConversation(id1)
+          // unknown
+        else
+          chrCharacter_IsGoingBallistic = HM.PrepareCallNodeRef2(52, a1, &_callFrame)
+          return chrCharacter_IsGoingBallistic(_callFrame) & 1
+        .
+      .
+    .
+  .
+  return true
+.
+public method _PreAnimUpdate_CheckCanStopUpdating(Me, a1 as NodeRef)
+  var bool1 = Me._PreAnimUpdate_DetermineUpdatability(HM.CopyConstructNodeRef(30, a1))
+  if not bool1
+    $BEHAVE2.chrBehaveSkippedCharUpdates[a1] = " "
+    SetAnimControlParameterEnumFloat(a1, 12, 0.0, 0.0)
+    a1.chrCharacter_CanStopUpdatingBehavior()
+  .
+.
+public method _PreAnimUpdate(Me, a1 as NodeRef, a2 as Float)
+  if a1 = None or $SPACECOMBAT.IsSpaceCombatActive()
+    // unknown
+  else
+    Me._PreAnimUpdate_PreCacheCanMove(a1)
+    if a1 is kindof stgActorLookat
+      a1.stgActorLookat_PreAnimUpdate(a2)
+    else if a1 is kindof chrCharacter
+      a1.chrCharacter_Update(a2)
+      if a1.chrBehavior_IsPaused()
+        // unknown
+      else
+        a1.BehaviorPreAnimUpdate(a2)
+        Me._PreAnimUpdate_DoUnhiddenBehavior(HM.CopyConstructNodeRef(30, a1), a2)
+        Me._PreAnimUpdate_CheckCanStopUpdating(a1)
+      .
+    else
+      // unknown
+    .
+  .
+.
+public method _PostAnimUpdate(Me, a1 as NodeRef, a2 as Float)
+  ClassView classView
+  if $BEHAVE2.chrBehaveMetricsEnabled
+    $BEHAVE2.chrBehaveIncrementMetricsPostAnimUpdate()
+  .
+  if a1 = None or $SPACECOMBAT.IsSpaceCombatActive()
+    // unknown
+  else if a1 is kindof chrCharacter
+    if a1 is kindof chrBehavior and (HM.TrackLine(623), classView = HM.GetClassViewFromNodeRef(a1, chrBehavior), classView.chrBehavior_Paused)
+      // unknown
+    else
+      if a1 is kindof chrMountComponent and a1.IsRidingMount()
+        a1.chrMount_PostAnimUpdate(a2)
+      .
+      a1.BehaviorPostAnimUpdate()
+    .
+  else
+    // unknown
+  .
+.
+public method _FinalAnimUpdate(Me, a1 as NodeRef, a2 as Float)
+  // unknown
+.
+public method BehaviorStateParse(Me, a1 as NodeRef, a2 as String)
+  // unknown
+.
+public method TeleportCharacter(Me, a1 as NodeRef, a2 as Vector3, a3 as Vector3)
+  Boolean bool2
+  Vector3 vec
+  Vector3 vec2
+  if a1 = None
+    // unknown
+  else if a1 is kindof chrBehavior
+    var node2 = a1.chrBehavior_GetJumpMan()
+    if node2 != None
+      if node2.IsActive()
+        bool2 = true
+      else
+        bool2 = false
+      .
+    else
+      bool2 = false
+    .
+    if bool2
+      vec.x = 0.0
+      vec.y = 0.0
+      vec.z = 0.0
+      node2.BeginGroundLand(vec, false)
+    .
+  .
+  var pc = GetPlayerCharacterNode()
+  if a1 == pc
+    ctlInputCamera:ClearRotateCamera(true, true)
+    vec2.x = 0.0
+    vec2.y = 0.0
+    vec2.z = 0.0
+    vec2 = a3
+    vec2.y = MungeHeadingDegrees(vec2.y)
+    a1.SetRotation_w(vec2)
+  .
+  if a1 is kindof chrBehavior
+    if a1.chrBehavior_GetDelegateType() == BEHAVIOR_REMOTE_PLAYER
+      var node5 = a1.chrBehavior_GetDelegate()
+      if node5 != None
+        node5._chrBehaviorRemotePlayer_UseCurrentState()
+      .
+    .
+  .
+  if a1 is kindof chrCharacter
+    if a1.chrCharacter_IsGoingBallistic()
+      var classView = HM.GetClassViewFromNodeRef(a1, chrCharacter)
+      classView.chrBallisticSimulator.phyBallisticSimulatorTerminateImmediately()
+    .
+  .
+  if a1 is kindof staCharacterComponent
+    if a1.staCharacter_IsVisuallyDead() or a1.staCharacter_IsDead()
+      var classView2 = HM.GetClassViewFromNodeRef(a1, staCharacterComponent)
+      classView2.staShouldReviveInstantly = true
+    .
+  .
+.
+public method _AnimAgentGetRootPath(Me, o1 references String)
+  o1 = "morpheme_1.3.6_rename"
+.
+public method _AnimAgentGetNetworkFileName() as String
+  return "network_20090506.mph"
+.
+public method _AnimAgentGetMetadataVersionString() as String
+  return "_20090506"
+.
+public method BehaviorIsMoveDirForwardSpeed(a1 as NodeRef) as Boolean
+  CallFrame _callFrame
+  if a1 = None
+    // unknown
+  else if a1 is kindof chrCharacter
+    FuncRef BehaviorIsMovementDirForward = HM.PrepareCallNodeRef2(86, a1, &_callFrame)
+    return BehaviorIsMovementDirForward(_callFrame) & 1
+  else
+    // unknown
+  .
+  return true
+.
+public method AnimationShouldReload(a1 as String) as Boolean
+  lookup as LookupList indexed by String of Boolean
+  lookup["bw-benc"] = true
+  lookup["bw-kiko"] = true
+  lookup["bw-kfutrell"] = true
+  lookup["bw-mookiew"] = true
+  lookup["bw-alauretta"] = true
+  lookup["bw-mark2"] = true
+  lookup["bw-robg"] = true
+  lookup["bw-jasono"] = true
+  lookup["johnwesleywatson"] = true
+  lookup["johnwesleywatson2"] = true
+  lookup["bw-johnw2"] = true
+  lookup["bw-johnw3"] = true
+  lookup["jeffbriggs"] = true
+  lookup["bw-esebesta"] = true
+  lookup["bw-esebesta2"] = true
+  lookup["bw-maudy"] = true
+  lookup["bw-maudy2"] = true
+  lookup["bw-bmatt"] = true
+  lookup["bw-bmatt2"] = true
+  lookup["hemanshuchhabra"] = true
+  lookup["bbaird_bwa"] = true
+  var str2 = ToLower($BASECLIENT._getMyAccountName())
+  return lookup has str2
+.
+public method AnimationMarkupShouldReload(a1 as String) as Boolean
+  CallFrame _callFrame
+  FuncRef AnimationShouldReload = HM.PrepareCallNodeRef2(89, Me, &_callFrame)
+  return AnimationShouldReload(_callFrame, "") & 1
+.
+public method OnSetTargetMode(Me, a1 as NodeRef, a2 as Integer, a3 as Integer)
+  if a1 is kindof chrBehavior
+    chrBehaviorCombat:OnSetTargetMode(a1, a2, a3)
+  .
+.
+public method BehaviorBeginFreeFall(Me, a1 as NodeRef, a2 as Vector3)
+  if a1 is kindof chrBehavior
+    var node2 = a1.chrBehavior_GetJumpMan()
+    if node2 != None
+      node2.BeginFreeFall(a2.x)
+    .
+  .
+.
+public method BehaviorBeginGroundLand(Me, a1 as NodeRef, a2 as Vector3)
+  if a1 is kindof chrBehavior
+    var node2 = a1.chrBehavior_GetJumpMan()
+    if node2 != None
+      node2.BeginGroundLand(a2.x, true)
+    .
+  .
+.
+public method BehaviorBeginSlip(Me, a1 as NodeRef, a2 as Vector3)
+  // unknown
+.
+public method BehaviorBeginSlipping(Me, a1 as NodeRef, a2 as Float)
+  if a1 is kindof chrBehavior
+    var node2 = a1.chrBehavior_GetJumpMan()
+    if node2 != None
+      node2.BeginSlipping(a2)
+    .
+  .
+.
+public method BehaviorCanRotateForCombatAttack(Me)
+  // unknown
+.
+public method BehaviorGetCombatTargetDirectionDegrees_o(a1 as NodeRef, a2 as Vector3) as Float
+  if a1 is kindof chrBehavior
+    if chrBehaviorCombat:CanCombatNavigate(a1) and (not BehaviorCombat_CanCombatMove(a1) and not BehaviorCombat_CanCombatRotate(a1) ? (bool2 = false) : (bool2 = true), bool2)
+      // unknown
+    else
+      vec.x = 0.0
+      vec.y = 0.0
+      vec.z = 0.0
+      var vec2 = a1.GetPosition_w()
+      vec = vec2
+      vec3.x = vec2.x - a2.x
+      vec3.y = vec2.y - a2.y
+      vec3.z = vec2.z - a2.z
+      if VectorLength(vec3) < 0.01
+        // unknown
+      else
+        vec4.x = 0.0
+        vec4.y = 0.0
+        vec4.z = 0.0
+        var vec5 = a1.GetRotation_w()
+        vec4 = vec5
+        vec6.x = a2.x - vec.x
+        vec6.y = a2.y - vec.y
+        vec6.z = a2.z - vec.z
+        var float2 = utlMath:VectorToHeading(vec6)
+        return MungeHeadingDegrees(float2 - vec4.y)
+      .
+    .
+  else
+    // unknown
+  .
+  return 0.0
+.
+public method sysBaseCharControl_SetEventCallbackTest(Me, a1 as ScriptRef, a2 as NodeRef of tstFixture)
+  Me.sysBaseCharControl_EventCallbackTestFixture = a2
+  Me.sysBaseCharControl_EventCallbackTestScript = a1
+.
+public method _OnActionRejected(a1 as NodeRef of HBNode, a2 as Integer, a3 as Integer) as Boolean
+  if a1 is kindof chrBehavior
+    a1.chrBehavior_GetJumpMan().chrBehaviorJumpMan_OnLaunchAnimNote(a2)
+  .
+  return false
+.
+public method GetMovementLeashingInfo(Me, a1 as NodeRef, o2 references Boolean, o3 references Vector3, o4 references Float)
+  *o2 = 0
+  if a1 is kindof chrPlayerCharacter
+    var classView = HM.GetClassViewFromNodeRef(a1, chrPlayerCharacter)
+    *o2 = not classView.chrPlayerCharacter_IsFollowingTarget
+    var classView2 = HM.GetClassViewFromNodeRef(a1, chrPlayerCharacter)
+    *o3 = classView2.chrPlayerCharacterMovementTetherAnchorPosition
+    var classView3 = HM.GetClassViewFromNodeRef(a1, chrPlayerCharacter)
+    *o4 = classView3.chrPlayerCharacterMovementTetherLeashLength
+  else
+    *o3 = a1.GetPosition_w()
+    *o4 = 10.0
+  .
+.

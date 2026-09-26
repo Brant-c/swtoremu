@@ -1,4 +1,4 @@
-"""Search SWTOR v5 SCPT payloads for numeric RPC/call identifiers.
+"""Search SWTOR v5 SCPT payloads for numeric RPC/call or GOM identifiers.
 
 This is deliberately read-only.  It reuses the v5 container rules implemented
 by Tools/SCPTExtractor, searches both byte orders, and prints nearby printable
@@ -76,8 +76,8 @@ def find_all(data: bytes, needle: bytes) -> list[int]:
 
 def parse_target(value: str) -> int:
     parsed = int(value, 0)
-    if not 0 <= parsed <= 0xFFFFFFFF:
-        raise argparse.ArgumentTypeError("target must fit in an unsigned 32-bit value")
+    if not 0 <= parsed <= 0xFFFFFFFFFFFFFFFF:
+        raise argparse.ArgumentTypeError("target must fit in an unsigned 64-bit value")
     return parsed
 
 
@@ -88,13 +88,14 @@ def main() -> int:
     parser.add_argument("--json", action="store_true", dest="as_json")
     args = parser.parse_args()
 
-    targets = {
-        target: {
-            "little": struct.pack("<I", target),
-            "big": struct.pack(">I", target),
+    targets = {}
+    for target in args.targets:
+        width = 4 if target <= 0xFFFFFFFF else 8
+        format_code = "I" if width == 4 else "Q"
+        targets[target] = {
+            "little": struct.pack("<" + format_code, target),
+            "big": struct.pack(">" + format_code, target),
         }
-        for target in args.targets
-    }
     results = []
     scanned = 0
     rejected = 0
@@ -122,7 +123,8 @@ def main() -> int:
         "input": str(args.input),
         "scanned_v5_scripts": scanned,
         "rejected_non_v5_scripts": rejected,
-        "targets": [f"0x{target:08X}" for target in args.targets],
+            "targets": [f"0x{target:0{8 if target <= 0xFFFFFFFF else 16}X}"
+                        for target in args.targets],
         "hits": results,
     }
     if args.as_json:

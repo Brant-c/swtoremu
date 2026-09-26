@@ -1,0 +1,1440 @@
+public method processCmd(Me, a1 as String, a2 as String)
+  if utlString:startsWith(a1, "gets")
+    Me._processGets(a1, a2)
+  else
+    Me._processCmd(a1, a2)
+  .
+.
+public method _processCmd(Me, a1 as String, a2 as String)
+  CallFrame _callFrame
+  NodeRef node2
+  NodeRef node4
+  NodeRef node6
+  NodeRef node9
+  NodeRef pc7
+  NodeRef pc
+  NodeRef node11
+  NodeRef pc2
+  NodeRef node14
+  NodeRef node16
+  NodeRef node18
+  NodeRef node20
+  NodeRef node22
+  FuncRef cmdAbandonQuestNoConfirm
+  FuncRef cmdCompanionSellJunkOK
+  FuncRef cmdCompanionSellJunkCancel
+  FuncRef cmdContextMenu
+  Integer list1Length
+  Boolean bool12
+  Id id37
+  NodeRef pc32
+  NodeRef pc3
+  Id id38
+  NodeRef node33
+  FuncRef IsFriend
+  Boolean bool15
+  Id id39
+  NodeRef pc42
+  NodeRef pc4
+  Id id40
+  NodeRef pc52
+  NodeRef pc5
+  Id id41
+  NodeRef pc62
+  NodeRef pc6
+  list1 as List of String
+  SplitBy(a2, ";", &list1)
+  when a1
+    is "incrementQuickbar"
+      var str = list1[1]
+      Me.cmdIncrementQuickbar(str)
+    .
+    is "decrementQuickbar"
+      var str2 = list1[1]
+      Me.cmdDecrementQuickbar(str2)
+    .
+    is "bankExpand"
+      guiApiGfxCmdsContainer:cmdBankExpand()
+    .
+    is "addToFriendsList"
+      if list1.length != 1
+        break
+      .
+      var id1 = HM.ConvertFromStringID(list1[1])
+      socUtils:AddPlayerToFriendsListByID(id1)
+    .
+    is "removeFromFriendsList"
+      if list1.length != 1
+        break
+      .
+      var node3 = HM.ConvertFromStringNodeRef(6, list1[1])
+      node2 = node3
+      if node2 = None
+        break
+      .
+      socUtils:RemovePlayerFromFriendsListByName(node2.getName())
+    .
+    is "setFriendComment"
+      $SOCIAL.AddFriendCharCommand(a2)
+    .
+    is "addToIgnoreList"
+      if list1.length != 1
+        break
+      .
+      var id2 = HM.ConvertFromStringID(list1[1])
+      socUtils:AddPlayerToIgnoreListByID(id2)
+    .
+    is "reportSpam"
+      if list1.length != 1
+        break
+      .
+      var node5 = HM.ConvertFromStringNodeRef(6, list1[1])
+      node4 = node5
+      if node4 = None
+        break
+      .
+      var str8 = node4.getName()
+      csrCSPortalClassMethods:ReportSpam(str8)
+    .
+    is "whisper"
+      if list1.length != 1
+        break
+      .
+      var node7 = HM.ConvertFromStringNodeRef(6, list1[1])
+      node6 = node7
+      if node6 = None
+        break
+      .
+      SF_GFx_ClearAndReserveParams(1)
+      var str10 = node6.getName()
+      SF_GFx_AddParamString(str10)
+      $GUI_API.getApi().invokeWithParams("onChatWhisperPlayer")
+    .
+    is "removeFromIgnoreList"
+      if list1.length != 1
+        break
+      .
+      var node10 = HM.ConvertFromStringNodeRef(6, list1[1])
+      node9 = node10
+      if node9 = None
+        break
+      .
+      var str12 = node9.getName()
+      socUtils:RemovePlayerFromIgnoreListByName(str12)
+    .
+    is "setIgnoreComment"
+      $SOCIAL.AddIgnoreCharCommand(a2)
+    .
+    is "setLFGComment"
+      $SOCIAL.SetLFGCommentCommand(a2)
+    .
+    is "UpdateFriendsList"
+      Me.cmdUpdateFriendsList()
+    .
+    is "requestIgnoreList"
+      Me.cmdRequestIgnoreList()
+    .
+    is "UpdateWhoListData"
+      Me.cmdUpdateWhoListData(a2)
+    .
+    is "setWhoListWindowVisible"
+      if list1.length != 1
+        break
+      .
+      Me.cmdSetSocialWindowVisible(HM.ConvertFromStringBoolean(list1[1]))
+    .
+    is "setSocialWindowVisible"
+      if list1.length != 1
+        break
+      .
+      var bool2 = HM.ConvertFromStringBoolean(list1[1])
+      Me.cmdSetSocialWindowVisible(bool2)
+    .
+    is "requestInstanceTransfer"
+      if list1.length != 1
+        break
+      .
+      pc = GetPlayerCharacterNode()
+      pc7 = pc
+      if pc7 = None
+        break
+      .
+      pc7.RequestInstanceTransfer(list1[1])
+    .
+    is "guildInvite"
+      if list1.length != 1
+        break
+      .
+      var node12 = HM.ConvertFromStringNodeRef(6, list1[1])
+      node11 = node12
+      if node11 = None
+        break
+      .
+      pc2 = GetPlayerCharacterNode()
+      $GUILD.RequestGuildInvite(HM.CopyConstructNodeRef(6, pc2), node11.chrName)
+    .
+    is "guildRemove"
+      if list1.length != 1
+        break
+      .
+      var id3 = HM.ConvertFromStringID(list1[1])
+      $GUILD.RequestGuildRemove(id3)
+    .
+    is "guildRankChange"
+      if list1.length != 2
+        break
+      .
+      var id4 = HM.ConvertFromStringID(list1[1])
+      $GUILD.RequestGuildSetRank(id4, list1[2])
+    .
+    is "guildAbdicate"
+      if list1.length != 1
+        break
+      .
+      var id5 = HM.ConvertFromStringID(list1[1])
+      $GUILD.RequestGuildAbdicate(id5)
+    .
+    is "guildSetMemberNote"
+      if list1.length != 2
+        break
+      .
+      var id6 = HM.ConvertFromStringID(list1[1])
+      $GUILD.DisplayGuildMemberNoteDialog(id6, list1[2])
+    .
+    is "guildSetOfficerNote"
+      if list1.length != 2
+        break
+      .
+      var id7 = HM.ConvertFromStringID(list1[1])
+      $GUILD.DisplayGuildOfficerNoteDialog(id7, list1[2])
+    .
+    is "groupAccept"
+      Me.cmdGroupAccept()
+    .
+    is "groupDecline"
+      Me.cmdGroupDecline()
+    .
+    is "groupInvite"
+      if list1.length == 0
+        break
+      .
+      var id8 = HM.ConvertFromStringID(list1[1])
+      Me.cmdGroupInvite(id8)
+    .
+    is "raidInvite"
+      if list1.length == 0
+        break
+      .
+      var id9 = HM.ConvertFromStringID(list1[1])
+      Me.cmdRaidInvite(id9)
+    .
+    is "groupRemove"
+      if list1.length == 0
+        break
+      .
+      var id10 = HM.ConvertFromStringID(list1[1])
+      Me.cmdGroupRemove(id10)
+    .
+    is "groupDismiss"
+      if list1.length == 0
+        break
+      .
+      var id11 = HM.ConvertFromStringID(list1[1])
+      Me.cmdGroupRemoveCompanion(id11)
+    .
+    is "makeLeader"
+      if list1.length == 0
+        break
+      .
+      var id12 = HM.ConvertFromStringID(list1[1])
+      Me.cmdGroupSetLeader(id12)
+    .
+    is "raidPromote"
+      if list1.length == 0
+        break
+      .
+      var id13 = HM.ConvertFromStringID(list1[1])
+      Me.cmdGroupPromote(id13)
+    .
+    is "raidDemote"
+      if list1.length == 0
+        break
+      .
+      var id14 = HM.ConvertFromStringID(list1[1])
+      Me.cmdGroupDemote(id14)
+    .
+    is "premiumLootThreshold"
+      Me.cmdGroupLootThreshold(itmQualityPremium)
+    .
+    is "prototypeLootThreshold"
+      Me.cmdGroupLootThreshold(itmQualityPrototype)
+    .
+    is "artifactLootThreshold"
+      Me.cmdGroupLootThreshold(itmQualityArtifact)
+    .
+    is "legendaryLootThreshold"
+      Me.cmdGroupLootThreshold(itmQualityLegendary)
+    .
+    is "groupLootRound"
+      Me.cmdGroupLootRule(grpLootRuleRoundRobin)
+    .
+    is "groupLootFree"
+      Me.cmdGroupLootRule(grpLootRuleFreeForAll)
+    .
+    is "groupLootMaster"
+      Me.cmdGroupLootRule(grpLootRuleMasterLooter)
+    .
+    is "resetActiveUniquePhase"
+      Me.cmdResetActiveUniquePhase()
+    .
+    is "resetLocalPhases"
+      Me.cmdResetLocalPhase()
+    .
+    is "raidModeSelected"
+      Me.cmdGroupRaidSetDifficulty(list1[1], HM.ConvertFromStringBoolean(list1[2]))
+    .
+    is "raidConvert"
+      Me.cmdGroupRaidConvert()
+    .
+    is "groupToggleOpen"
+      $GROUP.RequestGroupToggleOpen()
+    .
+    is "groupJoin"
+      if list1.length != 1
+        break
+      .
+      var id15 = HM.ConvertFromStringID(list1[1])
+      $GROUP.RequestGroupJoinByID(id15)
+    .
+    is "setTargetMarker"
+      if list1.length != 3
+        break
+      .
+      var id16 = HM.ConvertFromStringID(list1[1])
+      $GROUP.RequestGroupSetTargetMarker(id16, list1[2], HM.ConvertFromStringBoolean(list1[3]))
+    .
+    is "masterloot_award"
+      var node15 = HM.ConvertFromStringNodeRef(6, list1[1])
+      node14 = node15
+      var node17 = HM.ConvertFromStringNodeRef(16, list1[2])
+      node16 = node17
+      var node19 = HM.ConvertFromStringNodeRef(17, list1[3])
+      node18 = node19
+      var id17 = node18.grpNodeMasterLootItem
+      if node16 != id17
+        // unknown
+      else
+        var id18 = node18
+        guiApiGfxCmdsContainer:createMasterLootConfirmAssignBox(node16, id18, node14)
+      .
+    .
+    is "masterloot_self"
+      var node21 = HM.ConvertFromStringNodeRef(6, list1[1])
+      node20 = node21
+      var node23 = HM.ConvertFromStringNodeRef(16, list1[2])
+      node22 = node23
+      var node25 = HM.ConvertFromStringNodeRef(17, list1[3])
+      var node24 = node25
+      var id19 = node24.grpNodeMasterLootItem
+      if node22 != id19
+        // unknown
+      else
+        var id20 = node22
+        var node26 = node20.invEquipment
+        var id21 = node26
+        var id22 = node20
+        $CONTAINER.MasterLootAwardLoot(id20, id21, 0, 0, id22)
+      .
+    .
+    is "masterloot_random"
+      var node28 = HM.ConvertFromStringNodeRef(17, list1[1])
+      var node27 = node28
+      var id23 = node27.grpNodeMasterLootItem
+      var node29 = id23
+      var id24 = node29
+      var id25 = node27
+      $CONTAINER.MasterLootAwardLootRandomly(id24, id25)
+    .
+    is "setGuiConversationMissionBoardWindowEnabled"
+      Me.cmdSetGuiConversationMissionBoardWindowEnabled(HM.ConvertFromStringBoolean(list1[1]))
+    .
+    is "requestAcceptMission"
+      var id26 = HM.ConvertFromStringID(list1[1])
+      Me.cmdRequestAcceptMission(id26)
+    .
+    is "conversationChoiceRequest"
+      Me.cmdConversationChoiceRequest(list1[1], list1[2])
+    .
+    is "conversationSkip"
+      Me.cmdConversationSkip()
+    .
+    is "organizerStart"
+      var str50 = list1[1]
+      Me.cmdOrganizerStart(str50)
+    .
+    is "organizerDecline"
+      var str51 = list1[1]
+      Me.cmdOrganizerDecline(str51)
+    .
+    is "organizerAcceptHolocom"
+      var str52 = list1[1]
+      Me.cmdOrganizerAcceptHolocom(str52)
+    .
+    is "organizerUnaccept"
+      var str53 = list1[1]
+      Me.cmdOrganizerUnaccept(str53)
+    .
+    is "cmdAbandonQuestNoConfirm"
+      if list1.length == 0
+        break
+      .
+      var str54 = list1[1]
+      var id27 = HM.ConvertFromStringID(str54)
+      Me.cmdAbandonQuestNoConfirm(id27)
+    .
+    is "vndRepairAll"
+      Me.cmdRequestVendorRepairAll()
+    .
+    is "requestVendorClose"
+      Me.cmdRequestVendorClose()
+    .
+    is "requestTrainAbility"
+      var str55 = list1[1]
+      var id28 = HM.ConvertFromStringID(str55)
+      var str56 = list1[2]
+      var id29 = HM.ConvertFromStringID(str56)
+      Me.cmdRequestTrainAbility(id28, id29)
+    .
+    is "requestTrainerClose"
+      Me.cmdRequestTrainerClose()
+    .
+    is "requestUntrainCrewSkill"
+      var str57 = list1[1]
+      var int13 = str57
+      Me.cmdRequestUntrainCrewSkill(int13)
+    .
+    is "setCrewSkillsWindowEnabled"
+      var str58 = list1[1]
+      var bool6 = HM.ConvertFromStringBoolean(str58)
+      Me.cmdSetCrewSkillsWindowEnabled(bool6)
+    .
+    is "setCraftingWindowEnabled"
+      Me.cmdSetCraftingWindowEnabled(0)
+    .
+    is "setAbilityPageEnabled"
+      Me.cmdSetAbilityPageEnabled()
+    .
+    is "companionSelect"
+      var str59 = list1[1]
+      var int14 = str59
+      Me.cmdCompanionSelect(int14)
+    .
+    is "setCompanionInventoryEnabled"
+      var str60 = list1[1]
+      var bool7 = HM.ConvertFromStringBoolean(str60)
+      Me.cmdCompanionInventory(bool7)
+    .
+    is "unsummonCompanion"
+      Me.cmdCompanionUnsummon()
+    .
+    is "companionSellJunk"
+      Me.cmdCompanionSellJunk()
+    .
+    is "cmdCompanionSellJunkOK"
+      Me.cmdCompanionSellJunkOK()
+    .
+    is "cmdCompanionSellJunkCancel"
+      Me.cmdCompanionSellJunkCancel()
+    .
+    is "selectNext"
+      Me.cmdSelectNext()
+    .
+    is "selectPrevious"
+      Me.cmdSelectPrevious()
+    .
+    is "CloseLootWindow"
+      Me.cmdCloseLootWindow()
+    .
+    is "LootTakeAll"
+      Me.cmdLootTakeAll()
+    .
+    is "companionQuickslotPressed"
+      Me.cmdCompanionQuickslotPressed(list1[1], list1[2])
+    .
+    is "setTarget"
+      var id30 = HM.ConvertFromStringID(list1[1])
+      Me.cmdSetTarget(id30)
+    .
+    is "playSound"
+      Me.cmdPlaySound(list1[1])
+    .
+    is "playSoundExternal"
+      Me.cmdPlaySoundExternal(list1[1])
+    .
+    is "clipboardCopy"
+      Me.cmdClipboardCopy(list1[1])
+    .
+    is "quitGame"
+      Me.cmdRequestQuitGame(true)
+    .
+    is "logout"
+      Me.cmdRequestLogout(true)
+    .
+    is "setFocus"
+      Me.cmdSetFocus(HM.ConvertFromStringBoolean(list1[1]))
+    .
+    is "sendChat"
+      Me.cmdSendChat(a2)
+    .
+    is "guiNumberOfComponentsToLoad"
+      var str68 = list1[1]
+      Me.cmdGuiNumberOfComponentsToLoad(str68)
+    .
+    is "guiNumberOfComponentsLoaded"
+      var str69 = list1[1]
+      Me.cmdGuiNumberOfComponentsLoaded(str69)
+    .
+    is "fullyLoadedHack"
+      Me.cmdFullyLoadedHack()
+    .
+    is "activateGuiCharacterSheetPaperdoll"
+      Me.cmdActivateGuiCharacterSheetPaperdoll(HM.ConvertFromStringBoolean(list1[1]))
+    .
+    is "updateGuiCharacterSheetPaperdoll"
+      Me.cmdUpdateGuiCharacterSheetPaperdoll(list1[1], list1[2])
+    .
+    is "summonCompanion"
+      Me.cmdSummonCompanion()
+    .
+    is "fastForwardQuest"
+      var id31 = HM.ConvertFromStringID(list1[1])
+      Me.cmdFastForwardQuest(id31, list1[2])
+    .
+    is "setPaperdollBackdropTexture"
+      Me.cmdSetPaperdollBackdropTexture(list1[1])
+    .
+    is "cmdContextMenu"
+      var str76 = list1[1]
+      var id32 = HM.ConvertFromStringID(str76)
+      Me.cmdContextMenu(id32)
+    .
+    is "submitGeneratedContentInput"
+      var str77 = list1[1]
+      Me.cmdSubmitGeneratedContentInput(str77)
+    .
+    is "ToggleLayoutWindow"
+      Me.cmdToggleLayoutWindow()
+    .
+    is "RequestRenderOptionsValues"
+      Me.cmdRequestRenderOptionsValues()
+    .
+    is "SetRenderOptionClipDist"
+      var str78 = list1[1]
+      var float3 = str78
+      Me.cmdSetRenderOptionClipDist(float3)
+    .
+    is "SetRenderOptionDrawShadows"
+      var str79 = list1[1]
+      var bool10 = HM.ConvertFromStringBoolean(str79)
+      Me.cmdSetRenderOptionDrawShadows(bool10)
+    .
+    is "RequestGameTime"
+      Me.cmdRequestGameTime()
+    .
+    is "fadeOutFinished"
+      Me.cmdFadeOutFinished()
+    .
+    is "fadeInFinished"
+      Me.cmdFadeInFinished()
+    .
+    is "setLanguage"
+      if list1.length == 0
+        break
+      .
+      Me.cmdSetLanguage(list1[1])
+    .
+    is "tradeRequest"
+      if list1.length == 1
+        var id33 = HM.ConvertFromStringID(list1[1])
+        Me.cmdTradeRequest(id33, 0, "")
+      else if list1.length == 2
+        var id34 = HM.ConvertFromStringID(list1[1])
+        var str83 = list1[2]
+        Me.cmdTradeRequest(id34, str83, "")
+      else
+        list1Length = list1.length
+        var bool11 = (unsigned int)list1Length <= 2
+        bool12 = list1Length <= -1
+        if not HIDWORD(list1Length)
+          bool12 = bool11
+        .
+        if not bool12
+          var id35 = HM.ConvertFromStringID(list1[1])
+          Me.cmdTradeRequest(id35, list1[2], list1[3])
+        .
+      .
+    .
+    is "tradeAccept"
+      Me.cmdTradeAccept()
+    .
+    is "tradeReject"
+      Me.cmdTradeReject()
+    .
+    is "tradeCancel"
+      Me.cmdTradeCancel()
+    .
+    is "tradeSetCredits"
+      if list1.length == 0
+        break
+      .
+      var str87 = list1[1]
+      Me.cmdTradeSetCredits(str87)
+    .
+    is "tradeSetReady"
+      if list1.length == 0
+        break
+      .
+      Me.cmdTradeSetReady(HM.ConvertFromStringBoolean(list1[1]))
+    .
+    is "tradeWindowInit"
+      Me.cmdTradeWindowInit()
+    .
+    is "craftRequest"
+      var id36 = HM.ConvertFromStringID(list1[1])
+      Me.cmdCraftRequestWindowInit(id36)
+    .
+    is "inspectPlayer"
+      id37 = HM.ConvertFromStringID(list1[1])
+      pc3 = GetPlayerCharacterNode()
+      pc32 = pc3
+      if id37 and pc32 != id37 and (id38 = id37, node33 = HM.ConstructNodeRef(11), &node33 = id38, IsFriend = HM.PrepareCallNodeRef2(115, pc32, &_callFrame), bool15 = IsFriend(_callFrame, node33), HM.UnprepareCall(), bool15)
+        var node31 = id37
+        var node32 = $GUI_API.getApi()
+        node32.showTargetCharacterSheet(node31)
+      else if id37 != 0
+        var unused = pc32
+      .
+    .
+    is "charactersheetClosed"
+      var node34 = $GUI_API.getApi()
+      node34.closedCharacterSheet()
+    .
+    is "playModeSelected"
+      if list1.length == 0
+        break
+      .
+      var str91 = list1[1]
+      var node35 = $GUI_API.getApi()
+      node35.PlayModeSelected(str91)
+    .
+    is "followPlayer"
+      id39 = HM.ConvertFromStringID(list1[1])
+      if id39 == 0
+        break
+      .
+      pc4 = GetPlayerCharacterNode()
+      pc42 = pc4
+      if pc42 = None or pc42 == id39
+        break
+      .
+      if not pc42.IsFriend(id39)
+        break
+      .
+      $CHARACTER.chrOracleRequestBeginFollow(id39)
+    .
+    is "kickWarzonePlayer"
+      id40 = HM.ConvertFromStringID(list1[1])
+      if id40 == 0
+        break
+      .
+      pc5 = GetPlayerCharacterNode()
+      pc52 = pc5
+      if pc52 = None
+        break
+      .
+      pc52.unk_45cde9b6(id40, true)
+    .
+    is "unkickWarzonePlayer"
+      id41 = HM.ConvertFromStringID(list1[1])
+      if id41 == 0
+        break
+      .
+      pc6 = GetPlayerCharacterNode()
+      pc62 = pc6
+      if pc62 = None
+        break
+      .
+      var node38 = id41
+      pc62.unk_45cde9b6(node38, false)
+    .
+    is "spaceCombatRetry"
+      Me.cmdSpaceCombatRetry()
+    .
+    is "spaceCombatReturn"
+      Me.cmdSpaceCombatReturn()
+    .
+    is "duelRequest"
+      var id42 = HM.ConvertFromStringID(list1[1])
+      Me.cmdDuelRequest(id42)
+    .
+    is "duelAccept"
+      Me.cmdDuelAccept()
+    .
+    is "duelReject"
+      Me.cmdDuelReject()
+    .
+    is "duelSurrender"
+      Me.cmdDuelSurrender("")
+    .
+    is "pvpRequestToggleManualPvpFlag"
+      Me.cmdRequestToggleManualPvpFlag("")
+    .
+    is "groupCurrentLoot"
+    .
+  .
+.
+public method _processGets(Me, a1 as String, a2 as String)
+  SplitBy(a2, ";", &list1)
+  when a1
+    is "getsOptionDescriptionData"
+      Me.getsOptionDescriptionData(v207, str, v212)
+    .
+    is "getsDeveloperOption"
+      var str2 = Me.getsDeveloperOption(list1[1])
+      Me._returnString((int)str2, str, v212)
+    .
+    is "getsClipboard"
+      Me.getsClipboard(v207, str, v212)
+    .
+    is "getsCtrlPressed"
+      Me.getsCtrlPressed(v207, str, v212)
+    .
+    is "getsShiftPressed"
+      Me.getsShiftPressed(v207, str, v212)
+    .
+    is "getsAltPressed"
+      Me.getsAltPressed(v207, str, v212)
+    .
+    is "getsAbilityIcon"
+      var str5 = list1[1]
+      var id1 = HM.ConvertFromStringID(str5)
+      getsAbilityIcon = HM.PrepareCallNodeRef2(135, Me, &_callFrame)
+      id2 = id1
+      v213 = HIDWORD(id2)
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsAbilityName"
+      var str6 = list1[1]
+      var id4 = HM.ConvertFromStringID(str6)
+      getsAbilityIcon = HM.PrepareCallNodeRef2(136, Me, &_callFrame)
+      id2 = id4
+      v213 = HIDWORD(id2)
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsAbilityDescription"
+      var str7 = list1[1]
+      var id5 = HM.ConvertFromStringID(str7)
+      getsAbilityIcon = HM.PrepareCallNodeRef2(137, Me, &_callFrame)
+      id2 = id5
+      v213 = HIDWORD(id2)
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsAbilityCooldownDuration"
+      var str8 = list1[1]
+      var id6 = HM.ConvertFromStringID(str8)
+      getsAbilityCooldownDuration = HM.PrepareCallNodeRef2(138, Me, &_callFrame)
+      var float1 = getsAbilityCooldownDuration(_callFrame, id6, v215)
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float1)
+    .
+    is "getsAbilityGlobalCooldownDuration"
+      var str9 = list1[1]
+      var id7 = HM.ConvertFromStringID(str9)
+      Me.getsAbilityGlobalCooldownDuration(id7)
+    .
+    is "getsAbilityRangeMin"
+      var str10 = list1[1]
+      var id8 = HM.ConvertFromStringID(str10)
+      getsAbilityCooldownDuration = HM.PrepareCallNodeRef2(141, Me, &_callFrame)
+      var float1 = getsAbilityCooldownDuration(_callFrame, id8, v215)
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float1)
+    .
+    is "getsAbilityRangeMax"
+      var str11 = list1[1]
+      var id9 = HM.ConvertFromStringID(str11)
+      getsAbilityCooldownDuration = HM.PrepareCallNodeRef2(142, Me, &_callFrame)
+      var float1 = getsAbilityCooldownDuration(_callFrame, id9, v215)
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float1)
+    .
+    is "getsAbilityEnergyCost"
+      var str12 = list1[1]
+      var id10 = HM.ConvertFromStringID(str12)
+      getsAbilityCooldownDuration = HM.PrepareCallNodeRef2(143, Me, &_callFrame)
+      var float1 = getsAbilityCooldownDuration(_callFrame, id10, v215)
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float1)
+    .
+    is "getsAbilityForceCost"
+      var str13 = list1[1]
+      var id11 = HM.ConvertFromStringID(str13)
+      getsAbilityCooldownDuration = HM.PrepareCallNodeRef2(144, Me, &_callFrame)
+      var float1 = getsAbilityCooldownDuration(_callFrame, id11, v215)
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float1)
+    .
+    is "getsAbilityActionPointCost"
+      var str14 = list1[1]
+      var id12 = HM.ConvertFromStringID(str14)
+      getsAbilityCooldownDuration = HM.PrepareCallNodeRef2(145, Me, &_callFrame)
+      var float1 = getsAbilityCooldownDuration(_callFrame, id12, v215)
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float1)
+    .
+    is "getsAbilityIsPassive"
+      var str15 = list1[1]
+      var id13 = HM.ConvertFromStringID(str15)
+      getsAbilityIsPassive = HM.PrepareCallNodeRef2(146, Me, &_callFrame)
+      var bool1 = getsAbilityIsPassive(_callFrame, id13)
+      Me._returnBoolean(bool1, str, v212)
+    .
+    is "getsAbilityIsModal"
+      var str16 = list1[1]
+      var id14 = HM.ConvertFromStringID(str16)
+      getsAbilityIsPassive = HM.PrepareCallNodeRef2(148, Me, &_callFrame)
+      var bool1 = getsAbilityIsPassive(_callFrame, id14)
+      Me._returnBoolean(bool1, str, v212)
+    .
+    is "getsAbilityCastTime"
+      var str17 = list1[1]
+      var id15 = HM.ConvertFromStringID(str17)
+      getsAbilityCooldownDuration = HM.PrepareCallNodeRef2(149, Me, &_callFrame)
+      var float1 = getsAbilityCooldownDuration(_callFrame, id15, v215)
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float1)
+    .
+    is "getsAbilityChannelingTime"
+      var str18 = list1[1]
+      var id16 = HM.ConvertFromStringID(str18)
+      getsAbilityCooldownDuration = HM.PrepareCallNodeRef2(150, Me, &_callFrame)
+      var float1 = getsAbilityCooldownDuration(_callFrame, id16, v215)
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float1)
+    .
+    is "getsEffectIcon"
+      var str19 = list1[1]
+      var id17 = HM.ConvertFromStringID(str19)
+      getsAbilityIcon = HM.PrepareCallNodeRef2(151, Me, &_callFrame)
+      id2 = id17
+      v213 = HIDWORD(id2)
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsEffectName"
+      var str20 = list1[1]
+      var id18 = HM.ConvertFromStringID(str20)
+      getsAbilityIcon = HM.PrepareCallNodeRef2(152, Me, &_callFrame)
+      id2 = id18
+      v213 = HIDWORD(id2)
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsEffectDescription"
+      var str21 = list1[1]
+      var id19 = HM.ConvertFromStringID(str21)
+      getsAbilityIcon = HM.PrepareCallNodeRef2(153, Me, &_callFrame)
+      id2 = id19
+      v213 = HIDWORD(id2)
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsItemIcon"
+      var str22 = list1[1]
+      var id20 = HM.ConvertFromStringID(str22)
+      getsAbilityIcon = HM.PrepareCallNodeRef2(154, Me, &_callFrame)
+      id2 = id20
+      v213 = HIDWORD(id2)
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsItemName"
+      var str23 = list1[1]
+      var id21 = HM.ConvertFromStringID(str23)
+      getsAbilityIcon = HM.PrepareCallNodeRef2(155, Me, &_callFrame)
+      id2 = id21
+      v213 = HIDWORD(id2)
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsItemIsWeapon"
+      var str24 = list1[1]
+      var id22 = HM.ConvertFromStringID(str24)
+      getsAbilityIsPassive = HM.PrepareCallNodeRef2(156, Me, &_callFrame)
+      var bool1 = getsAbilityIsPassive(_callFrame, id22)
+      Me._returnBoolean(bool1, str, v212)
+    .
+    is "getsItemWeaponMinDamage"
+      var str26 = list1[1]
+      var id23 = HM.ConvertFromStringID(str26)
+      getsItemWeaponMinDamage = HM.PrepareCallNodeRef2(157, Me, &_callFrame)
+      var id24 = id23
+      var str25 = getsItemWeaponMinDamage(_callFrame, id24)
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, str25)
+    .
+    is "getsItemWeaponMaxDamage"
+      var str27 = list1[1]
+      var id24 = HM.ConvertFromStringID(str27)
+      var str25 = Me.getsItemWeaponMinDamage(id24)
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, str25)
+    .
+    is "getsItemWeaponDamageType"
+      var str28 = list1[1]
+      var id25 = HM.ConvertFromStringID(str28)
+      getsAbilityIcon = HM.PrepareCallNodeRef2(159, Me, &_callFrame)
+      id2 = id25
+      v213 = HIDWORD(id2)
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsItemSlotDisplayName"
+      var str29 = list1[1]
+      var id26 = HM.ConvertFromStringID(str29)
+      getsOptionDescriptionData = HM.PrepareCallNodeRef2(160, Me, &_callFrame)
+      str = HIDWORD(id26)
+      getsOptionDescriptionData(_callFrame, (String)id26, str, v212)
+    .
+    is "getsItemWeaponFlurryBlows"
+      var float2 = Me.getsItemWeaponFlurryBlows(list1[1])
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float2)
+    .
+    is "getsItemWeaponFlurryDelay"
+      var float2 = Me.getsItemWeaponFlurryDelay(list1[1])
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float2)
+    .
+    is "getsItemQuality"
+      var str31 = list1[1]
+      var int4 = Me.getsItemQuality(str31)
+      Me._returnString((int)int4, str, v212)
+    .
+    is "getsItemMeetsRequiredLevel"
+      var str33 = list1[1]
+      var id27 = HM.ConvertFromStringID(str33)
+      getsAbilityIsPassive = HM.PrepareCallNodeRef2(164, Me, &_callFrame)
+      var bool1 = getsAbilityIsPassive(_callFrame, id27)
+      Me._returnBoolean(bool1, str, v212)
+    .
+    is "getsItemMeetsRequiredClasses"
+      var str34 = list1[1]
+      var id28 = HM.ConvertFromStringID(str34)
+      getsAbilityIsPassive = HM.PrepareCallNodeRef2(165, Me, &_callFrame)
+      var bool1 = getsAbilityIsPassive(_callFrame, id28)
+      Me._returnBoolean(bool1, str, v212)
+    .
+    is "getsItemMeetsRequiredAlignment"
+      var str35 = list1[1]
+      var id29 = HM.ConvertFromStringID(str35)
+      getsAbilityIsPassive = HM.PrepareCallNodeRef2(166, Me, &_callFrame)
+      var bool1 = getsAbilityIsPassive(_callFrame, id29)
+      Me._returnBoolean(bool1, str, v212)
+    .
+    is "getsItemMeetsRequiredSocialScore"
+      var str36 = list1[1]
+      var id30 = HM.ConvertFromStringID(str36)
+      getsItemMeetsRequiredSocialScore = HM.PrepareCallNodeRef2(167, Me, &_callFrame)
+      getsItemMeetsRequiredSocialScore(_callFrame, id30)
+    .
+    is "getsItemMeetsRequiredProficiencies"
+      var str37 = list1[1]
+      var id31 = HM.ConvertFromStringID(str37)
+      getsAbilityIsPassive = HM.PrepareCallNodeRef2(168, Me, &_callFrame)
+      var bool1 = getsAbilityIsPassive(_callFrame, id31)
+      Me._returnBoolean(bool1, str, v212)
+    .
+    is "getsItemRequiredLevel"
+      var str38 = list1[1]
+      var id32 = HM.ConvertFromStringID(str38)
+      var int6 = Me.getsItemRequiredLevel(id32)
+      var float4 = (Float)int6
+      Me._returnNumber(float4)
+    .
+    is "getsItemRequiredClasses"
+      var str39 = list1[1]
+      var id33 = HM.ConvertFromStringID(str39)
+      getsAbilityIcon = HM.PrepareCallNodeRef2(170, Me, &_callFrame)
+      id2 = id33
+      v213 = HIDWORD(id2)
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsItemRequiredAlignment"
+      var str40 = list1[1]
+      var id34 = HM.ConvertFromStringID(str40)
+      getsAbilityIcon = HM.PrepareCallNodeRef2(171, Me, &_callFrame)
+      id2 = id34
+      v213 = HIDWORD(id2)
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsItemRequiredSocialScore"
+      var str42 = list1[1]
+      var id35 = HM.ConvertFromStringID(str42)
+      getsItemRequiredSocialScore = HM.PrepareCallNodeRef2(172, Me, &_callFrame)
+      var id36 = id35
+      id37 = id36
+      str41 = getsItemRequiredSocialScore(_callFrame, id37)
+    .
+    is "getsItemRequiredProficiencies"
+      var str43 = list1[1]
+      var id38 = HM.ConvertFromStringID(str43)
+      getsAbilityIcon = HM.PrepareCallNodeRef2(173, Me, &_callFrame)
+      id2 = id38
+      v213 = HIDWORD(id2)
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsItemWeaponMinRange"
+      var float2 = Me.getsItemWeaponMinRange(list1[1])
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float2)
+    .
+    is "getsItemWeaponMaxRange"
+      var float2 = Me.getsItemWeaponMaxRange(list1[1])
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float2)
+    .
+    is "getsItemAbilityOnUse"
+      var str44 = list1[1]
+      var id39 = HM.ConvertFromStringID(str44)
+      getsAbilityIcon = HM.PrepareCallNodeRef2(176, Me, &_callFrame)
+      id2 = id39
+      v213 = HIDWORD(id2)
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsItemAbilityOnUseSpec"
+      getsItemRequiredSocialScore = HM.PrepareCallNodeRef2(177, Me, &_callFrame)
+      LODWORD(id37) = list1[1]
+      str41 = getsItemRequiredSocialScore(_callFrame, id37)
+    .
+    is "getsItemAbilityOnEquip"
+      var str46 = list1[1]
+      var id40 = HM.ConvertFromStringID(str46)
+      getsAbilityIcon = HM.PrepareCallNodeRef2(178, Me, &_callFrame)
+      id2 = id40
+      v213 = HIDWORD(id2)
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsItemShieldAbsorb"
+      var str47 = list1[1]
+      var id41 = HM.ConvertFromStringID(str47)
+      getsItemShieldAbsorb = HM.PrepareCallNodeRef2(179, Me, &_callFrame)
+      var float5 = getsItemShieldAbsorb(_callFrame, id41)
+      Me._returnString(float5)
+    .
+    is "getsItemShieldChance"
+      var str49 = list1[1]
+      var id42 = HM.ConvertFromStringID(str49)
+      getsItemShieldAbsorb = HM.PrepareCallNodeRef2(180, Me, &_callFrame)
+      var float5 = getsItemShieldAbsorb(_callFrame, id42)
+      Me._returnString(float5)
+    .
+    is "getsPlayerEquipped"
+      Me.getsPlayerEquipped((int)list1[1], str, v212)
+    .
+    is "getsCompanionEquipped"
+      Me.getsCompanionEquipped((int)list1[1], str, v212)
+    .
+    is "getsProductUniqueness"
+      var str50 = list1[1]
+      var int8 = str50
+      getsAbilityCooldownDuration = HM.PrepareCallNodeRef2(183, Me, &_callFrame)
+      var float1 = getsAbilityCooldownDuration(_callFrame, int8, v215)
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float1)
+    .
+    is "getsProductIsWeapon"
+      var str51 = list1[1]
+      var int9 = str51
+      getsAbilityIsPassive = HM.PrepareCallNodeRef2(184, Me, &_callFrame)
+      var bool1 = getsAbilityIsPassive(_callFrame, int9)
+      Me._returnBoolean(bool1, str, v212)
+    .
+    is "getsProductIsArmor"
+      var str52 = list1[1]
+      var int10 = str52
+      getsAbilityIsPassive = HM.PrepareCallNodeRef2(185, Me, &_callFrame)
+      var bool1 = getsAbilityIsPassive(_callFrame, int10)
+      Me._returnBoolean(bool1, str, v212)
+    .
+    is "getsProductBindInformation"
+      var str53 = list1[1]
+      var int11 = str53
+      getsAbilityIcon = HM.PrepareCallNodeRef2(186, Me, &_callFrame)
+      id2 = int11
+      v213 = HIDWORD(id2)
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsProductDescription"
+      var str54 = list1[1]
+      var int12 = str54
+      getsAbilityIcon = HM.PrepareCallNodeRef2(187, Me, &_callFrame)
+      id2 = int12
+      v213 = HIDWORD(id2)
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsProductWeaponDamageType"
+      var str55 = list1[1]
+      var int13 = str55
+      getsAbilityIcon = HM.PrepareCallNodeRef2(188, Me, &_callFrame)
+      id2 = int13
+      v213 = HIDWORD(id2)
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsProductWeaponMinDamage"
+      var str56 = list1[1]
+      var int14 = str56
+      getsAbilityCooldownDuration = HM.PrepareCallNodeRef2(189, Me, &_callFrame)
+      var float1 = getsAbilityCooldownDuration(_callFrame, int14, v215)
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float1)
+    .
+    is "getsProductWeaponMaxDamage"
+      var str57 = list1[1]
+      var int15 = str57
+      getsAbilityCooldownDuration = HM.PrepareCallNodeRef2(190, Me, &_callFrame)
+      var float1 = getsAbilityCooldownDuration(_callFrame, int15, v215)
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float1)
+    .
+    is "getsProductWeaponFlurryBlows"
+      var str58 = list1[1]
+      var int16 = str58
+      getsAbilityCooldownDuration = HM.PrepareCallNodeRef2(191, Me, &_callFrame)
+      var float1 = getsAbilityCooldownDuration(_callFrame, int16, v215)
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float1)
+    .
+    is "getsProductWeaponFlurryDelay"
+      var str59 = list1[1]
+      var int17 = str59
+      getsAbilityCooldownDuration = HM.PrepareCallNodeRef2(192, Me, &_callFrame)
+      var float1 = getsAbilityCooldownDuration(_callFrame, int17, v215)
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float1)
+    .
+    is "getsProductArmorSoak"
+      var str60 = list1[1]
+      var int18 = str60
+      getsAbilityCooldownDuration = HM.PrepareCallNodeRef2(193, Me, &_callFrame)
+      var float1 = getsAbilityCooldownDuration(_callFrame, int18, v215)
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float1)
+    .
+    is "getsProductShieldAbsorb"
+      var str61 = list1[1]
+      var int19 = str61
+      getsItemShieldAbsorb = HM.PrepareCallNodeRef2(194, Me, &_callFrame)
+      var float5 = getsItemShieldAbsorb(_callFrame, int19)
+      Me._returnString(float5)
+    .
+    is "getsProductShieldChance"
+      var str62 = list1[1]
+      var float5 = Me.getsItemShieldAbsorb(str62)
+      Me._returnString(float5)
+    .
+    is "getsProductAbilityOnEquip"
+      var str63 = list1[1]
+      var int20 = str63
+      getsAbilityIcon = HM.PrepareCallNodeRef2(196, Me, &_callFrame)
+      id2 = int20
+      v213 = HIDWORD(id2)
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsProductAbilityOnUse"
+      var str64 = list1[1]
+      var int21 = str64
+      getsAbilityIcon = HM.PrepareCallNodeRef2(197, Me, &_callFrame)
+      id2 = int21
+      v213 = HIDWORD(id2)
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsProductMeetsRequiredLevel"
+      var str65 = list1[1]
+      var int22 = str65
+      getsAbilityIsPassive = HM.PrepareCallNodeRef2(198, Me, &_callFrame)
+      var bool1 = getsAbilityIsPassive(_callFrame, int22)
+      Me._returnBoolean(bool1, str, v212)
+    .
+    is "getsProductMeetsRequiredClasses"
+      var str66 = list1[1]
+      var int23 = str66
+      getsAbilityIsPassive = HM.PrepareCallNodeRef2(199, Me, &_callFrame)
+      var bool1 = getsAbilityIsPassive(_callFrame, int23)
+      Me._returnBoolean(bool1, str, v212)
+    .
+    is "getsProductMeetsRequiredProficiencies"
+      var str67 = list1[1]
+      var int24 = str67
+      getsAbilityIsPassive = HM.PrepareCallNodeRef2(200, Me, &_callFrame)
+      var bool1 = getsAbilityIsPassive(_callFrame, int24)
+      Me._returnBoolean(bool1, str, v212)
+    .
+    is "getsProductMeetsRequiredAlignment"
+      var str68 = list1[1]
+      var int25 = str68
+      getsAbilityIsPassive = HM.PrepareCallNodeRef2(201, Me, &_callFrame)
+      var bool1 = getsAbilityIsPassive(_callFrame, int25)
+      Me._returnBoolean(bool1, str, v212)
+    .
+    is "getsProductMeetsRequiredSocialScore"
+      var str69 = list1[1]
+      Me.getsItemMeetsRequiredSocialScore(str69)
+    .
+    is "getsProductRequiredLevel"
+      var str70 = list1[1]
+      var int26 = str70
+      getsAbilityCooldownDuration = HM.PrepareCallNodeRef2(203, Me, &_callFrame)
+      var float1 = getsAbilityCooldownDuration(_callFrame, int26, v215)
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float1)
+    .
+    is "getsProductRequiredClasses"
+      var str71 = list1[1]
+      var int27 = str71
+      getsAbilityIcon = HM.PrepareCallNodeRef2(204, Me, &_callFrame)
+      id2 = int27
+      v213 = HIDWORD(id2)
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsProductRequiredProficiencies"
+      var str72 = list1[1]
+      var int28 = str72
+      getsAbilityIcon = HM.PrepareCallNodeRef2(205, Me, &_callFrame)
+      id2 = int28
+      v213 = HIDWORD(id2)
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsProductRequiredAlignment"
+      var str73 = list1[1]
+      var int29 = str73
+      getsAbilityIcon = HM.PrepareCallNodeRef2(206, Me, &_callFrame)
+      id2 = int29
+      v213 = HIDWORD(id2)
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsProductRequiredSocialScore"
+      var str74 = list1[1]
+      var int30 = str74
+      getsItemRequiredSocialScore = HM.PrepareCallNodeRef2(207, Me, &_callFrame)
+      var id36 = int30
+      id37 = id36
+      str41 = getsItemRequiredSocialScore(_callFrame, id37)
+    .
+    is "getsProductIsStackable"
+      var str75 = list1[1]
+      var bool1 = Me.getsAbilityIsPassive(str75)
+      Me._returnBoolean(bool1, str, v212)
+    .
+    is "getsProductQuality"
+      var str76 = list1[1]
+      var int31 = str76
+      var int32 = Me.getsVendorQuality(int31)
+      Me._returnString((int)int32, str, v212)
+    .
+    is "getsProductDurabilityMax"
+      var str77 = list1[1]
+      var int33 = str77
+      getsAbilityCooldownDuration = HM.PrepareCallNodeRef2(210, Me, &_callFrame)
+      var float1 = getsAbilityCooldownDuration(_callFrame, int33, v215)
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float1)
+    .
+    is "getsProductWeaponMinRange"
+      var str78 = list1[1]
+      var int34 = str78
+      getsAbilityCooldownDuration = HM.PrepareCallNodeRef2(211, Me, &_callFrame)
+      var float1 = getsAbilityCooldownDuration(_callFrame, int34, v215)
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float1)
+    .
+    is "getsProductWeaponMaxRange"
+      var str79 = list1[1]
+      var int35 = str79
+      getsAbilityCooldownDuration = HM.PrepareCallNodeRef2(212, Me, &_callFrame)
+      var float1 = getsAbilityCooldownDuration(_callFrame, int35, v215)
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float1)
+    .
+    is "getsProductDurabilityCurrent"
+      var str80 = list1[1]
+      var float1 = Me.getsAbilityCooldownDuration(str80, v215)
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float1)
+    .
+    is "getsSchematicName"
+      var str81 = list1[1]
+      var id43 = HM.ConvertFromStringID(str81)
+      var str82 = list1[2]
+      id3 = HM.ConvertFromStringID(str82)
+      var str83 = list1[3]
+      int1 = str83
+      getsAbilityIcon = HM.PrepareCallNodeRef2(214, Me, &_callFrame)
+      v213 = HIDWORD(id43)
+      LODWORD(id2) = id43
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsAbilityContainerCount"
+      var float2 = Me.getsAbilityContainerCount()
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float2)
+    .
+    is "getsAbilityPackageName"
+      var str2 = Me.getsAbilityPackageName(list1[1])
+      Me._returnString((int)str2, str, v212)
+    .
+    is "getsAbilityPackageTab"
+      var str84 = list1[1]
+      var id44 = HM.ConvertFromStringID(str84)
+      getsAbilityIcon = HM.PrepareCallNodeRef2(217, Me, &_callFrame)
+      id2 = id44
+      v213 = HIDWORD(id2)
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsIsTrainerActive"
+      Me.getsIsTrainerActive(v207, str, v212)
+    .
+    is "getsAbilityTrainingCost"
+      Me.getsAbilityTrainingCost((int)list1[1], list1[2], v212)
+    .
+    is "getsAbilityIsTrainable"
+      Me.getsAbilityIsTrainable((int)list1[1], list1[2], v212)
+    .
+    is "getsMaxSkillRank"
+      var str86 = list1[1]
+      var int36 = str86
+      var str87 = list1[2]
+      var id45 = HM.ConvertFromStringID(str87)
+      var float1 = Me.getsMaxSkillRank(int36, id45)
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float1)
+    .
+    is "getsSkillTreePointsMaxProgress"
+      var float2 = Me.getsSkillTreePointsMaxProgress()
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float2)
+    .
+    is "getsWorldMapPageName"
+      var str2 = Me.getsWorldMapPageName(list1[1])
+      Me._returnString((int)str2, str, v212)
+    .
+    is "getsMapNoteText"
+      var str88 = list1[1]
+      var id46 = HM.ConvertFromStringID(str88)
+      getsAbilityIcon = HM.PrepareCallNodeRef2(224, Me, &_callFrame)
+      id2 = id46
+      v213 = HIDWORD(id2)
+      var str4 = getsAbilityIcon(_callFrame, id2, v213, id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsMapIconText"
+      var str89 = list1[1]
+      id2 = HM.ConvertFromStringID(str89)
+      var str4 = Me.getsAbilityIcon(id2, HIDWORD(id2), id3, int1)
+      Me._returnString(str4, v210, v214)
+    .
+    is "getsPartyMemberMapName"
+      var str2 = Me.getsPartyMemberMapName(list1[1])
+      Me._returnString((int)str2, str, v212)
+    .
+    is "getsTitle"
+      getsItemRequiredSocialScore = HM.PrepareCallNodeRef2(227, Me, &_callFrame)
+      LODWORD(id37) = list1[1]
+      str41 = getsItemRequiredSocialScore(_callFrame, id37)
+    .
+    is "getsClassName"
+      getsItemRequiredSocialScore = HM.PrepareCallNodeRef2(228, Me, &_callFrame)
+      LODWORD(id37) = list1[1]
+      str41 = getsItemRequiredSocialScore(_callFrame, id37)
+    .
+    is "getsGuild"
+      getsItemRequiredSocialScore = HM.PrepareCallNodeRef2(229, Me, &_callFrame)
+      LODWORD(id37) = list1[1]
+      str41 = getsItemRequiredSocialScore(_callFrame, id37)
+    .
+    is "getsPlayerNameWithTitle"
+      var str90 = list1[1]
+      var id36 = HM.ConvertFromStringID(str90)
+      getsItemRequiredSocialScore = HM.PrepareCallNodeRef2(230, Me, &_callFrame)
+      id37 = id36
+      str41 = getsItemRequiredSocialScore(_callFrame, id37)
+    .
+    is "getsSpaceCombatPortrait"
+      var str2 = Me.getsSpaceCombatPortrait()
+      Me._returnString((int)str2, str, v212)
+    .
+    is "getsSpaceCombatDamagePortrait"
+      var str2 = Me.getsSpaceCombatDamagePortrait()
+      Me._returnString((int)str2, str, v212)
+    .
+    is "getsScreenWidth"
+      var float2 = Me.getsScreenWidth()
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float2)
+    .
+    is "getsScreenHeight"
+      var float2 = Me.getsScreenHeight()
+      _returnNumber = HM.PrepareCallNodeRef2(139, Me, &_callFrame)
+      _returnNumber(_callFrame, float2)
+    .
+    is "getsPlayerIsDualWielding"
+      var bool1 = Me.getsPlayerIsDualWielding()
+      Me._returnBoolean(bool1, str, v212)
+    .
+    is "getsCompanionIsDualWielding"
+      Me.getsCompanionIsDualWielding(v207, str, v212)
+    .
+    is "getsCharacterSheetTooltip"
+    .
+  .
+.
+public function generateTimeString(a1 as Float, a2 as Boolean) as String
+  if a1 < 60.0
+    return $STRING.LocalizedFormatTimeSeconds(a1, a2)
+  else if a1 < 3600.0
+    return $STRING.LocalizedFormatTimeMinutes(truncate((a1 + 59.0) / 60.0), a2)
+  else
+    return $STRING.LocalizedFormatTimeHours(truncate((a1 + 3599.0) / 3600.0), a2)
+  .
+.
+public method cmdSubmitGeneratedContentInput(Me, a1 as String)
+  var node2 = utlSurveys:GetActiveSurvey()
+  if node2 != None
+    node2.submitSurveyInput(a1)
+    node2.DoPostCommand()
+    node2.DestroyMySurvey()
+    DestroyNode(node2)
+    utlSurveys:DeQueueSurvey()
+  .
+.
+public method cmdDebug(Me, a1 as String)
+  // unknown
+.

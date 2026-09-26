@@ -17,3 +17,6 @@ D:\SWTORClassic\swtoremu\Diagnostics\ServerTraceBuild\NexusToRServer.exe
 D:\SWTORClassic\swtoremu\Diagnostics\ServerTraceBuild\NexusToRServer.pdb
 D:\SWTORClassic\swtoremu\SharpServer\obj\x86\Debug\NexusToRServer.csproj.AssemblyReference.cache
 D:\SWTORClassic\swtoremu\SharpServer\obj\x86\Debug\NexusToRServer.csproj.CoreCompileInputs.cache
+D:\SWTORClassic\swtoremu\Diagnostics\SafeLoginBuildCheck\NexusToRServer.exe.config
+D:\SWTORClassic\swtoremu\Diagnostics\SafeLoginBuildCheck\NexusToRServer.exe
+D:\SWTORClassic\swtoremu\Diagnostics\SafeLoginBuildCheck\NexusToRServer.pdb

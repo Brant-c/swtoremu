@@ -1,0 +1,1298 @@
+var LOGIN_ERROR_RANGE_END = 3003
+var LOGIN_ERROR_RANGE_START = 1000
+var MILLISEC_BETWEEN_HERO_START_TIME_AND_UNIX_START_TIME = 2208967200000
+var REJECTED_CHARACTER_SELECTION_OTHER_CHARACTER_IN_WORLD = 2
+var STRING_ACCOUNT_ERROR = 954509236896107  // "There was an error loading your account. Please visit www.swtor.com/support to contact our Customer Service Team. "
+var STRING_ALREADY_LOGGED_IN_ERROR = 954509236896115  // "A login error has occurred. If this problem persists, please visit www.swtor.com/support to contact our Customer Service Team. "
+var STRING_DISCONNECTED_FROM_SERVER = 954509236901134  // "DISCONNECTED FROM SERVER"
+var STRING_DISCONNECTED_FROM_WORLD_SERVER = 954509236896124  // "Your connection to the server has been lost. If this problem persists, please visit www.swtor.com/support to contact our Customer Service Team. "
+var STRING_ERROR_INVALID_USER_FOR_MAINTENANCE_MODE = 954509236896123  // "This server is currently unavailable. If this problem persists, please visit www.swtor.com/support to contact our Customer Service Team. "
+var STRING_ERROR_KICKED = 954509236896108  // "Your account has been disconnected. Please follow the Help Center link below for more information. "
+var STRING_ERROR_UEP_CLOSED_CONNECTION = 954509236896120  // "A connection error has occurred. If this problem persists, please visit www.swtor.com/support to contact our Customer Service Team. "
+var STRING_ERROR_USER_HAS_BEEN_BLACKLISTED = 954509236896121  // "This account is blacklisted. Please follow the Help Center link below for more information. "
+var STRING_ERROR_USER_NOT_AUTHORIZED = 954509236896122  // "This account is not authorized to connect to our servers. Please follow the Help Center link below for more information."
+var STRING_ERROR_VERSION_MISMATCH = 954509236896119  // "Your current game version does not match the server's, please restart the game. Follow the Help Center link below for more information. "
+var STRING_FAILED_CONNECT_TO_GAME_SERVER = 954509236896118  // "The server is currently unavailable. If this problem persists, please visit www.swtor.com/support to contact our Customer Service Team. "
+var STRING_FAILED_TO_CONNECT = 954509236896116  // "A connection error has occurred. If this problem persists, please visit www.swtor.com/support to contact our Customer Service Team. "
+var STRING_KICKED_ERROR = 954509236896111  // "Your account has been disconnected. Please follow the Help Center link below for more information. "
+var STRING_LOGIN_ERROR = 954509236896114  // "A login error has occurred. If this problem persists, please visit www.swtor.com/support to contact our Customer Service Team. "
+var STRING_LOGOUT_DUE_TO_INACTIVITY = 954509236901135  // "You have been logged out due to inactivity. Follow the Help Center link below for more information."
+var STRING_NAME_IN_USE_ERROR = 954509236896112  // "The character name you have chosen is unavailable. Please choose a different name."
+var STRING_PLEASE_TRY_AGAIN = 954509236896106  // "A server error has occurred. Please follow the Help Center link below for more information. "
+var STRING_SERVER_ERROR = 954509236896110  // "Server Error (<<1>>)"
+var STRING_SERVER_NOT_READY = 954509236896117  // "A login error has occurred. If this problem persists, please visit www.swtor.com/support to contact our Customer Service Team. "
+var STRING_TOO_MANY_CHARS_ERROR = 954509236896113  // "You have reached the maximum number of characters permitted on this account. Please follow the Help Center link below for more information. "
+var STRING_UNABLE_TO_AUTHENTICATE = 954509236901136  // "Unable to authenticate, please restart the game. Follow the Help Center link below for more information."
+var UNK_269C6C15 = 954509236901137  // "Unable to retrieve server list. Please follow the Help Center link below for more information."
+public method init(Me)
+  Me.sysBaseGuiComponentsToLoad = 1
+  Me._SetGameState(GAMESTATE_EnteringSelectionCreation)
+  $STATIC.utlStaticInit(false)
+  Me._InitializeAudio()
+.
+public shared method LS_LoadingProgress(Me, a1 as String, a2 as Float, a3 as Float, o4 references Boolean)
+  CallFrame _callFrame
+  FuncRef LoadingProgress = HM.PrepareCallScriptSameMe2(3, 14988057110438851784, Me, &_callFrame)
+  var bool1 = LoadingProgress(_callFrame, a1, a2, a3) & 1
+  *o4 = bool1
+.
+public shared method LS_OnTravelPending(Me, a1 as ID, a2 as ID, a3 as String)
+  if Me._GetGameState() != GAMESTATE_IntroLogos and INTRO_SCREENS_AREAID != a1
+    Me._SetGameState(GAMESTATE_Transition)
+  .
+  $HUD.hideHudIfEnabled()
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None
+    guiGfxLoadingScreenClassMethods:DoWorldFadeOutTipFromCharacter(pc2, a3)
+  .
+  $SOUNDBANK.TravelingToArea(a3)
+  $MUSIC.TravelingToArea(a3)
+.
+public shared method LS_OnUnloadArea(Me, a1 as ID, a2 as ID, a3 as String)
+  $CPULIMIT = 60000
+  Me._SetAreaLoadComplete(false)
+  Me.StopPollingRegions()
+  Me.ClearGuiComponentsLoaded()
+  $HUD.enableHud(false)
+  $PHASE.instanceOnAreaUnloaded()
+  $EFFECT_EVENT.effEventOracleOnAreaUnloaded()
+  $EFFECT.AreaUnload(a1, a2, a3)
+  $ABILITY.AreaUnload(a1, a2, a3)
+  $GALAXYMAP.Hide()
+  $DDRAW.DestroyAllContexts()
+  Me._UnloadCameras()
+  Me._UnloadPropBucketInstances()
+  $FXSYSTEM.KillAllAreaFx()
+.
+public shared method LS_OnAreaLoaded(Me, a1 as ID, a2 as ID, a3 as String)
+  SetClientProximityRange(7.0)
+  Me._SetAreaID(a1)
+  Me._SetInstanceID(a2)
+  Me._SetAreaName(a3)
+  $CHARACTER.init()
+  $DATATABLE.init()
+  $ITEM.init()
+  $FXSYSTEM.init()
+  $QUEST.init()
+  $SELECTED_TARGET.init()
+  $SPAWNER.init()
+  $ENCOUNTER.init()
+  $NAMEPLATES.init()
+  $ABILITY.init()
+  $EFFECT.init()
+  $COMBAT.init()
+  $CONVERSATION.init()
+  $QA_MOVETEST.init()
+  $APPEARANCE.init()
+  $PREVIEW.init()
+  $CONTROL.init()
+  $BEHAVE2.init()
+  $STAGE.init()
+  $MAPNOTE.init()
+  $TIMER.init()
+  $HYDRA.init()
+  $CONTAINER.init()
+  $GRUNTS.init()
+  $FLYTEXT.init()
+  $MAIL.init()
+  $ANIM.aniOracle_Init()
+  guiPortrait:OnAreaPreload()
+  $PAPERDOLL.init()
+  $Options.init()
+  $SOCIAL.initOverheadChat()
+  $PHASE.init()
+  $CSR_CSPORTAL.init()
+  $GUILD.init()
+  $worldEvent.init()
+  if Me._GetGameState() != GAMESTATE_IntroLogos and INTRO_SCREENS_AREAID != a1
+    $HUD.hudOnAreaPreload(a1, a2, a3)
+  .
+  Me._PreloadAreaData()
+  $SOUNDBANK.OnAreaLoad()
+  $MUSIC.TravelingToArea(a3)
+  $INPUT.sysInputHandler_Init()
+  if not GetRenderFilter("GUI")
+    guiGfxLoadingScreenClassMethods:DoWorldFadeIn()
+  .
+  ctlInputCamera:OnAreaLoad()
+  $MAP.MapEnterArea(a1)
+  $EFFECT_EVENT.effEventOracleOnAreaLoaded()
+  $SPACECOMBAT.OnAreaLoad()
+  ctlInputMovement:HaltMovement()
+  utlPerPlanetPreload:preloadPrototypesForPlanet($BASECLIENT._GetAreaName())
+  $CONVERSATION.LoadBaseFXAs()
+  Me.StartPollingRegions()
+  Me._SetAreaLoadComplete(true)
+  call event Me:OnAreaLoaded Me:OnAreaLoaded
+.
+public shared method LS_GetLoadProgress(Me, a1 as String, o2 references Integer, o3 references Integer)
+  NodeRef pc
+  when a1
+    is "HUD"
+      *o2 = Me.sysBaseGuiComponentsLoaded
+      *o3 = Me.sysBaseGuiComponentsToLoad
+    .
+    is "CHAR_REPLICATION"
+      *o3 = 1
+      pc = GetPlayerCharacterNode()
+      if pc = None
+        *o2 = 0
+      else
+        *o2 = 1
+      .
+    .
+  .
+.
+public method _InitializeAudio(Me)
+  if not Me.sysBaseClientAudioInitialized
+    $SOUNDBANK.AddRefSoundbank($STATIC.GetHardcodedAssetPath(hcaKey_bnkWeaponsData), None)
+    $SOUNDBANK.AddRefSoundbank($STATIC.GetHardcodedAssetPath(hcaKey_bnkWeaponsMedia), None)
+    $SOUNDBANK.AddRefSoundbank($STATIC.GetHardcodedAssetPath(hcaKey_bnkMovementData), None)
+    var str4 = $STATIC.GetHardcodedAssetPath(hcaKey_bnkMovementMedia)
+    $SOUNDBANK.AddRefSoundbank(str4, None)
+    var str5 = $STATIC.GetHardcodedAssetPath(hcaKey_bnkCinematicsData)
+    $SOUNDBANK.AddRefSoundbank(str5, None)
+    var str6 = $STATIC.GetHardcodedAssetPath(hcaKey_bnkCinematicsMedia)
+    $SOUNDBANK.AddRefSoundbank(str6, None)
+    var str7 = $STATIC.GetHardcodedAssetPath(hcaKey_bnkAbilitiesCreaturesData)
+    $SOUNDBANK.AddRefSoundbank(str7, None)
+    var str8 = $STATIC.GetHardcodedAssetPath(hcaKey_bnkAbilitiesCreaturesMedia)
+    $SOUNDBANK.AddRefSoundbank(str8, None)
+    var str9 = $STATIC.GetHardcodedAssetPath(hcaKey_bnkAbilitiesGeneralData)
+    $SOUNDBANK.AddRefSoundbank(str9, None)
+    var str10 = $STATIC.GetHardcodedAssetPath(hcaKey_bnkAbilitiesGeneralMedia)
+    $SOUNDBANK.AddRefSoundbank(str10, None)
+    var str11 = $STATIC.GetHardcodedAssetPath(hcaKey_bnkAbilitiesImperialMeleeData)
+    $SOUNDBANK.AddRefSoundbank(str11, None)
+    var str12 = $STATIC.GetHardcodedAssetPath(hcaKey_bnkAbilitiesImperialMeleeMedia)
+    $SOUNDBANK.AddRefSoundbank(str12, None)
+    var str13 = $STATIC.GetHardcodedAssetPath(hcaKey_bnkAbilitiesImperialRangedData)
+    $SOUNDBANK.AddRefSoundbank(str13, None)
+    var str14 = $STATIC.GetHardcodedAssetPath(hcaKey_bnkAbilitiesImperialRangedMedia)
+    $SOUNDBANK.AddRefSoundbank(str14, None)
+    var str15 = $STATIC.GetHardcodedAssetPath(hcaKey_bnkAbilitiesRepublicMeleeData)
+    $SOUNDBANK.AddRefSoundbank(str15, None)
+    var str16 = $STATIC.GetHardcodedAssetPath(hcaKey_bnkAbilitiesRepublicMeleeMedia)
+    $SOUNDBANK.AddRefSoundbank(str16, None)
+    var str17 = $STATIC.GetHardcodedAssetPath(hcaKey_bnkAbilitiesRepublicRangedData)
+    $SOUNDBANK.AddRefSoundbank(str17, None)
+    var str18 = $STATIC.GetHardcodedAssetPath(hcaKey_bnkAbilitiesRepublicRangedMedia)
+    $SOUNDBANK.AddRefSoundbank(str18, None)
+    Me.sysBaseClientSoundBankCountdown = 2
+    var str19 = $STATIC.GetHardcodedAssetPath(hcaKey_bnkMusicData)
+    $SOUNDBANK.AddRefSoundbank(str19, Me)
+    var str20 = $STATIC.GetHardcodedAssetPath(hcaKey_bnkMusicMedia)
+    $SOUNDBANK.AddRefSoundbank(str20, Me)
+    Me.sysBaseClientAudioInitialized = true
+  .
+.
+public method _PreloadAreaData(Me)
+  var id1 = $STATIC.GetHardcodedAssetProtoID(hcaKey_eppLevelUp)
+  var node3 = $EFFECT.GetEffectAppearanceByID(id1)
+  var id2 = $STATIC.GetHardcodedAssetProtoID(hcaKey_eppLevelUpEmpire)
+  var node5 = $EFFECT.GetEffectAppearanceByID(id2)
+  var id3 = $STATIC.GetHardcodedAssetProtoID(hcaKey_eppLevelUpRepublic)
+  var node6 = $EFFECT.GetEffectAppearanceByID(id3)
+  Me._PreloadScripts()
+  $FXSYSTEM.PreloadFxFromSpec("quest_joining_circle_01.fxspec")
+.
+public method _PreloadScripts(Me)
+  sndFootstepOwnerComponentClassMethods:Preload()
+  listutils:Preload()
+  cbtCover:Preload()
+  chrBehaviorRemoteAiClassMethods:Preload()
+  miscUtils:Preload()
+  utlGrammar:Preload()
+  tmrTimerClassMethods:Preload()
+  conLootHopperComponentClassMethods:Preload()
+  chrBehaviorWaypoint:Preload()
+  stgLiveStageClassMethods:Preload()
+  stgActorClassMethods:Preload()
+  stgWeaponComponentClassMethods:Preload()
+  stgActorLookatClassMethods:Preload()
+  stgMarkPreviewClassMethods:Preload()
+  hydAction:Preload()
+  ctlInputConvo:Preload()
+  guiGfxLoadingScreenClassMethods:Preload()
+.
+public method _UnloadCameras(Me)
+  list1 as List of NodeRef
+  list2 as List of NodeRef
+  list2 = GetAllCameras()
+  list1 = list2
+  ActivateCamera("GAME")
+  foreach cur in list1
+    if cur != None
+      if (unsigned int)HM.WhenStringLookup(cur["cameraName"], 27) >= 4
+        if substring(cur["cameraName"], 1, 5) != "STAGE"
+          RemoveCamera(cur["cameraName"])
+        .
+      .
+    .
+  .
+.
+public method _OnStringTableChanged(Me, a1 as String, a2 as Boolean)
+  int v7 = 0
+  int v6 = 0
+  if a2
+    v7 = 0
+    v6 = 1
+  .
+  $STRING.STBHandleLoad(a1, v6, v7)
+.
+public method _OnStringTableLoadFailed(Me, a1 as String)
+  $STRING.STBHandleLoad(a1, -1)
+.
+public method _UnloadPropBucketInstances(Me)
+  list1 as List of String
+  list2 as List of String
+  list2 = GetPropBuckets()
+  list1 = list2
+  foreach cur in list1
+    RemoveInstancesFromPropBucket(cur, None)
+  .
+.
+public method _SetAreaLoadComplete(Me, a1 as Boolean)
+  Me.sysBaseClientAreaLoaded = a1
+.
+public method isAreaLoaded() as Boolean
+  return Me.sysBaseClientAreaLoaded
+.
+public method OnSoundbankLoaded(Me, a1 as String, a2 as Boolean)
+  if a2
+    Me.sysBaseClientSoundBankCountdown = Me.sysBaseClientSoundBankCountdown - 1
+    if Me.sysBaseClientSoundBankCountdown == 0
+      $MUSIC.OnHydraBanksLoaded()
+    .
+  else
+    // unknown
+  .
+.
+public method SetGuiComponentsToLoad(Me, a1 as Integer)
+  Me.sysBaseGuiComponentsToLoad = a1
+.
+public method SetGuiComponentsLoaded(Me, a1 as Integer)
+  Me.sysBaseGuiComponentsLoaded = a1
+.
+public method SetGuiLoadingComplete(Me)
+  Me.sysBaseGuiComponentsLoaded = 1
+  Me.sysBaseGuiComponentsToLoad = 1
+.
+public method ClearGuiComponentsLoaded(Me)
+  Me.sysBaseGuiComponentsLoaded = 0
+  Me.sysBaseGuiComponentsToLoad = 1
+.
+public method cssTransitionToShardSelect(Me)
+  $MATCHMAKING.OnLogout()
+  $CHARACTERSELECTIONSYSTEM.cssDisconnectTransitionToShardSelect()
+.
+public shared method ShowShardSelect(Me, a1 as Boolean)
+  Me.sysWasFromLaunch = a1
+  Me.StartIntroLogos()
+.
+public shared method HandleUpdateShardList(Me, a1 as Integer)
+  $SHARDSELECTIONSYSTEM.UpdateShardList(a1)
+.
+public shared method TellCharacterSelectionInfo(Me, a1 as List of NodeRef of chrSummary, a2 as NodeRef of lgcAccountLegacyData, a3 as Integer, a4 as Integer, a5 as String, a6 as NodeRef)
+  $CHARACTERSELECTIONSYSTEM.cssSetSummaryNodes(a1)
+  $CHARACTERSELECTIONSYSTEM.cssSetCharacterMaxLimit(a4)
+  $CHARACTERSELECTIONSYSTEM.cssSetCharacterCurrentCount(a3)
+  $LEGACY.SetLegacyDataRef(a2)
+  $LEGACY.SetMemberSummaryNodes(a1)
+  if $BASECLIENT.isAreaLoaded()
+    Me.ProcessEntitlements(a5)
+    if getPrototypeByID(16141105665289305397) = None  // guiScaleFormGFxProto
+      RegisterForPerFrameMethodCallback(Me)
+    else
+      if a1.length > 0
+        $CHARACTERSELECTIONSYSTEM.SetConnectedCharacterNode(a6)
+      .
+      $SHARDSELECTIONSYSTEM.Transition()
+    .
+  .
+.
+public shared method OnLoginQueueUpdate(Me, a1 as Integer, a2 as Integer)
+  $SHARDSELECTIONSYSTEM.UpdateQueue(a1, a2)
+.
+public shared method ProcessEntitlements(Me, a1 as String)
+  var node = $BASECLIENT
+  lookup as LookupList indexed by Integer of LookupList indexed by String of String
+  utlXmlParser:ParseElementList(a1, &lookup)
+  loop i from 1 to lookup.length
+    if lookup[i]["_tag"] == "status"
+      lookup3 as LookupList indexed by Integer of LookupList indexed by String of String
+      utlXmlParser:ParseElementList(lookup[i]["_value"], &lookup3)
+      loop j from 1 to lookup3.length
+        if lookup3[j]["_tag"] == "userdata"
+          lookup6 as LookupList indexed by Integer of LookupList indexed by String of String
+          utlXmlParser:ParseElementList(lookup3[j]["_value"], &lookup6)
+          loop k from 1 to lookup6.length
+            if lookup6[k]["_tag"] == "entitlement"
+              var str6 = lookup6[k]["id"]
+              var str7 = lookup6[k]["uniqueId"]
+              classView as ClassView
+              classView.accEntitlementGameInfo = lookup6[k]["gameInfo"]
+              var int3 = lookup6[k]["date_created"]
+              if int3 != 0
+                var dateTime1 = classView.accEntitlementDateCreated
+                TimeInterval interval = timeInMilliseconds(int3 + MILLISEC_BETWEEN_HERO_START_TIME_AND_UNIX_START_TIME)
+                classView.accEntitlementDateCreated = dateTime1 + interval
+              .
+              node.accountEntitlements[str6][str7] = classView
+            .
+          .
+        .
+      .
+    .
+  .
+.
+public shared method CharacterSelected(Me)
+  $MAIL.SetDisplayNewMailMessage(true)
+  if $BASECLIENT._GetGameState() == GAMESTATE_CharCreationSubmitted
+    $BASECLIENT._SetGameState(GAMESTATE_Transition)
+  else
+    var enum2 = $BASECLIENT._GetGameState()
+    if enum2 == GAMESTATE_CharacterSelection
+      $BASECLIENT._SetGameState(GAMESTATE_Transition)
+    else
+      // unknown
+    .
+  .
+  SetChatBuffering(false)
+.
+public function GetErrorMessageType(a1 as Integer) as String
+  Boolean bool3
+  int v14 = 0
+  int v13 = 0
+  list1 as List of String
+  add back a1 to list1
+  var bool1 = a1 <= -1
+  if not HIDWORD(a1)
+    bool1 = (unsigned int)a1 <= 999
+  .
+  if bool1
+    goto LABEL_7
+  .
+  var bool2 = SHIDWORD(a1) >= 1
+  if not HIDWORD(a1)
+    bool2 = (unsigned int)a1 >= LOGIN_ERROR_RANGE_END
+  .
+  if bool2
+LABEL_7:
+    bool3 = false
+  else
+    bool3 = true
+  .
+  if bool3
+    v14 = 222239
+    v13 = 370
+  else
+    v14 = 222239
+    v13 = 366
+  .
+  return $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, v13, v14, list1)
+.
+public function GetErrorMessage(a1 as Integer, o2 references Integer) as String
+  add back GetErrorMessageType(a1) to list1
+  var bool1 = SHIDWORD(a1) >= 1
+  if not HIDWORD(a1)
+    bool1 = (unsigned int)a1 >= 9000
+  .
+  if not bool1
+    bool2 = SHIDWORD(a1) >= 1
+    if not HIDWORD(a1)
+      bool2 = (unsigned int)a1 >= 4000
+    .
+    if not bool2
+      bool3 = SHIDWORD(a1) >= 1
+      if not HIDWORD(a1)
+        bool3 = (unsigned int)a1 >= 3000
+      .
+      if not bool3
+        bool4 = SHIDWORD(a1) >= 1
+        if not HIDWORD(a1)
+          bool4 = (unsigned int)a1 >= 2000
+        .
+        if not bool4
+          bool5 = SHIDWORD(a1) >= 1
+          if not HIDWORD(a1)
+            bool5 = (unsigned int)a1 >= LOGIN_ERROR_RANGE_START
+          .
+          if not bool5
+            if (unsigned __int64)a1 <= 0xE
+              when (int)a1
+                is 0
+                  var str3 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_PLEASE_TRY_AGAIN, list1)  // "A server error has occurred. Please follow the Help Center link below for more information. "
+                  var str = str3
+                  *o2 = 1823
+                .
+                is 1
+                  var str5 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_PLEASE_TRY_AGAIN, list1)  // "A server error has occurred. Please follow the Help Center link below for more information. "
+                  str = str5
+                  *o2 = 1824
+                .
+                is 2
+                  var str7 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_PLEASE_TRY_AGAIN, list1)  // "A server error has occurred. Please follow the Help Center link below for more information. "
+                  str = str7
+                  *o2 = 1825
+                .
+                is 3
+                  var str9 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_PLEASE_TRY_AGAIN, list1)  // "A server error has occurred. Please follow the Help Center link below for more information. "
+                  str = str9
+                  *o2 = 1826
+                .
+                is 4
+                  var str11 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_ACCOUNT_ERROR, list1)  // "There was an error loading your account. Please visit www.swtor.com/support to contact our Customer Service Team. "
+                  str = str11
+                  *o2 = 1827
+                .
+                is 5
+                  var str13 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_PLEASE_TRY_AGAIN, list1)  // "A server error has occurred. Please follow the Help Center link below for more information. "
+                  str = str13
+                  *o2 = 1828
+                .
+                is 6
+                  var str15 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_KICKED_ERROR, list1)  // "Your account has been disconnected. Please follow the Help Center link below for more information. "
+                  str = str15
+                  *o2 = 1829
+                .
+                is 7
+                  var str17 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_NAME_IN_USE_ERROR, list1)  // "The character name you have chosen is unavailable. Please choose a different name."
+                  str = str17
+                  *o2 = 1830
+                .
+                is 8
+                  var str19 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_PLEASE_TRY_AGAIN, list1)  // "A server error has occurred. Please follow the Help Center link below for more information. "
+                  str = str19
+                  *o2 = 1831
+                .
+                is 9
+                  var str21 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_PLEASE_TRY_AGAIN, list1)  // "A server error has occurred. Please follow the Help Center link below for more information. "
+                  str = str21
+                  *o2 = 1832
+                .
+                is 10
+                  var str23 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_TOO_MANY_CHARS_ERROR, list1)  // "You have reached the maximum number of characters permitted on this account. Please follow the Help Center link below for more information. "
+                  str = str23
+                  *o2 = 1833
+                .
+                is 11
+                  var str25 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_PLEASE_TRY_AGAIN, list1)  // "A server error has occurred. Please follow the Help Center link below for more information. "
+                  str = str25
+                  *o2 = 1834
+                .
+                is 12
+                  var str27 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_PLEASE_TRY_AGAIN, list1)  // "A server error has occurred. Please follow the Help Center link below for more information. "
+                  str = str27
+                  *o2 = 1835
+                .
+                is 14
+                  var str29 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_LOGOUT_DUE_TO_INACTIVITY, list1)  // "You have been logged out due to inactivity. Follow the Help Center link below for more information."
+                  str = str29
+                  *o2 = 3490
+                .
+                is 13
+                  var str31 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_PLEASE_TRY_AGAIN, list1)  // "A server error has occurred. Please follow the Help Center link below for more information. "
+                  str = str31
+                  *o2 = 1854
+                  return str
+                .
+              .
+              return str
+            .
+            var str31 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_PLEASE_TRY_AGAIN, list1)  // "A server error has occurred. Please follow the Help Center link below for more information. "
+            str = str31
+            *o2 = 1854
+            return str
+          .
+          bool6 = __CFADD__((_DWORD)a1, -1000) + HIDWORD(a1) != 1
+          if __CFADD__((_DWORD)a1, -1000) + HIDWORD(a1) == 1
+            bool6 = (unsigned int)(a1 - LOGIN_ERROR_RANGE_START) >= 7
+          .
+          if not bool6
+            when (int)a1
+              is LOGIN_ERROR_RANGE_START
+                var str33 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_PLEASE_TRY_AGAIN, list1)  // "A server error has occurred. Please follow the Help Center link below for more information. "
+                str = str33
+                *o2 = 1836
+              .
+              is 1001
+                var str35 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_PLEASE_TRY_AGAIN, list1)  // "A server error has occurred. Please follow the Help Center link below for more information. "
+                str = str35
+                *o2 = 1837
+              .
+              is 1002
+                var str37 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_ALREADY_LOGGED_IN_ERROR, list1)  // "A login error has occurred. If this problem persists, please visit www.swtor.com/support to contact our Customer Service Team. "
+                str = str37
+                *o2 = 1838
+              .
+              is 1003
+                var str39 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_FAILED_TO_CONNECT, list1)  // "A connection error has occurred. If this problem persists, please visit www.swtor.com/support to contact our Customer Service Team. "
+                str = str39
+                *o2 = 1839
+              .
+              is 1004
+                var str41 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_SERVER_NOT_READY, list1)  // "A login error has occurred. If this problem persists, please visit www.swtor.com/support to contact our Customer Service Team. "
+                str = str41
+                *o2 = 1840
+              .
+              is 1005
+                var str43 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_FAILED_CONNECT_TO_GAME_SERVER, list1)  // "The server is currently unavailable. If this problem persists, please visit www.swtor.com/support to contact our Customer Service Team. "
+                str = str43
+                *o2 = 1841
+              .
+              is 1006
+                var str45 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_ERROR_VERSION_MISMATCH, list1)  // "Your current game version does not match the server's, please restart the game. Follow the Help Center link below for more information. "
+                str = str45
+                *o2 = 1842
+              .
+            .
+          else
+            var str31 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_PLEASE_TRY_AGAIN, list1)  // "A server error has occurred. Please follow the Help Center link below for more information. "
+            str = str31
+            *o2 = 1854
+            return str
+          .
+        else
+          bool7 = __CFADD__((_DWORD)a1, -2000) + HIDWORD(a1) != 1
+          if __CFADD__((_DWORD)a1, -2000) + HIDWORD(a1) == 1
+            bool7 = (unsigned int)(a1 - 2000) >= 7
+          .
+          if not bool7
+            when (int)a1
+              is 2000
+                var str47 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_LOGIN_ERROR, list1)  // "A login error has occurred. If this problem persists, please visit www.swtor.com/support to contact our Customer Service Team. "
+                str = str47
+                *o2 = 1843
+              .
+              is 2001
+                var str49 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_LOGIN_ERROR, list1)  // "A login error has occurred. If this problem persists, please visit www.swtor.com/support to contact our Customer Service Team. "
+                str = str49
+                *o2 = 1844
+              .
+              is 2002
+                var str51 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_LOGIN_ERROR, list1)  // "A login error has occurred. If this problem persists, please visit www.swtor.com/support to contact our Customer Service Team. "
+                str = str51
+                *o2 = 1845
+              .
+              is 2003
+                var str53 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_LOGIN_ERROR, list1)  // "A login error has occurred. If this problem persists, please visit www.swtor.com/support to contact our Customer Service Team. "
+                str = str53
+                *o2 = 1846
+              .
+              is 2004
+                var str55 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_LOGIN_ERROR, list1)  // "A login error has occurred. If this problem persists, please visit www.swtor.com/support to contact our Customer Service Team. "
+                str = str55
+                *o2 = 1847
+              .
+              is 2005
+                var str57 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_ERROR_KICKED, list1)  // "Your account has been disconnected. Please follow the Help Center link below for more information. "
+                str = str57
+                *o2 = 1848
+              .
+              is 2006
+                var str59 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_ERROR_UEP_CLOSED_CONNECTION, list1)  // "A connection error has occurred. If this problem persists, please visit www.swtor.com/support to contact our Customer Service Team. "
+                str = str59
+                *o2 = 1849
+              .
+            .
+          else
+            var str31 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_PLEASE_TRY_AGAIN, list1)  // "A server error has occurred. Please follow the Help Center link below for more information. "
+            str = str31
+            *o2 = 1854
+            return str
+          .
+        .
+        return str
+      else
+        when a1
+          is 3000
+            var str61 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_ERROR_USER_HAS_BEEN_BLACKLISTED, list1)  // "This account is blacklisted. Please follow the Help Center link below for more information. "
+            str = str61
+            *o2 = 1850
+            return str
+          .
+          is 3001
+            var str63 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_ERROR_USER_NOT_AUTHORIZED, list1)  // "This account is not authorized to connect to our servers. Please follow the Help Center link below for more information."
+            str = str63
+            *o2 = 1851
+            return str
+          .
+          is 3002
+            var str65 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_ERROR_INVALID_USER_FOR_MAINTENANCE_MODE, list1)  // "This server is currently unavailable. If this problem persists, please visit www.swtor.com/support to contact our Customer Service Team. "
+            str = str65
+            *o2 = 1852
+            return str
+          .
+        .
+        var str31 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_PLEASE_TRY_AGAIN, list1)  // "A server error has occurred. Please follow the Help Center link below for more information. "
+        str = str31
+        *o2 = 1854
+        return str
+      .
+    else
+      if a1 == 4000
+        var str67 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_UNABLE_TO_AUTHENTICATE, list1)  // "Unable to authenticate, please restart the game. Follow the Help Center link below for more information."
+        str = str67
+        *o2 = 3491
+        return str
+      .
+      if a1 == 4001
+        var str69 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, UNK_269C6C15, list1)  // "Unable to retrieve server list. Please follow the Help Center link below for more information."
+        str = str69
+        *o2 = 3492
+        return str
+      .
+      var str31 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_PLEASE_TRY_AGAIN, list1)  // "A server error has occurred. Please follow the Help Center link below for more information. "
+      str = str31
+      *o2 = 1854
+      return str
+    .
+  else
+    if a1 == 9000
+      var str71 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_DISCONNECTED_FROM_WORLD_SERVER, list1)  // "Your connection to the server has been lost. If this problem persists, please visit www.swtor.com/support to contact our Customer Service Team. "
+      str = str71
+      *o2 = 1853
+      return str
+    .
+    var str31 = $STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, STRING_PLEASE_TRY_AGAIN, list1)  // "A server error has occurred. Please follow the Help Center link below for more information. "
+    str = str31
+    *o2 = 1854
+    return str
+  .
+.
+public shared method DisplayErrorMessage(Me, a1 as Integer, a2 as Boolean)
+  var node = guiGfxShardSelectionClassMethods:ssGetGui()
+  var int1 = 0
+  $SHARDSELECTIONSYSTEM.sysShardSelectionConnectionError = a1
+  if node != None and node.guiSSReady
+    if node.guiShardLoginDialogID != 0
+      var int2 = node.guiShardLoginDialogID
+      node.killDialog(&int2)
+      node.guiShardLoginDialogID = int2
+    .
+    if node.guiShardQueueDialogID != 0
+      $SHARDSELECTIONSYSTEM.CleanUpQueue()
+    .
+    SF_GFx_ClearAndReserveParams(9)
+    SF_GFx_AddParamString($STRING.LocalizeString(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STRING_ERROR, HIDWORD(ID_STR_GUI_DIALOG) | HIDWORD(STRING_ERROR)))  // "ERROR"
+    SF_GFx_AddParamString(GetErrorMessage(a1, &int1))
+    SF_GFx_AddParamInteger(a1)
+    SF_GFx_AddParamInteger(int1)
+    var str4 = $STRING.LocalizeString(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STRING_OK, HIDWORD(ID_STR_GUI_DIALOG) | HIDWORD(STRING_OK))  // "OK"
+    SF_GFx_AddParamString(str4)
+    if a2
+      SF_GFx_AddParamString("QuitOnDialogClosed")
+    else
+      SF_GFx_AddParamNull()
+    .
+    SF_GFx_AddParamInteger(0)
+    SF_GFx_AddParamNull()
+    SF_GFx_AddParamNull()
+    SF_GFx_AddParamInteger(0)
+    SF_GFx_AddParamBoolean(true)
+    SF_GFx_InvokeRegisteredWithParams(node, 3, "displayErrorDialog")
+  .
+.
+public shared method RejectCharacterSelection(Me, a1 as NodeRef, a2 as Integer)
+  guiGfxLoadingScreenClassMethods:DoWorldFadeIn()
+  $GUI_API.getApi().systemMessage("Error in character selection!")
+  if a2 == 2
+    $BASECLIENT._SetGameState(GAMESTATE_CharacterSelection)
+    guiGfxCharacterSelectionClassMethods:cssGetGui().FailedCharacterSelectionDueToLoggedInCharacter(HM.CopyConstructNodeRef(74, a1))
+  .
+.
+public shared method RejectNewCharacter(Me, a1 as String, a2 as Integer)
+  $CHARACTERCREATIONSYSTEM.OnCharacterRejected(a1, a2)
+.
+public shared method DeleteCharacterStatus(Me, a1 as NodeRef of chrSummary, a2 as Integer, a3 as Boolean, a4 as Integer)
+  $CHARACTERSELECTIONSYSTEM.OnDeleteCharacterReply(a1, a3, a4, a2)
+.
+public shared method RenameCharacterStatus(Me, a1 as NodeRef of chrSummary, a2 as String, a3 as Integer)
+  $CHARACTERSELECTIONSYSTEM.OnCharacterRenameStatus(a1, a2, a3)
+.
+public shared method RenameAccountLegacyNameStatus(Me, a1 as String, a2 as Integer)
+  $CHARACTERSELECTIONSYSTEM.OnRenameAccountLegacyNameStatus(a1, a2)
+  if not ctlInputCharacterSelection:isPregame()
+    if a2 == 7
+      chrPlayerCharacterClassMethods:OpenLegacyErrorDialog($STRING.LocalizeString(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | 0x1508, HIDWORD(ID_STR_GUI_DIALOG)))  // "That Legacy name is already in use. Please try a different name."
+    .
+  .
+.
+public method RequestWorldFadeOut(Me)
+  guiGfxLoadingScreenClassMethods:DoWorldFadeOut(3)
+.
+public method RequestWorldFadeIn(Me)
+  NodeRef node2
+  var bool1 = false
+  var pc = GetPlayerCharacterNode()
+  bool1 = pc != None
+  var bool2 = false
+  var bool3 = $HUD.guiHud2 != None and ($HUD_2 = HM.RefSystemNode(8, 16140909971415700524), node2 = $HUD_2.guiHud2, node2.gfxLoaded)  // HUD
+  bool2 = bool3
+  if bool1 and bool2
+    guiGfxLoadingScreenClassMethods:DoWorldFadeIn()
+  .
+.
+public method _MusicControlBankLoaded(Me, a1 as String, a2 as Boolean)
+  if a2
+    Me.sysBaseClientSoundBankCountdown = Me.sysBaseClientSoundBankCountdown - 1
+    if Me.sysBaseClientSoundBankCountdown == 0
+      $MUSIC.OnHydraBanksLoaded()
+    .
+  else
+    // unknown
+  .
+.
+remote function _NotifyPlayerCanTravel(Me, a1 as ID, a2 as ID, a3 as String)
+  // unknown
+.
+remote function _NotifyChangeAreaRequest(Me)
+  // unknown
+.
+public shared method _Room_Transition(Me, a1 as ID, a2 as ID, a3 as String, a4 as String, a5 as String, a6 as ID, a7 as ID)
+  var unused = a4.length
+.
+public method SaveScreenShotToPersonalFolder(Me)
+  var str2 = $Options.GetStringValue(14914824248310233535)  // "graphics_resolution"
+  list1 as List of String
+  SplitBy(str2, "x", &list1)
+  if list1.length == 2
+    classView as ClassView
+    classView.x = list1[1]
+    classView.y = list1[2]
+    var node2 = HM.CurrentInterface
+    var classView2 = HM.GetClassFromClassView(classView)
+    EF.SaveScreenShotToFile(node2, "Screenshot_", classView2)
+  else
+    // unknown
+  .
+.
+public method IsFxDisabled() as Boolean
+  return Me.sysBaseFxDisabled
+.
+public method SetFxDisabled(Me, a1 as Boolean)
+  if (((unsigned __int8)a1 ^ Me.sysBaseFxDisabled) & 1) != 0
+    if not Me.sysBaseFxDisabled
+      $FXSYSTEM.KillAllAreaFx()
+    .
+    Me.sysBaseFxDisabled = a1
+  .
+.
+public method IsLootFxDisabled() as Boolean
+  return Me.sysBaseLootFxDisabled or $CONVERSATION.IsInConversation()
+.
+public method SetLootFxDisabled(Me, a1 as Boolean)
+  Me.sysBaseLootFxDisabled = a1
+.
+public method ToggleEventLogging(Me)
+  Me.sysBaseClientLogEvents = not Me.sysBaseClientLogEvents
+.
+public method IsEventLogging() as Boolean
+  return Me.sysBaseClientLogEvents
+.
+public function GetSortedList(a1 as LookupList indexed by String of Integer) as List of String
+  Boolean bool2
+  list1 as List of String
+  foreach key in a1
+    var bool1 = false
+    loop i from 1 to list1.length
+      var cur2 = list1[i]
+      if a1[key] > a1[cur2]
+        insert key to list1 at i
+        bool1 = true
+        break
+      .
+    .
+    if not bool1
+      if a1[key] <= 0
+        bool2 = false
+      else
+        bool2 = true
+      .
+    else
+      bool2 = false
+    .
+    if bool2
+      add back key to list1
+    .
+  .
+  return list1
+.
+public method PrintEventLogTop(Me, a1 as Integer)
+  list2 = GetSortedList(Me.sysBaseClientEventLog)
+  list1 = list2
+  loop i from 1 to mini(_callFrame, list1Length, a1)
+    // unknown
+  .
+.
+public shared method OnPrototypeLoaded(Me, a1 as NodeRef)
+  var id1 = a1
+  SetDebugContextString("name", getPrototypeName(id1))
+  if a1 is kindof qstQuestDefinition
+    $QUEST.FlushVariableDefinitions(v13, v15, v17)
+    return
+  .
+  if a1 is kindof appItemAppearance
+    $APPEARANCE.ApplyStoredItemAppearances(HM.CopyConstructNodeRef(78, a1), v14, v16)
+  else if a1 is kindof appNPCAppearance_Prototype
+    $APPEARANCE.NPCAppearancePrototypeLoaded(HM.CopyConstructNodeRef(79, a1), v14, v16)
+  else if a1 is kindof stgTemplate_Prototype
+    var a12 = a1
+    $STAGE.UpdateStageTemplateCachedNode(a12.utlTemplateId, a12, true)
+    return
+  .
+  if a1 is kindof cnvTree_Prototype
+    $CONVERSATION.ConversationLoaded(HM.CopyConstructNodeRef(81, a1), v14, v16)
+  else if a1 is kindof mapDataContainer
+    $MAP.OnPrototypeUpdate(HM.CopyConstructNodeRef(82, a1), v14, v16)
+  else
+    if not a1 is kindof cosTemplate
+      return
+    .
+    var id2 = a1
+    $SPAWNER.UpdateDeferredClientOnlySpawners((NodeRef *)getPrototypeName(id2), v14, v16)
+    return
+  .
+.
+public shared method OnPrototypeLoadedAsync(Me, a1 as NodeRef)
+  if a1 is kindof cnvTree_Prototype
+    $CONVERSATION.ConversationLoaded(HM.CopyConstructNodeRef(81, a1))
+  else
+    if not a1 is kindof cosTemplate
+      return
+    .
+    var id1 = a1
+    $SPAWNER.UpdateDeferredClientOnlySpawners(getPrototypeName(id1))
+  .
+.
+public shared method OnNodeSelected(Me, a1 as NodeRef)
+  if a1 = None
+    // unknown
+  else if utlNode:isSpawner(a1) or utlNode:isEncounter(a1)
+    var node3 = CreateNodeFromClassID(utlDelayedCall)
+    if node3 is kindof utlDelayedCall
+      var classView = HM.GetClassViewFromNodeRef(node3, utlDelayedCall)
+      classView.args["node"] = a1
+      var classView2 = HM.GetClassViewFromNodeRef(node3, utlDelayedCall)
+      classView2.args["action"] = "add"
+      var classView3 = HM.GetClassViewFromNodeRef(node3, utlDelayedCall)
+      classView3.utlDelayedCallTimer.script = $THISSCRIPT
+      var classView4 = HM.GetClassViewFromNodeRef(node3, utlDelayedCall)
+      classView4.utlDelayedCallTimer.fireRate = 10
+      var classView5 = HM.GetClassViewFromNodeRef(node3, utlDelayedCall)
+      timer::start(classView5.utlDelayedCallTimer)
+    .
+  .
+  if a1 is kindof stgStage
+    a1["UpdateHidden"] = true
+  .
+.
+public shared method OnNodeUnselected(Me, a1 as NodeRef)
+  if a1 = None
+    // unknown
+  else if utlNode:isSpawner(a1) or utlNode:isEncounter(a1)
+    var node3 = CreateNodeFromClassID(utlDelayedCall)
+    if node3 is kindof utlDelayedCall
+      var classView = HM.GetClassViewFromNodeRef(node3, utlDelayedCall)
+      classView.args["node"] = a1
+      var classView2 = HM.GetClassViewFromNodeRef(node3, utlDelayedCall)
+      classView2.args["action"] = "remove"
+      var classView3 = HM.GetClassViewFromNodeRef(node3, utlDelayedCall)
+      classView3.utlDelayedCallTimer.script = $THISSCRIPT
+      var classView4 = HM.GetClassViewFromNodeRef(node3, utlDelayedCall)
+      classView4.utlDelayedCallTimer.fireRate = 100
+      var classView5 = HM.GetClassViewFromNodeRef(node3, utlDelayedCall)
+      timer::start(classView5.utlDelayedCallTimer)
+    .
+  .
+  if a1 is kindof stgStage
+    a1["UpdateHidden"] = true
+  .
+.
+public function OnTimerTick(Me, a1 as ID)
+  if a1 == utlDelayedCallTimer
+    utlDelayedCallTimer_tick()
+  else
+    if a1 != sysRegionPollingTimer
+      return
+    .
+    utlDelayedCallTimer_tick()
+  .
+.
+public function utlDelayedCallTimer_tick(Me)
+  if Me is kindof utlDelayedCall
+    var classView = HM.GetClassViewFromNodeRef(Me, utlDelayedCall)
+    var lookup = classView.args
+    var id1 = HM.ConvertFromStringID(lookup["node"])
+    var node = id1
+    var classView2 = HM.GetClassViewFromNodeRef(Me, utlDelayedCall)
+    var lookup2 = classView2.args
+    var str3 = lookup2["action"]
+    var str2 = str3
+    when str2
+      is "add"
+        if node = None
+          // unknown
+        else
+          node3 = $NAMEPLATES
+          var id2 = node
+          node3.createNameplate(id2)
+          var str4 = node["spnSpec"]
+          NodeProperty2 = str4
+          NodeProperty22 = NodeProperty2
+          var int1 = utlString:FindLastOf(NodeProperty22, ".", 1)
+          var str5 = substring(NodeProperty22, int1 + 1, NodeProperty22.length - int1)
+          NodeProperty22 = str5
+          str6 = HM.ConstructString()
+          classView3 = HM.ConstructClassView(84)
+          var node6 = $SPAWNER.GetSpawnerTemplate(NodeProperty2, node["Type"])
+          node5 = node6
+          var classView4 = HM.GetClassViewFromNodeRef(Me, utlDelayedCall)
+          var lookup3 = classView4.args
+          var str8 = lookup3["delayCount"]
+          var int3 = str8
+          if not node5.utlTemplateLoaded
+            bool1 = SHIDWORD(int3) >= 1
+            if not HIDWORD(int3)
+              bool1 = (unsigned int)int3 >= 100
+            .
+            if not bool1
+              var str9 = int3 + 1
+              var classView5 = HM.GetClassViewFromNodeRef(Me, utlDelayedCall)
+              var lookup4 = classView5.args
+              lookup4["delayCount"] = str9
+            else
+              if node5.utlTemplateLoaded
+                if node5.spnAutoStart
+                  str11 = NodeProperty2 + "$R" + "Initial State: Active"
+                else
+                  str11 = NodeProperty2 + "$R" + "Initial State: Inactive"
+                .
+                str6 = str11
+                classView6 = HM.ConstructClassView(84)
+                v37 = -0.0
+                makeRGBA = HM.PrepareCallScriptSameMe2(127, *(ScriptRef *)((char *)&v37 + 4), Me, &_callFrame)
+                makeRGBA(classView6, _callFrame, 0.0, 0.0, 0.0, 1.0)
+              else
+                str6 = NodeProperty2 + "$R" + "<could not load template>"
+                classView6 = HM.ConstructClassView(84)
+                v38 = -0.0
+                makeRGBA2 = HM.PrepareCallScriptSameMe2(127, *(ScriptRef *)((char *)&v38 + 4), Me, &_callFrame)
+                makeRGBA(classView6, _callFrame, 0.5, 0.0, 0.0, 1.0)
+              .
+              classView3 = HM.CopyClassViewToClassView(classView6)
+              node3.setNameplateTitleTextByID(id2, str6)
+              node3.setNameplateColorByID(id2, classView3)
+              DestroyNode(Me)
+              return
+            .
+          else
+            if node5.utlTemplateLoaded
+              if node5.spnAutoStart
+                str11 = NodeProperty2 + "$R" + "Initial State: Active"
+              else
+                str11 = NodeProperty2 + "$R" + "Initial State: Inactive"
+              .
+              str6 = str11
+              classView6 = HM.ConstructClassView(84)
+              v37 = -0.0
+              makeRGBA = HM.PrepareCallScriptSameMe2(127, *(ScriptRef *)((char *)&v37 + 4), Me, &_callFrame)
+              makeRGBA(classView6, _callFrame, 0.0, 0.0, 0.0, 1.0)
+            else
+              str6 = NodeProperty2 + "$R" + "<could not load template>"
+              classView6 = HM.ConstructClassView(84)
+              v38 = -0.0
+              makeRGBA2 = HM.PrepareCallScriptSameMe2(127, *(ScriptRef *)((char *)&v38 + 4), Me, &_callFrame)
+              makeRGBA(classView6, _callFrame, 0.5, 0.0, 0.0, 1.0)
+            .
+            classView3 = HM.CopyClassViewToClassView(classView6)
+            var id3 = node
+            node3.setNameplateTitleTextByID(id3, str6)
+            var id4 = node
+            node3.setNameplateColorByID(id4, classView3)
+            DestroyNode(Me)
+            return
+          .
+        .
+        DestroyNode(Me)
+      .
+      is "remove"
+        $NAMEPLATES.detachNameplate(id1, v40)
+        DestroyNode(Me)
+      .
+      default
+        DestroyNode(Me)
+      .
+    .
+  else
+    DestroyNode(Me)
+  .
+.
+public function OnLogout(Me)
+  EnableDepthOfField(false)
+  $SPAWNER.CleanupClientOnlySpawners()
+  $GROUP.grpOnLogout()
+  $GUILD.OnLogout()
+  ctlInputMovement:HaltMovement()
+  $COMBAT.OnLogout()
+  $MATCHMAKING.OnLogout()
+  $BASECLIENT._SetGameState(GAMESTATE_EnteringSelectionCreation)
+  $CHARACTER.SetToDefaultLoadingScreen()
+  $CSR_CSPORTAL.UpdateCSPortalOnLogOut()
+  $HUD.enableHud(false)
+.
+public method CheckForUnsafeLogout(Me)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2.IsResting() or pc2.IsInTaxi()
+    Me.LogoutWithSurvey()
+  else
+    socOracleClassMethods:SetAFKState(true, "")
+    pc2.StartAFKAutoLogout(true, false)
+  .
+.
+public method LogoutWithSurvey(Me)
+  if $BASECLIENT.HasEntitlement(ENTITLEMENT_GLOBAL_SURVEYS)
+    lookup as LookupList indexed by String of String
+    lookup["surveyTrigger"] = SVY_LOGOUT
+    var pc = GetPlayerCharacterNode()
+    utlSurveys:FindAndShowSurvey(pc, "INSTIGATOR", "svy.cohort.beta1.quit", lookup, "logout")
+  else
+    Me.Logout()
+  .
+.
+public method Logout(Me)
+  ctlInputCamera:AbortDrag()
+  guiGfxLoadingScreenClassMethods:DoWorldFadeOut(16)
+  OnLogout()
+  SendCommand("/logout")
+.
+public method Quit(Me)
+  OnLogout()
+  SendCommand("/logout")
+  QuitApp()
+.
+public method CheckForUnsafeQuitWithSurvey(Me)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2.chrSafeZone
+    Me.QuitWithSurvey()
+  else
+    socOracleClassMethods:SetAFKState(true, "")
+    pc2.StartAFKAutoLogout(false, true)
+  .
+.
+public method QuitWithSurvey(Me)
+  if Me.HasEntitlement(ENTITLEMENT_GLOBAL_SURVEYS)
+    lookup as LookupList indexed by String of String
+    lookup["surveyTrigger"] = SVY_QUIT
+    var pc = GetPlayerCharacterNode()
+    utlSurveys:FindAndShowSurvey(pc, "INSTIGATOR", "svy.cohort.beta1.quit", lookup, "quitGame")
+  else
+    Me.Quit()
+  .
+.
+public method StartPollingRegions(Me)
+  if Me.sysRegionPollingTimer.timerState == 2
+    timer::stop(Me.sysRegionPollingTimer)
+  .
+  Me.sysRegionPollingTimer.fireRate = LOGIN_ERROR_RANGE_START
+  Me.sysRegionPollingTimer.script = $THISSCRIPT
+  timer::start(Me.sysRegionPollingTimer)
+  $BASECLIENT.AmbienceEnterDefaultRegion()
+  timer::forceTick(Me.sysRegionPollingTimer)
+.
+public method StopPollingRegions(Me)
+  if Me.sysRegionPollingTimer.timerState == 2
+    timer::stop(Me.sysRegionPollingTimer)
+  .
+.
+public method PollRegions(Me)
+  NodeRef *v3
+  NodeRef node3
+  NodeRef node4
+  NodeRef pc
+  var enum1 = $BASECLIENT._GetGameState()
+  if enum1 == GAMESTATE_CharacterCreation
+    v3 = node3
+    node3 = HM.ConstructNodeRef(10)
+    v3 = $CHARACTERCREATIONSYSTEM.GetAnyCCSCharacter()
+    var node = v3
+    goto LABEL_7
+  .
+  if enum1 == GAMESTATE_CharacterSelection
+    v3 = node4
+    node4 = HM.ConstructNodeRef(10)
+    v3 = $CHARACTERSELECTIONSYSTEM.cssGetSelectedCharacterNode()
+    node = v3
+    goto LABEL_7
+  .
+  if enum1 == GAMESTATE_WithinArea
+    pc = GetPlayerCharacterNode()
+    node = pc
+  .
+LABEL_7:
+  if node = None
+    // unknown
+  else
+    node.PollPlayerRegions()
+    var str2 = node.GetRegionTagValue(15726697109905153300)  // "music"
+    var str = str2
+    if str.length > 0
+      var lookup = Me.sysRegionTags
+      if lookup[15726697109905153300] != str  // "music"
+        $MUSIC.EnterRegion(str)
+        lookup[15726697109905153300] = str  // "music"
+      .
+    else
+      var lookup3 = Me.sysRegionTags
+      if lookup3 has 15726697109905153300  // "music"
+        var lookup4 = Me.sysRegionTags
+        remove 15726697109905153300 from lookup4 keep  // "music"
+        var str4 = $BASECLIENT._GetAreaName()
+        $MUSIC.EnterRegion(str4)
+      .
+    .
+    var str6 = node.GetRegionTagValue(3277963030632914509)
+    var str5 = str6
+    if str5.length > 0
+      var lookup5 = Me.sysRegionTags
+      if lookup5[3277963030632914509] != str5
+        $BASECLIENT.AmbienceEnterRegion(str5)
+        var lookup6 = Me.sysRegionTags
+        lookup6[3277963030632914509] = str5
+      .
+    else
+      var lookup7 = Me.sysRegionTags
+      if lookup7 has 3277963030632914509
+        var lookup8 = Me.sysRegionTags
+        remove 3277963030632914509 from lookup8 keep
+        Me.AmbienceEnterDefaultRegion()
+      .
+    .
+  .
+.
+public method SampleCrowdSize(Me)
+  Vector3 vec
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 = None
+    // unknown
+  else
+    var str = $BASECLIENT._GetRoomName()
+    vec.x = 0.0
+    vec.y = 0.0
+    vec.z = 0.0
+    var vec2 = pc2.GetPosition_w()
+    vec = vec2
+    list1 as List of NodeRef
+    list2 as List of NodeRef
+    list2 = GetCharactersInRange(vec, 2.5, false)
+    list1 = list2
+    __int64 v18 = 0
+    foreach cur in list1
+      if cur is kindof staCharacterComponent
+        if not cur.staCharacter_IsDead()
+          if cur is kindof chrCharacter
+            if cur.GetCombatCreatureType() == cbtCreatureTypeHumanoid
+              ++v18
+            .
+          .
+          var bool2 = v18 <= -1
+          if not HIDWORD(v18)
+            bool2 = (unsigned int)v18 <= 99
+          .
+          if not bool2
+            break
+          .
+        .
+      .
+    .
+    Me.AmbienceSetCrowdSize(v18)
+  .
+.
+public function sysRegionPollingTimer_tick(Me)
+  Me.PollRegions()
+  Me.SampleCrowdSize()
+.
+public function RaySegmentIsObstructed(a1 as Vector3, a2 as Vector3, a3 as NodeRef of dbgDrawContext) as Boolean
+  Vector3 vec
+  vec.x = 0.0
+  vec.y = 0.0
+  vec.z = 0.0
+  node as NodeRef
+  var out = CollideRaySegment(a1, a2, &vec, &node)
+  if a3 != None
+    if out
+      var node2 = a3.CreateNewPrimitive()
+      node2.MakeArrow(a1, vec, 0.002, COLOR_RED, 1.0, None)
+      node2 = a3.CreateNewPrimitive()
+      node2.MakeArrow(vec, a2, 0.002, COLOR_GREY, 1.0, None)
+    else
+      var node9 = a3.CreateNewPrimitive()
+      node9.MakeArrow(a1, a2, 0.002, COLOR_GREEN, 1.0, None)
+    .
+  .
+  return out
+.
+public shared method _onMovieComplete(Me)
+  // unknown
+.
+public shared method NotifyMovieState(Me, a1 as Integer)
+  var unused = HM.GetEnumDefaultValue(93)
+  HM.ValidateEnum64(93, a1 + 1)
+  $MOVIE.OnMovieState(a1 + 1)
+.
+public method OnGamestateChanging(Me, a1 as Enum GameState, a2 as Enum GameState)
+  if a1 == GAMESTATE_CharacterSelection
+    $CHARACTERSELECTIONSYSTEM.CleanupCharacterSelection(true)
+    return
+  .
+  if a1 == GAMESTATE_CharacterCreation
+    if a2 == GAMESTATE_CharCreationSubmitted
+      return
+    .
+    $CHARACTERCREATIONSYSTEM.CleanupCharacterCreation(true)
+    return
+  .
+  if a1 == GAMESTATE_CharCreationSubmitted
+    if a2 != GAMESTATE_CharacterCreation
+      $CHARACTERCREATIONSYSTEM.OnCharacterAccepted()
+      $CHARACTERCREATIONSYSTEM.CleanupCharacterCreation(true)
+    .
+  .
+.
+public method StartIntroLogos(Me)
+  Me._SetGameState(GAMESTATE_IntroLogos)
+  $MOVIE.SetAutoSkipMovies(false)
+  WorldSetLoadingStatusVisible(false)
+  Me.PlayNextIntroLogo()
+.
+public method EndIntroLogos(Me)
+  WorldSetLoadingStatusVisible(true)
+  $SHARDSELECTIONSYSTEM.StartupShardSelection(Me.sysWasFromLaunch, false)
+.
+public method PlayNextIntroLogo(Me)
+  var enum1 = Me.sysCurrentLogoMovie
+  if enum1 == movie_LogoBioware
+    Me.sysCurrentLogoMovie = 12
+  else if enum1 == movie_LogoEA
+    Me.sysCurrentLogoMovie = 14
+  else if enum1 == movie_LogoLucasArts
+    Me.sysCurrentLogoMovie = 15
+  else
+    if enum1 == movie_LogoIntro
+      Me.EndIntroLogos()
+      return
+    .
+    Me.sysCurrentLogoMovie = 13
+  .
+  if not $MOVIE.PlayHardcodedMovie(Me.sysCurrentLogoMovie)
+    Me.PlayNextIntroLogo()
+  .
+.
+public shared method unk_c3b475da(Me)
+  $ABILITY.unk_11dca58b()
+.

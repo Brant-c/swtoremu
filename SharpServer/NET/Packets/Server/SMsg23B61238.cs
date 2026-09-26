@@ -13,10 +13,15 @@ namespace NexusToRServer.NET.Packets.Server
         private byte[] _blob;
 
         public SMsg23B61238(UInt32 Unk01, byte[] Blob)
+            : this(Unk01, Blob, 0)
+        {
+        }
+
+        public SMsg23B61238(UInt32 Unk01, byte[] Blob, UInt64 CharacterID)
         {
             //
             _unk01 = Unk01;
-            _blob = Blob;
+            _blob = CapturedCharacterRemap.Apply(Blob, CharacterID, "On Enter RPC batch");
         }
 
         /// <summary>

@@ -1,0 +1,21 @@
+self handler Replication_Create(Me, a1 as Integer)
+  $NAMEPLATES.checkNameplateStatus(Me)
+  Me.UpdateTargetTargetable()
+.
+self handler Replication_Destroy(Me, a1 as Integer)
+  $NAMEPLATES.detachNameplate(Me)
+.
+self handler Replication_Update(Me, a1 as Integer, a2 as List of ID)
+  foreach cur in a2
+    int v4 = ((cur ^ tgtTargetIsTargetable) >> 32) | cur ^ 0x4EE28DFC
+    if not v4
+      Me.UpdateTargetTargetable()
+    .
+  .
+.
+public method UpdateTargetTargetable(Me)
+  if not Me.tgtTargetIsTargetable
+    call event Me:OnNoLongerTargetable Me:OnNoLongerTargetable
+  .
+  Me["mouseTransparent"] = not Me.tgtTargetIsTargetable
+.

@@ -1,0 +1,728 @@
+var GATEWAY_TRIGGERS_PROPBUCKET = "Phase Gateway Trigger Volumes"
+var HELPTIPS_DIALOG_WIDTH = 465
+var STR_CANNOT_CHANGE_FLASHPOINT_DIFFICULTY = 355
+var STR_DIALOG_HELP = 954509236896069  // "HELP"
+var STR_HELPTIPS_NEVERSHOW_AGAIN = 1004897793212420  // "Don't tell me this again."
+var STR_HELPTIPS_OKBTN = 1004897793212419  // "OK"
+var STR_LOCAL_PHASE_RESET_PLAYERS_IN_PHASE = 347
+var STR_LOCAL_PHASE_RESET_STILL_IN_COOLDOWN = 348
+var STR_LOGOUT = 309
+var STR_LOGOUT_WILL_EJECT_GROUP_MEMBERS = 359
+var STR_SHIP_LEAVING_BEING_TAKEN_ABOARD = 951902191747329  // "You are about to be taken to <<1>>'s ship"
+var STR_SHIP_LEAVING_GETTING_EJECTED_NOT_ELIGIBLE = 951902191747331  // "You are no longer allowed in this phase."
+var STR_SHIP_LEAVING_GETTING_EJECTED_SHIP_NOT_UNLOCKED = 951902191747330  // "You need to own your own ship before you can visit <<1>>'s ship"
+public method init(Me)
+  Me._InitGatewayPropBucket()
+.
+public method OnWorldFadeIn(Me)
+  Me.UpdateAllGateways()
+.
+public method GetPhasedInstanceDefinition(a1 as Integer) as NodeRef of phsPhasedInstance
+  var node = $STATIC.phsInstanceDataPrototype
+  var lookup = node.phsNameIdToDefinitionMap
+  if lookup has a1
+    var id1 = lookup[a1]
+    return getPrototypeByID(id1)
+  else
+    return None
+  .
+.
+public method GetPhasedInstanceNode(a1 as ID) as NodeRef of phsPhasedInstance
+  var lookup = Me.phsActiveInstances
+  if lookup has a1
+    return lookup[a1]
+  else
+    return None
+  .
+.
+public method IsCurrentAreaImplicitlyPhased() as Boolean
+  CallFrame _callFrame
+  var id1 = $BASECLIENT._GetAreaID()
+  FuncRef IsAreaImplicitlyPhased = HM.PrepareCallNodeRef2(4, Me, &_callFrame)
+  return IsAreaImplicitlyPhased(_callFrame, id1) & 1
+.
+public method IsAreaImplicitlyPhased(a1 as ID) as Boolean
+  var node = $STATIC.phsInstanceDataPrototype
+  if node != None
+    return node.phsDataImplicitAreaMap has a1
+  else
+    return false
+  .
+.
+public method GetPhasedInstanceImplicit() as NodeRef of phsPhasedInstance
+  var id1 = $BASECLIENT._GetAreaID()
+  return Me.GetPhasedInstanceImplicitFromArea(id1)
+.
+public method GetPhasedInstanceImplicitFromArea(a1 as ID) as NodeRef of phsPhasedInstance
+  var node = $STATIC.phsInstanceDataPrototype
+  var lookup = node.phsDataImplicitAreaMap
+  if lookup has a1
+    var id1 = lookup[a1]
+    return getPrototypeByID(id1)
+  else
+    return None
+  .
+.
+public method OwnsLocalPhases() as Boolean
+  var lookup = Me.phsActiveInstances
+  foreach key in lookup
+    var cur = lookup[key]
+    if cur != None
+      var lookup2 = cur.phsPhases
+      foreach cur2 in lookup2
+        var lookup2Cur = lookup2[cur2]
+        if lookup2Cur != None
+          var id1 = lookup2Cur.GetPhaseInfoOwnerID()
+          var pc = GetPlayerCharacterNode()
+          if pc == id1
+            return true
+          .
+        .
+      .
+    .
+  .
+  return false
+.
+public method GetOwnedPhases(Me, o1 references List of NodeRef of phsPhaseInfo)
+  var pc = GetPlayerCharacterNode()
+  var id1 = pc
+  var lookup = Me.phsActiveInstances
+  foreach key in lookup
+    var cur = lookup[key]
+    if cur != None
+      var lookup2 = cur.phsPhases
+      foreach cur2 in lookup2
+        var lookup2Cur = lookup2[cur2]
+        if lookup2Cur != None
+          var id2 = lookup2Cur.GetPhaseInfoOwnerID()
+          if id1 == id2
+            add back lookup2Cur to o1
+          .
+        .
+      .
+    .
+  .
+.
+public method GetCurrentInstanceName() as String
+  return $PHASE.GetPhaseName(Me.phsCurrentInstanceNameID)
+.
+public method GetCurrentInstanceNameID() as Integer
+  return Me.phsCurrentInstanceNameID
+.
+public method GetCurrentInstance() as NodeRef of phsPhasedInstance
+  var node = None
+  var lookup = Me.phsActiveInstances
+  if lookup has Me.phsCurrentInstanceNameID
+    node = lookup[Me.phsCurrentInstanceNameID]
+  .
+  return node
+.
+public method IsFlashpointArea() as Boolean
+  var node2 = $PHASE.GetCurrentInstance()
+  return node2 != None
+.
+public method IsWarzoneArea() as Boolean
+  var node2 = $PHASE.GetCurrentInstance()
+  return node2 != None
+.
+public method IsRaidArea() as Boolean
+  return Me.GetPhasedInstanceImplicit() != None
+.
+public method IsSpaceCombatArea() as Boolean
+  return Me.GetPhasedInstanceImplicit() != None
+.
+public method PerformQuestUsabilityChecksFor(a1 as NodeRef of chrPlayerCharacter) as Boolean
+  if a1 != None
+    var node2 = a1.GetPhaseInfo()
+    if node2 != None
+      return node2.PerformQuestUsabilityChecksFor(a1)
+    else
+      return true
+    .
+  else
+    return false
+  .
+.
+public method instanceOnAreaUnloaded(Me)
+  Me.HideAllGateways()
+  clear Me.phsCollisionStatePerInstance keep
+.
+public method RequestJoinPhase(Me, a1 as Integer, a2 as ID)
+  var node2 = $PHASE.GetPhasedInstanceNode(a1)
+  if node2 != None
+    var pc = GetPlayerCharacterNode()
+    node2._SetPlayerJoinOverride(HM.CopyConstructNodeRef(17, pc), a2)
+  .
+  Me._HideJoinPopup()
+  call server untrustedMethods:OnRequestJoinPhase(a1, a2)
+  $PHASE.UpdateGatewayForInstance(a1)
+.
+public method RequestEnterRaid(Me, a1 as Integer, a2 as ID)
+  call server untrustedMethods:OnRequestJoinRaid(a1, a2)
+.
+public method RequestActiveUniquePhaseReset(Me)
+  var id1 = grpGroupManagerClassMethods:GetGroupGSSID()
+  call server id1 untrustedMethods:OnRequestActiveUniquePhaseReset()
+.
+public method RequestLocalPhaseReset(Me)
+  call server untrustedMethods:OnRequestLocalPhaseReset()
+.
+public method OnPhasedInstanceUpdated(Me)
+  int v47
+  var pc = GetPlayerCharacterNode()
+  var pc3 = pc
+  if pc3 = None
+    return
+  .
+  var node2 = $PHASE.GetPhasedInstanceNode(Me.phsCurrentInstanceNameID)
+  var int2 = 0
+  var pc2 = GetPlayerCharacterNode()
+  var node6 = pc2.GetPhaseInfo()
+  if node6 != None
+    var node7 = node6.GetPhasedInstance()
+    var int3 = node7.GetInstanceNameID()
+    int2 = int3
+    node6.RefreshGui()
+  .
+  if Me.phsCurrentInstanceNameID == int2
+    return
+  .
+  pc3.OnInstanceChanged(node2, node7)
+  if node2 != None
+    node2.OnPlayerExitedInstance()
+  .
+  Me.phsCurrentInstanceNameID = int2
+  if node7 != None
+    node7.ClearPlayerJoinOverride(pc3)
+    node7.UpdateGuiForPhase()
+    arbArbiterClassMethods:SendArbiterUITypeToUI()
+    node7.OnPlayerEnteredInstance()
+    chrStaminaComponentClassMethods:SendStaminaUIStateToUI()
+    pc3.prepareForSpaceCombat(HM.CopyConstructNodeRef(16, node7))
+    var int4 = node7.GetInstanceNameID()
+    Me.UpdateGatewayForInstance(int4)
+    Me._HideJoinPopup()
+    if pc3 is kindof tutTutorialComponent
+      var bool4 = pc3.ShouldBeFired(tutTutorialEvent_ClassStoryAreasSolo) or pc3.ShouldBeFired(6) or pc3.ShouldBeFired(7)
+      if bool4 or pc3.ShouldBeFired(8)
+        var unused = HM.GetEnumDefaultValue(19)
+        var enum1 = node7.GetPhaseType()
+        var bool6 = pc3.IsInGroup()
+        if enum1 == phsTypeClass
+          if $STATIC.tutorialPhaseListTablePrototype != None
+            if not ($STATIC.tutorialPhaseListTablePrototype.tutPhaseLookupList has int2)
+              pc3.FireTutorialEvent(tutTutorialEvent_ClassStoryAreasSolo)
+            .
+          .
+          if bool6
+            pc3.FireTutorialEvent(tutTutorialEvent_ClassStoryAreasMultiplayer)
+          .
+        else if enum1 == phsTypeWorld
+          pc3.FireTutorialEvent(tutTutorialEvent_WorldStoryAreasSolo)
+          if bool6
+            pc3.FireTutorialEvent(tutTutorialEvent_WorldStoryAreasMultiplayer)
+          .
+        .
+      .
+    .
+  else
+    if node2 != None
+      node2.ClearPlayerJoinOverride(pc3)
+      node2.UpdateGuiExitingPhase()
+      var int5 = node2.GetInstanceNameID()
+      Me.UpdateGatewayForInstance(int5)
+    .
+    arbArbiterClassMethods:SendArbiterUITypeToUI()
+    chrStaminaComponentClassMethods:SendStaminaUIStateToUI(v47)
+  .
+.
+public method SendCurrentPhaseInfoToGUI(Me)
+  var pc = GetPlayerCharacterNode()
+  var pc3 = pc
+  if pc3 != None
+    var node2 = $PHASE.GetPhasedInstanceNode(Me.phsCurrentInstanceNameID)
+    var pc2 = GetPlayerCharacterNode()
+    var node6 = pc2.GetPhaseInfo()
+    if node6 != None
+      var node7 = node6.GetPhasedInstance()
+    .
+    if node7 != None
+      node7.UpdateGuiForPhase()
+    else
+      if node2 = None
+        return
+      .
+      node2.UpdateGuiExitingPhase()
+    .
+  .
+.
+public method _InitGatewayPropBucket(Me)
+  if not DoesPropBucketExist(GATEWAY_TRIGGERS_PROPBUCKET)  // "Phase Gateway Trigger Volumes"
+    CreatePropBucket(GATEWAY_TRIGGERS_PROPBUCKET)  // "Phase Gateway Trigger Volumes"
+  .
+  Me.phsGatewaySpec = AddAssetSpecToPropBucket(GATEWAY_TRIGGERS_PROPBUCKET, $STATIC.GetHardcodedAssetPath(hcaKey_engineTrigger))  // "Phase Gateway Trigger Volumes"
+.
+public method _AttachGatewayTrigger(Me, a1 as NodeRef of phsPhasedInstance, a2 as NodeRef of HBNode)
+  if a2 = None
+    // unknown
+  else if a1 = None
+    // unknown
+  else
+    var id1 = CreateInstanceFromPropBucket(GATEWAY_TRIGGERS_PROPBUCKET, Me.phsGatewaySpec)  // "Phase Gateway Trigger Volumes"
+    var node = id1
+    if node = None
+      // unknown
+    else
+      SetParentOfNode(node, a1)
+      node["Name"] = a2["TriggerParam"]
+      node["TriggerParam"] = a2["TriggerParam"]
+      node["Width"] = a2["Width"]
+      node["Height"] = a2["Height"]
+      node["Depth"] = a2["Depth"]
+      node["Position"] = a2["Position"]
+      node["Rotation"] = a2["Rotation"]
+      node["Scale"] = a2["Scale"]
+      node["Enter"] = true
+      node["Leave"] = false
+      node["Disappear"] = false
+      node["NPCSensitive"] = false
+      node["PlayerSensitive"] = true
+      node["Active"] = true
+      GlomClass("phsGateway", node)
+      var id2 = node
+      ActivateInstance(id2, "")
+    .
+  .
+.
+public method HideAllGateways(Me)
+  var lookup = Me.phsGatewayFxList
+  foreach key in lookup
+    var cur = lookup[key]
+    if cur != None
+      cur.StopFx()
+    else
+      // unknown
+    .
+  .
+  clear Me.phsGatewayFxList destroy
+.
+public method UpdateAllGateways(Me)
+  RegisterForPerFrameCallback($THISSCRIPT)
+.
+public method OnFrameUpdate(Me, a1 as TimeInterval)
+  UnregisterForPerFrameCallback($THISSCRIPT)
+  foreach key in $PHASE.phsActiveInstances
+    $PHASE.UpdateGatewayForInstance(key)
+  .
+.
+public method UpdateGatewayForInstance(Me, a1 as Integer)
+  var node2 = Me.GetPhasedInstanceNode(a1)
+  if node2 != None
+    if node2.RequiresGatewayUpdate()
+      var enum1 = HM.GetEnumDefaultValue(27)
+      var enum2 = HM.GetEnumDefaultValue(27)
+      var bool2 = false
+      node2.GetInstanceGatewayState(node2.DeterminePhaseEligibility(), &enum1, &enum2, &bool2)
+      $PHASE._SetGatewayState(node2, enum1, enum2, bool2)
+    .
+  .
+.
+function _SetGatewayState(a1 as NodeRef, a2 as Enum, a3 as Enum, a4 as Boolean)
+  Boolean bool2
+  unsigned __int8 v41 = a4
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  var id1 = $BASECLIENT._GetInstanceID()
+  if id1 == 0 or (pc2 != None and pc2.GetCharacterAllowInstances() ? (bool2 = true) : (bool2 = false), bool2)
+    v41 = 0
+  .
+  foreach cur in a1.phsGatewayList
+    var lookup = Me.phsGatewayFxList
+    if not (lookup has cur)
+      lookup[cur] = CreateNodeFromClassID(phsGatewayFx)
+    .
+    var node3 = Me.phsGatewayFxList[cur]
+    if node3 != None
+      node3.UpdateFxIfNecessary(cur, a2, a3)
+    else
+      // unknown
+    .
+  .
+  var lookup4 = Me.phsCollisionStatePerInstance
+  if ((lookup4[a1] ^ v41) & 1) != 0
+    var lookup5 = a1.phsPhasedInstanceToTrigger
+    foreach key in lookup5
+      var cur = lookup5[key]
+      cur["Collidable"] = v41
+    .
+    lookup4[a1] = v41
+  .
+.
+remote function _ReceiveEjectNotification(Me, a1 as Integer)
+  var unused = HM.GetEnumDefaultValue(31)
+  HM.ValidateEnum64(31, a1)
+  if (_DWORD)a1 == 1
+    var str = $STRING.LocalizeStringWithPlayerGender(STR_GUI_INSTANCE, ID_STR_GUI_INSTANCE | 1, HIDWORD(ID_STR_GUI_INSTANCE))  // "You are not allowed in this instance"
+    v6 = node2
+    node2 = HM.ConstructNodeRef(33)
+    v6 = $GUI_API.getApi()
+    v6.systemMessage(str)
+    var lookup = $PHASE.phsActiveInstances
+    foreach key in lookup
+      pc = GetPlayerCharacterNode()
+      var id1 = pc
+      var lookupCur = lookup[key]
+      lookupCur.ClearPlayerJoinOverride(id1)
+    .
+    $PHASE.UpdateAllGateways()
+    return
+  .
+  if (_DWORD)a1 == 2
+    var str3 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_INSTANCE, ID_STR_GUI_INSTANCE | 2, HIDWORD(ID_STR_GUI_INSTANCE))  // "This instance is busy - try again later"
+    v6 = node3
+    node3 = HM.ConstructNodeRef(33)
+    v6 = $GUI_API.getApi()
+    v6.systemMessage(str3)
+    var lookup = $PHASE.phsActiveInstances
+    foreach key in lookup
+      pc = GetPlayerCharacterNode()
+      var id1 = pc
+      var lookupCur = lookup[key]
+      lookupCur.ClearPlayerJoinOverride(id1)
+    .
+    $PHASE.UpdateAllGateways()
+    return
+  .
+  if (_DWORD)a1 == 3
+    var str5 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_INSTANCE, ID_STR_GUI_INSTANCE | 3, HIDWORD(ID_STR_GUI_INSTANCE))  // "The owner of this instance has left"
+    v6 = node4
+    node4 = HM.ConstructNodeRef(33)
+    v6 = $GUI_API.getApi()
+    v6.systemMessage(str5)
+    var lookup = $PHASE.phsActiveInstances
+    foreach key in lookup
+      pc = GetPlayerCharacterNode()
+      var id1 = pc
+      var lookupCur = lookup[key]
+      lookupCur.ClearPlayerJoinOverride(id1)
+    .
+    $PHASE.UpdateAllGateways()
+    return
+  .
+  if (_DWORD)a1 == 6
+    var str7 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_INSTANCE, ID_STR_GUI_INSTANCE | 4, HIDWORD(ID_STR_GUI_INSTANCE))  // "You have left the instance"
+    v6 = node5
+    node5 = HM.ConstructNodeRef(33)
+    v6 = $GUI_API.getApi()
+    v6.systemMessage(str7)
+    var lookup = $PHASE.phsActiveInstances
+    foreach key in lookup
+      pc = GetPlayerCharacterNode()
+      var id1 = pc
+      var lookupCur = lookup[key]
+      lookupCur.ClearPlayerJoinOverride(id1)
+    .
+    $PHASE.UpdateAllGateways()
+    return
+  .
+  if (_DWORD)a1 != 4
+    $GUI_API.getApi().systemMessage($STRING.LocalizeStringWithPlayerGender(STR_GUI_INSTANCE, ID_STR_GUI_INSTANCE | 5, HIDWORD(ID_STR_GUI_INSTANCE)))  // "Ejected for unknown reason"
+    var lookup = $PHASE.phsActiveInstances
+    foreach key in lookup
+      pc = GetPlayerCharacterNode()
+      var id1 = pc
+      var lookupCur = lookup[key]
+      lookupCur.ClearPlayerJoinOverride(id1)
+    .
+    $PHASE.UpdateAllGateways()
+    return
+  .
+  var lookup = $PHASE.phsActiveInstances
+  foreach key in lookup
+    pc = GetPlayerCharacterNode()
+    var id1 = pc
+    var lookupCur = lookup[key]
+    lookupCur.ClearPlayerJoinOverride(id1)
+  .
+  $PHASE.UpdateAllGateways()
+.
+public method DisplayJoinInstancePopup(Me, a1 as NodeRef of phsPhasedInstance, a2 as Enum phsGatewayStateEnum)
+  $GUI_API.getApi().setInstancePopupInstanceName(false, a1.GetInstanceNameID())
+  Me._SetInstanceJoinOptions(a1, a2)
+  var int2 = a1.GetInstanceNameID()
+  Me._ShowJoinPopup(int2)
+.
+public method _SetInstanceJoinOptions(Me, a1 as NodeRef of phsPhasedInstance, a2 as Enum phsGatewayStateEnum)
+  lookup as LookupList indexed by ID of List of ID
+  unsigned __int8 v31 = 0
+  var pc = GetPlayerCharacterNode()
+  var id1 = pc
+  a1.CategorizeGroupMembersByPhase(id1, &lookup)
+  if a2 == phsCanOwnOrJoin
+    v31 = 1
+    foreach key in lookup
+      if lookup[key].length > 0
+        if lookup[key][1] == id1
+          v31 = 0
+          break
+        .
+      .
+    .
+  .
+  $GUI_API.getApi().setInstanceGroupMap(false, lookup)
+  $GUI_API.getApi().setInstancePopupAllowNew(false, v31)
+.
+public method _ShowJoinPopup(Me, a1 as Integer)
+  Me.phsActiveInstancePopupID = a1
+  $GUI_API.getApi().setInstancePopupEnabled(false, true)
+  Me._StartJoinInstancePopupTimer()
+.
+public method _HideJoinPopup(Me)
+  $GUI_API.getApi().setInstancePopupEnabled(false, false)
+  $GUI_API.getApi().setInstancePopupEnabled(true, false)
+  Me.phsActiveInstancePopupID = 0
+  Me._StopJoinInstancePopupTimer()
+.
+public method _StopJoinInstancePopupTimer(Me)
+  if Me.phsCloseJoinInstancePopupTimer.timerState == 2
+    timer::stop(Me.phsCloseJoinInstancePopupTimer)
+  .
+.
+public method _StartJoinInstancePopupTimer(Me)
+  Me._StopJoinInstancePopupTimer()
+  timer::initializeDefault(Me.phsCloseJoinInstancePopupTimer)
+  Me.phsCloseJoinInstancePopupTimer.fireRate = 2000
+  Me.phsCloseJoinInstancePopupTimer.script = $THISSCRIPT
+  timer::start(Me.phsCloseJoinInstancePopupTimer)
+.
+public function OnTimerTick(Me, a1 as ID)
+  phsCloseJoinInstancePopupTimer_tick()
+.
+public function phsCloseJoinInstancePopupTimer_tick(Me)
+  Vector3 vec
+  Vector3 vec3
+  Vector3 vec5
+  if not ($PHASE.phsActiveInstances has $PHASE.phsActiveInstancePopupID)
+    Me._HideJoinPopup()
+  else
+    var pc = GetPlayerCharacterNode()
+    var pc2 = pc
+    var bool1 = false
+    list1 as List of NodeRef
+    list1 = GetTriggersInPhase($PHASE.phsActiveInstancePopupID)
+    foreach cur in list1
+      if cur["TriggerClassType"] == "INSTANCE_GATEWAY"
+        vec.x = 0.0
+        vec.y = 0.0
+        vec.z = 0.0
+        var vec2 = cur.GetPosition_w()
+        vec = vec2
+        vec3.x = 0.0
+        vec3.y = 0.0
+        vec3.z = 0.0
+        var vec4 = pc2.GetPosition_w()
+        vec3 = vec4
+        vec5.x = vec.x - vec4.x
+        vec5.y = vec.y - vec4.y
+        vec5.z = vec.z - vec4.z
+        if VectorLengthSq(vec5) <= 4.0
+          bool1 = true
+          break
+        .
+      .
+    .
+    if not bool1
+      Me._HideJoinPopup()
+    .
+  .
+.
+remote function OnLocalPhaseResetFailedBecausePlayersInPhase(Me, a1 as List of String)
+  str as String
+  foreach cur in a1
+    str = str + cur + " "
+  .
+  $GUI_API.getApi().DisplaySimpleMessageDialogWithExtraText(STRING_ERROR, STR_LOCAL_PHASE_RESET_PLAYERS_IN_PHASE, str)
+.
+remote function OnLocalPhaseResetFailedBecauseStillCoolingDown(Me)
+  $CHAT.ChatPlayerLocalizedUsingPlayerGender(chatChannel_SystemFeedback, STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STR_LOCAL_PHASE_RESET_STILL_IN_COOLDOWN, HIDWORD(ID_STR_GUI_DIALOG))  // "Your instance has been reset too recently."
+  $GUI_API.getApi().DisplaySimpleMessageDialog(STRING_ERROR, STR_LOCAL_PHASE_RESET_STILL_IN_COOLDOWN)  // "ERROR", "Your instance has been reset too recently."
+  $GROUP.DisplayGroupInviteIfAppropriate()
+.
+remote function _ReceiveTravelNotification(Me)
+  $CHARACTER.ChooseLoadingScreen()
+.
+remote function ShipLeavingSystemMessage(Me, a1 as ID, a2 as Enum phsShipLeavingMessage)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 = None
+    // unknown
+  else
+    var node2 = pc2.GetGroup()
+    if node2 = None or (id1 = pc2, HasGroupMember2 = HM.PrepareCallNodeRef2(79, node2, &_callFrame), bool2 = HasGroupMember(_callFrame, id1), HM.UnprepareCall(), not bool2)
+      // unknown
+    else if not node2.HasGroupMember(a1)
+      // unknown
+    else
+      vec.x = 0.0
+      vec.y = 0.0
+      vec.z = 0.0
+      if a2 == phsShipLeavingGuestComingWith
+        str = HM.ConstructString()
+        node2.GetGroupMemberName(a1, &str)
+        var list1 = HM.ConstructList(41)
+        add back str to list1
+        var str3 = $STRING.LocalizeStringTokenizedWithPlayerGenderVariant(STR_GUI_INSTANCE, STR_SHIP_LEAVING_BEING_TAKEN_ABOARD, list1)  // "You are about to be taken to <<1>>'s ship"
+        var node4 = $GUI_API.getApi()
+        node4.systemMessageEx(str3, COLOR_PURPLE)
+        $CHAT.ChatPlayerAlreadyLocalized(chatChannel_SystemFeedback, str3)
+        return
+      .
+      if a2 == phsShipLeavingEjectBecauseShipNotUnlocked
+        str = HM.ConstructString()
+        node2.GetGroupMemberName(a1, &str)
+        var list1 = HM.ConstructList(41)
+        add back str to list1
+        var str3 = $STRING.LocalizeStringTokenizedWithPlayerGenderVariant(STR_GUI_INSTANCE, STR_SHIP_LEAVING_GETTING_EJECTED_SHIP_NOT_UNLOCKED, list1)  // "You need to own your own ship before you can visit <<1>>'s ship"
+        var node4 = $GUI_API.getApi()
+        node4.systemMessageEx(str3, COLOR_RED)
+        $CHAT.ChatPlayerAlreadyLocalized(chatChannel_SystemFeedback, str3)
+        return
+      .
+      if a2 == phsShipLeavingEjectBecauseNotInGoodStanding
+        str = HM.ConstructString()
+        node2.GetGroupMemberName(a1, &str)
+        var list1 = HM.ConstructList(41)
+        add back str to list1
+        var str3 = $STRING.LocalizeStringTokenizedWithPlayerGenderVariant(STR_GUI_INSTANCE, STR_SHIP_LEAVING_GETTING_EJECTED_NOT_ELIGIBLE, list1)  // "You are no longer allowed in this phase."
+        var node4 = $GUI_API.getApi()
+        node4.systemMessageEx(str3, COLOR_RED)
+        $CHAT.ChatPlayerAlreadyLocalized(chatChannel_SystemFeedback, str3)
+        return
+      .
+    .
+  .
+.
+public method GetPhaseTooltipDisplay(Me, a1 as NodeRef of HBNode, o2 references String)
+  var node2 = Me.GetPhasedInstanceNode(ComputeStableIdentifier(a1["TriggerParam"]))
+  if node2 != None
+    var int2 = 0
+    var int3 = 0
+    list1 as List of String
+    if node2.GetGatewayTooltipMessage(&int2, &int3, &list1)
+      FormatTooltipString(int2, 0, &int3, 0, o2, list1)
+    .
+  .
+.
+public function FormatTooltipString(Me, a1 as Integer, a2 as Integer, o3 references String, a4 as List of String)
+  var node3 = $GUI_API.getApi()
+  o3 = guiColorTable:FormatHtml($STRING.LocalizeStringTokenizedWithPlayerGenderVariant(STR_GUI_INSTANCE, ID_STR_GUI_INSTANCE | a1, HIDWORD(a1) | HIDWORD(ID_STR_GUI_INSTANCE), a4), 10336624779013838454) + "<br/>"  // "clr.font.available"
+  o3 = o3 + guiColorTable:FormatHtml($STRING.LocalizeStringTokenizedWithPlayerGenderVariant(STR_GUI_INSTANCE, ID_STR_GUI_INSTANCE | a2, HIDWORD(a2) | HIDWORD(ID_STR_GUI_INSTANCE), a4), 5588292450947782646)  // "clr.font.tooltip"
+  var str9 = node3.GetFontSize()
+  var str11 = node3.GetEndTag()
+  o3 = str9 + o3 + str11
+.
+public function ShouldDisplayPhaseTooltip(a1 as NodeRef of HBNode) as Boolean
+  String str
+  return $PHASE.GetCurrentInstance() = None and utlNode:isTrigger(a1) and (str = a1["TriggerClassType"], str == "INSTANCE_GATEWAY") and not $CONVERSATION.IsInConversation()
+.
+public method SetArbiterNodeRef(Me, a1 as NodeRef of arbArbiter)
+  Me.phsArbiterNodeRef = a1
+.
+public method GetArbiterNodeRef() as NodeRef of arbArbiter
+  return Me.phsArbiterNodeRef
+.
+public method _getOracleDebugChannelName() as String
+  return "instance"
+.
+public method _getOracleDejaChannelName() as String
+  return "instance"
+.
+public method _getOracleScriptName() as String
+  return $THISSCRIPT
+.
+public method GetPhaseName(a1 as Integer) as String
+  var node = $STATIC.phsInstanceDataPrototype
+  var lookup = node.phsNameIdToDefinitionMap
+  if lookup has a1
+    var id1 = lookup[a1]
+    return getPrototypeDescription(id1)
+  else
+    return ""
+  .
+.
+public method GetActivePhaseData() as NodeRef of phsPlayerPhaseData
+  return Me.phsActivePhaseData
+.
+public method GetUniqueActivePhasedInstance() as NodeRef of phsPhasedInstance
+  var node2 = Me.GetActivePhaseData()
+  if node2 != None
+    var classView = node2.phsUniqueActivePhase
+    return $PHASE.GetPhasedInstanceDefinition(classView.phsUniqueActivePhasedInstanceNameID)
+  else
+    return None
+  .
+.
+public method HasUniqueActivePhase() as Boolean
+  if Me.phsActivePhaseData != None
+    var classView = Me.phsActivePhaseData.phsUniqueActivePhase
+    return classView.phsUniqueActivePhasedInstanceNameID != 0
+  else
+    return false
+  .
+.
+public method WillPlayerExitFromAreaResultInGroupMemberPhaseEjection() as Boolean
+  list1 as List of NodeRef of phsPhaseInfo
+  Me.GetOwnedPhases(&list1)
+  foreach cur in list1
+    if cur.AreaExitWillEjectGroupMembers()
+      return true
+    .
+  .
+  return false
+.
+public function ShowLogoutConfirmationDueToGroupEjectionDialog(Me)
+  SF_GFx_ClearAndReserveParams(9)
+  SF_GFx_AddParamString($STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STR_LOGOUT, HIDWORD(ID_STR_GUI_DIALOG)))  // "LOGOUT"
+  SF_GFx_AddParamString($STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STR_LOGOUT_WILL_EJECT_GROUP_MEMBERS, HIDWORD(ID_STR_GUI_DIALOG)))  // "Logging out now will eject some of your group members from the phase they are in. Are you sure?"
+  int v12 = HIDWORD(ID_STR_GUI_DIALOG) | HIDWORD(STRING_YES)
+  SF_GFx_AddParamString($STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STRING_YES, v12))  // "Yes"
+  SF_GFx_AddParamString("cmdConfirmLogout")
+  SF_GFx_AddParamInteger(0)
+  var str7 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STRING_NO, HIDWORD(ID_STR_GUI_DIALOG) | HIDWORD(STRING_NO))  // "No"
+  SF_GFx_AddParamString(str7)
+  SF_GFx_AddParamNull()
+  SF_GFx_AddParamInteger(0)
+  SF_GFx_AddParamBoolean(true)
+  $GUI_API.getApi().invokeWithParams("displayDialog")
+.
+public method DisplayPhasingHelpPopup(Me, a1 as String)
+  if Me.guiDialogID == 0.0
+    if $Options.GetBooleanValue(9339916023453843568)  // "gui_displayhelptips"
+      var node2 = $HUD.guiHud2
+      if node2 != None and node2.gfxLoaded
+        var str2 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, STR_DIALOG_HELP)  // "HELP"
+        var str5 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_HELPTIPS, STR_HELPTIPS_NEVERSHOW_AGAIN)  // "Don't tell me this again."
+        var str8 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_HELPTIPS, STR_HELPTIPS_OKBTN)  // "OK"
+        SF_GFx_ClearAndReserveParams(12)
+        SF_GFx_AddParamString(str2)
+        SF_GFx_AddParamString(a1)
+        SF_GFx_AddParamString(str5)
+        SF_GFx_AddParamString(str8)
+        SF_GFx_AddParamString("cmdOnPhasingHelpPopupClosed")
+        SF_GFx_AddParamInteger(0)
+        SF_GFx_AddParamNull()
+        SF_GFx_AddParamString("cmdOnPhasingHelpPopupClosed")
+        SF_GFx_AddParamInteger(0)
+        SF_GFx_AddParamBoolean(false)
+        SF_GFx_AddParamInteger(HELPTIPS_DIALOG_WIDTH)
+        SF_GFx_AddParamString(GUI_ALIGN_LEFT)
+        var float1 = Me.guiDialogID
+        $GUI_API.getApi().invokeWithParamsFloat("displayCheckboxDialog", &float1)
+        Me.guiDialogID = float1
+      .
+    .
+  .
+.
+public method NotifyPhasingHelpPopupClosed(Me)
+  Me.guiDialogID = 0.0
+.

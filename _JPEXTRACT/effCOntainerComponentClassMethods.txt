@@ -1,0 +1,289 @@
+public method GetContainerForEffect(a1 as NodeRef of effEffect) as NodeRef of conSlotted
+  NodeRef *v6
+  char v12
+  NodeRef node4
+  char v7
+  if a1 = None
+    v6 = (NodeRef *)&v12
+  else
+    var enum1 = a1.GetEffectSlotType()
+    if enum1 == conSlotEffectPositive
+      return Me.effContainerPositive
+    .
+    if enum1 == conSlotEffectNegative
+      return Me.effContainerNegative
+    .
+    if enum1 == conSlotEffectOther
+      v6 = node4
+      node4 = Me.effContainerOther
+      return v6
+    .
+    v6 = (NodeRef *)&v7
+  .
+  v6 = HM.ConstructNodeRef(0)
+  v6 = None
+  return v6
+.
+public method GetPositiveEffectsContainer() as NodeRef of conSlotted
+  return Me.effContainerPositive
+.
+public method GetNegativeEffectsContainer() as NodeRef of conSlotted
+  return Me.effContainerNegative
+.
+public method GetOtherEffectsContainer() as NodeRef of conSlotted
+  return Me.effContainerOther
+.
+public method GetPositiveEffects(Me, o1 references List of NodeRef)
+  if Me.effContainerPositive != None
+    list1 as List of NodeRef of conContainableComponent
+    list1 = Me.effContainerPositive.GetContents()
+    add back list1 to o1
+  .
+.
+public method GetNegativeEffects(Me, o1 references List of NodeRef)
+  if Me.effContainerNegative != None
+    list1 as List of NodeRef of conContainableComponent
+    list1 = Me.effContainerNegative.GetContents()
+    add back list1 to o1
+  .
+.
+public method GetOtherEffects(Me, o1 references List of NodeRef)
+  if Me.effContainerOther != None
+    list1 as List of NodeRef of conContainableComponent
+    list1 = Me.effContainerOther.GetContents()
+    add back list1 to o1
+  .
+.
+public method HasEffect(a1 as ID) as Boolean
+  return Me.effContainerSpecMap has a1
+.
+public method HasEffectByAbilitySpec(a1 as ID) as Boolean
+  return Me.effContainerAblSpecMap has a1
+.
+public method HasEffectByTag(a1 as Integer) as Boolean
+  if Me.effContainerTagMap has a1
+    return true
+  .
+  if not (Me.effContainerEffectlessTags has a1)
+    return false
+  .
+  return true
+.
+public method HasEffectByAbilitySpecAndCaster(a1 as ID, a2 as ID) as Boolean
+  var lookup = Me.effContainerAblSpecMap
+  if lookup has a1
+    foreach cur in lookup[a1]
+      if cur != None
+        if cur.effCasterId == a2
+          return true
+        .
+      .
+    .
+  .
+  return false
+.
+public method HasEffectByTagAndCaster(a1 as Integer, a2 as ID) as Boolean
+  var lookup = Me.effContainerTagMap
+  if lookup has a1
+    foreach cur in lookup[a1]
+      if cur != None
+        if cur.effCasterId == a2
+          return true
+        .
+      .
+    .
+  .
+  return false
+.
+public method HasEffectTag(a1 as Integer) as Boolean
+  if Me.effContainerTagMap has a1
+    return true
+  .
+  if not (Me.effContainerEffectlessTags has a1)
+    return false
+  .
+  return true
+.
+public method FindEffectsByAbilitySpec(Me, a1 as ID, o2 references List of NodeRef of effEffect)
+  var lookup = Me.effContainerAblSpecMap
+  if lookup has a1
+    foreach cur in lookup[a1]
+      if cur != None
+        add back cur to o2
+      .
+    .
+  .
+.
+public method FindEffectsBySpec(Me, a1 as ID, o2 references List of NodeRef)
+  var lookup = Me.effContainerSpecMap
+  if lookup has a1
+    foreach cur in lookup[a1]
+      if cur != None
+        add back cur to o2
+      .
+    .
+  .
+.
+public method FindEffectsByTag(Me, a1 as Integer, o2 references List of NodeRef of effEffect)
+  var lookup = Me.effContainerTagMap
+  if lookup has a1
+    foreach cur in lookup[a1]
+      if cur != None
+        add back cur to o2
+      .
+    .
+  .
+.
+self handler Replication_Create(Me, a1 as Integer)
+  if Me.effContainerPositive != None
+    list1 as List of NodeRef of conContainableComponent
+    list1 = Me.effContainerPositive.GetContents()
+    foreach cur in list1
+      Me._CacheEffectSpecAndTags(HM.CopyConstructNodeRef(1, cur))
+    .
+  .
+  if Me.effContainerNegative != None
+    list2 as List of NodeRef of conContainableComponent
+    list2 = Me.effContainerNegative.GetContents()
+    foreach cur in list2
+      Me._CacheEffectSpecAndTags(HM.CopyConstructNodeRef(1, cur))
+    .
+  .
+  if Me.effContainerOther != None
+    list3 as List of NodeRef of conContainableComponent
+    list3 = Me.effContainerOther.GetContents()
+    foreach cur in list3
+      Me._CacheEffectSpecAndTags(HM.CopyConstructNodeRef(1, cur))
+    .
+  .
+.
+other handler PostContainerAdd(Me, a1 as NodeRef of conContainableComponent, a2 as NodeRef of conSlotted, a3 as Integer)
+  if a1 is kindof effEffect and a2 is kindof effContainer
+    var node2 = a2.GetOwner()
+    if node2 != None
+      node2._CacheEffectSpecAndTags(HM.CopyConstructNodeRef(1, a1))
+    .
+  .
+.
+other handler PostContainerRemove(Me, a1 as NodeRef of conContainableComponent, a2 as NodeRef of conSlotted, a3 as Integer)
+  if a1 is kindof effEffect and a2 is kindof effContainer
+    var node2 = a2.GetOwner()
+    if node2 != None
+      node2._ClearCachedEffectSpecAndTags(HM.CopyConstructNodeRef(1, a1), a1)
+    .
+  .
+.
+self handler PostContainerRemoveInvalid(Me, a1 as ID, a2 as Integer)
+  var lookupIndex = 0
+  var lookup = Me.effContainerSpecMap
+  foreach key in lookup
+    var cur = lookup[key]
+    foreach cur2 in cur
+      var id1 = cur2
+      if a1 == id1
+        break
+      .
+    .
+  .
+  var node2 = $EFFECT.GetEffectPrototype(lookupIndex)
+  if node2 != None
+    Me._ClearCachedEffectSpecAndTags(node2, a1)
+  .
+.
+public method _CacheEffectSpecAndTags(Me, a1 as NodeRef of effEffect)
+  var id1 = a1.GetSpec()
+  add back a1 to Me.effContainerSpecMap[id1]
+  var id2 = a1.GetEffectAbilitySpec()
+  add back a1 to Me.effContainerAblSpecMap[id2]
+  var lookup3 = a1.GetEffectTags()
+  foreach key in lookup3
+    add back a1 to Me.effContainerTagMap[key]
+  .
+.
+public method _ClearCachedEffectSpecAndTags(Me, a1 as NodeRef of effEffect, a2 as ID)
+  var id1 = a1.GetSpec()
+  Me._ClearCachedEffectForSpec(id1, a2, &Me.effContainerSpecMap)
+  var id2 = a1.GetEffectAbilitySpec()
+  Me._ClearCachedEffectForSpec(id2, a2, &Me.effContainerAblSpecMap)
+  var lookup3 = a1.GetEffectTags()
+  foreach key in lookup3
+    Me._ClearCachedEffectForTag(key, a2, &Me.effContainerTagMap)
+  .
+.
+public method _ClearCachedEffectForTag(Me, a1 as Integer, a2 as ID, o3 references LookupList indexed by Integer of List of NodeRef of effEffect)
+  List list3
+  loop i from 1 to list3.length
+    var cur = o3[a1][i]
+    if cur == a2
+      remove o3[a1] at i keep
+      break
+    .
+  .
+  if o3[a1].length == 0
+    remove a1 from o3 keep
+  .
+.
+public method _ClearCachedEffectForSpec(Me, a1 as ID, a2 as ID, o3 references LookupList indexed by ID of List of NodeRef of effEffect)
+  List list3
+  loop i from 1 to list3.length
+    var cur = o3[a1][i]
+    if cur == a2
+      remove o3[a1] at i keep
+      break
+    .
+  .
+  if o3[a1].length == 0
+    remove a1 from o3 keep
+  .
+.
+public method GetEffectContainerDebugString() as String
+  String str9
+  String str17
+  String str26
+  var str = "id=" + Me
+  str = str + " effect_spec_cache="
+  var lookup = Me.effContainerSpecMap
+  foreach key in lookup
+    var str6 = utlFQN:fromIDDebug(key)
+    str = str + "{" + str6 + ":"
+    foreach cur2 in lookup[key]
+      if cur2 = None
+        str9 = str + "INVALID,"
+      else
+        str9 = str + cur2 + ","
+      .
+      str = str9
+    .
+    str = str + "}"
+  .
+  str = str + " effect_tag_cache="
+  var lookup3 = Me.effContainerTagMap
+  foreach key in lookup3
+    str = str + "{" + "" + ":"
+    foreach cur2 in lookup3[key]
+      if cur2 = None
+        str17 = str + "INVALID,"
+      else
+        str17 = str + cur2 + ","
+      .
+      str = str17
+    .
+    str = str + "}"
+  .
+  str = str + " abl_spec_cache="
+  var lookup5 = Me.effContainerAblSpecMap
+  foreach key in lookup5
+    var str23 = utlFQN:fromIDDebug(key)
+    str = str + "{" + str23 + ":"
+    foreach cur2 in lookup5[key]
+      if cur2 = None
+        str26 = str + "INVALID,"
+      else
+        str26 = str + cur2 + ","
+      .
+      str = str26
+    .
+    str = str + "}"
+  .
+  return str
+.

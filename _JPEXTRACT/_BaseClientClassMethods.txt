@@ -1,0 +1,247 @@
+public shared method _Area_Loading(Me, a1 as Integer, a2 as Integer)
+  // unknown
+.
+public shared method _Area_Preload(Me, a1 as ID, a2 as ID, a3 as String)
+  // unknown
+.
+public shared method _Area_Load(Me, a1 as ID, a2 as ID, a3 as String)
+  // unknown
+.
+public shared method _Area_Unload(Me, a1 as ID, a2 as ID, a3 as String)
+  // unknown
+.
+public shared method _GetGameState() as Enum GameState
+  return Me._GameState
+.
+public shared method _SetGameState(Me, a1 as Enum GameState)
+  Me.OnGamestateChanging(Me._GameState, a1)
+  Me._GameState = a1
+.
+public shared method _SetAreaID(Me, a1 as ID)
+  Me._AreaID = a1
+.
+public shared method _GetAreaID() as ID
+  return Me._AreaID
+.
+public shared method _SetInstanceID(Me, a1 as ID)
+  Me._InstanceID = a1
+.
+public shared method _GetInstanceID() as ID
+  return Me._InstanceID
+.
+public shared method _SetAreaName(Me, a1 as String)
+  Me._AreaName = a1
+.
+public shared method _GetAreaName() as String
+  return Me._AreaName
+.
+public shared method _SetRoomName(Me, a1 as String)
+  Me._RoomName = a1
+.
+public shared method _GetRoomName() as String
+  return Me._RoomName
+.
+public shared method _Room_Activate(Me, a1 as ID, a2 as ID, a3 as String, a4 as String)
+  Me._SetRoomName(a4)
+.
+public shared method _Room_Inactivate(Me, a1 as ID, a2 as ID, a3 as String, a4 as String)
+  // unknown
+.
+public shared method _OnPropBucketInstanceNodeCreated(Me, a1 as NodeRef, a2 as String)
+  // unknown
+.
+public shared method _FirstChance(Me)
+  Me.init()
+  Me._PreloadAllCharacterSpecs()
+  $STRING.PreloadStringTables()
+  $STRING.StartLoadStringTables()
+.
+public method _PreloadAllCharacterSpecs(Me)
+  var node2 = getPrototypeByID(16140950676526056934)  // chrSpecPrototype
+  var lookup = node2.chrSpecs
+  foreach key in lookup
+    var cur = lookup[key]
+    AddCharacterSpec(cur.chrSpecPath + cur.chrSpecString + ".dat", cur.chrSpecColliderWidth, cur.chrSpecColliderHeight, cur.chrSpecColliderDepth, cur.chrSpecColliderBottomClearance, cur.chrSpecColliderStepupHeight)
+  .
+.
+public method OnFrameUpdate(Me, a1 as TimeInterval)
+  if getPrototypeByID(16141105665289305397) != None  // guiScaleFormGFxProto
+    var id1 = Me
+    UnRegisterForPerFrameMethodCallback(id1)
+    $SHARDSELECTIONSYSTEM.Transition()
+  .
+.
+public shared method _PreLastChance(Me)
+.
+public shared method _LastChance(Me)
+.
+public method KillAllAreaFx(Me)
+  // unknown
+.
+public method SetAccountName(Me, a1 as String)
+  Me._accountName = a1
+.
+public method _getMyAccountName() as String
+  return Me._accountName
+.
+function _getMyAccountEntitlements() as LookupList
+  var out = Me.accountEntitlements
+  HM.CheckNotContext(out)
+  return out
+.
+public method HasEntitlement(a1 as Integer) as Boolean
+  return Me.accountEntitlements has a1
+.
+public method unk_719748fa(o1 references List of ClassView chrEntitlementRestrictions) as Boolean
+  var node = $STATIC.chrEntitlementsRestrictionsProto
+  if node = None
+    return false
+  else
+    foreach key in Me.accountEntitlements
+      var lookup2 = node.chrEntitlementsToRestrictions
+      if lookup2 has key
+        var classView = lookup2[key]
+        add back classView to o1
+      .
+    .
+    var o1Length = o1.length
+    var bool1 = (_DWORD)o1Length != 0
+    var bool2 = SHIDWORD(o1Length) >= 1
+    if not HIDWORD(o1Length)
+      return bool1
+    .
+    return bool2
+  .
+.
+remote function Remote_SetAccountEntitlements(Me, a1 as LookupList indexed by Integer of LookupList indexed by Integer of ClassView accEntitlementData)
+  $BASECLIENT.accountEntitlements = a1
+.
+function _getSlashBugCategories() as LookupList
+  var out = Me.slashBugCategories
+  HM.CheckNotContext(out)
+  return out
+.
+remote function Remote_SetSlashBugCategories(Me, a1 as String)
+  if $BASECLIENT.slashBugCategories.length == 0
+    lookup2 as LookupList indexed by Integer of LookupList indexed by Integer of String
+    lookup2 = utlSurveys:UnmarshalBugCategories(a1)
+    $BASECLIENT.slashBugCategories = lookup2
+    var node2 = utlSurveys:FindSurvey("svy.bug.gui")
+  .
+.
+public shared method _OnNodeRemoved(Me, a1 as NodeRef of HBNode)
+  if a1 != None
+    if a1 is kindof cnvOwnerComponent
+      a1.OnRemovedConversationOwner()
+    .
+    if a1 is kindof stgStageBase
+      a1.OnStageRemoved()
+    .
+  .
+.
+remote function Remote_SetPlatformAccountId(Me, a1 as ID)
+  $BASECLIENT.platformAccountId = a1
+.
+public method _getPlatformAccountId() as ID
+  return Me.platformAccountId
+.
+public method OnMailCountUpdate(Me, a1 as Integer, a2 as Integer, a3 as Boolean)
+  $MAIL.setMailMessageCount(a1, a2, a3)
+.
+public method OnMailboxAvailable(Me)
+  $MAIL.OpenMailboxWindow()
+.
+public method OnMailboxUnavailable(Me)
+  $MAIL.CloseMailboxWindow()
+.
+public method OnMailHeaders(Me, a1 as List of ID, a2 as List of Integer, a3 as List of Integer, a4 as List of Integer, a5 as List of Integer, a6 as List of Integer, a7 as List of String, a8 as List of String)
+  list1 as List of ID
+  list1 = a1
+  list2 as List of Integer
+  list2 = a2
+  list3 as List of Integer
+  list3 = a3
+  list4 as List of Integer
+  list4 = a4
+  list5 as List of Integer
+  list5 = a6
+  list6 as List of Integer
+  list6 = a5
+  list7 as List of String
+  list7 = a7
+  list8 as List of String
+  list8 = a8
+  $GUI_API.getApi().setMailHeaders(&list1, &list2, &list3, &list4, &list5, &list6, &list7, &list8)
+.
+public method OnMailText(Me, a1 as ID, a2 as String, a3 as ID, a4 as List of ID, a5 as List of ID, a6 as Integer)
+  $MAIL.OpenMailView(a1, a2, a3, a4, a5, a6)
+.
+public method OnMailTextFailure(Me, a1 as ID, a2 as Integer)
+  $GUI_API.getApi().setMailTextResponse(a1, a2)
+.
+public method OnMailDeleteResponse(Me, a1 as ID, a2 as Integer)
+  $GUI_API.getApi().setDeleteMailResponse(a1, a2)
+.
+public method OnMailCreateResponse(Me, a1 as ID, a2 as Integer, a3 as Integer)
+  $GUI_API.getApi().setCreateMailResponse(a1, a2, a3)
+.
+public method OnPayCODResponse(Me, a1 as ID, a2 as Integer)
+  $MAIL.OnPayCODResponse(a1, a2)
+.
+public method OnExtractAttachmentsResponse(Me, a1 as ID, a2 as List of ID, a3 as Integer, a4 as Integer)
+  $GUI_API.getApi().setAttachmentExtractResponse(a1, a2, a3, a4)
+.
+public method ShowScriptErrorMessage(Me, a1 as Boolean)
+  if Me._BaseClientScriptErrorMessageLabel != None
+    DestroyNode(Me._BaseClientScriptErrorMessageLabel)
+    Me._BaseClientScriptErrorMessageLabel = None
+  .
+  Me._BaseClientScriptErrorMessageLabel = CreateNodeFromPrototype("_label")
+  if a1
+    Me._BaseClientScriptErrorMessageLabel.text = "Server "
+  else
+    Me._BaseClientScriptErrorMessageLabel.text = "Client "
+  .
+  Me._BaseClientScriptErrorMessageLabel.text = Me._BaseClientScriptErrorMessageLabel.text + "Script Error Detected!"
+  var classView = Me._BaseClientScriptErrorMessageLabel.size
+  classView.x = 600.0
+  classView.y = 300.0
+  Me._BaseClientScriptErrorMessageLabel.displayfont = 4
+  Me._BaseClientScriptErrorMessageLabel.guiScale = 5.0
+  var classView3 = Me._BaseClientScriptErrorMessageLabel.defaultStatePresentation
+  var classView4 = classView3.guiColor
+  classView4.r = 1.0
+  var classView6 = classView3.guiColor
+  classView6.g = 1.0
+  var classView8 = classView3.guiColor
+  classView8.b = 0.0
+  var classView9 = Me._BaseClientScriptErrorMessageLabel.guiPosition
+  classView9.x = 20.0
+  classView9.y = 20.0
+  Me._BaseClientScriptErrorMessageLabel.build = true
+  if Me._BaseClientScriptErrorMessageTimer.timerState == 2
+    timer::stop(Me._BaseClientScriptErrorMessageTimer)
+  .
+  Me._BaseClientScriptErrorMessageTimer.script = $THISSCRIPT
+  Me._BaseClientScriptErrorMessageTimer.fireRate = 5000
+  timer::start(Me._BaseClientScriptErrorMessageTimer)
+.
+public method OnTimerTick(Me, a1 as ID)
+  if a1 == _BaseClientScriptErrorMessageTimer
+    if Me._BaseClientScriptErrorMessageLabel != None
+      DestroyNode(Me._BaseClientScriptErrorMessageLabel)
+      Me._BaseClientScriptErrorMessageLabel = None
+    .
+  .
+.
+public shared method _MainWindowResizeEvent(Me, a1 as Vector3)
+  int v6
+  if $SPACECOMBAT.IsSpaceCombatActive()
+    $SPACECOMBAT.UpdateScreenSizeData(a1.x)
+  else
+    $Options.MainWindowResizeEvent(v6)
+  .
+.
+public shared method _OnFocusChange(Me, a1 as Boolean)
+  // unknown
+.

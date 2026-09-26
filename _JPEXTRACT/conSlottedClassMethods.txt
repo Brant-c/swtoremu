@@ -1,0 +1,667 @@
+public method GetOwner() as NodeRef
+  if Me.conOwnerNode = None
+    return GetParentOfNode(Me)
+  else
+    return Me.conOwnerNode
+  .
+.
+public method GetTrueOwner() as NodeRef
+  return GetParentOfNode(Me)
+.
+public method GetVisualOwner() as NodeRef
+  return Me.conOwnerNode
+.
+public method ResetOwner(Me)
+  if Me.GetOwner() != None
+    var lookup = Me.conContents
+    foreach key in lookup
+      var cur = lookup[key]
+      if cur != None
+        var node3 = Me.GetOwner()
+        RegisterForEvents(cur, node3)
+      .
+    .
+  .
+.
+public method GetContainerSpecName() as ID
+  return Me.conContainerSpecName
+.
+public method GetCapacity() as Integer
+  return Me.conMaxSize
+.
+public method CalculateDefaultCapacity() as Integer
+  return Me.conSharedData.CalculateTotalSlotCount(Me.conExpansionLevel)
+.
+public method GetCapacityOfExpansionLevel(a1 as Integer) as Integer
+  return Me.conSharedData.GetSlotCountForExpansionLevel(a1)
+.
+public method CalculateTotalCapacityOfExpansionLevel(a1 as Integer) as Integer
+  return Me.conSharedData.CalculateTotalSlotCount(a1)
+.
+public method GetExpansionCost(a1 as Integer) as Integer
+  return Me.conSharedData.GetExpansionCost(a1)
+.
+public method _UpdateCapacity(Me)
+  Me.conMaxSize = Me.CalculateDefaultCapacity()
+  Me.onCapacityChanged()
+.
+public method onObjectAdded(Me, a1 as NodeRef of conContainableComponent, a2 as Integer)
+  if Me.conContents has a2
+    Me.onObjectRemoved(a1, a2)
+  .
+  Me.conSlotByID[a1] = a2
+  var id1 = a1.GetSpec()
+  Me.conSlotsBySpec[id1][a2] = true
+.
+public method _prebuildConSlotsBySpec(Me)
+  var lookup = Me.conSlotsBySpec
+  clear lookup keep
+  var lookup2 = Me.conSlotByID
+  clear lookup2 keep
+  var lookup3 = Me.conContents
+  foreach key in lookup3
+    var cur = lookup3[key]
+    if cur != None
+      lookup2[cur] = key
+      var id1 = cur.GetSpec()
+      lookup[id1][key] = true
+    .
+  .
+.
+public method onObjectRemoved(Me, a1 as NodeRef of conContainableComponent, a2 as Integer)
+  $GUI_API.getApi().removeGUISlotObject(Me, a1, a2)
+  if a1 != None
+    var id1 = a1.GetSpec()
+    remove a1 from Me.conSlotByID keep
+    var lookup2 = Me.conSlotsBySpec
+    remove a2 from lookup2[id1] keep
+    if lookup2[id1].length == 0
+      remove id1 from lookup2 keep
+    .
+  .
+.
+public method onContainerExpand(Me)
+  // unknown
+.
+public method onCapacityChanged(Me)
+  // unknown
+.
+public method FindSlotByID(a1 as NodeRef of conContainableComponent) as Integer
+  var lookup = Me.conSlotByID
+  if lookup has a1
+    return lookup[a1]
+  else
+    return 0
+  .
+.
+public method FindBySpec(a1 as ID) as NodeRef of conContainableComponent
+  var bool1 = false
+  var bool2 = false
+  var node = Me.GetOwner()
+  var pc = GetPlayerCharacterNode()
+  var bool3 = node == pc and Me is kindof ablContainer
+  bool2 = bool3
+  var length = Me.conSlotsBySpec.length
+  if Me.conContents.length != length
+    Me._prebuildConSlotsBySpec()
+  .
+  var lookup3 = Me.conSlotsBySpec
+  if lookup3 has a1
+    var lookup5 = lookup3[a1]
+    lookup5Iter = HM.ConstructLookupListIterator(0, lookup5)
+    while true
+      if not HM.LookupListIteratorNext(lookup5Iter)
+        goto LABEL_18
+      .
+      var lookup6 = Me.conContents
+      if lookup6 has HM.GetLookupListCurrentInt(lookup5Iter)
+        var node3 = lookup6[HM.GetLookupListCurrentInt(lookup5Iter)]
+        if node3 != None
+          break
+        .
+      .
+      if bool2
+        Me._RepairContainerIndexLists()
+        bool1 = true
+        goto LABEL_18
+      .
+    .
+    var lookup8 = Me.conContents
+    var int3 = HM.GetLookupListCurrentInt(lookup5Iter)
+    v33 = lookup8
+    return v33[int3]
+  else
+LABEL_18:
+    if bool2
+      if not bool1
+        var lookup9 = Me.conContents
+        foreach key in lookup9
+          var lookup9Cur = lookup9[key]
+          var id1 = lookup9Cur.GetSpec()
+          v22 = ((a1 ^ id1) >> 32) | a1 ^ id1
+          if not v22
+            Me._RepairContainerIndexLists()
+            bool1 = true
+            break
+          .
+        .
+      .
+      if bool1 and (lookup10 = Me.conSlotsBySpec, lookup10 has a1) and bool2
+        var lookup11 = Me.conSlotsBySpec
+        var lookup12 = lookup11[a1]
+        foreach key in lookup12
+          var lookup13 = Me.conContents
+          if lookup13 has key
+            var lookup14 = Me.conContents
+            if lookup14[key] != None
+              var lookup15 = Me.conContents
+              v34 = lookup15
+              return v34[key]
+            .
+          .
+        .
+      .
+    .
+    return None
+  .
+.
+public method FindSlotBySpec(a1 as ID) as Integer
+  var int1 = a1
+  var id1 = $ABILITY.ConvertSurrogateAbilitySpecID(a1, true)
+  int1 = id1
+  var length = Me.conSlotsBySpec.length
+  if Me.conContents.length != length
+    Me._prebuildConSlotsBySpec()
+  .
+  var lookup3 = Me.conSlotsBySpec
+  if lookup3 has int1
+    Iterator lookup5Iter = HM.ConstructLookupListIterator(0, lookup3[int1])
+    if HM.LookupListIteratorNext(lookup5Iter)
+      return HM.GetLookupListCurrentInt(lookup5Iter)
+    .
+  .
+  return 0
+.
+public method FindAllBySpec(a1 as ID) as List of NodeRef of conContainableComponent
+  var length = Me.conSlotsBySpec.length
+  if Me.conContents.length != length
+    Me._prebuildConSlotsBySpec()
+  .
+  list1 as List of NodeRef of conContainableComponent
+  var lookup3 = Me.conSlotsBySpec
+  if lookup3 has a1
+    foreach key in lookup3[a1]
+      add back Me.conContents[key] to list1
+    .
+  .
+  return list1
+.
+public method FindAllSlotsBySpec(a1 as ID) as List of Integer
+  var length = Me.conSlotsBySpec.length
+  if Me.conContents.length != length
+    Me._prebuildConSlotsBySpec()
+  .
+  list1 as List of Integer
+  var lookup3 = Me.conSlotsBySpec
+  if lookup3 has a1
+    foreach key in lookup3[a1]
+      add back key to list1
+    .
+  .
+  return list1
+.
+public method GetCountBySpec(a1 as ID) as Integer
+  CallFrame _callFrame
+  var length = Me.conSlotsBySpec.length
+  if Me.conContents.length != length
+    Me._prebuildConSlotsBySpec()
+  .
+  var out = 0
+  var lookup3 = Me.conSlotsBySpec
+  if lookup3 has a1
+    foreach key in lookup3[a1]
+      var lookup6 = Me.conContents
+      if lookup6 has key
+        var node2 = lookup6[key]
+        if node2 is kindof itmItem
+          FuncRef GetStackCount = HM.PrepareCallNodeRef2(16, node2, &_callFrame)
+          out = out + GetStackCount(_callFrame)
+        else if node2 != None
+          ++out
+        .
+      .
+    .
+  .
+  return out
+.
+public method GetContents() as List of NodeRef of conContainableComponent
+  list1 as List of NodeRef of conContainableComponent
+  var lookup = Me.conContents
+  foreach key in lookup
+    var cur = lookup[key]
+    if cur != None
+      add back cur to list1
+    .
+  .
+  return list1
+.
+public method GetContentInSlot(a1 as Integer) as NodeRef of conContainableComponent
+  var lookup = Me.conContents
+  if lookup has a1
+    return lookup[a1]
+  else
+    return None
+  .
+.
+public method GetContentsLength() as Integer
+  return Me.conContents.length
+.
+public method GetMaxContentsLength() as Integer
+  return Me.conMaxSize
+.
+public method GetFreeSlotCount() as Integer
+  return Me.conMaxSize - Me.conContents.length
+.
+public method HasSlotType(a1 as Enum conSlotId) as Boolean
+  CallFrame _callFrame
+  FuncRef HasSlotType = HM.PrepareCallNodeRef2(17, Me.conSharedData, &_callFrame)
+  return HasSlotType(_callFrame, a1) & 1
+.
+public method IsRestrictedSlotType(a1 as Enum conSlotId) as Boolean
+  return Me.conRestrictedSlots has a1
+.
+public method HasSlotFor(a1 as NodeRef of conContainableComponent) as Boolean
+  var list1 = a1.GetContainerSlotTypes()
+  foreach cur in list1
+    if Me.HasSlotType(cur)
+      return true
+    .
+  .
+  return false
+.
+public method SlotAcceptsSlotType(a1 as Integer, a2 as Enum conSlotId) as Boolean
+  CallFrame _callFrame
+  FuncRef SlotAcceptsSlotType = HM.PrepareCallNodeRef2(19, Me.conSharedData, &_callFrame)
+  return SlotAcceptsSlotType(_callFrame, a1, a2) & 1
+.
+public method SlotAcceptsObject(a1 as Integer, a2 as NodeRef of conContainableComponent) as Boolean
+  var list1 = a2.GetContainerSlotTypes()
+  foreach cur in list1
+    if Me.SlotAcceptsSlotType(a1, cur)
+      return true
+    .
+  .
+  return false
+.
+public method FindEmptySlot(a1 as Enum conSlotId, a2 as Integer) as Integer
+  Boolean bool2
+  if not Me.IsRestrictedSlotType(a1)
+    var int2 = Me.conSharedData.CalculateTotalSlotCount(Me.conExpansionLevel)
+    var list1 = Me.conSharedData.GetSlotsForSlotType(a1)
+    foreach cur in list1
+      if Me.conSharedData.conContainerDataExpansionType != conSlotInvalid
+        if cur > a2
+          if cur > int2
+            bool2 = false
+          else
+            bool2 = true
+          .
+        else
+          bool2 = false
+        .
+        if bool2
+          if not (Me.conContents has cur)
+            return cur
+          .
+          if Me.conContents[cur] = None
+            return cur
+          .
+        .
+      else if cur > a2
+        if not (Me.conContents has cur)
+          return cur
+        .
+        if Me.conContents[cur] = None
+          return cur
+        .
+      .
+    .
+  .
+  return 0
+.
+public method FindEmptySlotFor(a1 as NodeRef of conContainableComponent) as Integer
+  var list1 = a1.GetContainerSlotTypes()
+  foreach cur in list1
+    if Me.HasSlotType(cur)
+      var out = Me.FindEmptySlot(cur, 0, 0, 0, 0)
+      var bool2 = out <= -1
+      if not HIDWORD(out)
+        bool2 = (_DWORD)out == 0
+      .
+      if not bool2
+        return out
+      .
+    .
+  .
+  return 0
+.
+public method FindValidSlotFor(a1 as NodeRef of conContainableComponent) as Integer
+  Iterator list1Iter = HM.ConstructListIterator(0, a1.GetContainerSlotTypes())
+  while true
+    if HM.ListIteratorNext(list1Iter)
+      if Me.HasSlotType(HM.GetListCurrentEnum(list1Iter))
+        break
+      .
+LABEL_5:
+    else
+      return 0
+    .
+  .
+  Iterator list2Iter = HM.ConstructListIterator(1, Me.conSharedData.GetSlotsForSlotType(HM.GetListCurrentEnum(list1Iter)))
+  if not HM.ListIteratorNext(list2Iter)
+    goto LABEL_5
+  .
+  return HM.GetListCurrentInt(list2Iter)
+.
+public method _ContainerMoveValidateSlot(a1 as NodeRef of conContainableComponent, a2 as NodeRef of conSlotted, o3 references Integer) as Enum conResult
+  char v24
+  CallFrame _callFrame
+  var bool1 = *((int *)o3 + 1) <= -1
+  if not *((_DWORD *)o3 + 1)
+    bool1 = *(_DWORD *)o3 == 0
+  .
+  if not bool1
+    if a2.conMaxSize < *o3
+      v24 = 1
+    else
+      v24 = 0
+    .
+  else
+    v24 = 1
+  .
+  char v25 = v24
+  if not v24
+    var lookup = a2.conContents
+    if lookup has *o3
+      var int2 = Me.FindSlotByID(a1)
+      FuncRef SlotAcceptsObject = HM.PrepareCallNodeRef2(24, Me, &_callFrame)
+      var bool2 = (SlotAcceptsObject(_callFrame, int2, lookup[*o3]) & 1) == 0
+      v25 = bool2
+    .
+  .
+  if (v25 & 1) != 0
+    *o3 = a2.FindEmptySlotFor(a1)
+    var bool3 = *((_DWORD *)o3 + 1) >= 1
+    if not *((_DWORD *)o3 + 1)
+      bool3 = *(_DWORD *)o3 != 0
+    .
+    if not bool3
+      if Me.HasSlotFor(a1)
+        return conResultContainerFull
+      else
+        return conResultSlotInvalid
+      .
+    else
+      return conResultOk
+    .
+  else
+    return conResultOk
+  .
+.
+public method OnReplicationNodePreCreate(Me, a1 as Integer)
+  call event Me:Replication_PreCreate Me:Replication_PreCreate
+.
+public method OnReplicationNodeCreate(Me, a1 as Integer)
+  call event Me:Replication_Create Me:Replication_Create
+.
+self handler Replication_Create(Me, a1 as Integer)
+  $CPULIMIT = 60000
+  Me._UpdateCapacity()
+  var lookup = Me.conContents
+  Me.conContentsRepPrevious = lookup
+  if Me.GetOwner() != None
+    Me.conSlottedBeingCreated = true
+    foreach key in lookup
+      var cur = lookup[key]
+      if cur = None
+        // unknown
+      else
+        Me.onObjectAdded(cur, key)
+        Me._EmitPostContainerAdd(cur, key)
+      .
+    .
+    Me.conSlottedBeingCreated = false
+  .
+.
+public method OnReplicationNodeDestroy(Me, a1 as Integer)
+  call event Me:Replication_Destroy Me:Replication_Destroy
+.
+self handler Replication_Destroy(Me, a1 as Integer)
+  var pc = GetPlayerCharacterNode()
+  if pc != None
+    var lookup = Me.conContents
+    foreach key in lookup
+      var cur = lookup[key]
+      Me.onObjectRemoved(cur, key)
+      if cur != None
+        v5 = cur
+        Me._EmitPostContainerRemove(v5, key, v10)
+      else
+        *(_QWORD *)&v6 = cur
+        v5 = (NodeRef *)v6
+        *((_QWORD *)&v6 + 1) = key
+        _EmitPostContainerRemove = HM.PrepareCallNodeRef2(37, Me, &_callFrame)
+        v10 = HIDWORD(v6)
+        key = *(_QWORD *)((char *)&v6 + 4)
+        _EmitPostContainerRemove(_callFrame, v5, key, v10)
+      .
+    .
+  .
+.
+public method OnReplicationNodeUpdate(Me, a1 as Integer, a2 as List of ID)
+  call event Me:Replication_Update Me:Replication_Update
+.
+self handler Replication_Update(Me, a1 as Integer, a2 as List of ID)
+  foreach cur in a2
+    if cur == conExpansionLevel
+      Me.onContainerExpand()
+      Me._UpdateCapacity()
+      continue
+    .
+    if cur == conOwnerNode
+      Me.ResetOwner()
+      continue
+    .
+    if cur != conContents
+      continue
+    .
+    Me.UpdateInternalLookupLists()
+  .
+.
+public method UpdateInternalLookupLists(Me)
+  var int1 = 0
+  var lookup = Me.conContentsRepPrevious
+  foreach key in lookup
+    int1 = 0
+    var lookupCur = lookup[key]
+    if lookupCur != None
+      var lookup2 = Me.conContents
+      foreach int1 in lookup2
+        var lookup2Cur = lookup2[int1]
+        if lookupCur == lookup2Cur
+          break
+        .
+      .
+    .
+    if int1 == 0
+      Me.onObjectRemoved(lookupCur, key)
+      if lookupCur != None
+        v5 = lookupCur
+        Me._EmitPostContainerRemove(v5, key, v26)
+      else
+        *(_QWORD *)&v6 = lookupCur
+        v5 = (NodeRef *)v6
+        *((_QWORD *)&v6 + 1) = key
+        _EmitPostContainerRemove = HM.PrepareCallNodeRef2(37, Me, &_callFrame)
+        v26 = HIDWORD(v6)
+        key = *(_QWORD *)((char *)&v6 + 4)
+        _EmitPostContainerRemove(_callFrame, v5, key, v26)
+      .
+    .
+  .
+  lookup3 as LookupList indexed by Integer of Boolean
+  var lookup4 = Me.conContents
+  foreach key in lookup4
+    int1 = 0
+    var lookup4Cur = lookup4[key]
+    if lookup4Cur = None
+      continue
+    .
+    var lookup5 = Me.conContentsRepPrevious
+    foreach int1 in lookup5
+      var lookup5Cur = lookup5[int1]
+      if lookup4Cur == lookup5Cur
+        break
+      .
+    .
+    if int1 == 0
+      Me.onObjectAdded(lookup4Cur, key)
+      Me._EmitPostContainerAdd(lookup4Cur, key, v26, v27)
+      v19 = (LookupList *)lookup3
+      v19[key] = true
+      continue
+    .
+    if key != int1
+      if not (lookup3 has int1)
+        Me.onObjectRemoved(lookup4Cur, int1)
+      .
+      Me.onObjectAdded(lookup4Cur, key)
+      Me._EmitPostContainerMove(lookup4Cur, int1, key)
+    .
+    v19 = (LookupList *)lookup3
+    v19[key] = true
+  .
+  Me.conContentsRepPrevious = Me.conContents
+.
+public method _EmitPostContainerAdd(Me, a1 as NodeRef of conContainableComponent, a2 as Integer)
+  if GetParentOfNode(a1) != Me
+    SetParentOfNode(a1, Me)
+  .
+  RegisterForEvents(a1, Me)
+  RegisterForEvents(a1, Me.GetOwner())
+  call event a1:PostContainerAdd a1:PostContainerAdd
+  $GUI_API.getApi().updateGuiConSlottedSlot(Me, a2)
+  a1.GI_CheckQuantityChange()
+.
+public method _EmitPostContainerRemove(Me, a1 as NodeRef of conContainableComponent, a2 as Integer)
+  call event a1:PostContainerRemove a1:PostContainerRemove
+  a1.GI_CheckQuantityChange()
+  UnregisterForEvents(a1, Me)
+  var node2 = a1.GetOwner()
+  var node3 = Me.GetOwner()
+  if node2 != node3
+    var node4 = Me.GetOwner()
+    UnregisterForEvents(a1, node4)
+  .
+.
+public method _EmitPostContainerRemoveInvalid(Me, a1 as ID, a2 as Integer)
+  var node2 = Me.GetOwner()
+  if node2 != None
+    call event node2:PostContainerRemoveInvalid node2:PostContainerRemoveInvalid
+  .
+.
+public method _EmitPostContainerMove(Me, a1 as NodeRef of conContainableComponent, a2 as Integer, a3 as Integer)
+  call event a1:PostContainerMove a1:PostContainerMove
+  var node2 = $GUI_API.getApi()
+  node2.updateGuiConSlottedSlot(Me, a2)
+  node2.updateGuiConSlottedSlot(Me, a3)
+.
+other handler ContainableUpdated(Me, a1 as NodeRef of conContainableComponent, a2 as ID)
+.
+public method GetSlotNameForSlot(a1 as Integer) as String
+  return Me.conSharedData.GetSlotNameForSlot(a1)
+.
+public method GetSlotTypeForSlot(a1 as Integer) as Enum conSlotId
+  return Me.conSharedData.GetSlotTypeForSlot(a1)
+.
+public method GetSlotSubslotForSlot(a1 as Integer) as Integer
+  return Me.conSharedData.GetSlotSubslotForSlot(a1)
+.
+public method GetSlotFromSlotType(a1 as Enum conSlotId, a2 as Integer) as Integer
+  return Me.conSharedData.GetSlotFromSlotType(a1, a2)
+.
+public method GetGuiSlotName(a1 as Integer) as String
+  return Me.conSharedData.GetGuiSlotName(a1)
+.
+public method GetGuiSlotIndexFromName(a1 as String) as Integer
+  return Me.conSharedData.GetGuiSlotIndexFromName(a1)
+.
+public method _RepairContainerIndexLists(Me)
+  var lookup = Me.conSlotByID
+  clear lookup keep
+  var lookup2 = Me.conSlotsBySpec
+  clear lookup2 keep
+  var lookup3 = Me.conContents
+  foreach key in lookup3
+    var cur = lookup3[key]
+    lookup[cur] = key
+    var id1 = cur.GetSpec()
+    lookup2[id1][key] = true
+  .
+.
+public method _DumpContents() as String
+  var lookup = Me.conContents
+  foreach key in lookup
+    var str4 = "[" + key
+    var str5 = str4 + "] = "
+    str2 = str5
+    var lookupCur = lookup[key]
+    if lookupCur = None
+      str2 = str2 + "<NULL>"
+      str = str + str2 + "$R"
+      continue
+    .
+    var str10 = str2 + lookupCur
+    var str11 = str10 + " "
+    var id1 = lookupCur.GetSpec()
+    var str13 = str11 + utlFQN:fromIDDebug(id1)
+    str2 = str13
+    if not lookupCur is kindof itmItem
+      goto LABEL_7
+    .
+    var int2 = lookupCur.GetStackCount()
+    var bool1 = (unsigned int)int2 <= 1
+    bool2 = int2 <= -1
+    if not HIDWORD(int2)
+      bool2 = bool1
+    .
+    if not bool2
+      bool3 = true
+    else
+LABEL_7:
+      bool3 = false
+    .
+    if bool3
+      var str14 = str2 + " x"
+      var int3 = lookupCur.GetStackCount()
+      str2 = str14 + int3
+    .
+    str = str + str2 + "$R"
+  .
+  return str
+.
+public method UpdateObject(Me, a1 as NodeRef of conContainableComponent)
+  var int1 = Me.FindSlotByID(a1)
+  var bool1 = int1 <= -1
+  if not HIDWORD(int1)
+    bool1 = (_DWORD)int1 == 0
+  .
+  if not bool1
+    $GUI_API.getApi().updateGuiConSlottedSlot(Me, int1)
+  .
+.
+function GetSlotMap() as LookupList
+  var out = Me.conSharedData.GetSlotMap()
+  HM.CheckNotContext(out)
+  return out
+.

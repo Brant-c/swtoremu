@@ -1,3 +1,27 @@
+# 2026-09-24 correction and offline validation
+
+The earlier conclusion below that `F96DCDB0` required a reply was disproved by
+the repository's original C++ implementation: `HandleUnkF96DCDB0` reads and
+logs the request and deliberately sends no response. Later echo/result
+experiments also did not advance world entry. Treat that traffic as a periodic
+symptom of the loading loop, not the established gate.
+
+The current Debug CRT3 is no longer the malformed original. It uses stream
+`0x001B5014` and a final zero byte, is consumed without the former
+serialization exception, and has SHA256
+`f03a79a99d22ecde30ed397bafcbec0404763eccd69941a9dec2b80bcca1fccd`.
+
+The five direct GOM fields previously listed now resolve through the repository
+name table to `phsActivePhases`, `phsInstanceAllowAll`,
+`phsOwnerOfShipToBeBoarded`, `phsUniqueActivePhase`, and `phsAuthorityID`.
+CRT3's active-phase reference `0xFF5F184AAA9ECE77` appears in CRT2 (including
+its earlier node data), which precedes it in the replication stream. `Test-WorldEntryOffline.ps1`
+checks that cross-fixture relationship, CRT ordering and structure, the GOM
+schema identities, captured-character remapping, and packet wire round trips.
+These checks establish internal consistency, not successful client-side phase
+activation; a final client run remains necessary after a concrete semantic or
+startup-gate change.
+
 # 2026-09-17 18:11 run — CRT3 disabled + trace instrumentation: NO CRASH, client now waits on unanswered client requests
 
 Configuration: CRT3 renamed `.disabled`, `SWTOR_CRT_MISSING_MODE=skip`, `SWTOR_TRACE_AREA_PAYLOADS=1`,
