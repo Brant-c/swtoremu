@@ -1,0 +1,62 @@
+
+4611686019739890007	
+DateTime	1899-12-31 06:00:00
++ 29 fields used during replication & gameplay:
+_AreaName	
+String	<empty string>
+_RoomName	
+String	<empty string>
+_lastLoadPercent	
+Integer	0
+_AreaID	
+ID	0
+_InstanceID	
+ID	0
+_accountName	
+String	<empty string>
+_isAreaLoadComplete	
+Boolean	false
+sysBaseClientAreaLoaded	
+Boolean	false
+sysBaseFxDisabled	
+Boolean	false
+sysBaseClientEventLog	
+LookupList indexed by String of Integer (empty)
+sysBaseClientLogEvents	
+Boolean	false
+sndAmbienceEnabled	
+Boolean	false
+sysBaseLootFxDisabled	
+Boolean	false
+sysBaseClientSoundBankCountdown	
+Integer	0
+sysBaseClientAudioInitialized	
+Boolean	false
+slashBugCategories	
+LookupList indexed by Integer of LookupList indexed by Integer of String (empty)
+_GameState	
+Enum	GAMESTATE_Unknown
+sysRegionPollingTimer	
+Timer	<default value>
+sysBaseGuiComponentsToLoad	
+Integer	0
+sysBaseGuiComponentsLoaded	
+Integer	0
+sndAmbienceCrowdSize	
+Integer	0
+sysRegionTags	
+LookupList indexed by Integer of String (empty)
+sndAmbienceRegionReverb	
+String	<empty string>
+platformAccountId	
+ID	0
+sysCurrentLogoMovie	
+Enum	movie_BadMovie
+sysWasFromLaunch	
+Boolean	false
+accountEntitlements	
+LookupList indexed by Integer of LookupList indexed by Integer of ClassView (empty)
+_BaseClientScriptErrorMessageLabel	
+NodeRef	0
+_BaseClientScriptErrorMessageTimer	
+Timer	<default value>

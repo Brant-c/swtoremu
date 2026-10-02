@@ -1,0 +1,643 @@
+var NPC_TITLE_TABLE = "str.sys.titles"
+self handler Replication_Create(Me, a1 as Integer)
+  LookupList lookup2
+  $QUEST.RequestStatusUpdate(Me)
+  if Me is kindof spnSpawnedComponent
+    var classView = HM.GetClassViewFromNodeRef(Me, spnSpawnedComponent)
+    $SPAWNER.spnReplicatedNpcs[classView.spnParentAnchorId] = Me
+  else
+    if Me is kindof chrCompanionComponent
+      lookup2 = $SPAWNER.spnReplicatedCompanionMap
+    else
+      lookup2 = $SPAWNER.spnReplicatedAnchorlessNpcs
+    .
+    lookup2[Me] = true
+  .
+  Me.determineConversationVisible()
+  if Me.GetContinuousMovement()
+    GlomClass("sndFootstepOwnerComponent", Me)
+    Me.BeginContinuousMovementSound()
+  .
+  if Me.IsHolocom()
+    Me["behave"] = "flying true"
+    SetCharacterCollisionResponse(Me, false)
+    Me["behave"] = "snap false"
+    utlNode:SetCharacterHidden(Me, true)
+    var pc = GetPlayerCharacterNode()
+    var pc2 = pc
+    var id1 = pc2
+    if Me.npcHolocomConvStarter == id1
+      cnvJoinOrganizerClassMethods:StartOrganizer(Me)
+    .
+  .
+  $NAMEPLATES.checkNameplateStatus(Me)
+.
+self handler Replication_Destroy(Me, a1 as Integer)
+  if Me is kindof spnSpawnedComponent
+    var lookup = $SPAWNER.spnReplicatedNpcs
+    var classView = HM.GetClassViewFromNodeRef(Me, spnSpawnedComponent)
+    remove classView.spnParentAnchorId from lookup keep
+    $QUEST.UnrequestStatusUpdate(Me)
+    var id1 = Me
+    $NAMEPLATES.detachNameplate(id1)
+    return
+  .
+  if Me is kindof chrCompanionComponent
+    if $SPAWNER.spnReplicatedCompanionMap has Me
+      var lookup3 = $SPAWNER.spnReplicatedCompanionMap
+      var lookup = lookup3
+      remove Me from lookup keep
+    .
+  else if $SPAWNER.spnReplicatedAnchorlessNpcs has Me
+    var lookup3 = $SPAWNER.spnReplicatedAnchorlessNpcs
+    var lookup = lookup3
+    remove Me from lookup keep
+    $QUEST.UnrequestStatusUpdate(Me)
+    var id1 = Me
+    $NAMEPLATES.detachNameplate(id1)
+    return
+  .
+  $QUEST.UnrequestStatusUpdate(Me)
+  var id1 = Me
+  $NAMEPLATES.detachNameplate(id1)
+.
+public method IsHolocom() as Boolean
+  return Me.chrNpcIsHolocom
+.
+public method GetNPCStringTable() as String
+  return Me.GetStringBucket(15685385242400905286)  // "name"
+.
+public method getName() as String
+  return Me.GetLocalizedText(15685385242400905286, true)  // "name"
+.
+public method GetNameWithAwardedTitle() as String
+  return Me.getName()
+.
+public method GetNameWithGender() as String
+  String str3
+  var unused = HM.GetEnumDefaultValue(10)
+  var enum1 = Me.chrNPCGenderComplete
+  var str = Me.getName()
+  if enum1 == NPC_GENDER_MALE_PROPER
+    str3 = str + "^M"
+  else if enum1 == NPC_GENDER_FEMALE_PROPER
+    str3 = str + "^F"
+  else if enum1 == NPC_GENDER_MALE_IMPROPER
+    str3 = str + "^m"
+  else if enum1 == NPC_GENDER_FEMALE_IMPROPER
+    str3 = str + "^f"
+  else if enum1 == NPC_GENDER_NEUTRAL_PROPER
+    str3 = str + "^N"
+  else if enum1 == NPC_GENDER_NEUTRAL_IMPROPER
+    str3 = str + "^n"
+  else
+    str3 = str + "^M"
+  .
+  str = str3
+  return str
+.
+public method GetTitle() as String
+  String str4
+  String str8
+  if Me is kindof chrCompanionComponent
+    var node2 = Me.GetCompanionMaster()
+    if node2 != None
+      if node2 is kindof chrPlayerCharacter
+        var unused = HM.GetEnumDefaultValue(12)
+        int v40 = 1
+        var unused2 = HM.GetEnumDefaultValue(13)
+        var enum1 = node2.GetCharacterGender()
+        if enum1 == chrGenderFemale
+          v40 = 3
+        .
+        list1 as List of String
+        var pc = GetPlayerCharacterNode()
+        if node2 == pc
+          add back $STRING.LocalizeStringWithGenderVariant(STR_GUI_COMPANION, ID_STR_GUI_COMPANION | 0x15, HIDWORD(ID_STR_GUI_COMPANION), v40) to list1  // "Companion"
+          str4 = $STRING.LocalizeStringTokenizedWithGenderVariant(STR_GUI_COMPANION, ID_STR_GUI_COMPANION | 0x17, HIDWORD(ID_STR_GUI_COMPANION), list1, v40)  // "<<Co5:1>>"
+        else
+          var str6 = node2.getName()
+          var enum2 = node2.GetCharacterGender()
+          if enum2 == chrGenderMale
+            str8 = str6 + "^M"
+          else
+            str8 = str6 + "^F"
+          .
+          str6 = str8
+          add back str6 to list1
+          add back $STRING.LocalizeStringWithGenderVariant(STR_GUI_COMPANION, ID_STR_GUI_COMPANION | 0x15, HIDWORD(ID_STR_GUI_COMPANION), v40) to list1  // "Companion"
+          str4 = $STRING.LocalizeStringWithTokenList(STR_GUI_COMPANION, ID_STR_GUI_COMPANION | 0x16, HIDWORD(ID_STR_GUI_COMPANION), list1)  // "<<g:2,1>>"
+        .
+        var str = str4
+      .
+    .
+  else
+    var unused3 = HM.GetEnumDefaultValue(12)
+    int v31 = MaleMale
+    var unused4 = HM.GetEnumDefaultValue(13)
+    var enum3 = Me.GetCharacterGender()
+    if enum3 == chrGenderFemale
+      v31 = FemaleMale
+    .
+    str = Me.GetLocalizedTextUsingGender(9583395879878673097, false, v31)  // "title"
+  .
+  return str
+.
+public method GetNameId() as Integer
+  return Me.GetStringID(15685385242400905286)  // "name"
+.
+public method GetCharacterGender() as Enum chrGenderEnum
+  if Me.chrNPCGenderComplete == NPC_GENDER_FEMALE_PROPER or Me.chrNPCGenderComplete == NPC_GENDER_FEMALE_IMPROPER
+    return chrGenderFemale
+  else
+    return chrGenderMale
+  .
+.
+public method GetClassPackage() as ID
+  return Me.npcClassPackage
+.
+public method GetNpcSpec() as ID
+  return Me.chrNonPlayerCharacterSpec
+.
+public method GetTemplateFaction() as Integer
+  return Me.npcFaction
+.
+public method IsPvpFlagged() as Boolean
+  return Me.pvpFlagged
+.
+public method GetAppearance() as ID
+  return Me.chrAppearance
+.
+public method GetSoundset() as String
+  return Me.npcSoundset
+.
+public function GetSoundSetForOutfit(a1 as String) as String
+  var node2 = getPrototypeByID(16140943437793829001)
+  var int1 = ComputeStableIdentifier(a1)
+  var lookup = node2.npcOutfitRecords
+  if lookup has int1
+    var classView = lookup[int1]
+    var str = classView.npcOutfitSoundsetSpec
+  .
+  return str
+.
+public method GetImpactClass() as String
+  return Me.npcImpactClass
+.
+public method GetSwingType() as String
+  return Me.npcSwingType
+.
+public method GetContinuousMovement() as Boolean
+  return Me.npcContinuousMovement
+.
+public method GetVoiceStyle(a1 as Boolean) as Integer
+  var out = 0
+  var node2 = Me.GetEquipmentBySlotType(conSlotEquipHumanFace, 1)
+  if node2 != None
+    var id1 = Me.GetCharacterClass()
+    return node2.GetItemVoiceStyle(id1)
+  else
+    return Me.npcVoiceStyle
+  .
+.
+public method GetArmorType() as String
+  return Me.npcArmorType
+.
+public method GetCombatCreatureType() as Enum cbtCreatureType
+  return Me.cbtCreatureType
+.
+public method GetCurrentNPPSpec() as String
+  return Me.chrCurrentNppSpec
+.
+public method _InitNPCAppearance() as NodeRef of appNpcAppearance
+  var id1 = Me.GetAppearance()
+  if id1 == 0
+    return None
+  else
+    var node5 = $APPEARANCE.GetNPCAppearance(id1)
+    if node5 != None
+      $APPEARANCE.ActivateNPCAppearance(Me, node5)
+    else
+      // unknown
+    .
+    return node5
+  .
+.
+public method InitializeAppearance(Me)
+  if HasLightweightNode(Me)
+    var id1 = Me.GetNpcSpec()
+    var id2 = Me.GetAppearanceForVisual(Me.chrTemplateVisualIndex)
+    var id3 = $CHARACTER.getNpcAppearanceOverride(id1, id2)
+    Me.chrAppearance = id3
+    Me.AllowItemAppearances(false)
+    var node3 = Me._InitNPCAppearance()
+    if Me is kindof chrCompanionComponent and node3.nppNppType == nppTypeHumanoid
+      Me.AllowItemAppearances(true)
+    .
+    if Me is kindof conEquipmentComponent
+      Me.RefreshWearableAppearances()
+    .
+  .
+.
+public method InitializeNpcSounds(Me, a1 as ID)
+  if a1 != 0
+    Me.npcSoundset = sndSoundPackage:GetSoundSetForAppearance(a1)
+    Me.npcVoiceStyle = sndSoundPackage:GetVoiceStyleForAppearance(a1)
+    Me.npcSwingType = sndSoundPackage:GetSwingTypeForAppearance(a1)
+    Me.npcContinuousMovement = sndSoundPackage:GetContinuousMovementForAppearance(a1)
+    Me.npcArmorType = sndSoundPackage:GetArmorTypeForAppearance(a1)
+    Me.npcImpactClass = sndSoundPackage:GetImpactClassForAppearance(a1)
+    if Me.npcImpactClass.length == 0
+      Me.npcImpactClass = IMPACT_CLASS_DEFAULT
+    .
+  .
+.
+public method GetAppearanceStatusString() as String
+  CallFrame _callFrame
+  var str = ""
+  var id1 = Me.GetAppearance()
+  if id1.length > 0
+    var str5 = GetCharacterSpecification(Me)
+    str = str + "  Appearance [" + id1 + "], character spec [" + str5 + "]"
+  .
+  FuncRef GetAppearanceStatusString = HM.PrepareCallExplicitClass2(45, appAppearanceUser, Me, &_callFrame)
+  var str12 = GetAppearanceStatusString(_callFrame)
+  str = str + "$R" + str12
+  return str
+.
+public method toString() as String
+  Vector3 vec3
+  Vector3 vec6
+  str as String
+  str = str + " id=" + Me
+  var str6 = Me.getName()
+  str = str + " name=" + str6
+  var int1 = Me.GetNameId()
+  str = str + " nameID=" + int1
+  var str12 = GetCharacterSpecification(Me)
+  str = str + " spec=" + str12
+  if Me is kindof spnSpawnedComponent
+    var id1 = Me.GetSpawnedSpec()
+    var str15 = utlFQN:fromIDDebug(id1)
+    str = str + " npcFQN=" + str15
+  .
+  var id2 = Me.GetAppearance()
+  str = str + " appearance=" + id2
+  var enum1 = Me.chrAnim_GetBodyType()
+  str = str + " bodytype=" + enum1
+  if Me is kindof chrClassComponent
+    var id3 = Me.GetCharacterClass()
+    var str24 = utlFQN:fromIDDebug(id3)
+    str = str + " class=" + str24
+  .
+  if Me is kindof chrLevelComponent
+    var int2 = Me.GetLevel()
+    str = str + " level=" + int2
+    var int3 = Me.GetXp()
+    var int4 = Me.GetXpNeeded()
+    str = str + " xp=" + int3 + "/" + int4
+  .
+  if Me is kindof baseAttributeComponent
+    Me.attributesToString(&str)
+  .
+  if Me is kindof chrPetComponent
+    var node2 = Me.GetPetMaster()
+    str = str + " petMaster=" + node2
+  .
+  if Me is kindof grpMemberComponent
+    var classView = HM.GetClassViewFromNodeRef(Me, grpMemberComponent)
+    var id4 = classView.grpMemberGroupId
+    str = str + " groupId=" + id4
+  .
+  if Me is kindof npcTargeterComponent
+    var id5 = Me.GetTargetID()
+    str = str + " target=" + id5
+    if id5 != None
+      var vec = HM.ConvertFromStringVector3(Me["position"])
+      var vec2 = HM.ConvertFromStringVector3(id5["position"])
+      vec3.x = vec.x - vec2.x
+      vec3.y = vec.y - vec2.y
+      vec3.z = vec.z - vec2.z
+      var float1 = VectorLength(vec3)
+      str = str + " distance_to_target=" + float1
+    .
+  .
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  var vec4 = HM.ConvertFromStringVector3(Me["position"])
+  var vec5 = HM.ConvertFromStringVector3(pc2["position"])
+  vec6.x = vec4.x - vec5.x
+  vec6.y = vec4.y - vec5.y
+  vec6.z = vec4.z - vec5.z
+  var float2 = VectorLength(vec6)
+  str = str + " distance_to_player=" + float2
+  return str
+.
+public method virtual_OnTextRetrieved(Me, a1 as Integer, a2 as ClassView strLocalizedTextRetriever, a3 as Integer)
+  if (a3 & RETRIEVAL_METHOD_SUCCEEDED_VIA_LOAD) != 0
+    if ((a1 == 15685385242400905286 or a1 == 9583395879878673097) & 1) != 0  // "name", "title"
+      $NAMEPLATES.checkNameplateStatus(Me)
+    .
+  .
+.
+public method determineConversationVisible(Me)
+  char v13
+  char v19 = 1
+  if $CONVERSATION.IsInConversation()
+    if $CONVERSATION.IsPartOfConversation(Me)
+      // unknown
+    else
+      var id1 = Me.GetNpcSpec()
+      if $STAGE.IsLiveStageCameo(id1)
+        // unknown
+      else if Me.CharStateIsInCombat()
+        // unknown
+      else if Me is kindof chrCompanionComponent
+        // unknown
+      else if not Me is kindof chrPetComponent
+        if Me.IsHolocom()
+          v19 = 0
+        .
+        v13 = v19
+        utlNode:SetCharacterHidden(Me, (v13 & 1) == 0)
+        return
+      .
+    .
+    v19 = 0
+  .
+  if Me.IsHolocom()
+    v19 = 0
+  .
+  v13 = v19
+  utlNode:SetCharacterHidden(Me, (v13 & 1) == 0)
+.
+public method AreQuestStatusAssetsReady() as Boolean
+  if Me is kindof cnvOwnerComponent
+    var node = $CONVERSATION.GetConversationData(Me.GetConversationName())
+    if node = None
+      return false
+    .
+  .
+  return true
+.
+public function CalculateNpcStringTableName(a1 as String) as String
+  var str3 = "str." + a1
+  return substring(str3, 1, findStringEx(str3, ".", findStringEx(str3, ".", "str.".length + "npc.".length + 1) + 1) - 1)
+.
+public method GetAppearanceOverride() as Enum npcAppearanceOverrideType
+  return Me.npcAppearanceOverride
+.
+public method GetCompanionOverride() as ID
+  return Me.npcCharacterCompanionOverride
+.
+public method HasVisualsData() as Boolean
+  if Me.npcVisualDataList.length > 0
+    var str2 = Me.GetCharSpecForVisual(1)
+    if str2.length > 0
+      return true
+    .
+  .
+  return false
+.
+public method GetCharSpecForVisual(a1 as Integer) as String
+  Boolean bool2
+  int v17
+  var bool1 = a1 <= -1
+  if not HIDWORD(a1)
+    bool1 = (_DWORD)a1 == 0
+  .
+  if not bool1
+    if Me.npcVisualDataList.length < a1
+      bool2 = true
+    else
+      bool2 = false
+    .
+  else
+    bool2 = true
+  .
+  if bool2
+    return ""
+  else
+    var classView = Me.npcVisualDataList[a1]
+    if classView.npcTemplateVisualDataCharSpec.length > 0
+      var classView2 = Me.npcVisualDataList[a1]
+      return classView2.npcTemplateVisualDataCharSpec
+    else
+      HM.ThrowScriptError("Missing return.", v17)
+    .
+  .
+.
+public method GetAppearanceForVisual(a1 as Integer) as ID
+  Boolean bool2
+  var bool1 = a1 <= -1
+  if not HIDWORD(a1)
+    bool1 = (_DWORD)a1 == 0
+  .
+  if not bool1
+    if Me.npcVisualDataList.length < a1
+      bool2 = true
+    else
+      bool2 = false
+    .
+  else
+    bool2 = true
+  .
+  if bool2
+    // unknown
+  else
+    var classView = Me.npcVisualDataList[a1]
+    if classView.npcTemplateVisualDataAppearance != 0
+      var classView2 = Me.npcVisualDataList[a1]
+      return classView2.npcTemplateVisualDataAppearance
+    .
+  .
+  return 0
+.
+public method GetTemplateScaleForVisual(a1 as Integer) as Float
+  Boolean bool2
+  var bool1 = a1 <= -1
+  if not HIDWORD(a1)
+    bool1 = (_DWORD)a1 == 0
+  .
+  if not bool1
+    if Me.npcVisualDataList.length < a1
+      bool2 = true
+    else
+      bool2 = false
+    .
+  else
+    bool2 = true
+  .
+  if bool2
+    return ""
+  else
+    var int2 = Me.GetSpecieScaleForVisual(a1)
+    var out = 1.0
+    if int2 != 0
+      if $STATIC.chrSpeciesScalePrototype.chrSpeciesScaleLookup has int2
+        out = $STATIC.chrSpeciesScalePrototype.chrSpeciesScaleLookup[int2]
+      .
+    .
+    var float2 = Me.GetScaleAdjustmentForVisual(a1)
+    out *= float2
+    return out
+  .
+.
+public method GetSpecieScaleForVisual(a1 as Integer) as Integer
+  Boolean bool2
+  var bool1 = a1 <= -1
+  if not HIDWORD(a1)
+    bool1 = (_DWORD)a1 == 0
+  .
+  if not bool1
+    if Me.npcVisualDataList.length < a1
+      bool2 = true
+    else
+      bool2 = false
+    .
+  else
+    bool2 = true
+  .
+  if bool2
+    return 0
+  else
+    var classView = Me.npcVisualDataList[a1]
+    if classView.npcTemplateVisualDataSpecieScale != 0
+      var classView2 = Me.npcVisualDataList[a1]
+      return classView2.npcTemplateVisualDataSpecieScale
+    else
+      return ""
+    .
+  .
+.
+public method GetScaleAdjustmentForVisual(a1 as Integer) as Float
+  Boolean bool2
+  var bool1 = a1 <= -1
+  if not HIDWORD(a1)
+    bool1 = (_DWORD)a1 == 0
+  .
+  if not bool1
+    if Me.npcVisualDataList.length < a1
+      bool2 = true
+    else
+      bool2 = false
+    .
+  else
+    bool2 = true
+  .
+  if bool2
+    return 0.0
+  else
+    var classView = Me.npcVisualDataList[a1]
+    if classView.npcTemplateVisualDataScaleAdjustment != 0.0
+      var classView2 = Me.npcVisualDataList[a1]
+      return classView2.npcTemplateVisualDataScaleAdjustment
+    else
+      return 1.0
+    .
+  .
+.
+public method GetMeleeWeaponForVisual(a1 as Integer) as ID
+  Boolean bool2
+  var bool1 = a1 <= -1
+  if not HIDWORD(a1)
+    bool1 = (_DWORD)a1 == 0
+  .
+  if not bool1
+    if Me.npcVisualDataList.length < a1
+      bool2 = true
+    else
+      bool2 = false
+    .
+  else
+    bool2 = true
+  .
+  if bool2
+    // unknown
+  else
+    var classView = Me.npcVisualDataList[a1]
+    if classView.npcTemplateVisualDataMeleeWeapon != 0
+      var classView2 = Me.npcVisualDataList[a1]
+      return classView2.npcTemplateVisualDataMeleeWeapon
+    .
+  .
+  return 0
+.
+public method GetRangedWeaponForVisual(a1 as Integer) as ID
+  Boolean bool2
+  var bool1 = a1 <= -1
+  if not HIDWORD(a1)
+    bool1 = (_DWORD)a1 == 0
+  .
+  if not bool1
+    if Me.npcVisualDataList.length < a1
+      bool2 = true
+    else
+      bool2 = false
+    .
+  else
+    bool2 = true
+  .
+  if bool2
+    // unknown
+  else
+    var classView = Me.npcVisualDataList[a1]
+    if classView.npcTemplateVisualDataRangedWeapon != 0
+      var classView2 = Me.npcVisualDataList[a1]
+      return classView2.npcTemplateVisualDataRangedWeapon
+    .
+  .
+  return 0
+.
+public method GetMeleeOffWeaponForVisual(a1 as Integer) as ID
+  Boolean bool2
+  var bool1 = a1 <= -1
+  if not HIDWORD(a1)
+    bool1 = (_DWORD)a1 == 0
+  .
+  if not bool1
+    if Me.npcVisualDataList.length < a1
+      bool2 = true
+    else
+      bool2 = false
+    .
+  else
+    bool2 = true
+  .
+  if bool2
+    // unknown
+  else
+    var classView = Me.npcVisualDataList[a1]
+    if classView.npcTemplateVisualDataMeleeOffWeapon != 0
+      var classView2 = Me.npcVisualDataList[a1]
+      return classView2.npcTemplateVisualDataMeleeOffWeapon
+    .
+  .
+  return 0
+.
+public method GetRangedOffWeaponForVisual(a1 as Integer) as ID
+  Boolean bool2
+  var bool1 = a1 <= -1
+  if not HIDWORD(a1)
+    bool1 = (_DWORD)a1 == 0
+  .
+  if not bool1
+    if Me.npcVisualDataList.length < a1
+      bool2 = true
+    else
+      bool2 = false
+    .
+  else
+    bool2 = true
+  .
+  if bool2
+    // unknown
+  else
+    var classView = Me.npcVisualDataList[a1]
+    if classView.npcTemplateVisualDataRangedOffWeapon != 0
+      var classView2 = Me.npcVisualDataList[a1]
+      return classView2.npcTemplateVisualDataRangedOffWeapon
+    .
+  .
+  return 0
+.

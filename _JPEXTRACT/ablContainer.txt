@@ -1,0 +1,33 @@
+Name	
+0313D851 	ablContainer	
+ablContainer	
+Server script	
+14988083451570591766 	ablContainerClassMethods	
+Client script	
+14988005448093824202 	_clientablContainerClassMethods	
+Description 	replicated abilities container 
+Parent classes	conSlotted
+Child classes	
+Used by fields	
+Base class of system nodes	
+Glommed into system nodes	
+Declared in client.gom	present
+Shared with server DOM	yes
+Archetype	DATA
+Live
+
+Fields	
+Beta · 6	conSlotted	conContents	LookupList indexed by Int of NodeRef of conContainableComponent
+Beta · 6	conSlotted	conMaxSize	Int
+Beta · 6	conSlotted	conSharedData	NodeRef of conContainerData
+Beta · 6	conSlotted	conContentsRepPrevious	LookupList indexed by Int of NodeRef of conContainableComponent
+Beta · 6	conSlotted	conSlotByID	LookupList indexed by ID of Int
+Beta · 6	conSlotted	conSlotsByTimer	LookupList indexed by String of LookupList indexed by Int of Boolean
+Beta · 6	conSlotted	conSlotsBySpec	LookupList indexed by ID of LookupList indexed by Int of Boolean
+Beta · 6	conSlotted	conContainerSpecName	ID
+Beta · 6	conSlotted	conOwnerNode	NodeRef
+Beta · 6	conSlotted	conRestrictedSlots	LookupList indexed by Enum conSlotId of LookupList indexed by ID of Boolean
+Beta · 6	conSlotted	conExpansionLevel	Int
+1.0.0	conSlotted	conContainerType	Enum ConPersistentContainerType
+1.0.0	conSlotted	conSlottedBeingCreated	Boolean
+NodeRef in fields	ablContainer

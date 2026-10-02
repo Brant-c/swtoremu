@@ -1,0 +1,408 @@
+public method OnReplicationEvent(Me, a1 as Integer)
+  ScriptError("effEvents should NEVER be replicated!")
+.
+public method DoTargetDetailsSideEffects(Me, a1 as ClassView effEventTargetDetails)
+  foreach cur in a1.effEventTargetDetailsSideEffectList
+    if cur == 1
+      var id1 = a1.effEventTargetDetailsTarget
+      if id1 != None
+        id1.OnBrainStateVisualChange()
+      .
+    else
+      // unknown
+    .
+  .
+.
+public method ExecuteEffect() as Boolean
+  int v30
+  int v31
+  var id1 = Me.effEventEffectSpec
+  $CombatProfiler.OpenAbilityUseContext(utlFQN:fromIDTemp(id1), ABL_CONTEXT_EXECUTE_EVENT)
+  Me.effEventIsExecuting = true
+  var node3 = $EFFECT.GetEffectPrototype(id1)
+  if node3 = None
+    Me.effEventIsExecuting = false
+    Me.effEventHasExecuted = true
+    var str2 = utlFQN:fromIDTemp(id1)
+    $CombatProfiler.CloseAbilityUseContext(str2, ABL_CONTEXT_EXECUTE_EVENT)
+  else
+    Me.effEventHasExecuted = true
+    foreach cur in Me.effEventTargetDetails
+      Me.DoTargetDetailsSideEffects(cur)
+      if Me.effEventTriggerName == effTrigger_OnRemove
+        node3.UndoEffectActions(Me, cur, v30, v31)
+      else
+        node3.ExecuteEffectActions(Me, cur)
+        var id4 = Me.effEventCaster
+        var id5 = cur.effEventTargetDetailsTarget
+        sndGruntOwnerComponentClassMethods:ParseEffectsForEvent(node3, id4, id5, cur)
+      .
+    .
+    var id6 = Me.effEventEffectSpec
+    $CombatProfiler.CloseAbilityUseContext(utlFQN:fromIDTemp(id6), ABL_CONTEXT_EXECUTE_EVENT)
+    Me.effEventIsExecuting = false
+  .
+  return true
+.
+public method toString() as String
+  var id1 = Me.effEventCaster
+  var id2 = Me.effEventEffectSpec
+  var str16 = utlFQN:fromIDDebug(id2)
+  return "effEvent [" + Me + "] trans=" + Me.effEventTransactionId + "(" + Me.effEventCalledByTransactionId + ") handle=" + Me.effEventHandle + " caster=" + id1 + " effect=" + str16 + "/" + Me.effEventSubEffectNumber + "/" + Me.effEventTriggerName + " appearance=" + Me.effEventEffectAppearance + " refCount=" + Me.effEventRefCount
+.
+public method ToStringBrief() as String
+  var id1 = Me.effEventEffectSpec
+  var str13 = utlFQN:fromIDDebug(id1)
+  return "effEvent [" + Me + "] trans=" + Me.effEventTransactionId + "(" + Me.effEventCalledByTransactionId + ") handle=" + Me.effEventHandle + " effect=" + str13 + "/" + Me.effEventSubEffectNumber + "/" + Me.effEventTriggerName
+.
+public method effEventConstruct(Me)
+  String str10
+  Integer int4
+  var id1 = Me.effEventEffectSpec
+  SetDebugContextString("spec", utlFQN:fromIDDebug(id1))
+  var dateTime1 = $NOW + timeInSeconds(2.0)
+  Me.effEvent_SetExpirationTime(dateTime1)
+  Me.effEventIsExecuting = false
+  foreach cur in Me.effEventTargetDetails
+    var id2 = 0
+    foreach cur2 in cur.effEventTargetDetailsActionDetails
+      if cur2.effEventActionDetailsActionEnum == effAction_PlayAppearance
+        if cur2.effEventActionDetailsValue != ""
+          if Me.effEventEffectAppearance = None
+            var node4 = $EFFECT.GetEffectAppearance(cur2.effEventActionDetailsValue)
+            if node4 != None
+              Me.effEventEffectAppearance = node4.Clone()
+              if Me.effEventEffectAppearance != None
+                SetParentOfNode(Me.effEventEffectAppearance, Me)
+              .
+            .
+          .
+        .
+      else if cur2.effEventActionDetailsActionEnum == effAction_PlayEmotePlayer
+        id2 = HM.ConvertFromStringID(cur2.effEventActionDetailsValue)
+      else if cur2.effEventActionDetailsActionEnum == effAction_PlayEmoteEmoteIndex
+        var id3 = cur.effEventTargetDetailsTarget
+        cmdEmoteClassMethods:LoadEmotePrototype()
+        var int1 = cur2.effEventActionDetailsValue
+        if int1 != 0
+          var classView2 = cmdEmoteClassMethods:GetCmdEmote(int1)
+          var classView = HM.CopyClassViewToClassView(classView2)
+          var str6 = ""
+          var str7 = ""
+          var str8 = "*NOTHING TARGETED*"
+          var pc = GetPlayerCharacterNode()
+          var id4 = pc
+          if id2 != None
+            str7 = id2.GetNameWithGender()
+          .
+          if id3 != None and id3 != id2
+            if id3 is kindof chrPlayerCharacter
+              str10 = id3.GetNameWithGender()
+            else
+              str10 = id3.getName()
+            .
+            str8 = str10
+          .
+          if id3 = None or id3 == id2
+            if id2 == id4
+              int4 = classView.cmdEmoteFirstPersonNonTargettedStringId
+            else
+              int4 = classView.cmdEmoteThirdPersonNonTargettedStringId
+            .
+          else if id2 == id4
+            int4 = classView.cmdEmoteFirstPersonTargettedStringId
+          else if id3 == id4
+            int4 = classView.cmdEmoteSecondPersonTargettedStringId
+          else
+            int4 = classView.cmdEmoteThirdPersonTargettedStringId
+          .
+          if int4 != 0
+            list3 as List of String
+            add back str7 to list3
+            add back str8 to list3
+            str6 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_EMOTES, ID_STR_GUI_EMOTES | int4)
+            str6 = LingoonaFormatText(str6, list3)
+          .
+          if str6.length != 0
+            $CHAT.ChatPlayerAlreadyLocalized(chatChannel_Emote, str6)
+          .
+        else
+              // unknown
+        .
+      else if cur2.effEventActionDetailsActionEnum == effAction_BrainState
+        var unused = HM.GetEnumDefaultValue(22)
+        if cur2.effEventActionDetailsValue == 3
+          cur.effEventTargetDetailsIsDeathBlow = true
+          break
+        .
+      .
+    .
+  .
+  if Me.effEventEffectAppearance = None
+    var id5 = Me.effEventEffectSpec
+    Me.effEventEffectAppearance = $EFFECT.CreateEffectAppearanceForSubEffect(id5, Me.effEventSubEffectNumber)
+    if Me.effEventEffectAppearance != None
+      SetParentOfNode(Me.effEventEffectAppearance, Me)
+    .
+  .
+.
+public method effEvent_AddRef(Me)
+  Me.effEventRefCount = Me.effEventRefCount + 1
+.
+public method effEvent_RemoveRef(Me)
+  Me.effEventRefCount = Me.effEventRefCount - 1
+  var int2 = Me.effEventRefCount
+  var bool1 = (_DWORD)int2 != 0
+  var bool2 = SHIDWORD(int2) >= 1
+  if not HIDWORD(int2)
+    bool2 = bool1
+  .
+  if not bool2
+    if Me.effEventRefCount <= -1
+      // unknown
+    .
+    if Me.effEventEffectAppearance != None
+      Me.effEventEffectAppearance.effAppearanceRemove(Me, false)
+    .
+    DestroyNode(Me)
+  .
+.
+public method effEvent_SetExpirationTime(Me, a1 as DateTime)
+  Me.effEventExpiration = a1
+.
+public method effEventEffectAppearanceTrigger_OnAnimationNote(Me, a1 as Integer)
+  if Me.effEventTriggerName == effTrigger_OnRemove
+    // unknown
+  else if Me.effEventEffectAppearance != None
+    Me.effEventEffectAppearance.effAppearanceTrigger_OnAnimationNote(Me, a1)
+  .
+  if (unsigned __int64)a1 <= 1
+    if not Me.effEventHasHandledResponseCounter
+      if Me.HasAbilityActivateAction()
+        var id1 = Me.effEventCaster
+        var pc = GetPlayerCharacterNode()
+        if pc == id1
+          OnCombatMovementIncomingAbilityExecute(id1)
+          Me.effEventHasHandledResponseCounter = true
+        .
+      .
+    .
+  .
+.
+public method effEventEffectAppearanceTrigger_OnTargetAnimationNote(Me, a1 as NodeRef, a2 as Integer)
+  if Me.effEventTriggerName == effTrigger_OnRemove
+    // unknown
+  else if Me.effEventEffectAppearance != None
+    Me.effEventEffectAppearance.effAppearanceTrigger_OnTargetAnimationNote(Me, a1, a2)
+  .
+.
+public method PerformRemainingVisualEffects(Me)
+  if Me.effEventCaster == 0
+    // unknown
+  else if Me.effEventTriggerName == effTrigger_OnRemove
+    // unknown
+  else if Me.effEventEffectAppearance != None
+    Me.effEventEffectAppearance.effAppearanceTrigger_OnAnimationNote(Me, -1)
+  .
+.
+public method ExecuteNextDeferredDamageAction(Me)
+  ClassView classView6
+  Boolean bool3
+  if Me = None
+    return
+  .
+  if Me.effEventEffectAppearance = None
+    return
+  .
+  if Me.effEventTargetDetails.length == 0
+    return
+  .
+  if Me.effEventTargetDetails.length < Me.effEventEffectAppearance.effAppearanceTargetDetailsIndex
+    return
+  .
+  var classView = Me.effEventTargetDetails[Me.effEventEffectAppearance.effAppearanceTargetDetailsIndex]
+  var int2 = classView.effEventTargetDetailsNextActionIndex
+  var classView2 = Me.effEventTargetDetails[Me.effEventEffectAppearance.effAppearanceTargetDetailsIndex]
+  var int4 = classView2.effEventTargetDetailsNextActionExecutionIndex + 1
+  var classView3 = Me.effEventTargetDetails[Me.effEventEffectAppearance.effAppearanceTargetDetailsIndex]
+  classView3.effEventTargetDetailsNextActionExecutionIndex = int4
+  var classView4 = Me.effEventTargetDetails[Me.effEventEffectAppearance.effAppearanceTargetDetailsIndex]
+  var list7Length = classView4.effEventTargetDetailsActionDetails.length
+  var classView5 = Me.effEventTargetDetails[Me.effEventEffectAppearance.effAppearanceTargetDetailsIndex]
+  var int8 = classView5.effEventTargetDetailsAppearanceWeaponDamageSkipped
+  var bool1 = false
+  if int4 > list7Length
+    return
+  .
+  var bool2 = int2 <= -1
+  if not HIDWORD(int2)
+    bool2 = (_DWORD)int2 == 0
+  .
+  if not bool2
+    var int10 = int4
+    while true
+      HM.ExpirationCheck()
+      if int10 > list7Length
+        return
+      .
+      var list9 = Me.effEventTargetDetails
+      var node8 = Me.effEventEffectAppearance
+      var classView7 = list9[node8.effAppearanceTargetDetailsIndex]
+      var classView8 = classView7.effEventTargetDetailsActionDetails[int10]
+      classView6 = HM.CopyClassViewToClassView(classView8)
+      if classView6.effEventActionDetailsActionEnum == effAction_WeaponDamage
+        var id1 = Me.effEventCaster
+        var node9 = id1
+        var classView9 = list9[node8.effAppearanceTargetDetailsIndex]
+        var id2 = classView9.effEventTargetDetailsTarget
+        var node11 = id2
+        var id3 = Me.effEventEffectSpec
+        var node15 = $EFFECT.GetEffectPrototype(id3)
+        var node14 = node15
+        node14.ExecuteEffectAction_WeaponDamage(node9, node11, classView6.effEventActionDetailsResult, classView6.effEventActionDetailsDamage, classView6.effEventActionDetailsDamageType, classView6.effEventActionDetailsDamageEffective, classView6.effEventActionDetailsDamageAbsorbed, classView6.effEventActionDetailsThreat, HM.ConvertFromStringEnum(24, classView6.effEventActionDetailsValue))
+        bool1 = true
+        goto LABEL_22
+      .
+      if classView6.effEventActionDetailsActionEnum == effAction_SpellDamage
+        var id4 = Me.effEventCaster
+        var node17 = id4
+        var classView10 = Me.effEventTargetDetails[Me.effEventEffectAppearance.effAppearanceTargetDetailsIndex]
+        var id5 = classView10.effEventTargetDetailsTarget
+        var node19 = id5
+        var id6 = Me.effEventEffectSpec
+        var node23 = $EFFECT.GetEffectPrototype(id6)
+        var node22 = node23
+        node22.ExecuteEffectAction_SpellDamage(node17, node19, classView6.effEventActionDetailsResult, classView6.effEventActionDetailsDamage, classView6.effEventActionDetailsDamageType, classView6.effEventActionDetailsDamageEffective, classView6.effEventActionDetailsDamageAbsorbed, classView6.effEventActionDetailsThreat, classView6.effEventActionDetailsValue)
+        bool1 = true
+        goto LABEL_22
+      .
+      var classView11 = Me.effEventTargetDetails[Me.effEventEffectAppearance.effAppearanceTargetDetailsIndex]
+      classView11.effEventTargetDetailsNextActionExecutionIndex = int10 + 1
+LABEL_22:
+      bool3 = int8 <= -1
+      if not HIDWORD(int8)
+        bool3 = (_DWORD)int8 == 0
+      .
+      if not bool3 and bool1
+        var classView12 = Me.effEventTargetDetails[Me.effEventEffectAppearance.effAppearanceTargetDetailsIndex]
+        if classView12.effEventTargetDetailsAppearanceWeaponDamageSkipped == int8
+          var classView13 = Me.effEventTargetDetails[Me.effEventEffectAppearance.effAppearanceTargetDetailsIndex]
+          classView13.effEventTargetDetailsAppearanceWeaponDamageSkipped = int8 - 1
+          var classView14 = Me.effEventTargetDetails[Me.effEventEffectAppearance.effAppearanceTargetDetailsIndex]
+          classView14.effEventTargetDetailsNextActionExecutionIndex = int10 + 1
+          bool1 = false
+        .
+      .
+      if not bool1
+        ++int10
+      else
+        return
+      .
+    .
+  .
+.
+public method ExecuteRemainingDeferredDamageActions(Me)
+  List list11
+  if Me = None
+    // unknown
+  else if Me.effEventTargetDetails.length == 0
+      // unknown
+  else if Me.effEventTargetDetails.length < Me.effEventEffectAppearance.effAppearanceTargetDetailsIndex
+        // unknown
+  else
+    loop i from 1 to list11.length
+      var cur = Me.effEventTargetDetails[i]
+      var int2 = cur.effEventTargetDetailsNextActionIndex
+      var cur2 = Me.effEventTargetDetails[i]
+      var bool1 = int2 <= -1
+      if not HIDWORD(int2)
+        bool1 = (_DWORD)int2 == 0
+      .
+      if not bool1
+        var int4 = cur2.effEventTargetDetailsNextActionExecutionIndex + 1
+        while true
+          HM.ExpirationCheck()
+          var cur3 = Me.effEventTargetDetails[i]
+          if cur3.effEventTargetDetailsActionDetails.length < int4
+            break
+          .
+          var cur4 = Me.effEventTargetDetails[i]
+          var classView2 = cur4.effEventTargetDetailsActionDetails[int4]
+          var classView = HM.CopyClassViewToClassView(classView2)
+          if classView.effEventActionDetailsActionEnum == effAction_WeaponDamage
+            var id1 = Me.effEventCaster
+            var cur5 = Me.effEventTargetDetails[i]
+            var id2 = cur5.effEventTargetDetailsTarget
+            var id3 = Me.effEventEffectSpec
+            var node7 = $EFFECT.GetEffectPrototype(id3)
+            var enum3 = HM.ConvertFromStringEnum(24, classView.effEventActionDetailsValue)
+            node7.ExecuteEffectAction_WeaponDamage(id1, id2, classView.effEventActionDetailsResult, classView.effEventActionDetailsDamage, classView.effEventActionDetailsDamageType, classView.effEventActionDetailsDamageEffective, classView.effEventActionDetailsDamageAbsorbed, classView.effEventActionDetailsThreat, enum3)
+          else if classView.effEventActionDetailsActionEnum == effAction_SpellDamage
+            var id4 = Me.effEventCaster
+            var cur6 = Me.effEventTargetDetails[i]
+            var id5 = cur6.effEventTargetDetailsTarget
+            var id6 = Me.effEventEffectSpec
+            var node14 = $EFFECT.GetEffectPrototype(id6)
+            node14.ExecuteEffectAction_SpellDamage(id4, id5, classView.effEventActionDetailsResult, classView.effEventActionDetailsDamage, classView.effEventActionDetailsDamageType, classView.effEventActionDetailsDamageEffective, classView.effEventActionDetailsDamageAbsorbed, classView.effEventActionDetailsThreat, classView.effEventActionDetailsValue)
+          .
+          ++int4
+        .
+      .
+    .
+  .
+.
+public method IncrementActionExecutionIndex(Me)
+  if Me = None
+    // unknown
+  else if Me.effEventEffectAppearance = None
+      // unknown
+  else if Me.effEventTargetDetails.length == 0
+        // unknown
+  else if Me.effEventTargetDetails.length < Me.effEventEffectAppearance.effAppearanceTargetDetailsIndex
+          // unknown
+  else
+    var classView = Me.effEventTargetDetails[Me.effEventEffectAppearance.effAppearanceTargetDetailsIndex]
+    var classView2 = Me.effEventTargetDetails[Me.effEventEffectAppearance.effAppearanceTargetDetailsIndex]
+    classView2.effEventTargetDetailsNextActionExecutionIndex = classView.effEventTargetDetailsNextActionExecutionIndex + 1
+  .
+.
+public method SetActionExecutionIndex(Me, a1 as Integer)
+  Boolean bool1
+  if Me = None
+    // unknown
+  else if Me.effEventEffectAppearance = None
+      // unknown
+  else if Me.effEventTargetDetails.length == 0
+        // unknown
+  else if Me.effEventEffectAppearance.effAppearanceTargetDetailsIndex >= 1
+    if Me.effEventTargetDetails.length < Me.effEventEffectAppearance.effAppearanceTargetDetailsIndex
+      bool1 = true
+    else
+      bool1 = false
+    .
+  else
+    bool1 = true
+  .
+  if bool1
+          // unknown
+  else
+    var classView = Me.effEventTargetDetails[Me.effEventEffectAppearance.effAppearanceTargetDetailsIndex]
+    classView.effEventTargetDetailsNextActionExecutionIndex = a1
+  .
+.
+public method HasAbilityActivateAction() as Boolean
+  List list4
+  loop i from 1 to list4.length
+    var cur = Me.effEventTargetDetails[i]
+    if cur.effEventTargetDetailsNextActionIndex == 0
+      var list2Length = cur.effEventTargetDetailsActionDetails.length
+      loop j from cur.effEventTargetDetailsNextActionExecutionIndex + 1 to list2Length
+        var cur2 = cur.effEventTargetDetailsActionDetails[j]
+        if cur2.effEventActionDetailsActionEnum == effAction_AbilityActivate
+          return true
+        .
+      .
+    .
+  .
+  return false
+.

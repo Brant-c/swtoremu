@@ -1,0 +1,60 @@
+Name	
+E5FA531C 	hydObjectComponent	
+hydObjectComponent	
+Server script	
+14988027567087000741 	hydObjectComponentClassMethods	
+Client script	
+14988163375496383656 	_clienthydObjectComponentClassMethods	
+Description 	component glommed to nodes that need to queue actions while waiting for another action to complete 
+Parent classes	
+Child classes	hydScriptComponent
+Used by fields	
+NodeRef in fields	hydQueueNode
+Base class of system nodes	
+Glommed into system nodes	
+Declared in client.gom	present
+Shared with server DOM	yes
+Archetype	DATA
+Live
+
+Fields	
+Beta · 6		hydAbilityTargets	LookupList indexed by ID of ID
+Beta · 6		hydActionWaitTimer	Timer
+Beta · 6		hydActionWaitHandle	Int
+Beta · 0		hydAbilityTargetsList	LookupList indexed by ID of List of ID
+Beta · 0		hydQueuedScriptActions	LookupList indexed by ID of LookupList indexed by Int of List of ClassView hydCompiledOAV
+Beta · 6	hydOAV	hydAction	String
+Beta · 6	hydOAV	hydValue	String
+Beta · 6	hydOAV	hydOptions	String
+Beta · 6	hydOAV	hydWait	Boolean
+Beta · 6		hydQueueNode	NodeRef of hydObjectComponent
+Beta · 6	hydOAV	hydIgnore	Boolean
+Beta · 6	hydOAV	hydObject	Int
+Beta · 6		hydCompiledIdList	List of ID
+Beta · 6	hydOAV	hydQueueObject	Int
+Beta · 0		hydQueueTimerToQueuedScriptInfo	LookupList indexed by DateTime of List of ClassView hydQueuedScriptInfo
+Beta · 0		hydQueuedScriptId	Int
+Beta · 0		hydQueuedScriptOwner	ID
+Beta · 0		hydQueuedPrototypeId	ID
+Beta · 0		hydQueueProcessingActions	Boolean
+Beta · 0		hydQueuedTimerToCallbackInfoList	LookupList indexed by DateTime of List of ClassView hydQueuedCallbackInfo
+Beta · 0		hydQueuedScriptId	Int
+Beta · 0		hydQueuedCallbackNode	NodeRef
+1.1.0		hydQueuedScriptProto	ID
+Beta · 0		hydQueueProcessingCallbacks	Boolean
+Beta · 0		hydPendingQueueTimerToQueuedScriptInfo	LookupList indexed by DateTime of List of ClassView hydQueuedScriptInfo
+Beta · 0		hydQueuedScriptId	Int
+Beta · 0		hydQueuedScriptOwner	ID
+Beta · 0		hydQueuedPrototypeId	ID
+Beta · 0		hydPendingQueuedTimerToCallbackInfoList	LookupList indexed by DateTime of List of ClassView hydQueuedCallbackInfo
+Beta · 0		hydQueuedScriptId	Int
+Beta · 0		hydQueuedCallbackNode	NodeRef
+1.1.0		hydQueuedScriptProto	ID
+Beta · 0		hydQueueProcessingRefCounter	Int
+Beta · 0		hydQueuePendingTimeRemovalList	List of DateTime
+Beta · 0		hydQueuePendingCallbackTimeRemovalList	List of DateTime
+Beta · 0		hydQueueProcessingCallbackRefCounter	Int
+(9 functions in 3 scripts)
+hydAction	CompileHydraAction, HydraClearActions, HydraPlayAnimation, HydraPlayClassAnimation, HydraPlayWeaponTypeAnimation, HydraWait
+hydObjectComponentClassMethods	hydActionWaitTimer_tick (×2)
+hydScriptRuntimeExecutionClassMethods	ExecuteHydraNextActionBlock, ForceExecuteSingleHydraAction

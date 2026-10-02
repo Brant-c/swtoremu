@@ -1,0 +1,35 @@
+File name: /resources/world/areas/4611686019869492753/gnarls_new.dat
+
+Archive: swtor_main_areadat_1.tor, Size: 8.05 MB
+
+Settings
+Environment scheme: Area
+
+Room has custom map: 1
+
+Maps visible:
+
+Room id: 4611686024647056040
+
+Outdoors visible: true
+
+Disable plant emitters: false
+
+Visible rooms (8)
+When the camera is inside this room, this and the following rooms will be visible. All other rooms (except for everywhere and the skyscene room) will be invisible.
+
+academy_main
+
+mtns_academy_main_temple
+
+gnarls_knight_cave_instance
+
+gnarls_retreat_int_a
+
+gnarls_retreat_int_b
+
+gnarls_retreat_int_c
+
+gnarls_retreat_int_d
+
+mtns_gnarls_new

@@ -1,0 +1,57 @@
+Name	
+834D24FA 	utlOracle	
+utlOracle	
+Server script	
+14988104560079843781 	utlOracleClassMethods	
+Client script	
+14988150210344339976 	_clientutlOracleClassMethods	
+Description 	abstract base class for Oracle system nodes 
+Parent classes	
+Used by fields	
+NodeRef in fields	
+Base class of system nodes	
+Glommed into system nodes	
+Declared in client.gom	present
+Shared with server DOM	yes
+Archetype	DATA
+Live
+
+Child classes	chrOracle
+conOracle
+itmOracle
+utlDatatableOracle
+spnOracle
+effOracle
+cbtOracle
+ablOracle
+cnvOracle
+strOracle
+qstOracle
+effEventOracle
+appOracle
+stgOracle
+phsOracle
+preOracle
+vehOracle
+pthOracle
+phyOracle
+vndOracle
+hydOracle
+simOracle
+ablTrainerOracle
+svyOracle
+spnEncounterOracle
+chrCompanionOracle
+sklOracle
+prfOracle
+brkOracle
+malMailOracle
+socOracle
+trdOracle
+mmsOracle
+hypOracle
+tmrOracle
+gldOracle
+Fields	
+Beta · 6		debugLevel	Int
+Beta · 6		utlOracleHeldMessages	LookupList indexed by ID of LookupList indexed by String of String

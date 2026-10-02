@@ -1,0 +1,2308 @@
+var GUILD_CREATION_COST = 5000
+var GUILD_IMPORT_DIALOG_WIDTH = 375
+var GUILD_NOTE_INPUT_HEIGHT = 150
+var GUILD_NOTE_INPUT_WIDTH = 300
+var GUILD_NOTE_LENGTH_MAX = 32
+var GUILD_POWER_CHARACTERISTICS = 4
+var GUILD_POWER_DESCRIPTION_EDIT = 2
+var GUILD_POWER_INVITE = 1
+var GUILD_POWER_MEMBERCHAT_SEND = 3
+var GUILD_POWER_MEMBERCHAT_VIEW = 1
+var GUILD_POWER_MEMBERNOTE_EDIT = 3
+var GUILD_POWER_MEMBERNOTE_VIEW = 1
+var GUILD_POWER_MOTD_EDIT = 1
+var GUILD_POWER_OFFICERCHAT_SEND = 12
+var GUILD_POWER_OFFICERCHAT_VIEW = 4
+var GUILD_POWER_OFFICERNOTE_EDIT = 12
+var GUILD_POWER_OFFICERNOTE_VIEW = 4
+var GUILD_POWER_RANK_EDIT = 2
+var GUILD_POWER_REMOVE = 4
+var GUILD_POWER_SEARCHING_FOR = 8
+var GUILD_RANK_INPUT_HEIGHT = 35
+var GUILD_RANK_NAME_LENGTH_MAX = 16
+var STR_ACCEPT = 1
+var STR_CANCEL = 954509236895753  // "Cancel"
+var STR_CONFIRM_ABDICATION = 335
+var STR_DECLINE = 2
+var STR_DO_NOT_ASK_AGAIN = 357
+var STR_ENTER_MEMBER_NOTE = 353
+var STR_ENTER_OFFICER_NOTE = 354
+var STR_GUILD = 41
+var STR_GUILD_INVITE = 305
+var STR_GUILD_NOTE = 352
+var STR_INVITE_TO_GUILD = 28
+var STR_MOTD = 304
+var STR_NEW_RANK = 326
+var STR_OK = 954509236896044  // "OK"
+var STR_RANK_NAME = 327
+var STR_REMOVE_FROM_GUILD = 42
+var STR_REMOVE_RANK = 954509236896050  // "REMOVE RANK"
+var STR_SET_MEMBER_NOTE = 52
+var STR_SET_OFFICER_NOTE = 53
+var STR_SET_RANK = 43
+var STR_SHUTTLE_TO_AREA_INSTANCE = 51
+var STR_WARNING = 315
+var STRING_AUTO_DECLINING_GUILD_INVITE_FROM_PLAYER = 105
+var STRING_CANNOT_ABDICATE_TO_SELF = 947143367983364  // "You cannot abdicate the guild to yourself."
+var STRING_CONFIRM_DISBAND = 133
+var STRING_DEMOTE_RANK = 947143367983373  // "Demote Rank"
+var STRING_GUILD_CREATION_ERROR = 947143367983403  // "Guild Creation Error"
+var STRING_GUILD_IMPORT_FAILED = 139
+var STRING_GUILD_IMPORT_OFFER = 136
+var STRING_GUILD_IMPORT_OFFER_ALREADY_CREATED = 138
+var STRING_GUILD_IMPORT_OFFER_NEEDS_CREATE = 137
+var STRING_GUILD_IS_FULL = 947143367983365  // "The guild is full."
+var STRING_GUILD_USAGE = 127
+var STRING_GUILDMASTER = 128
+var STRING_INVALID_TARGET = 947143367983363  // "Invalid target."
+var STRING_INVITED_TO_JOIN_GUILD = 106
+var STRING_INVITED_TO_JOIN_GUILD_NOTIFICATION = 947143367983244  // "<<1>> has invited you to join the guild called $Q<<2>>$Q."
+var STRING_LIEUTENANT = 130
+var STRING_MEMBER = 131
+var STRING_NOT_PERMITTED_FOR_TRIAL = 947143367983399  // "Not permitted for Trial Accounts."
+var STRING_OFFICER = 129
+var STRING_PLANET_PAREN_INSTANCE_PAREN = 117
+var STRING_PLAYER_ATTEMPTED_TO_INVITE_YOU_TO_THEIR_GUILD = 107
+var STRING_PLAYER_CANNOT_JOIN_GUILD = 947143367983401  // "The following player cannot join a guild at this time: <<1>>.  This player should contact customer support."
+var STRING_PLAYER_DECLINED_YOUR_GUILD_INVITE = 110
+var STRING_PLAYER_HAS_DISBANDED_THE_GUILD = 124
+var STRING_PLAYER_HAS_GONE_OFFLINE = 114
+var STRING_PLAYER_HAS_JOINED_THE_GUILD = 112
+var STRING_PLAYER_HAS_LOGGED_IN = 113
+var STRING_PLAYER_IS_ALREADY_IN_A_GUILD = 947143367983205  // "<<1>> is already in a guild."
+var STRING_PLAYER_IS_BUSY = 947143367983204  // "<<1>> is busy."
+var STRING_PLAYER_IS_NOT_ONLINE_OR_DOESNT_EXIST = 102
+var STRING_PLAYER_QUIT_THE_GUILD = 116
+var STRING_PLAYER_REMOVED_PLAYER_FROM_THE_GUILD = 118
+var STRING_PLAYER_REMOVED_YOU_FROM_THE_GUILD = 119
+var STRING_PLAYER_SET_PLAYERS_RANK_TO_SOMETHING = 122
+var STRING_PLAYER_SET_YOUR_RANK_TO_SOMETHING = 121
+var STRING_PLAYERS_CANNOT_JOIN_GUILD = 947143367983402  // "The following players cannot join a guild at this time: <<1>>.  Affected players should contact customer support."
+var STRING_PROMOTE_RANK = 947143367983371  // "Promote Rank"
+var STRING_RECRUIT = 132
+var STRING_SOMEONE_REMOVED_YOU_FROM_THE_GUILD = 134
+var STRING_TARGET_NOT_A_GUILD_MEMBER = 947143367983362  // "<<1>> is not in your guild."
+var STRING_WANT_TO_JOIN_GUILD = 135
+var STRING_YOU_ARE_NOT_IN_A_GUILD = 104
+var STRING_YOU_HAVE_DISBANDED_THE_GUILD = 123
+var STRING_YOU_HAVE_INVITED_PLAYER_TO_JOIN_YOUR_GUILD = 103
+var STRING_YOU_HAVE_JOINED_A_GUILD = 111
+var STRING_YOU_MAY_NOT_INVITE_YOURSELF_TO_A_GUILD = 947143367983212  // "You may not invite yourself to a guild."
+var STRING_YOU_MUST_ABDICATE_LEADERSHIP = 109
+var STRING_YOU_QUIT_THE_GUILD = 115
+var STRING_YOU_REMOVED_PLAYER_FROM_THE_GUILD = 117
+var STRING_YOU_SET_PLAYERS_RANK_TO_SOMETHING = 120
+var STRING_YOUR_GUILD_RANK_DOES_NOT_HAVE_PERMISSION = 125
+var UNK_09D32C34 = 947143367983369  // "Removing the lowest rank will result in the removal of the Security Key requirement of the next lowest rank. Are you sure you want to remove rank <<1>>?"
+var UNK_0A5B82CF = 947143367983368  // "Making the Security Key required for this guild rank will cause those members who do not have an Security Key to be demoted to the lowest rank."
+var UNK_499EE59F = 947143367983114  // "Are you sure you want to delete the <<1>> rank?"
+var UNK_53DF2A5E = 947143367983367  // "Security Key Warning"
+var UNK_8242B1B4 = 947143367983400  // "Guild Loading Error: Please contact customer support."
+var UNK_9CCC15FA = 947143367983372  // "Demoting this rank to the lowest rank will result in the removal of the Security Key requirement. Are you sure you want to demote rank <<1>>?"
+var UNK_AB3D9B2D = -1
+var UNK_EE024118 = 947143367983366  // "Cannot promote <<1>> to that rank because it requires all members to have a Security Key."
+var UNK_FDFF451D = 954509236901146  // "The guild cannot be disbanded while items or credits remain in the guild bank."
+var UNK_FEB6337A = 947143367983370  // "Promoting the lowest rank will result in the removal of the Security Key requirement of the next lowest rank. Are you sure you want to promote rank <<1>>?"
+public method init(Me)
+  Me.InitializeGuildBankCosts()
+.
+public method InitializeGuildUI(Me, a1 as NodeRef of gldMemberComponent, a2 as NodeRef of guiApiGfx)
+  Boolean bool1
+  Me.ApplyGuildUIDefaults()
+  Me.UpdateGuildWindowGlobalData(a1, a2)
+  Me.UpdateSocialCenterOnlineGuildMemberCount(a2)
+  InvokeSetRegionalGuildOfficeLocation(HM.CopyConstructNodeRef(4, a1), a2)
+  a1.unk_4065f129()
+  gldBankComponentClassMethods:NotifyGuildBankClosed()
+  foreach cur in Me.gldPendingMessages
+    Me.DisplayGuildMessage(cur)
+  .
+  clear Me.gldPendingMessages keep
+  if Me.gldInviteID != 0
+    Me.DisplayGuildInviteDialog(a2)
+  .
+  Me.DisplayGuildImportOfferDialogIfAppropriate()
+  if not Me.gldMOTDDisplayed
+    var node3 = Me.gldLocalPlayerGuild
+    if node3 != None
+      if node3.gldMessageOfTheDay.length > 0
+        bool1 = true
+      else
+        bool1 = false
+      .
+    else
+      bool1 = false
+    .
+    if bool1
+      SF_GFx_ClearAndReserveParams(9)
+      SF_GFx_AddParamString($STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STR_MOTD, HIDWORD(ID_STR_GUI_DIALOG)))  // "MESSAGE OF THE DAY"
+      SF_GFx_AddParamString($CHAT.Deprofane(node3.gldMessageOfTheDay, 1860167987759839207))  // "social_filterprofanity"
+      SF_GFx_AddParamString($STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | GUILD_NOTE_INPUT_WIDTH, HIDWORD(ID_STR_GUI_DIALOG) | 0x3641F))  // "OK"
+      SF_GFx_AddParamNull()
+      SF_GFx_AddParamInteger(0)
+      SF_GFx_AddParamNull()
+      SF_GFx_AddParamNull()
+      SF_GFx_AddParamInteger(0)
+      SF_GFx_AddParamBoolean(false)
+      $GUI_API.getApi().invokeWithParams("displayDialog")
+    .
+    Me.gldMOTDDisplayed = true
+  .
+  Me.UpdateGuiPlayerGuildCreditAllowance()
+  Me.UpdateGuiPlayerGuildBankPermissions()
+.
+public method UpdateGuiPlayerGuildCreditAllowance(Me)
+  _DWORD v13[2]
+  var node2 = Me.GetGuildBankNode()
+  if node2 != None
+    var int1 = 0
+    v13[1] = 0
+    v13[0] = 0
+    node2.unk_4119b2b5(&int1, &v13)
+    $GUI_API.getApi().SetGuiPlayerGuildCreditAllowance(int1, 0)
+  else
+    $GUI_API.getApi().SetGuiPlayerGuildCreditAllowance(0)
+  .
+.
+public method UpdateGuiPlayerGuildBankPermissions(Me)
+  NodeRef node4
+  var node2 = Me.GetGuildNode()
+  if (node2 != None and (node4 = node2.gldBank, node4 != None)) and node2.RequestGuildBankPermissions(0)
+    $GUI_API.getApi().SetGuiPlayerGuildBankPermissions(0, 0)
+  else
+    $GUI_API.getApi().SetGuiPlayerGuildBankPermissions(-1)
+  .
+.
+public method OnGuildBankPermissionsChanged(Me)
+  Me.UpdateGuiPlayerGuildCreditAllowance()
+  Me.UpdateGuiPlayerGuildBankPermissions()
+  if not gldBankComponentClassMethods:IsGuildBankGuiOpen()
+    // unknown
+  else
+    var node3 = Me.GetGuildNode()
+    if node3 = None
+      // unknown
+    else
+      var node5 = Me.GetGuildBankNode()
+      if node5 = None
+        // unknown
+      else
+        gldBankComponentClassMethods:unk_87215988(node5)
+        var pc = GetPlayerCharacterNode()
+        var pc2 = pc
+        if node3.IsGuildLeader(pc2)
+          foreach cur in node3.gldRanks
+            gldBankComponentClassMethods:SetGuildBankRankPermissionsDisplayForRank(node5, cur)
+          .
+        .
+        foreach cur in node5.gldBankTabs
+          if cur != None
+            gldBankComponentClassMethods:SetupGuildBankTab(cur)
+          .
+        .
+        var list3 = node5.4611686284295190012.gldBankTransactions
+        gldBankComponentClassMethods:ClearGuildBankTransactionsDisplay()
+        var list3Length = list3.length
+        gldBankComponentClassMethods:SetGuildBankTransactionsDisplay(list3, list3Length)
+      .
+    .
+  .
+.
+public method unk_78429f56(o1 references Integer) as Boolean
+  _DWORD v9[2]
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 = None
+    // unknown
+  else
+    var node2 = Me.GetGuildBankNode()
+    if node2 = None
+      // unknown
+    else
+      var node5 = Me.GetGuildRankForPlayer(pc2)
+      if node5 = None
+        // unknown
+      else if not node5.IsGuildBankPermissionsBitSet(2)
+        // unknown
+      else
+        v9[1] = 0
+        v9[0] = 0
+        node2.unk_4119b2b5(&o1, &v9)
+        return true
+      .
+    .
+  .
+  return false
+.
+public method ReinitializeGuildUI(Me)
+  Me.gldInfoInitialized = false
+  Me.gldRosterInitialized = false
+  Me.gldManagementInitialized = false
+  Me.gldWindowGuiInitialized = false
+.
+public method ApplyGuildUIDefaults(Me)
+  Me.gldWindowTabIndex = 1
+  Me.gldInfoInitialized = false
+  Me.gldRosterInitialized = false
+  Me.gldManagementInitialized = false
+  Me.gldOfflineMembersShown = false
+  Me.gldWindowGuiInitialized = false
+.
+public method UpdateGuildWindowGlobalData(Me, a1 as NodeRef of gldMemberComponent, a2 as NodeRef of guiApiGfx)
+  if a1 != None
+    if a2 != None
+      var node = Me.gldLocalPlayerGuild
+      if node != None
+        if node.HasGuildMember(a1)
+          var node5 = node.GetGuildRankForMember(a1)
+          if node5 != None
+            InvokeSetPlayerGuildPermissions(node5)
+            InvokeSetLocalGuildRank(a2, node5)
+          else
+            // unknown
+          .
+          InvokeSetGuildMemberCount(a2, node.GetGuildMemberCount())
+          InvokeSetGuildRanks(a2, node.gldRanks)
+          var str = node.gldName
+        else
+          // unknown
+        .
+      .
+      var id3 = a1
+      InvokeSetGroupMemberGuildName(a2, id3, str)
+      Me.UpdateGuildWindowState(a2)
+    else
+    .
+  else
+    // unknown
+  .
+.
+public method UpdateGuildWindowState(Me, a1 as NodeRef of guiApiGfx)
+  if a1 != None
+    var unused = HM.GetEnumDefaultValue(22)
+    int v8 = 1
+    if Me.gldLocalPlayerGuild != None
+      v8 = 2
+    else if Me.HasGuildLoadError()
+      v8 = 3
+    .
+    SF_GFx_ClearAndReserveParams(1)
+    SF_GFx_AddParamInteger(v8)
+    a1.invokeWithParams("setGuildWindowState")
+  else
+    // unknown
+  .
+.
+public function InvokeSetRegionalGuildOfficeLocation(Me, a1 as NodeRef of cbtFactionComponent, a2 as NodeRef of guiApiGfx)
+  if a1 != None
+    if a2 != None
+      if a1.cbtFaction == 1086966210362573345  // "republic"
+        var str2 = $MAP.GetAreaDisplayNameByID(620482389, 0x40000000)
+        var str = str2
+      else if a1.cbtFaction == 16591463407040943397  // "empire"
+        var str2 = $MAP.GetAreaDisplayNameByID(1190994762, 0x40000000)
+        str = str2
+      .
+      if str.length > 0
+        SF_GFx_ClearAndReserveParams(1)
+        SF_GFx_AddParamString(str)
+        a2.invokeWithParams("setRegionalGuildOfficeLocation")
+      .
+    else
+      // unknown
+    .
+  else
+    // unknown
+  .
+.
+public function InvokeSetGuildMemberCount(Me, a1 as NodeRef of guiApiGfx, a2 as Integer)
+  if a1 != None
+    SF_GFx_ClearAndReserveParams(1)
+    SF_GFx_AddParamInteger(a2)
+    a1.invokeWithParams("setGuildNumberOfMembers")
+  else
+    // unknown
+  .
+.
+public function InvokeSetGuildRanks(Me, a1 as NodeRef of guiApiGfx, a2 as List of NodeRef of gldRank)
+  if a1 != None
+    var a2Length = a2.length
+    var bool1 = a2Length <= -1
+    if not HIDWORD(a2Length)
+      bool1 = (_DWORD)a2Length == 0
+    .
+    if not bool1
+      SF_GFx_ClearAndReserveParams(a2Length * 3)
+      foreach cur in a2
+        var id1 = cur
+        SF_GFx_AddParamID(id1)
+        SF_GFx_AddParamString($CHAT.Deprofane(cur.gldRankName, 1860167987759839207))  // "social_filterprofanity"
+        SF_GFx_AddParamString($CHAT.Deprofane(cur.gldRankDescription, 1860167987759839207))  // "social_filterprofanity"
+      .
+      a1.invokeWithParams("setGuildRanks")
+    else
+      // unknown
+    .
+  else
+    // unknown
+  .
+.
+public function InvokeSetLocalGuildRank(Me, a1 as NodeRef of guiApiGfx, a2 as NodeRef of gldRank)
+  if a1 != None
+    if a2 != None
+      var int1 = a2.gldRankIndex
+      var bool1 = int1 <= -1
+      if not HIDWORD(int1)
+        bool1 = (_DWORD)int1 == 0
+      .
+      if not bool1
+        SF_GFx_ClearAndReserveParams(1)
+        SF_GFx_AddParamInteger(int1)
+        a1.invokeWithParams("setGuildRank")
+      else
+        // unknown
+      .
+    else
+      // unknown
+    .
+  else
+    // unknown
+  .
+.
+public function InvokeSetGroupMemberGuildName(Me, a1 as NodeRef of guiApiGfx, a2 as ID, a3 as String)
+  if a1 != None
+    SF_GFx_ClearAndReserveParams(2)
+    SF_GFx_AddParamID(a2)
+    if a3.length > 0
+      SF_GFx_AddParamString(a3)
+    else
+      SF_GFx_AddParamNull()
+    .
+    a1.invokeWithParams("setCharacterGuildName")
+  else
+    // unknown
+  .
+.
+public function InvokeSetGuildMessageOfTheDay(Me, a1 as NodeRef of guiApiGfx, a2 as String)
+  if a1 != None
+    SF_GFx_ClearAndReserveParams(1)
+    SF_GFx_AddParamString($CHAT.Deprofane(a2, 1860167987759839207))  // "social_filterprofanity"
+    a1.invokeWithParams("setGuildMotd")
+  else
+    // unknown
+  .
+.
+public function InvokeSetGuildDescription(Me, a1 as NodeRef of guiApiGfx, a2 as String)
+  if a1 != None
+    SF_GFx_ClearAndReserveParams(1)
+    SF_GFx_AddParamString($CHAT.Deprofane(a2, 1860167987759839207))  // "social_filterprofanity"
+    a1.invokeWithParams("setGuildDescription")
+  else
+    // unknown
+  .
+.
+public function InvokeRemoveGuildMembers(Me, a1 as NodeRef of guiApiGfx, a2 as LookupList indexed by ID of NodeRef of gldMemberInfo)
+  if a1 != None
+    var a2Length = a2.length
+    var bool1 = a2Length <= -1
+    if not HIDWORD(a2Length)
+      bool1 = (_DWORD)a2Length == 0
+    .
+    if not bool1
+      SF_GFx_ClearAndReserveParams(a2Length)
+      foreach key in a2
+        SF_GFx_AddParamID(key)
+      .
+      a1.invokeWithParams("removeGuildMembers")
+    else
+      // unknown
+    .
+  else
+    // unknown
+  .
+.
+public function InvokeSetPlayerGuildPermissions(Me, a1 as NodeRef of gldRank)
+  if a1 != None
+    SF_GFx_ClearAndReserveParams(1)
+    SF_GFx_AddParamInteger(a1.GetGuildRankPermissions())
+    $GUI_API.getApi().invokeWithParams("setPlayerGuildPermissions")
+  .
+.
+public function InvokeSetGuildRankDetails(Me, a1 as List of NodeRef of gldRank)
+  var node2 = $GUILD.GetGuildNode()
+  if node2 = None
+    // unknown
+  else if a1.length > 0
+    var a1Length = a1.length
+    SF_GFx_ClearAndReserveParams(a1Length * 3)
+    foreach cur in a1
+      var id1 = cur
+      SF_GFx_AddParamID(id1)
+      SF_GFx_AddParamInteger(cur.GetGuildRankPermissions())
+      SF_GFx_AddParamInteger(node2.DetermineAuthenticatorRequiredCheckboxStatus(cur))
+    .
+    $GUI_API.getApi().invokeWithParams("setGuildRankDetails")
+  .
+.
+public function InvokeSetGuildRankMemberCounts(Me, a1 as LookupList indexed by ID of NodeRef of gldMemberInfo)
+  lookup as LookupList indexed by ID of Integer
+  foreach key in a1
+    var cur = a1[key]
+    var node = cur.gldMemberRank
+    if node != None
+      lookup[node] = lookup[node] + 1
+    else
+      // unknown
+    .
+  .
+  var length = lookup.length
+  SF_GFx_ClearAndReserveParams(length * 2)
+  foreach key in lookup
+    SF_GFx_AddParamID(key)
+    var lookupCur = lookup[key]
+    SF_GFx_AddParamInteger(lookupCur)
+  .
+  $GUI_API.getApi().invokeWithParams("setGuildRankMemberCounts")
+.
+public function InvokeNewGuildRankNameDialog(Me, a1 as NodeRef of guiApiGfx)
+  if a1 != None
+    SF_GFx_ClearAndReserveParams(11)
+    SF_GFx_AddParamString($STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STR_NEW_RANK, HIDWORD(ID_STR_GUI_DIALOG)))  // "NEW RANK"
+    var str3 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STR_RANK_NAME, HIDWORD(ID_STR_GUI_DIALOG))  // "Name the new Guild rank:"
+    SF_GFx_AddParamString(str3)
+    SF_GFx_AddParamInteger(GUILD_RANK_NAME_LENGTH_MAX)
+    SF_GFx_AddParamInteger(GUILD_RANK_INPUT_HEIGHT)
+    SF_GFx_AddParamString($STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | GUILD_NOTE_INPUT_WIDTH, HIDWORD(ID_STR_GUI_DIALOG) | 0x3641F))  // "OK"
+    SF_GFx_AddParamString("cmdConfirmAddGuildRank")
+    SF_GFx_AddParamInteger(0)
+    SF_GFx_AddParamString($STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | 9, HIDWORD(ID_STR_GUI_DIALOG) | 0x3641F))  // "Cancel"
+    SF_GFx_AddParamNull()
+    SF_GFx_AddParamInteger(0)
+    SF_GFx_AddParamBoolean(true)
+    $GUI_API.getApi().invokeWithParams("displayInputDialog")
+  else
+    // unknown
+  .
+.
+public method SetGuildNode(Me, a1 as NodeRef of gldNode)
+  Me.gldLocalPlayerGuild = a1
+  Me.ApplyGuildUIDefaults()
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None
+    var node3 = $GUI_API.getApi()
+    if node3 != None
+      Me.UpdateGuildWindowGlobalData(HM.CopyConstructNodeRef(2, pc2), node3)
+      Me.InitializeGuildInfoTab(node3)
+      Me.UpdateSocialCenterOnlineGuildMemberCount(node3)
+      Me.UpdateGuiPlayerGuildCreditAllowance()
+      Me.UpdateGuiPlayerGuildBankPermissions()
+      if a1 = None
+        lookup as LookupList indexed by ID of NodeRef of gldMemberInfo
+        lookup[pc2] = None
+        InvokeRemoveGuildMembers(node3, lookup)
+      .
+    .
+  .
+.
+public method GetGuildNode() as NodeRef of gldNode
+  return Me.gldLocalPlayerGuild
+.
+public method GetGuildBankNode() as NodeRef of gldBankNode
+  var node2 = Me.GetGuildNode()
+  if node2 = None
+    return None
+  else
+    return node2.gldBank
+  .
+.
+public method OnGuildWindowOpened(Me, a1 as NodeRef of guiApiGfx)
+  Me.SetGuildWindowTab(a1, Me.gldWindowTabIndex)
+.
+public method SetGuildWindowTab(Me, a1 as NodeRef of guiApiGfx, a2 as Enum gldWindowTabIndexEnum)
+  Me.gldWindowTabIndex = a2
+  if a2 == gldWindowTabIndexInfo
+    if Me.gldInfoInitialized
+      return
+    .
+    Me.InitializeGuildInfoTab(a1)
+    return
+  .
+  if a2 == gldWindowTabIndexRoster
+    if Me.gldRosterInitialized
+      Me.UpdateGuildRosterTab(a1)
+    else
+      Me.InitializeGuildRosterTab(a1)
+    .
+    return
+  .
+  if a2 == gldWindowTabIndexManage
+    if not Me.gldManagementInitialized
+      Me.InitializeGuildManagementTab(a1)
+    .
+  .
+.
+public method SendGuiGuildWindowData(Me, a1 as NodeRef of guiApiGfx)
+  if not Me.gldWindowGuiInitialized
+    Me.InitializeGuildInfoTab(a1)
+    Me.InitializeGuildRosterTab(a1)
+    Me.InitializeGuildManagementTab(a1)
+    Me.gldWindowGuiInitialized = true
+  else
+    Me.UpdateGuildRosterTab(a1)
+  .
+.
+public method SetShowOfflineGuildMembers(Me, a1 as NodeRef of guiApiGfx, a2 as Boolean)
+  Me.gldOfflineMembersShown = a2
+  if a1 != None
+    var node = Me.gldLocalPlayerGuild
+    if node != None
+      lookup as LookupList indexed by ID of NodeRef of gldMemberInfo
+      var lookup2 = node.gldMembers
+      foreach key in lookup2
+        var cur = lookup2[key]
+        if not cur.IsGuildMemberOnline()
+          lookup[key] = cur
+        .
+      .
+      if lookup.length > 0
+        if a2
+          UpdateGuildRosterMembers(a1, lookup)
+        else
+          UpdateGuildRosterMembers(a1, lookup)
+        .
+      .
+    else
+      // unknown
+    .
+  else
+    // unknown
+  .
+.
+public method UpdateSocialCenterOnlineGuildMemberCount(Me, a1 as NodeRef of guiApiGfx)
+  if a1 != None
+    var node = Me.gldLocalPlayerGuild
+    if node != None
+      var int1 = 0
+      var lookup = node.gldMembers
+      foreach key in lookup
+        var cur = lookup[key]
+        if cur.IsGuildMemberOnline()
+          ++int1
+        .
+      .
+      SF_GFx_ClearAndReserveParams(1)
+      SF_GFx_AddParamInteger(int1)
+      a1.invokeWithParams("onUpdateGuildOnlineCount")
+    .
+  .
+.
+public method InitializeGuildInfoTab(Me, a1 as NodeRef of guiApiGfx)
+  if a1 != None
+    var node = Me.gldLocalPlayerGuild
+    if node != None
+      var pc = GetPlayerCharacterNode()
+      var pc2 = pc
+      if node.HasGuildMember(pc2)
+        var dateTime1 = node.GetGuildCreationDate()
+        SF_GFx_ClearAndReserveParams(3)
+        SF_GFx_AddParamInteger(HM.GetTimeMonthInt(dateTime1))
+        SF_GFx_AddParamInteger(HM.GetTimeDayOfMonth(dateTime1))
+        SF_GFx_AddParamInteger(HM.GetTimeYear(dateTime1))
+        a1.invokeWithParams("setGuildCreationTime")
+        InvokeSetGuildMessageOfTheDay(a1, node.gldMessageOfTheDay)
+        InvokeSetGuildDescription(a1, node.gldDescription)
+        Me.gldInfoInitialized = true
+      else
+        // unknown
+      .
+    .
+  else
+    // unknown
+  .
+.
+public method UpdateGuildRosterTab(Me, a1 as NodeRef of guiApiGfx)
+  if a1 != None
+    if Me.gldOfflineMembersShown
+      var node = Me.gldLocalPlayerGuild
+      if node != None
+        lookup as LookupList indexed by ID of NodeRef of gldMemberInfo
+        var lookup2 = node.gldMembers
+        foreach key in lookup2
+          var cur = lookup2[key]
+          if not cur.IsGuildMemberOnline()
+            lookup[key] = cur
+          .
+        .
+        UpdateGuildRosterMembers(a1, lookup)
+      else
+        // unknown
+      .
+    .
+  else
+    // unknown
+  .
+.
+public method InitializeGuildRosterTab(Me, a1 as NodeRef of guiApiGfx)
+  if a1 != None
+    var node = Me.gldLocalPlayerGuild
+    if node != None
+      var pc = GetPlayerCharacterNode()
+      var id1 = pc
+      if id1 != 0
+        if node.GetGuildRankForMember(id1) != None
+          if Me.gldOfflineMembersShown
+            var lookup = node.gldMembers
+            UpdateGuildRosterMembers(a1, lookup)
+          else
+            lookup2 as LookupList indexed by ID of NodeRef of gldMemberInfo
+            var lookup3 = node.gldMembers
+            foreach key in lookup3
+              var cur = lookup3[key]
+              if cur.IsGuildMemberOnline()
+                lookup2[key] = cur
+              .
+            .
+            var lookup2 = lookup2
+            UpdateGuildRosterMembers(a1, lookup2)
+          .
+          Me.gldRosterInitialized = true
+        else
+          // unknown
+        .
+      else
+        // unknown
+      .
+    else
+      // unknown
+    .
+  else
+    // unknown
+  .
+.
+public function UpdateGuildRosterMembers(Me, a1 as NodeRef of guiApiGfx, a2 as LookupList indexed by ID of NodeRef of gldMemberInfo)
+  if a1 != None
+    if a2.length > 0
+      var a2Length = a2.length
+      SF_GFx_ClearAndReserveParams(a2Length * 9)
+      foreach key in a2
+        SF_GFx_AddParamID(key)
+        var a2Cur = a2[key]
+        SF_GFx_AddParamString(a2Cur.gldMemberName)
+        SF_GFx_AddParamInteger(a2Cur.gldMemberLevel)
+        var id1 = a2Cur.gldMemberClassID
+        if chrAdvancementComponentClassMethods:IsValidAdvancedCharacterClass(id1)
+          SF_GFx_AddParamString(chrAdvancementComponentClassMethods:GetAdvancedClassNameFromSpec(id1))
+        else
+          var id3 = a2Cur.gldMemberClassID
+          SF_GFx_AddParamString(chrClassComponentClassMethods:GetCharacterClassNameFromSpec(id3))
+        .
+        if a2Cur.gldMemberShowAreaInstance
+          list1 as List of String
+          var id4 = a2Cur.gldMemberAreaID
+          add back $MAP.GetAreaDisplayNameByID(id4) to list1
+          var id5 = a2Cur.gldMemberAreaInstance
+          add back id5 to list1
+          SF_GFx_AddParamString($STRING.LocalizeStringTokenizedWithPlayerGenderVariant(STR_GUI_INSTANCE, ID_STR_GUI_INSTANCE | STRING_PLANET_PAREN_INSTANCE_PAREN, HIDWORD(ID_STR_GUI_INSTANCE), list1))  // "<<1>> (<<2>>)"
+        else
+          var id6 = a2Cur.gldMemberAreaID
+          SF_GFx_AddParamString($MAP.GetAreaDisplayNameByID(id6))
+        .
+        var id7 = a2Cur.gldMemberRank
+        SF_GFx_AddParamID(id7)
+        var float1 = 0.0
+        if not a2Cur.IsGuildMemberOnline()
+          float1 = (Float)($NOW - a2Cur.gldMemberLastOnlineTime) / 3600000.0
+        .
+        SF_GFx_AddParamFloat(float1)
+        SF_GFx_AddParamString($CHAT.Deprofane(a2Cur.GetGuildMemberNotes(), 1860167987759839207))  // "social_filterprofanity"
+        SF_GFx_AddParamString($CHAT.Deprofane(a2Cur.GetGuildOfficerNotes(), 1860167987759839207))  // "social_filterprofanity"
+      .
+      a1.invokeWithParams("updateGuildRoster")
+    else
+      // unknown
+    .
+  else
+    // unknown
+  .
+.
+public method InitializeGuildManagementTab(Me, a1 as NodeRef of guiApiGfx)
+  if a1 != None
+    var node = Me.gldLocalPlayerGuild
+    if node != None
+      InvokeSetGuildRankMemberCounts(node.gldMembers)
+      InvokeSetGuildRankDetails(node.gldRanks)
+      Me.gldManagementInitialized = true
+    else
+      // unknown
+    .
+  else
+    // unknown
+  .
+.
+public method ValidateCurrentGuildmasterInteractionDistance() as Boolean
+  CallFrame _callFrame
+  var pc = GetPlayerCharacterNode()
+  var node = HM.CopyConstructNodeRef(13, pc)
+  var id1 = Me.gldActiveGuildmasterID
+  FuncRef ValidateGuildmasterInteractionDistance = HM.PrepareCallNodeRef2(71, Me, &_callFrame)
+  return ValidateGuildmasterInteractionDistance(_callFrame, node, id1) & 1
+.
+public method ValidateGuildmasterInteractionDistance(a1 as NodeRef of chrPlayerCharacter, a2 as NodeRef of gldMasterComponent) as Boolean
+  Vector3 vec
+  var out = false
+  if a1 != None
+    if a2 != None
+      var node = $STATIC.ablCachedAblPlayerVendor
+      if node != None
+        var float2 = node.GetAbilityMaxRangeBase()
+        vec.x = 0.0
+        vec.y = 0.0
+        vec.z = 0.0
+        var vec2 = a1.GetPosition_w()
+        var vec3 = a2.GetPosition_w()
+        vec.x = vec2.x - vec3.x
+        vec.y = vec2.y - vec3.y
+        vec.z = vec2.z - vec3.z
+        if VectorLengthSq(vec) <= (float2 * float2)
+          out = true
+        .
+      else
+        // unknown
+      .
+    else
+      // unknown
+    .
+  .
+  if out
+    Me.SetActiveGuildmaster(a2)
+  else
+    Me.SetActiveGuildmaster(0)
+  .
+  return out
+.
+public method SetActiveGuildmaster(Me, a1 as ID)
+  var bool1 = Me.gldMasterInteractionTimer.timerState == 2
+  var bool2 = Me.gldActiveGuildmasterID != 0
+  var bool3 = a1 != 0
+  if ((bool1 ^ bool2) & 1) != 0
+    // unknown
+  .
+  if ((bool1 ^ bool3) & 1) != 0
+    if bool3
+      Me.gldMasterInteractionTimer.fireRate = 500
+      Me.gldMasterInteractionTimer.script = $THISSCRIPT
+      timer::start(Me.gldMasterInteractionTimer)
+    else
+      timer::stop(Me.gldMasterInteractionTimer)
+    .
+  .
+  if Me.gldActiveGuildmasterID != a1
+    Me.gldActiveGuildmasterID = a1
+    if not bool2
+      Me.DisplayGuildmasterDialog()
+    else
+      if a1 != 0
+        return
+      .
+      Me.CloseGuildCreateWindow()
+    .
+  .
+.
+public method DisplayGuildmasterDialog(Me)
+  if Me.HasGuildLoadError()
+    Me.HandleGuildResult(gldResultLoadError, "")
+  else
+    var node3 = $GUI_API.getApi()
+    if node3 != None
+      var bool2 = false
+      list1 as List of ClassView chrEntitlementRestrictions
+      if $BASECLIENT.unk_719748fa(list1)
+        foreach cur in list1
+          if cur.chrGuildmasterRestriction
+            bool2 = true
+            break
+          .
+        .
+      .
+      if not bool2
+        var unused = HM.GetEnumDefaultValue(41)
+        SF_GFx_ClearAndReserveParams(1)
+        SF_GFx_AddParamBoolean(true)
+        SF_GFx_AddParamInteger(1)
+        SF_GFx_AddParamInteger(GUILD_CREATION_COST)
+        node3.invokeWithParams("displayGuildCreateWindow")
+      else
+        node3.systemMessage($STRING.LocalizeString(STR_GUI_GUILD, STRING_NOT_PERMITTED_FOR_TRIAL))  // "Not permitted for Trial Accounts."
+      .
+    else
+      // unknown
+    .
+  .
+.
+public method CloseGuildCreateWindow(Me)
+  SF_GFx_ClearAndReserveParams(1)
+  SF_GFx_AddParamBoolean(false)
+  $GUI_API.getApi().invokeWithParams("displayGuildCreateWindow")
+.
+public method OnGuildCreationWindowClosed(Me, a1 as NodeRef of guiApiGfx)
+  Me.SetActiveGuildmaster(0)
+  if Me.gldIsVerifying
+    Me.CancelGuildCreation(a1)
+  .
+  Me.UpdateGuildWindowState(a1)
+.
+public method ConfirmCreateGuild(Me, a1 as NodeRef of guiApiGfx, a2 as String)
+  _DWORD v9[5]
+  if a1 != None
+    if Me.gldActiveGuildmasterID != 0
+      v9[1] = 0
+      v9[0] = 0
+      if GetGuildGSSIDForCurrentCharacter(&v9)
+        Me.gldIsVerifying = true
+        var unused = HM.GetEnumDefaultValue(41)
+        SF_GFx_ClearAndReserveParams(1)
+        SF_GFx_AddParamInteger(2)
+        a1.invokeWithParams("setGuildCreateWindowState")
+        var id1 = Me.gldActiveGuildmasterID
+        call server untrustedMethods:OnRequestGuildCreate(id1, a2)
+      .
+    else
+      // unknown
+    .
+  else
+    // unknown
+  .
+.
+public method CancelGuildCreation(Me, a1 as NodeRef of guiApiGfx)
+  Me.gldIsVerifying = false
+  if a1 != None
+    var id1 = 0
+    if GetGuildGSSIDForCurrentCharacter(&id1)
+      var unused = HM.GetEnumDefaultValue(41)
+      SF_GFx_ClearAndReserveParams(1)
+      SF_GFx_AddParamInteger(1)
+      a1.invokeWithParams("setGuildCreateWindowState")
+      call server id1 untrustedMethods:OnRequestGuildCreationCancel()
+    .
+  else
+    // unknown
+  .
+.
+public method HandleGuildImportOffer(Me, a1 as String, a2 as Boolean)
+  String str
+  if $Options.GetBooleanValue(8429538296607211743)  // "gui_ignoreguildimportoffer"
+    // unknown
+  else
+    list1 as List of String
+    add back a1 to list1
+    if a2
+      str = $STRING.LocalizeStringWithTokenList(STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_GUILD_IMPORT_OFFER_ALREADY_CREATED, HIDWORD(ID_STR_GUI_GUILD), list1)  // "Your web guild <<1>> is on this server.$RJoin the guild with this character? NOTE: You may only auto-join with one character."
+    else
+      str = $STRING.LocalizeStringWithTokenList(STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_GUILD_IMPORT_OFFER_NEEDS_CREATE, HIDWORD(ID_STR_GUI_GUILD), list1)  // "Your web guild <<1>> is assigned to this server, but has not yet been created.$RCreate the guild and join it with this character? NOTE: You may only auto-join with one character.$R"
+    .
+    Me.gldImportOfferMessage = str
+    Me.DisplayGuildImportOfferDialog()
+  .
+.
+public method DisplayGuildImportOfferDialog(Me)
+  SF_GFx_ClearAndReserveParams(13)
+  SF_GFx_AddParamString($STRING.LocalizeString(STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_GUILD_IMPORT_OFFER, HIDWORD(ID_STR_GUI_GUILD)))  // "Guild Import Offer"
+  SF_GFx_AddParamString(Me.gldImportOfferMessage)
+  SF_GFx_AddParamString($STRING.LocalizeString(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STR_DO_NOT_ASK_AGAIN, HIDWORD(ID_STR_GUI_DIALOG)))  // "Do not ask again"
+  int v13 = HIDWORD(ID_STR_GUI_DIALOG) | HIDWORD(STRING_YES)
+  SF_GFx_AddParamString($STRING.LocalizeString(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STRING_YES, v13))  // "Yes"
+  SF_GFx_AddParamString("cmdAcceptGuildImportOffer")
+  SF_GFx_AddParamInteger(0)
+  var str8 = $STRING.LocalizeString(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STRING_NO, HIDWORD(ID_STR_GUI_DIALOG) | HIDWORD(STRING_NO))  // "No"
+  SF_GFx_AddParamString(str8)
+  SF_GFx_AddParamString("cmdDeclineGuildImportOffer")
+  SF_GFx_AddParamInteger(0)
+  SF_GFx_AddParamBoolean(false)
+  SF_GFx_AddParamInteger(GUILD_IMPORT_DIALOG_WIDTH)
+  SF_GFx_AddParamNull()
+  SF_GFx_AddParamBoolean(true)
+  $GUI_API.getApi().invokeWithParams("displayCheckboxDialog")
+.
+public method DisplayGuildImportOfferDialogIfAppropriate(Me)
+  if Me.gldImportOfferMessage.length > 0
+    Me.DisplayGuildImportOfferDialog()
+  .
+.
+public method OnGuildImportOfferResponse(Me, a1 as Boolean)
+  Me.gldImportOfferMessage = ""
+  if a1
+    var id1 = 0
+    if GetGuildGSSIDForCurrentCharacter(&id1)
+      call server id1 untrustedMethods:OnRequestGuildImport()
+    .
+  .
+.
+public method HandleGuildCreationResult(Me, a1 as Enum gldResult)
+  NodeRef *v2
+  NodeRef node
+  NodeRef node3
+  Me.gldIsVerifying = false
+  if a1 == gldResultFailed
+    var unused = HM.GetEnumDefaultValue(41)
+    SF_GFx_ClearAndReserveParams(1)
+    SF_GFx_AddParamInteger(1)
+    v2 = node
+    node = HM.ConstructNodeRef(10)
+    v2 = $GUI_API.getApi()
+    v2.invokeWithParams("setGuildCreateWindowState")
+    return
+  .
+  if a1 == gldResultNameUnavailable
+    var unused2 = HM.GetEnumDefaultValue(41)
+    SF_GFx_ClearAndReserveParams(1)
+    SF_GFx_AddParamInteger(3)
+    v2 = node3
+    node3 = HM.ConstructNodeRef(10)
+    v2 = $GUI_API.getApi()
+    v2.invokeWithParams("setGuildCreateWindowState")
+    return
+  .
+  if a1 == gldResultInvalidTarget
+    Me.SetActiveGuildmaster(0)
+    return
+  .
+  if a1 == gldResultOk
+    Me.SetActiveGuildmaster(0)
+    return
+  .
+.
+public method unk_57d7b344(Me, a1 as Enum gldResult, a2 as List of ID)
+  if a1 == gldResultLoadError
+    var unused = HM.GetEnumDefaultValue(41)
+    SF_GFx_ClearAndReserveParams(1)
+    SF_GFx_AddParamInteger(1)
+    $GUI_API.getApi().invokeWithParams("setGuildCreateWindowState")
+    unk_7329f8ee(a2)
+  else
+    // unknown
+  .
+.
+public function unk_7329f8ee(Me, a1 as List of ID)
+  String str12
+  var str2 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_GUILD, STRING_GUILD_CREATION_ERROR)  // "Guild Creation Error"
+  var str5 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STRING_OK, HIDWORD(ID_STR_GUI_DIALOG) | HIDWORD(STRING_OK))  // "OK"
+  var node4 = $GROUP.GetGroupNode()
+  list1 as List of String
+  if node4 != None
+    str7 as String
+    var bool1 = false
+    str8 as String
+    foreach cur in a1
+      if bool1
+        str7 = str7 + ", "
+      .
+      node4.GetGroupMemberName(cur, &str8)
+      str7 = str7 + str8
+      bool1 = true
+    .
+    add back str7 to list1
+  .
+  if a1.length == 1
+    str12 = $STRING.LocalizeStringWithTokenList(STR_GUI_GUILD, STRING_PLAYER_CANNOT_JOIN_GUILD, list1)  // "The following player cannot join a guild at this time: <<1>>.  This player should contact customer support."
+  else
+    str12 = $STRING.LocalizeStringWithTokenList(STR_GUI_GUILD, STRING_PLAYERS_CANNOT_JOIN_GUILD, list1)  // "The following players cannot join a guild at this time: <<1>>.  Affected players should contact customer support."
+  .
+  SF_GFx_ClearAndReserveParams(9)
+  SF_GFx_AddParamString(str2)
+  SF_GFx_AddParamString(str12)
+  SF_GFx_AddParamString(str5)
+  SF_GFx_AddParamNull()
+  SF_GFx_AddParamInteger(0)
+  SF_GFx_AddParamNull()
+  SF_GFx_AddParamNull()
+  SF_GFx_AddParamInteger(0)
+  SF_GFx_AddParamBoolean(true)
+  $GUI_API.getApi().invokeWithParams("displayDialog")
+.
+public method HandleGuildInviteResult(Me, a1 as Enum gldResult, a2 as String)
+  String str3
+  int v14
+  if a1 == gldResultInvalidTarget
+    Me.DisplayGuildMessage((Enum)$STRING.LocalizeString(STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_PLAYER_IS_NOT_ONLINE_OR_DOESNT_EXIST, HIDWORD(ID_STR_GUI_GUILD)), str3)  // "Player is not online or doesn't exist."
+  else if a1 == gldResultOk
+    list1 as List of String
+    add back a2 to list1
+    Me.DisplayGuildMessage($STRING.LocalizeStringWithTokenList(STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_YOU_HAVE_INVITED_PLAYER_TO_JOIN_YOUR_GUILD, HIDWORD(ID_STR_GUI_GUILD), list1), v14)  // "You have invited <<1>> to join your guild."
+  else
+    Me.HandleGuildResult(a1, a2)
+  .
+.
+public method HandleGuildResult(Me, a1 as Enum gldResult, a2 as String)
+  if a1 == gldResultTargetIsBusy
+    list1 as List of String
+    add back a2 to list1
+    Me.DisplayGuildMessage($STRING.LocalizeStringWithTokenList(STR_GUI_GUILD, STRING_PLAYER_IS_BUSY, list1))  // "<<1>> is busy."
+    return
+  .
+  if a1 == gldResultAlreadyInGuild
+    list2 as List of String
+    add back a2 to list2
+    Me.DisplayGuildMessage($STRING.LocalizeStringWithTokenList(STR_GUI_GUILD, STRING_PLAYER_IS_ALREADY_IN_A_GUILD, list2))  // "<<1>> is already in a guild."
+    return
+  .
+  if a1 == gldResultNotInGuild
+    Me.DisplayGuildMessage($STRING.LocalizeString(STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_YOU_ARE_NOT_IN_A_GUILD, HIDWORD(ID_STR_GUI_GUILD)))  // "You are not in a guild."
+    return
+  .
+  if a1 == gldResultRankNotPermitted
+    var str7 = $STRING.LocalizeString(STR_GUI_GUILD, STRING_YOUR_GUILD_RANK_DOES_NOT_HAVE_PERMISSION)  // "Your guild rank does not have permission to do that."
+    Me.DisplayGuildMessage(str7)
+    return
+  .
+  if a1 == gldResultInvalidTarget
+    var str7 = $STRING.LocalizeString(STR_GUI_GUILD, STRING_INVALID_TARGET)  // "Invalid target."
+    Me.DisplayGuildMessage(str7)
+    return
+  .
+  if a1 == gldResultTargetNotInGuild
+    list3 as List of String
+    add back a2 to list3
+    Me.DisplayGuildMessage($STRING.LocalizeStringWithTokenList(STR_GUI_GUILD, STRING_TARGET_NOT_A_GUILD_MEMBER, list3))  // "<<1>> is not in your guild."
+    return
+  .
+  if a1 == gldResultMustAbdicate
+    Me.DisplayGuildMessage($STRING.LocalizeString(STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_YOU_MUST_ABDICATE_LEADERSHIP, HIDWORD(ID_STR_GUI_GUILD)))  // "You must abdicate leadership to another member before you may quit the guild."
+    return
+  .
+  if a1 == gldResultCannotAbdicateToSelf
+    var str7 = $STRING.LocalizeString(STR_GUI_GUILD, STRING_CANNOT_ABDICATE_TO_SELF)  // "You cannot abdicate the guild to yourself."
+    Me.DisplayGuildMessage(str7)
+    return
+  .
+  if a1 == gldResultGuildFull
+    var str7 = $STRING.LocalizeString(STR_GUI_GUILD, STRING_GUILD_IS_FULL)  // "The guild is full."
+    Me.DisplayGuildMessage(str7)
+    return
+  .
+  if a1 == gldResultCannotInviteSelf
+    var str7 = $STRING.LocalizeString(STR_GUI_GUILD, STRING_YOU_MAY_NOT_INVITE_YOURSELF_TO_A_GUILD)  // "You may not invite yourself to a guild."
+    Me.DisplayGuildMessage(str7)
+    return
+  .
+  if a1 == gldResultMemberRequiresAuthenticatorForRank
+    list4 as List of String
+    add back a2 to list4
+    Me.DisplayGuildMessage($STRING.LocalizeStringWithTokenList(STR_GUI_GUILD, UNK_EE024118, list4))  // "Cannot promote <<1>> to that rank because it requires all members to have a Security Key."
+    return
+  .
+  if a1 == gldResultMemberIsTrialAccount
+    var str19 = $STRING.LocalizeString(STR_GUI_GUILD, STRING_NOT_PERMITTED_FOR_TRIAL)  // "Not permitted for Trial Accounts."
+    Me.DisplayGuildMessage(str19)
+    return
+  .
+  if a1 == gldResultLoadError
+    var str21 = $STRING.LocalizeString(STR_GUI_GUILD, UNK_8242B1B4)  // "Guild Loading Error: Please contact customer support."
+    Me.DisplayGuildMessage(str21)
+    var str23 = $STRING.LocalizeString(STR_GUI_GUILD, UNK_8242B1B4)  // "Guild Loading Error: Please contact customer support."
+    $GUI_API.getApi().systemMessage(str23)
+    return
+  .
+.
+public method HandleGuildInvite(Me, a1 as String, a2 as ID, a3 as String)
+  if $Options.GetBooleanValue(3736731190165548485)  // "social_autodeclineguildinvites"
+    Me.gldInviteID = a2
+    add back a1 to list1
+    Me.DisplayGuildMessage($STRING.LocalizeStringWithTokenList(STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_AUTO_DECLINING_GUILD_INVITE_FROM_PLAYER, HIDWORD(ID_STR_GUI_GUILD), list1))  // "Auto-declining guild invite from <<1>>."
+    Me.RequestGuildInviteResponse(false)
+    return
+  .
+  if Me.StartGuildInviteTimer()
+    Me.gldInviteID = a2
+    add back a1 to list1
+    if $Options.GetBooleanValue(16136350778996714565)  // "gui_invitesassocialmessage"
+      add back a3 to list1
+      str5 = $STRING.LocalizeStringWithTokenList(STR_GUI_GUILD, STRING_INVITED_TO_JOIN_GUILD_NOTIFICATION, list1) + "$R"  // "<<1>> has invited you to join the guild called $Q<<2>>$Q."
+      var str6 = HM.ConstructString()
+      str7 = STR_GUI_GUILD
+      int2 = ID_STR_GUI_GUILD
+      $STRING = (NodeRef *)&v46
+    else
+      var str8 = $STRING.LocalizeStringWithTokenList(STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_INVITED_TO_JOIN_GUILD, HIDWORD(ID_STR_GUI_GUILD), list1)  // "<<1>> has invited you to join"
+      str5 = str8 + "$R" + a3 + "$R$R"
+      var str6 = HM.ConstructString()
+      str7 = STR_GUI_GUILD
+      $STRING = (NodeRef *)&v44
+      int2 = ID_STR_GUI_GUILD
+    .
+    var str6 = $STRING.LocalizeString(str7, int2 | STRING_WANT_TO_JOIN_GUILD, HIDWORD(int2))
+    Me.gldInviteMessage = str5 + str6
+    Me.DisplayGuildInviteDialog(HM.CopyConstructNodeRef(3, $GUI_API.getApi()))
+    return
+  .
+  if Me.gldInviteID == a2
+    // unknown
+  else
+    add back a1 to list1
+    Me.DisplayGuildMessage($STRING.LocalizeStringWithTokenList(STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_PLAYER_ATTEMPTED_TO_INVITE_YOU_TO_THEIR_GUILD, HIDWORD(ID_STR_GUI_GUILD), list1))  // "<<1>> attempted to invite you to their guild."
+    Me.RequestGuildInviteResponse(false)
+  .
+.
+public method DisplayGuildInviteDialog(Me, a1 as NodeRef of guiApiGfx)
+  Float float2
+  if a1 != None
+    if Me.gldInviteMessage.length > 0
+      var str3 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | 1, HIDWORD(ID_STR_GUI_DIALOG))  // "Accept"
+      var str6 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | 2, HIDWORD(ID_STR_GUI_DIALOG))  // "Decline"
+      if Me.guiDialogID == 0.0
+        if $Options.GetBooleanValue(16136350778996714565)  // "gui_invitesassocialmessage"
+          SF_GFx_ClearAndReserveParams(5)
+          SF_GFx_AddParamString(Me.gldInviteMessage)
+          SF_GFx_AddParamString("cmdAcceptGuildInvite")
+          SF_GFx_AddParamInteger(0)
+          SF_GFx_AddParamString("cmdDeclineGuildInvite")
+          SF_GFx_AddParamInteger(0)
+          var float1 = Me.guiDialogID
+          a1.invokeWithParamsFloat("onAddInviteNotification", &float1)
+          float2 = float1
+        else
+          SF_GFx_ClearAndReserveParams(9)
+          SF_GFx_AddParamString($STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STR_GUILD_INVITE, HIDWORD(ID_STR_GUI_DIALOG)))  // "GUILD INVITE"
+          SF_GFx_AddParamString(Me.gldInviteMessage)
+          SF_GFx_AddParamString(str3)
+          SF_GFx_AddParamString("cmdAcceptGuildInvite")
+          SF_GFx_AddParamInteger(0)
+          SF_GFx_AddParamString(str6)
+          SF_GFx_AddParamString("cmdDeclineGuildInvite")
+          SF_GFx_AddParamInteger(0)
+          SF_GFx_AddParamBoolean(false)
+          var float3 = Me.guiDialogID
+          a1.invokeWithParamsFloat("displayDialog", &float3)
+          float2 = float3
+        .
+        Me.guiDialogID = float2
+      .
+    else
+      // unknown
+    .
+  else
+    // unknown
+  .
+.
+public method DisplayGuildMemberNoteDialog(Me, a1 as ID, a2 as String)
+  Me.DisplayNoteDialog(a1, a2, STR_ENTER_MEMBER_NOTE, "cmdSetGuildMemberNote")
+.
+public method DisplayGuildOfficerNoteDialog(Me, a1 as ID, a2 as String)
+  Me.DisplayNoteDialog(a1, a2, STR_ENTER_OFFICER_NOTE, "cmdSetGuildOfficerNote")
+.
+public method DisplayNoteDialog(Me, a1 as ID, a2 as String, a3 as String, a4 as String)
+  var node = Me.gldLocalPlayerGuild
+  if node != None
+    var node4 = node.GetGuildMemberInfo(a1)
+    if node4 != None
+      list1 as List of String
+      add back node4.gldMemberName to list1
+      SF_GFx_ClearAndReserveParams(15)
+      SF_GFx_AddParamString($STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STR_GUILD_NOTE, HIDWORD(ID_STR_GUI_DIALOG)))  // "GUILD NOTE"
+      SF_GFx_AddParamString($STRING.LocalizeStringWithTokenList(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | a3, HIDWORD(ID_STR_GUI_DIALOG) | HIDWORD(a3), list1))
+      SF_GFx_AddParamInteger(GUILD_NOTE_LENGTH_MAX)
+      SF_GFx_AddParamInteger(GUILD_NOTE_INPUT_HEIGHT)
+      SF_GFx_AddParamString($STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | GUILD_NOTE_INPUT_WIDTH, HIDWORD(ID_STR_GUI_DIALOG) | 0x3641F))  // "OK"
+      SF_GFx_AddParamString(a4)
+      SF_GFx_AddParamInteger(1)
+      SF_GFx_AddParamID(a1)
+      SF_GFx_AddParamString($STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | 9, HIDWORD(ID_STR_GUI_DIALOG) | 0x3641F))  // "Cancel"
+      SF_GFx_AddParamNull()
+      SF_GFx_AddParamInteger(0)
+      SF_GFx_AddParamBoolean(true)
+      SF_GFx_AddParamNull()
+      SF_GFx_AddParamInteger(GUILD_NOTE_INPUT_WIDTH)
+      SF_GFx_AddParamString($CHAT.Deprofane(a2, 1860167987759839207))  // "social_filterprofanity"
+      $GUI_API.getApi().invokeWithParams("displayInputDialog")
+    else
+      // unknown
+    .
+  else
+    // unknown
+  .
+.
+public method CancelGuildInvite(Me, a1 as ID)
+  if Me.gldInviteID == a1
+    Me.CloseGuildInviteDialog(HM.CopyConstructNodeRef(3, $GUI_API.getApi()))
+  .
+.
+public method StartGuildInviteTimer() as Boolean
+  var out = false
+  if Me.gldInviteDialogTimer.timerState == 1
+    Me.gldInviteDialogTimer.fireRate = 300000
+    Me.gldInviteDialogTimer.script = $THISSCRIPT
+    timer::start(Me.gldInviteDialogTimer)
+    out = true
+  .
+  return out
+.
+public method StopGuildInviteTimer() as Boolean
+  var out = false
+  if Me.gldInviteDialogTimer.timerState == 2
+    timer::stop(Me.gldInviteDialogTimer)
+    out = true
+  .
+  return out
+.
+public method CloseGuildInviteDialog(Me, a1 as NodeRef of guiApiGfx)
+  if a1 != None
+    Me.StopGuildInviteTimer()
+  else
+    // unknown
+  .
+  SF_GFx_ClearAndReserveParams(1)
+  SF_GFx_AddParamFloat(Me.guiDialogID)
+  a1.invokeWithParams("onRemoveInviteNotification")
+  a1.invokeWithParams("killDialog")
+  Me.guiDialogID = 0.0
+  Me.gldInviteID = 0
+  Me.gldInviteMessage = ""
+.
+public method OnLogout(Me)
+  Me.gldMOTDDisplayed = false
+  Me.gldImportOfferMessage = ""
+  Me.gldLoadError = false
+.
+public method RequestGuildSetMOTD(Me, a1 as String)
+  if Me.gldLocalPlayerGuild != None
+    if a1 != Me.gldLocalPlayerGuild.gldMessageOfTheDay
+      var id1 = 0
+      if GetGuildGSSIDForCurrentCharacter(&id1)
+        call server id1 untrustedMethods:OnRequestGuildSetMOTD(a1)
+      .
+    .
+  else
+    // unknown
+  .
+.
+public method RequestGuildSetDescription(Me, a1 as String)
+  if Me.gldLocalPlayerGuild != None
+    if a1 != Me.gldLocalPlayerGuild.gldDescription
+      var id1 = 0
+      if GetGuildGSSIDForCurrentCharacter(&id1)
+        call server id1 untrustedMethods:OnRequestGuildSetDescription(a1)
+      .
+    .
+  else
+    // unknown
+  .
+.
+public method RequestGuildInviteResponse(Me, a1 as Boolean)
+  Me.StopGuildInviteTimer()
+  var id1 = 0
+  if GetGuildGSSIDForCurrentCharacter(&id1)
+    var id2 = Me.gldInviteID
+    call server id1 untrustedMethods:OnRequestGuildInviteResponse(id2, a1)
+  .
+  Me.gldInviteID = 0
+  Me.gldInviteMessage = ""
+  Me.guiDialogID = 0.0
+.
+public method RequestGuildInvite(Me, a1 as NodeRef of chrPlayerCharacter, a2 as String)
+  var enum1 = HM.GetEnumDefaultValue(38)
+  var enum2 = Me.ValidateGuildInviteByName(a1, a2)
+  enum1 = enum2
+  if enum2 == gldResultOk
+    var id1 = 0
+    if GetGuildGSSIDForCurrentCharacter(&id1)
+      call server id1 untrustedMethods:OnRequestGuildInvite(a2)
+    .
+  else if enum1 != gldResultFailed
+    Me.HandleGuildResult(enum1, "")
+  .
+.
+public method ValidateGuildInvite(a1 as NodeRef of chrPlayerCharacter, a2 as NodeRef of chrPlayerCharacter) as Enum gldResult
+  Integer int1
+  if a1 = None
+    return gldResultFailed
+  else if a2 = None or (int1 = a2.cbtFaction, a1.cbtFaction != int1)
+    return gldResultInvalidTarget
+  else
+    var out = HM.GetEnumDefaultValue(38)
+    var enum2 = Me.ValidateGuildInviteByName(a1, a2.getName())
+    out = enum2
+    if enum2 != gldResultOk
+      return out
+    else if a2.IsInGuild()
+      return gldResultAlreadyInGuild
+    else
+      return gldResultOk
+    .
+  .
+.
+public method ValidateGuildInviteByName(a1 as NodeRef of chrPlayerCharacter, a2 as String) as Enum gldResult
+  if a1 = None
+    return gldResultFailed
+  .
+  var node = Me.gldLocalPlayerGuild
+  if node = None
+    if Me.HasGuildLoadError()
+      return gldResultLoadError
+    else
+      return gldResultNotInGuild
+    .
+  else
+    var node5 = node.GetGuildRankForMember(a1)
+    if node5 = None
+      return gldResultFailed
+    .
+    if not node5.IsGuildRankPermissionsBitSet(1)
+      return gldResultRankNotPermitted
+    else if HM.StringCompareEQCaseInsensitive(a1.chrName, a2)
+      return gldResultCannotInviteSelf
+    else if node.IsGuildFull()
+      return gldResultGuildFull
+    else
+      return gldResultOk
+    .
+  .
+.
+public method RequestGuildRemove(Me, a1 as ID)
+  var enum1 = HM.GetEnumDefaultValue(38)
+  if Me.CheckGuildRemovePermissions(a1, &enum1)
+    if enum1 == gldResultOk
+      Me.PerformGuildRemove(a1)
+    else
+      Me.HandleGuildResult(enum1, "")
+    .
+  .
+.
+public method CheckGuildRemovePermissions(a1 as ID, o2 references Enum gldResult) as Boolean
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 = None
+    return false
+  else
+    var node = Me.gldLocalPlayerGuild
+    if node = None
+      if Me.HasGuildLoadError()
+        *o2 = gldResultLoadError
+      else
+        *o2 = gldResultNotInGuild
+      .
+    else if pc2 == a1
+      if node.IsGuildLeader(pc2)
+        *o2 = gldResultMustAbdicate
+      else
+        *o2 = gldResultOk
+      .
+    else
+      var node5 = node.GetGuildRankForMember(pc2)
+      if node5 = None
+        return false
+      .
+      if not node5.IsGuildRankPermissionsBitSet(2)
+        *o2 = gldResultRankNotPermitted
+      else if not node.HasGuildMember(a1)
+        *o2 = gldResultInvalidTarget
+      else
+        var node7 = node.GetGuildRankForMember(a1)
+        if node7 = None
+          return false
+        .
+        if node7.gldRankIndex <= node5.gldRankIndex
+          *o2 = gldResultRankNotPermitted
+        else
+          *o2 = gldResultOk
+        .
+      .
+    .
+    return true
+  .
+.
+public method PerformGuildRemove(Me, a1 as ID)
+  var id1 = 0
+  if GetGuildGSSIDForCurrentCharacter(&id1)
+    call server id1 untrustedMethods:OnRequestGuildRemove(a1)
+  .
+.
+public method RequestGuildSetRank(Me, a1 as ID, a2 as Integer)
+  Boolean bool4
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 = None
+    // unknown
+  else
+    var node = Me.gldLocalPlayerGuild
+    if node = None
+      if Me.HasGuildLoadError()
+        Me.HandleGuildResult(gldResultLoadError, "")
+      else
+        Me.HandleGuildResult(gldResultNotInGuild, "")
+      .
+    else
+      var node5 = node.GetGuildRankForMember(pc2)
+      if node5 = None
+        // unknown
+      else if not node5.IsGuildRankPermissionsBitSet(3)
+        Me.HandleGuildResult(gldResultRankNotPermitted, "")
+      else if not node.HasGuildMember(a1)
+        Me.HandleGuildResult(gldResultInvalidTarget, "")
+      else
+        var node7 = node.GetGuildRankForMember(a1)
+        if node7 = None
+          // unknown
+        else if node5.gldRankIndex < node7.gldRankIndex and node5.gldRankIndex < a2
+          if node.gldRanks.length < a2
+            bool4 = true
+          else
+            bool4 = false
+          .
+        else
+          bool4 = true
+        .
+        if bool4
+          Me.HandleGuildResult(gldResultRankNotPermitted, "")
+        else
+          var node9 = node.GetGuildRank(a2)
+          if node9 = None
+              // unknown
+          else
+            var node11 = node.GetGuildMemberInfo(a1)
+            if node11 = None
+                // unknown
+            else if node9.GuildRankRequiresAuthenticator() and not node11.gldMemberHasAuthenticator
+              Me.HandleGuildResult(gldResultMemberRequiresAuthenticatorForRank, node11.gldMemberName)
+            else
+              var id2 = 0
+              if GetGuildGSSIDForCurrentCharacter(&id2)
+                call server id2 untrustedMethods:OnRequestGuildSetRank(a1, a2)
+              .
+            .
+          .
+        .
+      .
+    .
+  .
+.
+public method RequestGuildSetMemberNotes(Me, a1 as ID, a2 as String)
+  var id1 = 0
+  if GetGuildGSSIDForCurrentCharacter(&id1)
+    call server id1 untrustedMethods:OnRequestGuildSetMemberNotes(a1, a2)
+  .
+.
+public method RequestGuildSetOfficerNotes(Me, a1 as ID, a2 as String)
+  var id1 = 0
+  if GetGuildGSSIDForCurrentCharacter(&id1)
+    call server id1 untrustedMethods:OnRequestGuildSetOfficerNotes(a1, a2)
+  .
+.
+public method RequestGuildSetRankPermissions(Me, a1 as Integer, a2 as Integer)
+  var id1 = 0
+  if GetGuildGSSIDForCurrentCharacter(&id1)
+    call server id1 untrustedMethods:OnRequestGuildSetRankPermissions(a1, a2)
+  .
+.
+public method RequestGuildSetRankAuthenticatorRequired(Me, a1 as ID, a2 as Boolean)
+  int v8
+  var node = Me.gldLocalPlayerGuild
+  if node = None
+    // unknown
+  else if a1 = None
+      // unknown
+  else
+    var bool1 = false
+    if a2
+      var lookup = node.gldMembers
+      foreach key in lookup
+        var cur = lookup[key]
+        if cur.gldMemberRank == a1
+          if not cur.IsGuildMemberOnline()
+            bool1 = true
+            break
+          .
+          if not cur.gldMemberHasAuthenticator
+            bool1 = true
+            break
+          .
+        .
+      .
+    .
+    if bool1
+      unk_f46abeea(a1, v8)
+    else
+      Me.SetAuthenticatorRequiredOnRank(a1, a2)
+    .
+  .
+.
+public function unk_f46abeea(Me, a1 as ID)
+  var str2 = $STRING.LocalizeString(STR_GUI_GUILD, UNK_53DF2A5E)  // "Security Key Warning"
+  var str5 = $STRING.LocalizeString(STR_GUI_GUILD, UNK_0A5B82CF)  // "Making the Security Key required for this guild rank will cause those members who do not have an Security Key to be demoted to the lowest rank."
+  var str8 = $STRING.LocalizeString(STR_GUI_GUILD, STR_OK)
+  var str11 = $STRING.LocalizeString(STR_GUI_GUILD, STR_CANCEL)
+  SF_GFx_ClearAndReserveParams(11)
+  SF_GFx_AddParamString(str2)
+  SF_GFx_AddParamString(str5)
+  SF_GFx_AddParamString(str8)
+  SF_GFx_AddParamString("cmdSetAuthenticatorRequiredOnRank_Execute")
+  SF_GFx_AddParamInteger(1)
+  SF_GFx_AddParamID(a1)
+  SF_GFx_AddParamString(str11)
+  SF_GFx_AddParamString("cmdSetAuthenticatorRequiredOnRank_Abort")
+  SF_GFx_AddParamInteger(1)
+  SF_GFx_AddParamID(a1)
+  SF_GFx_AddParamBoolean(true)
+  $GUI_API.getApi().invokeWithParams("displayDialog")
+.
+public method SetAuthenticatorRequiredOnRank(Me, a1 as ID, a2 as Boolean)
+  var id1 = 0
+  if GetGuildGSSIDForCurrentCharacter(&id1)
+    call server id1 untrustedMethods:OnRequestGuildSetRankAuthenticatorRequired(a1, a2)
+  .
+.
+public method AbortSetAuthenticatorRequiredOnRank(Me, a1 as ID)
+  if a1 = None
+    // unknown
+  else
+    list1 as List of NodeRef of gldRank
+    add back a1 to list1
+    InvokeSetGuildRankDetails(list1)
+  .
+.
+public method RequestGuildRankAdd(Me, a1 as String)
+  var id1 = 0
+  if GetGuildGSSIDForCurrentCharacter(&id1)
+    call server id1 untrustedMethods:OnRequestGuildRankAdd(a1)
+  .
+.
+public method RequestGuildSetRankName(Me, a1 as ID, a2 as String)
+  if a2.length > 0
+    var id1 = 0
+    if GetGuildGSSIDForCurrentCharacter(&id1)
+      call server id1 untrustedMethods:OnRequestGuildSetRankName(a1, a2)
+    .
+  .
+.
+public method RequestGuildSetRankDescription(Me, a1 as ID, a2 as String)
+  var id1 = 0
+  if GetGuildGSSIDForCurrentCharacter(&id1)
+    call server id1 untrustedMethods:OnRequestGuildSetRankDescription(a1, a2)
+  .
+.
+public method RequestGuildRankPromote(Me, a1 as NodeRef of guiApiGfx, a2 as ID)
+  if a1 = None
+    // unknown
+  else
+    var node = Me.gldLocalPlayerGuild
+    if node = None
+      // unknown
+    else if a2 = None
+        // unknown
+    else
+      var list1Length = node.gldRanks.length
+      if a2.gldRankIndex == list1Length and (list2 = node.gldRanks, node6 = list2[list1Length - 1], GuildRankRequiresAuthenticator = HM.PrepareCallNodeRef2(107, node6, &_callFrame), bool1 = GuildRankRequiresAuthenticator(_callFrame), HM.UnprepareCall(), bool1)
+        Me.unk_3a2b9e73(a1, a2, UNK_FEB6337A, STRING_PROMOTE_RANK, "cmdConfirmGuildRankPromote")
+      else
+        Me.ConfirmGuildRankPromote(a2, v9, v10)
+      .
+    .
+  .
+.
+public method unk_3a2b9e73(Me, a1 as NodeRef of guiApiGfx, a2 as NodeRef of gldRank, a3 as Integer, a4 as Integer, a5 as String)
+  if a1 = None
+    // unknown
+  else if a2 = None
+    // unknown
+  else
+    list1 as List of String
+    add back a2.gldRankName to list1
+    var str3 = $STRING.LocalizeStringWithTokenList(STR_GUI_GUILD, a3, list1)
+    SF_GFx_ClearAndReserveParams(10)
+    SF_GFx_AddParamString($STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, a4))
+    SF_GFx_AddParamString(str3)
+    SF_GFx_AddParamString($STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STRING_YES, HIDWORD(ID_STR_GUI_DIALOG) | HIDWORD(STRING_YES)))  // "Yes"
+    SF_GFx_AddParamString(a5)
+    SF_GFx_AddParamInteger(1)
+    var id1 = a2
+    SF_GFx_AddParamID(id1)
+    SF_GFx_AddParamString($STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STRING_NO, HIDWORD(ID_STR_GUI_DIALOG) | HIDWORD(STRING_NO)))  // "No"
+    SF_GFx_AddParamString("cmdClearGuildDialogID")
+    SF_GFx_AddParamInteger(0)
+    SF_GFx_AddParamBoolean(true)
+    a1.invokeWithParams("displayDialog")
+  .
+.
+public method ConfirmGuildRankPromote(Me, a1 as ID)
+  var id1 = 0
+  if GetGuildGSSIDForCurrentCharacter(&id1)
+    call server id1 untrustedMethods:OnRequestGuildRankPromote(a1)
+  .
+.
+public method RequestGuildRankDemote(Me, a1 as NodeRef of guiApiGfx, a2 as ID)
+  int v9
+  if a1 = None
+    // unknown
+  else
+    var node = Me.gldLocalPlayerGuild
+    if node = None
+      // unknown
+    else if a2 = None
+        // unknown
+    else
+      var list1Length = node.gldRanks.length
+      if a2.GuildRankRequiresAuthenticator() and a2.gldRankIndex == list1Length - 1
+        Me.unk_3a2b9e73(a1, a2, UNK_9CCC15FA, STRING_DEMOTE_RANK, "cmdConfirmGuildRankDemote")
+      else
+        Me.ConfirmGuildRankDemote(a2, v9)
+      .
+    .
+  .
+.
+public method ConfirmGuildRankDemote(Me, a1 as ID)
+  var id1 = 0
+  if GetGuildGSSIDForCurrentCharacter(&id1)
+    call server id1 untrustedMethods:OnRequestGuildRankDemote(a1)
+  .
+.
+public method RequestGuildRankRemove(Me, a1 as NodeRef of guiApiGfx, a2 as ID)
+  if a1 = None
+    // unknown
+  else
+    var node = Me.gldLocalPlayerGuild
+    if node = None
+      // unknown
+    else if a2 = None
+        // unknown
+    else
+      int v16 = 220524
+      int v15 = 10
+      var list1Length = node.gldRanks.length
+      if a2.gldRankIndex == list1Length
+        var bool1 = (int)list1Length - 1 <= (unsigned int)GUILD_LEADER_RANK_INDEX
+        var bool2 = SHIDWORD(GUILD_LEADER_RANK_INDEX) >= (int)((unsigned __int64)(list1Length - 1) >> GUILD_NOTE_LENGTH_MAX)
+        if HIDWORD(GUILD_LEADER_RANK_INDEX) == (unsigned __int64)(list1Length - 1) >> GUILD_NOTE_LENGTH_MAX
+          bool2 = bool1
+        .
+        if not bool2
+          if node.gldRanks[list1Length - 1].GuildRankRequiresAuthenticator()
+            v16 = 220524
+            v15 = 265
+          .
+        .
+      .
+      Me.unk_3a2b9e73(a1, a2, v15, v16, 306, 222239, "cmdConfirmGuildRankRemove")
+    .
+  .
+.
+public method ConfirmGuildRankRemove(Me, a1 as ID)
+  var id1 = 0
+  if GetGuildGSSIDForCurrentCharacter(&id1)
+    call server id1 untrustedMethods:OnRequestGuildRankRemove(a1)
+  .
+.
+public method RequestGuildAbdicate(Me, a1 as ID)
+  var enum1 = HM.GetEnumDefaultValue(38)
+  if Me.CheckGuildAbdicatePermissions(a1, &enum1)
+    if enum1 == gldResultOk
+      Me.PerformGuildAbdicate(a1)
+    else
+      Me.HandleGuildResult(enum1, "")
+    .
+  .
+.
+public method CheckGuildAbdicatePermissions(a1 as ID, o2 references Enum gldResult) as Boolean
+  var pc = GetPlayerCharacterNode()
+  var id1 = pc
+  if id1 == 0
+    return false
+  else
+    var node = Me.gldLocalPlayerGuild
+    if node = None
+      if Me.HasGuildLoadError()
+        *o2 = gldResultLoadError
+      else
+        *o2 = gldResultNotInGuild
+      .
+    else if not node.IsGuildLeader(id1)
+      *o2 = gldResultRankNotPermitted
+    else if a1 == id1
+      *o2 = gldResultCannotAbdicateToSelf
+    else if not node.HasGuildMember(a1)
+      *o2 = gldResultInvalidTarget
+    else
+      var node5 = node.GetGuildMemberInfo(a1)
+      if node5 = None
+        return false
+      .
+      if node5.IsGuildMemberFlagSet(gldGuildMasterRestriction)
+        *o2 = gldResultMemberIsTrialAccount
+      else
+        *o2 = gldResultOk
+      .
+    .
+    return true
+  .
+.
+public method PerformGuildAbdicate(Me, a1 as ID)
+  var node = Me.gldLocalPlayerGuild
+  if node = None
+    // unknown
+  else
+    var node4 = node.GetGuildMemberInfo(a1)
+    if node4 != None
+      list1 as List of String
+      add back node4.gldMemberName to list1
+      var str3 = $STRING.LocalizeStringTokenizedWithPlayerGenderVariant(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STR_CONFIRM_ABDICATION, HIDWORD(ID_STR_GUI_DIALOG), list1)  // "Are you sure you want to transfer leadership of the guild to <<1>>?"
+      SF_GFx_ClearAndReserveParams(10)
+      SF_GFx_AddParamString($STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STR_WARNING, HIDWORD(ID_STR_GUI_DIALOG)))  // "WARNING"
+      SF_GFx_AddParamString(str3)
+      var str7 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STRING_YES, HIDWORD(ID_STR_GUI_DIALOG) | HIDWORD(STRING_YES))  // "Yes"
+      SF_GFx_AddParamString(str7)
+      SF_GFx_AddParamString("cmdConfirmGuildAbdicate")
+      SF_GFx_AddParamInteger(1)
+      SF_GFx_AddParamID(a1)
+      var str9 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STRING_NO, HIDWORD(ID_STR_GUI_DIALOG) | HIDWORD(STRING_NO))  // "No"
+      SF_GFx_AddParamString(str9)
+      SF_GFx_AddParamNull()
+      SF_GFx_AddParamInteger(0)
+      SF_GFx_AddParamBoolean(true)
+      $GUI_API.getApi().invokeWithParams("displayDialog")
+    else
+      // unknown
+    .
+  .
+.
+public method RequestGuildAbdicateByName(Me, a1 as String)
+  var id1 = Me.GetGuildMemberIDByName(a1)
+  var enum1 = HM.GetEnumDefaultValue(38)
+  if Me.CheckGuildAbdicatePermissions(id1, &enum1)
+    if enum1 == gldResultOk
+      Me.PerformGuildAbdicate(id1)
+    else
+      if enum1 == gldResultInvalidTarget
+        enum1 = gldResultTargetNotInGuild
+      .
+      Me.HandleGuildResult(enum1, a1)
+    .
+  .
+.
+public method ConfirmGuildAbdicate(Me, a1 as ID)
+  var id1 = 0
+  if GetGuildGSSIDForCurrentCharacter(&id1)
+    call server id1 untrustedMethods:OnRequestGuildAbdicate(a1)
+  .
+.
+public method RequestGuildDisband(Me)
+  CallFrame _callFrame
+  FuncRef CheckIsEmpty
+  Boolean bool3
+  var node = Me.gldLocalPlayerGuild
+  if node = None
+    if Me.HasGuildLoadError()
+      Me.HandleGuildResult(gldResultLoadError, "")
+    else
+      Me.HandleGuildResult(gldResultNotInGuild, "")
+    .
+  else
+    var pc = GetPlayerCharacterNode()
+    if not node.IsGuildLeader(pc)
+      Me.HandleGuildResult(gldResultRankNotPermitted, "")
+    else
+      var node4 = node.gldBank
+      if node4 != None and (HM.TrackLine(2027), CheckIsEmpty = HM.PrepareCallNodeRef2(117, node4, &_callFrame), bool3 = CheckIsEmpty(_callFrame), HM.UnprepareCall(), not bool3)
+        SF_GFx_ClearAndReserveParams(9)
+        SF_GFx_AddParamString($STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | 0x12D, HIDWORD(ID_STR_GUI_DIALOG)))  // "ERROR"
+        var str3 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, UNK_FDFF451D)  // "The guild cannot be disbanded while items or credits remain in the guild bank."
+        SF_GFx_AddParamString(str3)
+        SF_GFx_AddParamString($STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | GUILD_NOTE_INPUT_WIDTH, HIDWORD(ID_STR_GUI_DIALOG)))  // "OK"
+        SF_GFx_AddParamNull()
+        SF_GFx_AddParamInteger(0)
+        SF_GFx_AddParamNull()
+        SF_GFx_AddParamNull()
+        SF_GFx_AddParamInteger(0)
+        SF_GFx_AddParamBoolean(true)
+        $GUI_API.getApi().invokeWithParams("displayDialog")
+      else if Me.guiDialogID == 0.0
+        SF_GFx_ClearAndReserveParams(9)
+        SF_GFx_AddParamString($STRING.LocalizeString(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STR_WARNING, HIDWORD(ID_STR_GUI_DIALOG)))  // "WARNING"
+        SF_GFx_AddParamString($STRING.LocalizeStringWithPlayerGender(STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_CONFIRM_DISBAND, HIDWORD(ID_STR_GUI_GUILD)))  // "Disband your guild?"
+        int v20 = HIDWORD(ID_STR_GUI_DIALOG) | HIDWORD(STRING_YES)
+        SF_GFx_AddParamString($STRING.LocalizeString(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STRING_YES, v20))  // "Yes"
+        SF_GFx_AddParamString("cmdConfirmGuildDisband")
+        SF_GFx_AddParamInteger(0)
+        var str13 = $STRING.LocalizeString(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | STRING_NO, HIDWORD(ID_STR_GUI_DIALOG) | HIDWORD(STRING_NO))  // "No"
+        SF_GFx_AddParamString(str13)
+        SF_GFx_AddParamString("cmdClearGuildDialogID")
+        SF_GFx_AddParamInteger(0)
+        SF_GFx_AddParamBoolean(false)
+        var float1 = Me.guiDialogID
+        $GUI_API.getApi().invokeWithParamsFloat("displayDialog", &float1)
+        Me.guiDialogID = float1
+      .
+    .
+  .
+.
+public method ConfirmGuildDisband(Me)
+  Me.guiDialogID = 0.0
+  var id1 = 0
+  if GetGuildGSSIDForCurrentCharacter(&id1)
+    call server id1 untrustedMethods:OnRequestGuildDisband()
+  .
+.
+public method ClearGuildDialogID(Me)
+  Me.guiDialogID = 0.0
+.
+public method HasGuildLoadError() as Boolean
+  return Me.gldLoadError
+.
+remote function unk_05ddfef6(Me)
+  $GUILD.gldLoadError = true
+.
+remote function OnGuildImportOffered(Me, a1 as String, a2 as Boolean)
+  $GUILD.HandleGuildImportOffer(a1, a2)
+.
+remote function OnGuildImportFailed(Me)
+  $CHAT.ChatPlayerLocalized(chatChannel_SystemFeedback, STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_GUILD_IMPORT_FAILED, HIDWORD(ID_STR_GUI_GUILD))  // "Guild import failed. Please try again later."
+.
+remote function OnGuildCreationResult(Me, a1 as Enum gldResult)
+  $GUILD.HandleGuildCreationResult(a1)
+.
+remote function unk_930d63bd(Me, a1 as Enum gldResult, a2 as List of ID)
+  $GUILD.unk_57d7b344(a1, a2)
+.
+remote function OnGuildInviteResult(Me, a1 as Enum gldResult, a2 as String)
+  $GUILD.HandleGuildInviteResult(a1, a2)
+.
+remote function OnGuildInvite(Me, a1 as String, a2 as ID, a3 as String)
+  $GUILD.HandleGuildInvite(a1, a2, a3)
+.
+remote function OnCSRGuildInvite(Me, a1 as ID, a2 as String)
+  var str2 = $STRING.LocalizeString(STR_GUI_CUSTOMERSUPPORT, ID_STR_GUI_CUSTOMERSUPPORT | STRING_CSR, HIDWORD(ID_STR_GUI_CUSTOMERSUPPORT) | HIDWORD(STRING_CSR))  // "CSR"
+  $GUILD.HandleGuildInvite(str2, a1, a2)
+.
+remote function OnCancelGuildInvite(Me, a1 as ID)
+  $GUILD.CancelGuildInvite(a1)
+.
+remote function OnGuildInviteDeclined(Me, a1 as String)
+  list1 as List of String
+  add back a1 to list1
+  $GUILD.DisplayGuildMessage($STRING.LocalizeStringWithTokenList(STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_PLAYER_DECLINED_YOUR_GUILD_INVITE, HIDWORD(ID_STR_GUI_GUILD), list1))  // "<<1>> declined your guild invite."
+.
+remote function OnGuildEvent(Me, a1 as Enum gldEvent, a2 as ID, a3 as String, a4 as ID, a5 as String, a6 as String)
+  $GUILD.HandleGuildEvent(a1, a2, a3, a4, a5, a6)
+.
+remote function OnCSRGuildEvent(Me, a1 as Enum gldEvent, a2 as ID, a3 as String, a4 as String)
+  var str2 = $STRING.LocalizeString(STR_GUI_CUSTOMERSUPPORT, ID_STR_GUI_CUSTOMERSUPPORT | STRING_CSR, HIDWORD(ID_STR_GUI_CUSTOMERSUPPORT) | HIDWORD(STRING_CSR))  // "CSR"
+  $GUILD.HandleGuildEvent(a1, 0, str2, a2, a3, a4)
+.
+public method CostToBuyGuildBank() as Integer
+  if Me.gldBankTabExpansionCosts.length > 0
+    return Me.gldBankTabExpansionCosts[1]
+  else
+    return 0
+  .
+.
+public function MinGuildMembersToBuyGuildBank() as Integer
+  return $STATIC.utlTweakableInfoPrototype.utlTweakableIntegers[7386625586734674942]  // "unk_membercounttopurchaseguildbank"
+.
+public function MaxGuildBankTabs() as Integer
+  return $STATIC.utlTweakableInfoPrototype.utlTweakableIntegers[13968859143059966268]  // "numguildbanktabs"
+.
+public method CostToExpandGuildBank(a1 as Integer) as Integer
+  if utlList:IsValidIndex_Int(Me.gldBankTabExpansionCosts, a1)
+    return Me.gldBankTabExpansionCosts[a1]
+  else
+    return 0
+  .
+.
+public method InitializeGuildBankCosts(Me)
+  NodeRef node2
+  if Me.gldBankTabExpansionCosts.length == 0
+    var lookup = $STATIC.utlTweakableInfoPrototype.utlTweakableIntegers
+    var int1 = MaxGuildBankTabs()
+    loop i from 1 to int1
+      var str = "costToUnlockGuildBankTab" + i
+      FuncRef toInt = HM.PrepareCallScriptSameMe2(128, *(ScriptRef *)((char *)&inf.0 + 4), Me, &node2)
+      add back lookup[toInt(node2, str)] to Me.gldBankTabExpansionCosts
+    .
+  .
+.
+public method DisplayGuildMessage(Me, a1 as String)
+  if $GUI_API.getApi().hasGuiLoaded()
+    $CHAT.ChatPlayerLocalized_Old(chatChannel_GuildInfo, a1)
+  else
+    add back a1 to Me.gldPendingMessages
+  .
+.
+public method HandleGuildOfficerChat(Me, a1 as String)
+  Me.HandleGuildChat(a1, CHAT_CHANNEL_GLO, gldRankAllowsOfficerChatSend)
+.
+public method HandleGuildMemberChat(Me, a1 as String)
+  Me.HandleGuildChat(a1, CHAT_CHANNEL_GLD, gldRankAllowsMemberChatSend)
+.
+public method HandleGuildChat(Me, a1 as String, a2 as Integer, a3 as Enum gldRankPermissionsEnum)
+  if a1.length == 0
+    // unknown
+  else
+    var node = Me.gldLocalPlayerGuild
+    if node = None
+      if Me.HasGuildLoadError()
+        Me.HandleGuildResult(gldResultLoadError, "")
+      else
+        Me.HandleGuildResult(gldResultNotInGuild, "")
+      .
+    else
+      var pc = GetPlayerCharacterNode()
+      var node5 = node.GetGuildRankForMember(pc)
+      if node5 = None
+        // unknown
+      else if not node5.IsGuildRankPermissionsBitSet(a3)
+        Me.HandleGuildResult(gldResultRankNotPermitted, "")
+      else
+        SendChannel(GetChannelID(node, a2), a1)
+      .
+    .
+  .
+.
+public method HandleGuildEvent(Me, a1 as Enum gldEvent, a2 as ID, a3 as String, a4 as ID, a5 as String, a6 as String)
+  if a1 == gldEventMemberJoinedGuild
+    var pc = GetPlayerCharacterNode()
+    if pc == a2
+      var str2 = $STRING.LocalizeString(STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_YOU_HAVE_JOINED_A_GUILD, HIDWORD(ID_STR_GUI_GUILD))  // "You have joined a guild."
+      Me.DisplayGuildMessage(str2)
+    else
+      add back a3 to list1
+      var str4 = $STRING.LocalizeStringWithTokenList(STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_PLAYER_HAS_JOINED_THE_GUILD, HIDWORD(ID_STR_GUI_GUILD), list1)  // "<<1>> has joined the guild."
+      Me.DisplayGuildMessage(str4)
+    .
+    return
+  .
+  if a1 == gldEventMemberLoggedIn
+    add back a3 to list1
+    Me.DisplayGuildMessage($STRING.LocalizeStringWithTokenList(STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_PLAYER_HAS_LOGGED_IN, HIDWORD(ID_STR_GUI_GUILD), list1))  // "<<1>> has logged in."
+    $CHAT.PlayGroupChatSound(str8)
+    return
+  .
+  if a1 == gldEventMemberLoggedOut
+    add back a3 to list1
+    Me.DisplayGuildMessage($STRING.LocalizeStringWithTokenList(STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_PLAYER_HAS_GONE_OFFLINE, HIDWORD(ID_STR_GUI_GUILD), list1))  // "<<1>> has gone offline."
+    return
+  .
+  if a1 == gldEventMemberRemoved
+    var pc2 = GetPlayerCharacterNode()
+    var id1 = pc2
+    if a2 == a4
+      if a2 == id1
+        var str11 = $STRING.LocalizeString(STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_YOU_QUIT_THE_GUILD, HIDWORD(ID_STR_GUI_GUILD))  // "You quit the guild."
+        Me.DisplayGuildMessage(str11)
+        return
+      .
+      add back a3 to list1
+      str14 as String
+      FuncRef LocalizeStringWithTokenList4 = HM.PrepareCallNodeRef2(87, $STRING, &_callFrame)
+      v21 = str14
+      str14 = LocalizeStringWithTokenList(_callFrame, STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_PLAYER_QUIT_THE_GUILD, HIDWORD(ID_STR_GUI_GUILD), list1)
+    else if a2 == id1
+      add back a5 to list1
+      str16 as String
+      FuncRef LocalizeStringWithTokenList5 = HM.PrepareCallNodeRef2(87, $STRING, &_callFrame)
+      v21 = str16
+      str16 = LocalizeStringWithTokenList(_callFrame, STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_PLANET_PAREN_INSTANCE_PAREN, HIDWORD(ID_STR_GUI_GUILD), list1)
+    else if a4 == id1
+      if a3.length > 0
+        add back a3 to list1
+        str18 as String
+        FuncRef LocalizeStringWithTokenList6 = HM.PrepareCallNodeRef2(87, $STRING, &_callFrame)
+        v21 = str18
+        str18 = LocalizeStringWithTokenList(_callFrame, STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_PLAYER_REMOVED_YOU_FROM_THE_GUILD, HIDWORD(ID_STR_GUI_GUILD), list1)
+      else
+        str11 = $STRING.LocalizeString(STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_SOMEONE_REMOVED_YOU_FROM_THE_GUILD, HIDWORD(ID_STR_GUI_GUILD))  // "You have been removed from the guild."
+        Me.DisplayGuildMessage(str11)
+        return
+      .
+    else
+      add back a3 to list1
+      add back a5 to list1
+      str22 as String
+      FuncRef LocalizeStringWithTokenList7 = HM.PrepareCallNodeRef2(87, $STRING, &_callFrame)
+      v21 = str22
+      str22 = LocalizeStringWithTokenList(_callFrame, STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_PLAYER_REMOVED_PLAYER_FROM_THE_GUILD, HIDWORD(ID_STR_GUI_GUILD), list1)
+    .
+    str11 = v21
+    Me.DisplayGuildMessage(str11)
+    return
+  .
+  if a1 == gldEventMemberRankChanged
+    var pc3 = GetPlayerCharacterNode()
+    var id2 = pc3
+    var str26 = $CHAT.Deprofane(a6, 1860167987759839207)  // "social_filterprofanity"
+    if a2 == id2
+      add back a5 to list1
+      add back str26 to list1
+      str27 as String
+      FuncRef LocalizeStringWithTokenList8 = HM.PrepareCallNodeRef2(87, $STRING, &_callFrame)
+      v36 = str27
+      str27 = LocalizeStringWithTokenList(_callFrame, STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_YOU_SET_PLAYERS_RANK_TO_SOMETHING, HIDWORD(ID_STR_GUI_GUILD), list1)
+    else if a4 == id2
+      add back a3 to list1
+      add back str26 to list1
+      str29 as String
+      FuncRef LocalizeStringWithTokenList9 = HM.PrepareCallNodeRef2(87, $STRING, &_callFrame)
+      v36 = str29
+      str29 = LocalizeStringWithTokenList(_callFrame, STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_PLAYER_SET_YOUR_RANK_TO_SOMETHING, HIDWORD(ID_STR_GUI_GUILD), list1)
+    else
+      add back a3 to list1
+      add back a5 to list1
+      add back str26 to list1
+      str31 as String
+      FuncRef LocalizeStringWithTokenList10 = HM.PrepareCallNodeRef2(87, $STRING, &_callFrame)
+      v36 = str31
+      str31 = LocalizeStringWithTokenList(_callFrame, STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_PLAYER_SET_PLAYERS_RANK_TO_SOMETHING, HIDWORD(ID_STR_GUI_GUILD), list1)
+    .
+    Me.DisplayGuildMessage(v36)
+    return
+  .
+  if a1 != gldEventGuildDisbanded
+    return
+  .
+  var pc4 = GetPlayerCharacterNode()
+  if pc4 == a2
+    str34 = $STRING.LocalizeString(STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_YOU_HAVE_DISBANDED_THE_GUILD, HIDWORD(ID_STR_GUI_GUILD))  // "You have disbanded the guild."
+  else
+    add back a3 to list1
+    str34 = $STRING.LocalizeStringWithTokenList(STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_PLAYER_HAS_DISBANDED_THE_GUILD, HIDWORD(ID_STR_GUI_GUILD), list1)  // "<<1>> has disbanded the guild."
+  .
+  Me.DisplayGuildMessage(str34)
+.
+public method HandleGuildRemoveCommand(Me, a1 as List of String)
+  CallFrame _callFrame
+  FuncRef RequestGuildRemove
+  int v11
+  int v12
+  if a1.length == 1
+    var id1 = $CHARACTER.GetTarget()
+    Me.RequestGuildRemove(id1)
+  else if a1.length == 2
+    var str = a1[2]
+    var id2 = Me.GetGuildMemberIDByName(str)
+    var enum1 = HM.GetEnumDefaultValue(38)
+    if not Me.CheckGuildRemovePermissions(id2, enum1)
+      return
+    .
+    if enum1 == 1
+      RequestGuildRemove = HM.PrepareCallNodeRef2(105, Me, &_callFrame)
+      var id1 = id2
+      RequestGuildRemove(_callFrame, id1)
+    else
+      if enum1 == 5
+        enum1 = 9
+      .
+      RequestGuildRemove = HM.PrepareCallNodeRef2(80, Me, &_callFrame)
+      var id1 = __PAIR64__((unsigned int)str, enum1)
+      RequestGuildRemove(_callFrame, id1)
+    .
+  else
+    Me.DisplaySlashCommandUsage(v11, v12)
+  .
+.
+public method GetGuildMemberIDByName(a1 as String) as ID
+  var node = Me.gldLocalPlayerGuild
+  if node != None
+    return node.GetGuildMemberIDByName(a1)
+  else
+    return 0
+  .
+.
+public method requestContextMenuEx(Me, a1 as ID, o2 references List of NodeRef of _ContextMenuItem)
+  CallFrame _callFrame
+  Integer i
+  List list12
+  var node = Me.gldLocalPlayerGuild
+  if node != None
+    var pc = GetPlayerCharacterNode()
+    var pc2 = pc
+    if pc2 != None
+      var node4 = node.GetGuildRankForMember(pc2)
+      if node4 != None
+        var str = $STRING.LocalizeString(STR_GUI_CONTEXTMENU, ID_STR_GUI_CONTEXTMENU | STR_GUILD, HIDWORD(ID_STR_GUI_CONTEXTMENU))  // "Guild"
+        var node8 = _ContextMenus:CreateContextMenuItem(None, str, "", "", false, false)
+        if node.HasGuildMember(a1)
+          var node11 = node.GetGuildMemberInfo(a1)
+          if node11 != None
+            if node11.IsGuildMemberOnline()
+              var id2 = node11.gldMemberAreaID
+              var id3 = $BASECLIENT._GetAreaID()
+              if not HIDWORD(id2) ^ HIDWORD(id3) | id2 ^ id3
+                var id4 = node11.gldMemberAreaInstance
+                var id5 = $BASECLIENT._GetInstanceID()
+                if HIDWORD(id4) ^ HIDWORD(id5) | id4 ^ id5
+                  list1 as List of String
+                  add back $MAP.GetAreaDisplayNameByID(id2) to list1
+                  add back id4 to list1
+                  var str6 = $STRING.LocalizeStringWithTokenList(STR_GUI_CONTEXTMENU, ID_STR_GUI_CONTEXTMENU | STR_SHUTTLE_TO_AREA_INSTANCE, HIDWORD(ID_STR_GUI_CONTEXTMENU), list1)  // "Shuttle To <<1>> (<<2>>)"
+                  var node13 = _ContextMenus:CreateContextMenuItem(None, str6, "", "requestInstanceTransfer", false, false)
+                  add back id4 to node13._cmiArgs
+                  add back node13 to o2
+                .
+              .
+            .
+            if node4.IsGuildRankPermissionsBitSet(gldRankAllowsOfficerNotesEdit)
+              var node16 = _ContextMenus:CreateContextMenuItem(node8, $STRING.LocalizeString(STR_GUI_CONTEXTMENU, ID_STR_GUI_CONTEXTMENU | STR_SET_OFFICER_NOTE, HIDWORD(ID_STR_GUI_CONTEXTMENU)), "", "guildSetOfficerNote", false, false)  // "Set Officer Note"
+              add back a1 to node16._cmiArgs
+              add back node11.GetGuildOfficerNotes() to node16._cmiArgs
+            .
+            if node4.IsGuildRankPermissionsBitSet(gldRankAllowsMemberNotesEdit)
+              var node18 = _ContextMenus:CreateContextMenuItem(node8, $STRING.LocalizeString(STR_GUI_CONTEXTMENU, ID_STR_GUI_CONTEXTMENU | STR_SET_MEMBER_NOTE, HIDWORD(ID_STR_GUI_CONTEXTMENU)), "", "guildSetMemberNote", false, false)  // "Set Member Note"
+              add back a1 to node18._cmiArgs
+              add back node11.GetGuildMemberNotes() to node18._cmiArgs
+            .
+          else
+            // unknown
+          .
+          var node20 = node.GetGuildRankForMember(a1)
+          if node20 != None
+            if node20.gldRankIndex > node4.gldRankIndex
+              if node4.IsGuildRankPermissionsBitSet(gldRankAllowsRemove)
+                var node22 = _ContextMenus:CreateContextMenuItem(node8, $STRING.LocalizeString(STR_GUI_CONTEXTMENU, ID_STR_GUI_CONTEXTMENU | STR_REMOVE_FROM_GUILD, HIDWORD(ID_STR_GUI_CONTEXTMENU)), "", "guildRemove", false, false)  // "Remove from Guild"
+                add back a1 to node22._cmiArgs
+              .
+              if node4.IsGuildRankPermissionsBitSet(gldRankAllowsRankChange)
+                var node24 = _ContextMenus:CreateContextMenuItem(node8, $STRING.LocalizeString(STR_GUI_CONTEXTMENU, ID_STR_GUI_CONTEXTMENU | STR_SET_RANK, HIDWORD(ID_STR_GUI_CONTEXTMENU)), "", "", false, false)  // "Set Rank"
+                if node4.gldRankIndex == 1
+                  var node25 = _ContextMenus:CreateContextMenuItem(node24, node4.gldRankName, "", "guildAbdicate", false, false)
+                  add back a1 to node25._cmiArgs
+                .
+                var bool7 = node11.gldMemberHasAuthenticator
+                loop i from node4.gldRankIndex + 1 to list12.length
+                  var cur = node.gldRanks[i]
+                  if cur != None
+                    var bool8 = false
+                    var bool9 = not bool7 and cur.GuildRankRequiresAuthenticator()
+                    node28 as NodeRef
+                    var str24 = cur.gldRankName
+                    var bool11 = node20.gldRankIndex == i
+                    FuncRef CreateContextMenuItem8 = HM.PrepareCallScriptSameMe2(138, 14988231331220954489, Me, &_callFrame)
+                    CreateContextMenuItem(node28, _callFrame, node24, str24, "", "guildRankChange", bool9, bool11)
+                    node25 = node28
+                    add back a1 to node25._cmiArgs
+                    add back i to node25._cmiArgs
+                  .
+                .
+              .
+            .
+          else
+            // unknown
+          .
+        else if Me.ValidateGuildInvite(pc2, a1) == gldResultOk
+          var node31 = _ContextMenus:CreateContextMenuItem(node8, $STRING.LocalizeString(STR_GUI_CONTEXTMENU, ID_STR_GUI_CONTEXTMENU | STR_INVITE_TO_GUILD, HIDWORD(ID_STR_GUI_CONTEXTMENU)), "", "guildInvite", false, false)  // "Invite to Guild"
+          add back a1 to node31._cmiArgs
+        .
+        if node8._cmiChildrenNodes.length > 0
+          add back node8 to o2
+        else
+          DestroyNode(node8)
+        .
+      else
+        // unknown
+      .
+    .
+  .
+.
+public method RequestDebugGuildCommand(Me, a1 as String)
+  var id1 = 0
+  if GetGuildGSSIDForCurrentCharacter(&id1)
+    if not HM.WhenStringLookup(a1, 93)
+      Me.DisplayGuildMessage("Local guild Me.gldLocalPlayerGuild: " + Me.gldLocalPlayerGuild)
+      call server id1 untrustedMethods:OnRequestDebugGuildDump()
+    else
+      call server id1 untrustedMethods:OnRequestDebugGuildCreate(a1)
+    .
+  .
+.
+public method RequestDebugBuyGuildBankCommand(Me)
+  var id1 = 0
+  if GetGuildGSSIDForCurrentCharacter(&id1)
+    var str = gldBankComponentClassMethods:GetDefaultBankTabName()
+    call server id1 untrustedMethods:OnRequestDebugBuyGuildBank(str)
+  .
+.
+public method RequestDebugGuildBankRollover(Me)
+  var id1 = 0
+  if GetGuildGSSIDForCurrentCharacter(&id1)
+    call server id1 untrustedMethods:OnRequestDebugGuildBankRollover()
+  .
+.
+public method RequestDebugFreezeGuildBankCommand(Me, a1 as String)
+  var id1 = 0
+  if GetGuildGSSIDForCurrentCharacter(&id1)
+    call server id1 untrustedMethods:OnRequestDebugFreezeGuildBank(a1)
+  .
+.
+public method GetGuildRankForPlayer(a1 as ID) as NodeRef of gldRank
+  var node2 = Me.GetGuildNode()
+  if node2 = None
+    return None
+  else
+    return node2.GetGuildRankForMember(a1)
+  .
+.
+public method GetGuildMemberInfoForPlayer(a1 as ID) as NodeRef of gldMemberInfo
+  var node2 = Me.GetGuildNode()
+  if node2 = None
+    return None
+  else
+    return node2.GetGuildMemberInfo(a1)
+  .
+.
+public function IsPlayerInGuild(a1 as NodeRef of gldMemberComponent) as Boolean
+  if a1 = None
+    return false
+  .
+  var int1 = a1.gldMemberGuildName.length
+  var bool1 = (_DWORD)int1 == 0
+  var bool2 = int1 <= -1
+  if HIDWORD(int1)
+    return not bool2
+  .
+  bool2 = bool1
+  return not bool2
+.
+public function GetGuildGSSIDForCurrentCharacter(o1 references ID) as Boolean
+  var pc = GetPlayerCharacterNode()
+  var node = HM.CopyConstructNodeRef(4, pc)
+  FuncRef GetGuildGSSID = HM.PrepareCallLocal(144)
+  return GetGuildGSSID(Me, node, &o1) & 1
+.
+public function GetGuildGSSID(a1 as NodeRef of cbtFactionComponent, o2 references ID) as Boolean
+  if a1 != None
+    when a1.cbtFaction
+      is 16591463407040943397  // "empire"
+        *o2 = GUILD_IMPERIAL_GSS_ID
+        return true
+      .
+      is 1086966210362573345  // "republic"
+        *o2 = GUILD_REPUBLIC_GSS_ID
+        return true
+      .
+      default
+        return false
+      .
+    .
+  else
+    return false
+  .
+.
+public function OnTimerTick(Me, a1 as ID)
+  if a1 == gldInviteDialogTimer
+    Me.RequestGuildInviteResponse(false)
+    Me.CloseGuildInviteDialog(HM.CopyConstructNodeRef(3, $GUI_API.getApi()))
+  else if a1 == gldMasterInteractionTimer
+    Me.ValidateCurrentGuildmasterInteractionDistance()
+  else
+    // unknown
+  .
+.
+public method DisplaySlashCommandUsage(Me)
+  $CHAT._ReceivedChatMessage($STRING.LocalizeString(STR_GUI_GUILD, ID_STR_GUI_GUILD | STRING_GUILD_USAGE, HIDWORD(ID_STR_GUI_GUILD)), chatChannel_SystemFeedback)  // "usage: /ginvite [target], /gquit, /gremove [target], /gabdicate [target], /gdisband"
+.
+public method getDebugLevel() as Integer
+  return Me.debugLevel
+.
+public method setDebugLevel(Me, a1 as Integer)
+  Me.debugLevel = a1
+  call server GUILD_IMPERIAL_GSS_ID untrustedMethods:OnRequestGuildSetDebugLevel(a1)
+  var id2 = GUILD_IMPERIAL_GSS_ID
+  if GUILD_REPUBLIC_GSS_ID != id2
+    call server GUILD_REPUBLIC_GSS_ID untrustedMethods:OnRequestGuildSetDebugLevel(a1)
+  .
+.

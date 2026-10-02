@@ -1,0 +1,230 @@
+public method UpdateSpawnedAppearance(Me, a1 as Boolean)
+  CallFrame _callFrame
+  Boolean bool11
+  Boolean bool12
+  Boolean bool13
+  Boolean bool14
+  if a1
+    $NAMEPLATES.checkNameplateStatus(Me)
+  .
+  var node2 = Me.getSpawnedProp()
+  if node2 = None
+    if not Me is kindof dynPlaceable
+      // unknown
+    .
+  else
+    var bool1 = false
+    bool1 = GetNodeUnderMouse() == node2
+    if node2 is kindof 0xE101EDD4
+      // unknown
+    else
+      if HasProperty(node2, "DrawSelected")
+        var bool3 = (Me.spnUseable or Me.spnLootable) or Me.spnAttackable
+        var bool4 = bool3 and bool1
+        node2["DrawSelected"] = bool4
+      .
+      var bool5 = false
+      if Me is kindof prfHarvestableComponent
+        Me.startOrStopHarvestableVFX()
+        bool5 = true
+      .
+      if Me is kindof plcPlaceable
+        var str3 = Me.GetPlaceableUsableVFX()
+        if not (str3.length == 0) and not bool5
+          if Me.spnUseable or Me.spnAttackable
+            var classView = HM.GetClassViewFromNodeRef(Me, plcPlaceable)
+            if classView.plcUsableFXHandle == 0
+              var id2 = $FXSYSTEM.FxPlayAtPosition(Me.GetPosition_w(), str3)
+              var classView2 = HM.GetClassViewFromNodeRef(Me, plcPlaceable)
+              classView2.plcUsableFXHandle = id2
+            .
+          else
+            var classView3 = HM.GetClassViewFromNodeRef(Me, plcPlaceable)
+            if classView3.plcUsableFXHandle != 0
+              var classView4 = HM.GetClassViewFromNodeRef(Me, plcPlaceable)
+              var id3 = classView4.plcUsableFXHandle
+              $FXSYSTEM.FxStopHandle(id3)
+              var classView5 = HM.GetClassViewFromNodeRef(Me, plcPlaceable)
+              classView5.plcUsableFXHandle = 0
+            .
+          .
+        .
+        var bool6 = Me.GetPlaceableNoGlow()
+        char v63 = bool6
+        if not bool6
+          FuncRef IsInConversation = HM.PrepareCallNodeRef2(10, $CONVERSATION, &_callFrame)
+          char v24 = IsInConversation(_callFrame) & 1
+          v63 = v24
+        .
+        unsigned __int8 v61 = (v63 & 1) == 0
+        if (v63 & 1) == 0
+          var bool7 = Me.HasQuest()
+          var bool8 = Me.IsAlwaysConversablePlaceable()
+          char v58 = 0
+          char v57 = 0
+          if Me is kindof plcComponent
+            var id4 = Me.GetPlaceableCodexSpec()
+            if id4 != 0
+              var pc = GetPlayerCharacterNode()
+              var pc3 = pc
+              if pc3 != None
+                var node5 = HM.CopyConstructNodeRef(10, Me)
+                FuncRef CheckCodexUsability = HM.PrepareCallNodeRef2(15, pc3, &_callFrame)
+                char v32 = CheckCodexUsability(_callFrame, node5) & 1
+                v58 = v32
+              .
+            .
+            FuncRef GetPlaceableAlwaysUsable = HM.PrepareCallNodeRef2(16, Me, &_callFrame)
+            char v34 = GetPlaceableAlwaysUsable(_callFrame) & 1
+            v57 = v34
+          .
+          char v53 = 0
+          if Me is kindof prfHarvestableComponent
+            var pc2 = GetPlayerCharacterNode()
+            var pc22 = pc2
+            if pc22 != None
+              var classView6 = HM.GetClassViewFromNodeRef(Me, prfHarvestableComponent)
+              FuncRef hasProfession = HM.PrepareCallNodeRef2(17, pc22, &_callFrame)
+              char v38 = hasProfession(_callFrame, classView6.prfProfessionRequired) & 1
+              v53 = v38
+            .
+          .
+          var bool10 = true
+          if not ((v57 or bool8) or bool7)
+            if not Me.spnUseable or (not Me.spnQuestUseable and not Me.spnBonusShareUseable ? (bool11 = false) : (bool11 = true), not bool11 and not Me.spnLootable ? (bool12 = false) : (bool12 = true), not bool12 and not v58 ? (bool13 = false) : (bool13 = true), not bool13 and not v53 ? (bool14 = false) : (bool14 = true), not bool14)
+              bool10 = false
+            .
+          .
+          v61 = bool10
+        .
+        if Me is kindof dynPlaceable
+          Me.SetDrawPulsedOnProps(v61)
+        else
+          node2["DrawPulsed"] = v61
+        .
+        node2["AmbientColor"] = "#1,1,1,1"
+      .
+      node2["MouseTargetable"] = true
+    .
+  .
+.
+public method SetLootable(Me, a1 as Boolean, a2 as Boolean)
+  Me.spnLootable = a1
+  if a2
+    Me.UpdateSpawnedAppearance(false)
+  .
+.
+public method SetUsable(Me, a1 as Boolean, a2 as Boolean)
+  Me.spnUseable = a1
+  if a2
+    Me.UpdateSpawnedAppearance(false)
+  .
+.
+public method SetAttackable(Me, a1 as Boolean, a2 as Boolean)
+  Me.spnAttackable = a1
+  if a2
+    Me.UpdateSpawnedAppearance(false)
+  .
+.
+public method SetQuestUsable(Me, a1 as Boolean, a2 as Boolean)
+  Me.spnQuestUseable = a1
+  if a2
+    Me.UpdateSpawnedAppearance(false)
+  .
+.
+public method SetBonusShareUsable(Me, a1 as Boolean, a2 as Boolean)
+  Me.spnBonusShareUseable = a1
+  if a2
+    Me.UpdateSpawnedAppearance(false)
+  .
+.
+public method TryLootObject() as Boolean
+  if Me is kindof staCharacterComponent and not Me.CharStateIsDead()
+    // unknown
+  else if Me.spnLootable
+    $SPAWNER.RequestLootSpawned(Me)
+    return true
+  .
+  return false
+.
+public method GetSpawner() as NodeRef
+  var id1 = Me.spnParentAnchorId
+  return id1
+.
+public method GetSpawnerSpec() as ID
+  if Me.spnSpawnerSpec == 0
+    var node2 = Me.GetSpawner()
+    if node2 != None
+      var id1 = $SPAWNER.GetSpawnerSpecForNode(node2)
+      Me.spnSpawnerSpec = id1
+    .
+  .
+  return HM.ConvertFromStringID(Me.spnSpawnerSpec)
+.
+public method GetSpawnedSpec() as ID
+  return Me.spnSpawnedSpec
+.
+public method CheckLootability() as Boolean
+  Boolean bool3
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  var out = false
+  if pc2 != None
+    var node2 = pc2.GetPhaseInfo()
+    if node2 != None
+      if not node2.InstanceCheckLootability()
+        bool3 = false
+      else
+        bool3 = true
+      .
+    else
+      bool3 = true
+    .
+    if bool3
+      var bool4 = true
+      if Me != None
+        if Me.HasLootForLooter(HM.CopyConstructNodeRef(17, pc2))
+          out = true
+        else
+          bool4 = false
+        .
+      .
+      var lookup = pc2.GetActiveQuestIds()
+      foreach key in lookup
+        if pc2.CanPerformLootRollOnObject(key, Me) and bool4
+          out = true
+        .
+      .
+    .
+  .
+  if out and Me is kindof dynPlaceable
+    var int1 = Me.GetCurrentUsableVisualIndex()
+    var bool7 = (_DWORD)int1 != 0
+    var bool8 = SHIDWORD(int1) >= 1
+    if not HIDWORD(int1)
+      bool8 = bool7
+    .
+    out = bool8
+    if bool8 and Me.GetDynDisturbBeforeLoot()
+      out = Me.GetCurrentState() == Me.GetDynDisturbedState()
+    .
+  .
+  return out
+.
+public method GetQuestIdForUsability() as Integer
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  var node2 = pc2.GetPhaseInfo()
+  if node2 = None or node2.PerformQuestUsabilityChecksFor(pc2)
+    var lookup = pc2.GetActiveQuestIds()
+    foreach key in lookup
+      if pc2.IsObjectAssociatedWithQuest(key, Me, "") and (id1 = Me.spnParentAnchorId, lookupIndex2 = key, IsPlaceableUsedUp = HM.PrepareCallNodeRef2(35, pc2, &_callFrame), bool2 = IsPlaceableUsedUp(_callFrame, id1, lookupIndex2), HM.UnprepareCall(), not bool2)
+        return key
+      .
+    .
+  .
+  return 0
+.
+self handler OnDeath(Me)
+  $QUEST.RequestStatusUpdate(Me)
+.

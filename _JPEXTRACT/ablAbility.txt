@@ -1,0 +1,130 @@
+Name	
+146D59D8 	ablAbility	
+ablAbility	
+Server script	
+14988004106868093864 	ablAbilityClassMethods	
+Client script	
+14988084183061355585 	_clientablAbilityClassMethods	
+Description 	ability class for player/npc abilities 
+Parent classes	conContainableComponent
+ablEffectsComponent
+ablCustomComponent
+locLocalizableComponent
+Child classes	
+Used by fields	
+Base class of system nodes	
+Glommed into system nodes	
+Declared in client.gom	present
+Shared with server DOM	yes
+Archetype	DATA
+Stored in prototype nodes	present
+Stored as	base-multi
+Live
+
+Fields	
+Beta · 6	Stored	ablQuickslotNumber	Int
+Beta · 6		ablIsPassive	Boolean
+Beta · 6	Stored
+Beta · 6		ablAiType	Enum aiAbilityType
+Beta · 6	Stored
+Beta · 6		ablIconSpec	String
+Beta · 6	Stored
+Beta · 6		ablGlobalCooldownTime	Float
+Beta · 6	Stored
+Beta · 6		ablCooldownTime	Float
+Beta · 6	Stored
+Beta · 6		ablCastingTime	Float
+Beta · 6	Stored
+Beta · 6		ablChannelingTime	Float
+Beta · 6	Stored
+Beta · 6		ablForceCost	Float
+Beta · 6	Stored
+Beta · 6		ablEnergyCost	Float
+Beta · 6	Stored
+Beta · 6		ablActionPointCost	Float
+Beta · 6	Stored
+Beta · 6		ablMinRange	Float
+Beta · 6	Stored
+Beta · 6		ablMaxRange	Float
+Beta · 6	Stored
+Beta · 6		ablTargetArc	Float
+Beta · 6	Stored
+Beta · 6		ablTargetRule	Enum tgtTargettingRule
+Beta · 6	Stored
+Beta · 6		ablCombatMode	Enum staCombatModeType
+Beta · 6	Stored
+Beta · 6		ablAutoAttackMode	Enum ablAutoAttackMode
+Beta · 6	Stored
+Beta · 6	ablEffectsComponent	ablIsValid	Boolean
+Beta · 6	Stored
+Beta · 6		ablIsHidden	Boolean
+Beta · 6	Stored
+Beta · 6		ablIsCustom	Boolean
+Beta · 6	Stored
+Beta · 6		ablAppearanceSpec	String
+Beta · 6	Stored
+Beta · 6		ablIsLineOfSightChecked	Boolean
+Beta · 6	Stored
+Beta · 6	Stored	ablBreaksStealth	Boolean
+Beta · 6	Stored	ablAutoAddCoverbarIndex	Int
+Beta · 6		ablTargetArcOffset	Float
+Beta · 6	Stored
+Beta · 6		ablHeatCost	Float
+Stored	+ 1 field
+Beta · 6	conContainableComponent	conEntitySpec	ID
+Beta · 6	Stored
+Beta · 6		ablCooldownTimerSpecs	List of ID
+Beta · 6	Stored
+Beta · 6	ablEffectsComponent	ablEffectIDs	List of ID
+Beta · 6	Stored
+Beta · 6		ablDescriptionTokens	List of ClassView ablDescriptionTokenData
+Beta · 6	Stored
+Beta · 6		ablDescriptionTokenType	Enum ablDescriptionTokenTypeEnum
+Beta · 6	Stored
+Beta · 6		ablDescriptionTokenMultiplier	Float
+Beta · 6	Stored
+Beta · 6		ablDescriptionTokenEffect	Int
+Beta · 6	Stored
+Beta · 6		ablDescriptionTokenSubEffect	Int
+Beta · 6	Stored
+Beta · 6		ablUsesSpellPushback	Boolean
+Beta · 6	Stored
+Beta · 6	ablEffectsComponent	ablEffectZero	NodeRef
+Beta · 6	Stored
+Beta · 6	Stored	ablStayMounted	Boolean
+Beta · 6	locLocalizableComponent	locTextRetrieverMap	LookupList indexed by Int of ClassView strLocalizedTextRetriever
+Beta · 6	Stored
+Beta · 6		strLocalizedTextRetrieverStringID	Int
+Beta · 6	Stored
+Beta · 6		strLocalizedTextRetrieverBucket	String
+Beta · 6	Stored
+Beta · 6		strLocalizedTextRetrieverDesignModeText	String
+Beta · 6	Stored
+Beta · 6		strLocalizedTextRetrieverExpectedVersion	Float
+Stored	+ 1 field
+Beta · 6		strLocalizedTextRetrieverCachedText	String
+1.2.0		strLocalizedTextRetrieverExpectedVersionByVariant	LookupList indexed by Enum strWellKnownTextVariant of Float
+1.2.0	Stored
+1.2.0		strLocalizedTextRetrieverDesignModeTextByVariant	LookupList indexed by Enum strWellKnownTextVariant of String
+1.2.0	Stored
+Beta · 6		ablModalGroup	Int
+Beta · 6	Stored
+Beta · 6		ablIgnoreAlacrity	Boolean
+Beta · 6	Stored
+Beta · 0	ablEffectsComponent	ablEffectZeroNode	NodeRef of effEffect
+Stored	+ 1 field
+1.0.0	Stored	4611686227231000002	Boolean
+Beta · 6	conContainableComponent	conContainerSlot_db	Int
+Stored	+ 1 field
+1.0.0c	conContainableComponent	conLockedRef	NodeRef of conSlotLock
+Stored	+ 1 field
+Stored	+ 1 field
+NodeRef in fields	guiDeathScreenAbility
+vehPrimaryAbilityNode
+scShipCollisionEffectNode
+scShipBlasterLastAbility
+ablContainer_AIUsableAbilitiesList
+ablOracle_AbilityCache
+ablOracleSharedAbilities
+scBlasterAbility
+ablCachedAblPlayerVendor

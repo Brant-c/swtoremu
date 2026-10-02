@@ -1,0 +1,1916 @@
+var colorLength = 4
+var colorTagStringLength = 7
+var colorTagStringLengthMinusOne = 6
+var colorTagStringLengthPlusOne = 8
+var defaultTextColorTag = "%{0000}"
+var effectTextColorTag = "%{0010}"
+var guiMapNoteUpdateInterval = 100
+var lingoonaArgAlive = 1
+var lingoonaArgStunned = 2
+var lingoonaArgUnstunned = 0
+var nearbyTextColorTag = "%{0011}"
+var playerDecayTextColorTag = "%{0008}"
+var playerDoesDamageTextColorTag = "%{0002}"
+var playerDoesHealTextColorTag = "%{0004}"
+var playerReceiveDamageTextColorTag = "%{0003}"
+var playerReceiveHealTextColorTag = "%{0005}"
+var playerRegenTextColorTag = "%{0006}"
+var playerRestoreTextColorTag = "%{0007}"
+var playerSpendTextColorTag = "%{0009}"
+var startOfColor = 2
+var stringIdBrainStateBase = 230
+var stringIdBrainStateChangeBase = 185
+var stringIdDamageBase = 1
+var stringIdDamageTypeBase = 3400
+var stringIdDefeatBase = 200
+var stringIdDieBase = 180
+var stringIdDodgeBase = 400
+var stringIdEnterCombat = 350
+var stringIdExitCombat = 355
+var stringIdHeal = 8028
+var stringIdHealBase = 31
+var stringIdImmuneBase = 151
+var stringIdLoseBase = 260
+var stringIdMissBase = 61
+var stringIdNearbyOffset = 20
+var stringIdNotYouOffset = 10
+var stringIdObjectOffset = 1
+var stringIdParryBase = 91
+var stringIdReflexiveOffset = 5
+var stringIdRegenBase = 280
+var stringIdResistBase = 121
+var stringIdRestoreBase = 320
+var stringIdSpendBase = 300
+var stringIdThemBrainStateChange = 195
+var stringIdTheyDie = 190
+var systemTextColorTag = "%{0001}"
+var UNK_0D2094DB = 8011
+var UNK_14AE4B54 = 8030
+var UNK_2041AAC9 = 8012
+var UNK_204EB6F6 = 8035
+var UNK_2156BAE1 = 8034
+var UNK_24CB422C = 8007
+var UNK_25F035A8 = 8037
+var UNK_2BB19D1F = 8000
+var UNK_30C3D0A9 = 8
+var UNK_45A05719 = 8039
+var UNK_5161F6E4 = 8023
+var UNK_600D332C = 8010
+var UNK_705A2147 = 8036
+var UNK_7A578725 = 8024
+var UNK_8EE4770D = 8032
+var UNK_9907746F = 8008
+var UNK_99F79D0B = 8014
+var UNK_A0FB8FED = 8040
+var UNK_A76459DA = 8031
+var UNK_B32B1903 = 8033
+var UNK_B99A198C = 8006
+var UNK_BCD501CF = 8038
+var UNK_C7C8E7EB = 8015
+var UNK_D3926C28 = 8013
+var UNK_D514C12F = 8009
+var UNK_D74E567E = 7
+var UNK_DC21137E = 8005
+var UNK_DECDDAFC = 8022
+var UNK_E419D217 = 6
+var UNK_E52FC063 = 8016
+var UNK_EB31C560 = 8029
+var UNK_EB48ED8D = 8021
+var UNK_FB9066BD = 8027
+public method _getOracleDebugChannelName() as String
+  return "COMBAT"
+.
+public method _getOracleDejaChannelName() as String
+  return "cbt"
+.
+public method _getOracleScriptName() as String
+  return $THISSCRIPT
+.
+public method cbtOracle_GetNextScriptHandleForAction() as Integer
+  var int1 = Me.cbtOracle_ScriptHandleForAction
+  var bool1 = (unsigned int)int1 <= 0xFFFFFF9C
+  var bool2 = SHIDWORD(int1) <= -2
+  if HIDWORD(int1) == -1
+    bool2 = bool1
+  .
+  if not bool2
+    Me.cbtOracle_ScriptHandleForAction = -100
+  .
+  Me.cbtOracle_ScriptHandleForAction = Me.cbtOracle_ScriptHandleForAction - 1
+  return Me.cbtOracle_ScriptHandleForAction
+.
+public function DeriveCombatSpamColor(o1 references String) as String
+  Integer int3
+  Boolean bool3
+  var int1 = o1.length - colorTagStringLengthMinusOne
+  if not substring(o1, int1, 1) == "%"
+    var str5 = guiColorTable:GetColorValue(15129230029819516595)  // "clr.font.chat.channel.default"
+    return str5
+  .
+  int v19 = 0
+  int v18 = 0
+  var int2 = o1.length
+  var bool1 = (unsigned int)int2 <= colorTagStringLengthPlusOne
+  var bool2 = int2 <= -1
+  if not HIDWORD(int2)
+    bool2 = bool1
+  .
+  if not bool2
+    var str2 = substring(o1, int1 + 2, 4)
+    int3 = str2
+    var str3 = substring(o1, 1, int1 - 1)
+    o1 = str3
+    bool3 = (unsigned int)int3 >= 12
+    if HIDWORD(int3)
+      bool3 = true
+    .
+    if not bool3
+      when (int)int3
+        is 0
+          v19 = 796575493
+          v18 = -1696271968
+        .
+        is 1
+          v19 = -449818097
+          v18 = -42950474
+        .
+        is 2
+          v19 = 728359177
+          v18 = -1362621952
+        .
+        is 3
+          v19 = 728365065
+          v18 = -1362611947
+        .
+        is 4
+          v19 = -1478107752
+          v18 = -1392870511
+        .
+        is stringIdReflexiveOffset
+          v19 = 1179681645
+          v18 = -304851399
+        .
+        is colorTagStringLengthMinusOne
+          v19 = -821408981
+          v18 = -238439172
+        .
+        is colorTagStringLength
+          v19 = 599570718
+          v18 = 2128734016
+        .
+        is colorTagStringLengthPlusOne
+          v19 = 2128898431
+          v18 = 1463786221
+        .
+        is 9
+          v19 = 2130166469
+          v18 = -1081065966
+        .
+        is stringIdNotYouOffset
+          v19 = -1120127528
+          v18 = 883001145
+        .
+        is 11
+          v19 = -1498509664
+          v18 = -729384311
+        .
+      .
+    .
+    return guiColorTable:GetColorValue(v18, v19)
+  else
+    var str5 = guiColorTable:GetColorValue(15129230029819516595)  // "clr.font.chat.channel.default"
+    return str5
+  .
+.
+public function StripChannelMetadata(a1 as String, a2 as Enum chatChannelEnum) as String
+  if a2 == chatChannel_Combat
+    var a12 = a1
+    var int1 = findString(a1, "%")
+    var bool1 = int1 <= -1
+    if not HIDWORD(int1)
+      bool1 = (_DWORD)int1 == 0
+    .
+    if not bool1
+      a12 = substring(a1, colorTagStringLengthPlusOne, a1.length - colorTagStringLengthPlusOne)
+    .
+    var int3 = findString(a12, "<Font")
+    var bool2 = int3 <= -1
+    if not HIDWORD(int3)
+      bool2 = (_DWORD)int3 == 0
+    .
+    if not bool2
+      var str3 = substring(a12, int3, findString(a12, ">") - (int3 - 1))
+      var str5 = replacestring(a12, str3, "")
+      return replacestring(str5, "</Font>", "")
+    else
+      return a12
+    .
+  else
+    return a1
+  .
+.
+public method init(Me)
+  Me.cbtFlytextLevel = 2
+  if $Options.GetBooleanValue(3830014099739278693)  // "combatlog_enable"
+    Me.EnableCombatLogging(true)
+  else
+    Me.EnableCombatLogging(false)
+  .
+  Me.cbtCoverIconsEnabled = true
+.
+public method isBossToughness(a1 as Enum cbtToughnessEnum) as Boolean
+  var int1 = $COMBAT.getToughnessRank(a1)
+  var int2 = $COMBAT.getToughnessRank(cbtToughness_boss_1)
+  var bool1 = (unsigned int)int1 >= (unsigned int)int2
+  var out = SHIDWORD(int1) >= SHIDWORD(int2)
+  if HIDWORD(int1) == HIDWORD(int2)
+    out = bool1
+  .
+  return out
+.
+public method getToughnessRank(a1 as Enum cbtToughnessEnum) as Integer
+  if a1 == cbtToughness_weak
+    return 1
+  else if a1 == cbtToughness_standard
+    return 2
+  else if a1 == cbtToughness_strong
+    return 3
+  else if a1 == cbtToughness_companion
+    return 4
+  else if a1 == cbtToughness_player
+    return stringIdReflexiveOffset
+  else if a1 == cbtToughness_boss_1
+    return colorTagStringLengthMinusOne
+  else if a1 == cbtToughness_boss_2
+    return colorTagStringLength
+  else if a1 == cbtToughness_boss_3
+    return colorTagStringLengthPlusOne
+  else if a1 == cbtToughness_boss_4
+    return 9
+  else if a1 == cbtToughness_boss_raid
+    return stringIdNotYouOffset
+  else
+    return 0
+  .
+.
+remote function OnDebugLevelSet(Me, a1 as Integer)
+  $COMBAT._setOracleDebugLevel(a1)
+.
+remote function OnCombatFlytextLevelSet(Me, a1 as Integer)
+  $COMBAT.cbtFlytextLevel = a1
+  $CHAT.ChatPlayerLocalized_Old(chatChannel_Convo, "Combat flytext level set to: " + a1)
+.
+remote function OnCombatSpamLevelSet(Me, a1 as Integer)
+  $COMBAT.cbtSpamLevel = a1
+  $CHAT.ChatPlayerLocalized_Old(chatChannel_Convo, "Combat spam level set to: " + a1)
+.
+remote function OnCombatDump(Me, a1 as ID)
+  if a1 != None
+    var str2 = $COMBAT.GetCombatDumpString(a1)
+    $CHAT.ChatPlayerDebug(str2)
+  .
+.
+public method GetCombatDumpString(a1 as NodeRef) as String
+  var str = ""
+  if a1 != None
+    str = str + "CLIENT STATE: id=" + a1
+    if a1 is kindof staCharacterComponent
+      var str6 = a1.chrAnim_GetAnimNetworkType()
+      str = str + " animNetwork=" + str6
+      var enum1 = a1.staCharacter_GetBrainState()
+      var str12 = GetAnimInput(a1, "BrainState")
+      str = str + " brainState=" + enum1 + "|" + str12
+      var bool1 = a1.CharStateIsInCombat()
+      str = str + " inCombat=" + bool1
+      var bool2 = a1.CharStateIsAlerted()
+      str = str + " isAlerted=" + bool2
+      var classView = HM.GetClassViewFromNodeRef(a1, staCharacterComponent)
+      var bool3 = classView.staAutoAttack
+      str = str + " autoAttack=" + bool3
+      var enum2 = a1.GetCharMobilityState()
+      var str27 = GetAnimInput(a1, "Mobility")
+      str = str + " mobility=" + enum2 + "|" + str27
+      var node2 = a1.GetCoverObject()
+      str = str + " cover=" + node2
+      var bool4 = a1.IsStealthed()
+      str = str + " stealthed=" + bool4
+      var classView2 = HM.GetClassViewFromNodeRef(a1, staCharacterComponent)
+      str = str + " stance=" + classView2.staStance
+    .
+    if a1 is kindof staWeaponComponent
+      var classView3 = HM.GetClassViewFromNodeRef(a1, staWeaponComponent)
+      str = str + " weaponMode=" + classView3.staWeaponMode
+      var classView4 = HM.GetClassViewFromNodeRef(a1, staWeaponComponent)
+      str = str + " weaponState=" + classView4.staWeaponState
+    .
+    if a1 is kindof cbtFactionComponent
+      var str45 = a1.GetFactionString()
+      str = str + " faction=" + str45
+    .
+    if a1 is kindof cbtDefenderComponent
+      var enum6 = a1.GetToughness()
+      str = str + " toughness=" + enum6
+    .
+    str = str + "$R"
+    if a1 is kindof staWeaponComponent
+      str = str + "$RCLIENT STATE (WEAPON): id=" + a1
+      var str55 = a1.GetWeaponStateDebugString()
+      str = str + " " + str55
+    .
+  .
+  return str
+.
+remote function OnCombatPreload(Me)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  $CHAT.ChatPlayerDebug("Combat Preload: playing all animations and FX on " + pc2)
+  $CPULIMIT = 30000
+  ForcePreloadAllSpecsAbilities()
+  $CHAT.ChatPlayerDebug("Combat Preload Complete.")
+.
+public method unk_e6680e29(Me, a1 as ID, a2 as ID, a3 as NodeRef of ablAbility, a4 as Integer)
+  if a3 = None
+    return
+  .
+  if $Options.GetBooleanValue(11162314027077778436)  // "combatinfo_showdefeat"
+    if a1 is kindof chrCompanionComponent
+      var pc = GetPlayerCharacterNode()
+      if a2 == pc
+        list1 as List of String
+        add back a1.GetCompanionMaster().getName() to list1
+        add back a3.GetAbilityName() to list1
+        add back a4 to list1
+        $CHAT.ChatPlayerLocalizedTokenizedUsingPlayerGender(chatChannel_CombatInfo, STR_GUI_COMBAT, ID_STR_GUI_COMBAT | 0x1770, HIDWORD(ID_STR_GUI_COMBAT), list1)  // "Defeated by <<1>>'s Companion with <<2>> (<<3>> damage)"
+      else
+        var node7 = $CHARACTER.GetCC()
+        if a2 == node7
+          list2 as List of String
+          var str5 = a2.getName()
+          add back str5 to list2
+          var node8 = a1.GetCompanionMaster()
+          var str6 = node8.getName()
+          add back str6 to list2
+          var str7 = a3.GetAbilityName()
+          add back str7 to list2
+          add back a4 to list2
+          $CHAT.ChatPlayerLocalizedTokenizedUsingPlayerGender(chatChannel_CombatInfo, STR_GUI_COMBAT, ID_STR_GUI_COMBAT | 0x1771, HIDWORD(ID_STR_GUI_COMBAT), list2)  // "<<1>> defeated by <<2>>'s Companion with <<3>> (<<4>> damage)"
+        .
+      .
+    else
+      var pc2 = GetPlayerCharacterNode()
+      if a2 == pc2
+        list3 as List of String
+        add back $CHARACTER.GetCharacterName(a1) to list3
+        var str11 = a3.GetAbilityName()
+        add back str11 to list3
+        add back a4 to list3
+        $CHAT.ChatPlayerLocalizedTokenizedUsingPlayerGender(chatChannel_CombatInfo, STR_GUI_COMBAT, ID_STR_GUI_COMBAT | 0x1772, HIDWORD(ID_STR_GUI_COMBAT), list3)  // "Defeated by <<1>> with <<2>> (<<3>> damage)"
+      else
+        var node9 = $CHARACTER.GetCC()
+        if a2 == node9
+          list4 as List of String
+          add back $CHARACTER.GetCharacterName(a2) to list4
+          add back $CHARACTER.GetCharacterName(a1) to list4
+          var str16 = a3.GetAbilityName()
+          add back str16 to list4
+          add back a4 to list4
+          $CHAT.ChatPlayerLocalizedTokenizedUsingPlayerGender(chatChannel_CombatInfo, STR_GUI_COMBAT, ID_STR_GUI_COMBAT | 0x1773, HIDWORD(ID_STR_GUI_COMBAT), list4)  // "<<1>> defeated by <<2>> with <<3>> (<<4>> damage)"
+        .
+      .
+    .
+  .
+  if not $Options.GetBooleanValue(14860840154851635963)  // "combatinfo_showvictory"
+    return
+  .
+  if a2 is kindof chrCompanionComponent
+    var pc3 = GetPlayerCharacterNode()
+    if a1 == pc3
+      list5 as List of String
+      var node10 = a2.GetCompanionMaster()
+      var str19 = node10.getName()
+      add back str19 to list5
+      var str20 = a3.GetAbilityName()
+      add back str20 to list5
+      add back a4 to list5
+      $CHAT.ChatPlayerLocalizedTokenizedUsingPlayerGender(chatChannel_CombatInfo, STR_GUI_COMBAT, ID_STR_GUI_COMBAT | 0x1774, HIDWORD(ID_STR_GUI_COMBAT), list5)  // "Defeated <<1>>'s Companion with <<2>> (<<3>> damage)"
+    else
+      var node11 = $CHARACTER.GetCC()
+      if not a1 == node11
+        return
+      .
+      list6 as List of String
+      var str23 = a1.getName()
+      add back str23 to list6
+      var node12 = a2.GetCompanionMaster()
+      var str24 = node12.getName()
+      add back str24 to list6
+      var str25 = a3.GetAbilityName()
+      add back str25 to list6
+      add back a4 to list6
+      $CHAT.ChatPlayerLocalizedTokenizedUsingPlayerGender(chatChannel_CombatInfo, STR_GUI_COMBAT, ID_STR_GUI_COMBAT | 0x1775, HIDWORD(ID_STR_GUI_COMBAT), list6)  // "<<1>> struck down <<2>>'s Companion with <<3>> (<<4>> damage)"
+    .
+  else
+    var pc4 = GetPlayerCharacterNode()
+    if a1 == pc4
+      list7 as List of String
+      add back $CHARACTER.GetCharacterName(a2) to list7
+      var str29 = a3.GetAbilityName()
+      add back str29 to list7
+      add back a4 to list7
+      $CHAT.ChatPlayerLocalizedTokenizedUsingPlayerGender(chatChannel_CombatInfo, STR_GUI_COMBAT, ID_STR_GUI_COMBAT | 0x1776, HIDWORD(ID_STR_GUI_COMBAT), list7)  // "Defeated <<1>> with <<2>> (<<3>> damage)"
+    else
+      var node13 = $CHARACTER.GetCC()
+      if not a1 == node13
+        return
+      .
+      list8 as List of String
+      add back $CHARACTER.GetCharacterName(a1) to list8
+      add back $CHARACTER.GetCharacterName(a2) to list8
+      var str34 = a3.GetAbilityName()
+      add back str34 to list8
+      add back a4 to list8
+      $CHAT.ChatPlayerLocalizedTokenizedUsingPlayerGender(chatChannel_CombatInfo, STR_GUI_COMBAT, ID_STR_GUI_COMBAT | 0x1777, HIDWORD(ID_STR_GUI_COMBAT), list8)  // "<<1>> struck down <<2>> with <<3>> (<<4>> damage)"
+    .
+  .
+.
+public method RebuildCombatLog(Me, a1 as Boolean, a2 as Boolean, a3 as Boolean, a4 as Boolean, a5 as Boolean)
+  var unused = HM.GetEnumDefaultValue(21)
+  var int1 = Me.cbtSpamFilterBitField
+  utlBits:UpdateBit(&int1, 1, a1)
+  Me.cbtSpamFilterBitField = int1
+  var int2 = Me.cbtSpamFilterBitField
+  utlBits:UpdateBit(&int2, 3, a2)
+  Me.cbtSpamFilterBitField = int2
+  var int3 = Me.cbtSpamFilterBitField
+  utlBits:UpdateBit(&int3, 2, a3)
+  Me.cbtSpamFilterBitField = int3
+  var int4 = Me.cbtSpamFilterBitField
+  utlBits:UpdateBit(&int4, stringIdReflexiveOffset, a4)
+  Me.cbtSpamFilterBitField = int4
+  var int5 = Me.cbtSpamFilterBitField
+  utlBits:UpdateBit(&int5, 4, a5)
+  Me.cbtSpamFilterBitField = int5
+.
+public method ShowSpamType(a1 as Enum cbtSpamFilterType) as Boolean
+  CallFrame _callFrame
+  if a1 == cbtSpamFilterSystem
+    return true
+  else
+    FuncRef IsBitSet = HM.PrepareCallScriptSameMe2(31, 14988057078017875640, Me, &_callFrame)
+    return IsBitSet(_callFrame, Me.cbtSpamFilterBitField, a1) & 1
+  .
+.
+public function LogCombatSpam(Me, a1 as NodeRef, a2 as NodeRef, a3 as String, a4 as String)
+  $CHAT.ChatPlayerAlreadyLocalized(chatChannel_Combat, a3)
+.
+public function LogCombatSpam2(Me, a1 as NodeRef, a2 as NodeRef, a3 as String, a4 as String, a5 as Enum cbtSpamFilterType)
+  if $COMBAT.ShowSpamType(a5)
+    $CHAT.ChatPlayerAlreadyLocalized(chatChannel_Combat, a3 + a4)
+  .
+.
+public function unk_62dcc9c7(Me, a1 as String)
+  PrintCombatLog(a1)
+.
+public method _CombatSpamSuspicious(Me, a1 as NodeRef, a2 as NodeRef, a3 as Integer)
+  // unknown
+  if not Me._CombatSuppressSpam(UNK_66FABCE3, a1, a2)
+    if not Me._CombatSpamRelevant(a1, a2)
+      // unknown
+    else
+      str as String
+      str2 as String
+      var str4 = unk_ffb92aea()
+      var str6 = Me.unk_4cbe5ccc(a1)
+      var str8 = Me.unk_4cbe5ccc(a2)
+      var str10 = Me._CombatSpamLocation(a1)
+      var str12 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_2BB19D1F, HIDWORD(ID_STR_GUI_COMBAT))
+      var str14 = Me.ComposeString(ID_STR_GUI_COMBAT | a3, HIDWORD(ID_STR_GUI_COMBAT) | HIDWORD(a3))
+      unk_62dcc9c7(Me.unk_71ca8e92(str10, str4, str6, str8, str2, str12 + ": " + str14, str))
+    .
+  .
+.
+public method _CombatSpamSystemMessage(Me, a1 as NodeRef, a2 as NodeRef, a3 as Integer, a4 as String)
+  if not Me._CombatSuppressSpam(UNK_66FABCE3, a1, a2)
+    var pc = GetPlayerCharacterNode()
+    if a1 != pc
+      // unknown
+    else
+      str as String
+      var str3 = unk_ffb92aea()
+      var str5 = Me.unk_4cbe5ccc(a1)
+      var str7 = Me.unk_4cbe5ccc(a2)
+      var str9 = Me._CombatSpamLocation(a1)
+      var str11 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_2BB19D1F, HIDWORD(ID_STR_GUI_COMBAT))
+      var str13 = Me.ComposeString(ID_STR_GUI_COMBAT | a3, HIDWORD(ID_STR_GUI_COMBAT) | HIDWORD(a3))
+      var str10 = str11 + ": " + str13
+      if a4 != ""
+        var a42 = a4
+      .
+      var str16 = Me.unk_71ca8e92(str9, str3, str5, str7, str, str10, a42)
+      unk_62dcc9c7(str16)
+    .
+  .
+.
+public method _CombatSpamBrainState3(Me, a1 as NodeRef, a2 as NodeRef, a3 as Enum staBrainType, a4 as Enum staBrainType)
+  if UNK_D506F9A5 == Me.cbtSpamLevel or not Me._CombatSpamRelevant(a1, a2)
+    return
+  .
+  var int2 = 0
+  str as String
+  str2 as String
+  var str5 = unk_ffb92aea()
+  var str7 = Me.unk_4cbe5ccc(a1)
+  var str9 = Me.unk_4cbe5ccc(a2)
+  var str11 = Me._CombatSpamLocation(a1)
+  if a3 != a4
+    if a3 == staBrainDead
+      var int3 = ID_STR_GUI_COMBAT
+      var str13 = Me.ComposeString(int3 | UNK_2BB19D1F, HIDWORD(int3)) + ": "
+      var str15 = str13 + Me.ComposeString(int3 | UNK_EB48ED8D, HIDWORD(int3))
+      var str3 = str15
+    else
+      if a3 != staBrainLucid or a4 != staBrainDead
+        if a3 == staBrainStunned
+          var int5 = ID_STR_GUI_COMBAT
+          var str17 = Me.ComposeString(int5 | UNK_2BB19D1F, HIDWORD(int5)) + ": "
+          var int6 = ID_STR_GUI_COMBAT
+          var str19 = str17 + Me.ComposeString(int6 | UNK_5161F6E4, HIDWORD(int6))
+          str3 = str19
+        else if a3 == staBrainLucid and a4 == staBrainStunned
+          var int7 = ID_STR_GUI_COMBAT
+          var str21 = Me.ComposeString(int7 | UNK_2BB19D1F, HIDWORD(int7)) + ": "
+          var int8 = ID_STR_GUI_COMBAT
+          var str23 = str21 + Me.ComposeString(int8 | UNK_7A578725, HIDWORD(int8))
+          str3 = str23
+        else
+          var bool2 = Me._CombatSuppressSpam(int2, a1, a2)
+          if bool2
+            // unknown
+          else
+            var str25 = Me.unk_71ca8e92(str11, str5, str7, str9, str2, str3, str)
+            unk_62dcc9c7(str25)
+          .
+          return
+        .
+        var int9 = UNK_3F6F110F
+        goto LABEL_18
+      .
+      var int10 = ID_STR_GUI_COMBAT
+      var str27 = Me.ComposeString(int10 | UNK_2BB19D1F, HIDWORD(int10)) + ": "
+      var int11 = ID_STR_GUI_COMBAT
+      var str29 = str27 + Me.ComposeString(int11 | UNK_DECDDAFC, HIDWORD(int11))
+      str3 = str29
+    .
+LABEL_18:
+    int2 = UNK_66FABCE3
+  .
+  var bool2 = Me._CombatSuppressSpam(int2, a1, a2)
+  if bool2
+    // unknown
+  else
+    var str25 = Me.unk_71ca8e92(str11, str5, str7, str9, str2, str3, str)
+    unk_62dcc9c7(str25)
+  .
+.
+public method _CombatSpamPoints(Me, a1 as NodeRef, a2 as NodeRef, a3 as Float, a4 as Integer, a5 as Integer)
+  if Me._CombatSuppressSpam(UNK_66FABCE3, a1, a2)
+    // unknown
+  else
+    var pc = GetPlayerCharacterNode()
+    if not a1 == pc
+      // unknown
+    else
+      str as String
+      var int2 = truncate(a3)
+      var str5 = unk_ffb92aea()
+      var str7 = Me.unk_4cbe5ccc(a1)
+      var str9 = Me.unk_4cbe5ccc(a2)
+      var str11 = Me._CombatSpamLocation(a1)
+      var str13 = Me.ComposeString(ID_STR_GUI_COMBAT | a4, HIDWORD(ID_STR_GUI_COMBAT) | HIDWORD(a4))
+      var str15 = Me.ComposeString(ID_STR_GUI_COMBAT | a5, HIDWORD(ID_STR_GUI_COMBAT) | HIDWORD(a5))
+      unk_62dcc9c7(Me.unk_71ca8e92(str11, str5, str7, str9, str, str13 + ": " + str15, int2))
+    .
+  .
+.
+public method _CombatSpamHeal3(Me, a1 as NodeRef, a2 as NodeRef, a3 as NodeRef, a4 as Enum effResult, a5 as Float, a6 as Float, a7 as Float, a8 as Float)
+  // unknown
+  if Me._CombatSuppressSpam(UNK_66FABCE3, a1, a2)
+    // unknown
+  else if not Me._CombatSpamRelevant(a1, a2)
+    // unknown
+  else
+    var str4 = unk_ffb92aea()
+    var str6 = Me.unk_4cbe5ccc(a1)
+    var str8 = Me.unk_4cbe5ccc(a2)
+    var str10 = Me.unk_4cbe5ccc(a3)
+    var str12 = Me._CombatSpamLocation(a1)
+    var str14 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_DC21137E, HIDWORD(ID_STR_GUI_COMBAT))
+    var str16 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_234726BB, HIDWORD(ID_STR_GUI_COMBAT))
+    var str13 = str14 + ": " + str16
+    var int4 = truncate(a5)
+    var str = int4
+    var bool3 = int4 <= -1
+    if not HIDWORD(int4)
+      bool3 = (_DWORD)int4 == 0
+    .
+    if not bool3
+      if a4 == effResultCrit
+        str = str + "*"
+      .
+      var int5 = truncate(a7)
+      var bool4 = int5 <= -1
+      if not HIDWORD(int5)
+        bool4 = (_DWORD)int5 == 0
+      .
+      if not bool4
+        var str24 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_A0FB8FED, HIDWORD(ID_STR_GUI_COMBAT))
+        str = str + " (" + int5 + " " + str24 + ")"
+      .
+    .
+    if a8 >= ((Float)lingoonaArgAlive)
+      var int7 = truncate(a8)
+    .
+    var str29 = Me.unk_c1de85e0(str12, str4, str6, str8, str10, str13, str, int7)
+    unk_62dcc9c7(str29)
+  .
+.
+public method _CombatSpamDamage3(Me, a1 as NodeRef, a2 as NodeRef, a3 as NodeRef, a4 as Enum effResult, a5 as Float, a6 as Enum cbtDamageType, a7 as Float, a8 as Float, a9 as Float)
+  if Me._CombatSuppressSpam(UNK_66FABCE3, a1, a2) or not Me._CombatSpamRelevant(a1, a2)
+    return
+  .
+  var str4 = unk_ffb92aea()
+  var str6 = Me.unk_4cbe5ccc(a1)
+  var str8 = Me.unk_4cbe5ccc(a2)
+  var str10 = Me.unk_4cbe5ccc(a3)
+  var str12 = Me._CombatSpamLocation(a1)
+  var str14 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_DC21137E, HIDWORD(ID_STR_GUI_COMBAT))
+  var str16 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_EB31C560, HIDWORD(ID_STR_GUI_COMBAT))
+  var str13 = str14 + ": " + str16
+  var int4 = truncate(a5)
+  var str = int4
+  var bool3 = int4 <= -1
+  if not HIDWORD(int4)
+    bool3 = (_DWORD)int4 == 0
+  .
+  if not bool3
+    if a4 == effResultCrit
+      str = str + "*"
+    .
+    var str21 = Me._GetDamageTypeString(a6)
+    str = str + " " + str21
+    if a4 != effResultOk and a4 != effResultCrit
+      var str24 = Me._GeteffResultString(a4)
+      str = str + " -" + str24
+    .
+    var int5 = truncate(a8)
+    var bool4 = int5 <= -1
+    if not HIDWORD(int5)
+      bool4 = (_DWORD)int5 == 0
+    .
+    if not bool4
+      var str30 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_45A05719, HIDWORD(ID_STR_GUI_COMBAT))
+      str = str + " (" + int5 + " " + str30 + ")"
+    .
+  else
+    var str34 = Me._GeteffResultString(a4)
+    str = str + " -" + str34
+  .
+  if a9 >= ((Float)lingoonaArgAlive)
+    var int7 = truncate(a9)
+  .
+  var str37 = Me.unk_c1de85e0(str12, str4, str6, str8, str10, str13, str, int7)
+  unk_62dcc9c7(str37)
+.
+public function _GetGenderedName(a1 as NodeRef) as String
+  var bool1 = false
+  if a1 is kindof chrPlayerCharacter
+    var enum1 = a1.GetCharacterGender()
+    bool1 = enum1 == chrGenderMale
+  else if a1 is kindof chrNonPlayerCharacter
+    var enum1 = a1.GetCharacterGender()
+    bool1 = enum1 == chrGenderMale
+  .
+  return chrPlayerCharacterClassMethods:CreateGenderfiedName(Me._CombatSpamName(a1), bool1)
+.
+public method _CombatSpamEffectFailedAction(Me, a1 as NodeRef, a2 as NodeRef, a3 as NodeRef)
+  if Me._CombatSuppressSpam(UNK_66FABCE3, a1, a2) or not Me._CombatSpamRelevant(a1, a2)
+    return
+  .
+  if a3 != None
+    str as String
+    var str4 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_2BB19D1F, HIDWORD(ID_STR_GUI_COMBAT))
+    var str6 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_FB9066BD, HIDWORD(ID_STR_GUI_COMBAT))
+    var str3 = str4 + ": " + str6
+    var str9 = unk_ffb92aea()
+    var str11 = Me.unk_4cbe5ccc(a1)
+    var str13 = Me.unk_4cbe5ccc(a2)
+    var str15 = Me._CombatSpamLocation(a1)
+    if a3 is kindof ablAbility
+      var str16 = a3.GetAbilityName()
+      var str17 = HM.ConstructString()
+      var int4 = a3.GetAbilityNameStringID()
+    else if a3 is kindof effEffect
+      var str16 = a3.GetEffectName()
+      var int4 = a3.GetEffectNameStringID()
+      var str17 = Me.ComposeStringId(int4)
+      var str2 = str16 + str17
+    .
+    var str20 = Me.unk_71ca8e92(str15, str9, str11, str13, str2, str3, str)
+    unk_62dcc9c7(str20)
+  .
+.
+public method _CombatSpamEffectAction(Me, a1 as NodeRef, a2 as NodeRef, a3 as NodeRef, a4 as Float, a5 as Enum effActionEnum)
+  CallFrame _callFrame
+  String str20
+  String str21
+  if Me._CombatSuppressSpam(UNK_66FABCE3, a1, a2)
+    // unknown
+  else if not Me._CombatSpamRelevant(a1, a2)
+    // unknown
+  else
+    str as String
+    str2 as String
+    str3 as String
+    var str6 = unk_ffb92aea()
+    var str8 = Me.unk_4cbe5ccc(a1)
+    var str10 = Me.unk_4cbe5ccc(a2)
+    var str12 = Me._CombatSpamLocation(a1)
+    if a5 == effAction_AbilityActivate
+      var str13 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_2BB19D1F, HIDWORD(ID_STR_GUI_COMBAT))
+      var str15 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_24CB422C, HIDWORD(ID_STR_GUI_COMBAT))
+      var str4 = str13 + ": " + str15
+      if a3 != None and a3 is kindof ablAbility
+        var str17 = a3.GetAbilityName()
+        var int4 = a3.GetAbilityNameStringID()
+        var str18 = Me.ComposeStringId(int4)
+        var str19 = str17 + str18
+        String *str192 = str3
+        str192 = str19
+        str21 = Me.unk_c1de85e0(str12, str6, str8, str10, str3, str4, str, str2)
+        str20 = str21
+        unk_62dcc9c7(str20)
+        return
+        if a5 == effAction_AbilityCancel
+          var str22 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_2BB19D1F, HIDWORD(ID_STR_GUI_COMBAT))
+          var str24 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_D514C12F, HIDWORD(ID_STR_GUI_COMBAT))
+          str4 = str22 + ": " + str24
+          if a3 != None and a3 is kindof ablAbility
+            GetAbilityName = HM.PrepareCallNodeRef2(26, a3, &_callFrame)
+            str17 = GetAbilityName(_callFrame)
+            GetAbilityNameStringID = HM.PrepareCallNodeRef2(50, a3, &_callFrame)
+            int4 = GetAbilityNameStringID(_callFrame)
+            ComposeStringId = HM.PrepareCallNodeRef2(51, Me, &_callFrame)
+            str18 = ComposeStringId(_callFrame, int4)
+            str19 = str17 + str18
+            str192 = str3
+            str192 = str19
+            str21 = Me.unk_c1de85e0(str12, str6, str8, str10, str3, str4, str, str2)
+            str20 = str21
+            unk_62dcc9c7(str20)
+            return
+          else
+            str21 = Me.unk_c1de85e0(str12, str6, str8, str10, str3, str4, str, str2)
+            str20 = str21
+            unk_62dcc9c7(str20)
+            return
+          .
+        .
+        if a5 == effAction_AbilityDeactivate
+          var str26 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_2BB19D1F, HIDWORD(ID_STR_GUI_COMBAT))
+          var str28 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_9907746F, HIDWORD(ID_STR_GUI_COMBAT))
+          str4 = str26 + ": " + str28
+          if a3 != None and a3 is kindof ablAbility
+            GetAbilityName = HM.PrepareCallNodeRef2(26, a3, &_callFrame)
+            str17 = GetAbilityName(_callFrame)
+            GetAbilityNameStringID = HM.PrepareCallNodeRef2(50, a3, &_callFrame)
+            int4 = GetAbilityNameStringID(_callFrame)
+            ComposeStringId = HM.PrepareCallNodeRef2(51, Me, &_callFrame)
+            str18 = ComposeStringId(_callFrame, int4)
+            str19 = str17 + str18
+            str192 = str3
+            str192 = str19
+            str21 = Me.unk_c1de85e0(str12, str6, str8, str10, str3, str4, str, str2)
+            str20 = str21
+            unk_62dcc9c7(str20)
+            return
+          else
+            str21 = Me.unk_c1de85e0(str12, str6, str8, str10, str3, str4, str, str2)
+            str20 = str21
+            unk_62dcc9c7(str20)
+            return
+          .
+        .
+        if a5 == effAction_AbilityInterrupt
+          var str30 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_2BB19D1F, HIDWORD(ID_STR_GUI_COMBAT))
+          var str32 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_600D332C, HIDWORD(ID_STR_GUI_COMBAT))
+          str4 = str30 + ": " + str32
+          if a3 != None and a3 is kindof ablAbility
+            GetAbilityName = HM.PrepareCallNodeRef2(26, a3, &_callFrame)
+            str17 = GetAbilityName(_callFrame)
+            GetAbilityNameStringID = HM.PrepareCallNodeRef2(50, a3, &_callFrame)
+            int4 = GetAbilityNameStringID(_callFrame)
+            ComposeStringId = HM.PrepareCallNodeRef2(51, Me, &_callFrame)
+            str18 = ComposeStringId(_callFrame, int4)
+            str19 = str17 + str18
+            str192 = str3
+            str192 = str19
+            str21 = Me.unk_c1de85e0(str12, str6, str8, str10, str3, str4, str, str2)
+            str20 = str21
+            unk_62dcc9c7(str20)
+            return
+          else
+            str21 = Me.unk_c1de85e0(str12, str6, str8, str10, str3, str4, str, str2)
+            str20 = str21
+            unk_62dcc9c7(str20)
+            return
+          .
+        .
+        if a5 == effAction_AddEffect
+          if a3 != None
+            var str34 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_DC21137E, HIDWORD(ID_STR_GUI_COMBAT))
+            var str36 = a3.GetEffectName()
+            var str38 = Me.ComposeStringId(a3.GetEffectNameStringID())
+            str4 = str34 + ": " + str36 + str38
+            var id1 = a3.GetEffectAbilitySpec()
+            var node3 = $ABILITY.GetAbility(id1)
+            if node3 != None
+              var str40 = node3.GetAbilityName()
+              var int13 = node3.GetAbilityNameStringID()
+              var str41 = Me.ComposeStringId(int13)
+              str19 = str40 + str41
+              str192 = str3
+              str192 = str19
+              str21 = Me.unk_c1de85e0(str12, str6, str8, str10, str3, str4, str, str2)
+              str20 = str21
+              unk_62dcc9c7(str20)
+              return
+            else
+              str21 = Me.unk_c1de85e0(str12, str6, str8, str10, str3, str4, str, str2)
+              str20 = str21
+              unk_62dcc9c7(str20)
+              return
+            .
+          else
+            str21 = Me.unk_c1de85e0(str12, str6, str8, str10, str3, str4, str, str2)
+            str20 = str21
+            unk_62dcc9c7(str20)
+            return
+          .
+        .
+        if a5 == effAction_FallDamage
+          var str42 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_2BB19D1F, HIDWORD(ID_STR_GUI_COMBAT))
+          var str44 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_2041AAC9, HIDWORD(ID_STR_GUI_COMBAT))
+          str4 = str42 + ": " + str44
+          var int16 = truncate(a4)
+          str19 = int16
+          str192 = str
+          str192 = str19
+          str21 = Me.unk_c1de85e0(str12, str6, str8, str10, str3, str4, str, str2)
+          str20 = str21
+          unk_62dcc9c7(str20)
+          return
+        .
+        if a5 == effAction_LeaveCover
+          var str46 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_2BB19D1F, HIDWORD(ID_STR_GUI_COMBAT))
+          var str48 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_99F79D0B, HIDWORD(ID_STR_GUI_COMBAT))
+          str19 = str46 + ": " + str48
+          str192 = str4
+          str192 = str19
+          str21 = Me.unk_c1de85e0(str12, str6, str8, str10, str3, str4, str, str2)
+          str20 = str21
+          unk_62dcc9c7(str20)
+          return
+        .
+        if a5 == effAction_ModifyThreat
+          var str49 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_2BB19D1F, HIDWORD(ID_STR_GUI_COMBAT))
+          var str51 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_0D2094DB, HIDWORD(ID_STR_GUI_COMBAT))
+          str4 = str49 + ": " + str51
+          var int21 = truncate(a4)
+          str2 = int21
+          var id2 = a3.GetEffectAbilitySpec()
+          var node5 = $ABILITY.GetAbility(id2)
+          if node5 != None
+            var str40 = node5.GetAbilityName()
+            var int13 = node5.GetAbilityNameStringID()
+            var str41 = Me.ComposeStringId(int13)
+            str19 = str40 + str41
+            str192 = str3
+            str192 = str19
+          .
+        else if a5 == effAction_RemoveEffect
+          if a3 != None
+            var str54 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_B99A198C, HIDWORD(ID_STR_GUI_COMBAT))
+            var str56 = a3.GetEffectName()
+            var int23 = a3.GetEffectNameStringID()
+            var str58 = Me.ComposeStringId(int23)
+            str4 = str54 + ": " + str56 + str58
+            var id3 = a3.GetEffectAbilitySpec()
+            var node7 = $ABILITY.GetAbility(id3)
+            if node7 != None
+              var str40 = node7.GetAbilityName()
+              var int13 = node7.GetAbilityNameStringID()
+              var str41 = Me.ComposeStringId(int13)
+              str19 = str40 + str41
+              str192 = str3
+              str192 = str19
+              str21 = Me.unk_c1de85e0(str12, str6, str8, str10, str3, str4, str, str2)
+              str20 = str21
+              unk_62dcc9c7(str20)
+              return
+            else
+              str21 = Me.unk_c1de85e0(str12, str6, str8, str10, str3, str4, str, str2)
+              str20 = str21
+              unk_62dcc9c7(str20)
+              return
+            .
+          else
+            str21 = Me.unk_c1de85e0(str12, str6, str8, str10, str3, str4, str, str2)
+            str20 = str21
+            unk_62dcc9c7(str20)
+            return
+          .
+        .
+        if a5 == effAction_TakeCover
+          var str60 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_2BB19D1F, HIDWORD(ID_STR_GUI_COMBAT))
+          var str48 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_D3926C28, HIDWORD(ID_STR_GUI_COMBAT))
+          str19 = str60 + ": " + str48
+          str192 = str4
+          str192 = str19
+          str21 = Me.unk_c1de85e0(str12, str6, str8, str10, str3, str4, str, str2)
+          str20 = str21
+          unk_62dcc9c7(str20)
+          return
+        .
+        if a5 == effAction_TakePortableCover
+          var str61 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_2BB19D1F, HIDWORD(ID_STR_GUI_COMBAT))
+          var str48 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_C7C8E7EB, HIDWORD(ID_STR_GUI_COMBAT))
+          str19 = str61 + ": " + str48
+          str192 = str4
+          str192 = str19
+          str21 = Me.unk_c1de85e0(str12, str6, str8, str10, str3, str4, str, str2)
+          str20 = str21
+          unk_62dcc9c7(str20)
+          return
+        .
+        if a5 == effAction_Taunt
+          var str62 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_2BB19D1F, HIDWORD(ID_STR_GUI_COMBAT))
+          var str64 = Me.ComposeString(ID_STR_GUI_COMBAT | UNK_E52FC063, HIDWORD(ID_STR_GUI_COMBAT))
+          str4 = str62 + ": " + str64
+          var int30 = truncate(a4)
+          str19 = int30
+          str192 = str2
+          str192 = str19
+        .
+      .
+    .
+    str21 = Me.unk_c1de85e0(str12, str6, str8, str10, str3, str4, str, str2)
+    str20 = str21
+    unk_62dcc9c7(str20)
+  .
+.
+public method _CombatSpamSubjectVerb(a1 as NodeRef, a2 as String, a3 as String) as String
+  String str2
+  if a1 is kindof effEffect
+    var str = a1.GetEffectName(str2)
+    return str + a3
+  else
+    var pc = GetPlayerCharacterNode()
+    if a1 == pc
+      return "You" + a2
+    else
+      var str = strutils:GetEffectName(Me._CombatSpamName(a1))
+      return str + a3
+    .
+  .
+.
+public method _CombatSpamSubjectPossessive(a1 as NodeRef, a2 as Boolean) as String
+  NodeRef pc
+  pc[2] = HM.ConstructString()
+  pc = GetPlayerCharacterNode()
+  if a1 == pc
+    if a2
+      return "Your"
+    else
+      return "your"
+    .
+  else
+    return strutils:Capitalize(Me._CombatSpamName(a1)) + "'s"
+  .
+.
+function _CombatSpamName(result as String, Me as NodeRef, a1 as NodeRef)
+  CallFrame _callFrame
+  if a1 = None
+    result = "<Unknown>"
+  else if a1 is kindof chrPlayerCharacter
+    var str = a1.GetNameWithGender()
+    result = str
+  else if a1 is kindof chrNonPlayerCharacter
+    var str = a1.getName()
+    result = str
+  else if a1 is kindof effEffect
+    var str = a1.GetEffectName()
+    result = str
+  else if a1 is kindof ablAbility
+    var str = a1.GetAbilityName()
+    result = str
+  else if a1 is kindof itmItem
+    str2 as String
+    FuncRef GetItemName = HM.PrepareCallNodeRef2(58, a1, &_callFrame)
+    GetItemName(str2)
+    HM.ThrowScriptError("Missing return.", (int)_callFrame)
+  else
+    result = a1
+  .
+.
+public method unk_4cbe5ccc(a1 as NodeRef) as String
+  String str12
+  String str17
+  Integer int5
+  if a1 = None
+    return ""
+  else if UNK_66FABCE3 < Me.cbtSpamLevel
+    var str = ":" + a1
+  .
+  if a1 is kindof chrPlayerCharacter
+    var str4 = $CHARACTER.GetCharacterName(a1)
+    return "@" + str4
+  else
+    if a1 is kindof chrCompanionComponent
+      var str6 = a1.GetCompanionMaster().getName()
+      var str9 = $CHARACTER.GetCharacterName(a1)
+      str12 = "@" + str6 + ":" + str9 + Me.ComposeStringId(a1.GetNameId())
+    else if a1 is kindof chrNonPlayerCharacter
+      var str13 = $CHARACTER.GetCharacterName(a1)
+      var int3 = a1.GetNameId()
+      str12 = str13 + Me.ComposeStringId(int3)
+    else if a1 is kindof effEffect
+      var str15 = a1.GetEffectName()
+      var int4 = a1.GetEffectNameStringID()
+      var str16 = Me.ComposeStringId(int4)
+      return str15 + str16
+    else if a1 is kindof ablAbility
+      var str15 = a1.GetAbilityName()
+      var int4 = a1.GetAbilityNameStringID()
+      var str16 = Me.ComposeStringId(int4)
+      return str15 + str16
+    else
+      if a1 is kindof itmItem
+        str17 = a1.GetItemName()
+        var str18 = HM.ConstructString()
+        int5 = a1.GetItemNameID()
+      else if a1 is kindof plcPlaceable
+        str17 = a1.getName()
+        var str18 = HM.ConstructString()
+        int5 = a1.GetNameId()
+      else
+        return a1
+      .
+      var str18 = Me.ComposeStringId(int5)
+      str12 = str17 + str18
+    .
+    return str12 + str
+  .
+.
+public method _CombatSuppressSpam(a1 as Integer, a2 as NodeRef, a3 as NodeRef) as Boolean
+  if Me.cbtSpamLevel < a1
+    return true
+  .
+  var node2 = $CHARACTER.GetControlledVehicle()
+  if node2 != None
+    return true
+  .
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 = None
+    return true
+  .
+  var id1 = pc2.GetPrimaryTargetID()
+  var id2 = pc2.GetFocusTargetID()
+  var node5 = $CHARACTER.GetCC()
+  var idCarrier = 0
+  if node5 != None
+    var id3 = node5.GetTargetID()
+    idCarrier = id3
+  .
+  if (((a2 == pc2 or a2 == id1) or a2 == id2) or a2 == node5) or a2 == idCarrier
+    return false
+  else
+    if (((a3 == pc2 or a3 == id1) or a3 == id2) or a3 == node5) or a3 == idCarrier
+      return false
+    .
+    return true
+  .
+.
+public method simpleAction(Me, a1 as NodeRef, a2 as String)
+  Me.basicAttack(a1, a2, 1)
+.
+public method cbtOracle_StopAmbient(Me, a1 as NodeRef, a2 as Integer)
+  Boolean bool2
+  if a1 != None and (a1 is kindof chrCharacter and a1.chrCharacter_HasBeenDestroyed() ? (bool2 = true) : (bool2 = false), not bool2)
+    var int2 = $EFFECT.effmOracleGetTopEffAppearancePriority()
+    StopAmbient(a1, Me.cbtOracle_GetNextScriptHandleForAction(), a2, int2, int2)
+  else
+    // unknown
+  .
+.
+public method cbtOracle_StopAction(Me, a1 as NodeRef, a2 as Integer)
+  var int2 = $EFFECT.effmOracleGetTopEffAppearancePriority()
+  StopAction(a1, Me.cbtOracle_GetNextScriptHandleForAction(), a2, int2, int2)
+.
+public method basicAttack(a1 as NodeRef, a2 as String, a3 as Integer) as Integer
+  return Me.basicInterruptAttack(a1, a2, 0, a3)
+.
+public method cbtOracleTargettedAttack(a1 as NodeRef, a2 as NodeRef, a3 as String, a4 as Integer) as Integer
+  return Me.targettedInterruptAttack(a1, a2, a3, 0, a4)
+.
+public method targettedAttackPair(Me, a1 as NodeRef, a2 as NodeRef, a3 as String, a4 as String, a5 as Integer)
+  Me.targettedInterruptAttackPair(a1, a2, a3, a4, 0, a5)
+.
+public method basicInterruptAttack(a1 as NodeRef, a2 as String, a3 as Integer, a4 as Integer) as Integer
+  return Me.targettedInterruptAttack(a1, a1, a2, a3, a4)
+.
+public method targettedInterruptAttack(a1 as NodeRef, a2 as NodeRef, a3 as String, a4 as Integer, a5 as Integer) as Integer
+  return Me.cbtOracleTargettedInterruptTargetModeAttack(a1, a2, a3, a4, a5, 1, false)
+.
+public method cbtOracleTargettedInterruptTargetModeAttack(a1 as NodeRef, a2 as NodeRef, a3 as String, a4 as Integer, a5 as Integer, a6 as Integer, a7 as Boolean) as Integer
+  if a1 = None
+    return 0
+  else
+    return Me.cbtOracleTargettedInterruptTargetModeAttackClip(a1, a2, a3, a4, a5, a6, a7, -((Float)lingoonaArgAlive), -((Float)lingoonaArgAlive), -((Float)lingoonaArgAlive))
+  .
+.
+public method cbtOracleTargettedInterruptTargetModeAttackClip(a1 as NodeRef, a2 as NodeRef, a3 as String, a4 as Integer, a5 as Integer, a6 as Integer, a7 as Boolean, a8 as Float, a9 as Float, a10 as Float) as Integer
+  if a1 = None
+    return 0
+  else
+    var int2 = Me.cbtOracle_GetNextScriptHandleForAction()
+    Me.cbtOracle_AnimAttack(a1, a2, a3, a6, a7, HIDWORD(4453159313431383245), 4453159313431383245, int2, a4, a5, a8, a9, a10)
+    return int2
+  .
+.
+public method cbtAreHostilePvpPlayerCharacters(a1 as NodeRef of chrPlayerCharacter, a2 as NodeRef of chrPlayerCharacter) as Boolean
+  if a1 != None and a2 != None
+    if pvpParticipantComponentClassMethods:IsEntityPvpFlagged(a1) and pvpParticipantComponentClassMethods:IsEntityPvpFlagged(a2)
+      return a1.IsHostileTo(a2)
+    .
+  .
+  return false
+.
+public method cbtAreNonHostilePvpPlayerCharacters(a1 as NodeRef of chrPlayerCharacter, a2 as NodeRef of chrPlayerCharacter) as Boolean
+  if a1 != None and a2 != None
+    if pvpParticipantComponentClassMethods:IsEntityPvpFlagged(a1) and pvpParticipantComponentClassMethods:IsEntityPvpFlagged(a2)
+      return not a1.IsHostileTo(a2)
+    .
+  .
+  return false
+.
+public method cbtArePvpPlayerCharacters(a1 as NodeRef of chrPlayerCharacter, a2 as NodeRef of chrPlayerCharacter) as Boolean
+  if a1 != None and a2 != None
+    if not pvpParticipantComponentClassMethods:IsEntityPvpFlagged(a1)
+      return false
+    .
+    if pvpParticipantComponentClassMethods:IsEntityPvpFlagged(a2)
+      return true
+    .
+    return false
+  else
+    return false
+  .
+.
+public method IsPvpServer() as Boolean
+  return Me.serverTypeIsPvP
+.
+remote function SetPvPServer(Me, a1 as Boolean)
+  $COMBAT._SetPvPServer(a1)
+.
+public method _SetPvPServer(Me, a1 as Boolean)
+  Me.serverTypeIsPvP = a1
+.
+public method cbtDisableFullRotate(a1 as NodeRef, a2 as NodeRef) as Boolean
+  CallFrame _callFrame
+  var out = false
+  char v26 = 0
+  var a12 = a1
+  if a12 != None
+    var node = HM.CopyConstructNodeRef(32, a2)
+    FuncRef IsActivelyDuelingWith = HM.PrepareCallNodeRef2(80, a12, &_callFrame)
+    char v4 = IsActivelyDuelingWith(_callFrame, node) & 1
+    v26 = v4
+  .
+  var a13 = a1
+  var a14 = a1
+  if a13 != None
+    if a13.GetClientCastTimeRemaining() == 0.0
+      if ((Me.cbtArePvpPlayerCharacters(HM.CopyConstructNodeRef(31, a1), HM.CopyConstructNodeRef(31, a2)) or v26) & 1) != 0
+        if a14 != None
+          if not a14.staCharacter_IsInCover()
+            FuncRef GetBooleanValueWarnOnFailOptional = HM.PrepareCallNodeRef2(84, $Options, &_callFrame)
+            out = GetBooleanValueWarnOnFailOptional(_callFrame, 2747691035807610035, false) & 1  // "pvp_disable_ability_anim_full_rotate"
+          .
+        .
+      .
+    .
+  .
+  return out
+.
+public method cbtSetAnimActionAttackerPositioning(Me, a1 as NodeRef, a2 as ID, a3 as String, a4 as Integer, a5 as Boolean, a6 as Float, a7 as Float)
+  var bool1 = a5 and not Me.cbtDisableFullRotate(a1, a2)
+  SetAnimActionAttackerPositioning(a4, bool1, a6, a7)
+.
+public method cbtOracle_AnimAttackWithBlendIn(Me, a1 as NodeRef, a2 as ID, a3 as String, a4 as Integer, a5 as Boolean, a6 as Float, a7 as Float, a8 as Integer, a9 as Integer, a10 as Integer, a11 as Float, a12 as Float, a13 as Float, a14 as Float)
+  var int1 = GetAnimActionHandle(a3)
+  if DoesActionExistForCharacter(a1, int1)
+    BeginAnimAction(a2, int1, a8)
+    Me.cbtSetAnimActionAttackerPositioning(a1, a2, a3, a4, a5, a6, a7)
+    SetAnimActionAttackerPriority(a9, a10)
+    SetAnimActionAttackerClip(a11, a12, a13)
+    SetAnimActionAttackerBlendInTime(a14)
+    QueueAnimAction(a1)
+  else
+    // unknown
+  .
+.
+public method cbtOracle_AnimAttack(Me, a1 as NodeRef, a2 as ID, a3 as String, a4 as Integer, a5 as Boolean, a6 as Float, a7 as Float, a8 as Integer, a9 as Integer, a10 as Integer, a11 as Float, a12 as Float, a13 as Float)
+  var int1 = GetAnimActionHandle(a3)
+  if DoesActionExistForCharacter(a1, int1)
+    BeginAnimAction(a2, int1, a8)
+    Me.cbtSetAnimActionAttackerPositioning(a1, a2, a3, a4, a5, a6, a7)
+    SetAnimActionAttackerPriority(a9, a10)
+    SetAnimActionAttackerClip(a11, a12, a13)
+    QueueAnimAction(a1)
+  else
+    // unknown
+  .
+.
+public method cbtOracle_AnimAttackWithInputs(Me, a1 as NodeRef, a2 as ID, a3 as String, a4 as Integer, a5 as Boolean, a6 as Float, a7 as Float, a8 as Integer, a9 as Integer, a10 as Integer, a11 as Float, a12 as Float, a13 as Float, a14 as LookupList indexed by Enum chrAnimControlParameter of String)
+  var int1 = GetAnimActionHandle(a3)
+  if DoesActionExistForCharacter(a1, int1)
+    BeginAnimAction(a2, int1, a8)
+    Me.cbtSetAnimActionAttackerPositioning(a1, a2, a3, a4, a5, a6, a7)
+    SetAnimActionAttackerPriority(a9, a10)
+    SetAnimActionAttackerClip(a11, a12, a13)
+    SetAnimActionAttackerInputs(a14)
+    QueueAnimAction(a1)
+  else
+    // unknown
+  .
+.
+public method unk_fa21420b(Me, a1 as NodeRef, a2 as ID, a3 as Vector3, a4 as String, a5 as Integer, a6 as Boolean, a7 as Float, a8 as Float, a9 as Integer, a10 as Integer, a11 as Integer, a12 as Float, a13 as Float, a14 as Float, a15 as LookupList indexed by Enum chrAnimControlParameter of String)
+  var int1 = GetAnimActionHandle(a4)
+  if DoesActionExistForCharacter(a1, int1)
+    BeginAnimAction(a2, int1, a9)
+    Me.cbtSetAnimActionAttackerPositioning(a1, a2, a4, a5, a6, a7, a8)
+    SetAnimActionAttackerPriority(a10, a11)
+    SetAnimActionAttackerClip(a12, a13, a14)
+    SetAnimActionAttackerInputs(a15)
+    SetAnimActionAttackerTargetPosition(a3)
+    QueueAnimAction(a1)
+  else
+    // unknown
+  .
+.
+public method cbtOracle_QueueAnimAction(Me, a1 as NodeRef, a2 as ID, a3 as String, a4 as Integer, a5 as Boolean, a6 as Float, a7 as Float, a8 as Integer, a9 as Integer, a10 as Integer, a11 as Float, a12 as Float, a13 as Float, a14 as LookupList indexed by Enum chrAnimControlParameter of String, a15 as Boolean)
+  var int1 = GetAnimActionHandle(a3)
+  if DoesActionExistForCharacter(a1, int1)
+    BeginAnimAction(a2, int1, a8)
+    Me.cbtSetAnimActionAttackerPositioning(a1, a2, a3, a4, a5, a6, a7)
+    SetAnimActionAttackerPriority(a9, a10)
+    SetAnimActionAttackerClip(a11, a12, a13)
+    SetAnimActionAttackerInputs(a14)
+    SetAnimActionAttackerNowOrNever(a15)
+    QueueAnimAction(a1)
+  else
+    // unknown
+  .
+.
+public method targettedInterruptAttackPair(Me, a1 as NodeRef, a2 as NodeRef, a3 as String, a4 as String, a5 as Integer, a6 as Integer)
+  Me.targettedInterruptTargetModeAttackPair(a1, a2, a3, a4, a5, a6, 1, false, false)
+.
+public method cbtOracle_AnimAttackPairWithInputs(Me, a1 as NodeRef, a2 as ID, a3 as String, a4 as Integer, a5 as Boolean, a6 as Float, a7 as Float, a8 as Integer, a9 as Integer, a10 as Integer, a11 as Float, a12 as Float, a13 as Float, a14 as String, a15 as Integer, a16 as Boolean, a17 as Float, a18 as Float, a19 as Integer, a20 as Integer, a21 as Integer, a22 as Float, a23 as Float, a24 as Float, a25 as Boolean, a26 as LookupList indexed by Enum chrAnimControlParameter of String, a27 as LookupList indexed by Enum chrAnimControlParameter of String)
+  var int1 = GetAnimActionHandle(a3)
+  var int2 = GetAnimActionHandle(a14)
+  if DoesActionExistForCharacter(a1, int1)
+    BeginAnimActionPair(a2, int1, int2, a8, a19, a25)
+    Me.cbtSetAnimActionAttackerPositioning(a1, a2, a3, a4, a5, a6, a7)
+    SetAnimActionAttackerPriority(a9, a10)
+    SetAnimActionAttackerClip(a11, a12, a13)
+    SetAnimActionAttackerInputs(a26)
+    SetAnimActionDefenderPositioning(a15, a16, a17, a18)
+    SetAnimActionDefenderPriority(a20, a21)
+    SetAnimActionDefenderClip(a22, a23, a24)
+    SetAnimActionDefenderInputs(a27)
+    QueueAnimActionPair(a1)
+  else
+    // unknown
+  .
+.
+public method targettedInterruptTargetModeAttackPair(Me, a1 as NodeRef, a2 as NodeRef, a3 as String, a4 as String, a5 as Integer, a6 as Integer, a7 as Integer, a8 as Boolean, a9 as Boolean)
+  var int2 = Me.cbtOracle_GetNextScriptHandleForAction()
+  var int3 = GetAnimActionHandle(a3)
+  var int4 = GetAnimActionHandle(a4)
+  if DoesActionExistForCharacter(a1, int3)
+    var id1 = a2
+    BeginAnimActionPair(id1, int3, int4, int2, int2, false)
+    Me.cbtSetAnimActionAttackerPositioning(a1, a2, a3, a7, a8, HIDWORD(4453159313431383245), 4453159313431383245)
+    SetAnimActionAttackerPriority(a5, a6)
+    SetAnimActionDefenderPositioning(1, a9, *((Float *)&4453159313431383245 + 1), 4453159313431383245)
+    SetAnimActionDefenderPriority(a5 - 1, a6 - 1)
+    QueueAnimActionPair(a1)
+  else
+    // unknown
+  .
+.
+public method setAnimationInput(Me, a1 as NodeRef, a2 as String, a3 as String)
+  if a1 = None
+    // unknown
+  else if not HasAnimInput(a1, a2)
+    // unknown
+  else
+    SetAnimInput(a1, a2, a3)
+  .
+.
+public method UpdateCoverVisibility(Me)
+  if not Me is kindof cbtOracleCoverVisBuild
+    GlomClass("cbtOracleCoverVisBuild", Me)
+  .
+  Me.startCoverVisBuild()
+.
+public function getCoverVisOffset() as Vector3
+  Vector3 out
+  out.x = 0.0
+  out.y = 0.05
+  out.z = 0.0
+  return out
+.
+public method drawVisLine(Me, a1 as NodeRef, a2 as NodeRef, a3 as Boolean)
+  vec.x = 0.0
+  vec.y = 0.0
+  vec.z = 0.0
+  var vec2 = getCoverVisOffset()
+  vec = vec2
+  vec3.x = 0.0
+  vec3.y = 0.0
+  vec3.z = 0.0
+  var vec4 = a1.GetPosition_w()
+  vec3 = vec4
+  vec5.x = 0.0
+  vec5.y = 0.0
+  vec5.z = 0.0
+  var vec6 = a2.GetPosition_w()
+  vec5 = vec6
+  if a3
+    vec7.x = vec.x + vec3.x
+    vec7.y = vec.y + vec3.y
+    vec7.z = vec.z + vec3.z
+    vec8.x = vec.x + vec5.x
+    vec8.y = vec.y + vec5.y
+    vec8.z = vec.z + vec5.z
+    vec9.x = 0.1
+    vec9.y = ((Float)lingoonaArgAlive)
+    vec9.z = 0.1
+    DrawLine(vec7, vec8, vec9, 0.2, None)
+  else
+    vec10.x = vec.x + vec3.x
+    vec10.y = vec.y + vec3.y
+    vec10.z = vec.z + vec3.z
+    vec11.x = vec.x + vec5.x
+    vec11.y = vec.y + vec5.y
+    vec11.z = vec.z + vec5.z
+    vec12.x = ((Float)lingoonaArgAlive)
+    vec12.y = 0.1
+    vec12.z = 0.1
+    DrawArrow(vec10, vec11, 0.01, vec12, 0.5, None)
+  .
+.
+public method OnFrameUpdate(Me, a1 as TimeInterval)
+  NodeRef *v13
+  Vector3 vec6
+  if Me.cbtRenderBoneDebug != ""
+    var pc = GetPlayerCharacterNode()
+    var pc2 = pc
+    if pc2 != None
+      var id1 = pc2.GetPrimaryTargetID()
+      var node = id1
+      if node = None
+        node = GetSelectedNode()
+      .
+      if node = None
+        node = pc2
+      .
+      if not node.NodeHasBone(Me.cbtRenderBoneDebug)
+        if node is kindof staWeaponComponent or node is kindof stgWeaponComponent
+          var id2 = node.GetPrimaryWeaponAssetInstance()
+          if id2 = None
+            var id3 = node.GetSecondaryWeaponAssetInstance()
+            node = id3
+          else
+            node = id2
+          .
+          if node != None
+            if not node.NodeHasBone(Me.cbtRenderBoneDebug)
+              v13 = HM.ConstructNodeRef(11)
+              v13 = None
+              node = v13
+            .
+          .
+        else
+          v13 = HM.ConstructNodeRef(11)
+          v13 = None
+          node = v13
+        .
+      .
+      if node != None
+        var classView2 = utlTransform:ctor()
+        var classView = HM.CopyClassViewToClassView(classView2)
+        var str4 = Me.cbtRenderBoneDebug
+        var vec = classView.utlPos
+        var vec2 = vec
+        var vec3 = classView.utlRot
+        var vec4 = vec3
+        node.GetBoneTransform_w(str4, &vec2, &vec4)
+        classView.utlPos = vec2
+        classView.utlRot = vec4
+        utlTransform:RenderScaled(classView, 0.05)
+        var vec5 = classView.utlPos
+        vec6.x = ((Float)lingoonaArgAlive)
+        vec6.y = 0.2
+        vec6.z = 0.5
+        DrawSphere(vec5, 0.002, vec6, ((Float)lingoonaArgAlive), false, None)
+      .
+    .
+  .
+.
+public method ToggleCoverVisDebug(Me)
+  Me.SetCoverVisDebug(not Me.cbtCoverVisDebug)
+.
+public method SetCoverVisDebug(Me, a1 as Boolean)
+  if (((unsigned __int8)a1 ^ Me.cbtCoverVisDebug) & 1) != 0
+    if Me.cbtCoverVisDebug
+      var id1 = Me
+      UnRegisterForPerFrameMethodCallback(id1)
+      Me.cbtCoverVisDebug = false
+    else
+      Me.cbtCoverVisDebug = true
+      RegisterForPerFrameMethodCallback(Me)
+    .
+  .
+.
+public method SetCoverIconsEnabled(Me, a1 as Boolean)
+  Me.cbtCoverIconsEnabled = a1
+.
+public method IsCoverIconsEnabled() as Boolean
+  return Me.cbtCoverIconsEnabled
+.
+public function CleanUpNameplates(Me)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None
+    pc2.UpdateNameplateNameAndTitle()
+    list1 as List of NodeRef
+    list1 = GetCharactersInRange(pc2.GetPosition_w(), 100.0, false)
+    foreach cur in list1
+      if cur is kindof chrCharacter
+        cur.UpdateNameplateNameAndTitle()
+      .
+    .
+  .
+.
+public method SetShowAnimNamesEnabled(Me, a1 as Boolean)
+  Me.cbtShowAnimNamesEnabled = a1
+  if not a1
+    if $NAMEPLATES.isEnabled()
+      CleanUpNameplates()
+    .
+  .
+.
+public method IsShowAnimNamesEnabled() as Boolean
+  return Me.cbtShowAnimNamesEnabled
+.
+public method SetShowAblNamesEnabled(Me, a1 as Boolean)
+  Me.cbtShowAblNamesEnabled = a1
+  if not a1
+    if $NAMEPLATES.isEnabled()
+      CleanUpNameplates()
+    .
+  .
+.
+public method IsShowAblNamesEnabled() as Boolean
+  return Me.cbtShowAblNamesEnabled
+.
+public function _EvaluateTargetString(a1 as String) as NodeRef
+  int v8
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 = None
+    pc2 = $CHARACTERSELECTIONSYSTEM.cssGetSelectedCharacterNode()
+  .
+  if pc2 = None
+    pc2 = $CHARACTERCREATIONSYSTEM.GetAnyCCSCharacter()
+  .
+  if "0" == a1
+    return pc2
+  .
+  if "+" == a1
+    var id1 = pc2.GetTargetID()
+    if id1 != None
+      return id1
+    .
+    HM.ThrowScriptError("Missing return.", v8)
+  else
+    return HM.ConvertFromStringNodeRef(11, a1)
+  .
+.
+public method cbtOracleHandleCommand(Me, a1 as List of String)
+  var str = ToLower(a1[1])
+  if HM.PartialEqualString("]action", str)
+    var a1Length = a1.length
+    if a1Length < 3
+      // unknown
+    else
+      var pc = GetPlayerCharacterNode()
+      var pc3 = pc
+      if pc3 = None
+        pc3 = $CHARACTERSELECTIONSYSTEM.cssGetSelectedCharacterNode()
+      .
+      if pc3 = None
+        pc3 = $CHARACTERCREATIONSYSTEM.GetAnyCCSCharacter()
+      .
+      var str3 = a1[2]
+      var str5 = a1[3]
+      var node5 = _EvaluateTargetString(str3)
+      var node42 = node5
+      if node5 is kindof pcTargeterComponent
+        var id1 = node5.GetPrimaryTargetID()
+        node42 = id1
+      .
+      if node42 = None
+        node42 = node5
+      .
+      int v41 = 0
+      int v40 = 1
+      unsigned __int8 v38 = 0
+      loop i from 1 to a1.length
+        var cur = a1[i]
+        if "-rotate" == cur
+          v38 = 1
+        else
+          var cur2 = a1[i]
+          if "-melee" == cur2
+            v41 = 0
+            v40 = 0
+          else
+            var cur3 = a1[i]
+            if "-charge" == cur3
+              v41 = 0
+              v40 = 2
+            else
+              var cur4 = a1[i]
+              if "-targetme" == cur4
+                node42 = pc3
+                node5.SetTargetID(node42)
+              else
+                var cur5 = a1[i]
+                if StringStartsWithExact(cur5, "-target=")
+                  list1 as List of String
+                  var cur6 = a1[i]
+                  SplitBy(cur6, "=", &list1)
+                  node42 = _EvaluateTargetString(list1[2])
+                else
+                  var cur7 = a1[i]
+                  if StringStartsWithExact(cur7, "-dfd=")
+                    list2 as List of String
+                    var cur8 = a1[i]
+                    SplitBy(cur8, "=", &list2)
+                    var str7 = list2[2]
+                  .
+                .
+              .
+            .
+          .
+        .
+      .
+      var pc2 = GetPlayerCharacterNode()
+      if node5 == pc2
+        OnCombatMovementOutgoingAbilityExecute(node5)
+        OnCombatMovementIncomingAbilityExecute(node5)
+      .
+      SetTweakableBoolean("AllowDebugOnlyAnimationActions", true)
+      if "" != str7
+        Me.targettedInterruptTargetModeAttackPair(node5, node42, str5, str7, 3, 0, 2, 0, v40, v41, v38, 0)
+      else
+        Me.cbtOracleTargettedInterruptTargetModeAttack(node5, node42, str5, 3, 0, 2, 0, v40, v41, v38)
+      .
+      SetTweakableBoolean("AllowDebugOnlyAnimationActions", false)
+    .
+  .
+.
+public method ClearAttackerMapNotes(Me)
+  if Me.cbtGuiUpdateTimer.timerState == 2
+    Me._stopGuiUpdateTimer()
+  .
+  foreach cur in Me.cbtGuiMapNoteAttackers
+    $GUI_API.getApi().setGuiRemoveMapIcon(cur)
+  .
+  clear Me.cbtGuiMapNoteAttackers keep
+.
+public method UpdateAttackerMapNotes(Me)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 = None
+    return
+  .
+  var bool1 = false
+  var int1 = 1
+  while true
+    HM.ExpirationCheck()
+    if Me.cbtGuiMapNoteAttackers.length < int1
+      break
+    .
+    var id1 = Me.cbtGuiMapNoteAttackers[int1]
+    bool1 = false
+    foreach cur in pc2.cbtEnemiesAttackers
+      if cur == id1
+        bool1 = true
+      .
+    .
+    if bool1
+      ++int1
+    else
+      $GUI_API.getApi().setGuiRemoveMapIcon(id1)
+      remove Me.cbtGuiMapNoteAttackers at int1 keep
+    .
+  .
+  foreach cur in pc2.cbtEnemiesAttackers
+    bool1 = false
+    foreach cur2 in Me.cbtGuiMapNoteAttackers
+      if cur == cur2
+        bool1 = true
+      .
+    .
+    if not bool1
+      add back cur to Me.cbtGuiMapNoteAttackers
+    .
+  .
+  var list8Length = Me.cbtGuiMapNoteAttackers.length
+  var bool2 = HIDWORD(list8Length) == 0
+  BYTE4(list8Length) = list8Length <= -1
+  if bool2
+    BYTE4(list8Length) = (_DWORD)list8Length == 0
+  .
+  if not BYTE4(list8Length)
+    Me._UpdateAttackerPositions()
+    if Me.cbtGuiUpdateTimer.timerState != 1
+      return
+    .
+    Me._startGuiUpdateTimer()
+  else
+    if Me.cbtGuiUpdateTimer.timerState != 2
+      return
+    .
+    Me._stopGuiUpdateTimer()
+  .
+.
+public method _UpdateAttackerPositions(Me)
+  vec.x = 0.0
+  vec.y = 0.0
+  vec.z = 0.0
+  foreach cur in Me.cbtGuiMapNoteAttackers
+    if cur != None
+      var vec2 = cur.GetPosition_w()
+      vec = vec2
+      $GUI_API.getApi().setGuiUpdateMapIcon(cur, vec2.x, vec2.z, "RedDot", MPN_IDS_NO_DRAW, MPN_IDS_NORMAL, true)
+    else
+      $GUI_API.getApi().setGuiRemoveMapIcon(cur, v10, v11, v12, v13, v14, v15)
+    .
+  .
+.
+public method _startGuiUpdateTimer(Me)
+  if Me.cbtGuiUpdateTimer.timerState == 1
+    Me.cbtGuiUpdateTimer.fireRate = 100
+    Me.cbtGuiUpdateTimer.script = $THISSCRIPT
+    timer::start(Me.cbtGuiUpdateTimer)
+  .
+.
+public method _stopGuiUpdateTimer(Me)
+  if Me.cbtGuiUpdateTimer.timerState == 2
+    timer::stop(Me.cbtGuiUpdateTimer)
+  .
+.
+public function OnTimerTick(Me, a1 as ID)
+  if a1 == cbtGuiUpdateTimer
+    Me._UpdateAttackerPositions()
+  .
+.
+public method _CombatSpamRelevant(a1 as NodeRef, a2 as NodeRef) as Boolean
+  Boolean bool1
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None
+    var node2 = pc2.GetCompanion()
+    if pc2 != a1
+      if pc2 != a2
+        bool1 = true
+      else
+        bool1 = false
+      .
+    else
+      bool1 = false
+    .
+    if bool1
+      if node2 = None or node2 != a1 and node2 != a2
+        return false
+      .
+    .
+  .
+  return true
+.
+public method _GetDamageTypeString(a1 as Enum cbtDamageType) as String
+  __int64 v9 = 0
+  if a1 == cbtDamageKinetic
+    v9 = (unsigned int)a1 | stringIdDamageTypeBase
+  else if a1 == cbtDamageEnergy
+    v9 = (unsigned int)a1 | stringIdDamageTypeBase
+  else if a1 == cbtDamageElemental
+    v9 = (unsigned int)a1 | stringIdDamageTypeBase
+  else if a1 == cbtDamageInternal
+    v9 = (unsigned int)a1 | stringIdDamageTypeBase
+  .
+  if v9 != 0
+    return Me.ComposeString(ID_STR_GUI_COMBAT | v9)
+  else
+    return ""
+  .
+.
+public method _GeteffResultString(a1 as Enum effResult) as String
+  __int64 v9 = 0
+  if a1 == effResultMiss
+    v9 = UNK_14AE4B54
+  else if a1 == effResultParry
+    v9 = UNK_A76459DA
+  else if a1 == effResultEvaded
+    v9 = UNK_8EE4770D
+  else if a1 == effResultDodge
+    v9 = UNK_B32B1903
+  else if a1 == effResultImmune
+    v9 = UNK_2156BAE1
+  else if a1 == effResultResisted
+    v9 = UNK_204EB6F6
+  else if a1 == effResultDeflect
+    v9 = UNK_705A2147
+  else if a1 == effResultGlance
+    v9 = UNK_25F035A8
+  else if a1 == effResultInCover
+    v9 = UNK_BCD501CF
+  .
+  if v9 != 0
+    return Me.ComposeString(ID_STR_GUI_COMBAT | v9)
+  else
+    return ""
+  .
+.
+public method unk_71ca8e92(a1 as String, a2 as String, a3 as String, a4 as String, a5 as String, a6 as String, a7 as String) as String
+  if a1.length > 0
+    return "[" + a1 + "] [" + a2 + "] [" + a3 + "] [" + a4 + "] [" + a5 + "] [" + a6 + "] (" + a7 + ")"
+  else
+    return "[" + a2 + "] [" + a3 + "] [" + a4 + "] [" + a5 + "] [" + a6 + "] (" + a7 + ")"
+  .
+.
+public method unk_c1de85e0(a1 as String, a2 as String, a3 as String, a4 as String, a5 as String, a6 as String, a7 as String, a8 as String) as String
+  if a8.length > 0
+    var str = Me.unk_71ca8e92(a1, a2, a3, a4, a5, a6, a7)
+    return str + " <" + a8 + ">"
+  else
+    return Me.unk_71ca8e92(a1, a2, a3, a4, a5, a6, a7)
+  .
+.
+public method unk_aeb9efb8(a1 as String, a2 as String, a3 as String, a4 as String, a5 as String, a6 as String, a7 as String) as String
+  return "[" + a1 + "] [" + a2 + "] [" + a3 + "] [" + a4 + "] [" + a5 + "] [" + a6 + "] [" + a7 + "]"
+.
+public method unk_281dc6f1(a1 as String, a2 as String, a3 as String, a4 as String, a5 as String, a6 as String, a7 as String) as String
+  return "[" + a1 + "] [" + a2 + "] [" + a3 + "] [" + a4 + "] [" + a5 + "] [" + a6 + "] [" + a7 + "]"
+.
+public method _CombatSpamLocation(a1 as NodeRef) as String
+  if UNK_3F6F110F <= Me.cbtSpamLevel
+    if a1 != None
+      var str2 = $BASECLIENT._GetAreaName()
+      var vec = a1.GetPosition_w()
+      var str = str2 + " " + vec
+    .
+  .
+  return str
+.
+public method ComposeStringId(a1 as Integer) as String
+  return " {" + a1 + "}"
+.
+public method ComposeString(a1 as Integer) as String
+  return $STRING.LocalizeString(STR_GUI_COMBAT, a1) + Me.ComposeStringId(a1)
+.
+public method EnableCombatLogging(Me, a1 as Boolean)
+  Integer int1
+  if a1
+    if Me.cbtCombatLogDevMode
+      int1 = UNK_3F6F110F
+    else
+      int1 = UNK_66FABCE3
+    .
+    Me.cbtSpamLevel = int1
+    EnableCombatLog(true)
+  else
+    Me.cbtSpamLevel = UNK_D506F9A5
+    EnableCombatLog(false)
+  .
+.
+public method SetCombatLoggingDevMode(Me, a1 as Boolean)
+  Integer int2
+  Me.cbtCombatLogDevMode = a1
+  if UNK_D506F9A5 != Me.cbtSpamLevel
+    if a1
+      int2 = UNK_3F6F110F
+    else
+      int2 = UNK_66FABCE3
+    .
+    Me.cbtSpamLevel = int2
+  .
+.
+public method IsCombatLoggingEnabled() as Boolean
+  return UNK_D506F9A5 != Me.cbtSpamLevel
+.
+public method GetCombatLogMode() as Integer
+  return Me.cbtSpamLevel
+.
+public method OnLogout(Me)
+  Me.EnableCombatLogging(false)
+.
+public method CombatLogReceiveItem(Me, a1 as NodeRef of chrPlayerCharacter, a2 as ID, a3 as ID, a4 as Integer)
+  if UNK_3F6F110F <= Me.cbtSpamLevel
+    if a1 != None
+      var node = a2
+      if node = None
+        node = getPrototypeByID(a3)
+      .
+      var str2 = unk_ffb92aea()
+      var str4 = Me.unk_4cbe5ccc(a1)
+      var str6 = Me._CombatSpamLocation(a1)
+      var str8 = Me.unk_4cbe5ccc(node)
+      unk_62dcc9c7(Me.unk_aeb9efb8(str6, str2, str4, $STRING.LocalizeString(STR_GUI_LOOT, ID_STR_GUI_LOOT | colorTagStringLengthMinusOne, HIDWORD(ID_STR_GUI_LOOT)) + Me.ComposeStringId(ID_STR_GUI_LOOT | colorTagStringLengthMinusOne, HIDWORD(ID_STR_GUI_LOOT)), str8, a3, a4))  // "Loot"
+    else
+      // unknown
+    .
+  .
+.
+public method CombatLogReceiveItemGroup(Me, a1 as String, a2 as String, a3 as ID, a4 as Integer)
+  if UNK_3F6F110F <= Me.cbtSpamLevel
+    var node2 = getPrototypeByID(a3)
+    if node2 != None
+      var int2 = ID_STR_GUI_LOOT
+      LODWORD(int2) = int2 | colorTagStringLengthMinusOne
+      var str2 = unk_ffb92aea()
+      var str4 = Me.unk_4cbe5ccc(node2)
+      var str6 = $STRING.LocalizeString(STR_GUI_LOOT, int2)
+      var str8 = Me.ComposeStringId(int2)
+      unk_62dcc9c7(Me.unk_aeb9efb8(a2, str2, a1, str6 + str8, str4, a3, a4))
+    else
+      // unknown
+    .
+  .
+.
+public method CombatLogLootRoll(Me, a1 as NodeRef of chrPlayerCharacter, a2 as ID, a3 as Integer)
+  if UNK_3F6F110F <= Me.cbtSpamLevel
+    if a1 != None
+      if a2 != None
+        var int2 = ID_STR_GUI_LOOT
+        LODWORD(int2) = int2 | colorTagStringLength
+        var str2 = unk_ffb92aea()
+        var str4 = Me.unk_4cbe5ccc(a1)
+        var str6 = Me._CombatSpamLocation(a1)
+        var str8 = Me.unk_4cbe5ccc(a2)
+        var id1 = a2.GetSpec()
+        unk_62dcc9c7(Me.unk_281dc6f1(str6, str2, str4, $STRING.LocalizeString(STR_GUI_LOOT, int2) + Me.ComposeStringId(int2), str8, id1, a3))
+      else
+        // unknown
+      .
+    else
+      // unknown
+    .
+  .
+.
+public method CombatLogLootPriority(Me, a1 as NodeRef of chrPlayerCharacter, a2 as ID, a3 as String)
+  if UNK_3F6F110F <= Me.cbtSpamLevel
+    if a1 != None
+      if a2 != None
+        var int2 = ID_STR_GUI_LOOT
+        LODWORD(int2) = int2 | colorTagStringLengthPlusOne
+        var str2 = unk_ffb92aea()
+        var str4 = Me.unk_4cbe5ccc(a1)
+        var str6 = Me._CombatSpamLocation(a1)
+        var str8 = Me.unk_4cbe5ccc(a2)
+        var id1 = a2.GetSpec()
+        unk_62dcc9c7(Me.unk_281dc6f1(str6, str2, str4, $STRING.LocalizeString(STR_GUI_LOOT, int2) + Me.ComposeStringId(int2), str8, id1, a3))
+      else
+        // unknown
+      .
+    else
+      // unknown
+    .
+  .
+.

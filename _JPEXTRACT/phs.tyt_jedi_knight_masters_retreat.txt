@@ -1,0 +1,96 @@
+(1 node)
+phsNameIdToDefinitionMap
+4 filled out of 45 total root fields
+phsExitMapNoteID	
+ID	4611686069191632234
+phsRepublicExitAreaID	
+ID	0
+phsAlwaysEnter	
+Boolean	false
+phsConditionalHydraScript	
+ID	hyd.generic.class_phases.jedi_knight.phase_jk_class
+phsNameID	
+Integer	tyt_jedi_knight_masters_retreat
+phsClassRequirements	
+LookupList indexed by ID of Boolean (1 row)
+class.pc.jedi_knight	Boolean	true
++ 33 fields used during replication & gameplay:
+phsMapNote	
+ID	0
+hydActionBlockTimer	
+Timer	<default value>
+phsPhases	
+LookupList indexed by ID of NodeRef (empty)
+phsPlayerJoinOverrideMap	
+LookupList indexed by ID of ID (empty)
+hydAbilityTargets	
+LookupList indexed by ID of ID (empty)
+hydActionWaitTimer	
+Timer	<default value>
+hydActionWaitHandle	
+Integer	0
+phsExitAreaID	
+ID	0
+phsRepublicExitMapNoteID	
+ID	0
+phsPhasedInstanceToAnchor	
+LookupList indexed by ID of NodeRef (empty)
+phsPhasedInstanceToTrigger	
+LookupList indexed by ID of NodeRef (empty)
+phsGatewayList	
+List of NodeRef (empty)
+hydRunScriptProtoId	
+ID	0
+hydNextAvailableRuntimeId	
+Integer	0
+hydRuntimeExecutionMap	
+LookupList indexed by Integer of ClassView (empty)
+hydHeartbeatRuntimeScriptIds	
+List of Integer (empty)
+hydPrimaryScriptId	
+Integer	0
+hydTimeToRuntimeExecutionIdMap	
+LookupList indexed by DateTime of List of Integer (empty)
+hydCurrentExecutingScriptId	
+Integer	0
+hydAbilityTargetsList	
+LookupList indexed by ID of List of ID (empty)
+phsHideReinforcementMessage	
+Boolean	false
+hydQueuedScriptActions	
+LookupList indexed by ID of LookupList indexed by Integer of List of ClassView (empty)
+hydQueueTimerToQueuedScriptInfo	
+LookupList indexed by DateTime of List of ClassView (empty)
+hydQueueProcessingActions	
+Boolean	false
+hydQueuedTimerToCallbackInfoList	
+LookupList indexed by DateTime of List of ClassView (empty)
+hydQueueProcessingCallbacks	
+Boolean	false
+hydPendingQueueTimerToQueuedScriptInfo	
+LookupList indexed by DateTime of List of ClassView (empty)
+hydPendingQueuedTimerToCallbackInfoList	
+LookupList indexed by DateTime of List of ClassView (empty)
+hydPendingTimeToRuntimeExecutionIdMap	
+LookupList indexed by DateTime of List of Integer (empty)
+hydQueueProcessingRefCounter	
+Integer	0
+hydQueuePendingTimeRemovalList	
+List of DateTime (empty)
+hydQueuePendingCallbackTimeRemovalList	
+List of DateTime (empty)
+hydQueueProcessingCallbackRefCounter	
+Integer	0
++ 6 fields from the server DOM that we know nothing about:
+unknown field name	
+unknown	unknown value
+unknown field name	
+unknown	unknown value
+unknown field name	
+unknown	unknown value
+unknown field name	
+unknown	unknown value
+unknown field name	
+unknown	unknown value
+unknown field name	
+unknown	unknown value

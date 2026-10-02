@@ -1,0 +1,1553 @@
+var FADE_IN_SECONDS = 1.0
+var FADE_OUT_SECONDS = 1.0
+var ROOM_TYPE_GALAXY = 0
+var ROOM_TYPE_HYPERSPACE = 3
+var ROOM_TYPE_PLANET = 2
+var ROOM_TYPE_SECTOR = 1
+remote function OpenGalaxyMap(Me)
+  if not GalaxyMapIsLoaded()
+    $GALAXYMAP.Load("4611686043810670011")
+  else
+    $GALAXYMAP.open()
+  .
+.
+remote function OpenGalaxyMapDenied(Me)
+  $GUI_API.getApi().BannerMessageEx($STRING.LocalizeString(STR_GUI_GALAXYMAP, ID_STR_GUI_GALAXYMAP | 0x1F, HIDWORD(ID_STR_GUI_GALAXYMAP)), COLOR_RED)  // "You don't have permission to use the galaxy map!"
+.
+public function OnLoadFinishedCallback(Me)
+  $GALAXYMAP.open()
+.
+public method SetDestinationMap(Me, a1 as String)
+  Me.gmDestinationMapKey = a1
+.
+public method Load(Me, a1 as String)
+  LoadGalaxyMapArea(a1)
+  GalaxyMapSetCallbackScript($THISSCRIPT)
+  $INPUT.sysInputHandler_PushLayer(14139395043076430093)  // "galaxymap"
+.
+public method IsGalaxyMapOpen() as Boolean
+  var list1Length = Me.gmSceneStack.length
+  var bool1 = (_DWORD)list1Length != 0
+  var bool2 = SHIDWORD(list1Length) >= 1
+  if not HIDWORD(list1Length)
+    return bool1
+  .
+  return bool2
+.
+public method open(Me)
+  if Me.gmUtlGMDatatableProtoRef = None
+    Me.gmUtlGMDatatableProtoRef = getPrototypeByID(16140967141257855544)  // gmUtlGalaxyMapDataPrototype
+  .
+  if Me.gmUtlGMRegionProtoRef = None
+    Me.gmUtlGMRegionProtoRef = getPrototypeByID(16140979775713051146)  // gmUtlGalaxyRegionsDataPrototype
+  .
+  if Me.gmUtlGMDatatableProtoRef = None
+    // unknown
+  .
+  if Me.gmUtlGMRegionProtoRef = None
+    // unknown
+  .
+  Me.PopulateQuestsByAreaList()
+  Me.ShowMap("galaxy_root")
+  Me.gmDestAreaId = 0
+  Me.InitNodeVisibility()
+  Me.InitGui()
+  RegisterForPerFramePreCameraCallback($THISSCRIPT)
+  $MUSIC.GalaxyMapOpened()
+  $NAMEPLATES.guiNameplatesCheckAllStatus()
+  sndUtils:PlayEvent(None, "mixsnapshot_galaxymap")
+.
+public method InitGui(Me)
+  $GUI_API.getApi().guiHandleCancel()
+  $HUD.hideHudIfEnabled()
+  if Me.GetGMGuiRef(false) = None
+    var node5 = CreateNodeFromPrototype("guiScaleFormGFxProto")
+    GlomClass("guiGFXGalaxyMap", node5)
+    node5.guiBuildGfx()
+  .
+.
+public method InitGuiLastPlanetVisited(Me)
+  var bool1 = false
+  var node = Me.GetGMGuiRef(false)
+  if not SF_GFx_RegisterPath(node, 3, "_global.api.invokes.invokeFunctions")
+    // unknown
+  .
+  if not SF_GFx_RegisterPath(node, 2, "_global.api.vars")
+    // unknown
+  .
+  node.visible = true
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None
+    var id1 = pc2.GetLastAreaVisited()
+    bool1 = true
+    SF_GFx_SetVariable(node, "_global.api.vars.guiGalaxyMapCurrentPlanet", $MAP.GetAreaDisplayNameByID(id1))
+  .
+  if not bool1
+    SF_GFx_SetVariable(node, "_global.api.vars.guiGalaxyMapCurrentPlanet", "unknown")
+  .
+  SF_GFx_ClearAndReserveParams(2)
+  SF_GFx_AddParamInteger(0)
+  SF_GFx_AddParamUTF8String($STRING.LocalizeString(STR_GUI_GALAXYMAP, ID_STR_GUI_GALAXYMAP | 0x23, HIDWORD(ID_STR_GUI_GALAXYMAP)))  // "THE GALAXY"
+  if node != None and node.gfxLoaded
+    SF_GFx_InvokeRegisteredWithParams(node, 3, "GM_SetRoomType")
+  .
+.
+public method PopulateQuestsByAreaList(Me)
+  clear Me.gmQuestsByArea keep
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 = None
+    // unknown
+  else
+    pc2.BuildPerAreaQuestsList(&Me.gmQuestsByArea)
+  .
+.
+public method InitPlayerAndPartyIcons(Me)
+  var list5Length = 0
+  list5 as List of Boolean
+  if Me.gmUtlGMDatatableProtoRef != None
+    if Me.gmUtlGMRegionProtoRef != None
+      add back "galaxy_root" to list2
+      var lookup = Me.gmUtlGMRegionProtoRef.utlGM_GalaxyRegionsList
+      foreach key in lookup
+        var cur = lookup[key]
+        if "" == cur.utlGMReg_FactionCtrl
+          add back "region_" + cur.utlGMReg_RegionName to list2
+        .
+      .
+      var pc = GetPlayerCharacterNode()
+      var pc2 = pc
+      if pc2 != None
+        var id1 = pc2.GetLastAreaVisited()
+        var str2 = Me.GetPlanetNameFromAreaId(id1)
+        if Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList has str2
+          var classView = Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList[str2]
+          if str2 != ""
+            var str210 = str2
+            var str = classView.utlGM_RegionName
+          .
+        .
+        var id2 = pc2.grpMemberGroupId
+        if id2 != None
+          if id2.grpMemberIdToInfo has pc2
+            bool1 = true
+          else
+            bool1 = false
+          .
+        else
+          bool1 = false
+        .
+        if bool1
+          Iterator lookup5Iter = HM.ConstructLookupListIterator(8, id2.grpMemberIdToInfo)
+          while true
+            if HM.LookupListIteratorNext(lookup5Iter)
+              var lookupIndex = HM.GetLookupListCurrentID(lookup5Iter)
+              if pc2 != lookupIndex
+                var lookup5Cur = HM.GetLookupListCurrentValueNodeRef(30, lookup5Iter)
+                if lookup5Cur != None
+                  var lookup5Cur2 = HM.GetLookupListCurrentValueNodeRef(30, lookup5Iter)
+                  if lookup5Cur2.grpMemberShadowNode != None
+                    var lookup5Cur3 = HM.GetLookupListCurrentValueNodeRef(30, lookup5Iter)
+                    var id3 = lookup5Cur3.grpMemberShadowNode.chrEffectiveCurrentArea
+                    str2 = Me.GetPlanetNameFromAreaId(id3)
+                    if Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList has str2
+                      var classView2 = Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList[str2]
+                      add back classView2.utlGM_PlanetName to list3
+                      add back classView2.utlGM_RegionName to list4
+                      var lookup5Cur4 = HM.GetLookupListCurrentValueNodeRef(30, lookup5Iter)
+                      add back lookup5Cur4.grpMemberShadowNode.chrCurrentAreaIsShip to list5
+                      continue
+                    .
+                  .
+                else
+                  // unknown
+                .
+                add back "." to list3
+                add back "." to list4
+              .
+            else
+              list5Length = list5.length
+              break
+            .
+          .
+        .
+      .
+      foreach cur in list2
+        list6 as List of NodeRef
+        list6 = GetInstancesInGalaxyRoom(cur)
+        add back list6 to list1
+        foreach cur2 in list1
+          if cur2 != None
+            if HasProperty(cur2, "Tag")
+              if cur2["Tag"] != ""
+                list7 as List of String
+                SplitBy(cur2["Tag"], "_", &list7)
+                var list7Length = list7.length
+                if list7Length < 2
+                  cur2["Hidden"] = true
+                else if list7[1] == "playerIcon"
+                  if list7[2] == str210 or (str17 = HM.ConstructString(), &str17 = list7[2], str17 == str)
+                    str16 = false
+                    v42 = cur2
+                  else
+                    str16 = true
+                    v42 = cur2
+                  .
+                  v42["Hidden"] = str16
+                  continue
+                .
+                if list7[1] == "travel"
+                  list8 as List of String
+                  var int3 = 0
+                  var node15 = HM.ConvertFromStringNodeRef(13, cur2["ParentInstance"])
+                  var node14 = node15
+                  if node14 != None
+                    SplitBy(node14["Tag"], "_", &list8)
+                    var list8Length = list8.length
+                    if list8Length < 2
+                      int3 = -1
+                    else
+                      var bool7 = list5Length <= -1
+                      if not HIDWORD(list5Length)
+                        bool7 = (_DWORD)list5Length == 0
+                      .
+                      if not bool7 and (str23 = HM.ConstructString(), &str23 = list8[1], str23 == "party1Icon")
+                        int3 = 1
+                      else
+                        var bool8 = list5Length <= -1
+                        if not HIDWORD(list5Length)
+                          bool8 = (unsigned int)list5Length <= 1
+                        .
+                        if not bool8 and (str22 = HM.ConstructString(), &str22 = list8[1], str22 == "party2Icon")
+                          int3 = 2
+                        else
+                          var bool9 = list5Length <= -1
+                          if not HIDWORD(list5Length)
+                            bool9 = (unsigned int)list5Length <= 2
+                          .
+                          if not bool9
+                            if list8[1] == "party3Icon"
+                              int3 = 3
+                            .
+                          .
+                        .
+                      .
+                    .
+                    if list3.length < int3
+                      int3 = -1
+                    .
+                    var bool10 = int3 <= -1
+                    if not HIDWORD(int3)
+                      bool10 = (_DWORD)int3 == 0
+                    .
+                    if not bool10
+                      if list8[2] == list3[int3] or (str26 = HM.ConstructString(), &str26 = list8[2], str27 = HM.ConstructString(), &str27 = list4[int3], str26 == str27)
+                        bool11 = true
+                      else
+                        bool11 = false
+                      .
+                    else
+                      bool11 = false
+                    .
+                    if bool11
+                      node14["Hidden"] = false
+                      str16 = not list5[int3]
+                      v42 = cur2
+                    else
+                      node14["Hidden"] = true
+                      str16 = true
+                      v42 = cur2
+                    .
+                    v42["Hidden"] = str16
+                  .
+                .
+              .
+            .
+          .
+        .
+        clear list1 keep
+      .
+      return
+    .
+  .
+.
+public method InitNodeVisibility(Me)
+  var bool1 = false
+  lookup as LookupList indexed by String of Boolean
+  if Me.gmUtlGMDatatableProtoRef = None
+    // unknown
+  else
+    var lookup2 = Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList
+    foreach key in lookup2
+      list1 as List of NodeRef
+      list2 as List of NodeRef
+      var lookup2Cur = lookup2[key]
+      list2 = GalaxyMapGetPlanets(lookup2Cur.utlGM_PlanetName)
+      list1 = list2
+      var bool2 = Me.GetAreaHiddenState(lookup2Cur)
+      bool1 = bool2
+      if bool2
+        foreach cur2 in list1
+          cur2["Hidden"] = bool1
+          var node5 = HM.ConvertFromStringNodeRef(13, cur2["ParentInstance"])
+          var node4 = node5
+          if node4 != None
+            node4["Hidden"] = bool1
+          .
+        .
+        if not (lookup has lookup2Cur.utlGM_RegionName)
+          lookup[lookup2Cur.utlGM_RegionName] = true
+        .
+      else
+        lookup[lookup2Cur.utlGM_RegionName] = false
+      .
+      list3 as List of NodeRef
+      list4 as List of NodeRef
+      list4 = GalaxyMapGetPlanetsInRoom(lookup2Cur.utlGM_PlanetName, "galaxy_root")
+      list3 = list4
+      foreach cur2 in list3
+        cur2["Hidden"] = true
+      .
+    .
+    foreach key in lookup
+      if lookup[key]
+        list5 as List of NodeRef
+        list6 as List of NodeRef
+        key as String
+        list6 = GalaxyMapGetRegions(key)
+        list5 = list6
+        foreach cur2 in list5
+          cur2["Hidden"] = true
+          var node7 = HM.ConvertFromStringNodeRef(13, cur2["ParentInstance"])
+          var node6 = node7
+          if node6 != None
+            node6["Hidden"] = true
+          .
+        .
+      .
+    .
+    Me.ShowGalaxyRoomRegionRootFX(false, "")
+    Me.ShowGalaxyRoomRegionRootFX(true, "")
+    Me.InitPlayerAndPartyIcons()
+  .
+.
+public method PopScene(Me)
+  if Me.gmSceneStack.length == 1
+    Me.Hide()
+    return
+  .
+  var list3Length = Me.gmSceneStack.length
+  var str = Me.gmSceneStack[list3Length]
+  remove Me.gmSceneStack at list3Length keep
+  if Me.gmRegionParticleID != 0
+    var id1 = Me.gmRegionParticleID
+    $FXSYSTEM.FxDestroyHandle(id1)
+    Me.gmRegionParticleID = 0
+  .
+  if DoesPropBucketExist("GALAXYMAPSTAGEPROPS")
+    if Me.gmSpinObjAssetID != None
+      RemoveInstancesFromPropBucket("GALAXYMAPSTAGEPROPS", Me.gmSpinObjAssetID)
+      Me.gmSpinObjAssetID = None
+    .
+  .
+  gmCameraControllerClassMethods:PullCameraBack()
+  var list7Length = Me.gmSceneStack.length
+  Me.UpdateGUIBackButton(Me.gmSceneStack[list7Length])
+  var list9Length = Me.gmSceneStack.length
+  Me.UpdateGUIPlanetInfo(Me.gmSceneStack[list9Length])
+  var list11Length = Me.gmSceneStack.length
+  Me.OnChangeRooms(Me.gmSceneStack[list11Length])
+  if Me.IsPlanetView(str)
+    sndUtils:PlayEvent(None, GUI_GALAXYMAP_SOUND_PLANETZOOMOUT)
+  else
+    if not Me.IsNebulaView(str)
+      return
+    .
+    sndUtils:PlayEvent(None, GUI_GALAXYMAP_SOUND_SPACEWHOOSH_SMALL)
+  .
+.
+public method PopClickedNode(Me)
+  var list2Length = Me.gmClickedNodeStack.length
+  remove Me.gmClickedNodeStack at list2Length keep
+.
+public method PushScene(Me, a1 as String)
+  List list10
+  List list11
+  Integer list11Length
+  String str5
+  sndUtils:PlayEvent(None, GUI_GALAXYMAP_STOP_SOUND_ROLLOVERACTIVE)
+  var list1Length = Me.gmSceneStack.length
+  if not (list1Length <= 0) and (list10 = Me.gmSceneStack, list11 = Me.gmSceneStack, list11Length = list11.length, str5 = HM.ConstructString(), &str5 = list10[list11Length], a1 == str5)
+    // unknown
+  else
+    if Me.gmRegionParticleID != 0
+      var id1 = Me.gmRegionParticleID
+      $FXSYSTEM.FxDestroyHandle(id1)
+      Me.gmRegionParticleID = 0
+    .
+    add back a1 to Me.gmSceneStack
+    add back Me.gmDestinationNode to Me.gmClickedNodeStack
+    var list5Length = Me.gmSceneStack.length
+    Me.UpdateGUIBackButton(Me.gmSceneStack[list5Length])
+    var list7Length = Me.gmSceneStack.length
+    Me.UpdateGUIPlanetInfo(Me.gmSceneStack[list7Length])
+    var list9Length = Me.gmSceneStack.length
+    Me.OnChangeRooms(Me.gmSceneStack[list9Length])
+  .
+.
+public method ShowTop(Me)
+  var list2Length = Me.gmSceneStack.length
+  Me.ShowMap(Me.gmSceneStack[list2Length])
+.
+public method ShowMap(Me, a1 as String)
+  if not GalaxyMapIsLoaded()
+    // unknown
+  else
+    if Me.gmSpinObjAssetID != None
+      RemoveInstancesFromPropBucket("GALAXYMAPSTAGEPROPS", Me.gmSpinObjAssetID)
+    .
+    Me.PushScene(a1)
+    $INPUT.sysInputHandler_SetLayerActive(14139395043076430093, true)  // "galaxymap"
+    $INPUT.sysInputHandler_SetLayerActive(3794857038170107682, false)  // "he_movement"
+    $INPUT.sysInputHandler_SetLayerActive(15191387154182160425, false)  // "he_game"
+    $INPUT.sysInputHandler_SetLayerActive(998714694868508617, false)  // "he_ui"
+    GalaxyMapShowMap(a1)
+    gmCameraControllerClassMethods:SetupCamera(HM.CopyConstructNodeRef(35, GetActiveCamera()), ORBIT)
+  .
+.
+public method Hide(Me)
+  if Me.IsGalaxyMapOpen()
+    Me._closeGalaxyMap()
+    Me.DestroyGui()
+  .
+.
+public method _closeGalaxyMap(Me)
+  if not Me.IsGalaxyMapOpen()
+    // unknown
+  else
+    Me.UpdateGUIPlanetInfo("")
+    clear Me.gmSceneStack keep
+    clear Me.gmClickedNodeStack keep
+    UnregisterForPerFramePreCameraCallback($THISSCRIPT)
+    sndUtils:PlayEvent(None, GUI_GALAXYMAP_STOP_SOUND_AMBIENT_ZOOMEDOUT)
+    sndUtils:PlayEvent(None, GUI_GALAXYMAP_STOP_SOUND_AMBIENT_ZOOMEDIN)
+    sndUtils:PlayEvent(None, GUI_GALAXYMAP_STOP_SOUND_AMBIENT_PLANETSCAN)
+    sndUtils:PlayEvent(None, GUI_GALAXYMAP_STOP_SOUND_ROLLOVERACTIVE)
+    sndUtils:PlayEvent(None, GUI_GALAXYMAP_SOUND_MAPCLOSE)
+    sndUtils:PlayEvent(None, "mixsnapshot_normal")
+    if $INPUT != None
+      $INPUT.sysInputHandler_SetLayerActive(14139395043076430093, false)  // "galaxymap"
+      $INPUT.sysInputHandler_SetLayerActive(3794857038170107682, true)  // "he_movement"
+      $INPUT.sysInputHandler_SetLayerActive(15191387154182160425, true)  // "he_game"
+      $INPUT.sysInputHandler_SetLayerActive(998714694868508617, true)  // "he_ui"
+    .
+    $MUSIC.PlayHydraEvent("action.fadeout")
+    GalaxyMapHide()
+    Me.Purge()
+    $NAMEPLATES.guiNameplatesCheckAllStatus()
+  .
+.
+public method DestroyGui(Me)
+  var node2 = Me.GetGMGuiRef(false)
+  if node2 != None
+    SF_GFx_ClearParams()
+    SF_GFx_InvokeRegisteredWithParams(node2, 3, "galaxyMapExit")
+    DestroyNode(node2)
+  .
+  $HUD.showHudIfEnabled()
+  Me.gmGuiRef = None
+.
+public method GetGMGuiRef(a1 as Boolean) as NodeRef of SF_GFx_GUIControl
+  NodeRef node7
+  Boolean bool1
+  if Me.gmGuiRef = None
+    Me.gmGuiRef = guiGFXGalaxyMapClassMethods:GalaxyMapGetGui(false)
+  .
+  if Me.gmGuiRef = None or (a1 and (node7 = Me.gmGuiRef, not node7.visible) ? (bool1 = true) : (bool1 = false), bool1)
+    return None
+  else
+    return Me.gmGuiRef
+  .
+.
+public method Purge(Me)
+  UnloadGalaxyMap()
+  Me.SetDestinationMap("")
+.
+public method UseZoomCursor() as Boolean
+  String str2
+  if Me.gmSceneStack.length == 0
+    // unknown
+  else if StringStartsWithExact(Me.GetCurrentSceneName(), "region_")
+    var node3 = GetNodeUnderMouse()
+    if node3 != None and (str2 = node3["Tag"], StringStartsWithExact(str2, "region_"))
+        // unknown
+    else
+      return true
+    .
+  else
+    return true
+  .
+  return false
+.
+public function GetGMCamera() as NodeRef
+  return GetActiveCamera()
+.
+public method GetLastClickedNode() as NodeRef
+  var list2Length = Me.gmClickedNodeStack.length
+  return Me.gmClickedNodeStack[list2Length]
+.
+public method GetCurrentSceneName() as String
+  var list2Length = Me.gmSceneStack.length
+  return Me.gmSceneStack[list2Length]
+.
+public method unk_8a07adc9(a1 as ID, a2 as Integer) as Boolean
+  if a2 == 1086966210362573345  // "republic"
+    if ((((a1 == gldFlagshipDestKorriban or a1 == gldFlagshipDestHutta) or a1 == gldFlagshipDestDromundKaas) or a1 == gldFlagshipDestImpTaris) or a1 == gldFlagshipDestImpBalmorra) or a1 == gldFlagshipDestImpFleet
+      return false
+    else
+      return true
+    .
+  else
+    if a2 == 16591463407040943397  // "empire"
+      if ((((a1 == gldFlagshipDestTython or a1 == gldFlagshipDestOrdMantell) or a1 == gldFlagshipDestCoruscant) or a1 == gldFlagshipDestRepBalmorra) or a1 == gldFlagshipDestRepTaris) or a1 == gldFlagshipDestRepFleet
+        return false
+      .
+    .
+    return true
+  .
+.
+public method GetAreaHiddenState(a1 as ClassView gmPoi) as Boolean
+  LookupList lookup
+  Boolean bool7
+  var out = false
+  if Me.gmGalaxyShowAll
+    return false
+  else
+    var pc = GetPlayerCharacterNode()
+    var pc2 = pc
+    if pc2 != None
+      var int1 = a1.utlGM_AreaID
+      var enum1 = HM.GetEnumDefaultValue(38)
+      var enum2 = $MAP.GetAreaExplorationType(int1)
+      enum1 = enum2
+      var pc22 = pc2
+      if not Me.unk_8a07adc9(int1, pc22.cbtFaction)
+        return true
+      .
+      if a1.utlGM_IsSpaceCombat
+        out = not pc2.IsEligibleForQuest(a1.utlGM_SpaceCombatQuestID)
+      else if (enum1 == 1 or pc2.HasVisitedArea(int1) or (lookup = Me.gmQuestsByArea, lookup has int1)) or (pc2.GetLastAreaVisited() == int1)
+        out = false
+      else
+        out = true
+        var pc23 = pc2
+        if pc23 != None
+          var id1 = pc23.grpMemberGroupId
+          if id1 != None
+            if id1.grpMemberIdToInfo has pc2
+              bool7 = true
+            else
+              bool7 = false
+            .
+          else
+            bool7 = false
+          .
+          if bool7
+            var lookup3 = id1.grpMemberIdToInfo
+            foreach key in lookup3
+              var cur = lookup3[key]
+              if cur != None
+                if pc2 != key
+                  if cur.grpMemberShadowNode != None
+                    if cur.grpMemberShadowNode.chrEffectiveCurrentArea == int1
+                      out = false
+                      break
+                    .
+                  .
+                .
+              else
+                  // unknown
+              .
+            .
+          .
+        .
+      .
+    else
+      out = true
+    .
+    return out
+  .
+.
+public method GetRegionNameFromPlanetName(a1 as String) as String
+  NodeRef node3
+  LookupList lookup2
+  if Me.gmUtlGMDatatableProtoRef != None and (HM.TrackLine(717), node3 = Me.gmUtlGMDatatableProtoRef, lookup2 = node3.utlGM_GalaxyMapDataList, lookup2 has a1)
+    var classView = Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList[a1]
+    return classView.utlGM_RegionName
+  else
+    return ""
+  .
+.
+public method GetAreaIdFromPlanetName(a1 as String) as ID
+  NodeRef node3
+  LookupList lookup2
+  if Me.gmUtlGMDatatableProtoRef != None and (HM.TrackLine(727), node3 = Me.gmUtlGMDatatableProtoRef, lookup2 = node3.utlGM_GalaxyMapDataList, lookup2 has a1)
+    var classView = Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList[a1]
+    return classView.utlGM_AreaID
+  else
+    return HM.ConvertFromStringID("")
+  .
+.
+public method GetPlanetNameFromAreaId(a1 as ID) as String
+  var lookup = Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList
+  foreach key in lookup
+    var cur = lookup[key]
+    if cur.utlGM_AreaID == a1
+      return cur.utlGM_PlanetName
+    .
+  .
+  return ""
+.
+public method IsPlayerHere(a1 as ID) as Boolean
+  var out = false
+  var idCarrier = 0
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None
+    var id1 = pc2.GetLastAreaVisited()
+    idCarrier = id1
+  .
+  if a1 == idCarrier
+    out = true
+  .
+  return out
+.
+public method GetGroupMembersHere(a1 as ID) as List of String
+  list1 as List of String
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None
+    var id1 = pc2.grpMemberGroupId
+    if id1 != None
+      var lookup = id1.GetGroupMembers()
+      foreach key in lookup
+        var cur = lookup[key]
+        if cur != None
+          if cur.grpMemberShadowNode != None
+            if cur.grpMemberShadowNode.chrEffectiveCurrentArea == a1
+              add back cur.grpMemberName to list1
+            .
+          .
+        .
+      .
+    .
+  .
+  return list1
+.
+public method GetDisplayNameFromTag(a1 as String) as String
+  Boolean bool1
+  var str2 = Me.LongNameToShortName(a1)
+  if StringStartsWithExact(a1, "planet_")
+    if Me.gmUtlGMDatatableProtoRef != None
+      if Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList has str2
+        var classView = Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList[str2]
+        if classView.utlGM_IsSpaceCombat
+          if classView.utlGM_SpaceCombatNameId >= 1
+            bool1 = true
+          else
+            bool1 = false
+          .
+        else
+          bool1 = false
+        .
+        if bool1
+          list1 as List of String
+          var int2 = classView.utlGM_SpaceCombatNameId
+          add back $STRING.LocalizeString(STR_GUI_GALAXYMAP, ID_STR_GUI_GALAXYMAP | int2, HIDWORD(ID_STR_GUI_GALAXYMAP) | HIDWORD(int2)) to list1
+          return $STRING.LocalizeStringWithTokenList(STR_GUI_GALAXYMAP, ID_STR_GUI_GALAXYMAP | 0x94, HIDWORD(ID_STR_GUI_GALAXYMAP), list1)  // "Space Battle - $Q<<1>>$Q"
+        else
+          var id1 = classView.utlGM_AreaID
+          return $MAP.GetAreaDisplayNameByID(id1)
+        .
+      .
+    .
+  else if StringStartsWithExact(a1, "region_")
+    if Me.gmUtlGMRegionProtoRef != None
+      if Me.gmUtlGMRegionProtoRef.utlGM_GalaxyRegionsList has str2
+        var classView2 = Me.gmUtlGMRegionProtoRef.utlGM_GalaxyRegionsList[str2]
+        var int4 = classView2.utlGMReg_NameId
+        var bool2 = int4 <= -1
+        if not HIDWORD(int4)
+          bool2 = (_DWORD)int4 == 0
+        .
+        if not bool2
+          return $STRING.LocalizeString(STR_GUI_GALAXYMAP, ID_STR_GUI_GALAXYMAP | int4)
+        .
+      .
+    .
+  .
+  return a1
+.
+public method PassGuiTargetRegionData(Me, a1 as String, a2 as NodeRef)
+  var node2 = Me.GetGMGuiRef(true)
+  if node2 = None
+    // unknown
+  else
+    SF_GFx_ClearParams()
+    if a1 == ""
+      SF_GFx_AddParamBoolean(false)
+      SF_GFx_InvokeRegisteredWithParams(node2, 3, "galaxyInfoPanelEnabled")
+    else
+      SF_GFx_AddParamUTF8String(Me.GetDisplayNameFromTag(a1))
+      var str3 = Me.LongNameToShortName(a1)
+      if Me.gmUtlGMDatatableProtoRef = None
+        // unknown
+      else
+        var bool1 = false
+        list1 as List of String
+        var lookup = Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList
+        foreach key in lookup
+          var cur = lookup[key]
+          if cur.utlGM_RegionName == str3
+            var bool2 = bool1 or (lookupCur2 = cur, id1 = lookupCur2.utlGM_AreaID, IsPlayerHere = HM.PrepareCallNodeRef2(84, Me, &_callFrame), bool3 = IsPlayerHere(_callFrame, id1), HM.UnprepareCall(), bool3)
+            bool1 = bool2
+            list2 as List of String
+            var id2 = cur.utlGM_AreaID
+            list2 = Me.GetGroupMembersHere(id2)
+            add back list2 to list1
+          .
+        .
+        SF_GFx_AddParamBoolean(bool1)
+        var list1Length = list1.length
+        SF_GFx_AddParamInteger(list1Length)
+        foreach cur in list1
+          SF_GFx_AddParamUTF8String(cur)
+        .
+        __int64 v71 = 0
+        var pc = GetPlayerCharacterNode()
+        var pc2 = pc
+        var lookup2 = Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList
+        foreach key in lookup2
+          var cur = lookup2[key]
+          if Me.GetAreaHiddenState(cur)
+            // unknown
+          else if cur.utlGM_AreaID == 0
+            var str5 = cur.utlGM_PlanetName + " (ID 0 in utlGalaxymap)"
+          else
+            var id3 = cur.utlGM_AreaID
+            str5 = $MAP.GetAreaDisplayNameByID(id3)
+          .
+          if cur.utlGM_RegionName == str3
+            if cur.utlGM_IsSpaceCombat
+              if pc2 != None
+                if cur.utlGM_SpaceCombatQuestID != 0
+                  if pc2.IsEligibleForQuest(cur.utlGM_SpaceCombatQuestID)
+                    ++v71
+                  .
+                .
+              .
+            else
+              SF_GFx_AddParamUTF8String(str5)
+              var id4 = cur.utlGM_AreaID
+              SF_GFx_AddParamInteger(Me.GetPlanetState(id4))
+              var id5 = cur.utlGM_AreaID
+              Me.AddGFxParamQuestsForArea(id5, cur.utlGM_SpaceCombatBreadcrumbQuests)
+            .
+          .
+        .
+        var bool6 = v71 <= -1
+        if not HIDWORD(v71)
+          bool6 = (_DWORD)v71 == 0
+        .
+        if not bool6
+          if v71 == 1
+            SF_GFx_AddParamUTF8String($STRING.LocalizeString(STR_GUI_GALAXYMAP, ID_STR_GUI_GALAXYMAP | 0xB1, HIDWORD(ID_STR_GUI_GALAXYMAP)))  // "Space Mission Available"
+          else
+            SF_GFx_AddParamUTF8String($STRING.LocalizeString(STR_GUI_GALAXYMAP, ID_STR_GUI_GALAXYMAP | 0xB2, HIDWORD(ID_STR_GUI_GALAXYMAP)))  // "Space Missions Available"
+          .
+          var unused = HM.GetEnumDefaultValue(41)
+          SF_GFx_AddParamInteger(1)
+          SF_GFx_AddParamInteger(0)
+        .
+        SF_GFx_InvokeRegisteredWithParams(node2, 3, "GM_PopulateRegionInfo")
+        vec.x = 0.0
+        vec.y = 0.0
+        vec.z = 0.0
+        GetNodeScreenSpacePosition(a2, &vec)
+        SF_GFx_ClearParams()
+        SF_GFx_AddParamBoolean(true)
+        SF_GFx_AddParamFloat(vec.x)
+        SF_GFx_AddParamFloat(vec.y)
+        SF_GFx_InvokeRegisteredWithParams(node2, 3, "galaxyInfoPanelEnabled")
+      .
+    .
+  .
+.
+public method AddGFxParamQuestsForArea(Me, a1 as ID, a2 as List of Integer)
+  Boolean bool1
+  if a2.length == 0
+    var lookup = Me.gmQuestsByArea
+    if lookup has a1
+      var list1Length = lookup[a1].length
+      SF_GFx_AddParamInteger(list1Length)
+      foreach cur in lookup[a1]
+        SF_GFx_AddParamUTF8String(cur)
+      .
+    else
+      SF_GFx_AddParamInteger(0)
+    .
+  else
+    var pc = GetPlayerCharacterNode()
+    var pc2 = pc
+    list3 as List of String
+    if pc2 != None
+      if a2.length > 0
+        bool1 = true
+      else
+        bool1 = false
+      .
+    else
+      bool1 = false
+    .
+    if bool1
+      loop i from 1 to a2.length
+        var cur = a2[i]
+        if pc2.IsQuestGranted(cur)
+          var node3 = $QUEST.GetQuestDefinition(cur)
+          if node3 != None
+            add back node3.GetQuestDisplayName() to list3
+          .
+        .
+      .
+    .
+    if list3.length > 0
+      var list3Length = list3.length
+      SF_GFx_AddParamInteger(list3Length)
+      SF_GFx_AddParamUTF8StringList(list3)
+      return
+    .
+    SF_GFx_AddParamInteger(0)
+  .
+.
+public method GetPlanetState(a1 as ID) as Enum gmPlanetState
+  var unused = HM.GetEnumDefaultValue(41)
+  var out = gmPS_Normal
+  var idCarrier = 0
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None
+    var id1 = pc2.GetLastAreaVisited()
+    idCarrier = id1
+  .
+  if a1 == idCarrier
+    out = gmPS_PlayerHere
+  else if Me.gmQuestsByArea has a1
+    out = gmPS_QuestsHere
+  else
+      // unknown
+  .
+  return out
+.
+public method HandleBackAction(Me)
+  String str3
+  int v11
+  if GalaxyMapGetCurrentMapName() == "hyperspace" or (str3 = HM.ConstructString(), &str3 = Me.gmDestinationMapKey, str3 == "hyperspace")
+    // unknown
+  else if gmCameraControllerClassMethods:IsCameraTransitioning()
+    // unknown
+  else
+    $INPUT.sysInputHandler_SetInputActive(15457782351143402556, sysInputEvent_GalaxyMapEngaged, false)  // "he_camera"
+    if not HasExternalFunction("GalaxyMapResetCameraOrbit")
+      if GalaxyMapGetCurrentMapName() == "galaxy_root"
+        Me.Hide(v11)
+      else
+        Me.ShowMap("galaxy_root")
+      .
+    .
+    var node3 = guiGFXGalaxyMapClassMethods:GalaxyMapGetGui(true)
+    if node3 != None and node3.gfxLoaded
+      SF_GFx_ClearAndReserveParams(1)
+      SF_GFx_AddParamBoolean(false)
+      SF_GFx_InvokeRegisteredWithParams(node3, 3, "galaxyInfoPanelEnabled")
+    .
+    Me.PopScene()
+  .
+.
+public method HandleSetShipDestination1(Me)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 = None
+    // unknown
+  else
+    var int1 = Me.GetTravelDist()
+    var int2 = Me.CalcTripCost(int1)
+    var int3 = pc2.GetMoney()
+    var bool1 = SHIDWORD(int3) >= SHIDWORD(int2)
+    if HIDWORD(int3) == HIDWORD(int2)
+      bool1 = (unsigned int)int2 <= (unsigned int)int3
+    .
+    if not bool1
+      SF_GFx_ClearAndReserveParams(9)
+      SF_GFx_AddParamString($STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | 0x12D, HIDWORD(ID_STR_GUI_DIALOG)))  // "ERROR"
+      SF_GFx_AddParamString($STRING.LocalizeString(STR_GUI_GALAXYMAP, ID_STR_GUI_GALAXYMAP | 0x1E, HIDWORD(ID_STR_GUI_GALAXYMAP)))  // "You can't afford this trip!"
+      SF_GFx_AddParamString($STRING.LocalizeStringWithPlayerGender(STR_GUI_DIALOG, ID_STR_GUI_DIALOG | 0x12C, HIDWORD(ID_STR_GUI_DIALOG)))  // "OK"
+      SF_GFx_AddParamNull()
+      SF_GFx_AddParamInteger(0)
+      SF_GFx_AddParamNull()
+      SF_GFx_AddParamNull()
+      SF_GFx_AddParamInteger(0)
+      SF_GFx_AddParamBoolean(true)
+      Me.GetGMGuiRef(true).invokeWithParams("displayDialog")
+    else
+      var list2Length = Me.gmSceneStack.length
+      if StringStartsWithExact(Me.gmSceneStack[list2Length], "planet_")
+        var str9 = Me.LongNameToShortName(Me.gmSceneStack[list2Length])
+        if Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList has str9
+          var classView = Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList[str9]
+          if classView.utlGM_IsSpaceCombat
+            Me.GetGMGuiRef(true).OpenSpaceCombatAreYouSureDialog(classView.utlGM_SpaceCombatNameId)
+          else
+            Me.HandleSetShipDestination2()
+          .
+        else
+          Me.HandleSetShipDestination2()
+        .
+      else
+        Me.HandleSetShipDestination2()
+      .
+    .
+  .
+.
+public method HandleSetShipDestination2(Me)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 = None
+    return
+  .
+  var list2Length = Me.gmSceneStack.length
+  if StringStartsWithExact(Me.gmSceneStack[list2Length], "planet_")
+    var str3 = Me.LongNameToShortName(Me.gmSceneStack[list2Length])
+    var id1 = Me.GetAreaIdFromPlanetName(str3)
+    var id2 = pc2.GetLastAreaVisited()
+    if id1 != id2 and str3 != ""
+      pc2.chrDestinationPlanetName = str3
+      $CHARACTER.RequestSetShipDestination(str3)
+    else
+      return
+    .
+  .
+  $INPUT.sysInputHandler_SetInputActive(15457782351143402556, sysInputEvent_GalaxyMapEngaged, false)  // "he_camera"
+  Me.gmDestinationNode = None
+  var node4 = GetActiveCamera()
+  if node4 is kindof gmCameraController
+    var classView = HM.GetClassViewFromNodeRef(node4, gmCameraController)
+    classView.gmCameraState = 2
+  .
+  gmCameraControllerClassMethods:BeginTransition(GetCameraFollow("*"), None)
+  var node8 = Me.GetGMGuiRef(true)
+  if node8 != None
+    node8.guiFadeOut(FADE_IN_SECONDS)
+  .
+.
+public method UpdateGUIBackButton(Me, a1 as String)
+  var node2 = Me.GetGMGuiRef(true)
+  if node2 = None
+    // unknown
+  else
+    if a1 == "galaxy_root"
+      var str = ""
+    else if StringStartsWithExact(a1, "region_")
+      str = $STRING.LocalizeString(STR_GUI_GALAXYMAP, ID_STR_GUI_GALAXYMAP | 0x1B, HIDWORD(ID_STR_GUI_GALAXYMAP))  // "RETURN TO THE GALAXY"
+    else
+      var list1Length = Me.gmSceneStack.length
+      var bool1 = (unsigned int)list1Length <= 1
+      var bool2 = list1Length <= -1
+      if not HIDWORD(list1Length)
+        bool2 = bool1
+      .
+      if not bool2
+        list2 as List of String
+        var list4Length = Me.gmSceneStack.length
+        add back Me.GetDisplayNameFromTag(Me.gmSceneStack[list4Length - 1]) to list2
+        str = $STRING.LocalizeStringWithTokenList(STR_GUI_GALAXYMAP, ID_STR_GUI_GALAXYMAP | 0x1C, HIDWORD(ID_STR_GUI_GALAXYMAP), list2)  // "RETURN TO THE <<1>>"
+        str = ToUpper(str)
+      else
+        // unknown
+      .
+    .
+    SF_GFx_SetVariable(node2, "_global.api.vars.guiGalaxyMapBackText", str)
+  .
+.
+public method UpdateGUIPlanetInfo(Me, a1 as String)
+  Boolean bool1
+  var node2 = Me.GetGMGuiRef(true)
+  if node2 = None
+    // unknown
+  else if StringStartsWithExact(a1, "planet_")
+    if Me.gmUtlGMDatatableProtoRef = None
+      // unknown
+    else
+      var str2 = Me.LongNameToShortName(a1)
+      if not (Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList has str2)
+        // unknown
+      else
+        list1 as List of String
+        var int1 = Me.GetTravelDist()
+        var int2 = Me.CalcTripCost(int1)
+        var classView = Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList[str2]
+        SF_GFx_ClearParams()
+        if classView.utlGM_IsSpaceCombat and classView.utlGM_SpaceCombatNameId != 0
+          list2 as List of String
+          var int4 = classView.utlGM_SpaceCombatNameId
+          add back $STRING.LocalizeString(STR_GUI_GALAXYMAP, ID_STR_GUI_GALAXYMAP | int4, HIDWORD(ID_STR_GUI_GALAXYMAP) | HIDWORD(int4)) to list2
+          SF_GFx_AddParamUTF8String($STRING.LocalizeStringWithTokenList(STR_GUI_GALAXYMAP, ID_STR_GUI_GALAXYMAP | 0x94, HIDWORD(ID_STR_GUI_GALAXYMAP), list2))  // "Space Battle - $Q<<1>>$Q"
+        else
+          var id1 = classView.utlGM_AreaID
+          SF_GFx_AddParamUTF8String($MAP.GetAreaDisplayNameByID(id1))
+        .
+        if classView.utlGM_PlanetDescId >= 1
+          var int7 = classView.utlGM_PlanetDescId
+          SF_GFx_AddParamUTF8String($STRING.LocalizeString(STR_GUI_GALAXYMAP, ID_STR_GUI_GALAXYMAP | int7, HIDWORD(ID_STR_GUI_GALAXYMAP) | HIDWORD(int7)))
+        else
+          SF_GFx_AddParamUTF8String(".")
+        .
+        var id2 = classView.utlGM_AreaID
+        SF_GFx_AddParamInteger(Me.GetPlanetState(id2))
+        SF_GFx_AddParamInteger(int1)
+        SF_GFx_AddParamInteger(int2)
+        var pc = GetPlayerCharacterNode()
+        var pc2 = pc
+        if pc2 != None
+          if int2 <= pc2.GetMoney()
+            bool1 = true
+          else
+            bool1 = false
+          .
+        else
+          bool1 = false
+        .
+        if bool1
+          SF_GFx_AddParamBoolean(true)
+        else
+          SF_GFx_AddParamBoolean(false)
+        .
+        var id3 = classView.utlGM_AreaID
+        Me.AddGFxParamQuestsForArea(id3, classView.utlGM_SpaceCombatBreadcrumbQuests)
+        var id4 = classView.utlGM_AreaID
+        SF_GFx_AddParamBoolean(Me.IsPlayerHere(id4))
+        list4 as List of String
+        var id5 = classView.utlGM_AreaID
+        list4 = Me.GetGroupMembersHere(id5)
+        add back list4 to list1
+        var list1Length = list1.length
+        SF_GFx_AddParamInteger(list1Length)
+        foreach cur in list1
+          SF_GFx_AddParamUTF8String(cur)
+        .
+        SF_GFx_AddParamString(classView.utlGM_FactionControl)
+        SF_GFx_AddParamInteger(classView.utlGM_MinLevel)
+        SF_GFx_AddParamInteger(classView.utlGM_MaxLevel)
+        SF_GFx_InvokeRegisteredWithParams(node2, 3, "GM_PopulatePlanetInfo")
+        SF_GFx_ClearParams()
+        SF_GFx_AddParamBoolean(true)
+        SF_GFx_InvokeRegisteredWithParams(node2, 3, "planetInfoPanelEnabled")
+      .
+    .
+  else
+    SF_GFx_ClearParams()
+    SF_GFx_AddParamBoolean(false)
+    SF_GFx_InvokeRegisteredWithParams(node2, 3, "planetInfoPanelEnabled")
+  .
+.
+public method GetTravelDist() as Integer
+  var out = 0
+  var list1Length = Me.gmSceneStack.length
+  var bool1 = (_DWORD)list1Length != 0
+  var bool2 = SHIDWORD(list1Length) >= 1
+  if not HIDWORD(list1Length)
+    bool2 = bool1
+  .
+  if not bool2
+    // unknown
+  else
+    var list3Length = Me.gmSceneStack.length
+    var str = Me.gmSceneStack[list3Length]
+    if not StringStartsWithExact(str, "planet_")
+      // unknown
+    else if Me.gmUtlGMDatatableProtoRef = None
+        // unknown
+    else
+      var pc = GetPlayerCharacterNode()
+      var pc2 = pc
+      if pc2 != None
+        var id1 = pc2.GetLastAreaVisited()
+        var str4 = Me.GetPlanetNameFromAreaId(id1)
+        out = Me.CalcPlanetDist(str4, Me.LongNameToShortName(str))
+      .
+    .
+  .
+  return out
+.
+public method CalcPlanetDist(a1 as String, a2 as String) as Integer
+  Vector3 vec
+  var out = 0
+  if Me.gmUtlGMDatatableProtoRef != None
+    if Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList has a1
+      if Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList has a2
+        var classView = Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList[a1]
+        var classView2 = Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList[a2]
+        vec.x = 0.0
+        vec.y = 0.0
+        vec.z = 0.0
+        var vec2 = classView.utlGM_PlanetPosition
+        var vec3 = classView2.utlGM_PlanetPosition
+        vec.x = vec2.x - vec3.x
+        vec.y = vec2.y - vec3.y
+        vec.z = vec2.z - vec3.z
+        out = truncate(VectorLength(vec) * 2452.0)
+      .
+    .
+  .
+  return out
+.
+public method CalcTripCost(a1 as Integer) as Integer
+  var str2 = 0.004 * (Float)a1
+  return "" + str2
+.
+public method IsGalaxyView(a1 as String) as Boolean
+  return a1 == "galaxy_root"
+.
+public method IsNebulaView(a1 as String) as Boolean
+  return StringStartsWithExact(a1, "region_")
+.
+public method IsPlanetView(a1 as String) as Boolean
+  return StringStartsWithExact(a1, "planet_")
+.
+public method OnChangeRooms(Me, a1 as String)
+  var node2 = Me.GetGMGuiRef(true)
+  var int1 = 0
+  if Me.IsGalaxyView(a1)
+    Me.PassGuiTargetRegionData("", None)
+    int1 = 0
+    var str = $STRING.LocalizeString(STR_GUI_GALAXYMAP, ID_STR_GUI_GALAXYMAP | 0x23, HIDWORD(ID_STR_GUI_GALAXYMAP))  // "THE GALAXY"
+    Me.ShowGalaxyRoomRegionRootFX(true, "")
+    sndUtils:PlayEvent(None, GUI_GALAXYMAP_SOUND_AMBIENT_ZOOMEDOUT)
+    sndUtils:PlayEvent(None, GUI_GALAXYMAP_STOP_SOUND_AMBIENT_ZOOMEDIN)
+    sndUtils:PlayEvent(None, GUI_GALAXYMAP_STOP_SOUND_AMBIENT_PLANETSCAN)
+    SF_GFx_ClearAndReserveParams(2)
+    SF_GFx_AddParamInteger(int1)
+    SF_GFx_AddParamUTF8String(str)
+    if node2 != None and node2.gfxLoaded
+      SF_GFx_InvokeRegisteredWithParams(node2, 3, "GM_SetRoomType")
+    .
+    return
+  .
+  if Me.IsNebulaView(a1)
+    Me.PassGuiTargetRegionData("", None)
+    int1 = 1
+    str = Me.GetDisplayNameFromTag(a1)
+    Me.TurnOffNebulaRoomRegionFX(a1)
+    sndUtils:PlayEvent(None, GUI_GALAXYMAP_STOP_SOUND_AMBIENT_ZOOMEDOUT)
+    sndUtils:PlayEvent(None, GUI_GALAXYMAP_SOUND_AMBIENT_ZOOMEDIN)
+    sndUtils:PlayEvent(None, GUI_GALAXYMAP_STOP_SOUND_AMBIENT_PLANETSCAN)
+    SF_GFx_ClearAndReserveParams(2)
+    SF_GFx_AddParamInteger(int1)
+    SF_GFx_AddParamUTF8String(str)
+    if node2 != None and node2.gfxLoaded
+      SF_GFx_InvokeRegisteredWithParams(node2, 3, "GM_SetRoomType")
+    .
+    return
+  .
+  if Me.IsPlanetView(a1)
+    Me.PassGuiTargetRegionData("", None)
+    int1 = 2
+    str = Me.GetDisplayNameFromTag(a1)
+    sndUtils:PlayEvent(None, GUI_GALAXYMAP_STOP_SOUND_AMBIENT_ZOOMEDOUT)
+    sndUtils:PlayEvent(None, GUI_GALAXYMAP_STOP_SOUND_AMBIENT_ZOOMEDIN)
+    sndUtils:PlayEvent(None, GUI_GALAXYMAP_SOUND_AMBIENT_PLANETSCAN)
+    if Me.gmUtlGMDatatableProtoRef != None
+      var str16 = Me.LongNameToShortName(a1)
+      if Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList has str16
+        var classView = Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList[str16]
+        var id1 = classView.utlGM_AreaID
+        Me.gmDestAreaId = id1
+      .
+    .
+  else
+    list1 as List of NodeRef
+    list2 as List of NodeRef
+    list2 = GalaxyMapGetPlanetsInRoom("planet_hyperspace", "hyperspace")
+    list1 = list2
+    foreach cur in list1
+      cur["Pause"] = false
+    .
+    int1 = 3
+    str = $STRING.LocalizeString(STR_GUI_GALAXYMAP, ID_STR_GUI_GALAXYMAP | 0x77, HIDWORD(ID_STR_GUI_GALAXYMAP))  // "Hyperspace"
+  .
+  SF_GFx_ClearAndReserveParams(2)
+  SF_GFx_AddParamInteger(int1)
+  SF_GFx_AddParamUTF8String(str)
+  if node2 != None and node2.gfxLoaded
+    SF_GFx_InvokeRegisteredWithParams(node2, 3, "GM_SetRoomType")
+  .
+.
+public method ToggleGalaxyMapShowAll(Me)
+  Me.gmGalaxyShowAll = not Me.gmGalaxyShowAll
+.
+public function onFrameUpdatePreCamera(Me, a1 as TimeInterval)
+  // unknown
+.
+public method LongNameToShortName(a1 as String) as String
+  list1 as List of String
+  SplitBy(a1, "_", &list1)
+  var list1Length = list1.length
+  var bool1 = (unsigned int)list1Length <= 1
+  var bool2 = list1Length <= -1
+  if not HIDWORD(list1Length)
+    bool2 = bool1
+  .
+  if not bool2
+    var str = list1[2]
+  else
+    // unknown
+  .
+  return str
+.
+public method ShowGalaxyRoomRegionRootFX(Me, a1 as Boolean, a2 as String)
+  var bool1 = not a1
+  if Me.gmUtlGMRegionProtoRef != None
+    var lookup = Me.gmUtlGMRegionProtoRef.utlGM_GalaxyRegionsList
+    foreach key in lookup
+      list2 as List of NodeRef
+      var lookupCur = lookup[key]
+      list2 = GalaxyMapGetRegionsInRoom(lookupCur.utlGMReg_RegionName, "galaxy_root")
+      add back list2 to list1
+    .
+  .
+  foreach cur in list1
+    if a2 != "" and (list1Cur2 = cur, str11 = list1Cur2["Tag"], str11 != a2)
+      // unknown
+    else
+      var node4 = HM.ConvertFromStringNodeRef(13, cur["ParentInstance"])
+      if node4 != None
+        if ((bool1 or (str9 = node4["Hidden"], str10 = false, str9 == str10)) & 1) != 0
+          var node6 = HM.ConvertFromStringNodeRef(13, node4["ParentInstance"])
+          var node5 = node6
+          if node5 != None
+            node5["Pause"] = false
+            node5["Hidden"] = bool1
+            var node8 = HM.ConvertFromStringNodeRef(13, node5["ParentInstance"])
+            var node7 = node8
+            if node7 != None
+              node7["Pause"] = false
+              node7["Hidden"] = true
+            .
+          .
+        .
+      .
+    .
+  .
+.
+public method TurnOffNebulaRoomRegionFX(Me, a1 as String)
+  list1 as List of NodeRef
+  if Me.gmUtlGMRegionProtoRef != None
+    var lookup = Me.gmUtlGMRegionProtoRef.utlGM_GalaxyRegionsList
+    foreach key in lookup
+      list2 as List of NodeRef
+      var lookupCur = lookup[key]
+      list2 = GalaxyMapGetRegionsInRoom(lookupCur.utlGMReg_RegionName, a1)
+      add back list2 to list1
+    .
+  .
+  foreach cur in list1
+    var node4 = HM.ConvertFromStringNodeRef(13, cur["ParentInstance"])
+    if node4 != None
+      var node6 = HM.ConvertFromStringNodeRef(13, node4["ParentInstance"])
+      var node5 = node6
+      if node5 != None
+        node5["Pause"] = false
+        node5["Hidden"] = true
+      .
+    .
+  .
+.
+public method OnMouseEnterTaggedObj(a1 as NodeRef) as Boolean
+  var str2 = Me.GetCurrentSceneName()
+  var str3 = Me.GetDisplayNameFromTag(a1["Tag"])
+  if "galaxy_root" == str2
+    Me.OnMouseEnter_GalaxyRoom(a1)
+  .
+  if StringStartsWithExact(str2, "region_")
+    Me.OnMouseEnter_RegionRoom(a1)
+  .
+  return false
+.
+public method OnMouseEnter_GalaxyRoom(Me, a1 as NodeRef)
+  NodeRef node6
+  LookupList lookup2
+  sndUtils:PlayEvent(None, GUI_GALAXYMAP_SOUND_MOUSEOVER)
+  sndUtils:PlayEvent(None, GUI_GALAXYMAP_SOUND_ROLLOVERACTIVE)
+  var NodeProperty2 = a1["Tag"]
+  if StringStartsWithExact(NodeProperty2, "planet_")
+    var str5 = Me.LongNameToShortName(NodeProperty2)
+    if Me.gmUtlGMDatatableProtoRef = None or (node6 = Me.gmUtlGMDatatableProtoRef, lookup2 = node6.utlGM_GalaxyMapDataList, not (lookup2 has str5))
+      // unknown
+    else
+      var classView = Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList[str5]
+      var str6 = classView.utlGM_RegionName
+      if str6 != ""
+        list1 as List of NodeRef
+        list2 as List of NodeRef
+        list2 = GalaxyMapGetRegionsInRoom(str6, "galaxy_root")
+        list1 = list2
+        foreach cur in list1
+          Me.OnMouseEnterTaggedObj(cur)
+        .
+      .
+    .
+  else if StringStartsWithExact(NodeProperty2, "region_")
+    Me.ShowGalaxyRoomRegionRootFX(false, NodeProperty2)
+    var node8 = HM.ConvertFromStringNodeRef(13, a1["ParentInstance"])
+    if node8 != None
+      var node10 = HM.ConvertFromStringNodeRef(13, node8["ParentInstance"])
+      if node10 != None
+        var node12 = HM.ConvertFromStringNodeRef(13, node10["ParentInstance"])
+        var node11 = node12
+        if node11 != None
+          node11["Hidden"] = false
+        .
+      .
+    .
+    if Me.gmDestinationMapKey == ""
+      Me.PassGuiTargetRegionData(NodeProperty2, a1)
+    .
+  .
+.
+public method OnMouseEnter_RegionRoom(Me, a1 as NodeRef)
+  var node2 = Me.GetGMGuiRef(true)
+  if node2 = None
+    // unknown
+  else
+    list1 as List of String
+    var NodeProperty2 = a1["Tag"]
+    if Me.gmUtlGMDatatableProtoRef != None
+      if Me.gmUtlGMRegionProtoRef != None
+        if StringStartsWithExact(NodeProperty2, "planet_")
+          if Me.gmDestinationMapKey == ""
+            sndUtils:PlayEvent(None, GUI_GALAXYMAP_SOUND_MOUSEOVER)
+            sndUtils:PlayEvent(None, GUI_GALAXYMAP_SOUND_ROLLOVERACTIVE)
+            var str6 = Me.LongNameToShortName(NodeProperty2)
+            if Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList has str6
+              var classView = Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList[str6]
+              SF_GFx_ClearParams()
+              var id1 = classView.utlGM_AreaID
+              SF_GFx_AddParamUTF8String(Me.GetDisplayNameFromTag(NodeProperty2))
+              SF_GFx_AddParamInteger(Me.GetPlanetState(id1))
+              Me.AddGFxParamQuestsForArea(id1, classView.utlGM_SpaceCombatBreadcrumbQuests)
+              SF_GFx_AddParamBoolean(Me.IsPlayerHere(id1))
+              list3 as List of String
+              list3 = Me.GetGroupMembersHere(id1)
+              add back list3 to list1
+              var list1Length = list1.length
+              SF_GFx_AddParamInteger(list1Length)
+              foreach cur in list1
+                SF_GFx_AddParamUTF8String(cur)
+              .
+              SF_GFx_AddParamString(classView.utlGM_FactionControl)
+              SF_GFx_AddParamInteger(classView.utlGM_MinLevel)
+              SF_GFx_AddParamInteger(classView.utlGM_MaxLevel)
+              SF_GFx_InvokeRegisteredWithParams(node2, 3, "GM_PopulateNebulaPlanetInfo")
+              vec.x = 0.0
+              vec.y = 0.0
+              vec.z = 0.0
+              GetNodeScreenSpacePosition(a1, &vec)
+              SF_GFx_ClearParams()
+              SF_GFx_AddParamBoolean(true)
+              SF_GFx_AddParamFloat(vec.x)
+              SF_GFx_AddParamFloat(vec.y)
+              SF_GFx_InvokeRegisteredWithParams(node2, 3, "nebulaInfoPanelEnabled")
+            .
+          .
+        else if StringStartsWithExact(NodeProperty2, "region_")
+          SF_GFx_ClearAndReserveParams(2)
+          SF_GFx_AddParamInteger(1)
+          var list5Length = Me.gmSceneStack.length
+          var str9 = Me.GetDisplayNameFromTag(Me.gmSceneStack[list5Length])
+          var str12 = Me.GetDisplayNameFromTag(NodeProperty2)
+          SF_GFx_AddParamUTF8String(str9 + " - " + str12)
+          SF_GFx_InvokeRegisteredWithParams(node2, 3, "GM_SetRoomType")
+          SF_GFx_ClearParams()
+          var bool2 = false
+          SF_GFx_AddParamUTF8String(Me.GetDisplayNameFromTag(NodeProperty2))
+          var int3 = 0
+          var lookup3 = Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList
+          foreach key in lookup3
+            var cur = lookup3[key]
+            if "region_" + cur.utlGM_SubRegionName == NodeProperty2
+              if Me.GetAreaHiddenState(cur)
+                // unknown
+              else
+                ++int3
+              .
+            .
+          .
+          SF_GFx_AddParamInteger(int3)
+          var lookup4 = Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList
+          foreach key in lookup4
+            var cur = lookup4[key]
+            if "region_" + cur.utlGM_SubRegionName == NodeProperty2
+              if Me.GetAreaHiddenState(cur)
+                // unknown
+              else
+                SF_GFx_AddParamUTF8String(Me.GetDisplayNameFromTag("planet_" + cur.utlGM_PlanetName))
+                var id3 = cur.utlGM_AreaID
+                SF_GFx_AddParamInteger(Me.GetPlanetState(id3))
+                Me.AddGFxParamQuestsForArea(id3, cur.utlGM_SpaceCombatBreadcrumbQuests)
+                var bool5 = bool2 or (lookup4Cur7 = cur, id5 = lookup4Cur7.utlGM_AreaID, IsPlayerHere2 = HM.PrepareCallNodeRef2(84, Me, &_callFrame), bool6 = IsPlayerHere(_callFrame, id5), HM.UnprepareCall(), bool6)
+                bool2 = bool5
+                list7 as List of String
+                list7 = Me.GetGroupMembersHere(id3)
+                add back list7 to list1
+              .
+            .
+          .
+          SF_GFx_AddParamBoolean(bool2)
+          var list1Length2 = list1.length
+          SF_GFx_AddParamInteger(list1Length2)
+          foreach cur in list1
+            SF_GFx_AddParamUTF8String(cur)
+          .
+          var classView2 = Me.gmUtlGMRegionProtoRef.utlGM_GalaxyRegionsList[Me.LongNameToShortName(NodeProperty2)]
+          SF_GFx_AddParamString(classView2.utlGMReg_FactionCtrl)
+          SF_GFx_InvokeRegisteredWithParams(node2, 3, "GM_PopulateNebulaRegionInfo")
+        .
+      .
+    .
+  .
+.
+public method OnMouseLeaveTaggedObj(a1 as NodeRef) as Boolean
+  var node2 = Me.GetGMGuiRef(true)
+  if a1 != None and node2 != None
+    var str2 = Me.GetCurrentSceneName()
+    if "galaxy_root" == str2
+      Me.OnMouseLeave_GalaxyRoom(a1)
+    else if StringStartsWithExact(str2, "region_")
+      Me.OnMouseLeave_RegionRoom(a1)
+    .
+  .
+  return false
+.
+public method OnMouseLeave_GalaxyRoom(Me, a1 as NodeRef)
+  sndUtils:PlayEvent(None, GUI_GALAXYMAP_STOP_SOUND_ROLLOVERACTIVE)
+  var NodeProperty2 = a1["Tag"]
+  if Me.gmDestinationMapKey == ""
+    Me.PassGuiTargetRegionData("", None)
+  .
+  if StringStartsWithExact(NodeProperty2, "planet_")
+    var str5 = Me.LongNameToShortName(NodeProperty2)
+    if Me.gmUtlGMDatatableProtoRef = None
+      return
+    .
+    var lookup = Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList
+    foreach key in lookup
+      var cur = lookup[key]
+      if str5 == cur.utlGM_PlanetName
+        var str6 = cur.utlGM_RegionName
+        break
+      .
+    .
+    if str6 != ""
+      list1 as List of NodeRef
+      list2 as List of NodeRef
+      list2 = GalaxyMapGetRegions(str6)
+      list1 = list2
+      foreach cur in list1
+        Me.OnMouseLeaveTaggedObj(cur)
+      .
+    .
+  else
+    StringStartsWithExact(NodeProperty2, "region_")
+  .
+  Me.ShowGalaxyRoomRegionRootFX(true, "")
+  var node7 = HM.ConvertFromStringNodeRef(13, a1["ParentInstance"])
+  if node7 != None
+    var node9 = HM.ConvertFromStringNodeRef(13, node7["ParentInstance"])
+    if node9 != None
+      var node11 = HM.ConvertFromStringNodeRef(13, node9["ParentInstance"])
+      var node10 = node11
+      if node10 != None
+        node10["Hidden"] = true
+      .
+    .
+  .
+.
+public method OnMouseLeave_RegionRoom(Me, a1 as NodeRef)
+  sndUtils:PlayEvent(None, GUI_GALAXYMAP_STOP_SOUND_ROLLOVERACTIVE)
+  var node4 = Me.GetGMGuiRef(true)
+  if node4 != None
+    SF_GFx_ClearParams()
+    SF_GFx_AddParamBoolean(false)
+    SF_GFx_InvokeRegisteredWithParams(node4, 3, "nebulaInfoPanelEnabled")
+    SF_GFx_ClearAndReserveParams(2)
+    SF_GFx_AddParamInteger(1)
+    var list2Length = Me.gmSceneStack.length
+    SF_GFx_AddParamUTF8String(Me.GetDisplayNameFromTag(Me.gmSceneStack[list2Length]))
+    SF_GFx_InvokeRegisteredWithParams(node4, 3, "GM_SetRoomType")
+  .
+.
+public method DisplayTravelBannerText(Me, a1 as ID)
+  list1 as List of String
+  add back $MAP.GetAreaDisplayNameByID(a1) to list1
+  var str3 = $STRING.LocalizeStringWithTokenList(STR_GUI_GALAXYMAP, ID_STR_GUI_GALAXYMAP | 0x1D, HIDWORD(ID_STR_GUI_GALAXYMAP), list1)  // "You are traveling to <<1>>."
+  $GUI_API.getApi().BannerMessageEx(str3, COLOR_YELLOW)
+.
+public method UpdateGalaxyMapPartyData(Me)
+  if Me.IsGalaxyMapOpen()
+    Me.InitPlayerAndPartyIcons()
+    var node3 = GetNodeUnderMouse()
+    if node3 != None
+      Me.OnMouseEnterTaggedObj(node3)
+    .
+    var list2Length = Me.gmSceneStack.length
+    if Me.IsPlanetView(Me.gmSceneStack[list2Length])
+      Me.UpdateGUIPlanetInfo(Me.gmSceneStack[list2Length])
+    .
+  .
+.
+public method OnFadeOutFinished(Me)
+  int v17
+  int v18
+  Me._closeGalaxyMap()
+  var bool1 = false
+  if Me.gmUtlGMDatatableProtoRef != None
+    var id1 = Me.gmDestAreaId
+    var str2 = Me.GetPlanetNameFromAreaId(id1)
+    if Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList has str2
+      var classView = Me.gmUtlGMDatatableProtoRef.utlGM_GalaxyMapDataList[str2]
+      if classView.utlGM_IsSpaceCombat
+        bool1 = true
+      .
+    .
+  .
+  if bool1
+    $GUI_API.getApi().guiFadeOut(0.0)
+    Me.DestroyGui()
+    $CHARACTER.RequestGMSpaceCombatTravelNow(v17, v18)
+    return
+  .
+  var node7 = Me.GetGMGuiRef(false)
+  if node7 != None
+    $HUD.showHudIfEnabled()
+    node7.guiFadeIn(FADE_IN_SECONDS)
+  .
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None
+    var id2 = Me.gmDestAreaId
+    Me.DisplayTravelBannerText(id2)
+  .
+.
+public method OnFadeInFinished(Me)
+  Me.DestroyGui()
+.

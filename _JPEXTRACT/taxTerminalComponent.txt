@@ -1,0 +1,30 @@
+Name	
+7B339C31 	taxTerminalComponent	
+taxTerminalComponent	
+Server script	
+14988072161139105173 	taxTerminalComponentClassMethods	
+Client script	
+14988178523977114911 	_clienttaxTerminalComponentClassMethods	
+Child classes	
+Used by fields	
+NodeRef in fields	
+Base class of system nodes	
+Glommed into system nodes	
+Declared in client.gom	present
+Shared with server DOM	yes
+Archetype	DATA
+Stored in prototype nodes	present
+Stored as	nested
+Glommed to classes	chrNonPlayerCharacter
+Live
+
+Parent classes	
+Fields	
+Beta · 6		taxTerminalSpec	ID
+
+Automaton	GetNPCInfo (×2)
+chrOracleClassMethods	RequestUseTerminal
+chrPlayerCharacterClassMethods	updateInteraction (×2)
+chrSelectedTargetClassMethods	IsNodeUsable (×2)
+ctlInputGame	_handleDefaultAction
+plcPropClassMethods	InputMouseEvent, plcProp_DefaultAction (×2)

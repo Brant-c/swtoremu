@@ -1,0 +1,16 @@
+public function getTerminalFromSpec(a1 as ID) as NodeRef of taxTerminal
+  return getPrototypeByID(a1)
+.
+public method canUseTerminal(a1 as NodeRef of cbtFactionComponent) as Boolean
+  if a1 = None
+    return false
+  else
+    if Me.taxFaction == 12696229786511462488  // "neutral"
+      return true
+    .
+    if a1.cbtFaction != Me.taxFaction
+      return false
+    .
+    return true
+  .
+.

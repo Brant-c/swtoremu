@@ -1,0 +1,48 @@
+self handler onAssetSpecReady(Me, a1 as NodeRef of HBSpec, a2 as Boolean)
+  Me.spnSpawnedAppearance_PlayEntry()
+.
+self handler Replication_Create(Me, a1 as Integer)
+  Me.spnSpawnedAppearance_PlayIdle()
+.
+self handler Replication_Destroy(Me, a1 as Integer)
+  Me.spnSpawnedAppearance_SetEffectEvent(None)
+.
+public method spnSpawnedAppearance_PlayEntry(Me)
+  CallFrame _callFrame
+  if Me.spnSpawnedEntryAppearance != 0
+    list1 as List of ID
+    var id1 = Me
+    add back id1 to list1
+    node2 as NodeRef
+    var id2 = Me.spnSpawnedEntryAppearance
+    FuncRef ApplyAppearanceEx = HM.PrepareCallNodeRef2(3, $EFFECT, &_callFrame)
+    ApplyAppearanceEx(node2, _callFrame, 16141015010245413293, id2, id1, list1, 1, 43, 0, 0, false)  // abl.utility.apply_appearance
+    Me.spnSpawnedAppearance_SetEffectEvent(node2)
+  .
+.
+public method spnSpawnedAppearance_PlayIdle(Me)
+  CallFrame _callFrame
+  if Me.spnSpawnedEntryAppearance != 0
+    list1 as List of ID
+    var id1 = Me
+    add back id1 to list1
+    node2 as NodeRef
+    var id2 = Me.spnSpawnedEntryAppearance
+    FuncRef ApplyAppearanceEx = HM.PrepareCallNodeRef2(3, $EFFECT, &_callFrame)
+    ApplyAppearanceEx(node2, _callFrame, 16141015010245413293, id2, id1, list1, 1, 38, 0, 0, false)  // abl.utility.apply_appearance
+    Me.spnSpawnedAppearance_SetEffectEvent(node2)
+  .
+.
+public method spnSpawnedAppearance_SetEffectEvent(Me, a1 as NodeRef of effEvent)
+  var unused = a1 != None
+  if Me.spnSpawnedAppearanceEvent != None
+    if Me.spnSpawnedAppearanceEvent.effEventEffectAppearance != None
+      Me.spnSpawnedAppearanceEvent.effEventEffectAppearance.effAppearanceRemove(Me.spnSpawnedAppearanceEvent, false)
+    .
+    Me.spnSpawnedAppearanceEvent.effEvent_RemoveRef()
+  .
+  Me.spnSpawnedAppearanceEvent = a1
+  if a1 != None
+    a1.effEvent_AddRef()
+  .
+.

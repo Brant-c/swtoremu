@@ -1,0 +1,33 @@
+Name	
+D72FE4EC 	ablContainerComponent	
+ablContainerComponent	
+Server script	
+14988001757913787196 	ablContainerComponentClassMethods	
+Client script	
+14988147114827152392 	_clientablContainerComponentClassMethods	
+Description 	Component for entities that have multiple abilities 
+Parent classes	
+Used by fields	
+NodeRef in fields	
+Base class of system nodes	
+Glommed into system nodes	
+Declared in client.gom	present
+Shared with server DOM	yes
+Archetype	DATA
+Live
+
+Child classes	chrCharacter
+spnVehicle
+Fields	
+Beta · 6		ablContainer_AbilityPackageCacheDirty	Boolean
+Beta · 6		ablContainer_AbilityPackageTabsDirty	Boolean
+Beta · 6		ablContainer_AbilityPackageTabs	List of String
+Beta · 6		ablContainer_AIUsableAbilitiesList	List of NodeRef of ablAbility
+Beta · 6		ablContainer_AbilityPackageCache	LookupList indexed by ID of ID
+Beta · 6		ablContainer	NodeRef of ablContainer
+Beta · 6		ablContainerAbilityRanks	LookupList indexed by ID of Int
+Beta · 6		ablContainerAbilityLevels	LookupList indexed by ID of Int
+Beta · 6		ablPackageSpecList	List of IDLookupList indexed by ID of Enum ablAbilityType
+Beta · 6		ablContainerGrantedAbilityRanks	LookupList indexed by ID of Int
+Beta · 6		ablContainerSkillRanks	LookupList indexed by ID of Int
+1.2.0		ablContainerUnlockRanks	LookupList indexed by ID of Int

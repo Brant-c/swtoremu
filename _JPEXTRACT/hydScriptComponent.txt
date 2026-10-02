@@ -1,0 +1,103 @@
+Name	
+58F5FB3C 	hydScriptComponent	
+hydScriptComponent	
+Server script	
+14988228829065792731 	hydScriptComponentClassMethods	
+Client script	
+14988036458313891288 	_clienthydScriptComponentClassMethods	
+Description 	class for entities that can have hydra scripts run on them 
+Parent classes	hydObjectComponent
+Used by fields	
+NodeRef in fields	
+Base class of system nodes	
+Glommed into system nodes	
+Declared in client.gom	present
+Shared with server DOM	yes
+Archetype	DATA
+Live
+
+Child classes	chrCharacter
+phsPhasedInstance
+hydTriggerEntity
+phsFlashpointPhaseInfo
+Fields	
+Beta · 6		hydActionBlockTimer	Timer
+Beta · 6	hydObjectComponent	hydAbilityTargets	LookupList indexed by ID of ID
+Beta · 6	hydObjectComponent	hydActionWaitTimer	Timer
+Beta · 6	hydObjectComponent	hydActionWaitHandle	Int
+Beta · 6		hydRunScriptProtoId	ID
+Beta · 0		hydNextAvailableRuntimeId	Int
+Beta · 0		hydRuntimeExecutionMap	LookupList indexed by Int of ClassView hydScriptRuntimeExecution
+Beta · 6		hydActionBlockQueue	List of ClassView hydActionBlock
+Beta · 6		hydActions	List of ClassView hydOAV
+Beta · 6		hydAction	String
+Beta · 6		hydValue	String
+Beta · 6		hydOptions	String
+Beta · 6		hydWait	Boolean
+Beta · 6		hydIgnore	Boolean
+Beta · 6		hydObject	Int
+Beta · 6		hydQueueObject	Int
+Beta · 6		hydActionTime	Float
+Beta · 6		hydActiveMethodCB	String
+Beta · 6		hydActiveNodeCB	ID
+Beta · 6		hydCompletionCB	String
+Beta · 6		hydScriptNode	NodeRef of hydScriptMap
+Beta · 6		hydRunScriptProtoId	ID
+Beta · 0		hydRuntimeScriptId	Int
+Beta · 0		hydActiveToolbox	LookupList indexed by Int of ClassView hydToolboxObject
+Beta · 6		hydFQN	String
+Beta · 6		hydHintID	ID
+Beta · 6		hydObjectSearchScope	Enum ObjectSearchScope
+Beta · 6		hydObjectType	Enum HydraObjectType
+Beta · 6		hydCompiledIdList	List of ID
+1.0.0		hydNeedsRuntimeToolboxCompilation	Boolean
+Beta · 0		hydHeartbeatRuntimeScriptIds	List of Int
+Beta · 0		hydPrimaryScriptId	Int
+Beta · 0		hydTimeToRuntimeExecutionIdMap	LookupList indexed by DateTime of List of Int
+Beta · 0		hydCurrentExecutingScriptId	Int
+Beta · 0	hydObjectComponent	hydAbilityTargetsList	LookupList indexed by ID of List of ID
+Beta · 0	hydObjectComponent	hydQueuedScriptActions	LookupList indexed by ID of LookupList indexed by Int of List of ClassView hydCompiledOAV
+Beta · 6	hydOAV	hydAction	String
+Beta · 6	hydOAV	hydValue	String
+Beta · 6	hydOAV	hydOptions	String
+Beta · 6	hydOAV	hydWait	Boolean
+Beta · 6		hydQueueNode	NodeRef of hydObjectComponent
+Beta · 6	hydOAV	hydIgnore	Boolean
+Beta · 6	hydOAV	hydObject	Int
+Beta · 6		hydCompiledIdList	List of ID
+Beta · 6	hydOAV	hydQueueObject	Int
+Beta · 0	hydObjectComponent	hydQueueTimerToQueuedScriptInfo	LookupList indexed by DateTime of List of ClassView hydQueuedScriptInfo
+Beta · 0		hydQueuedScriptId	Int
+Beta · 0		hydQueuedScriptOwner	ID
+Beta · 0		hydQueuedPrototypeId	ID
+Beta · 0	hydObjectComponent	hydQueueProcessingActions	Boolean
+Beta · 0	hydObjectComponent	hydQueuedTimerToCallbackInfoList	LookupList indexed by DateTime of List of ClassView hydQueuedCallbackInfo
+Beta · 0		hydQueuedScriptId	Int
+Beta · 0		hydQueuedCallbackNode	NodeRef
+1.1.0		hydQueuedScriptProto	ID
+Beta · 0	hydObjectComponent	hydQueueProcessingCallbacks	Boolean
+Beta · 0	hydObjectComponent	hydPendingQueueTimerToQueuedScriptInfo	LookupList indexed by DateTime of List of ClassView hydQueuedScriptInfo
+Beta · 0		hydQueuedScriptId	Int
+Beta · 0		hydQueuedScriptOwner	ID
+Beta · 0		hydQueuedPrototypeId	ID
+Beta · 0	hydObjectComponent	hydPendingQueuedTimerToCallbackInfoList	LookupList indexed by DateTime of List of ClassView hydQueuedCallbackInfo
+Beta · 0		hydQueuedScriptId	Int
+Beta · 0		hydQueuedCallbackNode	NodeRef
+1.1.0		hydQueuedScriptProto	ID
+Beta · 0		hydPendingTimeToRuntimeExecutionIdMap	LookupList indexed by DateTime of List of Int
+Beta · 0	hydObjectComponent	hydQueueProcessingRefCounter	Int
+Beta · 0	hydObjectComponent	hydQueuePendingTimeRemovalList	List of DateTime
+Beta · 0	hydObjectComponent	hydQueuePendingCallbackTimeRemovalList	List of DateTime
+Beta · 0	hydObjectComponent	hydQueueProcessingCallbackRefCounter	Int
+(19 functions in 11 scripts)
+cnvChoreographerClassMethods	HydraCinematicEndedCB
+cnvControllerInterfaceClassMethods	HydraCinematicEndedCB
+cnvControllerMultiClassMethods	HydraCinematicEndedCB
+cnvControllerPreviewClassMethods	HydraCinematicEndedCB, PreviewConversation (×2)
+cnvControllerSingleClassMethods	HydraCinematicEndedCB
+cnvInstanceClassMethods	StopHydraCinematic
+cnvOracleClassMethods	HydraCinematicEndedCB
+hydScriptComponentClassMethods	ExecuteHydraScriptHookScriptBlock, hydActionBlockTimer_tick (×2), RequestExecuteClientHydraCinematic
+hydScriptMapClassMethods	CompileAndAppendHydraToolbox, CompileHydraToolbox
+hydScriptRuntimeExecutionClassMethods	CreateClientHydraCinematic, ExecuteHydraNextActionBlock, FinalizeHydraScriptRun, FlushScript, ForceExecuteSingleHydraAction
+hydToolboxObject	CompileHydraToolboxObject

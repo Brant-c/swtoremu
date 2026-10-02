@@ -1,0 +1,706 @@
+public method _getOracleDebugChannelName() as String
+  return "EFFECT"
+.
+public method _getOracleDejaChannelName() as String
+  return "eff"
+.
+public method _getOracleScriptName() as String
+  return $THISSCRIPT
+.
+remote function OnEffectMessage(Me, a1 as Integer)
+  HM.ValidateEnum64(3, a1)
+  $GUI_API.getApi().systemMessage($EFFECT.GetEffectResultString(a1))
+.
+remote function OnRemoveEffectMessage(Me, a1 as Enum effResult)
+  if a1 == effResultOk
+    sndUtils:PlayEvent(None, GUI_INTERFACE_SOUND_SKILLBUFF_CANCEL)
+  .
+.
+public method GetEffectResultString(a1 as Enum effResult) as String
+  CallFrame _callFrame
+  char v427
+  char v421
+  FuncRef LocalizeStringWithPlayerGender20
+  if a1 == effResultCasterDead
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 2, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Cannot Do That While Dead"
+  .
+  if a1 == effResultCasterStunned
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 3, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Cannot Do That While Stunned"
+  .
+  if a1 == effResultTargetDead
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 4, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Target Is Dead"
+  .
+  if a1 == effResultTargetInvalid
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 5, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Invalid Target"
+  .
+  if a1 == effResultTargetViewBlocked
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 6, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Cannot See Target"
+  .
+  if a1 == effResultTooClose
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 7, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Too Close"
+  .
+  if a1 == effResultTooFar
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 8, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Out Of Range: Move Closer"
+  .
+  if a1 == effResultNotFacing
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 9, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Not Facing Target"
+  .
+  if a1 == effResultNotReady
+    $STRING = (NodeRef *)&v427
+    var str17 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0xA, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Not Ready Yet"
+    return str17
+  .
+  if a1 == effResultNotReadyQueue
+    var str17 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0xA, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Not Ready Yet"
+    return str17
+  .
+  if a1 == effResultNotEnoughEnergy
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0xB, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Energy Level Too Low"
+  .
+  if a1 == effResultNotEnoughForce
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0xC, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Insufficient Force"
+  .
+  if a1 == effResultNotEnoughActionPoints
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0xD, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Not Enough Action Points"
+  .
+  if a1 == effResultNotEnoughHealth
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0xE, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Health Level Too Low"
+  .
+  if a1 == effResultIsCasting
+    $STRING = (NodeRef *)&v421
+    var str27 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0xF, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Already Performing An Action"
+    return str27
+  .
+  if a1 == effResultIsChanneling
+    var str27 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0xF, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Already Performing An Action"
+    return str27
+  .
+  if a1 == effResultIsMoving
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x10, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Cannot Do That While Moving"
+  .
+  if a1 == effResultMissingWeapon
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x11, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Required Weapon Not Equipped"
+  .
+  if a1 == effResultMissingEffect
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x12, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Required Effect Not Present"
+  .
+  if a1 == effResultInCombat
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x13, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Cannot Do That While Fighting"
+  .
+  if a1 == effResultOk
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x14, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Effect operation successful."
+  .
+  if a1 == effResultError
+    LocalizeStringWithPlayerGender20 = HM.PrepareCallNodeRef2(4, $STRING, &_callFrame)
+    var str39 = LocalizeStringWithPlayerGender(_callFrame, STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x15, HIDWORD(ID_STR_GUI_EFFECTRESULTS))
+    return str39
+  .
+  if a1 == effResultCannotStack
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x16, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "A more powerful effect is already active."
+  .
+  if a1 == effResultContainerFull
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x17, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "No more effects can be placed on the target."
+  .
+  if a1 == effResultConditionFailed
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x18, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Effect Condition Failed"
+  .
+  if a1 == effResultTargetOverrideFailed
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x19, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Effect Target Override Failed"
+  .
+  if a1 == effResultTriggerFailed
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x1A, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Effect Trigger Failed"
+  .
+  if a1 == effResultActionFailed
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x1B, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Effect Action Failed"
+  .
+  if a1 == effResultResisted
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x1C, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Target Resisted Effect"
+  .
+  if a1 == effResultImmune
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x1D, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Target Is Immune"
+  .
+  if a1 == effResultInvalidatedByCustomScript
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x1E, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Not Possible"
+  .
+  if a1 == effResultAbilityInvalid
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x1F, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Invalid Ability"
+  .
+  if a1 == effResultCoverObjectInvalid
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x20, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "No Cover Point Selected"
+  .
+  if a1 == effResultNotStealthed
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x21, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "You must be stealthed."
+  .
+  if a1 == effResultCasterNotDead
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x22, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "You must be dead to do that."
+  .
+  if a1 == effResultCasterNotStunned
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x23, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "You must be stunned to do that."
+  .
+  if a1 == effResultTargetNotDead
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x24, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Target Not Dead"
+  .
+  if a1 == effResultNotCompanion
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x25, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Target Not Companion"
+  .
+  if a1 == effResultNotFriend
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x26, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Target Not Friendly"
+  .
+  if a1 == effResultNotEnemy
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x27, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Target Not Enemy"
+  .
+  if a1 == effResultInCover
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x28, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "You must leave cover to do that."
+  .
+  if a1 == effResultNotInCover
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x29, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "You must be in cover to do that."
+  .
+  if a1 == effResultNotPartyMember
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x2A, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Target Not Party Member"
+  .
+  if a1 == effResultNotPlayer
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x2B, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Target Not Player"
+  .
+  if a1 == effResultNoTarget
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x2C, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "No Target"
+  .
+  if a1 == effResultCannotSummon
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x2D, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "You already have a companion."
+  .
+  if a1 == effResultCannotRez
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x2E, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "You are not bound to a rez point."
+  .
+  if a1 == effResultCannotLoot
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x2F, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "You do not have permission to loot that."
+  .
+  if a1 == effResultInConversation
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x30, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "In Conversation"
+  .
+  if a1 == effResultNotBehind
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x31, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Must be behind"
+  .
+  if a1 == effResultCannotTravel
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x32, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Quick travel does not work here."
+  .
+  if a1 == effResultUsingVehicle
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x33, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Cannot do that while in a vehicle."
+  .
+  if a1 == effResultNoCompanion
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x34, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "You do not have a current companion."
+  .
+  if a1 == effResultEvaded
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x35, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Evaded"
+  .
+  if a1 == effResultOverheated
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x36, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Overheated"
+  .
+  if a1 == effResultCannotOverheat
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x37, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Heat Level Too High"
+  .
+  if a1 == effResultTargetInDuel
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x38, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Your target is in a duel."
+  .
+  if a1 == effResultLocationInvalid
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x39, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Cannot Do That Here"
+  .
+  if a1 == effResultGroupFull
+    list1 as List of String
+    var node3 = $GROUP.GetGroupNode()
+    if node3 != None
+      var int58 = node3.GetMaxGroupMembers()
+      add back int58 to list1
+      var str114 = $STRING.LocalizeStringTokenizedWithPlayerGenderVariant(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x3A, HIDWORD(ID_STR_GUI_EFFECTRESULTS), list1)  // "Already <<1>> party members - you may not summon your companion at this time."
+      return str114
+    else
+      var str39 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x15, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Effect Error"
+      return str39
+    .
+  .
+  if a1 == effResultTargetNotPvpFlagged
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x3B, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Your target is not PvP flagged."
+  .
+  if a1 == effResultInSanctuaryTargetPvpFlagged
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x3C, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "You cannot target a PvP flagged player while in a sanctuary."
+  .
+  if a1 == effResultNotEnoughFocus
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x3D, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Insufficient Focus"
+  .
+  if a1 == effResultNotEnoughRage
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x3E, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Insufficient Rage"
+  .
+  if a1 == effResultNotEnoughAmmo
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x3F, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Insufficient Ammo"
+  .
+  if a1 == effResultAlreadyMounted
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x104, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "You are already mounted."
+  .
+  if a1 == effResultMountNotAllowed
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x105, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "You can't mount here."
+  .
+  if a1 == effResultInStealth
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x106, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "You can't do that while stealthed."
+  .
+  if a1 == effResultMountNotOwned
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x107, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "You do not own this mount."
+  .
+  if a1 == effResultNeedRidingAbility
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x108, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "You do not have the riding skill to use this mount."
+  .
+  if a1 == effResultIsCompanion
+    return $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x109, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Target Is Companion"
+  .
+  if a1 == effResultAbilityDisabled
+    return $STRING.LocalizeString(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 0x10A, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "This ability is disabled."
+  .
+  if a1 == effResultNotReadyCurrentlyQueued
+    return ""
+  else
+    var str114 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_EFFECTRESULTS, ID_STR_GUI_EFFECTRESULTS | 1, HIDWORD(ID_STR_GUI_EFFECTRESULTS))  // "Unknown Effect Result"
+    return str114
+  .
+.
+public method init(Me)
+  Me.effOracleEffectAppearancePriorities = getPrototypeByID(16141014965835496679)  // effAppearancePriorityClasses
+.
+public method AreaUnload(a1 as ID, a2 as ID, a3 as String) as Boolean
+  clear Me.effOracleFXHandlesForEffect keep
+  return false
+.
+public method GetEffectPrototype(a1 as ID) as NodeRef of effEffect
+  return getPrototypeByID(a1)
+.
+public method CreateEffect(a1 as ID) as NodeRef of effEffect
+  if a1 == 0
+    return None
+  else
+    return CreateNodeFromTemplateID(a1)
+  .
+.
+public method DumpRegisteredFx(Me)
+  var lookup = Me.effOracleFXHandlesForEffect
+  foreach key in lookup
+    str as String
+    foreach cur2 in lookup[key]
+      str = str + cur2 + ", "
+    .
+    $CHAT.ChatPlayerDebug("CLIENT: effectId=" + key + " fxHandles=" + str)
+  .
+.
+public method RegisterFxHandleForEffect(Me, a1 as ID, a2 as ID, a3 as Integer)
+  add back a2 to Me.effOracleFXHandlesForEffect[a1]
+.
+public method StopFxForEffect(Me, a1 as ID, a2 as ID)
+  if a1 == a2
+    $FXSYSTEM.FxStopHandleIfInfinite(a2)
+  .
+  var lookup = Me.effOracleFXHandlesForEffect
+  if lookup has a2
+    foreach cur in lookup[a2]
+      $FXSYSTEM.FxStopHandleIfInfinite(cur)
+    .
+    remove a2 from lookup keep
+  .
+.
+public method StopFxForEffectImmediately(Me, a1 as ID, a2 as ID)
+  if a1 == a2
+    $FXSYSTEM.FxStopHandle(a2)
+  .
+  var lookup = Me.effOracleFXHandlesForEffect
+  if lookup has a2
+    foreach cur in lookup[a2]
+      $FXSYSTEM.FxStopHandle(cur)
+    .
+    remove a2 from lookup keep
+  .
+.
+public method AnyFxStillPlaying(a1 as ID) as Boolean
+  var lookup = Me.effOracleFXHandlesForEffect
+  if lookup has a1
+    foreach cur in lookup[a1]
+      if FxIsFxGroupInstancePlaying(cur)
+        return true
+      .
+    .
+  .
+  return false
+.
+public method effmOracleGetTopEffAppearancePriority() as Integer
+  var classView = Me.effOracleEffectAppearancePriorities.effAppPriorityClasses[12]
+  return classView.effAppPriorityAttackerOk
+.
+public method effmOracleGetEffAppearancePriority(a1 as Enum effAppearancePriorityEnum) as Integer
+  var classView = Me.effOracleEffectAppearancePriorities.effAppPriorityClasses[a1]
+  return classView.effAppPriorityAttackerOk
+.
+public method RequestEffectRemove(Me, a1 as ID, a2 as ID)
+  call server untrustedMethods:OnRequestEffectRemove(a1, a2)
+.
+remote function OnDebugLevelSet(Me, a1 as Integer)
+  $EFFECT._setOracleDebugLevel(a1)
+.
+remote function OnOracleReset(Me)
+  $EFFECT._resetOracle()
+  $CHAT.ChatPlayerDebug("CLIENT: effOracle reset")
+.
+remote function OnEffectDump(Me, a1 as ID)
+  if a1 != None
+    list1 as List of String
+    SplitBy(a1.GetEffectContainerDebugString(), "}", &list1)
+    foreach cur in list1
+      $CHAT.ChatPlayerDebug("CLIENT: " + cur)
+    .
+    list2 as List of String
+    SplitBy(a1.GetEffectTargetDebugString(), "}", &list2)
+    foreach cur in list2
+      $CHAT.ChatPlayerDebug("CLIENT: " + cur)
+    .
+  .
+.
+public method IsEffectAppearanceDependentOnCallingEffect(a1 as ID, a2 as Integer) as Boolean
+  var node2 = Me.GetEffectPrototype(a1)
+  if node2 != None
+    return node2.GetEffectAppearanceDependentOnCallingEffect(a2)
+  else
+    return false
+  .
+.
+public method CreateEffectAppearanceForSubEffect(a1 as ID, a2 as Integer) as NodeRef of effAppearance
+  var node2 = $EFFECT.GetEffectPrototype(a1)
+  if node2 != None
+    var str2 = node2.GetEffectAppearanceForSubEffect(a2)
+    var node5 = Me.GetEffectAppearance(str2)
+    if node5 != None
+      return node5.Clone()
+    .
+  .
+  return None
+.
+public method GetEffectAppearance(a1 as String) as NodeRef of effAppearance
+  if a1 == ""
+    return None
+  else
+    var node3 = getPrototype(a1)
+    if node3 = None
+      // unknown
+    .
+    return node3
+  .
+.
+public method GetEffectAppearanceByID(a1 as ID) as NodeRef of effAppearance
+  var node2 = getPrototypeByID(a1)
+  if node2 = None
+    // unknown
+  .
+  return node2
+.
+public method PreviewEffectAppearance_ChangeWeapon(Me, a1 as String, a2 as List of ID)
+  foreach cur in a2
+    if cur = None
+      continue
+    .
+    if a1 == "None"
+      SendCommand("]combat stowWeapon " + cur)
+      continue
+    .
+    if a1 == "Unarmed"
+      SendCommand("]combat drawWeapon staCombatModeUnarmed " + cur)
+      continue
+    .
+    if cur is kindof conEquipmentComponent
+      var id1 = utlFQN:toIDTemp(a1)
+      if not cur.HasItemEquipped(id1)
+        var bool2 = false
+        if cur is kindof conInventoryComponent
+          var id2 = utlFQN:toIDTemp(a1)
+          var node5 = cur.InventoryFindBySpec(id2)
+          if node5 != None
+            bool2 = true
+            cur.EquipItem(node5)
+          .
+        .
+        if not bool2
+          SendCommand("]item give " + a1 + " " + cur)
+        .
+      .
+      var id3 = utlFQN:toIDTemp(a1)
+      var node7 = $ITEM.GetItemTemplate(id3)
+      if node7 = None
+        // unknown
+      else if node7.IsType_cbtWeaponComponent()
+        var lookup = $STATIC.cbtWeaponDataPrototype.cbtWeaponData
+        var id4 = utlFQN:toIDTemp(node7.GetWeaponAppearanceSpec())
+        var bool4 = false
+        if lookup has id4
+          var classView = lookup[id4]
+          bool4 = classView.cbtWpnDataIsRanged
+        .
+        if bool4
+          if cur.staWeapon_GetWeaponMode() != staCombatModeRanged or not cur.staWeapon_IsWeaponDrawn()
+            SendCommand("]combat drawWeapon staCombatModeRanged " + cur)
+          .
+        else
+          var enum2 = cur.staWeapon_GetWeaponMode()
+          if enum2 != staCombatModeMelee or not cur.staWeapon_IsWeaponDrawn()
+            SendCommand("]combat drawWeapon staCombatModeMelee " + cur)
+          .
+        .
+      .
+    else
+      // unknown
+    .
+  .
+.
+public method PreviewEffectAppearance_SetAppearanceSpec(Me, a1 as String)
+  Me.effOraclePreviewEffectAppearanceSpec = a1
+.
+public method PreviewEffectAppearance_SetCaster(a1 as ID) as Boolean
+  if a1 = None
+    return false
+  else
+    Me.effOraclePreviewEffectAppearanceCaster = a1
+    if a1 is kindof utlSpatialInterface
+      Me.effOraclePreviewEffectAppearanceCasterPosition = a1.GetPosition_w()
+    .
+    return true
+  .
+.
+public method PreviewEffectAppearance_SetTargets(Me, a1 as List of ID)
+  CallFrame _callFrame
+  Vector3 *vec
+  Vector3 vec2
+  Vector3 vec3
+  var lookup = Me.effOraclePreviewEffectAppearanceTargets
+  clear lookup keep
+  foreach cur in a1
+    if cur != None
+      if cur is kindof utlSpatialInterface
+        FuncRef GetPosition_w = HM.PrepareCallNodeRef2(36, cur, &_callFrame)
+        vec = &vec2
+        vec2 = GetPosition_w(_callFrame)
+      else
+        vec = &vec3
+        vec3 = VECTOR_ZERO
+      .
+      lookup[cur] = vec
+    .
+  .
+.
+public method PreviewEffectAppearance_SetResult(Me, a1 as Enum effResult)
+  Me.effOraclePreviewEffectAppearanceResult = a1
+.
+public method PreviewEffectAppearance_SetDuration(Me, a1 as Float)
+  Me.effOraclePreviewEffectAppearanceDuration = a1
+.
+public method PreviewEffectAppearance_SetLooping(Me, a1 as Boolean)
+  Me.effOraclePreviewEffectAppearanceIsLooping = a1
+.
+public method PreviewEffectAppearance_SetNumAttacks(Me, a1 as Integer)
+  Me.effOraclePreviewEffectAppearanceNumAttacks = a1
+.
+public method PreviewEffectAppearance_Play(Me, a1 as String, a2 as ID, a3 as List of ID, a4 as Enum effResult, a5 as Float, a6 as Boolean, a7 as Integer)
+  String str2
+  int v23
+  if Me.effOraclePreviewEffectAppearanceSpec != ""
+    Me.PreviewEffectAppearance_Stop()
+  .
+  if not Me.PreviewEffectAppearance_SetCaster(a2)
+    // unknown
+  else
+    Me.PreviewEffectAppearance_SetAppearanceSpec(a1)
+    Me.PreviewEffectAppearance_SetTargets(a3)
+    Me.PreviewEffectAppearance_SetResult(a4)
+    Me.PreviewEffectAppearance_SetDuration(a5)
+    Me.PreviewEffectAppearance_SetLooping(a6)
+    Me.PreviewEffectAppearance_SetNumAttacks(a7)
+    var node3 = Me.GetEffectAppearance(a1)
+    if node3 = None or (str2 = HM.ConstructString(), &str2 = node3.effAppearanceName, str2 == "")
+      Me._PreviewEffectAppearance_StartTimer(a5, v23)
+    else
+      Me._PreviewEffectAppearance_StartTimer(a5)
+      Me._PreviewEffectAppearance_Play(a1, a2, a3, a4, a7)
+    .
+  .
+.
+public method _PreviewEffectAppearance_Play(Me, a1 as String, a2 as ID, a3 as List of ID, a4 as Enum effResult, a5 as Integer)
+  CallFrame _callFrame
+  node as NodeRef
+  var id1 = utlFQN:toIDTemp(a1)
+  FuncRef ApplyAppearanceEx = HM.PrepareCallNodeRef2(47, Me, &_callFrame)
+  ApplyAppearanceEx(node, _callFrame, 16140931938096443720, id1, a2, a3, a4, 7, a5, 0, false)  // abl.debug.preview_appearance
+  Me.effOraclePreviewEffectAppearanceEvent = node
+  Me.effOraclePreviewEffectAppearanceEvent.effEvent_AddRef()
+.
+public method ApplyAppearanceToNode(a1 as ID, a2 as ID, a3 as ID, a4 as Enum effResult) as NodeRef of effEvent
+  list1 as List of ID
+  add back a3 to list1
+  return Me.ApplyAppearance(16141015010245413293, a1, a2, list1, a4)  // abl.utility.apply_appearance
+.
+public method ApplyAppearance(a1 as ID, a2 as ID, a3 as ID, a4 as List of ID, a5 as Enum effResult) as NodeRef of effEvent
+  return Me.ApplyAppearanceEx(a1, a2, a3, a4, a5, effTrigger_OnApply, 0, 0, false)
+.
+public method ApplyAppearanceEx(a1 as ID, a2 as ID, a3 as ID, a4 as List of ID, a5 as Enum effResult, a6 as Enum effTriggerEnum, a7 as Integer, a8 as ID, a9 as Boolean) as NodeRef of effEvent
+  NodeRef *v11
+  if a3 = None
+    v11 = HM.ConstructNodeRef(30)
+    v11 = None
+    return v11
+  .
+  if a4.length == 0
+    v11 = HM.ConstructNodeRef(30)
+    v11 = None
+    return v11
+  .
+  var node4 = $ABILITY.GetAbilityPrototype(a1)
+  if node4 = None
+    v11 = HM.ConstructNodeRef(30)
+    v11 = None
+    return v11
+  .
+  var id1 = node4.GetAbilityEffectSpecByNumber(1)
+  var node6 = $EFFECT_EVENT.effEventOracle_SynthesizeEffectEvent(id1, 0, 1, a6, a3, a9, effResultOk)
+  foreach cur in a4
+    if cur != None
+      node6.effEventTargetPosition = cur.GetPosition_w()
+      $EFFECT_EVENT.effEventOracle_AddSyntheticEffectEventTarget(node6, cur, a5, a8)
+      $EFFECT_EVENT.effEventOracle_AddSyntheticEffectEventAction(node6, cur, a5, effAction_PlayAppearance, utlFQN:fromIDTemp(a2))
+      loop i from 1 to a7
+        $EFFECT_EVENT.effEventOracle_AddSyntheticEffectEventAction(node6, cur, a5, effAction_WeaponDamage, "cbtSlot_None")
+      .
+    .
+  .
+  node6.effEventConstruct()
+  $EFFECT_EVENT.effEventOracle_AddEvent(node6)
+  return node6
+.
+public method PreviewEffectAppearance_Stop(Me)
+  if Me.effOraclePreviewEffectAppearanceTimer.timerState == 2
+    timer::stop(Me.effOraclePreviewEffectAppearanceTimer)
+  .
+  Me._PreviewEffectAppearance_Stop()
+  Me.effOraclePreviewEffectAppearanceSpec = ""
+  Me.effOraclePreviewEffectAppearanceResult = 1
+  Me.effOraclePreviewEffectAppearanceCaster = 0
+  Me.effOraclePreviewEffectAppearanceCasterPosition = VECTOR_ZERO
+  if Me.effOraclePreviewEffectAppearanceEvent != None
+    Me.effOraclePreviewEffectAppearanceEvent.effEvent_RemoveRef()
+    Me.effOraclePreviewEffectAppearanceEvent = None
+  .
+.
+public method _PreviewEffectAppearance_Stop(Me)
+  Vector3 vec2
+  var id1 = Me.effOraclePreviewEffectAppearanceCaster
+  if id1 != None
+    var id2 = Me.effOraclePreviewEffectAppearanceEvent
+    id1.RemoveStunAnimForEffect(id2)
+    id1._RectifyBrainState()
+    if Me.effOraclePreviewEffectAppearanceTimer.timerState != 2
+      AnimFlush(id1, false)
+      id1._RectifyBrainStateDelayed(1.0)
+    .
+    if id1 is kindof utlSpatialInterface
+      id1.SetPosition_w(Me.effOraclePreviewEffectAppearanceCasterPosition)
+    .
+  .
+  var lookup = Me.effOraclePreviewEffectAppearanceTargets
+  foreach key in lookup
+    if key != None
+      if id1 != key
+        var id3 = Me.effOraclePreviewEffectAppearanceEvent
+        key.RemoveStunAnimForEffect(id3)
+        key._RectifyBrainState()
+        if Me.effOraclePreviewEffectAppearanceTimer.timerState != 2
+          AnimFlush(key, false)
+          key._RectifyBrainStateDelayed(1.0)
+        .
+        if key is kindof utlSpatialInterface
+          HM.RefLookupListElementByIntVector3(&vec2, &lookup, key)
+          key.SetPosition_w(vec2)
+        .
+      .
+    .
+  .
+  var id4 = Me.effOraclePreviewEffectAppearanceEvent
+  var id5 = Me.effOraclePreviewEffectAppearanceEvent
+  $EFFECT.StopFxForEffect(id4, id5)
+.
+public method PreviewEffectAppearance_Replay(Me)
+  Me._PreviewEffectAppearance_Stop()
+  list1 as List of ID
+  foreach key in Me.effOraclePreviewEffectAppearanceTargets
+    add back key to list1
+  .
+  var str = Me.effOraclePreviewEffectAppearanceSpec
+  var id1 = Me.effOraclePreviewEffectAppearanceCaster
+  Me._PreviewEffectAppearance_Play(str, id1, list1, Me.effOraclePreviewEffectAppearanceResult, Me.effOraclePreviewEffectAppearanceNumAttacks)
+.
+public method PreviewEffectAppearance_IsStillPlaying() as Boolean
+  var id1 = Me.effOraclePreviewEffectAppearanceCaster
+  if $EFFECT.AnyFxStillPlaying(id1)
+    return true
+  else
+    var id2 = Me.effOraclePreviewEffectAppearanceCaster
+    foreach key in Me.effOraclePreviewEffectAppearanceTargets
+      if key != None
+        if id2 != key
+          if $EFFECT.AnyFxStillPlaying(key)
+            return true
+          .
+        .
+      .
+    .
+    return false
+  .
+.
+public method _PreviewEffectAppearance_StartTimer(Me, a1 as Float)
+  if a1 <= 0.0
+    // unknown
+  else
+    if Me.effOraclePreviewEffectAppearanceTimer.timerState == 2
+      timer::stop(Me.effOraclePreviewEffectAppearanceTimer)
+    .
+    Me.effOraclePreviewEffectAppearanceTimer.script = $THISSCRIPT
+    TimeInterval interval = timeInSeconds(a1)
+    Me.effOraclePreviewEffectAppearanceTimer.fireRate = interval
+    timer::start(Me.effOraclePreviewEffectAppearanceTimer)
+  .
+.
+public method PreloadEffectAppearanceFQN(Me, a1 as String)
+  var node2 = Me.GetEffectAppearance(a1)
+  if node2 != None
+    node2.PreloadEffectAppearance()
+  .
+.
+public function OnTimerTick(Me, a1 as ID)
+  effOraclePreviewEffectAppearanceTimer_tick()
+.
+public function effOraclePreviewEffectAppearanceTimer_tick(Me)
+  ClassView classView10
+  String str
+  if Me is kindof effOracle
+    var classView = HM.GetClassViewFromNodeRef(Me, effOracle)
+    if classView.effOraclePreviewEffectAppearanceIsLooping and (classView10 = HM.GetClassViewFromNodeRef(Me, effOracle), str = HM.ConstructString(), &str = classView10.effOraclePreviewEffectAppearanceSpec, str != "")
+      Me.PreviewEffectAppearance_Replay()
+      var classView2 = HM.GetClassViewFromNodeRef(Me, effOracle)
+      TimeInterval interval = classView2.effOraclePreviewEffectAppearanceTimer.fireRate
+      var classView3 = HM.GetClassViewFromNodeRef(Me, effOracle)
+      if classView3.effOraclePreviewEffectAppearanceDuration != (Float)interval / 1000.0
+        var classView4 = HM.GetClassViewFromNodeRef(Me, effOracle)
+        if classView4.effOraclePreviewEffectAppearanceTimer.timerState == 2
+          var classView5 = HM.GetClassViewFromNodeRef(Me, effOracle)
+          timer::stop(classView5.effOraclePreviewEffectAppearanceTimer)
+        .
+        var classView6 = HM.GetClassViewFromNodeRef(Me, effOracle)
+        if classView6.effOraclePreviewEffectAppearanceDuration > 0.0
+          var classView7 = HM.GetClassViewFromNodeRef(Me, effOracle)
+          TimeInterval interval2 = timeInSeconds(classView7.effOraclePreviewEffectAppearanceDuration)
+          var classView8 = HM.GetClassViewFromNodeRef(Me, effOracle)
+          classView8.effOraclePreviewEffectAppearanceTimer.fireRate = interval2
+          var classView9 = HM.GetClassViewFromNodeRef(Me, effOracle)
+          timer::start(classView9.effOraclePreviewEffectAppearanceTimer)
+        .
+      .
+    else
+      Me.PreviewEffectAppearance_Stop()
+    .
+  .
+.

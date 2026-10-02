@@ -1,0 +1,36 @@
+Name	
+9046AE94 	modStatComponent	
+modStatComponent	
+Server script	
+14988249295130795067 	modStatComponentClassMethods	
+Client script	
+14988014086062379914 	_clientmodStatComponentClassMethods	
+Description 	Tracks moddable stats. 
+Parent classes	
+Used by fields	
+NodeRef in fields	
+Base class of system nodes	
+Glommed into system nodes	
+Declared in client.gom	present
+Shared with server DOM	yes
+Archetype	DATA
+Live
+
+Child classes	chrCharacter
+spnVehicle
+dynAttackable
+Fields	
+Beta · 6		modStatComputed	LookupList indexed by Enum modStatEnum of Float
+Beta · 6		modStatBase	LookupList indexed by Enum modStatEnum of Float
+Beta · 6		modStatComputedRepPrevious	LookupList indexed by Enum modStatEnum of Float
+Beta · 6		modStatBaseRepPrevious	LookupList indexed by Enum modStatEnum of Float
+Beta · 6		modStatModifiersRepPrevious	LookupList indexed by Enum modStatEnum of Float
+Beta · 6		modStat_Fixed	LookupList indexed by Enum modStatEnum of LookupList indexed by ID of Float
+Beta · 6		modStat_PercentOfCurrent	LookupList indexed by Enum modStatEnum of LookupList indexed by ID of Float
+(45 functions in 6 scripts)
+ablUserComponentClassMethods	_CacheAbilityUserValues
+aiCharacterAgentComponentClassMethods	aiCharacterAgent_GetTurnSpeed
+cbtMath	CalculateAccuracy, CalculateFinalDamage, GetBonusDamage, GetCompanionDamageBonusFromPresence, GetCompanionHealingBonusFromPresence, GetCompanionHealthBonusFromPresence, GetModifiers (×6), GetModifiersBySource (×2), GetRatingPercentage, GetShieldStatFromGenerator
+guiApiGfxUpdateChrClassMethods	_updateGuiTarget, GetActivationSpeedTooltip, GetArmorTooltip, GetAttributeBonuses, GetAttributeTooltip, GetBonusDamageTooltip, GetBonusHealingTooltip, GetCriticalChanceTooltip, GetCriticalDamageTooltip, GetDefenseCombatTooltip, GetDefenseDamageReductionTooltip, GetHealthTooltip, GetPresenceBonuses, GetPVPDamageBonusTooltip, GetPVPDamageReduceTooltip, GetPVPTraumaIgnoreTooltip, GetRegenTooltip, GetSpellAccuracyTooltip, GetStatContributions, GetStatContributionsPlusForced, GetTooltip, GetWeaponAccuracyTooltip, GetWeaponDamageTooltip, updateBaseCharacterStat, updateCharacterForceStats, updateCharacterPVPStats, updateCharacterStat, updateCharacterTechStats, UpdateDefenseStats, updateDynAttackablePrimaryAttributes, UpdateWeaponStats (×2)
+sysHudClassMethods	getCharacterTooltipDescription
+vehInstanceClassMethods	OnNameplateLoaded

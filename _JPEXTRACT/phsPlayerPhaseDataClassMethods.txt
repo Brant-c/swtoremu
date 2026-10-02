@@ -1,0 +1,27 @@
+public method OnReplicationNodeCreate(Me, a1 as Integer)
+  $PHASE.phsActivePhaseData = Me
+.
+public method OnReplicationNodeUpdate(Me, a1 as Integer, a2 as List of ID)
+  int v10
+  int v11
+  foreach cur in a2
+    if cur == phsUniqueActivePhase
+      $GROUP.DisplayGroupInviteIfAppropriate()
+      var classView = Me.phsUniqueActivePhase
+      if classView.phsUniqueActivePhasedInstanceNameID != 0
+        $PHASE.UpdateGatewayForInstance(classView.phsUniqueActivePhasedInstanceNameID)
+      .
+    else if cur == phsInstanceAllowAll
+      $PHASE.UpdateAllGateways(v10, v11)
+    .
+  .
+.
+public method OnReplicationNodeDestroy(Me, a1 as Integer)
+  var classView = Me.phsUniqueActivePhase
+  if classView.phsUniqueActivePhasedInstanceNameID != 0
+    $PHASE.UpdateGatewayForInstance(classView.phsUniqueActivePhasedInstanceNameID)
+  .
+  var classView3 = Me.phsUniqueActivePhase
+  classView3.phsUniqueActivePhasedInstanceNameID = 0
+  $GROUP.DisplayGroupInviteIfAppropriate()
+.

@@ -1,0 +1,44 @@
+Name	
+EF48D412 	taxTerminal	
+taxTerminal	
+Server script	
+14988233767126281577 	taxTerminalClassMethods	
+Client script	
+14988104101019749193 	_clienttaxTerminalClassMethods	
+Parent classes	
+Child classes	
+Used by fields	
+NodeRef in fields	guiTaxiSourceTerminal
+Base class of system nodes	
+Glommed into system nodes	
+Declared in client.gom	present
+Shared with server DOM	yes
+Archetype	DATA
+Stored in prototype nodes	present
+Stored as	base-multi
+Live
+
+Fields	
+Beta · 6		taxRoutes	List of ClassView taxRoute
+Beta · 6	Stored
+Beta · 6		taxRouteCost	Int
+Beta · 6	Stored
+Beta · 6		taxRouteDestination	ID
+Beta · 6	Stored
+Beta · 6	Stored	taxRoutePathIsReversed	Boolean
+Beta · 6	Stored	taxRoutePath	String
+Beta · 6	Stored	taxVehicleSpec	Int
+Beta · 0	Stored	taxUnknownPath	String
+Beta · 6		taxFaction	Int
+Beta · 6	Stored
+Beta · 6	Stored	taxVehicleSpec	Int
+Beta · 0	Stored	taxUnknownPath	String
+Beta · 6		taxNameId	Int
+Beta · 6	Stored
+1.0.0	Stored	taxQuestVariable	ID
+Beta · 0		taxTeleportObjId	ID
+Beta · 0	Stored
+(3 functions in 3 scripts)
+guiApiGfxTaxiClassMethods	generateTaxiNetwork
+taxRoute	findCheapestRouteForChar
+taxTerminalClassMethods	getTerminalFromSpec

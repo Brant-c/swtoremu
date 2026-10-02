@@ -1,0 +1,18 @@
+public shared method _OnSetControlledCharacter(Me, a1 as NodeRef of HBNode)
+  Me.HE_OnSetControlledCharacter(a1)
+.
+public shared method _OnUnSetControlledCharacter(Me, a1 as NodeRef of HBNode)
+  Me.HE_OnUnSetControlledCharacter(a1)
+.
+public shared method _SetCharacterName(Me, a1 as NodeRef of HBNode, a2 as String)
+  Me.HE_SetCharacterName(a1, a2)
+.
+public shared method _OnCharacterRemove(Me, a1 as NodeRef of HBNode)
+  Me.HE_OnCharacterRemove(a1)
+.
+public shared method _OnCharacterBuildingCallback(Me, a1 as NodeRef of HBNode, a2 as Boolean)
+  Me.HE_OnCharacterBuilding(a1, a2)
+.
+public shared method _OnCharacterReadyCallback(Me, a1 as NodeRef of HBNode)
+  Me.HE_OnCharacterReady(a1)
+.

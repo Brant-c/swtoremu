@@ -1,0 +1,81 @@
+public function findCheapestRouteForChar(a1 as NodeRef, a2 as ID, a3 as ID, o4 references List of ID, o5 references Integer) as Enum taxResult
+  NodeRef node9
+  FuncRef canUseTerminal
+  CallFrame _callFrame
+  Boolean bool3
+  NodeRef node52
+  var node2 = getPrototypeByID(a2)
+  if node2 = None or (node9 = HM.CopyConstructNodeRef(6, a1), canUseTerminal = HM.PrepareCallNodeRef2(1, node2, &_callFrame), bool3 = canUseTerminal(_callFrame, node9), HM.UnprepareCall(), not bool3)
+    return taxResultInvalidSource
+  else
+    var node4 = getPrototypeByID(a3)
+    if node4 = None or not a1.KnowsTaxiTerminal(a3)
+      return taxResultInvalidDest
+    else if node2 == node4
+      return taxResultNoRoute
+    else
+      lookup as LookupList indexed by ID of Integer
+      lookup2 as LookupList indexed by ID of ID
+      list1 as List of NodeRef of taxTerminal
+      var id1 = node2
+      lookup[(Integer)id1] = 0
+      lookup2[(Integer)id1] = 0
+      add back node2 to list1
+      while true
+        HM.ExpirationCheck()
+        if list1.length > 0
+          node52 = HM.ConstructNodeRef(5)
+          var int1 = INT_MAX
+          var int2 = 0
+          var list1Length = list1.length
+          loop i from 1 to list1Length
+            var cur = list1[i]
+            var int3 = lookup[cur]
+            if int1 > int3
+              node52 = cur
+              int1 = int3
+              int2 = i
+            .
+          .
+          if node52 = None
+            return taxResultNoRoute
+          .
+          if node52 == node4
+            break
+          .
+          remove list1 at int2 keep
+          foreach cur in node52.taxRoutes
+            var id3 = cur.taxRouteDestination
+            if a1.KnowsTaxiTerminal(id3)
+              var node7 = getPrototypeByID(id3)
+              if node7 != None
+                var int7 = lookup[node52] + cur.taxRouteCost
+                if lookup has node7
+                  if lookup[node7] > int7
+                    lookup[node7] = int7
+                    var id5 = node52
+                    lookup2[node7] = id5
+                  .
+                else
+                  lookup[node7] = int7
+                  var id6 = node52
+                  lookup2[node7] = id6
+                  add back node7 to list1
+                .
+              .
+            .
+          .
+        else
+          return taxResultNoRoute
+        .
+      .
+      *o5 = lookup[node4]
+      var id7 = node52
+      while lookup2[id7] != 0
+        id7 = lookup2[id7]
+        add front id7 to o4
+      .
+      return taxResultOk
+    .
+  .
+.

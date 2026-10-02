@@ -1,0 +1,51 @@
+public method GetMetaStat(a1 as ID, a2 as Enum modStatEnum) as Float
+  LookupList lookup4
+  LookupList lookup5
+  var lookup = Me.modMetaStatComputed_Shared
+  if lookup has a1 and (lookup4 = Me.modMetaStatComputed_Shared, lookup5 = lookup4[a1], lookup5 has a2)
+    return lookup[a1][a2]
+  else
+    return Me.GetMetaStatBase(a1, a2)
+  .
+.
+public method GetMetaStatBase(a1 as ID, a2 as Enum modStatEnum) as Float
+  if $ABILITY.GetAbilityPrototype(a1) != None
+    _GetMetaStatBase_ForAbility = HM.PrepareCallNodeRef2(2, Me, &_callFrame)
+    v12 = __PAIR64__(a2, HIDWORD(a1))
+    return _GetMetaStatBase_ForAbility(_callFrame, a1, v12)
+  else if $EFFECT.GetEffectPrototype(a1) != None
+    _GetMetaStatBase_ForAbility = HM.PrepareCallNodeRef2(4, Me, &_callFrame)
+    v12 = __PAIR64__(a2, HIDWORD(a1))
+    return _GetMetaStatBase_ForAbility(_callFrame, a1, v12)
+  else
+    return Me.GetStatComputed(a2, v13, v14)
+  .
+.
+public method _GetMetaStatBase_ForAbility(a1 as ID, a2 as Enum modStatEnum) as Float
+  if a2 == STAT_abl_time_casting
+    return $ABILITY.GetAbilityPrototype(a1).ablCastingTime
+  else if a2 == STAT_abl_time_channeling
+    return $ABILITY.GetAbilityPrototype(a1).ablChannelingTime
+  else if a2 == STAT_abl_time_cooldown
+    return $ABILITY.GetAbilityPrototype(a1).ablCooldownTime
+  else if a2 == STAT_abl_range_min
+    return $ABILITY.GetAbilityPrototype(a1).ablMinRange
+  else if a2 == STAT_abl_range_max
+    return $ABILITY.GetAbilityPrototype(a1).ablMaxRange
+  else if a2 == STAT_abl_cost_force
+    return $ABILITY.GetAbilityPrototype(a1).ablForceCost
+  else if a2 == STAT_abl_cost_energy
+    return $ABILITY.GetAbilityPrototype(a1).ablEnergyCost
+  else if a2 == STAT_abl_cost_action_points
+    return $ABILITY.GetAbilityPrototype(a1).ablActionPointCost
+  else
+    return 0.0
+  .
+.
+public method _GetMetaStatBase_ForEffect(a1 as ID, a2 as Enum modStatEnum) as Float
+  if a2 == STAT_eff_time_duration
+    return (Float)$EFFECT.GetEffectPrototype(a1).effDuration / 1000.0
+  else
+    return 0.0
+  .
+.

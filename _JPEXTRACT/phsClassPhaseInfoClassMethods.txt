@@ -1,0 +1,34 @@
+public method PerformQuestUsabilityChecksFor(a1 as NodeRef of chrPlayerCharacter) as Boolean
+  return a1 == Me.GetPhaseInfoOwner()
+.
+public method IsQuestProgressionAllowed() as Boolean
+  var pc = GetPlayerCharacterNode()
+  return pc == Me.GetPhaseInfoOwner()
+.
+public method CanPhaseOccupantConverse(a1 as NodeRef of chrPlayerCharacter) as Boolean
+  Id id1
+  FuncRef GetPhaseInfoOwnerID
+  CallFrame _callFrame
+  Id id2
+  int v5
+  return a1 != None and (id1 = a1, GetPhaseInfoOwnerID = HM.PrepareCallNodeRef2(2, Me, &_callFrame), id2 = GetPhaseInfoOwnerID(_callFrame), v5 = HIDWORD(id1) ^ HIDWORD(id2) | id1 ^ id2, HM.UnprepareCall(), not v5)
+.
+public method CanPhaseOccupantJoinConversation(a1 as NodeRef of chrPlayerCharacter) as Boolean
+  Id id1
+  FuncRef GetPhaseInfoOwnerID
+  CallFrame _callFrame
+  Id id2
+  int v5
+  return a1 != None and (id1 = a1, GetPhaseInfoOwnerID = HM.PrepareCallNodeRef2(2, Me, &_callFrame), id2 = GetPhaseInfoOwnerID(_callFrame), v5 = HIDWORD(id1) ^ HIDWORD(id2) | id1 ^ id2, HM.UnprepareCall(), not v5)
+.
+public method InstanceCheckLootability() as Boolean
+  var node = Me.GetPhaseInfoOwner()
+  var pc = GetPlayerCharacterNode()
+  return node == pc
+.
+public method DoesConversationRequireAll() as Boolean
+  return true
+.
+public method GetConversationEscapeConfirmation() as Boolean
+  return true
+.

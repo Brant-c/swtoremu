@@ -1,0 +1,113 @@
+elf handler Replication_Create(Me, a1 as Integer)
+  if not Me is kindof plcPlaceable
+    Me.UpdateTerminalIndicator()
+  .
+  var pc = GetPlayerCharacterNode()
+  if pc != None
+    var pc2 = GetPlayerCharacterNode()
+    RegisterForEvents(pc2, Me)
+  else
+    RegisterForEvents($CHARACTER, Me)
+  .
+  $SPAWNER.spnReplicatedTaxiTerminals[Me] = true
+.
+self handler Replication_Destroy(Me, a1 as Integer)
+  remove Me from $SPAWNER.spnReplicatedTaxiTerminals keep
+.
+self handler OnPlcPropReady(Me)
+  Me.UpdateTerminalIndicator()
+.
+other handler Replication_Update(Me, a1 as NodeRef, a2 as Integer, a3 as List of ID)
+  var pc = GetPlayerCharacterNode()
+  if a1 == pc
+    foreach cur in a3
+      int v5 = ((cur ^ taxKnownTerminals) >> 32) | cur ^ 0xC8252F90
+      if not v5
+        Me.UpdateTerminalIndicator()
+      .
+    .
+  .
+.
+other handler onPlayerCharacterCreated(Me, a1 as NodeRef)
+  var pc = GetPlayerCharacterNode()
+  RegisterForEvents(pc, Me)
+  UnregisterForEvents($CHARACTER, Me)
+.
+public method canUseTerminal(a1 as NodeRef of cbtFactionComponent) as Boolean
+  var id1 = Me.taxTerminalSpec
+  var node2 = taxTerminalClassMethods:getTerminalFromSpec(id1)
+  var out = false
+  if node2 = None
+    return out
+  else if not node2.canUseTerminal(a1)
+    return out
+  else
+    out = true
+    return out
+  .
+.
+public method UpdateTerminalIndicator(Me)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 = None
+    // unknown
+  else
+    var bool1 = Me is kindof utlVfxComponent
+    if bool1
+      Me.RemoveVisualEffect(utlVfxKey_OverheadIcon)
+    .
+    if Me.canUseTerminal(HM.CopyConstructNodeRef(7, pc2))
+      if not bool1
+        GlomClass("utlVfxComponent", Me)
+      .
+      var unused = HM.GetEnumDefaultValue(13)
+      var id1 = Me.taxTerminalSpec
+      if not pc2.KnowsTaxiTerminal(id1)
+        Me.AddHardcodedVisualEffect(utlVfxKey_OverheadIcon, fxTaxiTerminal, utlVfxAttachmentStyle_Hover)
+      else
+        Me.AddHardcodedVisualEffect(utlVfxKey_OverheadIcon, fxTaxiKnownTerminal, utlVfxAttachmentStyle_Hover)
+      .
+    .
+  .
+.
+public method UseTerminal(Me)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  var node = Me
+  if Me is kindof staCharacterComponent
+    if Me.staCharacter_IsDead()
+      $GUI_API.getApi().systemMessage($STRING.LocalizeStringWithPlayerGender(STR_GUI_TAXI, ID_STR_GUI_TAXI | 0x102, HIDWORD(ID_STR_GUI_TAXI)))  // "This terminal appears to be dead."
+      return
+    .
+    if Me.staCharacter_IsInCombat()
+      $GUI_API.getApi().systemMessage($STRING.LocalizeStringWithPlayerGender(STR_GUI_TAXI, ID_STR_GUI_TAXI | 0x103, HIDWORD(ID_STR_GUI_TAXI)))  // "Taxi terminal is currently busy."
+      return
+    .
+  .
+  if pc2.staCharacter_IsInCombat()
+    $GUI_API.getApi().systemMessage($STRING.LocalizeStringWithPlayerGender(STR_GUI_TAXI, ID_STR_GUI_TAXI | 0x104, HIDWORD(ID_STR_GUI_TAXI)))  // "You cannot use this taxi terminal while in combat."
+    return
+  .
+  var float1 = pc2.GetAbilityRangeToTargetSqr(Me)
+  float1 = float1
+  if float1 <= $SPAWNER.GetTaxiUseRangeSq()
+    if not $CONVERSATION.IsInConversation()
+      if not pc2.IsWaitingForConversation()
+        $CHARACTER.RequestUseTerminal(node)
+      .
+    .
+  else
+    node = $EFFECT.GetEffectResultString(effResultTooFar)
+    $GUI_API.getApi().systemMessage(node)
+  .
+.
+public method ValidateTaxiInteractionProximity(Me, o1 references Float, o2 references Boolean)
+  *o1 = $SPAWNER.GetTaxiUseRange()
+  *o2 = 1
+.
+public function CloseGui(Me)
+  $GUI_API.getApi().hideTaxiMap()
+.
+public shared function ExitInteraction(Me)
+  CloseGui()
+.

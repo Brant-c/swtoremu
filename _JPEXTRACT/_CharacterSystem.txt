@@ -1,0 +1,20 @@
+Name	
+18A62A38 	_CharacterSystem	
+_CharacterSystem	
+Server script	
+14988089173703161501 	_CharacterSystemClassMethods	
+Client script	
+14988107204759056502 	_client_CharacterSystemClassMethods	
+Description 	Required node for charcter system callbacks from C++ 
+Parent classes	
+Child classes	
+Used by fields	
+NodeRef in fields	
+Base class of system nodes	$CHARACTERSYSTEM
+Glommed into system nodes	
+Declared in client.gom	present
+Shared with server DOM	no
+Archetype	DATA
+Live
+
+Fields	

@@ -1,0 +1,32 @@
+Name	
+0241F3A0 	ablOracle	
+ablOracle	
+Server script	
+14987992448416899544 	ablOracleClassMethods	
+Client script	
+14988239445391362840 	_clientablOracleClassMethods	
+Description 	the ABILITY system node 
+Parent classes	utlOracle
+Child classes	
+Used by fields	
+NodeRef in fields	
+Base class of system nodes	$ABILITY
+Glommed into system nodes	
+Declared in client.gom	present
+Shared with server DOM	yes
+Archetype	DATA
+Live
+
+Fields	
+Beta · 6	utlOracle	debugLevel	Int
+Beta · 6	utlOracle	utlOracleHeldMessages	LookupList indexed by ID of LookupList indexed by String of String
+Beta · 6		ablOracleModalAbilityGroupCounts	LookupList indexed by String of Int
+Beta · 6		ablOracle_AbilityCache	LookupList indexed by ID of NodeRef of ablAbility
+Beta · 6		ablOracleSharedAbilities	LookupList indexed by ID of NodeRef of ablAbility
+Beta · 6		ablEmptyTrainableData	ClassView ablTrainableData
+Beta · 6		ablTrainableNextRank	Int
+Beta · 6		ablTrainableReqLevels	List of Int
+Beta · 6		ablTrainableReqClass	ID
+1.2.0		ablOutstandingRequests	LookupList indexed by Int of DateTime
+1.2.0		ablLastActivationResponseTime	Float
+1.2.0		ablBioMonMetricsInitialized	Boolean

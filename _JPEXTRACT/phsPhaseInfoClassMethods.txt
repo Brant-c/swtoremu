@@ -1,0 +1,186 @@
+var REINFORCEMENT_PLAYER_COUNT = 3
+var STR_REINFORCEMENTS_ARRIVING = 135
+public method OnReplicationNodeCreate(Me, a1 as Integer)
+  Me.phsPhaseInfoPlayersRepPrevious = Me.phsPhaseInfoPlayers
+  var node = Me.GetPhasedInstance()
+  if node != None
+    node.phsPhases[Me] = Me
+    $PHASE.UpdateGatewayForInstance(node.GetInstanceNameID())
+  else
+    // unknown
+  .
+  call event Me:Replication_Create Me:Replication_Create
+.
+public method OnReplicationNodeUpdate(Me, a1 as Integer, a2 as List of ID)
+  foreach listCur in a2
+    if listCur != phsPhaseInfoOwner
+      if listCur == phsPhaseInfoPlayers
+        var node2 = Me.GetPhasedInstance()
+        var node = node2
+        if node != None
+          var list1 = Me.phsPhaseInfoPlayersRepPrevious
+          foreach listCur2 in list1
+            if utlList:FindID(Me.phsPhaseInfoPlayers, listCur2) == 0
+              node.ClearPlayerJoinOverride(listCur2)
+            .
+          .
+          $PHASE.UpdateGatewayForInstance(node.GetInstanceNameID())
+          if node.HideReinforcementMessage()
+            goto LABEL_14
+          .
+          list3Length = Me.phsPhaseInfoPlayersRepPrevious.length
+          var bool2 = (unsigned int)list3Length >= 3
+          bool3 = SHIDWORD(list3Length) >= 1
+          if not HIDWORD(list3Length)
+            bool3 = bool2
+          .
+          if bool3
+LABEL_14:
+            bool4 = false
+          else
+            bool4 = true
+          .
+          if not bool4
+            goto LABEL_19
+          .
+          list4Length = Me.phsPhaseInfoPlayers.length
+          var bool5 = (unsigned int)list4Length <= 2
+          bool6 = list4Length <= -1
+          if not HIDWORD(list4Length)
+            bool6 = bool5
+          .
+          if not bool6
+            bool7 = true
+          else
+LABEL_19:
+            bool7 = false
+          .
+          if bool7
+            var str2 = STR_GUI_INSTANCE
+            var int3 = ID_STR_GUI_INSTANCE
+            $GUI_API.getApi().systemMessage($STRING.LocalizeStringWithPlayerGender(str2, int3 | STR_REINFORCEMENTS_ARRIVING, HIDWORD(int3)))
+          .
+        .
+        Me.phsPhaseInfoPlayersRepPrevious = Me.phsPhaseInfoPlayers
+      .
+    .
+  .
+  call event Me:Replication_Update Me:Replication_Update
+.
+public method OnReplicationNodeDestroy(Me, a1 as Integer)
+  var node2 = Me.GetPhasedInstance()
+  if node2 != None
+    var lookup = node2.phsPhases
+    if lookup has Me
+      remove Me from lookup keep
+      foreach cur in Me.phsPhaseInfoPlayers
+        node2.ClearPlayerJoinOverride(cur)
+      .
+      var pc = GetPlayerCharacterNode()
+      if pc != None
+        $PHASE.UpdateGatewayForInstance(node2.GetInstanceNameID())
+      .
+    .
+  .
+  call event Me:Replication_Destroy Me:Replication_Destroy
+.
+public method GetPhasedInstance() as NodeRef of phsPhasedInstance
+  return GetParentOfNode(Me)
+.
+public method GetInstanceNameID() as Integer
+  return Me.GetPhasedInstance().GetInstanceNameID()
+.
+public method GetPhaseInfoOwner() as NodeRef of chrPlayerCharacter
+  var id1 = Me.phsPhaseInfoOwner
+  return id1
+.
+public method GetPhaseInfoOwnerID() as ID
+  return Me.phsPhaseInfoOwner
+.
+public method GetPhaseAuthorityID() as ID
+  return Me.phsPhaseInfoOwner
+.
+public method GetPhaseInfoOwnerName() as String
+  var id1 = Me.GetPhaseInfoOwnerID()
+  return GetNameFromID(id1)
+.
+public method GetPhaseAuthorityName() as String
+  var id1 = Me.GetPhaseAuthorityID()
+  return GetNameFromID(id1)
+.
+public function GetNameFromID(a1 as ID) as String
+  if a1 != None
+    var str = a1.GetNameWithGender()
+  else
+    var node5 = $GROUP.GetGroupNode()
+    if node5 != None
+      var node7 = node5.GetGroupMemberInfo(a1)
+      if node7 != None
+        str = node7.GetNameWithGender()
+      .
+    .
+  .
+  return str
+.
+public method InstanceCheckLootability() as Boolean
+  return true
+.
+public method IsPhaseSolo() as Boolean
+  return Me.phsPhaseInfoMode == chrPlayModeSolo
+.
+public method PerformQuestUsabilityChecksFor(a1 as NodeRef of chrPlayerCharacter) as Boolean
+  return true
+.
+public method IsQuestProgressionAllowed() as Boolean
+  return true
+.
+public method CanPhaseOccupantConverse(a1 as NodeRef of chrPlayerCharacter) as Boolean
+  return true
+.
+public method CanPhaseOccupantJoinConversation(a1 as NodeRef of chrPlayerCharacter) as Boolean
+  return true
+.
+public method RefreshGui(Me)
+  if Me is kindof qstComponent
+    var pc = GetPlayerCharacterNode()
+    var pc2 = pc
+    pc2.SendAllTrackedQuests()
+    pc2.SendFullQuestJournal()
+  .
+.
+public method GetNumberOfPlayers() as Integer
+  return Me.phsPhaseInfoPlayers.length
+.
+public method DoesConversationRequireAll() as Boolean
+  return false
+.
+public method GetConversationEscapeConfirmation() as Boolean
+  return false
+.
+public method CanBeInPhaseWithoutPhaseOwnerInArea() as Boolean
+  return true
+.
+public method AreaExitWillEjectGroupMembers() as Boolean
+  CallFrame _callFrame
+  Id id1
+  FuncRef HasGroupMember
+  Boolean bool3
+  if Me.CanBeInPhaseWithoutPhaseOwnerInArea()
+    // unknown
+  else
+    var pc = GetPlayerCharacterNode()
+    var pc2 = pc
+    if pc2 = None
+      // unknown
+    else
+      var node3 = pc2.GetGroup()
+      if node3 = None or (id1 = pc2, HasGroupMember = HM.PrepareCallNodeRef2(27, node3, &_callFrame), bool3 = HasGroupMember(_callFrame, id1), HM.UnprepareCall(), not bool3)
+        // unknown
+      else
+        FuncRef AnyNonPhaseOwnersInPhase = HM.PrepareCallNodeRef2(28, node3, &_callFrame)
+        return AnyNonPhaseOwnersInPhase(_callFrame, Me) & 1
+      .
+    .
+  .
+  return false
+.

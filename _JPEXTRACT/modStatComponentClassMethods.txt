@@ -1,0 +1,217 @@
+self handler Replication_Update(Me, a1 as Integer, a2 as List of ID)
+  var bool1 = false
+  foreach cur in a2
+    if cur == modStatComputed
+      Me._UpdateChangedStats()
+      continue
+    .
+    if cur == modStatBase
+      Me._UpdateBaseStats()
+      continue
+    .
+    if cur == modStat_Fixed
+      bool1 = true
+    else if cur == modStat_PercentOfCurrent
+      bool1 = true
+    .
+  .
+  if bool1
+    call event Me:OnModifiersChanged Me:OnModifiersChanged
+  .
+.
+public method _UpdateBaseStats(Me)
+  var lookup = Me.modStatBase
+  foreach key in lookup
+    var lookup2 = Me.modStatBaseRepPrevious
+    if lookup2 has key
+      var float1 = lookup[key]
+      if lookup2[key] != float1
+        lookup2[key] = float1
+        call event Me:OnBaseStatChanged Me:OnBaseStatChanged
+      .
+    else
+      Me.modStatBaseRepPrevious[key] = lookup[key]
+      call event Me:OnBaseStatChanged Me:OnBaseStatChanged
+    .
+  .
+.
+public method _UpdateChangedStats(Me)
+  var lookup = Me.modStatComputed
+  foreach key in lookup
+    var lookup2 = Me.modStatComputedRepPrevious
+    if lookup2 has key
+      var float1 = lookup[key]
+      if lookup2[key] != float1
+        lookup2[key] = float1
+        call event Me:OnComputedStatChanged Me:OnComputedStatChanged
+      .
+    else
+      Me.modStatComputedRepPrevious[key] = lookup[key]
+      call event Me:OnComputedStatChanged Me:OnComputedStatChanged
+    .
+  .
+.
+public method GetBaseStat(a1 as Enum modStatEnum) as Float
+  var lookup = Me.modStatBase
+  if lookup has a1
+    return lookup[a1]
+  else
+    return 0.0
+  .
+.
+public method GetStatComputed(a1 as Enum modStatEnum) as Float
+  Boolean bool4
+  NodeRef node
+  FuncRef GetShieldGenerator
+  CallFrame _callFrame
+  if ((a1 == STAT_cbt_melee_glance_chance or a1 == STAT_cbt_melee_glance_absorb) or a1 == STAT_cbt_ranged_glance_chance) or a1 == STAT_cbt_ranged_glance_absorb
+    var bool3 = Me is kindof conEquipmentComponent and (not Me is kindof chrPlayerCharacter and not Me is kindof chrCompanionComponent ? (bool4 = false) : (bool4 = true), bool4)
+    if bool3 and (HM.TrackLine(73), node = HM.ConstructNodeRef(6), GetShieldGenerator = HM.PrepareCallNodeRef2(8, Me, &_callFrame), GetShieldGenerator(node, _callFrame), HM.UnprepareCall(), node = None)
+      return 0.0
+    .
+  .
+  var lookup = Me.modStatComputed
+  return lookup[a1]
+.
+public method GetAccumulatedModifiers(Me, a1 as Enum modStatEnum, o2 references Float, o3 references Float)
+  var float1 = 0.0
+  var lookup = Me.modStat_Fixed
+  if lookup has a1
+    foreach key in lookup[a1]
+      float1 = lookup[a1][key]
+      if float1 < 0.0
+        *o3 += float1
+      else
+        *o2 += float1
+      .
+    .
+  .
+  var lookup6 = Me.modStat_PercentOfCurrent
+  if lookup6 has a1
+    var float2 = (*o3 + Me.modStatBase[a1]) + *o2
+    var node = $STATIC.modStatDataPrototype
+    if node != None
+      var lookup8 = node.modStatDescriptions
+      var classView = lookup8[a1]
+      var classView2 = lookup8[a1]
+      var float6 = utlMath:clamp(classView.modStatMinimum, float2, classView2.modStatMaximum)
+      float2 = float6
+    .
+    var float7 = 0.0
+    foreach key in lookup6[a1]
+      float7 += lookup6[a1][key]
+    .
+    float1 = float2 * float7
+    if (float2 * float7) < 0.0
+      *o3 += float1
+    else
+      *o2 += float1
+    .
+  .
+.
+public method DumpStatMods() as String
+  str as String
+  var lookup = Me.modStatBase
+  foreach key in lookup
+    var str6 = $STRING.LocalizedFormatFloat(lookup[key], 4)
+    str = str + "base stat [" + key + "] value [" + str6 + "]$R"
+    var lookup3 = Me.modStat_Fixed
+    var lookup4 = lookup3[key]
+    foreach cur2 in lookup4
+      var str13 = $STRING.LocalizedFormatFloat(lookup3[key][cur2], 4)
+      str = str + "  modSource [" + cur2 + "] value [" + str13 + "]$R"
+    .
+    var lookup7 = Me.modStat_PercentOfCurrent
+    var lookup8 = lookup7[key]
+    foreach cur2 in lookup8
+      var lookup10 = lookup7[key]
+      var str20 = $STRING.LocalizedFormatFloat(lookup10[cur2], 1)
+      str = str + "  modSource [" + cur2 + "] value [" + str20 + "%]$R"
+    .
+  .
+  return str
+.
+public method IsValidModStat(a1 as Enum modStatEnum) as Boolean
+  return Me.modStatBase has a1
+.
+public function GetStatDisplayName(a1 as Enum modStatEnum) as String
+  var classView = $STATIC.modStatDataPrototype.modStatDescriptions[a1]
+  return $STRING.LocalizeString("str.gui.stats", classView.modStatDisplayNameStringID)
+.
+public function GetStatDisplayFormat(a1 as Enum modStatEnum) as Enum guiTooltipNumberFormatEnum
+  var out = HM.GetEnumDefaultValue(12)
+  if $STATIC.modStatDataPrototype.modStatDescriptions has a1
+    var classView = $STATIC.modStatDataPrototype.modStatDescriptions[a1]
+    return classView.modStatDisplayNumberFormat
+  else
+    return guiTooltipNumberFormat_Float
+  .
+.
+public function DiffStatMods(Me, a1 as LookupList indexed by Enum modStatEnum of Float, a2 as LookupList indexed by Enum modStatEnum of Float, o3 references LookupList indexed by Enum modStatEnum of Float)
+  foreach key in a2
+    if a1 has key
+      var a2Cur = a2[key]
+      o3[key] = a2Cur - a1[key]
+    else
+      o3[key] = a2Cur
+    .
+  .
+  foreach key in a1
+    if not (a2 has key)
+      o3[key] = 0.0 - a1[key]
+    .
+  .
+.
+public function GetDescriptionForStat(a1 as Enum modStatEnum, a2 as Integer) as String
+  list1 as List of String
+  add back a2 to list1
+  add back GetStatDisplayName(a1) to list1
+  if a2 <= -1
+    return $STRING.LocalizeStringWithTokenList(STR_GUI_STATS, ID_STR_GUI_STATS | 0x2710, HIDWORD(ID_STR_GUI_STATS), list1)  // "<<1>> <<2>>"
+  else
+    return $STRING.LocalizeStringWithTokenList(STR_GUI_STATS, ID_STR_GUI_STATS | 0x2711, HIDWORD(ID_STR_GUI_STATS), list1)  // "+<<1>> <<2>>"
+  .
+.
+public function ExtendDescriptionForStat(Me, o1 references List of String, a2 as Enum modStatEnum, a3 as Integer)
+  ExtendDescriptionForStatName(&o1, GetStatDisplayName(a2), a3, 0)
+.
+public function ExtendDescriptionForStatName(Me, o1 references List of String, a2 as String, a3 as Integer, a4 as Boolean)
+  if a2.length == 0
+    return
+  .
+  list1 as List of String
+  add back a3 to list1
+  add back a2 to list1
+  if a3 <= -1
+    if a4
+      add back $STRING.LocalizeStringWithTokenList(STR_GUI_STATS, ID_STR_GUI_STATS | 0x2712, HIDWORD(ID_STR_GUI_STATS), list1) to o1  // "<<1>>% <<2>>"
+    else
+      add back $STRING.LocalizeStringWithTokenList(STR_GUI_STATS, ID_STR_GUI_STATS | 0x2710, HIDWORD(ID_STR_GUI_STATS), list1) to o1  // "<<1>> <<2>>"
+    .
+    add back a3 to o1
+    return
+  .
+  var bool1 = a3 <= -1
+  if not HIDWORD(a3)
+    bool1 = (_DWORD)a3 == 0
+  .
+  if not bool1
+    if a4
+      add back $STRING.LocalizeStringWithTokenList(STR_GUI_STATS, ID_STR_GUI_STATS | 0x2713, HIDWORD(ID_STR_GUI_STATS), list1) to o1  // "+<<1>>% <<2>>"
+    else
+      add back $STRING.LocalizeStringWithTokenList(STR_GUI_STATS, ID_STR_GUI_STATS | 0x2711, HIDWORD(ID_STR_GUI_STATS), list1) to o1  // "+<<1>> <<2>>"
+    .
+    add back a3 to o1
+  .
+.
+public function ExtendDescriptionForStatPercentage(Me, o1 references List of String, a2 as Enum modStatEnum, a3 as Integer)
+  ExtendDescriptionForStatName(&o1, GetStatDisplayName(a2), a3, 1)
+.
+public function GetStatEnum(a1 as String) as Enum modStatEnum
+  var unused = HM.GetEnumDefaultValue(4)
+  return HM.ConvertFromStringEnum(4, "STAT_" + a1)
+.
+public method _modStat_SetStateBase(Me, a1 as Enum modStatEnum, a2 as Float)
+  Me.modStatBase[a1] = a2
+  Me.modStatComputed[a1] = a2
+.

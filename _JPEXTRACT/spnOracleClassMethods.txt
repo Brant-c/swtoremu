@@ -1,0 +1,993 @@
+var cosProtoNotLoaded = "Client only spawner prototype not loaded yet, try again!"
+var debugRenderDisabled = "Debug rendering disabled. Please use /spawner renderdebug true"
+var height = 0.35
+var INVALID_FLYTEXT_ID = 4294967295
+public method _getOracleDebugChannelName() as String
+  return "SPAWNER"
+.
+public method _getOracleDejaChannelName() as String
+  return "spn"
+.
+public method _getOracleScriptName() as String
+  return $THISSCRIPT
+.
+public method init(Me)
+  $CPULIMIT = 180000
+  clear Me.spnReplicatedPlaceables keep
+  clear Me.spnReplicatedNpcs keep
+  clear Me.spnReplicatedAnchorlessNpcs keep
+  if IsHeroBlade()
+    RegisterForPerFrameCallback($THISSCRIPT)
+  .
+  Me.StartDebugRenderingTimer()
+  Me.CacheSpawnerAnchors()
+  clear Me.4611686284212430007 keep
+.
+public method CacheSpawnerAnchors(Me)
+  list1 as List of NodeRef of HBNode
+  Me.GetSpawnerAnchors("", &list1)
+  var lookup = Me.spnCachedSpawnAnchors
+  clear lookup keep
+  foreach cur in list1
+    var int1 = ComputePrototypeIdentifier(cur["spnSpec"])
+    lookup[int1] = cur
+  .
+.
+public method GetSpawnAnchorByID(a1 as ID) as NodeRef of HBNode
+  var lookup = Me.spnCachedSpawnAnchors
+  if lookup has a1
+    return lookup[a1]
+  else
+    return None
+  .
+.
+public method SpawnAnchorsAreCached() as Boolean
+  var length = Me.spnCachedSpawnAnchors.length
+  var bool1 = (_DWORD)length != 0
+  var bool2 = SHIDWORD(length) >= 1
+  if not HIDWORD(length)
+    return bool1
+  .
+  return bool2
+.
+public method DisplayFaultyEncounterSpawners(Me)
+  Boolean bool3
+  var int1 = 0
+  list1 as List of NodeRef
+  list1 = QueryNodesByClassID(HBNode)
+  foreach cur in list1
+    if utlNode:isSpawner(cur)
+      var node3 = HM.ConvertFromStringNodeRef(10, cur["ParentInstance"])
+      if node3 != None
+        if utlNode:isEncounter(node3)
+          bool3 = true
+        else
+          bool3 = false
+        .
+      else
+        bool3 = false
+      .
+      if bool3
+        var str2 = cur["spnSpec"]
+        if utlString:startsWith(str2, "spn.")
+          ++int1
+          $CHAT.ChatPlayerDebug("Faulty spawner spec = " + str2 + ", position = " + cur["position_w"])
+          continue
+        .
+        list2 as List of String
+        SplitBy(str2, ":", &list2)
+        var str8 = node3["spnSpec"]
+        var list2Length = list2.length
+        var bool5 = (unsigned int)list2Length <= 1
+        var bool6 = list2Length <= -1
+        if not HIDWORD(list2Length)
+          bool6 = bool5
+        .
+        if not bool6
+          if list2[2] != str8
+            ++int1
+            $CHAT.ChatPlayerDebug("Faulty spawner spec = " + str2 + ", position = " + cur["position_w"] + ", belongs to encounter spec = " + str8)
+          .
+        .
+      .
+    .
+  .
+  $CHAT.ChatPlayerDebug("Number of faulty spawners = " + int1)
+.
+public method StartDebugRenderingTimer(Me)
+  if Me.spnOracleDebugTimer.timerState == 2
+    timer::stop(Me.spnOracleDebugTimer)
+  .
+  timer::initializeDefault(Me.spnOracleDebugTimer)
+  Me.spnOracleDebugTimer.script = $THISSCRIPT
+  Me.spnOracleDebugTimer.fireRate = 1000
+  timer::start(Me.spnOracleDebugTimer)
+.
+public method DrawFamilies(Me)
+  Vector3 vec
+  Vector3 vec2
+  Vector3 vec4
+  Vector3 vec6
+  var lookup = Me.spnFamilyToColor
+  foreach key in lookup
+    list1 as List of NodeRef
+    list2 as List of NodeRef
+    list2 = GetSpawnersOfFamily(key)
+    list1 = list2
+    foreach cur2 in list1
+      vec.x = 0.0
+      vec.y = 0.0
+      vec.z = 0.0
+      HM.RefLookupListElementByStringVector3(&vec2, &lookup, key)
+      vec = vec2
+      var vec3 = HM.ConvertFromStringVector3(cur2["position_w"])
+      vec4.x = vec3.x + 0.0
+      vec4.y = vec3.y + 0.175
+      vec4.z = vec3.z + 0.0
+      DrawVerticalCylinder(vec4, height, 0.025, vec, 1.0, None)
+      var vec5 = HM.ConvertFromStringVector3(cur2["position_w"])
+      vec6.x = vec5.x + 0.0
+      vec6.y = vec5.y + height
+      vec6.z = vec5.z + 0.0
+      DrawSphere(vec6, 0.06, vec, 1.0, true, None)
+    .
+  .
+.
+public function OnFrameUpdate(Me, a1 as TimeInterval)
+  list2 = GetSelectedNodes()
+  list1 = list2
+  foreach cur in list1
+    if cur = None
+      // unknown
+    else if not IsNodeHeroBladeVisible(cur)
+      continue
+    .
+    if cur is kindof spnSpawnedComponent
+      var node2 = cur.GetSpawner()
+      if not IsNodeHeroBladeVisible(node2)
+        continue
+      .
+      v26[0] = 1065353216
+      v26[1] = 1065353216
+      v26[2] = 1065353216
+      vec = &vec2
+      vec2 = HM.ConvertFromStringVector3(cur["position_w"])
+      vec3 = &vec4
+      vec4 = HM.ConvertFromStringVector3(node2["position_w"])
+      var node4 = HM.CurrentInterface
+      EF.DrawArrowHead(node4, vec, vec3, 0.025, v26)
+      continue
+    .
+    var node6 = $SPAWNER.GetSpawnedFromAnchorID(cur)
+    if node6 != None and IsNodeHeroBladeVisible(node6)
+      v17[0] = 1065353216
+      v17[1] = 1065353216
+      v17[2] = 1065353216
+      vec = &vec6
+      vec6 = HM.ConvertFromStringVector3(cur["position_w"])
+      vec3 = &vec7
+      vec7 = HM.ConvertFromStringVector3(node6["position_w"])
+      var node4 = HM.CurrentInterface
+      EF.DrawArrowHead(node4, vec, vec3, 0.025, v17)
+    .
+  .
+.
+remote function OnPlaceableResult(Me, a1 as ID, a2 as Enum spnResult)
+  Vector3 vec
+  if a1 != None
+    var str2 = $STRING.LocalizeStringWithPlayerGender(STR_GUI_FLYTEXT, ID_STR_GUI_FLYTEXT | 0x14, HIDWORD(ID_STR_GUI_FLYTEXT))  // "Cannot be used while dead."
+    vec.x = 0.0
+    vec.y = 0.0
+    vec.z = 0.0
+    var classView = miscUtils:makeRGBA(1.0, 0.0, 0.0, 1.0)
+    $FLYTEXT.addFlyTextNew(a1, str2, DEFAULTTEXT, vec, 0.0, classView, FLYTEXT_CATEGORY_DEFAULT, FLYTEXT_BEHAVIOR_DEFAULT)
+  .
+.
+remote function RecacheSpawnAnchors(Me)
+  $SPAWNER.CacheSpawnerAnchors()
+.
+remote function OnDebugLevelSet(Me, a1 as Integer)
+  $SPAWNER._setOracleDebugLevel(a1)
+.
+remote function OnUpdateHydraImportance(Me, a1 as LookupList indexed by ID of Boolean)
+  int v6
+  int v7
+  var bool1 = GetRenderFilter("Spawner")
+  foreach key in a1
+    if key = None
+      continue
+    .
+    if a1[key] and bool1
+      if not key is kindof utlVfxComponent
+        GlomClass("utlVfxComponent", key)
+      .
+      key.AddHardcodedVisualEffect(utlVfxKey_HydraImportance, fxHydraImportance, utlVfxAttachmentStyle_Hover)
+    else if key is kindof utlVfxComponent
+      key.RemoveVisualEffect(utlVfxKey_HydraImportance, v6, v7)
+    .
+  .
+.
+remote function OnUpdateMaxGroupSize(Me, a1 as LookupList indexed by ID of Integer)
+  var bool1 = GetRenderFilter("Spawner")
+  foreach key in a1
+    node = key
+    if node = None
+      continue
+    .
+    if a1[key] <= 0 or not bool1
+      if not node is kindof utlVfxComponent
+        continue
+      .
+      node.RemoveVisualEffect(utlVfxKey_GroupSize, v15, v16)
+      continue
+    .
+    if not node is kindof utlVfxComponent
+      GlomClass("utlVfxComponent", node)
+    .
+    int1 = a1[key] - 1
+    var bool2 = HIDWORD(int1) == 0
+    BYTE4(int1) = HIDWORD(int1) != 0
+    if bool2
+      BYTE4(int1) = (unsigned int)int1 >= 4
+    .
+    if not BYTE4(int1)
+      when (int)int1
+        is 0
+          node.AddHardcodedVisualEffect(utlVfxKey_GroupSize, fxSpawnerGroupSize1, utlVfxAttachmentStyle_Hover)
+        .
+        is 1
+          node.AddHardcodedVisualEffect(utlVfxKey_GroupSize, fxSpawnerGroupSize2, utlVfxAttachmentStyle_Hover)
+        .
+        is 2
+          node.AddHardcodedVisualEffect(utlVfxKey_GroupSize, fxSpawnerGroupSize3, utlVfxAttachmentStyle_Hover)
+        .
+        is 3
+          node.AddHardcodedVisualEffect(utlVfxKey_GroupSize, fxSpawnerGroupSize4, utlVfxAttachmentStyle_Hover)
+        .
+      .
+    .
+  .
+.
+remote function OnServerHeroicSelectAnchor(Me, a1 as ID)
+  UnselectAllNodes()
+  SelectNode(a1, true)
+.
+remote function OnServerHeroicAddSpawnPoint(Me, a1 as ID)
+  UnselectAllNodes()
+  AddInstanceWithParent($STATIC.GetHardcodedAssetPath(hcaKey_engineSpawnPoint), a1)
+.
+remote function OnServerHeroicAddBarrier(Me, a1 as ID)
+  UnselectAllNodes()
+  AddInstanceWithParentAndProperties($STATIC.GetHardcodedAssetPath(hcaKey_engineTrigger), a1, "Depth=0.01 TriggerClassType=BARRIER Collidable=True Rotation=(0,0,0)")
+.
+remote function OnServerHeroicAddRallyPoint(Me, a1 as ID)
+  UnselectAllNodes()
+  AddInstanceWithParent($STATIC.GetHardcodedAssetPath(hcaKey_engineRallyPoint), a1)
+.
+remote function OnServerHeroicAddMovePoint(Me, a1 as ID, a2 as Integer)
+  UnselectAllNodes()
+  var str = "spnMovePointNumber=" + a2
+  AddInstanceWithParentAndProperties($STATIC.GetHardcodedAssetPath(hcaKey_engineMovePoint), a1, str)
+.
+remote function OnServerDrawFamilyLines(Me, a1 as String)
+  int v8
+  int v9
+  Vector3 vec
+  if $SPAWNER.GetDebugRenderFlag()
+    $SPAWNER.AddFamilyNameToLookup(a1, v8, v9)
+  else
+    vec.x = 700.0
+    vec.y = 200.0
+    vec.z = 0.0
+    var classView = miscUtils:makeRGBA(1.0, 0.0, 0.0, 1.0)
+    $FLYTEXT.addFlyTextDebug(None, debugRenderDisabled, LARGETEXT, vec, 0.0, classView, FLYTEXT_CATEGORY_SCREENSPACE, FLYTEXT_BEHAVIOR_DEFAULT)  // "Debug rendering disabled. Please use /spawner renderdebug true"
+  .
+.
+remote function OnServerEraseFamilyLines(Me, a1 as String)
+  int v8
+  int v9
+  Vector3 vec
+  if $SPAWNER.GetDebugRenderFlag()
+    $SPAWNER.RemoveFamilyNameFromLookup(a1, v8, v9)
+  else
+    vec.x = 700.0
+    vec.y = 200.0
+    vec.z = 0.0
+    var classView = miscUtils:makeRGBA(1.0, 0.0, 0.0, 1.0)
+    $FLYTEXT.addFlyTextDebug(None, debugRenderDisabled, LARGETEXT, vec, 0.0, classView, FLYTEXT_CATEGORY_SCREENSPACE, FLYTEXT_BEHAVIOR_DEFAULT)  // "Debug rendering disabled. Please use /spawner renderdebug true"
+  .
+.
+remote function OnServerRenderSpawnerDisplayNames(Me, a1 as Boolean)
+  int v8
+  int v9
+  Vector3 vec
+  if $SPAWNER.GetDebugRenderFlag()
+    $SPAWNER.RenderSpawnerDisplayNames(a1, v8, v9)
+  else
+    vec.x = 700.0
+    vec.y = 200.0
+    vec.z = 0.0
+    var classView = miscUtils:makeRGBA(1.0, 0.0, 0.0, 1.0)
+    $FLYTEXT.addFlyTextDebug(None, debugRenderDisabled, LARGETEXT, vec, 0.0, classView, FLYTEXT_CATEGORY_SCREENSPACE, FLYTEXT_BEHAVIOR_DEFAULT)  // "Debug rendering disabled. Please use /spawner renderdebug true"
+  .
+.
+remote function OnServerSetDebugRenderFlag(Me, a1 as Boolean)
+  $SPAWNER.SetDebugRenderFlag(a1)
+.
+public method RenderSpawnerDisplayNames(Me, a1 as Boolean)
+  Me.spnRenderSpawnerDisplayNames = a1
+.
+public method GetRenderSpawnerDisplayNames() as Boolean
+  return Me.spnRenderSpawnerDisplayNames
+.
+public method SetDebugRenderFlag(Me, a1 as Boolean)
+  Me.spnOracleDebugRenderFlag = a1
+.
+public method GetDebugRenderFlag() as Boolean
+  return Me.spnOracleDebugRenderFlag
+.
+public method RenderFlyTextOnSpawners(Me, a1 as Boolean)
+  var node2 = GetActiveCamera()
+  vec.x = 0.0
+  vec.y = 0.0
+  vec.z = 0.0
+  var vec2 = HM.ConvertFromStringVector3(node2["Position"])
+  vec = vec2
+  list1 as List of NodeRef
+  list1 = QueryNodesByClassID(HBNode)
+  foreach cur in list1
+    var list1Cur2 = cur
+    if list1Cur2 != None
+      if utlNode:isEncounter(list1Cur2)
+        if HM.ConvertFromStringBoolean(list1Cur2["spnEncounterCombatMusic"])
+          vec3.x = 0.0
+          vec3.y = 0.0
+          vec3.z = 0.0
+          GetNodePosition_w(list1Cur2, &vec3)
+          node4[6] = nullptr
+          node4[7] = (NodeRef)1045220557
+          node4[8] = nullptr
+          *(Float *)&node4[2] = vec3.x + 0.0
+          *(Float *)&node4[3] = vec3.y + 0.2
+          *(Float *)&node4[4] = vec3.z + 0.0
+          vec3.x += 0.0
+          vec3.y += 0.2
+          vec3.z += 0.0
+          node4 = HM.ConstructNodeRef(10)
+          node4 = None
+          var classView = miscUtils:makeRGBA(1.0, 0.0, 0.0, 1.0)
+          $FLYTEXT.addFlyTextDebug(node4, "COMBAT MUSIC - ON", SMALLTEXT, vec3, 0.0, classView, FLYTEXT_CATEGORY_DEFAULT, FLYTEXT_BEHAVIOR_DEFAULT)
+        .
+      .
+      if utlNode:isSpawner(list1Cur2)
+        var node6 = HM.ConvertFromStringNodeRef(10, list1Cur2["ParentInstance"])
+        if node6 != None
+          if utlNode:isEncounter(node6)
+            bool4 = true
+          else
+            bool4 = false
+          .
+        else
+          bool4 = false
+        .
+        if bool4
+          var bool5 = false
+          var lookup = Me.spnAnchorToFlyTextId
+          bool5 = lookup has list1Cur2
+          vec4.x = 0.0
+          vec4.y = 0.0
+          vec4.z = 0.0
+          GetNodePosition_w(list1Cur2, &vec4)
+          vec5.x = vec.x - vec4.x
+          vec5.y = vec.y - vec4.y
+          vec5.z = vec.z - vec4.z
+          if VectorLengthSq(vec5) >= 16.0
+            if not bool5
+              continue
+            .
+            $FLYTEXT.deleteFlyText(lookup[list1Cur2])
+            remove list1Cur2 from lookup keep
+            continue
+          .
+          if (a1 and not bool5) or (a1 and bool5 ? (bool7 = true) : (bool7 = false), bool7 and (lookup6 = Me.spnAnchorToFlyTextId, int9 = list1Cur2, int10 = lookup6[int9], not (HIDWORD(int10) | ~(_DWORD)int10)) ? (bool8 = true) : (bool8 = false), bool8)
+            var node8 = getPrototype(node6["spnSpec"])
+            if node8 != None
+              var str6 = ToUpper(substring(list1Cur2["spnSpec"], 1, 1))
+              vec4.x += 0.0
+              vec4.y += 0.2
+              vec4.z += 0.0
+              list2 as List of String
+              SplitBy(node8.GetEncounterSpawnerSpec(str6), ".", &list2)
+              var list2Length = list2.length
+              var str10 = list2[list2Length]
+              var classView2 = miscUtils:makeRGBA(1.0, 0.0, 0.0, 1.0)
+              var int5 = $FLYTEXT.addFlyTextNew(None, str10, SMALLTEXT, vec4, 0.0, classView2, FLYTEXT_CATEGORY_DEFAULT, FLYTEXT_BEHAVIOR_PERSISTSTATIONARY)
+              Me.spnAnchorToFlyTextId[list1Cur2] = int5
+            .
+          else if not a1 and bool5
+            var lookup5 = Me.spnAnchorToFlyTextId
+            $FLYTEXT.deleteFlyText(lookup5[list1Cur2])
+            var lookup3 = Me.spnAnchorToFlyTextId
+            remove list1Cur2 from lookup3 keep
+          .
+        .
+      .
+    .
+  .
+.
+public method AddFamilyNameToLookup(Me, a1 as String)
+  Vector3 vec
+  if a1 == ""
+    // unknown
+  else
+    vec.x = randomFloat()
+    vec.y = randomFloat()
+    vec.z = randomFloat()
+    Me.spnFamilyToColor[a1] = vec
+  .
+.
+public method RemoveFamilyNameFromLookup(Me, a1 as String)
+  var lookup = Me.spnFamilyToColor
+  if lookup has a1
+    remove a1 from lookup keep
+  .
+.
+public method HasLootForChar(a1 as NodeRef of spnSpawnedComponent, a2 as NodeRef of chrPlayerCharacter) as Boolean
+  if a1 is kindof conLootHopperComponent and (HM.TrackLine(436), a1 != None)
+    return a1.HasLootForLooter(HM.CopyConstructNodeRef(35, a2))
+  else
+    return true
+  .
+.
+public function GetSpawnersOfFamily(a1 as String) as List of NodeRef
+  list2 = QueryNodesByClassID(HBNode)
+  foreach cur in list2
+    var list2Cur2 = cur
+    if list2Cur2 != None
+      if utlNode:isSpawner(list2Cur2)
+        var id1 = $SPAWNER.GetSpawnerSpecForNode(list2Cur2)
+        var node3 = $SPAWNER.GetSpawnerTemplate(utlFQN:fromIDTemp(id1), list2Cur2["Type"])
+        if node3 != None and (str3 = HM.ConstructString(), GetSpawnFamilyName = HM.PrepareCallNodeRef2(55, node3, &_callFrame), GetSpawnFamilyName(str3, _callFrame), HM.UnprepareCall(), str3 == a1)
+          add back list2Cur2 to list1
+        .
+      .
+    .
+  .
+  return list1
+.
+public function ConvertGestureToAnimation(a1 as String) as String
+  var node2 = $DATATABLE.GetDatatable(hcaKey_npcGestures)
+  if node2 != None
+    return node2.GetColumnValueByKey(a1, "anim action")
+  else
+    return ""
+  .
+.
+remote function OnSpawnedPlayGesture(Me, a1 as ID, a2 as String, a3 as String)
+  if a1 != None
+    if a2 != ""
+      $COMBAT.simpleAction(a1, ConvertGestureToAnimation(a2))
+    .
+    if a3 != ""
+      var vec = HM.ConvertFromStringVector3(a1["Position"])
+      var vec2 = HM.ConvertFromStringVector3(a1["Rotation"])
+      var node4 = sndUtils:PlayEvent3d(a3, None, "", vec, vec2)
+    .
+  .
+.
+public method GetTaxiUseRangeSq() as Float
+  return 0.16
+.
+public method GetTaxiUseRange() as Float
+  return 0.4
+.
+public method RequestLootSpawned(Me, a1 as NodeRef of spnSpawnedComponent)
+  var pc = GetPlayerCharacterNode()
+  call server untrustedMethods:OnRequestLootSpawned(pc, a1)
+.
+public method GetSpawnerTemplateExtension(a1 as String) as String
+  when a1
+    is "SpawnListNode"
+      return ".spn_l"
+    .
+    is "SpawnPlaceableNode"
+      return ".spn_p"
+    .
+    is "SpawnCrefacNode"
+      return ".spn_crf"
+    .
+    is "SpawnCreatureNode"
+      return ".spn_c"
+    .
+    is "SpawnEncounterNode"
+      return ".enc"
+    .
+    is "SpawnGroupNode"
+      return ".spn_grp"
+    .
+    default
+      return ".spn_unknown"
+    .
+  .
+.
+public method GetSpawnerTemplate(a1 as String, a2 as String) as NodeRef of spnDispenserTemplate
+  var str2 = replacestring(a1, ".", "/")
+  var str4 = $SPAWNER.GetSpawnerTemplateExtension(a2)
+  return $TEMPLATE._FindTemplate(a1, "/server/" + str2 + str4, "spnDispenserTemplate")
+.
+public method GetSpawnerSpecForNode(a1 as NodeRef) as ID
+  return utlFQN:toIDTemp(a1["spnSpec"])
+.
+public method GetSpawnerAnchors(Me, a1 as String, o2 references List of NodeRef of HBNode)
+  NodeRef list1Cur3
+  String str
+  list1 as List of NodeRef
+  list1 = QueryNodesByClassID(HBNode)
+  foreach cur in list1
+    if utlNode:isSpawner(cur)
+      if a1 == "" or (list1Cur3 = cur, str = list1Cur3["spnSpec"], a1 == str)
+        add back cur to o2
+      .
+    .
+  .
+.
+public method UpdateSpawnedEntity(Me, a1 as NodeRef)
+  int v7
+  if a1 != None
+    if a1 is kindof plcPlaceable
+      a1.UpdatePerPlayerState(false)
+    else if a1 is kindof cnvOwnerComponent
+      a1.UpdateQuestIndicator()
+      a1.UpdateMapIcon(v7)
+    .
+    $NAMEPLATES.checkNameplateStatus(a1)
+  .
+.
+public method AddServerMapNoteIdToSpnRelationMapNote(Me, a1 as NodeRef of spnRelationMapNote)
+  var lookup = Me.spnServerMapNoteIdToSpnRelationMapNoteLookupList
+  if lookup has a1.spnRelationServerMapNoteId
+    var node = lookup[a1.spnRelationServerMapNoteId]
+    if node != None
+      node.Unlink()
+    .
+  .
+  Me.spnServerMapNoteIdToSpnRelationMapNoteLookupList[a1.spnRelationServerMapNoteId] = a1
+  a1.Link()
+.
+public method RefreshSpnRelationMapNoteVfx(Me)
+  var lookup = Me.spnServerMapNoteIdToSpnRelationMapNoteLookupList
+  foreach key in lookup
+    var cur = lookup[key]
+    if cur != None
+      cur.CreateOrDestroyVFX()
+    .
+  .
+.
+public method RemoveSpnRelationMapNote(Me, a1 as NodeRef of spnRelationMapNote)
+  var lookup = Me.spnServerMapNoteIdToSpnRelationMapNoteLookupList
+  if lookup has a1.spnRelationServerMapNoteId
+    var node = lookup[a1.spnRelationServerMapNoteId]
+    if node != None and node == a1
+      node.Unlink()
+      remove a1.spnRelationServerMapNoteId from lookup keep
+    .
+  .
+.
+public method GetSpnRelationMapNote(a1 as ID) as NodeRef of spnRelationMapNote
+  var lookup = Me.spnServerMapNoteIdToSpnRelationMapNoteLookupList
+  if lookup has a1
+    return lookup[a1]
+  else
+    return None
+  .
+.
+public method GetPlaceableFromAnchorID(a1 as ID) as NodeRef of plcPlaceable
+  var lookup = Me.spnReplicatedPlaceables
+  if lookup has a1
+    return lookup[a1]
+  else
+    return None
+  .
+.
+public method unk_54d5e627(Me)
+  var lookup = Me.spnReplicatedPlaceables
+  foreach key in lookup
+    var cur = lookup[key]
+    if cur != None
+      cur.UpdateSpawnedAppearance(false)
+    .
+  .
+.
+public method GetNpcFromAnchorID(a1 as ID) as NodeRef of chrNonPlayerCharacter
+  var lookup = Me.spnReplicatedNpcs
+  if lookup has a1
+    return lookup[a1]
+  else
+    return None
+  .
+.
+public method GetSpawnedFromAnchorID(a1 as ID) as NodeRef of spnSpawnedComponent
+  var lookup = Me.spnReplicatedPlaceables
+  if lookup has a1
+    return lookup[a1]
+  else
+    var lookup3 = Me.spnReplicatedNpcs
+    if lookup3 has a1
+      return lookup3[a1]
+    else
+      return None
+    .
+  .
+.
+public function spnOracleDebugTimer_tick(Me)
+  if $SPAWNER.GetDebugRenderFlag()
+    $SPAWNER.DrawFamilies()
+    $SPAWNER.RenderFlyTextOnSpawners($SPAWNER.GetRenderSpawnerDisplayNames())
+  .
+.
+public function OnTimerTick(Me, a1 as ID)
+  if a1 == spnOracleDebugTimer
+    spnOracleDebugTimer_tick()
+  .
+.
+public method LoadCOSPrototypeAsync(Me, a1 as ID, a2 as String)
+  LoadPrototypeAsync(a2)
+  add back a1 to Me.spnClientCosFqnToClientAnchors[a2]
+.
+public method _ProximityCallback(Me, a1 as NodeRef, a2 as Boolean)
+  var NodeProperty2 = a1["spnSpec"]
+  if a2
+    var lookup = Me.spnClientAnchorsInProximity
+    lookup[a1] = true
+    var lookup2 = Me.spnCLientCosFqnToAnchorRefCount
+    lookup2[NodeProperty2] = lookup2[NodeProperty2] + 1
+    if IsPrototypeLoaded(NodeProperty2)
+      var node = getPrototype(NodeProperty2)
+      v10 = node2
+      node2 = HM.CopyConstructNodeRef(45, node)
+      Me.UpdateClientOnlySpawner(a1, v10, v28)
+    else
+      var id1 = a1
+      v10 = (NodeRef *)HIDWORD(id1)
+      Me.LoadCOSPrototypeAsync((NodeRef)id1, v10, NodeProperty2)
+    .
+  else
+    var lookup4 = Me.spnClientAnchorsInProximity
+    if lookup4 has a1
+      var lookup5 = Me.spnClientAnchorsInProximity
+      remove a1 from lookup5 keep
+      Me.DeactivateClientOnlySpawner(a1)
+      var lookup6 = Me.spnCLientCosFqnToAnchorRefCount
+      var int5 = lookup6[NodeProperty2]
+      var lookup7 = Me.spnCLientCosFqnToAnchorRefCount
+      lookup7[NodeProperty2] = int5 - 1
+      if not IsPrototypeLoaded(NodeProperty2)
+        goto LABEL_10
+      .
+      var lookup8 = Me.spnCLientCosFqnToAnchorRefCount
+      var int6 = lookup8[NodeProperty2]
+      var bool1 = (_DWORD)int6 != 0
+      bool2 = SHIDWORD(int6) >= 1
+      if not HIDWORD(int6)
+        bool2 = bool1
+      .
+      if not bool2
+        bool3 = true
+      else
+LABEL_10:
+        bool3 = false
+      .
+      if bool3
+        var lookup9 = Me.spnCLientCosFqnToAnchorRefCount
+        lookup9[NodeProperty2] = 0
+        var node4 = getPrototype(NodeProperty2)
+        var id2 = node4
+        UnloadPrototype(id2)
+      .
+    .
+  .
+.
+public method SpawnAllClientOnlyNpcs(Me)
+  CallFrame _callFrame
+  FuncRef UpdateClientOnlySpawner
+  String *v8
+  list1 as List of NodeRef
+  list1 = QueryNodesByClassID(HBNode)
+  foreach cur in list1
+    if utlNode:isClientOnlySpawner(cur)
+      var NodeProperty2 = cur["spnSpec"]
+      if IsPrototypeLoaded(NodeProperty2)
+        var node3 = HM.CopyConstructNodeRef(45, getPrototype(NodeProperty2))
+        UpdateClientOnlySpawner = HM.PrepareCallNodeRef2(80, Me, &_callFrame)
+        var id1 = __PAIR64__(node3, cur)
+        UpdateClientOnlySpawner(_callFrame, id1, v8)
+      else
+        var id1 = cur
+        Me.UpdateClientOnlySpawner(id1, NodeProperty2)
+      .
+    .
+  .
+.
+public method UpdateClientOnlySpawnersInProximity(Me)
+  int v8
+  foreach key in Me.spnClientAnchorsInProximity
+    var NodeProperty2 = key["spnSpec"]
+    if IsPrototypeLoaded(NodeProperty2)
+      Me.UpdateClientOnlySpawner(key, HM.CopyConstructNodeRef(45, getPrototype(NodeProperty2)), v8)
+    else
+      Me.LoadCOSPrototypeAsync(key, NodeProperty2)
+    .
+  .
+.
+public method CleanupClientOnlySpawners(Me)
+  foreach key in Me.spnClientAnchorToClientNpc
+    Me.DeactivateClientOnlySpawner(key)
+  .
+  clear Me.spnClientAnchorToClientNpc keep
+  clear Me.spnClientCosFqnToClientAnchors keep
+.
+public method GetActivationStatus(a1 as NodeRef, a2 as NodeRef of cosTemplate) as Boolean
+  CallFrame _callFrame
+  Boolean bool2
+  _DWORD v27[3]
+  FuncRef GetDefaultActive
+  var id1 = utlFQN:toIDTemp(a1["spnSpec"])
+  var str2 = a1["spnPhaseInstanceName"]
+  var bool1 = str2 != ""
+  if not bool1
+    goto LABEL_18
+  .
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 = None
+    return false
+  .
+  var node2 = pc2.GetPhasedInstance()
+  if node2 != None
+    var node3 = pc2.GetPhasedInstance()
+    var int1 = node3.GetInstanceNameID()
+    if str2 == int1
+      bool2 = true
+    else
+      bool2 = false
+    .
+  else
+    bool2 = false
+  .
+  if not bool2
+    return false
+  .
+  var node5 = pc2.GetPhaseInfo()
+  if node5 != None
+    var node7 = node5.GetPhaseInfoOwner()
+    var node6 = node7
+    if node6 != None
+      var bool3 = false
+      v27[1] = 0
+      v27[0] = 0
+      if node6.TestQuestForClientOnlySpawner(id1, &bool3, &v27)
+        if not bool3
+          return false
+        .
+        if Me.unk_8a8736bc(id1)
+          return true
+        .
+        return false
+      else
+LABEL_18:
+        if Me.unk_00731af0(id1)
+          return Me.unk_8a8736bc(id1)
+        else
+          GetDefaultActive = HM.PrepareCallNodeRef2(92, a2, &_callFrame)
+          var bool8 = GetDefaultActive(_callFrame) & 1
+          return bool8
+        .
+      .
+    else
+      return false
+    .
+  else
+    return false
+  .
+.
+public method SpawnClientOnlyNpc(a1 as NodeRef, a2 as NodeRef of cosTemplate) as NodeRef of chrClientCharacter
+  var bool1 = false
+  Me.GetIdlePackageFromAnchor(a1, &str, &str2, &str3, &bool1)
+  if a2 != None
+    vec.x = 0.0
+    vec.y = 0.0
+    vec.z = 0.0
+    vec2.x = 0.0
+    vec2.y = 0.0
+    vec2.z = 0.0
+    GetNodePosition(a1, &vec)
+    GetNodeRotation_w(a1, &vec2)
+    var node3 = $CHARACTER.CreateClientOnlyNPCWithIdleAnimation(a2, vec, vec2, str, str2, str3)
+    if bool1
+      node3.chrAnim_SetAnimInput(cpid_input_Stance, INPUT_STANCE_COMBAT)
+    .
+    node3.stgWeapon_RectifyWeaponState()
+    SetGameRelevance(node3, 0.6667)
+  else
+    // unknown
+  .
+  return node3
+.
+public method ActivateClientOnlySpawner(Me, a1 as NodeRef, a2 as NodeRef of cosTemplate)
+  LookupList lookup3
+  Integer int3
+  if utlNode:isClientOnlySpawner(a1)
+    var lookup = Me.spnClientAnchorToClientNpc
+    if not (lookup has a1)
+      var node4 = Me.SpawnClientOnlyNpc(a1, a2)
+      var id2 = node4
+      lookup3 = Me.spnClientAnchorToClientNpc
+      int3 = a1
+      lookup3[int3] = id2
+      return
+    .
+    var id1 = Me.spnClientAnchorToClientNpc[a1]
+    if id1 != None
+      // unknown
+    else
+      var node4 = Me.SpawnClientOnlyNpc(a1, a2)
+      var id2 = node4
+      lookup3 = Me.spnClientAnchorToClientNpc
+      int3 = a1
+      lookup3[int3] = id2
+    .
+  else
+    // unknown
+  .
+.
+public method UpdateDeferredClientOnlySpawners(Me, a1 as String)
+  var lookup = Me.spnClientCosFqnToClientAnchors
+  if lookup has a1
+    var node2 = getPrototype(a1)
+    foreach cur in lookup[a1]
+      if cur != None
+        Me.UpdateClientOnlySpawner(cur, node2)
+      .
+    .
+    remove a1 from lookup keep
+  .
+.
+public method DeactivateClientOnlySpawner(Me, a1 as NodeRef)
+  if utlNode:isClientOnlySpawner(a1)
+    var lookup = Me.spnClientAnchorToClientNpc
+    if lookup has a1
+      if lookup[a1] != 0
+        var id1 = lookup[a1]
+        $CHARACTER.DestroyClientNpc(id1)
+        remove a1 from lookup keep
+      .
+    .
+  else
+    // unknown
+  .
+.
+public method UpdateClientOnlySpawner(Me, a1 as NodeRef, a2 as NodeRef of cosTemplate)
+  int v7
+  if a1 = None
+    // unknown
+  else if Me.GetActivationStatus(a1, a2)
+    Me.ActivateClientOnlySpawner(a1, a2)
+  else
+    Me.DeactivateClientOnlySpawner(a1, v7)
+  .
+.
+public method GetIdlePackageFromAnchor(Me, a1 as NodeRef, o2 references String, o3 references String, o4 references String, o5 references Boolean)
+  void *v14
+  if a1 = None
+    // unknown
+  else
+    var NodeProperty2 = a1["spnNpcIdleAnimationName"]
+    if NodeProperty2 == ""
+      // unknown
+    else
+      var node = $STATIC.npcIdlePackagePrototype
+      var node3 = $STATIC.hydAnimationInfoPrototype
+      var bool1 = false
+      if node != None
+        if node.npcIdlePackageMap has NodeProperty2
+          bool1 = true
+        .
+      .
+      if bool1
+        var classView = node.npcIdlePackageMap[NodeProperty2]
+        o4 = classView.npcIdlePackageEpp
+        var str3 = classView.npcIdlePackageAnim
+        var bool2 = classView.npcIdlePackageWeaponMode != staCombatModeNone and classView.npcIdlePackageWeaponMode != staCombatModeInvalid
+        *o5 = bool2
+        var lookup3 = node3.hydAnimations
+        if lookup3 has str3
+          var classView2 = lookup3[str3]
+          o2 = classView2.hydAnimationAction
+          v14 = classView2
+          o3 = v14.hydAnimationLocoNetwork
+        .
+      else
+        var lookup5 = node3.hydAnimationByDisplayName
+        if lookup5 has NodeProperty2
+          var classView3 = node3.hydAnimations[lookup5[NodeProperty2]]
+          o2 = classView3.hydAnimationAction
+          v14 = classView3
+          o3 = v14.hydAnimationLocoNetwork
+          return
+        .
+        o2 = NodeProperty2
+      .
+    .
+  .
+.
+public method unk_00731af0(a1 as ID) as Boolean
+  return Me.4611686284212430007 has a1
+.
+public method unk_8a8736bc(a1 as ID) as Boolean
+  if Me.4611686284212430007 has a1
+    return Me.4611686284212430007[a1]
+  else
+    return true
+  .
+.
+public method unk_c86eb390(a1 as ID, a2 as Boolean, a3 as Boolean) as Boolean
+  var out = false
+  if a1 != 0
+    if a2
+      Me.4611686284212430007[a1] = a3
+      out = true
+    else if Me.4611686284212430007 has a1
+      remove a1 from Me.4611686284212430007 keep
+      out = true
+    .
+  .
+  return out
+.
+remote function OnServerDebugActivateCOS(Me, a1 as ID, a2 as Boolean)
+  Vector3 vec
+  Boolean bool2
+  int v10
+  var NodeProperty2 = a1["spnSpec"]
+  if not IsPrototypeLoaded(NodeProperty2)
+    vec.x = 700.0
+    vec.y = 200.0
+    vec.z = 0.0
+    var classView = miscUtils:makeRGBA(1.0, 0.0, 0.0, 1.0)
+    $FLYTEXT.addFlyTextDebug(None, cosProtoNotLoaded, LARGETEXT, vec, 0.0, classView, FLYTEXT_CATEGORY_SCREENSPACE, FLYTEXT_BEHAVIOR_DEFAULT)  // "Client only spawner prototype not loaded yet, try again!"
+    return
+  .
+  if not a2
+    if $SPAWNER.GetActivationStatus(a1, HM.CopyConstructNodeRef(45, getPrototype(NodeProperty2)))
+      bool2 = true
+    else
+      bool2 = false
+    .
+  else
+    bool2 = true
+  .
+  if bool2
+    $SPAWNER.ActivateClientOnlySpawner(a1, HM.CopyConstructNodeRef(45, getPrototype(NodeProperty2)), v10)
+  .
+.
+remote function OnServerDebugDeactivateCOS(Me, a1 as ID)
+  $SPAWNER.DeactivateClientOnlySpawner(a1)
+.
+remote function OnServerDebugResetCOS(Me, a1 as ID)
+  int v10
+  Vector3 vec
+  var NodeProperty2 = a1["spnSpec"]
+  if IsPrototypeLoaded(NodeProperty2)
+    if not $SPAWNER.GetActivationStatus(a1, HM.CopyConstructNodeRef(45, getPrototype(NodeProperty2)))
+      return
+    .
+    $SPAWNER.DeactivateClientOnlySpawner(a1)
+    var node9 = getPrototype(NodeProperty2)
+    $SPAWNER.ActivateClientOnlySpawner(a1, HM.CopyConstructNodeRef(45, node9), v10)
+  else
+    vec.x = 700.0
+    vec.y = 200.0
+    vec.z = 0.0
+    var classView = miscUtils:makeRGBA(1.0, 0.0, 0.0, 1.0)
+    $FLYTEXT.addFlyTextDebug(None, cosProtoNotLoaded, LARGETEXT, vec, 0.0, classView, FLYTEXT_CATEGORY_SCREENSPACE, FLYTEXT_BEHAVIOR_DEFAULT)  // "Client only spawner prototype not loaded yet, try again!"
+  .
+.

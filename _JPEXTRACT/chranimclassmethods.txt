@@ -1,0 +1,142 @@
+public method chrAnim_SetAnimControlParameterEnumFloat(Me, a1 as Enum chrAnimControlParameter, a2 as Float, a3 as Float)
+  ClassView classView
+  if Me is kindof chrCharacter and (HM.TrackLine(6), classView = HM.GetClassViewFromNodeRef(Me, chrCharacter), classView.chrCharacter_HasBeenDestroyed)
+    // unknown
+  else
+    SetAnimControlParameterEnumFloat(Me, a1, a2, a3)
+  .
+.
+public method chrAnim_GetAnimControlParameterEnumFloat(a1 as Enum chrAnimControlParameter) as Float
+  ClassView classView
+  if Me is kindof chrCharacter and (HM.TrackLine(16), classView = HM.GetClassViewFromNodeRef(Me, chrCharacter), classView.chrCharacter_HasBeenDestroyed)
+    return 0.0
+  else
+    return GetAnimControlParameterEnumFloat(Me, a1)
+  .
+.
+public shared method chrAnim_GetAnimInput(a1 as Enum chrAnimControlParameter) as Integer
+  return round(Me.chrAnim_GetAnimControlParameterEnumFloat(a1))
+.
+public shared method chrAnim_SetAnimInput(Me, a1 as Enum chrAnimControlParameter, a2 as Integer)
+  Me.chrAnim_SetAnimControlParameterEnumFloat(a1, (Float)a2, 0.0)
+.
+public shared method chrAnim_IsPostureUpright() as Boolean
+  var int2 = Me.chrAnim_GetPosture()
+  int v4 = HIDWORD(Posture_Upright) ^ HIDWORD(int2) | Posture_Upright ^ int2
+  return v4 == 0
+.
+public shared method chrAnim_IsBrainStateLucid() as Boolean
+  var int2 = Me.chrAnim_GetBrainState()
+  int v4 = HIDWORD(BrainState_Lucid) ^ HIDWORD(int2) | BrainState_Lucid ^ int2
+  return v4 == 0
+.
+public shared method chrAnim_IsPostureKnockedDown() as Boolean
+  var int2 = Me.chrAnim_GetPosture()
+  int v4 = HIDWORD(Posture_KnockedDown) ^ HIDWORD(int2) | Posture_KnockedDown ^ int2
+  return v4 == 0
+.
+public shared method chrAnim_GetPosture() as Integer
+  return Me.chrAnim_GetAnimInput(cpid_input_Posture)
+.
+public shared method chrAnim_GetBrainState() as Integer
+  return Me.chrAnim_GetAnimInput(cpid_input_BrainState)
+.
+public shared method chrAnim_IsCombatAnimLocked() as Boolean
+  var int2 = Me.chrAnim_GetAnimInput(cpid_input_CombatAnimLocked)
+  int v4 = HIDWORD(INPUT_COMBATANIMLOCKED_YES) ^ HIDWORD(int2) | INPUT_COMBATANIMLOCKED_YES ^ int2
+  return v4 == 0
+.
+public shared method chrAnim_GetSpeedController() as Float
+  return Me.chrAnim_GetAnimControlParameterEnumFloat(cpid_SpeedController)
+.
+public shared method chrAnim_GetBearingDegrees_o() as Float
+  return Me.chrAnim_GetAnimControlParameterEnumFloat(cpid_BearingDegrees)
+.
+public shared method chrAnim_GetStance() as Integer
+  return Me.chrAnim_GetAnimInput(cpid_input_Stance)
+.
+public shared method chrAnim_GetWeapon() as Integer
+  return Me.chrAnim_GetAnimInput(cpid_input_Weapon)
+.
+public method chrAnim_GetBodyType() as Enum effAppearanceBodyTypesEnum
+  if HasExternalFunction("GetAnimBodyTypeEnum")
+    return GetAnimBodyTypeEnum(Me)
+  else
+    var unused = HM.GetEnumDefaultValue(6)
+    return HM.ConvertFromStringEnum(6, "effAppBodyType_" + GetAnimBodyType(Me))
+  .
+.
+public method chrAnim_GetAnimNetworkType() as String
+  return GetAnimNetworkType(Me)
+.
+public method _chrAnim_NewCpids() as Boolean
+  return Me.chrAnim_GetBodyType() == effAppBodyType_Humanoid
+.
+public method _chrAnim_GetCpid_YawBody() as Enum chrAnimControlParameter
+  if Me._chrAnim_NewCpids()
+    return cpid_TargetYawBody
+  else
+    return cpid_TargetDirYawMoving
+  .
+.
+public method _chrAnim_GetCpid_YawHead() as Enum chrAnimControlParameter
+  if Me._chrAnim_NewCpids()
+    return cpid_TargetYawHead
+  else
+    return cpid_TargetDirYawHead
+  .
+.
+public method _chrAnim_GetCpid_PitchBody() as Enum chrAnimControlParameter
+  if Me._chrAnim_NewCpids()
+    return cpid_TargetPitchBody
+  else
+    return cpid_TargetDirPitch
+  .
+.
+public method _chrAnim_GetCpid_PitchHead() as Enum chrAnimControlParameter
+  if Me._chrAnim_NewCpids()
+    return cpid_TargetPitchHead
+  else
+    return cpid_TargetDirPitchHead
+  .
+.
+public method _chrAnim_GetCpid_RangedRetract() as Enum chrAnimControlParameter
+  if Me._chrAnim_NewCpids()
+    return cpid_RangedRetract
+  else
+    return cpid_PistolRetract
+  .
+.
+public shared method chrAnim_GetTargetYawBody() as Float
+  return Me.chrAnim_GetAnimControlParameterEnumFloat(cpid_TargetYawBody)
+.
+public shared method chrAnim_GetTargetYawHead() as Float
+  return Me.chrAnim_GetAnimControlParameterEnumFloat(cpid_TargetYawHead)
+.
+public shared method chrAnim_GetTargetPitchBody() as Float
+  return Me.chrAnim_GetAnimControlParameterEnumFloat(cpid_TargetPitchBody)
+.
+public shared method chrAnim_GetTargetPitchHead() as Float
+  return Me.chrAnim_GetAnimControlParameterEnumFloat(cpid_TargetPitchHead)
+.
+public shared method chrAnim_GetRangedRetract() as Float
+  return Me.chrAnim_GetAnimControlParameterEnumFloat(cpid_RangedRetract)
+.
+public shared method chrAnim_SetTargetYawBody(Me, a1 as Float, a2 as Float)
+  Me.chrAnim_SetAnimControlParameterEnumFloat(cpid_TargetYawBody, a1, a2)
+.
+public shared method chrAnim_SetTargetYawHead(Me, a1 as Float, a2 as Float)
+  Me.chrAnim_SetAnimControlParameterEnumFloat(cpid_TargetYawHead, a1, a2)
+.
+public shared method chrAnim_SetTargetPitchBody(Me, a1 as Float, a2 as Float)
+  Me.chrAnim_SetAnimControlParameterEnumFloat(cpid_TargetPitchBody, a1, a2)
+.
+public shared method chrAnim_SetTargetPitchHead(Me, a1 as Float, a2 as Float)
+  Me.chrAnim_SetAnimControlParameterEnumFloat(cpid_TargetPitchHead, a1, a2)
+.
+public shared method chrAnim_SetRangedRetract(Me, a1 as Float, a2 as Float)
+  Me.chrAnim_SetAnimControlParameterEnumFloat(cpid_RangedRetract, a1, a2)
+.
+public shared method chrAnim_SetVehicleRotation(Me, a1 as Float, a2 as Float)
+  Me.chrAnim_SetAnimControlParameterEnumFloat(cpid_VehicleRotation, a1, a2)
+.

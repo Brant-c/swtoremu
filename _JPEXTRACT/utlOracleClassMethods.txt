@@ -1,0 +1,57 @@
+public method _getOracleDebugChannelName() as String
+  return "Oracle"
+.
+public method _getOracleDejaChannelName() as String
+  return "utl"
+.
+public method _getOracleScriptName() as String
+  return $THISSCRIPT
+.
+public method init(Me)
+.
+public method _getOracleDebugLevel() as Integer
+  return Me.debugLevel
+.
+public method _setOracleDebugLevel(Me, a1 as Integer)
+  Me.debugLevel = a1
+.
+public method _traceMe(Me, a1 as ID, a2 as Integer, a3 as String)
+  var bool1 = a2 <= -1
+  if not HIDWORD(a2)
+    bool1 = (unsigned int)a2 <= 2
+  .
+  if not bool1
+    var unused = Me.debugLevel
+  .
+  if Me.debugLevel >= a2
+    // unknown
+  .
+.
+public method _debugMe(Me, a1 as ID, a2 as Integer, a3 as String)
+  var bool1 = a2 <= -1
+  if not HIDWORD(a2)
+    bool1 = (unsigned int)a2 <= 3
+  .
+  if not bool1
+    var unused = Me.debugLevel
+  .
+  if Me.debugLevel >= a2
+    // unknown
+  .
+.
+public method _HoldMessage(Me, a1 as ID, a2 as LookupList indexed by String of String)
+  if a1 != 0
+    Me.utlOracleHeldMessages[a1] = a2
+  .
+.
+public method _RemoveMessageForNodes() as List of LookupList indexed by String of String
+  list1 as List of LookupList indexed by String of String
+  var lookup = Me.utlOracleHeldMessages
+  foreach key in lookup
+    if key != None
+      add back lookup[key] to list1
+      remove key from lookup keep
+    .
+  .
+  return list1
+.

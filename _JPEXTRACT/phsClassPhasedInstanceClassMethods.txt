@@ -1,0 +1,357 @@
+ar STR_GROUP_OWNED_CLASS_INSTANCE_HELP_TIP = 1004897793212418  // "You are entering <<2>>'s <<1>> Phase. You can help <<2>>, but your own quests will not progress while you remain in <<2>>'s Phase."
+var STR_PHASE_CLASS_RESTRICTED = 836088398610445  // "This phase is class restricted. Only (<<1>>) characters may enter."
+var STR_PHASE_NOT_ALLOWED = 951902191747073  // "You are not allowed in this instance"
+var STR_PHASE_NOT_ALLOWED_PRESENTLY = 836088398610444  // "You are not allowed in this phase at this time."
+var STR_PLAYER_OWNED_CLASS_INSTANCE_HELP_TIP = 1004897793212417  // "<<1>> Phase. Your groupmates can help you if they are not a <<1>>, or if they select $QAllow access to same-class story areas$Q in the Preference window."
+var STR_TOOLTIP_CLASS_PHASE_HEADER = 951902191747088  // "<<1>> Phase"
+var STR_TOOLTIP_DIFF_CLASS_NOT_ELIGIBLE = 951902191747079  // "You must be on the appropriate <<1>> mission to enter."
+var STR_TOOLTIP_DIFF_CLASS_PHASE_OWNED_BASE = 951902191747081  // "You can help <<2>> by going in."
+var STR_TOOLTIP_SAME_CLASS_NOT_ELIGIBLE = 951902191747209  // "You are not eligible to enter at this time."
+var STR_TOOLTIP_SAME_CLASS_PHASE_OWNED_BASE = 951902191747084  // "You can enter a new instance to progress your quests. You may also help <<2>> by joining them."
+var STR_TOOLTIP_SAME_CLASS_PHASE_UNOWNED = 951902191747078  // "Only one <<1>> is allowed in this phase."
+var STR_TOOLTIP_SAME_CLASS_PHASE_UNOWNED_WITH_JOIN_OPTION = 951902191747087  // "Only one <<1>> is allowed to advance their quests in this phase."
+public method GetPhaseType() as Enum phsTypeEnum
+  return phsTypeClass
+.
+public method GetRaidMemberPhaseEntryRule() as Enum phsRaidMemberPhaseEntryRule
+  return phsRaidMemberPhaseEntryRuleCanOwn
+.
+public method IsEligibleForPhaseOwnership(a1 as NodeRef of chrPlayerCharacter) as Boolean
+  CallFrame _callFrame
+  FuncRef IsEligibleForPhaseOwnership
+  var out = false
+  if Me.phsAlwaysEnter
+    if not Me.HasClassRequirement()
+      // unknown
+    else if Me.HasRequiredClass(a1)
+      // unknown
+    else
+      if not out
+        IsEligibleForPhaseOwnership = HM.PrepareCallBaseMethod2(2, Me, &_callFrame)
+        out = IsEligibleForPhaseOwnership(_callFrame, a1) & 1
+      .
+      return out
+    .
+    out = true
+  .
+  if not out
+    IsEligibleForPhaseOwnership = HM.PrepareCallBaseMethod2(2, Me, &_callFrame)
+    out = IsEligibleForPhaseOwnership(_callFrame, a1) & 1
+  .
+  return out
+.
+public method OnPlayerExitedInstance(Me)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 = None
+    // unknown
+  else
+    pc2.FireTutorialEvent(tutTutorialEvent_AttackingEnemies)
+  .
+.
+public method DeterminePhaseEligibility() as Enum phsGatewayStateEnum
+  Boolean bool7
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 = None
+    return phsCannotEnter
+  .
+  var unused = HM.GetEnumDefaultValue(8)
+  var out = phsCannotEnter
+  if pc2.GetPhasedInstance() == Me
+    out = phsCanExit
+    phsPhasedInstanceClassMethods:UpdateGatewayStateIfInCombat(pc2, &out)
+    Me.UpdateGatewayStateIfInRaidGroup(pc2, &out)
+    return out
+  .
+  var bool1 = Me.IsEligibleForPhaseOwnership(pc2)
+  var bool2 = bool1
+  var bool3 = false
+  if bool1
+    if not Me.CheckPhaseLockHydraCondition(pc2)
+      bool2 = false
+      bool3 = true
+    .
+  .
+  var length = 0
+  lookup as LookupList indexed by ID of String
+  if pc2.IsInGroup()
+    if $Options.GetBooleanValue(14453039912284984367) or not Me.HasRequiredClass(pc2)  // "social_classphasemode"
+      bool7 = true
+    else
+      bool7 = false
+    .
+  else
+    bool7 = false
+  .
+  if bool7
+    Me._GetGroupEligiblePhases(pc2, &lookup)
+    length = lookup.length
+  .
+  if bool2
+    out = phsCanOwn
+    var bool9 = length <= -1
+    if not HIDWORD(length)
+      bool9 = (_DWORD)length == 0
+    .
+    if not bool9
+      if Me._PlayerHasJoinOverride(pc2)
+        var id1 = Me._GetPlayerJoinOverride(pc2)
+        if id1 != None
+          if id1.GetPhaseInfoOwner() != pc2
+            out = phsCanJoin
+          .
+        .
+        phsPhasedInstanceClassMethods:UpdateGatewayStateIfInCombat(pc2, &out)
+        Me.UpdateGatewayStateIfInRaidGroup(pc2, &out)
+      else
+        if lookup.length == 1
+          foreach key in lookup
+            var node8 = key.GetPhaseInfoOwner()
+            if node8 != pc2
+              out = phsCanOwnOrJoin
+            .
+          .
+        else
+          out = phsCanOwnOrJoin
+        .
+        phsPhasedInstanceClassMethods:UpdateGatewayStateIfInCombat(pc2, &out)
+        Me.UpdateGatewayStateIfInRaidGroup(pc2, &out)
+      .
+    else
+      phsPhasedInstanceClassMethods:UpdateGatewayStateIfInCombat(pc2, &out)
+      Me.UpdateGatewayStateIfInRaidGroup(pc2, &out)
+    .
+  else
+    if length == 1
+      // unknown
+    else
+      var bool11 = length <= -1
+      if not HIDWORD(length)
+        bool11 = (unsigned int)length <= 1
+      .
+      if not bool11
+        if Me._PlayerHasJoinOverride(pc2)
+          // unknown
+        else
+          out = phsCanJoinMultiple
+          phsPhasedInstanceClassMethods:UpdateGatewayStateIfInCombat(pc2, &out)
+          Me.UpdateGatewayStateIfInRaidGroup(pc2, &out)
+          return out
+        .
+      else
+        if bool3
+          out = phsHasPhaseLock
+        .
+        phsPhasedInstanceClassMethods:UpdateGatewayStateIfInCombat(pc2, &out)
+        Me.UpdateGatewayStateIfInRaidGroup(pc2, &out)
+        return out
+      .
+    .
+    out = phsCanJoin
+    phsPhasedInstanceClassMethods:UpdateGatewayStateIfInCombat(pc2, &out)
+    Me.UpdateGatewayStateIfInRaidGroup(pc2, &out)
+  .
+  return out
+.
+public method GetInstanceGatewayState(Me, a1 as Enum phsGatewayStateEnum, o2 references Enum fxUsedInScript, o3 references Enum fxUsedInScript, o4 references Boolean)
+  CallFrame _callFrame
+  if a1 == phsCanExit
+    *o2 = fxInstancePortalGreen
+    return
+  .
+  if a1 == phsHasPhaseLock
+    *o4 = 1
+    *o2 = fxInstancePortalGreen
+    return
+  .
+  if a1 == phsCanJoin
+    *o2 = fxInstancePortalBlue
+    return
+  .
+  if a1 == phsCanOwn
+    *o2 = fxInstancePortalGreen
+    return
+  .
+  if a1 == phsCanOwnOrJoin
+    *o4 = 1
+    *o2 = fxInstancePortalGreen
+    return
+  .
+  if a1 == phsCanJoinMultiple
+    *o4 = 1
+    *o2 = fxInstancePortalBlue
+    return
+  .
+  FuncRef GetInstanceGatewayState = HM.PrepareCallBaseMethod2(15, Me, &_callFrame)
+  GetInstanceGatewayState(_callFrame, a1, &o2, &o3, &o4)
+.
+public method OnPlayerEnteredGateway(Me, a1 as NodeRef of chrPlayerCharacter)
+  var enum1 = HM.GetEnumDefaultValue(8)
+  var enum2 = Me.DeterminePhaseEligibility()
+  enum1 = enum2
+  if enum2 == phsCanOwnOrJoin
+    $PHASE.DisplayJoinInstancePopup(HM.CopyConstructNodeRef(9, Me), phsCanOwnOrJoin)
+    return
+  .
+  if enum2 == phsCanJoinMultiple
+    $PHASE.DisplayJoinInstancePopup(HM.CopyConstructNodeRef(9, Me), enum1)
+    return
+  .
+  if enum2 == phsCannotEnter
+    if Me.HasRequiredClass(a1)
+      str = $STRING.LocalizeStringWithPlayerGender(STR_GUI_MISC, ID_STR_GUI_MISC | 0xC, HIDWORD(ID_STR_GUI_MISC) | 0x2F86B)  // "You are not allowed in this phase at this time."
+      v13 = node4
+      node4 = HM.ConstructNodeRef(18)
+      $GUI_API = (NodeRef *)&v49
+    else
+      var id1 = 0
+      if Me.GetPhasedInstanceRequiredClassID(&id1)
+        list1 as List of String
+        add back chrClassComponentClassMethods:GetCharacterClassNameFromSpec(id1, 0) to list1
+        $GUI_API.getApi().systemMessage($STRING.LocalizeStringTokenizedWithPlayerGenderVariant(STR_GUI_MISC, ID_STR_GUI_MISC | 0xD, HIDWORD(ID_STR_GUI_MISC) | 0x2F86B, list1), v34)  // "This phase is class restricted. Only (<<1>>) characters may enter."
+        return
+      .
+      str = $STRING.LocalizeStringWithPlayerGender(STR_GUI_INSTANCE, ID_STR_GUI_INSTANCE | 1, HIDWORD(ID_STR_GUI_INSTANCE) | 0x361C0)  // "You are not allowed in this instance"
+      v13 = node6
+      node6 = HM.ConstructNodeRef(18)
+      $GUI_API = (NodeRef *)&v40
+    .
+    v13 = $GUI_API.getApi()
+    v13.systemMessage(str, v33)
+  else
+    phsPhasedInstanceClassMethods:DefaultHandlerOnPlayerEnteredGateway(&enum1)
+    $PHASE._HideJoinPopup(v32, v35)
+  .
+.
+public method UpdateGuiForPhase(Me)
+  CallFrame _callFrame
+  FuncRef UpdateGuiForPhase = HM.PrepareCallBaseMethod2(26, Me, &_callFrame)
+  UpdateGuiForPhase(_callFrame)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 = None
+    // unknown
+  else
+    var node3 = pc2.GetPhaseInfo()
+    if node3 = None
+      // unknown
+    else if pc2.IsInGroup()
+      var id1 = 0
+      if Me.GetPhasedInstanceRequiredClassID(&id1)
+        $GUI_API.getApi().setGuiPhaseData(Me.GetPhaseType(), node3.GetPhaseInfoOwnerName(), chrClassComponentClassMethods:GetCharacterClassNameFromSpec(id1, 0), node3.IsQuestProgressionAllowed())
+      else
+        // unknown
+      .
+    .
+  .
+.
+public method OnPlayerEnteredInstance(Me)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 = None
+    // unknown
+  else
+    var node2 = pc2.GetPhaseInfo()
+    if node2 = None
+      // unknown
+    else
+      var id1 = 0
+      if not Me.GetPhasedInstanceRequiredClassID(id1)
+        // unknown
+      else
+        list1 as List of String
+        add back chrClassComponentClassMethods:GetCharacterClassNameFromSpec(id1, 0) to list1
+        int v20 = 0
+        int v19 = 0
+        if node2.GetPhaseInfoOwner() == pc2
+          v20 = 233971
+          v19 = 1
+        else
+          v20 = 233971
+          v19 = 2
+          add back node2.GetPhaseInfoOwnerName() to list1
+        .
+        $PHASE.DisplayPhasingHelpPopup($STRING.LocalizeStringWithTokenList(STR_GUI_HELPTIPS, v19, v20, list1))
+      .
+    .
+  .
+.
+public method GetGatewayTooltipMessage(o1 references Integer, o2 references Integer, o3 references List of String) as Boolean
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 = None
+    return false
+  else
+    var id1 = 0
+    if not Me.GetPhasedInstanceRequiredClassID(id1)
+      return false
+    .
+    *((_DWORD *)o1 + 1) = 221632
+    *(_DWORD *)o1 = 16
+    add back chrClassComponentClassMethods:GetCharacterClassNameFromSpec(id1) to o3
+    var enum1 = Me.DeterminePhaseEligibility()
+    if enum1 == phsCanOwn
+      if $Options.GetBooleanValue(14453039912284984367)  // "social_classphasemode"
+        *((_DWORD *)o2 + 1) = 221632
+        *(_DWORD *)o2 = 15
+      else
+        *((_DWORD *)o2 + 1) = 221632
+        *(_DWORD *)o2 = 6
+      .
+    else if enum1 == phsCanOwnOrJoin
+      lookup as LookupList indexed by ID of String
+      Me._GetGroupEligiblePhases(pc2, &lookup)
+      *o2 = lookup.length + 951902191747083
+      foreach key in lookup
+        lookupCur as String
+        var lookupCur = lookup[key]
+        add back lookupCur to o3
+      .
+    else if enum1 == phsCanJoinMultiple
+      HM.ExpirationCheck()
+    else if enum1 == phsCanJoin
+          // unknown
+    else
+      var id2 = pc2.GetCharacterClass()
+      if id1 == id2
+        *((_DWORD *)o2 + 1) = 221632
+        *(_DWORD *)o2 = 137
+      else
+        *((_DWORD *)o2 + 1) = 221632
+        *(_DWORD *)o2 = 7
+      .
+      return true
+    .
+    lookup2 as LookupList indexed by ID of String
+    Me._GetGroupEligiblePhases(pc2, &lookup2)
+    *o2 = lookup2.length + 951902191747080
+    foreach key in lookup2
+      lookup2Cur as String
+      var lookup2Cur = lookup2[key]
+      add back lookup2Cur to o3
+    .
+    return true
+  .
+.
+public method _GetGroupEligiblePhases(Me, a1 as NodeRef of chrPlayerCharacter, o2 references LookupList indexed by ID of String)
+  var node2 = $GROUP.GetGroupNode()
+  if node2 != None
+    var lookup = Me.phsPhases
+    foreach key in lookup
+      var cur = lookup[key]
+      if cur != None
+        var id1 = cur.GetPhaseInfoOwnerID()
+        if node2.IsGroupMemberInSameArea(id1)
+          var id2 = cur.GetPhaseInfoOwnerID()
+          var str2 = o2[cur]
+          node2.GetGroupMemberName(id2, &str2)
+          o2[cur] = str2
+        .
+      .
+    .
+  .
+.
+public method HideReinforcementMessage() as Boolean
+  return Me.phsHideReinforcementMessage
+.

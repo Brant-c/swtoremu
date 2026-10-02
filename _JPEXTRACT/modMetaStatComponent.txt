@@ -1,0 +1,26 @@
+Name	
+8773EA93 	modMetaStatComponent	
+modMetaStatComponent	
+Server script	
+14988056876937277133 	modMetaStatComponentClassMethods	
+Client script	
+14988068554395772994 	_clientmodMetaStatComponentClassMethods	
+Parent classes	
+Used by fields	
+NodeRef in fields	
+Base class of system nodes	
+Glommed into system nodes	
+Declared in client.gom	present
+Shared with server DOM	yes
+Archetype	DATA
+Live
+
+Child classes	chrCharacter
+spnVehicle
+Fields	
+Beta · 6		modMetaStatComputed_Shared	LookupList indexed by Int of LookupList indexed by Enum modStatEnum of Float
+(7 functions in 4 scripts)
+ablAbilityClassMethods	GetAbilityLongestCooldownTime, GetAbilityMaxRange, GetAbilityMinRange, GetAbilityStat
+ablUserComponentClassMethods	offset 160
+effEffectClassMethods	GetEffectStat
+guiApiGfxGetsClassMethods	_getModMetaStatComponent

@@ -1,0 +1,567 @@
+var EFF_EVENT_MAX_RECURSION_DEPTH = 80
+public method EffEventMessage(Me, a1 as ClassView effEvent)
+  var node = CreateNodeFromClassID(effEvent)
+  var classView = HM.GetClassViewFromNodeRef(node, effEvent)
+  classView = HM.CopyClassViewToClassView(a1)
+  node.effEventIsSynthesized = false
+  node.effEventConstruct()
+  if $ABILITY.unk_d585e0c7()
+    if node.effEventActivateRequestId >= 1
+      var id1 = node.effEventCaster
+      var pc = GetPlayerCharacterNode()
+      if pc == id1
+        $ABILITY.unk_49196537(node.effEventActivateRequestId)
+      .
+    .
+  .
+  $EFFECT_EVENT.effEventOracle_AddEvent(node)
+.
+public method RegisterEffectEvent(Me, a1 as NodeRef of effEvent)
+  Me.effEventOracleLastHandle = Me.effEventOracleLastHandle + 1
+  a1.effEventHandle = Me.effEventOracleLastHandle
+  Me.effEventOracleEventMap[a1.effEventHandle] = a1
+.
+public method _getOracleDebugChannelName() as String
+  return "EFFECT_EVENT"
+.
+public method _getOracleDejaChannelName() as String
+  return "eff::Event"
+.
+public method _getOracleScriptName() as String
+  return $THISSCRIPT
+.
+remote function OnDebugLevelSet(Me, a1 as Integer)
+  $EFFECT_EVENT._setOracleDebugLevel(a1)
+.
+public method effEventOracleTryToExecuteEvent(Me, a1 as NodeRef of effEvent)
+  List list3
+  $CPULIMIT = 300000
+  $CALLSTACKLIMIT = 1000
+  var id1 = a1.effEventEffectSpec
+  var str2 = utlFQN:fromIDTemp(id1)
+  $CombatProfiler.OpenAbilityUseContext(str2, ABL_CONTEXT_TRY_TO_EXECUTE_EVENT)
+  if a1.effEventIsExecuting
+    $CombatProfiler.CloseAbilityUseContext(id1, ABL_CONTEXT_TRY_TO_EXECUTE_EVENT)
+  else if a1.effEventHasExecuted
+    $CombatProfiler.CloseAbilityUseContext(str2, ABL_CONTEXT_TRY_TO_EXECUTE_EVENT)
+    a1.ExecuteNextDeferredDamageAction()
+  else
+    a1.effEventReadyToExecute = true
+    if a1.ExecuteEffect()
+      if a1.effEventEffectAppearance != None and a1.effEventTriggerName == effTrigger_OnRemove
+        a1.effEventEffectAppearance.effAppearanceRemove(a1, false)
+      .
+      loop i from 1 to list3.length
+        var cur = Me.effEventOraclePendingEvents[i]
+        if a1 == cur
+          remove Me.effEventOraclePendingEvents at i keep
+          break
+        .
+      .
+      add back a1 to Me.effEventOracleCompletedEvents
+      Me.effEventOracle_TimeoutPendingEvents()
+      var lookup = Me.effEventOracleDependentAppearances
+      if lookup has a1.effEventTransactionId
+        foreach cur in lookup[a1.effEventTransactionId]
+          if cur != None
+            Me.effEventOracle_AddEvent_Normally(cur)
+          .
+        .
+      .
+      $CombatProfiler.CloseAbilityUseContext(str2, ABL_CONTEXT_TRY_TO_EXECUTE_EVENT)
+    else
+      $CombatProfiler.CloseAbilityUseContext(str2, ABL_CONTEXT_TRY_TO_EXECUTE_EVENT)
+    .
+  .
+.
+public method effEventOracleGetEventByHandle(a1 as Integer) as NodeRef of effEvent
+  var lookup = Me.effEventOracleEventMap
+  if lookup has a1
+    return lookup[a1]
+  else
+    return None
+  .
+.
+public method GetEventForTransaction(a1 as Integer) as NodeRef of effEvent
+  var lookup = Me.effEventOracleTransactionEventMap
+  if lookup has a1
+    return lookup[a1]
+  else
+    return None
+  .
+.
+public method effEventOracle_GetEventWaitingForEffect(a1 as ID) as NodeRef of effEvent
+  var lookup = Me.effEventOracleEffectWaitingForEventMap
+  if lookup has a1
+    return lookup[a1]
+  else
+    return None
+  .
+.
+public method effEventOracle_RememberEventWaitingForEffect(Me, a1 as NodeRef of effEvent, a2 as ID)
+  if a1 = None
+    // unknown
+  else
+    Me.effEventOracleEffectWaitingForEventMap[a2] = a1
+  .
+.
+public method effEventOracle_ForgetEventWaitingForEffect(Me, a1 as ID)
+  var lookup = Me.effEventOracleEffectWaitingForEventMap
+  if lookup has a1
+    remove a1 from lookup keep
+  .
+.
+public method effEventOracle_ForgetEventWaitingForEffects(Me, a1 as NodeRef of effEvent)
+  if a1 = None
+    // unknown
+  else
+    var lookup = Me.effEventOracleEffectWaitingForEventMap
+    foreach key in lookup
+      var cur = lookup[key]
+      if a1 == cur
+        remove key from lookup keep
+      .
+    .
+  .
+.
+public method effEventOracle_PurgeCompletedEvents(Me)
+  Boolean bool3
+  var unused = Me.effEventOracleCompletedEvents.length
+  var int1 = 1
+  while true
+    HM.ExpirationCheck()
+    int v6 = HIDWORD(int1)
+    var bool1 = int1 > (unsigned int)unused
+    var bool2 = SHIDWORD(unused) < v6
+    if HIDWORD(unused) == v6
+      bool2 = bool1
+    .
+    if bool2
+      break
+    .
+    var node = Me.effEventOracleCompletedEvents[int1]
+    if node != None
+      if not node.effEventStopSuppressTimer
+        if node.effEventExpiration > $NOW
+          bool3 = false
+        else
+          bool3 = true
+        .
+      else
+        bool3 = false
+      .
+      if bool3
+        remove node.effEventHandle from Me.effEventOracleEventMap keep
+        remove node.effEventTransactionId from Me.effEventOracleTransactionEventMap keep
+        remove Me.effEventOracleCompletedEvents at int1 keep
+        node.effEvent_RemoveRef()
+      else
+        ++int1
+      .
+    .
+  .
+.
+public method effEventOracle_TimeoutPendingEvents(Me)
+  $CPULIMIT = 180000
+  $CALLSTACKLIMIT = 200
+  var list1Length = Me.effEventOraclePendingEvents.length
+  var bool1 = (_DWORD)list1Length != 0
+  var bool2 = SHIDWORD(list1Length) >= 1
+  if not HIDWORD(list1Length)
+    bool2 = bool1
+  .
+  if not bool2
+    // unknown
+  else
+    var int1 = Me.effEventOracleRecursionCount
+    var bool3 = (unsigned int)int1 <= EFF_EVENT_MAX_RECURSION_DEPTH
+    bool4 = int1 <= -1
+    if not HIDWORD(int1)
+      bool4 = bool3
+    .
+    if bool4
+      Me.effEventOracleRecursionCount = Me.effEventOracleRecursionCount + 1
+      var int3 = 1
+      while true
+        HM.ExpirationCheck()
+        v16 = HIDWORD(int3)
+        list2Length = Me.effEventOraclePendingEvents.length
+        var bool5 = int3 > (unsigned int)list2Length
+        bool6 = SHIDWORD(list2Length) < v16
+        if HIDWORD(list2Length) == v16
+          bool6 = bool5
+        .
+        if not bool6
+          var node2 = Me.effEventOraclePendingEvents[int3]
+          node = node2
+          if node.effEventReadyToExecute
+            break
+          .
+          if node.effEventExpiration <= $NOW
+            var unused = $NOW
+            var unused2 = node.effEventExpiration
+            goto LABEL_10
+          .
+          var unused3 = node.effEventExpiration
+          var unused4 = $NOW
+LABEL_15:
+          ++int3
+        else
+          Me.effEventOracleRecursionCount = Me.effEventOracleRecursionCount - 1
+          return
+        .
+      .
+      interval = $NOW - node.effEventExpiration
+LABEL_10:
+      Me.effEventOracleTryToExecuteEvent(node)
+      goto LABEL_15
+    .
+  .
+.
+public method effEventOracle_RegisterProjectileByTransaction(Me, a1 as Integer, a2 as Integer, a3 as ID)
+  Me.effEventOracleProjectileByTransaction[a1][a2] = a3
+.
+public method effEventOracle_ReassignProjectile(Me, a1 as Integer, a2 as Integer, a3 as Integer, a4 as Integer)
+  var lookup = Me.effEventOracleProjectileByTransaction
+  if lookup has a1
+    if lookup[a1] has a2
+      var id1 = lookup[a1][a2]
+      var length = lookup[a1].length
+      if length < 2
+        remove a1 from lookup keep
+      else
+        remove a2 from lookup[a1] keep
+      .
+      lookup[a3][a4] = id1
+    .
+  .
+.
+public method effEventOracle_UnregisterProjectileByTransaction(Me, a1 as Integer, a2 as Integer)
+  var lookup = Me.effEventOracleProjectileByTransaction
+  if lookup has a1
+    if lookup[a1] has a2
+      var length = lookup[a1].length
+      if length < 2
+        remove a1 from lookup keep
+      else
+        remove a2 from lookup[a1] keep
+      .
+    .
+  .
+.
+public method effEventOracle_GetProjectileByTransaction(a1 as Integer, a2 as Integer) as ID
+  LookupList lookup4
+  LookupList lookup5
+  var lookup = Me.effEventOracleProjectileByTransaction
+  if lookup has a1 and (HM.TrackLine(340), lookup4 = Me.effEventOracleProjectileByTransaction, lookup5 = lookup4[a1], lookup5 has a2)
+    return lookup[a1][a2]
+  else
+    return 0
+  .
+.
+public method effEventOracle_AddEvent(Me, a1 as NodeRef of effEvent)
+  var id1 = a1.effEventEffectSpec
+  $CombatProfiler.OpenAbilityUseContext(utlFQN:fromIDTemp(id1), ABL_CONTEXT_ADD_EVENT)
+  var id2 = a1.effEventCaster
+  if id2 != None
+    call event id2:OnShouldUpdateBehavior id2:OnShouldUpdateBehavior
+  .
+  foreach cur in a1.effEventTargetDetails
+    var id3 = cur.effEventTargetDetailsTarget
+    if id3 != None and id3 is kindof chrCharacter
+      call event id3:OnShouldUpdateBehavior id3:OnShouldUpdateBehavior
+    .
+  .
+  var pc = GetPlayerCharacterNode()
+  if id2 == pc and not a1.effEventIsSynthesized
+    if id2 != None
+      var id4 = a1.effEventEffectSpec
+      id2.VerifyAbilityActivation(id4, a1.effEventActivateRequestId)
+    .
+  .
+  var id5 = a1.effEventEffectSpec
+  var id6 = $ABILITY.GetAbilityEffectPrototypeID(16141052782978457145, 1)
+  if not HIDWORD(id5) ^ HIDWORD(id6) | id5 ^ id6
+    a1.effEventResult = 30
+    foreach cur in a1.effEventTargetDetails
+      cur.effEventTargetDetailsResult = 30
+    .
+  .
+  Me.effEventOracleLastHandle = Me.effEventOracleLastHandle + 1
+  a1.effEventHandle = Me.effEventOracleLastHandle
+  a1.effEvent_AddRef()
+  Me.effEventOracleTransactionEventMap[a1.effEventTransactionId] = a1
+  Me.effEventOracleEventMap[a1.effEventHandle] = a1
+  add back a1 to Me.effEventOraclePendingEvents
+  if a1.effEventCalledByTransactionId == 0
+    Me.effEventOracle_AddEvent_Normally(a1)
+  else
+    Me.effEventOracle_AddEvent_WithDependencies(a1)
+  .
+  var id7 = a1.effEventEffectSpec
+  $CombatProfiler.CloseAbilityUseContext(utlFQN:fromIDTemp(id7), ABL_CONTEXT_ADD_EVENT)
+.
+public method effEventOracle_AddEvent_Normally(Me, a1 as NodeRef of effEvent)
+  if a1.effEventEffectAppearance = None
+    Me.effEventOracleTryToExecuteEvent(a1)
+    return
+  .
+  if a1.effEventTriggerName == effTrigger_OnRemove
+    Me.effEventOracleTryToExecuteEvent(a1)
+    return
+  .
+  if a1.effEventTriggerName == effTrigger_OnReplayLoopingEpp
+    a1.effEventEffectAppearance.effAppearanceExecute_LoopingActionsOnly(a1)
+    Me.effEventOracleTryToExecuteEvent(a1)
+    return
+  .
+  if a1.effEventEffectAppearance.effAppearanceExecute(a1)
+    return
+  .
+  Me.effEventOracleTryToExecuteEvent(a1)
+.
+public method effEventOracle_AddEvent_WithDependencies(Me, a1 as NodeRef of effEvent)
+  var id2 = Me.effEventOracle_GetProjectileByTransaction(a1.effEventCalledByTransactionId, a1.effEventCalledByTargetDetailsIndex)
+  if id2 != 0
+    ProjReassignToEvent(id2, a1)
+  else
+    var node3 = Me.GetEventForTransaction(a1.effEventCalledByTransactionId)
+    if node3 = None and a1.effEventTriggerName == effTrigger_OnRemove
+      Me.effEventOracle_AddEvent_Normally(a1)
+    else if node3 != None and node3.effEventHasExecuted
+      Me.effEventOracle_AddEvent_Normally(a1)
+    else
+      if a1.effEventTriggerName == effTrigger_OnTravelComplete
+        var node4 = $CHARACTER.GetControlledVehicle()
+        if node4 = None
+          var lookup = Me.effEventOracleDependentAppearances
+          var id3 = a1
+          add back id3 to lookup[a1.effEventCalledByTransactionId]
+          return
+        .
+      .
+      var id4 = a1.effEventEffectSpec
+      if $EFFECT.IsEffectAppearanceDependentOnCallingEffect(id4, a1.effEventSubEffectNumber)
+        var lookup = Me.effEventOracleDependentAppearances
+        var id3 = a1
+        add back id3 to lookup[a1.effEventCalledByTransactionId]
+        return
+      .
+      Me.effEventOracle_AddEvent_Normally(a1)
+    .
+  .
+.
+public function OnTimerTick(Me, a1 as ID)
+  effEventOracleTimer_tick()
+.
+public function effEventOracleTimer_tick(Me)
+  if Me is kindof effEventOracle
+    Me.effEventOracle_PurgeCompletedEvents()
+    Me.effEventOracle_TimeoutPendingEvents()
+  .
+.
+public method effEventOracle_Init(Me)
+  if Me.effEventOracleTimer.timerState == 1
+    Me.effEventOracleTimer.script = $THISSCRIPT
+    Me.effEventOracleTimer.fireRate = 1000
+    Me.effEventOracleTimer.realTime = 1
+    timer::start(Me.effEventOracleTimer)
+  .
+.
+public method effEventOracleOnAreaLoaded(Me)
+  Me.effEventOracle_Init()
+.
+public method effEventOracleOnAreaUnloaded(Me)
+  Me.effEventOracle_Reset()
+.
+public method effEventOracle_Reset(Me)
+  if Me.effEventOracleTimer.timerState == 2
+    timer::stop(Me.effEventOracleTimer)
+  .
+  clear Me.effEventOraclePendingEvents keep
+  clear Me.effEventOracleCompletedEvents keep
+  clear Me.effEventOracleTransactionEventMap keep
+  clear Me.effEventOracleEffectWaitingForEventMap keep
+  clear Me.effEventOracleEventMap destroy
+.
+public method effEventOracle_ShowInfo(Me)
+  var str = "[client] effEventOracle Info: "
+  var list1Length = Me.effEventOraclePendingEvents.length
+  str = str + " pending=" + list1Length
+  var list2Length = Me.effEventOracleCompletedEvents.length
+  str = str + " completed=" + list2Length
+  var length = Me.effEventOracleEventMap.length
+  str = str + " event_map=" + length
+  var length2 = Me.effEventOracleEffectWaitingForEventMap.length
+  str = str + "  event_waiting_for_effect_map=" + length2
+.
+public method effEventOracle_Dump(Me, a1 as Integer)
+  Integer i
+  String str5
+  Me._effEventOracle_Dump_EventList(Me.effEventOraclePendingEvents, a1)
+  Me._effEventOracle_Dump_EventList(Me.effEventOracleCompletedEvents, a1)
+  loop i from Me.effEventOracleLastHandle - __PAIR64__((unsigned int)((_DWORD)a1 != 0) + HIDWORD(a1) - 1, (int)a1 - 1) to Me.effEventOracleLastHandle
+    var lookup = Me.effEventOracleEventMap
+    if lookup has i
+      if lookup[i] = None
+        // unknown
+      else
+        // unknown
+      .
+    else
+      // unknown
+    .
+  .
+  __int64 v39 = 1
+  var lookup3 = Me.effEventOracleTransactionEventMap
+  foreach key in lookup3
+    str as String
+    if lookup3[key] = None
+      str5 = str + "transId=" + key + " -> <INVALID>"
+    else
+      if IsTransactionBlocked(key)
+        str = str + "[BLOCKED] "
+      .
+      str5 = str + "transId=" + key + " -> " + lookup3[key].toString()
+    .
+    str = str5
+    ++v39
+    if a1 < v39
+      break
+    .
+  .
+  v39 = 1
+  var lookup6 = Me.effEventOracleEffectWaitingForEventMap
+  foreach key in lookup6
+    if a1 < v39
+      break
+    .
+    var lookup6Cur = lookup6[key]
+    if lookup6Cur = None
+      // unknown
+    else
+      // unknown
+    .
+    ++v39
+  .
+.
+public method _effEventOracle_Dump_EventList(Me, a1 as List of NodeRef of effEvent, a2 as Integer)
+  Integer i2
+  loop i from 1 to a2
+    if a1.length < i
+      break
+    .
+    var cur = a1[i]
+    if cur = None
+      // unknown
+    else
+      // unknown
+    .
+  .
+  int v10 = __CFADD__((_DWORD)a2, 1) + HIDWORD(a2)
+  var a1Length = a1.length
+  var bool2 = SHIDWORD(a1Length) <= v10
+  if HIDWORD(a1Length) == v10
+    bool2 = ((unsigned int)a1Length <= (int)a2 + 1)
+  .
+  if not bool2
+    // unknown
+  .
+  if a1.length > a2
+    var bool3 = (_DWORD)a2 != 0
+    loop i2 from a1.length - __PAIR64__((unsigned int)bool3 + HIDWORD(a2) - 1, (int)a2 - 1) to a1.length
+      var cur = a1[i2]
+      if cur = None
+        // unknown
+      else
+        // unknown
+      .
+    .
+  .
+.
+public method effEventOracle_HandleSlashCommand(Me, a1 as List of String)
+  int v15
+  int v16
+  Integer a1Length2
+  Boolean bool4
+  var a1Length = a1.length
+  if a1Length < 3
+    // unknown
+  else
+    when a1[3]
+      is "info"
+        $EFFECT_EVENT.effEventOracle_ShowInfo(v15, v16)
+      .
+      is "dump"
+        a1Length2 = a1.length
+        var bool3 = (unsigned int)a1Length2 <= 3
+        bool4 = a1Length2 <= -1
+        if not HIDWORD(a1Length2)
+          bool4 = bool3
+        .
+        if not bool4
+          var str2 = a1[4]
+          $EFFECT_EVENT.effEventOracle_Dump(str2)
+          break
+        .
+      .
+      is "clear"
+        $EFFECT_EVENT.effEventOracle_Reset()
+      .
+    .
+  .
+.
+remote function OnSlashCommand(Me, a1 as List of String)
+  $EFFECT_EVENT.effEventOracle_HandleSlashCommand(a1)
+.
+public method effEventOracle_SynthesizeEffectEvent(a1 as ID, a2 as Integer, a3 as Integer, a4 as Enum effTriggerEnum, a5 as ID, a6 as Boolean, a7 as Enum effResult) as NodeRef of effEvent
+  var node = CreateNodeFromClassID(effEvent)
+  node.effEventEffectSpec = a1
+  node.effEventSubEffectNumber = a3
+  node.effEventTriggerName = a4
+  node.effEventStopSuppressTimer = a6
+  node.effEventCaster = a5
+  node.effEventIsSynthesized = true
+  node.effEventActivateRequestId = a2
+  node.effEventResult = a7
+  return node
+.
+public method effEventOracle_AddSyntheticEffectEventTarget(Me, a1 as NodeRef of effEvent, a2 as ID, a3 as Enum effResult, a4 as ID)
+  if a1 = None
+    // unknown
+  else
+    classView as ClassView
+    classView.effEventTargetDetailsTarget = a2
+    classView.effEventTargetDetailsResult = a3
+    if a4 != 0
+      classView.effEventTargetDetailsEffectId = a4
+    else
+      var id1 = a1
+      classView.effEventTargetDetailsEffectId = id1
+    .
+    add back classView to a1.effEventTargetDetails
+  .
+.
+public method effEventOracle_AddSyntheticEffectEventAction(Me, a1 as NodeRef of effEvent, a2 as ID, a3 as Enum effResult, a4 as Enum effActionEnum, a5 as String)
+  List list5
+  if a1 = None
+    // unknown
+  else
+    classView as ClassView
+    classView.effEventActionDetailsActionEnum = a4
+    classView.effEventActionDetailsValue = a5
+    classView.effEventActionDetailsResult = a3
+    loop i from 1 to list5.length
+      var cur = a1.effEventTargetDetails[i]
+      if cur.effEventTargetDetailsTarget == a2
+        if a4 == effAction_PlayAppearance
+          var cur2 = a1.effEventTargetDetails[i]
+          cur2.effEventTargetDetailsApplyAppearance = true
+        .
+        var cur3 = a1.effEventTargetDetails[i]
+        add back classView to cur3.effEventTargetDetailsActionDetails
+        break
+      .
+    .
+  .
+.

@@ -1,0 +1,28 @@
+public method onObjectAdded(Me, a1 as NodeRef of conContainableComponent, a2 as Integer)
+  CallFrame _callFrame
+  FuncRef onObjectAdded = HM.PrepareCallBaseMethod2(0, Me, &_callFrame)
+  onObjectAdded(_callFrame, a1, a2)
+  var node2 = GetParentOfNode(Me)
+  var pc = GetPlayerCharacterNode()
+  if node2 == pc
+    if a1 is kindof ablAbility
+      $TRAINER.UpdateTrainerSet()
+      var id1 = a1.GetSpec()
+      $GUI_API.getApi().UpdateItemSkillRestrictions(id1)
+    .
+  .
+.
+public method onObjectRemoved(Me, a1 as NodeRef of conContainableComponent, a2 as Integer)
+  CallFrame _callFrame
+  FuncRef onObjectRemoved = HM.PrepareCallBaseMethod2(7, Me, &_callFrame)
+  onObjectRemoved(_callFrame, a1, a2)
+  var node2 = GetParentOfNode(Me)
+  var pc = GetPlayerCharacterNode()
+  if node2 == pc
+    if a1 is kindof ablAbility
+      $TRAINER.UpdateTrainerSet()
+      var id1 = a1.GetSpec()
+      $GUI_API.getApi().UpdateItemSkillRestrictions(id1)
+    .
+  .
+.

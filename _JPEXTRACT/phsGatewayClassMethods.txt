@@ -1,0 +1,21 @@
+public method TriggerEnter(Me, a1 as NodeRef)
+  CallFrame _callFrame
+  NodeRef node7
+  FuncRef GetPhasedInstance
+  if a1 != None
+    var pc = GetPlayerCharacterNode()
+    if a1 == pc
+      var node2 = $PHASE.GetPhasedInstanceNode(ComputeStableIdentifier(Me["TriggerParam"]))
+      if node2 != None
+        $PHASE.UpdateGatewayForInstance(node2.GetInstanceNameID())
+        var node5 = a1.GetPhaseInfo()
+        if node5 = None or (node7 = HM.ConstructNodeRef(2), GetPhasedInstance = HM.PrepareCallNodeRef2(6, node5, &_callFrame), GetPhasedInstance(node7, _callFrame), HM.UnprepareCall(), node7 == node2)
+          node2.OnPlayerEnteredGateway(HM.CopyConstructNodeRef(8, a1))
+        .
+      .
+    .
+  .
+.
+public method TriggerLeave(Me, a1 as NodeRef)
+  // unknown
+.

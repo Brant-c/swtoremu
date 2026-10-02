@@ -1,0 +1,385 @@
+public function PurgeGetsCache(Me)
+  guiApiGfxClassMethods:_setVarNumber("purgeGetsCache", 0.0)
+  guiApiGfxClassMethods:_setVarNumber("purgeGetsCache", 1.0)
+.
+public function IsValidAbilityNode(a1 as NodeRef) as Boolean
+  var pc = GetPlayerCharacterNode()
+  if a1 == pc or (node = HM.ConstructNodeRef(4), $CHARACTER = HM.RefSystemNode(5, 16140943636100329568), GetCC = HM.PrepareCallNodeRef2(2, $CHARACTER, &_callFrame), GetCC(node, _callFrame), HM.UnprepareCall(), a1 == node) or (node3 = HM.ConstructNodeRef(6), $CHARACTER_2 = HM.RefSystemNode(5, 16140943636100329568), GetControlledVehicle = HM.PrepareCallNodeRef2(3, $CHARACTER_2, &_callFrame), GetControlledVehicle(node3, _callFrame), HM.UnprepareCall(), a1 == node3)  // CHARACTER, CHARACTER
+    return true
+  else
+    return false
+  .
+.
+other handler OnAbilityToggledModalOn(Me, a1 as NodeRef, a2 as ID)
+  if IsValidAbilityNode(a1)
+    if a1 is kindof ablContainerComponent
+      Me.updateGuiConSlottedSlotsByAbility(HM.CopyConstructNodeRef(9, a1.GetAbilitiesContainer()), a2)
+    .
+    if a1 is kindof qckContainerComponent
+      Me.updateGuiConSlottedSlotsByAbility(a1.GetQuickslotContainer(), a2)
+      Me.updateGuiConSlottedSlotsByAbility(a1.GetQuestTrackerContainer(), a2)
+    .
+  .
+.
+other handler OnAbilityToggledModalOff(Me, a1 as NodeRef, a2 as ID)
+  if IsValidAbilityNode(a1)
+    if a1 is kindof ablContainerComponent
+      Me.updateGuiConSlottedSlotsByAbility(HM.CopyConstructNodeRef(9, a1.GetAbilitiesContainer()), a2)
+    .
+    if a1 is kindof qckContainerComponent
+      Me.updateGuiConSlottedSlotsByAbility(a1.GetQuickslotContainer(), a2)
+      Me.updateGuiConSlottedSlotsByAbility(a1.GetQuestTrackerContainer(), a2)
+    .
+  .
+.
+other handler OnAbilityQueueChange(Me, a1 as NodeRef, a2 as ID)
+  if IsValidAbilityNode(a1)
+    if a1 is kindof ablContainerComponent
+      Me.updateGuiConSlottedSlotsByAbility(HM.CopyConstructNodeRef(9, a1.GetAbilitiesContainer()), a2)
+    .
+    if a1 is kindof qckContainerComponent
+      Me.updateGuiConSlottedSlotsByAbility(a1.GetQuickslotContainer(), a2)
+      Me.updateGuiConSlottedSlotsByAbility(a1.GetQuestTrackerContainer(), a2)
+    .
+  .
+.
+other handler OnAbilityToggledAutoCast(Me, a1 as NodeRef, a2 as ID)
+  if IsValidAbilityNode(a1)
+    if a1 is kindof ablContainerComponent
+      Me.updateGuiConSlottedSlotsByAbility(HM.CopyConstructNodeRef(9, a1.GetAbilitiesContainer()), a2)
+    .
+    if a1 is kindof qckContainerComponent
+      Me.updateGuiConSlottedSlotsByAbility(a1.GetQuickslotContainer(), a2)
+      Me.updateGuiConSlottedSlotsByAbility(a1.GetQuestTrackerContainer(), a2)
+    .
+  .
+.
+other handler OnAbilityActivateHandleProgressBar(Me, a1 as NodeRef, a2 as NodeRef of ablAbility, a3 as Float)
+  Me.SetGuiCastData(a1, a2, false)
+.
+other handler OnAbilityResultHandleProgressBar(Me, a1 as NodeRef, a2 as NodeRef of ablAbility, a3 as Enum cbtOutcome)
+  if Me.ValidateCaster(a1)
+    if a2 != None
+      var id2 = a2.GetSpec()
+      Me.setGuiCharacterCastState(a1, id2, a3)
+    else
+      Me.setGuiCharacterCastState(a1, 0, a3)
+    .
+  .
+.
+public method SetGuiCastData(Me, a1 as NodeRef, a2 as NodeRef of ablAbility, a3 as Boolean)
+  CallFrame _callFrame
+  FuncRef GetAbilityCastingTime2
+  Float float6
+  Float float5
+  if a2 != None and Me.ValidateCaster(a1) and (not a2.IsAbilityHidden() or (GetAbilityCastingTime2 = HM.PrepareCallNodeRef2(14, a2, &_callFrame), float6 = GetAbilityCastingTime(_callFrame, a1), HM.UnprepareCall(), float6 > 0.0))
+    unsigned __int8 v31 = 0
+    var float1 = a2.GetAbilityCastingTime(a1)
+    var float2 = a2.GetAbilityChannelingTime(a1)
+    if float1 < float2
+      v31 = 1
+    .
+    var float3 = a1.GetClientCastingTime()
+    if a3
+      var float4 = a1.GetClientCastTimeRemaining()
+      if (v31 & 1) != 0
+        float5 = float4
+      else
+        float5 = float3 - float4
+      .
+    else if (v31 & 1) != 0
+      float5 = float3
+    else
+      float5 = 0.0
+    .
+    var id2 = a2.GetSpec()
+    Me.setGuiCharacterCast(a1, id2, a2.GetAbilityName(), a2.GetAbilityIconSpec(), float3, float5, v31)
+  .
+.
+public method ValidateCaster(a1 as NodeRef) as Boolean
+  var out = false
+  if a1 != None and a1 is kindof ablUserComponent
+    var pc = GetPlayerCharacterNode()
+    var pc2 = pc
+    if pc2 != None
+      if a1 == pc2
+        out = true
+      else if a1 == pc2.GetCompanion()
+        out = true
+      else
+        var id1 = a1
+        var id2 = pc2.GetTargetID()
+        if not HIDWORD(id1) ^ HIDWORD(id2) | id1 ^ id2
+          out = true
+        else
+          var id3 = a1
+          var id4 = pc2.GetFocusTargetID()
+          if not HIDWORD(id3) ^ HIDWORD(id4) | id3 ^ id4
+            out = true
+          else
+            var id5 = a1
+            var id6 = pc2.GetTargetOfTargetID()
+            if not HIDWORD(id5) ^ HIDWORD(id6) | id5 ^ id6
+              out = true
+            else
+              var node4 = pc2.GetGroup()
+              var bool2 = false
+              if node4 != None
+                if node4.HasGroupMember(pc2)
+                  bool2 = true
+                .
+              .
+              if bool2
+                if node4.HasGroupMember(a1)
+                  out = true
+                .
+              .
+            .
+          .
+        .
+      .
+    .
+  .
+  return out
+.
+public method guiApiGfxUpdateAbl_ToggleAbilityPage(Me)
+  Me.setGuiAbilityPageEnabled(not Me.isGuiAbilityPageEnabled())
+.
+public method guiApiGfxUpdateAbl_UpdatePackageTabs(Me)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None
+    var list1 = pc2.ablContainer_GetAbilityPackageTabs()
+    var list1Length = list1.length
+    SF_GFx_ClearAndReserveParams(list1Length + 3)
+    SF_GFx_AddParamStringList(list1)
+    if pc2.HasLegacyAbilities()
+      SF_GFx_AddParamString($STRING.LocalizeString(STR_GUI_ABILITYPANEL, ID_STR_GUI_ABILITYPANEL | 0x102, HIDWORD(ID_STR_GUI_ABILITYPANEL)))  // "Legacy"
+    .
+    if pc2 is kindof chrCompanionMasterComponent
+      var node2 = pc2.GetCompanion()
+      if node2 != None
+        var str4 = $STRING.LocalizeString(STR_GUI_ABILITYPANEL, ID_STR_GUI_ABILITYPANEL | 8, HIDWORD(ID_STR_GUI_ABILITYPANEL))  // "Companion"
+        SF_GFx_AddParamString(str4)
+      .
+    .
+    if pc2 is kindof chrMountComponent and pc2.hasAnyMount()
+      SF_GFx_AddParamString(chrMountComponentClassMethods:GetMountStableTabName())
+    .
+    if pc2.HasVanityPetAbilities()
+      SF_GFx_AddParamString(chrPetMasterComponentClassMethods:unk_a933b100())
+    .
+    Me.invokeWithParams("setAbilityTabNames")
+  .
+.
+public method _guiApiGfxUpdateAbl_UpdateTrainableAbilities(Me)
+  var pc = GetPlayerCharacterNode()
+  var pc2 = pc
+  if pc2 != None
+    Me.guiApiGfxUpdateAbl_GuiAbilityPageTrainableDirtyFrame = 0
+    list1 as List of ID
+    str as String
+    lookup as LookupList indexed by ID of List of ID
+    $TRAINER.GetTrainableAndNewAbilities(&lookup)
+    SF_GFx_ClearParams()
+    foreach key in lookup
+      foreach cur2 in lookup[key]
+        var int2 = pc2.GetAbilityRank(cur2)
+        SF_GFx_AddParamID(cur2)
+        SF_GFx_AddParamInteger(int2 + 1)
+        SF_GFx_AddParamString($TRAINER.GetPackageTab(key))
+      .
+    .
+    Me.invokeWithParams("onChangedTrainableAbilities")
+  .
+.
+public method guiApiGfxUpdateAbl_SetGuiAbilityPageDirty(Me)
+  Me.guiApiGfxUpdateAbl_GuiAbilityPageDirtyFrame = GetFrameNumber()
+.
+public method guiApiGfxUpdateAbl_SetGuiSkillTreePageDirty(Me)
+  Me.guiApiGfxUpdateAbl_GuiSkillTreePageDirtyFrame = GetFrameNumber()
+.
+public method guiApiGfxUpdateAbl_SetGuiTrainablePageDirty(Me)
+  Me.guiApiGfxUpdateAbl_GuiAbilityPageTrainableDirtyFrame = GetFrameNumber()
+.
+public method guiApiGfxUpdateAbl_UpdateGuiAbilityPage(Me)
+  if Me.guiApiGfxUpdateAbl_GuiAbilityPageDirtyFrame >= 1
+    var int2 = GetFrameNumber() - Me.guiApiGfxUpdateAbl_GuiAbilityPageDirtyFrame
+    var bool1 = int2 <= -1
+    if not HIDWORD(int2)
+      bool1 = (unsigned int)int2 <= 5
+    .
+    if not bool1
+      Me._guiApiGfxUpdateAbl_UpdateGuiAbilityPage()
+    .
+  .
+.
+public method guiApiGfxUpdateAbl_UpdateTrainableAbilities(Me)
+  if Me.guiApiGfxUpdateAbl_GuiAbilityPageTrainableDirtyFrame >= 1
+    var int2 = GetFrameNumber() - Me.guiApiGfxUpdateAbl_GuiAbilityPageTrainableDirtyFrame
+    var bool1 = int2 <= -1
+    if not HIDWORD(int2)
+      bool1 = (unsigned int)int2 <= 5
+    .
+    if not bool1
+      Me._guiApiGfxUpdateAbl_UpdateTrainableAbilities()
+    .
+  .
+.
+public method guiApiGfxUpdateAbl_UpdateSkillTreePageAbilities(Me)
+  if Me.guiApiGfxUpdateAbl_GuiSkillTreePageDirtyFrame >= 1
+    var int2 = GetFrameNumber() - Me.guiApiGfxUpdateAbl_GuiSkillTreePageDirtyFrame
+    var bool1 = int2 <= -1
+    if not HIDWORD(int2)
+      bool1 = (unsigned int)int2 <= 5
+    .
+    if not bool1
+      Me.UpdateGuiSkillTreePage()
+      Me.guiApiGfxUpdateAbl_GuiSkillTreePageDirtyFrame = 0
+    .
+  .
+.
+public method _guiApiGfxUpdateAbl_UpdateGuiAbilityPage(Me)
+  if not Me.guiApiGfxVars_GetAbilityPageEnabledCache()
+    // unknown
+  else
+    var pc = GetPlayerCharacterNode()
+    var pc2 = pc
+    if pc2 != None
+      Me.guiApiGfxUpdateAbl_GuiAbilityPageDirtyFrame = 0
+      $GUI_API.getApi().guiApiGfxUpdateAbl_UpdatePackageTabs()
+      var node4 = pc2.GetAbilitiesContainer()
+      var lookup = node4.conContents
+      foreach key in lookup
+        guiIconButtonId:updateGUISlotInformation(key, HM.CopyConstructNodeRef(24, lookup[key]), HM.CopyConstructNodeRef(9, node4))
+      .
+      var node10 = pc2.GetCompanion()
+      if node10 != None
+        var node12 = node10.GetAbilitiesContainer()
+        var lookup3 = node12.conContents
+        foreach key in lookup3
+          var cur = lookup3[key]
+          if not cur.IsAbilityPassive()
+            var node15 = HM.CopyConstructNodeRef(24, cur)
+            guiIconButtonId:updateGUISlotInformation(key, node15, HM.CopyConstructNodeRef(9, node12))
+          .
+        .
+      .
+      Me.guiApiGfxUpdateAbl_SetGuiTrainablePageDirty()
+    .
+  .
+.
+public method updateAbilityValidity(Me, a1 as NodeRef of ablContainerComponent, a2 as Boolean)
+  Id id2
+  var bool1 = false
+  if a1 is kindof ablUserComponent
+    if a1 is kindof chrPetComponent
+      id2 = a1.GetPetMaster().GetTargetID()
+    else
+      id2 = a1.GetTargetID()
+    .
+    var id1 = id2
+    a1._CacheAbilityUserValues(id2)
+    list1 as List of NodeRef
+    list1 = a1.GetAbilities()
+    foreach cur in list1
+      if Me.updateAbilityValidateCache(HM.CopyConstructNodeRef(27, a1), HM.CopyConstructNodeRef(10, cur), id1)
+        bool1 = true
+      .
+    .
+    if a1 is kindof conEquipmentComponent
+      var node6 = HM.CopyConstructNodeRef(27, a1)
+      var classView = HM.GetClassViewFromNodeRef(a1, conEquipmentComponent)
+      Me.updateItemAbilityValidity(node6, HM.CopyConstructNodeRef(9, classView.eqpEquipment), id1)
+    .
+    if a1 is kindof conInventoryComponent
+      var node9 = HM.CopyConstructNodeRef(27, a1)
+      var classView2 = HM.GetClassViewFromNodeRef(a1, conInventoryComponent)
+      Me.updateItemAbilityValidity(node9, HM.CopyConstructNodeRef(9, classView2.invEquipment), id1)
+      var node12 = HM.CopyConstructNodeRef(27, a1)
+      var classView3 = HM.GetClassViewFromNodeRef(a1, conInventoryComponent)
+      Me.updateItemAbilityValidity(node12, HM.CopyConstructNodeRef(9, classView3.invQuest), id1)
+    .
+    if bool1
+      if a1 is kindof qckContainerComponent
+        Me.updateAbilityValidityForContainer(HM.CopyConstructNodeRef(27, a1), a1.GetQuickslotContainer())
+        Me.updateAbilityValidityForContainer(HM.CopyConstructNodeRef(27, a1), a1.GetQuestTrackerContainer())
+      .
+      if a2
+        if Me.isGuiInventoryEnabled()
+          if a1 is kindof conEquipmentComponent
+            var node19 = HM.CopyConstructNodeRef(27, a1)
+            var classView4 = HM.GetClassViewFromNodeRef(a1, conEquipmentComponent)
+            Me.updateAbilityValidityForContainer(node19, HM.CopyConstructNodeRef(9, classView4.eqpEquipment))
+          .
+          if a1 is kindof conInventoryComponent
+            var node22 = HM.CopyConstructNodeRef(27, a1)
+            var classView5 = HM.GetClassViewFromNodeRef(a1, conInventoryComponent)
+            Me.updateAbilityValidityForContainer(node22, HM.CopyConstructNodeRef(9, classView5.invEquipment))
+            var node25 = HM.CopyConstructNodeRef(27, a1)
+            var classView6 = HM.GetClassViewFromNodeRef(a1, conInventoryComponent)
+            Me.updateAbilityValidityForContainer(node25, HM.CopyConstructNodeRef(9, classView6.invQuest))
+          .
+        .
+      .
+    .
+  .
+.
+public method updateItemAbilityValidity(Me, a1 as NodeRef of ablUserComponent, a2 as NodeRef of conSlotted, a3 as ID)
+  if a2 = None
+    // unknown
+  else
+    list1 as List of NodeRef of conContainableComponent
+    list1 = a2.GetContents()
+    foreach cur in list1
+      if cur is kindof itmItem
+        if cur.IsType_itmUsableComponent()
+          var node3 = cur.GetItemAbility()
+          if Me.updateAbilityValidateCache(a1, node3, a3)
+            var id1 = cur.GetSpec()
+            Me.updateGuiConSlottedSlotsByItem(a2, id1)
+          .
+        .
+      .
+    .
+  .
+.
+public method updateAbilityValidateCache(a1 as NodeRef of ablUserComponent, a2 as NodeRef of ablAbility, a3 as ID) as Boolean
+  if a2 != None
+    if a2 is kindof ablAbility
+      if not a2.ablIsHidden and not a2.ablIsPassive
+        var id2 = a2.GetSpec()
+        char v19 = 0
+        if not (a1.ablUserActionUsableCache2 has id2)
+          v19 = 1
+        .
+        var classView = a1.ablUserActionUsableCache2[id2]
+        var node3 = a1._AbilitySelectTarget(a2, a3)
+        var enum1 = HM.GetEnumDefaultValue(31)
+        a1._AbilityValidateCached(a2, node3, &enum1, true, &classView)
+        var bool1 = v19 or classView.guiActionChanged
+        v19 = bool1
+        if bool1
+          classView.guiActionChanged = true
+          return true
+        .
+      .
+    .
+  .
+  return false
+.
+public method updateAbilityValidityForContainer(Me, a1 as NodeRef of ablUserComponent, a2 as NodeRef of conSlotted)
+  if a2 = None
+    // unknown
+  else
+    var lookup = a1.ablUserActionUsableCache2
+    foreach key in lookup
+      var cur = lookup[key]
+      if cur.guiActionChanged
+        key as String
+        var id1 = HM.ConvertFromStringID(key)
+        Me.updateGuiConSlottedSlotsByAbility(a2, id1)
+      .
+    .
+  .
+.
