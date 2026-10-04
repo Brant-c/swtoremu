@@ -433,7 +433,8 @@ static BOOL CALLBACK revealGameWindow(HWND window, LPARAM ownerPid) {
     if (pid != (DWORD)ownerPid) return TRUE;
     char title[256] = {};
     GetWindowTextA(window, title, sizeof(title));
-    if (strncmp(title, "Star Wars", 9) == 0) ShowWindowAsync(window, SW_SHOW);
+    if (strncmp(title, "Star Wars", 9) == 0 || strcmp(title, "SWTOR") == 0)
+        ShowWindowAsync(window, SW_SHOW);
     return TRUE;
 }
 
@@ -523,7 +524,9 @@ int main(int argc, char **argv) {
 
     STARTUPINFOA startup = {}; startup.cb = sizeof(startup);
     startup.dwFlags = STARTF_USESHOWWINDOW;
-    startup.wShowWindow = SW_HIDE;
+    // The operator needs a visible client for controlled doorway runs. The
+    // April diagnostic build uses the title "SWTOR", not always "Star Wars".
+    startup.wShowWindow = SW_SHOWNORMAL;
     PROCESS_INFORMATION created = {};
     std::string image = clientDir + "\\swtor-emu.exe";
     if (!CreateProcessA(image.c_str(), &command[0], NULL, NULL, FALSE,

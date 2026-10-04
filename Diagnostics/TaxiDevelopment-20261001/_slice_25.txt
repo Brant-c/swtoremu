@@ -1,0 +1,75 @@
+  25      ///   - count byte 77 -&gt; 78 (one-byte packed encoding retained)
+  26      ///   - merged list re-parses to exactly 78 records, walking to its own end
+  27      ///   - captured records 0..76 unmoved; the clone lands last
+  28      /// Notably the clone's parent 0x1AC688BE1E is absent from set 1, but so is the
+  29      /// parent of the CAPTURED MEDCENTER DROID -- the same dangling parent the
+  30      /// client already accepts -- so a missing parent is not the hazard here.
+  31      ///
+  32      /// Opt-in via SWTOR_TAXI_CLONE_CONTROL=1. No captured fixture is modified;
+  33      /// the merge happens in memory only.
+  34      /// </summary>
+  35      class AreaMergedAwareness : TORAreaServerPacket
+  36      {
+  37          /// <summary>
+  38          /// CONTROL: appends the selected LADDER rung into awareness set 1.
+  39          ///
+  40          /// The rung fixtures are byte splices of the CAPTURED medcenter droid record,
+  41          /// verified by Diagnostics/TaxiDevelopment-20261001/Verify-TaxiLadder.py:
+  42          /// rung 0 is byte-identical to the capture apart from the node identity and a
+  43          /// 5 m X offset, and each later rung changes only its own token window(s).
+  44          /// Because the baseline is captured, a rung-0 render proves transport,
+  45          /// framing and placement, and the first rung that brings the six script
+  46          /// errors back names the offending field.
+  47          /// </summary>
+  48          private byte _module;
+  49              private readonly byte[] _payload;
+  50  
+  51              // Captured awareness set 1 object-list header: LE u32 pad, flags 0x01,
+  52              // one-byte packed count. Recovered and asserted offline, not assumed.
+  53              private const int CountOffset = 5;
+  54              private const byte CapturedCount = 77;
+  55  
+  56              // rung 0 = the shipped taxi payload; rung 1 = the same record with only
+  57              // _characterSpecification reverted to the captured donor value. Both are
+  58              // five-object taxi payloads, so each contributes 5 records to the merge.
+  59              private static readonly string[] RungResources =
+  60                  { "taxi.awareness", "taxi.record1" };
+  61              private static readonly int[] RungBytes = { 677, 677 };
+  62              private static readonly byte[] RungObjects = { 5, 5 };
+  63  
+  64              public enum AreaTaxiRung { Shipped = 0, DonorCharSpec = 1 }
+  65  
+  66              /// <summary>
+  67              /// CONTROL: appends the selected taxi experiment payload into awareness
+  68              /// set 1, replacing the separate-packet path.
+  69              ///
+  70              /// rung 0 is the shipped taxi record (known to raise six script errors);
+  71              /// rung 1 reverts ONLY _characterSpecification to the captured donor value
+  72              /// -- an 8-byte change out of 677 that keeps the taxi template,
+  73              /// taxTerminalSpec and position intact. Both are the real taxi, not a
+  74              /// stand-in, so a clean rung 1 is a working terminal rather than a proxy.
+  75              /// </summary>
+  76              public static AreaTaxiRung SelectedRung
+  77              {
+  78                  get
+  79                  {
+  80                      Int32 r;
+  81                      return Int32.TryParse(Environment.GetEnvironmentVariable("SWTOR_TAXI_RUNG"),
+  82                                            out r) && r >= 0 && r <= RungResources.Length - 1
+  83                             ? (AreaTaxiRung)r : AreaTaxiRung.Shipped;
+  84                  }
+  85              }
+  86  
+  87          public AreaMergedAwareness(String Area, String AreaID, String AreaCode,
+  88                                     int AwarenessID, UInt64[] nodes, AreaTaxiRung rung)
+  89          {
+  90              _payload = BuildPayload(Area, AreaID, AreaCode, AwarenessID, nodes, rung);
+  91          }
+  92  
+  93          private static byte[] BuildPayload(String Area, String AreaID, String AreaCode,
+  94                                            int AwarenessID, UInt64[] nodes, AreaTaxiRung rung)
+  95          {
+  96              int r = (int)rung;
+  97              if (nodes == null || nodes.Length != 5)
+  98                  throw new ArgumentException("Five taxi identities required");
+  99              for (int i = 0; i < nodes.Length; i++)

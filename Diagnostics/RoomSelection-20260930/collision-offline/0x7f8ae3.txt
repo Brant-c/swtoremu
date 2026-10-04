@@ -1,0 +1,65 @@
+  007F8A83: 56                 push        esi
+  007F8A84: 8B CB              mov         ecx,ebx
+  007F8A86: E8 D5 BF ED FF     call        006D4A60
+  007F8A8B: D9 EE              fldz
+  007F8A8D: 83 EC 0C           sub         esp,0Ch
+  007F8A90: D9 54 24 08        fst         dword ptr [esp+8]
+  007F8A94: D9 54 24 04        fst         dword ptr [esp+4]
+  007F8A98: 8B CB              mov         ecx,ebx
+  007F8A9A: D9 1C 24           fstp        dword ptr [esp]
+  007F8A9D: E8 BE D2 ED FF     call        006D5D60
+  007F8AA2: D9 EE              fldz
+  007F8AA4: 8B 03              mov         eax,dword ptr [ebx]
+  007F8AA6: 8B 90 D0 00 00 00  mov         edx,dword ptr [eax+000000D0h]
+  007F8AAC: 83 EC 0C           sub         esp,0Ch
+  007F8AAF: D9 54 24 08        fst         dword ptr [esp+8]
+  007F8AB3: 8B CB              mov         ecx,ebx
+  007F8AB5: D9 54 24 04        fst         dword ptr [esp+4]
+  007F8AB9: D9 1C 24           fstp        dword ptr [esp]
+  007F8ABC: FF D2              call        edx
+  007F8ABE: 8B CB              mov         ecx,ebx
+  007F8AC0: E8 CB 92 EE FF     call        006E1D90
+  007F8AC5: 0F B6 8E 19 01 00  movzx       ecx,byte ptr [esi+00000119h]
+            00
+  007F8ACC: 8B 03              mov         eax,dword ptr [ebx]
+  007F8ACE: 8B 90 08 01 00 00  mov         edx,dword ptr [eax+00000108h]
+  007F8AD4: 51                 push        ecx
+  007F8AD5: 8B CB              mov         ecx,ebx
+  007F8AD7: FF D2              call        edx
+  007F8AD9: 8B 03              mov         eax,dword ptr [ebx]
+  007F8ADB: 8B 50 04           mov         edx,dword ptr [eax+4]
+  007F8ADE: 68 D0 08 16 01     push        11608D0h
+  007F8AE3: 68 AC 7B 14 01     push        1147BACh
+  007F8AE8: 8B CB              mov         ecx,ebx
+  007F8AEA: FF D2              call        edx
+  007F8AEC: 8B CE              mov         ecx,esi
+  007F8AEE: 8B C3              mov         eax,ebx
+  007F8AF0: E8 1B C2 ED FF     call        006D4D10
+  007F8AF5: 8B FB              mov         edi,ebx
+  007F8AF7: E8 D4 C0 ED FF     call        006D4BD0
+  007F8AFC: 8B 86 98 00 00 00  mov         eax,dword ptr [esi+00000098h]
+  007F8B02: 85 C0              test        eax,eax
+  007F8B04: 75 20              jne         007F8B26
+  007F8B06: 8B CE              mov         ecx,esi
+  007F8B08: E8 83 29 EE FF     call        006DB490
+  007F8B0D: 50                 push        eax
+  007F8B0E: A1 F0 28 49 01     mov         eax,dword ptr ds:[014928F0h]
+  007F8B13: 50                 push        eax
+  007F8B14: E8 07 54 F2 FF     call        0071DF20
+  007F8B19: 8B CE              mov         ecx,esi
+  007F8B1B: E8 70 29 EE FF     call        006DB490
+  007F8B20: 50                 push        eax
+  007F8B21: E8 4A 55 F2 FF     call        0071E070
+  007F8B26: 8B 8B 94 00 00 00  mov         ecx,dword ptr [ebx+00000094h]
+  007F8B2C: 50                 push        eax
+  007F8B2D: E8 EE 04 38 00     call        00B79020
+  007F8B32: 8B 4C 24 2C        mov         ecx,dword ptr [esp+2Ch]
+  007F8B36: 5F                 pop         edi
+  007F8B37: 5E                 pop         esi
+  007F8B38: 8B C3              mov         eax,ebx
+  007F8B3A: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+            00
+  007F8B41: 5B                 pop         ebx
+  007F8B42: 8B E5              mov         esp,ebp
+  007F8B44: 5D                 pop         ebp
+  007F8B45: C2 08 00           ret         8

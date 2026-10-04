@@ -1,0 +1,31 @@
+  00D1EF60: 55                 push        ebp
+  00D1EF61: 8B EC              mov         ebp,esp
+  00D1EF63: 83 79 1C 00        cmp         dword ptr [ecx+1Ch],0
+  00D1EF67: 74 31              je          00D1EF9A
+  00D1EF69: 8B 41 24           mov         eax,dword ptr [ecx+24h]
+  00D1EF6C: D9 45 10           fld         dword ptr [ebp+10h]
+  00D1EF6F: 8B 49 1C           mov         ecx,dword ptr [ecx+1Ch]
+  00D1EF72: 8B 11              mov         edx,dword ptr [ecx]
+  00D1EF74: 8B 52 1C           mov         edx,dword ptr [edx+1Ch]
+  00D1EF77: 56                 push        esi
+  00D1EF78: 8B 75 18           mov         esi,dword ptr [ebp+18h]
+  00D1EF7B: 56                 push        esi
+  00D1EF7C: 50                 push        eax
+  00D1EF7D: 8B 45 14           mov         eax,dword ptr [ebp+14h]
+  00D1EF80: 50                 push        eax
+  00D1EF81: 8B 45 0C           mov         eax,dword ptr [ebp+0Ch]
+  00D1EF84: 51                 push        ecx
+  00D1EF85: D9 1C 24           fstp        dword ptr [esp]
+  00D1EF88: 50                 push        eax
+  00D1EF89: 8B 45 08           mov         eax,dword ptr [ebp+8]
+  00D1EF8C: 50                 push        eax
+  00D1EF8D: FF D2              call        edx
+  00D1EF8F: 5E                 pop         esi
+  00D1EF90: 84 C0              test        al,al
+  00D1EF92: 74 06              je          00D1EF9A
+  00D1EF94: B0 01              mov         al,1
+  00D1EF96: 5D                 pop         ebp
+  00D1EF97: C2 14 00           ret         14h
+  00D1EF9A: 32 C0              xor         al,al
+  00D1EF9C: 5D                 pop         ebp
+  00D1EF9D: C2 14 00           ret         14h

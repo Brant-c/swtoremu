@@ -1,2 +1,0 @@
-D:\SWTORClassic\swtoremu\Tools\tor_tools\Hero\obj\x86\Debug\Hero.csproj.AssemblyReference.cache
-D:\SWTORClassic\swtoremu\Tools\tor_tools\Hero\obj\x86\Debug\Hero.csproj.CoreCompileInputs.cache

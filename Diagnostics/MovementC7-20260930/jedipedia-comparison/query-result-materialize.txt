@@ -1,0 +1,69 @@
+  00D02320: 53                 push        ebx
+  00D02321: 8B DC              mov         ebx,esp
+  00D02323: 83 EC 08           sub         esp,8
+  00D02326: 83 E4 F0           and         esp,0FFFFFFF0h
+  00D02329: 83 C4 04           add         esp,4
+  00D0232C: 55                 push        ebp
+  00D0232D: 8B 6B 04           mov         ebp,dword ptr [ebx+4]
+  00D02330: 89 6C 24 04        mov         dword ptr [esp+4],ebp
+  00D02334: 8B EC              mov         ebp,esp
+  00D02336: 0F 28 41 20        movaps      xmm0,xmmword ptr [ecx+20h]
+  00D0233A: 0F 28 91 90 00 00  movaps      xmm2,xmmword ptr [ecx+00000090h]
+  00D02341: 0F 28 99 A0 00 00  movaps      xmm3,xmmword ptr [ecx+000000A0h]
+  00D02348: 0F 28 C8           movaps      xmm1,xmm0
+  00D0234B: 0F C6 C8 00        shufps      xmm1,xmm0,0
+  00D0234F: 0F 59 CA           mulps       xmm1,xmm2
+  00D02352: 0F 28 91 C0 00 00  movaps      xmm2,xmmword ptr [ecx+000000C0h]
+  00D02359: 0F 58 CA           addps       xmm1,xmm2
+  00D0235C: 0F 28 D0           movaps      xmm2,xmm0
+  00D0235F: 0F C6 D0 55        shufps      xmm2,xmm0,55h
+  00D02363: 0F 59 D3           mulps       xmm2,xmm3
+  00D02366: 0F 58 CA           addps       xmm1,xmm2
+  00D02369: 0F 28 D0           movaps      xmm2,xmm0
+  00D0236C: 0F C6 D0 AA        shufps      xmm2,xmm0,0AAh
+  00D02370: 0F 28 81 B0 00 00  movaps      xmm0,xmmword ptr [ecx+000000B0h]
+  00D02377: 0F 59 D0           mulps       xmm2,xmm0
+  00D0237A: 0F 58 CA           addps       xmm1,xmm2
+  00D0237D: 0F 29 49 20        movaps      xmmword ptr [ecx+20h],xmm1
+  00D02381: 83 EC 10           sub         esp,10h
+  00D02384: 83 79 0C 02        cmp         dword ptr [ecx+0Ch],2
+  00D02388: B8 01 00 00 00     mov         eax,1
+  00D0238D: 89 41 08           mov         dword ptr [ecx+8],eax
+  00D02390: 75 05              jne         00D02397
+  00D02392: E8 A9 FC FF FF     call        00D02040
+  00D02397: 39 41 0C           cmp         dword ptr [ecx+0Ch],eax
+  00D0239A: 8D 41 30           lea         eax,[ecx+30h]
+  00D0239D: 74 05              je          00D023A4
+  00D0239F: B8 40 39 37 01     mov         eax,1373940h
+  00D023A4: 0F 28 00           movaps      xmm0,xmmword ptr [eax]
+  00D023A7: 0F 28 49 20        movaps      xmm1,xmmword ptr [ecx+20h]
+  00D023AB: 0F 5C C1           subps       xmm0,xmm1
+  00D023AE: 0F 59 C0           mulps       xmm0,xmm0
+  00D023B1: 0F 28 C8           movaps      xmm1,xmm0
+  00D023B4: 0F C6 C1 02        shufps      xmm0,xmm1,2
+  00D023B8: 0F 28 D1           movaps      xmm2,xmm1
+  00D023BB: 0F C6 D1 01        shufps      xmm2,xmm1,1
+  00D023BF: 0F 58 C2           addps       xmm0,xmm2
+  00D023C2: 0F 58 C1           addps       xmm0,xmm1
+  00D023C5: 0F C6 C0 00        shufps      xmm0,xmm0,0
+  00D023C9: 0F 51 C0           sqrtps      xmm0,xmm0
+  00D023CC: 0F 29 45 F0        movaps      xmmword ptr [ebp-10h],xmm0
+  00D023D0: F3 0F 10 45 F0     movss       xmm0,dword ptr [ebp-10h]
+  00D023D5: F3 0F 11 81 D0 00  movss       dword ptr [ecx+000000D0h],xmm0
+  00D023DD: 8B E5              mov         esp,ebp
+  00D023DF: 5D                 pop         ebp
+  00D023E0: 8B E3              mov         esp,ebx
+  00D023E2: 5B                 pop         ebx
+  00D023E3: C3                 ret
+  00D023E4: CC                 int         3
+  00D023E5: CC                 int         3
+  00D023E6: CC                 int         3
+  00D023E7: CC                 int         3
+  00D023E8: CC                 int         3
+  00D023E9: CC                 int         3
+  00D023EA: CC                 int         3
+  00D023EB: CC                 int         3
+  00D023EC: CC                 int         3
+  00D023ED: CC                 int         3
+  00D023EE: CC                 int         3
+  00D023EF: CC                 int         3

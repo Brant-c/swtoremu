@@ -1,6 +1,0 @@
-D:\SWTORClassic\swtoremu\Tools\tor_tools\tor_tools\obj\x86\Debug\SwtorTools.csproj.AssemblyReference.cache
-D:\SWTORClassic\swtoremu\Tools\tor_tools\tor_tools\obj\x86\Debug\tor_tools.dumper.resources
-D:\SWTORClassic\swtoremu\Tools\tor_tools\tor_tools\obj\x86\Debug\tor_tools.Tools.resources
-D:\SWTORClassic\swtoremu\Tools\tor_tools\tor_tools\obj\x86\Debug\tor_tools.Properties.Resources.resources
-D:\SWTORClassic\swtoremu\Tools\tor_tools\tor_tools\obj\x86\Debug\SwtorTools.csproj.GenerateResource.cache
-D:\SWTORClassic\swtoremu\Tools\tor_tools\tor_tools\obj\x86\Debug\SwtorTools.csproj.CoreCompileInputs.cache

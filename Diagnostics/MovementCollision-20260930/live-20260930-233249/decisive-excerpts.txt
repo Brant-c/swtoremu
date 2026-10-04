@@ -1,0 +1,163 @@
+[23:32:49] MovementCollisionHook: prepared passive diagnostic; max48 movement+48 support samples; max4 hits/sample; 250ms sampling; local player matched
+[23:36:36] MovementCollisionHook: coverage=local-player-normal-update player=EB89C000 start=-64.8741,-6.9062,-127.6710
+[23:36:36] MovementCollisionHook: sample=1 tick=296666390 player=EB89C000 playerRoom98=D2ADA500 collision=0 flag=1 start=-64.8741,-6.9062,-127.6710 proposed=-64.8684,-6.9062,-127.6710 output=-64.8684,-6.9062,-127.6710
+[23:36:36] MovementCollisionHook: sample=1 hits=0 shown=0
+[23:36:36] MovementCollisionHook: supportSample=1 tick=296666390 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-64.8684,-6.9062,-127.6710 normal=0.0000,1.0000,0.0000
+[23:36:36] MovementCollisionHook: sample=2 tick=296666640 player=EB89C000 playerRoom98=D2ADA500 collision=0 flag=1 start=-64.7253,-6.9062,-127.6710 proposed=-64.7189,-6.9062,-127.6710 output=-64.7189,-6.9062,-127.6710
+[23:36:36] MovementCollisionHook: sample=2 hits=0 shown=0
+[23:36:36] MovementCollisionHook: supportSample=2 tick=296666640 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-64.7189,-6.9062,-127.6710 normal=0.0000,1.0000,0.0000
+[23:36:37] MovementCollisionHook: sample=3 tick=296666890 player=EB89C000 playerRoom98=D2ADA500 collision=0 flag=1 start=-64.5751,-6.9062,-127.6643 proposed=-64.5691,-6.9062,-127.6633 output=-64.5691,-6.9062,-127.6633
+[23:36:37] MovementCollisionHook: sample=3 hits=0 shown=0
+[23:36:37] MovementCollisionHook: supportSample=3 tick=296666890 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-64.5691,-6.9062,-127.6633 normal=0.0000,1.0000,0.0000
+[23:36:37] MovementCollisionHook: sample=4 tick=296667140 player=EB89C000 playerRoom98=D2ADA500 collision=0 flag=1 start=-64.4394,-6.9062,-127.6268 proposed=-64.4284,-6.9062,-127.6230 output=-64.4284,-6.9062,-127.6230
+[23:36:37] MovementCollisionHook: sample=4 hits=0 shown=0
+[23:36:37] MovementCollisionHook: supportSample=4 tick=296667140 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-64.4284,-6.9062,-127.6230 normal=0.0000,1.0000,0.0000
+[23:36:37] MovementCollisionHook: sample=5 tick=296667390 player=EB89C000 playerRoom98=D2ADA500 collision=0 flag=1 start=-64.2975,-6.9062,-127.5630 proposed=-64.2929,-6.9062,-127.5602 output=-64.2929,-6.9062,-127.5602
+[23:36:37] MovementCollisionHook: sample=5 hits=0 shown=0
+[23:36:37] MovementCollisionHook: supportSample=5 tick=296667390 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-64.2929,-6.9062,-127.5602 normal=0.0000,1.0000,0.0000
+[23:36:37] MovementCollisionHook: sample=6 tick=296667640 player=EB89C000 playerRoom98=D2ADA500 collision=0 flag=1 start=-64.1759,-6.9062,-127.4749 proposed=-64.1713,-6.9062,-127.4710 output=-64.1713,-6.9062,-127.4710
+[23:36:37] MovementCollisionHook: sample=6 hits=0 shown=0
+[23:36:37] MovementCollisionHook: supportSample=6 tick=296667640 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-64.1713,-6.9062,-127.4710 normal=0.0000,1.0000,0.0000
+[23:36:38] MovementCollisionHook: sample=7 tick=296667890 player=EB89C000 playerRoom98=D2ADA500 collision=0 flag=1 start=-64.0649,-6.9062,-127.3742 proposed=-64.0608,-6.9062,-127.3704 output=-64.0608,-6.9062,-127.3704
+[23:36:38] MovementCollisionHook: sample=7 hits=0 shown=0
+[23:36:38] MovementCollisionHook: supportSample=7 tick=296667890 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-64.0608,-6.9062,-127.3704 normal=0.0000,1.0000,0.0000
+[23:36:38] MovementCollisionHook: sample=8 tick=296668140 player=EB89C000 playerRoom98=D2ADA500 collision=0 flag=1 start=-63.9554,-6.9062,-127.2725 proposed=-63.9512,-6.9062,-127.2685 output=-63.9512,-6.9062,-127.2685
+[23:36:38] MovementCollisionHook: sample=8 hits=0 shown=0
+[23:36:38] MovementCollisionHook: supportSample=8 tick=296668140 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-63.9512,-6.9062,-127.2685 normal=0.0000,1.0000,0.0000
+[23:36:38] MovementCollisionHook: sample=9 tick=296668390 player=EB89C000 playerRoom98=D2ADA500 collision=0 flag=1 start=-63.8415,-6.9091,-127.1666 proposed=-63.8370,-6.9091,-127.1624 output=-63.8370,-6.9091,-127.1624
+[23:36:38] MovementCollisionHook: sample=9 hits=0 shown=0
+[23:36:38] MovementCollisionHook: supportSample=9 tick=296668390 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-63.8370,-6.9100,-127.1624 normal=0.0803,0.9935,0.0803
+[23:36:38] MovementCollisionHook: sample=10 tick=296668640 player=EB89C000 playerRoom98=D2ADA500 collision=0 flag=1 start=-63.7344,-6.8998,-127.0670 proposed=-63.7298,-6.8998,-127.0628 output=-63.7298,-6.8998,-127.0628
+[23:36:38] MovementCollisionHook: sample=10 hits=0 shown=0
+[23:36:38] MovementCollisionHook: supportSample=10 tick=296668640 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-63.7298,-6.8998,-127.0628 normal=0.0000,1.0000,0.0000
+[23:36:39] MovementCollisionHook: sample=11 tick=296668890 player=EB89C000 playerRoom98=D2ADA500 collision=0 flag=1 start=-63.6232,-6.8998,-126.9637 proposed=-63.6184,-6.8998,-126.9593 output=-63.6184,-6.8998,-126.9593
+[23:36:39] MovementCollisionHook: sample=11 hits=0 shown=0
+[23:36:39] MovementCollisionHook: supportSample=11 tick=296668890 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-63.6184,-6.8998,-126.9593 normal=0.0000,1.0000,0.0000
+[23:36:39] MovementCollisionHook: sample=12 tick=296669140 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-63.5150,-6.8988,-126.8632 proposed=-63.5107,-6.8988,-126.8592 output=-63.5107,-6.8988,-126.8592
+[23:36:39] MovementCollisionHook: sample=12 hits=0 shown=0
+[23:36:39] MovementCollisionHook: supportSample=12 tick=296669140 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-63.5107,-6.8988,-126.8592 normal=0.0000,1.0000,0.0000
+[23:36:39] MovementCollisionHook: sample=13 tick=296669390 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-63.4037,-6.8988,-126.7597 proposed=-63.3990,-6.8988,-126.7552 output=-63.3990,-6.8988,-126.7552
+[23:36:39] MovementCollisionHook: sample=13 hits=0 shown=0
+[23:36:39] MovementCollisionHook: supportSample=13 tick=296669390 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-63.3990,-6.8988,-126.7552 normal=0.0000,1.0000,0.0000
+[23:36:39] MovementCollisionHook: sample=14 tick=296669640 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-63.2979,-6.8988,-126.6576 proposed=-63.2939,-6.8988,-126.6537 output=-63.2939,-6.8988,-126.6537
+[23:36:39] MovementCollisionHook: sample=14 hits=0 shown=0
+[23:36:39] MovementCollisionHook: supportSample=14 tick=296669640 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-63.2939,-6.8988,-126.6537 normal=0.0000,1.0000,0.0000
+[23:36:40] MovementCollisionHook: sample=15 tick=296669890 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-63.1974,-6.8988,-126.5603 proposed=-63.1884,-6.8988,-126.5515 output=-63.1884,-6.8988,-126.5515
+[23:36:40] MovementCollisionHook: sample=15 hits=0 shown=0
+[23:36:40] MovementCollisionHook: supportSample=15 tick=296669890 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-63.1884,-6.8988,-126.5515 normal=0.0000,1.0000,0.0000
+[23:36:40] MovementCollisionHook: sample=16 tick=296670140 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-63.0826,-6.8988,-126.4489 proposed=-63.0781,-6.8988,-126.4446 output=-63.0781,-6.8988,-126.4446
+[23:36:40] MovementCollisionHook: sample=16 hits=0 shown=0
+[23:36:40] MovementCollisionHook: supportSample=16 tick=296670140 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-63.0781,-6.8988,-126.4446 normal=0.0000,1.0000,0.0000
+[23:36:40] MovementCollisionHook: sample=17 tick=296670390 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-62.9746,-6.8988,-126.3443 proposed=-62.9702,-6.8988,-126.3400 output=-62.9702,-6.8988,-126.3400
+[23:36:40] MovementCollisionHook: sample=17 hits=0 shown=0
+[23:36:40] MovementCollisionHook: supportSample=17 tick=296670390 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-62.9702,-6.8988,-126.3400 normal=0.0000,1.0000,0.0000
+[23:36:40] MovementCollisionHook: supportSample=18 tick=296670640 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-62.9180,-6.8988,-126.2895 normal=0.0000,1.0000,0.0000
+[23:36:41] MovementCollisionHook: supportSample=19 tick=296670890 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-62.9180,-6.8988,-126.2895 normal=0.0000,1.0000,0.0000
+[23:36:41] MovementCollisionHook: sample=18 tick=296671281 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-62.9180,-6.8988,-126.2895 proposed=-62.9151,-6.8988,-126.2866 output=-62.9151,-6.8988,-126.2866
+[23:36:41] MovementCollisionHook: sample=18 hits=0 shown=0
+[23:36:41] MovementCollisionHook: supportSample=20 tick=296671281 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-62.9151,-6.8988,-126.2866 normal=0.0000,1.0000,0.0000
+[23:36:41] MovementCollisionHook: supportSample=21 tick=296671531 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-62.9151,-6.8988,-126.2866 normal=0.0000,1.0000,0.0000
+[23:36:42] MovementCollisionHook: supportSample=22 tick=296671781 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-62.9151,-6.8988,-126.2866 normal=0.0000,1.0000,0.0000
+[23:36:44] MovementCollisionHook: sample=19 tick=296673687 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-62.9151,-6.8988,-126.2866 proposed=-62.9109,-6.8988,-126.2906 output=-62.9109,-6.8988,-126.2906
+[23:36:44] MovementCollisionHook: sample=19 hits=0 shown=0
+[23:36:44] MovementCollisionHook: supportSample=23 tick=296673687 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-62.9109,-6.8988,-126.2906 normal=0.0000,1.0000,0.0000
+[23:36:44] MovementCollisionHook: supportSample=24 tick=296673937 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-62.9109,-6.8988,-126.2906 normal=0.0000,1.0000,0.0000
+[23:36:44] MovementCollisionHook: supportSample=25 tick=296674187 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-62.9109,-6.8988,-126.2906 normal=0.0000,1.0000,0.0000
+[23:36:49] MovementCollisionHook: sample=20 tick=296679593 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-62.9109,-6.8988,-126.2906 proposed=-62.9100,-6.8988,-126.2966 output=-62.9100,-6.8988,-126.2966
+[23:36:49] MovementCollisionHook: sample=20 hits=0 shown=0
+[23:36:49] MovementCollisionHook: supportSample=26 tick=296679593 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-62.9100,-6.8988,-126.2966 normal=0.0000,1.0000,0.0000
+[23:36:50] MovementCollisionHook: sample=21 tick=296679843 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-62.8874,-6.8988,-126.4379 proposed=-62.8864,-6.8988,-126.4438 output=-62.8864,-6.8988,-126.4438
+[23:36:50] MovementCollisionHook: sample=21 hits=0 shown=0
+[23:36:50] MovementCollisionHook: supportSample=27 tick=296679843 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-62.8864,-6.8988,-126.4438 normal=0.0000,1.0000,0.0000
+[23:36:51] MovementCollisionHook: sample=22 tick=296681593 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-62.8660,-6.8988,-126.5678 proposed=-62.8707,-6.8988,-126.5650 output=-62.8707,-6.8988,-126.5650
+[23:36:51] MovementCollisionHook: sample=22 hits=0 shown=0
+[23:36:51] MovementCollisionHook: supportSample=28 tick=296681593 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-62.8707,-6.8988,-126.5650 normal=0.0000,1.0000,0.0000
+[23:36:52] MovementCollisionHook: sample=23 tick=296681843 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-62.9875,-6.8988,-126.4842 proposed=-62.9916,-6.8988,-126.4800 output=-62.9916,-6.8988,-126.4800
+[23:36:52] MovementCollisionHook: sample=23 hits=0 shown=0
+[23:36:52] MovementCollisionHook: supportSample=29 tick=296681843 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-62.9916,-6.8988,-126.4800 normal=0.0000,1.0000,0.0000
+[23:36:52] MovementCollisionHook: sample=24 tick=296682093 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-63.0676,-6.8988,-126.3563 proposed=-63.0696,-6.8988,-126.3500 output=-63.0696,-6.8988,-126.3500
+[23:36:52] MovementCollisionHook: sample=24 hits=0 shown=0
+[23:36:52] MovementCollisionHook: supportSample=30 tick=296682093 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-63.0696,-6.8988,-126.3500 normal=0.0000,1.0000,0.0000
+[23:36:52] MovementCollisionHook: sample=25 tick=296682343 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-63.0465,-6.8988,-126.2133 proposed=-63.0438,-6.8988,-126.2077 output=-63.0438,-6.8988,-126.2077
+[23:36:52] MovementCollisionHook: sample=25 hits=0 shown=0
+[23:36:52] MovementCollisionHook: supportSample=31 tick=296682343 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-63.0438,-6.8988,-126.2077 normal=0.0000,1.0000,0.0000
+[23:36:52] MovementCollisionHook: supportSample=32 tick=296682593 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-63.0158,-6.8988,-126.1525 normal=0.0000,1.0000,0.0000
+[23:36:53] MovementCollisionHook: supportSample=33 tick=296682843 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-63.0158,-6.8988,-126.1525 normal=0.0000,1.0000,0.0000
+[23:37:43] MovementCollisionHook: sample=26 tick=296733109 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-63.0158,-6.8988,-126.1525 proposed=-63.0156,-6.8988,-126.1584 output=-63.0156,-6.8988,-126.1584
+[23:37:43] MovementCollisionHook: sample=26 hits=0 shown=0
+[23:37:43] MovementCollisionHook: supportSample=34 tick=296733109 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-63.0156,-6.8988,-126.1584 normal=0.0000,1.0000,0.0000
+[23:37:43] MovementCollisionHook: sample=27 tick=296733359 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-63.0853,-6.8988,-126.2664 proposed=-63.0910,-6.8988,-126.2697 output=-63.0910,-6.8988,-126.2697
+[23:37:43] MovementCollisionHook: sample=27 hits=0 shown=0
+[23:37:43] MovementCollisionHook: supportSample=35 tick=296733359 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-63.0910,-6.8988,-126.2697 normal=0.0000,1.0000,0.0000
+[23:37:43] MovementCollisionHook: sample=28 tick=296733609 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-63.2185,-6.8988,-126.3405 proposed=-63.2233,-6.8988,-126.3433 output=-63.2233,-6.8988,-126.3433
+[23:37:43] MovementCollisionHook: sample=28 hits=0 shown=0
+[23:37:43] MovementCollisionHook: supportSample=36 tick=296733609 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-63.2233,-6.8988,-126.3433 normal=0.0000,1.0000,0.0000
+[23:37:44] MovementCollisionHook: sample=29 tick=296734234 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-63.3218,-6.8988,-126.4227 proposed=-63.3155,-6.8988,-126.4208 output=-63.3155,-6.8988,-126.4208
+[23:37:44] MovementCollisionHook: sample=29 hits=0 shown=0
+[23:37:44] MovementCollisionHook: supportSample=37 tick=296734234 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-63.3155,-6.8988,-126.4208 normal=0.0000,1.0000,0.0000
+[23:37:44] MovementCollisionHook: sample=30 tick=296734484 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-63.1783,-6.8988,-126.3704 proposed=-63.1732,-6.8988,-126.3680 output=-63.1732,-6.8988,-126.3680
+[23:37:44] MovementCollisionHook: sample=30 hits=0 shown=0
+[23:37:44] MovementCollisionHook: supportSample=38 tick=296734484 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-63.1732,-6.8988,-126.3680 normal=0.0000,1.0000,0.0000
+[23:37:45] MovementCollisionHook: sample=31 tick=296734734 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-63.0532,-6.8988,-126.2912 proposed=-63.0484,-6.8988,-126.2877 output=-63.0484,-6.8988,-126.2877
+[23:37:45] MovementCollisionHook: sample=31 hits=0 shown=0
+[23:37:45] MovementCollisionHook: supportSample=39 tick=296734734 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-63.0484,-6.8988,-126.2877 normal=0.0000,1.0000,0.0000
+[23:37:45] MovementCollisionHook: supportSample=40 tick=296734984 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-62.9656,-6.8988,-126.2243 normal=0.0000,1.0000,0.0000
+[23:37:45] MovementCollisionHook: supportSample=41 tick=296735234 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-62.9656,-6.8988,-126.2243 normal=0.0000,1.0000,0.0000
+[23:38:07] MovementCollisionHook: sample=32 tick=296756859 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-62.9656,-6.8988,-126.2243 proposed=-62.9647,-6.8988,-126.2302 output=-62.9647,-6.8988,-126.2302
+[23:38:07] MovementCollisionHook: sample=32 hits=0 shown=0
+[23:38:07] MovementCollisionHook: supportSample=42 tick=296756859 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-62.9647,-6.8988,-126.2302 normal=0.0000,1.0000,0.0000
+[23:38:07] MovementCollisionHook: sample=33 tick=296757109 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-62.9866,-6.8988,-126.3633 proposed=-62.9906,-6.8988,-126.3680 output=-62.9906,-6.8988,-126.3680
+[23:38:07] MovementCollisionHook: sample=33 hits=0 shown=0
+[23:38:07] MovementCollisionHook: supportSample=43 tick=296757109 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-62.9906,-6.8988,-126.3680 normal=0.0000,1.0000,0.0000
+[23:38:07] MovementCollisionHook: sample=34 tick=296757359 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-63.0954,-6.8988,-126.4666 proposed=-63.1004,-6.8988,-126.4711 output=-63.1004,-6.8988,-126.4711
+[23:38:07] MovementCollisionHook: sample=34 hits=0 shown=0
+[23:38:07] MovementCollisionHook: supportSample=44 tick=296757359 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-63.1004,-6.8988,-126.4711 normal=0.0000,1.0000,0.0000
+[23:38:07] MovementCollisionHook: sample=35 tick=296757609 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-63.2034,-6.8988,-126.5644 proposed=-63.2082,-6.8988,-126.5687 output=-63.2082,-6.8988,-126.5687
+[23:38:07] MovementCollisionHook: sample=35 hits=0 shown=0
+[23:38:07] MovementCollisionHook: supportSample=45 tick=296757609 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-63.2082,-6.8988,-126.5687 normal=0.0000,1.0000,0.0000
+[23:38:08] MovementCollisionHook: sample=36 tick=296757859 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-63.3145,-6.8988,-126.6658 proposed=-63.3187,-6.8988,-126.6697 output=-63.3187,-6.8988,-126.6697
+[23:38:08] MovementCollisionHook: sample=36 hits=0 shown=0
+[23:38:08] MovementCollisionHook: supportSample=46 tick=296757859 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-63.3187,-6.8988,-126.6697 normal=0.0000,1.0000,0.0000
+[23:38:08] MovementCollisionHook: sample=37 tick=296758109 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-63.4208,-6.8988,-126.7680 proposed=-63.4262,-6.8988,-126.7733 output=-63.4262,-6.8988,-126.7733
+[23:38:08] MovementCollisionHook: sample=37 hits=0 shown=0
+[23:38:08] MovementCollisionHook: supportSample=47 tick=296758109 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-63.4262,-6.8988,-126.7733 normal=0.0000,1.0000,0.0000
+[23:38:08] MovementCollisionHook: sample=38 tick=296758359 player=EB89C000 playerRoom98=F4A69500 collision=0 flag=1 start=-63.5271,-6.8988,-126.8716 proposed=-63.5325,-6.8988,-126.8769 output=-63.5325,-6.8988,-126.8769
+[23:38:08] MovementCollisionHook: sample=38 hits=0 shown=0
+[23:38:08] MovementCollisionHook: supportSample=48 tick=296758359 callerRva=003394E4 player=EB89C000 sameCharacter=1 result=1 outputValid=1 height=0.0710 slope=0.7009 output=-63.5325,-6.8988,-126.8769 normal=0.0000,1.0000,0.0000
+[23:38:08] MovementCollisionHook: sample=39 tick=296758609 player=EB89C000 playerRoom98=D2ADA500 collision=0 flag=1 start=-63.6356,-6.8998,-126.9774 proposed=-63.6410,-6.8998,-126.9827 output=-63.6410,-6.8998,-126.9827
+[23:38:08] MovementCollisionHook: sample=39 hits=0 shown=0
+[23:38:08] MovementCollisionHook: support-sample-limit=48 reached
+[23:38:09] MovementCollisionHook: sample=40 tick=296758859 player=EB89C000 playerRoom98=D2ADA500 collision=0 flag=1 start=-63.7444,-6.8998,-127.0834 proposed=-63.7490,-6.8998,-127.0879 output=-63.7490,-6.8998,-127.0879
+[23:38:09] MovementCollisionHook: sample=40 hits=0 shown=0
+[23:38:09] MovementCollisionHook: sample=41 tick=296759109 player=EB89C000 playerRoom98=D2ADA500 collision=0 flag=1 start=-63.8517,-6.9057,-127.1879 proposed=-63.8569,-6.9057,-127.1930 output=-63.8569,-6.9057,-127.1930
+[23:38:09] MovementCollisionHook: sample=41 hits=0 shown=0
+[23:38:09] MovementCollisionHook: sample=42 tick=296759359 player=EB89C000 playerRoom98=D2ADA500 collision=0 flag=1 start=-63.9582,-6.9062,-127.2916 proposed=-63.9634,-6.9062,-127.2968 output=-63.9634,-6.9062,-127.2968
+[23:38:09] MovementCollisionHook: sample=42 hits=0 shown=0
+[23:38:13] MovementCollisionHook: sample=43 tick=296763359 player=EB89C000 playerRoom98=D2ADA500 collision=0 flag=1 start=-64.0365,-6.9062,-127.3680 proposed=-64.0425,-6.9062,-127.3680 output=-64.0425,-6.9062,-127.3680
+[23:38:13] MovementCollisionHook: sample=43 hits=0 shown=0
+[23:38:13] MovementCollisionHook: sample=44 tick=296763609 player=EB89C000 playerRoom98=D2ADA500 collision=0 flag=1 start=-64.1830,-6.9062,-127.3873 proposed=-64.1899,-6.9062,-127.3897 output=-64.1899,-6.9062,-127.3897
+[23:38:13] MovementCollisionHook: sample=44 hits=0 shown=0
+[23:38:14] MovementCollisionHook: sample=45 tick=296763859 player=EB89C000 playerRoom98=D2ADA500 collision=0 flag=1 start=-64.3277,-6.9062,-127.4449 proposed=-64.3344,-6.9062,-127.4479 output=-64.3344,-6.9062,-127.4479
+[23:38:14] MovementCollisionHook: sample=45 hits=0 shown=0
+[23:38:14] MovementCollisionHook: sample=46 tick=296764109 player=EB89C000 playerRoom98=D2ADA500 collision=0 flag=1 start=-64.4627,-6.9062,-127.5069 proposed=-64.4687,-6.9062,-127.5098 output=-64.4687,-6.9062,-127.5098
+[23:38:14] MovementCollisionHook: sample=46 hits=0 shown=0
+[23:38:15] MovementCollisionHook: sample=47 tick=296765078 player=EB89C000 playerRoom98=D2ADA500 collision=0 flag=1 start=-64.5172,-6.9062,-127.5331 proposed=-64.5113,-6.9062,-127.5298 output=-64.5113,-6.9062,-127.5298
+[23:38:15] MovementCollisionHook: sample=47 hits=0 shown=0
+[23:38:15] MovementCollisionHook: sample=48 tick=296765328 player=EB89C000 playerRoom98=D2ADA500 collision=0 flag=1 start=-64.3889,-6.9062,-127.4597 proposed=-64.3830,-6.9062,-127.4562 output=-64.3830,-6.9062,-127.4562
+[23:38:15] MovementCollisionHook: sample=48 hits=0 shown=0
+[23:38:15] MovementCollisionHook: movement-sample-limit=48 reached
+[23:36:29] PhaseUpdateHook: checkpoint=new-instance-resolved sectionOffset=0x1C59 line=253 crtDepth=1 newInstanceNameID=0000000000000000
+[23:36:29] PhaseUpdateHook: checkpoint=phase-field-matched callerOffset=0x84 line=5 crtDepth=1 me=FA6A11DC replicationArgument=00000000001B5015 list=D59318D0 field=0x40000002641F28CC
+[23:36:29] PhaseUpdateHook: checkpoint=new-instance-resolved sectionOffset=0x1C59 line=253 crtDepth=1 newInstanceNameID=FF5F184AAA9ECE77
+[23:36:40] PhaseUpdateHook: checkpoint=phase-field-matched callerOffset=0x84 line=5 crtDepth=1 me=FA6A11DC replicationArgument=00000000001B502E list=C5035AB0 field=0x40000002641F28CC
+[23:36:40] PhaseUpdateHook: checkpoint=new-instance-resolved sectionOffset=0x1C59 line=253 crtDepth=1 newInstanceNameID=0000000000000000
+[23:36:40] PhaseUpdateHook: checkpoint=exit-gateway-gui-branch-complete sectionOffset=0x2563 line=322 crtDepth=1 newInstanceNameID=0000000000000000
+[23:35:30] NativeRoomHook: pid=2604 select return area=F3F139A0 selected=F4A62A00 requested=F4A62A00 state8c=00000003 state90=00000006
+[23:35:33] NativeRoomHook: pid=2604 select return area=F3F139A0 selected=F4A64500 requested=F4A64500 state8c=00000003 state90=00000006
+[23:35:33] NativeRoomHook: pid=2604 select return area=F3F139A0 selected=F4A63500 requested=F4A63500 state8c=00000003 state90=00000006
+[23:36:15] NativeRoomHook: pid=2604 select return area=F3F139A0 selected=F4A62A00 requested=F4A62A00 state8c=00000003 state90=00000006
+[23:36:15] NativeRoomHook: pid=2604 register area=F3F139A0 room=F4A69500 name=gnarls_new state8c=00000000 state90=00000000
+[23:36:30] NativeRoomHook: pid=2604 select return area=F3F139A0 selected=D2ADA500 requested=D2ADA500 state8c=00000003 state90=00000006
+[23:36:40] NativeRoomHook: pid=2604 select return area=F3F139A0 selected=F4A69500 requested=F4A69500 state8c=00000003 state90=00000006
+[23:38:09] NativeRoomHook: pid=2604 select return area=F3F139A0 selected=D2ADA500 requested=D2ADA500 state8c=00000003 state90=00000006
+[23:38:18] NativeRoomHook: pid=2604 select return area=F3F139A0 selected=F4A69500 requested=F4A69500 state8c=00000003 state90=00000006

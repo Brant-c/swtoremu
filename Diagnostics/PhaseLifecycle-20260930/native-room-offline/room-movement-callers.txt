@@ -1,0 +1,104 @@
+  006F9200: 53                 push        ebx
+  006F9201: 56                 push        esi
+  006F9202: 57                 push        edi
+  006F9203: 0F 84 18 01 00 00  je          006F9321
+  006F9209: 33 FF              xor         edi,edi
+  006F920B: 39 3D 20 6E 49 01  cmp         dword ptr ds:[01496E20h],edi
+  006F9211: 0F 84 0A 01 00 00  je          006F9321
+  006F9217: A1 64 5F 49 01     mov         eax,dword ptr ds:[01495F64h]
+  006F921C: 3B C7              cmp         eax,edi
+  006F921E: 74 08              je          006F9228
+  006F9220: 8D 88 20 01 00 00  lea         ecx,[eax+00000120h]
+  006F9226: EB 02              jmp         006F922A
+  006F9228: 33 C9              xor         ecx,ecx
+  006F922A: F3 0F 2A 4D 0C     cvtsi2ss    xmm1,dword ptr [ebp+0Ch]
+  006F922F: 8D 44 24 10        lea         eax,[esp+10h]
+  006F9233: 50                 push        eax
+  006F9234: A1 68 CC 38 01     mov         eax,dword ptr ds:[0138CC68h]
+  006F9239: 8D 54 24 20        lea         edx,[esp+20h]
+  006F923D: 52                 push        edx
+  006F923E: 83 EC 10           sub         esp,10h
+  006F9241: 8D 50 FF           lea         edx,[eax-1]
+  006F9244: F3 0F 2A C2        cvtsi2ss    xmm0,edx
+  006F9248: F3 0F 5C C1        subss       xmm0,xmm1
+  006F924C: F3 0F 11 44 24 0C  movss       dword ptr [esp+0Ch],xmm0
+  006F9252: F3 0F 2A 45 08     cvtsi2ss    xmm0,dword ptr [ebp+8]
+  006F9257: F3 0F 11 44 24 08  movss       dword ptr [esp+8],xmm0
+  006F925D: F3 0F 2A C0        cvtsi2ss    xmm0,eax
+  006F9261: F3 0F 11 44 24 04  movss       dword ptr [esp+4],xmm0
+  006F9267: F3 0F 2A 05 6C CC  cvtsi2ss    xmm0,dword ptr ds:[0138CC6Ch]
+            38 01
+  006F926F: F3 0F 11 04 24     movss       dword ptr [esp],xmm0
+  006F9274: 51                 push        ecx
+  006F9275: FF 15 EC 20 06 01  call        dword ptr ds:[010620ECh]
+  006F927B: 8D 44 24 0C        lea         eax,[esp+0Ch]
+  006F927F: 50                 push        eax
+  006F9280: 8D 54 24 14        lea         edx,[esp+14h]
+  006F9284: 8D 4C 24 20        lea         ecx,[esp+20h]
+  006F9288: 89 7C 24 10        mov         dword ptr [esp+10h],edi
+  006F928C: 89 3D F8 28 49 01  mov         dword ptr ds:[014928F8h],edi
+  006F9292: E8 99 43 02 00     call        0071D630
+  006F9297: 3C 01              cmp         al,1
+  006F9299: 0F 85 82 00 00 00  jne         006F9321
+  006F929F: 80 3D A2 26 49 01  cmp         byte ptr ds:[014926A2h],0
+            00
+  006F92A6: 74 79              je          006F9321
+  006F92A8: 8B 35 B0 27 49 01  mov         esi,dword ptr ds:[014927B0h]
+  006F92AE: 3B F7              cmp         esi,edi
+  006F92B0: 74 6F              je          006F9321
+  006F92B2: 8B 5C 24 0C        mov         ebx,dword ptr [esp+0Ch]
+  006F92B6: 3B F3              cmp         esi,ebx
+  006F92B8: 74 67              je          006F9321
+  006F92BA: 8D 7B 7C           lea         edi,[ebx+7Ch]
+  006F92BD: 57                 push        edi
+  006F92BE: 8B CE              mov         ecx,esi
+  006F92C0: E8 0B 09 48 00     call        00B79BD0
+  006F92C5: 85 C0              test        eax,eax
+  006F92C7: 0F 94 C1           sete        cl
+  006F92CA: 88 4C 24 0C        mov         byte ptr [esp+0Ch],cl
+  006F92CE: 8B 54 24 0C        mov         edx,dword ptr [esp+0Ch]
+  006F92D2: 8B 0F              mov         ecx,dword ptr [edi]
+  006F92D4: 52                 push        edx
+  006F92D5: E8 66 A1 FF FF     call        006F3440
+  006F92DA: 83 C4 04           add         esp,4
+  006F92DD: 80 7D 10 00        cmp         byte ptr [ebp+10h],0
+  006F92E1: 75 3E              jne         006F9321
+  006F92E3: 0F B6 0D A2 26 49  movzx       ecx,byte ptr ds:[014926A2h]
+            01
+  006F92EA: F7 D9              neg         ecx
+  006F92EC: 1B C9              sbb         ecx,ecx
+  006F92EE: 23 0D 20 6E 49 01  and         ecx,dword ptr ds:[01496E20h]
+  006F92F4: 53                 push        ebx
+  006F92F5: E8 E6 87 49 00     call        00B91AE0
+  006F92FA: 8B 44 24 0C        mov         eax,dword ptr [esp+0Ch]
+  006F92FE: 8B 4E 7C           mov         ecx,dword ptr [esi+7Ch]
+  006F9301: 50                 push        eax
+  006F9302: E8 39 A1 FF FF     call        006F3440
+  006F9307: 0F B6 0D A2 26 49  movzx       ecx,byte ptr ds:[014926A2h]
+            01
+  006F930E: 83 C4 04           add         esp,4
+  006F9311: F7 D9              neg         ecx
+  006F9313: 1B C9              sbb         ecx,ecx
+  006F9315: 23 0D 20 6E 49 01  and         ecx,dword ptr ds:[01496E20h]
+  006F931B: 56                 push        esi
+  006F931C: E8 BF 87 49 00     call        00B91AE0
+  006F9321: 5F                 pop         edi
+  006F9322: 5E                 pop         esi
+  006F9323: 5B                 pop         ebx
+  006F9324: 8B E5              mov         esp,ebp
+  006F9326: 5D                 pop         ebp
+  006F9327: C3                 ret
+  006F9328: CC                 int         3
+  006F9329: CC                 int         3
+  006F932A: CC                 int         3
+  006F932B: CC                 int         3
+  006F932C: CC                 int         3
+  006F932D: CC                 int         3
+  006F932E: CC                 int         3
+  006F932F: CC                 int         3
+  006F9330: 55                 push        ebp
+  006F9331: 8B EC              mov         ebp,esp
+  006F9333: 83 E4 F8           and         esp,0FFFFFFF8h
+  006F9336: 64 A1 00 00 00 00  mov         eax,dword ptr fs:[00000000h]
+  006F933C: 6A FF              push        0FFFFFFFFh
+  006F933E: 68 18 13 02 01     push        1021318h

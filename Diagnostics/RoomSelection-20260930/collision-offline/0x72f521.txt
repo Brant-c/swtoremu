@@ -1,0 +1,59 @@
+  0072F4C2: 51                 push        ecx
+  0072F4C3: 68 60 16 15 01     push        1151660h
+  0072F4C8: 8D 4C 24 20        lea         ecx,[esp+20h]
+  0072F4CC: E8 DF 93 CE FF     call        004188B0
+  0072F4D1: C7 44 24 34 02 00  mov         dword ptr [esp+34h],2
+            00 00
+  0072F4D9: 8D 54 24 18        lea         edx,[esp+18h]
+  0072F4DD: 52                 push        edx
+  0072F4DE: B9 1C C4 49 01     mov         ecx,149C41Ch
+  0072F4E3: E8 38 82 D4 FF     call        00477720
+  0072F4E8: 89 74 24 34        mov         dword ptr [esp+34h],esi
+  0072F4EC: 8B 4C 24 20        mov         ecx,dword ptr [esp+20h]
+  0072F4F0: 8B 44 24 18        mov         eax,dword ptr [esp+18h]
+  0072F4F4: 2B C8              sub         ecx,eax
+  0072F4F6: 83 E1 FE           and         ecx,0FFFFFFFEh
+  0072F4F9: 83 F9 02           cmp         ecx,2
+  0072F4FC: 7E 1E              jle         0072F51C
+  0072F4FE: 8B F8              mov         edi,eax
+  0072F500: 3B C3              cmp         eax,ebx
+  0072F502: 74 18              je          0072F51C
+  0072F504: 38 1D A9 E9 48 01  cmp         byte ptr ds:[0148E9A9h],bl
+  0072F50A: 75 05              jne         0072F511
+  0072F50C: E8 EF 1A CD FF     call        00401000
+  0072F511: 8B 15 58 1D 06 01  mov         edx,dword ptr ds:[01061D58h]
+  0072F517: 8B 02              mov         eax,dword ptr [edx]
+  0072F519: 57                 push        edi
+  0072F51A: FF D0              call        eax
+  0072F51C: 8D 4C 24 13        lea         ecx,[esp+13h]
+  0072F520: 51                 push        ecx
+  0072F521: 68 AC 7B 14 01     push        1147BACh
+  0072F526: 8D 4C 24 20        lea         ecx,[esp+20h]
+  0072F52A: E8 81 93 CE FF     call        004188B0
+  0072F52F: C7 44 24 34 03 00  mov         dword ptr [esp+34h],3
+            00 00
+  0072F537: 8D 54 24 18        lea         edx,[esp+18h]
+  0072F53B: 52                 push        edx
+  0072F53C: B9 1C C4 49 01     mov         ecx,149C41Ch
+  0072F541: E8 DA 81 D4 FF     call        00477720
+  0072F546: 89 74 24 34        mov         dword ptr [esp+34h],esi
+  0072F54A: 8B 4C 24 20        mov         ecx,dword ptr [esp+20h]
+  0072F54E: 8B 44 24 18        mov         eax,dword ptr [esp+18h]
+  0072F552: 2B C8              sub         ecx,eax
+  0072F554: 83 E1 FE           and         ecx,0FFFFFFFEh
+  0072F557: 83 F9 02           cmp         ecx,2
+  0072F55A: 7E 1E              jle         0072F57A
+  0072F55C: 8B F8              mov         edi,eax
+  0072F55E: 3B C3              cmp         eax,ebx
+  0072F560: 74 18              je          0072F57A
+  0072F562: 38 1D A9 E9 48 01  cmp         byte ptr ds:[0148E9A9h],bl
+  0072F568: 75 05              jne         0072F56F
+  0072F56A: E8 91 1A CD FF     call        00401000
+  0072F56F: 8B 15 58 1D 06 01  mov         edx,dword ptr ds:[01061D58h]
+  0072F575: 8B 02              mov         eax,dword ptr [edx]
+  0072F577: 57                 push        edi
+  0072F578: FF D0              call        eax
+  0072F57A: 8D 4C 24 13        lea         ecx,[esp+13h]
+  0072F57E: 51                 push        ecx
+  0072F57F: 68 24 0D 15 01     push        1150D24h
+  0072F584: 8D 4C 24 20        lea         ecx,[esp+20h]

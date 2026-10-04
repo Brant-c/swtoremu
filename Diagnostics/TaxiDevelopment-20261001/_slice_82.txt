@@ -1,0 +1,20 @@
+  82  TAXI_RESOURCE_NAME = 16141090805656758403        # 0xE000AC918E7EA883
+  83  VENDOR_RESOURCE_NAME = 0xE000C970F186EEC0       # the value currently in the tail
+  84  # chrGender (struct-66 field 8) and chrAppearanceNppOverride (field 59) were
+  85  # sent as chrNPCGenderComplete=5 and npcAppearanceOverride=3. Both are AUTHORED on
+  86  # the taxi prototype but NEITHER is in its replicated surface, which is exactly
+  87  # taxTerminalSpec + brkResourceName, and neither appears in any reference NPC
+  88  # record. Dropping them makes this record present the same field set the captured
+  89  # vendor does: the single variable of Experiments/2026-10-02-07. The record gets 2
+  90  # bytes shorter, so every identity-patch offset downstream must move with it.
+  91    values = {0:struct.pack('<3f', *PLACEMENT),
+  92              1:data[donor['body_start']+12:donor['body_start']+24],
+  93              9:struct.pack('<f',1), 10:struct.pack('<f',.1), 13:pack(2),
+  94              22:pack(1),23:pack(EQP),24:pack(POS),25:pack(NEG),26:pack(OTHER),
+  95              32:pack(TERMINAL),33:pack(TMR_CONTAINER),
+  96              57:pack(TEMPLATE)}
+  97  # staEnterIdle (struct-66 field 37) is the only field the taxi lacks that Weller
+  98  # -- the single confirmed working NPC -- carries. Weller receives it through
+  99  # CRT12, the one NPC replication contract in the whole capture. We first try the
+ 100  # cheaper route and set it directly in the awareness record.
+ 101  # It is a Boolean (part kind 3), so it consumes ZERO value bytes: its state bit

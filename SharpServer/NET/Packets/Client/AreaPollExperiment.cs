@@ -51,12 +51,10 @@ namespace NexusToRServer.NET.Packets.Client
             string svc = client == null ? "no-client" : client.AreaServiceID.ToString();
             string placed = (client == null || client.ActiveCharacter == null) ? "none" : client.ActiveCharacter._id.ToString();
             string hex = body == null ? "(null)" : BitConverter.ToString(body);
-            string head = hex.Length > 47 ? hex.Substring(0, 47) : hex;
-            string tail = hex.Length > 47 ? hex.Substring(hex.Length - 47) : hex;
             Log.Write(LogLevel.Client,
-                "AREA-POLL {0}: component=0x{1:X8} len={2} placed={3} areaSvc={4} mode={5}{6} head={7} tail={8}",
+                "AREA-POLL {0}: component=0x{1:X8} len={2} placed={3} areaSvc={4} mode={5}{6} body={7}",
                 opcodeName, component, body == null ? 0 : body.Length, placed, svc,
-                GetMode(opcodeName), string.IsNullOrEmpty(extra) ? "" : " " + extra, head, tail);
+                GetMode(opcodeName), string.IsNullOrEmpty(extra) ? "" : " " + extra, hex);
         }
 
         public static void LogDecision(TORGameClient client, string opcodeName, string decision)

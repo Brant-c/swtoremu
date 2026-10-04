@@ -1,0 +1,78 @@
+  95          {
+  96              int r = (int)rung;
+  97              if (nodes == null || nodes.Length != 5)
+  98                  throw new ArgumentException("Five taxi identities required");
+  99              for (int i = 0; i < nodes.Length; i++)
+ 100                  for (int j = 0; j < i; j++)
+ 101                      if (nodes[i] == nodes[j]) throw new ArgumentException("Taxi identities must be distinct");
+ 102              // Awareness lives in the NexusToRServer.AreaServer namespace; this file is in
+ 103              // ...NET.Packets.Server, so qualify it explicitly.
+ 104              byte[] captured = NexusToRServer.AreaServer.Awareness.Get(Area, AreaID, AreaCode, AwarenessID);
+ 105              if (captured.Length == 0)
+ 106                  throw new InvalidDataException("Captured awareness set is missing");
+ 107              if (captured[4] != 0x01)
+ 108                  throw new InvalidDataException("Unexpected awareness flags 0x" + captured[4].ToString("X2"));
+ 109              if (captured[CountOffset] != CapturedCount)
+ 110                  throw new InvalidDataException("Captured count is " + captured[CountOffset] +
+ 111                                                 ", expected " + CapturedCount);
+ 112  
+ 113              // Each rung is a FIVE-object taxi payload: LE u32 pad, flags, one-byte
+ 114              // count, then 5 records. The count byte is consumed here and the records
+ 115              // are appended verbatim, so the merged list gains 5 objects, not 1.
+ 116              int expected = RungBytes[r];
+ 117              int objects = RungObjects[r];
+ 118              byte[] records;
+ 119              using (Stream resource = Assembly.GetExecutingAssembly()
+ 120                                         .GetManifestResourceStream(RungResources[r]))
+ 121              {
+ 122                  if (resource == null || resource.Length != expected)
+ 123                      throw new InvalidDataException("Taxi rung " + r + " fixture missing or changed");
+ 124                  byte[] whole = new byte[expected];
+ 125                  int read = 0, count;
+ 126                  while ((count = resource.Read(whole, read, whole.Length - read)) > 0) read += count;
+ 127                  if (read != whole.Length) throw new InvalidDataException("Truncated taxi fixture");
+ 128                  if (whole[4] != 0x01 || whole[5] != objects)
+ 129                      throw new InvalidDataException("Taxi fixture is not a " + objects + "-object list");
+ 130                  records = new byte[whole.Length - 6];
+ 131                  Buffer.BlockCopy(whole, 6, records, 0, records.Length);
+ 132              }
+ 133  
+ 134              // Substitute all five identities, mirroring AreaTaxiAwareness's offsets:
+ 135              // the NPC record plus four attached effect containers.
+ 136              int[] Slots = { 0, 1, 2, 3, 4, 1, 0, 0, 2, 0, 3, 0, 4, 0 };
+ 137              int[] Offsets = { 6, 109, 115, 121, 127, 486, 502, 531, 538, 554, 584, 600, 630, 646 };
+ 138              for (int i = 0; i < Offsets.Length; i++)
+ 139              {
+ 140                  byte[] expectedNode = AreaReplicationDestroy.PackNode(0x1AC7001000UL + (UInt64)Slots[i]);
+ 141                  byte[] replacement = AreaReplicationDestroy.PackNode(nodes[Slots[i]]);
+ 142                  if (replacement.Length != expectedNode.Length)
+ 143                      throw new ArgumentException("Taxi identity width mismatch");
+ 144                  for (int j = 0; j < expectedNode.Length; j++)
+ 145                      if (records[Offsets[i] - 6 + j] != expectedNode[j])
+ 146                          throw new InvalidDataException("Taxi fixture patch mismatch at " + Offsets[i]);
+ 147                  Buffer.BlockCopy(replacement, 0, records, Offsets[i] - 6, replacement.Length);
+ 148              }
+ 149  
+ 150              byte[] merged = new byte[captured.Length + records.Length];
+ 151              Buffer.BlockCopy(captured, 0, merged, 0, CountOffset);
+ 152              merged[CountOffset] = (byte)(CapturedCount + objects);  // 77 -> 82, one byte
+ 153              Buffer.BlockCopy(captured, CountOffset + 1, merged, CountOffset + 1,
+ 154                               captured.Length - CountOffset - 1);
+ 155              Buffer.BlockCopy(records, 0, merged, captured.Length, records.Length);
+ 156  
+ 157              // The merged payload must still contain every captured byte, with only the
+ 158              // one-byte count changed. This is the check that keeps a failed
+ 159              // experiment from taking the room's NPCs down with it.
+ 160              for (int i = 0; i < CountOffset; i++)
+ 161                  if (merged[i] != captured[i])
+ 162                      throw new InvalidDataException("Merged header prefix altered");
+ 163              for (int i = CountOffset + 1; i < captured.Length; i++)
+ 164                  if (merged[i] != captured[i])
+ 165                      throw new InvalidDataException("Captured payload altered");
+ 166  
+ 167              using (SHA256 sha = SHA256.Create())
+ 168                  Log.Write(LogLevel.Warning,
+ 169                      "AreaMergedAwareness: MERGED taxi rung={0} sha256={1} bytes={2} captured={3} count={4}->{5} npc=0x{6:X16}; captured payload preserved verbatim.",
+ 170                      r, BitConverter.ToString(sha.ComputeHash(merged)).Replace("-", ""),
+ 171                      merged.Length, captured.Length, CapturedCount, CapturedCount + objects,
+ 172                      nodes[0]);

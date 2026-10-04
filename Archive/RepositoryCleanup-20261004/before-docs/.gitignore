@@ -1,0 +1,137 @@
+# --------------------------------------------------
+# Build output
+# --------------------------------------------------
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+*.obj
+*.o
+*.lo
+*.slo
+*.pch
+*.gch
+*.iobj
+*.ipdb
+*.pdb
+*.exp
+*.ilk
+*.tlog
+*.lastbuildstate
+*.exe
+*.dll
+*.lib
+*.so
+*.dylib
+*.a
+*.la
+*.lai
+*.out
+*.app
+
+# Detours generated output
+/Dependencies/Detours/lib.*/
+/Dependencies/Detours/src/obj.*/
+
+# --------------------------------------------------
+# IDE and local developer settings
+# --------------------------------------------------
+.vs/
+*.suo
+*.wsuo
+*.user
+*.userosscache
+*.sln.docstates
+*.VC.db
+*.VC.opendb
+
+# --------------------------------------------------
+# Python runtime and caches
+# --------------------------------------------------
+/Dependencies/python/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --------------------------------------------------
+# Game assets, extracted content, and client files
+# --------------------------------------------------
+*.tor
+/AssetOriginals/
+/Assets2012/
+/Assets2012April/
+/nexusclient/
+/nexusclient.rar
+/_JPEXTRACT/
+
+/Diagnostics/Extracted2012/
+/Diagnostics/GomCompatibility/ResourceCache*/
+/Diagnostics/GomCompatibility/RuntimeAssets/
+
+# --------------------------------------------------
+# Captures, dumps, and generated disassembly
+# --------------------------------------------------
+*.dmp
+*.mdmp
+*.pcap
+*.pcapng
+/Diagnostics/Captures/
+/Diagnostics/swtor-disasm.txt
+/Diagnostics/asset-compression-results.txt
+
+# --------------------------------------------------
+# Diagnostic build output and build backups
+# --------------------------------------------------
+/Diagnostics/*Build/
+/Diagnostics/*Backup*/
+/Diagnostics/**/build/
+/Diagnostics/**/before-build/
+/Diagnostics/**/after-build/
+/Diagnostics/**/obj/
+/Diagnostics/**/before-obj/
+/Diagnostics/**/after-obj/
+
+# Downloaded diagnostic utilities
+/Diagnostics/ProcessMonitor/
+/Diagnostics/ProcessMonitor.zip
+
+# --------------------------------------------------
+# Runtime logs and temporary backups
+# --------------------------------------------------
+*.log
+*.log.*
+*.bak
+*.bak[0-9]*
+*.tmp
+*.temp
+*.dll.*.bak
+*.exe.*.bak
+
+# Keep deliberately curated experiment evidence
+!/Diagnostics/Experiments/**/*.log
+!/Diagnostics/Fixtures/**/*.log
+
+# --------------------------------------------------
+# Local credentials and private configuration
+# --------------------------------------------------
+.env
+.env.*
+!.env.example
+!.env.sample
+*.p12
+*.pfx
+*.key
+
+# --------------------------------------------------
+# Operating-system files
+# --------------------------------------------------
+Thumbs.db
+Desktop.ini
+.DS_Store

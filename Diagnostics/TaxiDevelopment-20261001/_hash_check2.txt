@@ -1,0 +1,6 @@
+SHA256 hash of SharpServer\AreaServer\TaxiNpc.bin:
+78ce8d7a66552c5631de89489cc753cb2ddf3060f8c4572a8f28bf72dc95023d
+CertUtil: -hashfile command completed successfully.
+SHA256 hash of SharpServer\AreaServer\TaxiRecord1.bin:
+dbab420d0fe121de6f2f3be984ac286d06061c6d6edff1d0ff67f60529f9abe8
+CertUtil: -hashfile command completed successfully.

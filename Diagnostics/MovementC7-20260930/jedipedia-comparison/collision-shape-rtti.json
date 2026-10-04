@@ -1,0 +1,273 @@
+[
+  {
+    "name": ".?AVCollideInfo@@",
+    "descriptor": "0x12cdd24",
+    "vtables": []
+  },
+  {
+    "name": ".?AVCollisionRoom@bwa@@",
+    "descriptor": "0x12cdd60",
+    "vtables": [
+      {
+        "vtable": "0x10d9894",
+        "object_offset": 0,
+        "slots": [
+          "0xea2100",
+          "0xea9620",
+          "0xd14a40",
+          "0xd149e0",
+          "0xebd200",
+          "0xd1fc00",
+          "0xd025e0",
+          "0xd025e0",
+          "0xd14980",
+          "0xd14910",
+          "0xd1fc00",
+          "0xd1fbf0",
+          "0xd025e0",
+          "0xd1fc10",
+          "0xd025e0",
+          "0xd75110",
+          "0xd1e780"
+        ]
+      }
+    ]
+  },
+  {
+    "name": ".?AVBasicCollisionInterface@bwa@@",
+    "descriptor": "0x12cdd80",
+    "vtables": []
+  },
+  {
+    "name": ".?AVCollisionScene@bwa@@",
+    "descriptor": "0x12cddf0",
+    "vtables": [
+      {
+        "vtable": "0x10d98f4",
+        "object_offset": 0,
+        "slots": [
+          "0xd1ee20",
+          "0xd1ee00",
+          "0xd1f500",
+          "0xd1f5a0",
+          "0xea9620",
+          "0xd1f6d0",
+          "0xd1eb60",
+          "0xd1f2d0",
+          "0xd1f3f0",
+          "0xd1f330",
+          "0xd1f950",
+          "0xd1eb90",
+          "0xd1f8e0",
+          "0xd1f390",
+          "0xd1ebc0",
+          "0xd1ede0",
+          "0xd1ec00",
+          "0xd1ec60",
+          "0xd1fd60",
+          "0xd1ed20",
+          "0xd1ecc0",
+          "0xd1ed80",
+          "0xd1f640"
+        ]
+      }
+    ]
+  },
+  {
+    "name": ".?AV?$sp_counted_impl_p@VCollisionTreeMeshData@bwa@@@detail@boost@@",
+    "descriptor": "0x12cde70",
+    "vtables": []
+  },
+  {
+    "name": ".?AVCollisionTree@bwa@@",
+    "descriptor": "0x12cdebc",
+    "vtables": [
+      {
+        "vtable": "0x10d9a14",
+        "object_offset": 0,
+        "slots": [
+          "0xd20740",
+          "0xd20750",
+          "0xd207d0",
+          "0xd20760",
+          "0xd20590",
+          "0xd27d30",
+          "0xd27b50",
+          "0xd20690",
+          "0xd20af0",
+          "0xd20a20",
+          "0xd20c30",
+          "0xd20ba0",
+          "0xd20cb0",
+          "0xd20e00",
+          "0xd20d50",
+          "0xf27fa0",
+          "0xd21080",
+          "0xd208c0",
+          "0xd20800",
+          "0xd20960"
+        ]
+      }
+    ]
+  },
+  {
+    "name": ".?AVCollisionCharacter@bwa@@",
+    "descriptor": "0x12ce448",
+    "vtables": [
+      {
+        "vtable": "0x10da0ac",
+        "object_offset": 0,
+        "slots": [
+          "0xd27990",
+          "0xd279a0",
+          "0xd279d0",
+          "0xd279b0",
+          "0xd27ab0",
+          "0xd27d30",
+          "0xd27b50",
+          "0xd27d80",
+          "0xd27c80",
+          "0xd27bb0",
+          "0xd1fc00",
+          "0xd1fbf0",
+          "0xd025e0",
+          "0xd1fc10",
+          "0xd025e0",
+          "0xd27980",
+          "0xd27e00",
+          "0xd27e60",
+          "0xd27a90",
+          "0xd27f80"
+        ]
+      }
+    ]
+  },
+  {
+    "name": ".?AVCollisionHeightField@bwa@@",
+    "descriptor": "0x12ce470",
+    "vtables": [
+      {
+        "vtable": "0x10da114",
+        "object_offset": 0,
+        "slots": [
+          "0xd28640",
+          "0xd4ec70",
+          "0xd3ae70",
+          "0xd4f6b0",
+          "0xd4ed10",
+          "0xd3a940",
+          "0xd4ee20",
+          "0xd4dac0",
+          "0xd4dc50",
+          "0xd50fc0",
+          "0xd3a9f0",
+          "0xd4ef80",
+          "0xd4dd10",
+          "0xd4de80",
+          "0xd51130",
+          "0xd28660",
+          "0xd4f680"
+        ]
+      }
+    ]
+  },
+  {
+    "name": ".?AVCollisionPrimitive@bwa@@",
+    "descriptor": "0x12ce498",
+    "vtables": [
+      {
+        "vtable": "0x10da1f4",
+        "object_offset": 0,
+        "slots": [
+          "0xea2100",
+          "0xea9620",
+          "0xc2e240",
+          "0xc2e240",
+          "0xc2e240",
+          "0xc2e240",
+          "0xc2e240",
+          "0xc2e240",
+          "0xc2e240",
+          "0xc2e240",
+          "0xc2e240",
+          "0xc2e240",
+          "0xc2e240",
+          "0xc2e240",
+          "0xc2e240",
+          "0xd75110",
+          "0xd512b0"
+        ]
+      }
+    ]
+  },
+  {
+    "name": ".?AVCollisionBox@bwa@@",
+    "descriptor": "0x12ce4c0",
+    "vtables": [
+      {
+        "vtable": "0x10da23c",
+        "object_offset": 0,
+        "slots": [
+          "0xd514c0",
+          "0xea9620",
+          "0xd51310",
+          "0xd51d80",
+          "0xd51c70",
+          "0x49bb60",
+          "0xd51370",
+          "0xd516d0",
+          "0xd51ca0",
+          "0xd51fe0",
+          "0xd51380",
+          "0xd52230",
+          "0xd51a80",
+          "0xd51d10",
+          "0xd52480",
+          "0xd51450",
+          "0xd51460"
+        ]
+      }
+    ]
+  },
+  {
+    "name": ".?AVCollisionAllocator@bwa@@",
+    "descriptor": "0x12ce50c",
+    "vtables": []
+  },
+  {
+    "name": ".?AVCollisionMaterial@bwa@@",
+    "descriptor": "0x13363d0",
+    "vtables": []
+  },
+  {
+    "name": ".?AVCollideSystemInterface@@",
+    "descriptor": "0x1337eb8",
+    "vtables": [
+      {
+        "vtable": "0x11600e4",
+        "object_offset": 0,
+        "slots": [
+          "0x7eb8b0",
+          "0xc2e240",
+          "0xc2e240",
+          "0xc2e240",
+          "0xc2e240",
+          "0xc2e240",
+          "0xc2e240",
+          "0xc2e240",
+          "0xc2e240",
+          "0xc2e240",
+          "0xc2e240",
+          "0xc2e240",
+          "0xc2e240",
+          "0xc2e240"
+        ]
+      }
+    ]
+  },
+  {
+    "name": ".?AV?$sp_counted_impl_p@VUnifiedCollisionData@bwa@@@detail@boost@@",
+    "descriptor": "0x13398c0",
+    "vtables": []
+  }
+]

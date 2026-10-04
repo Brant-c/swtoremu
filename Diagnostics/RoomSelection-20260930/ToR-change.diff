@@ -1,0 +1,37 @@
+--- ToR.before.cpp
++++ ToR.cpp
+@@ -18,6 +18,7 @@
+ #include "StdAfx.h"
+ #include "acpdump2.h"
+ #include "ToR.h"
++#include "RoomSelectionTrace.h"
+ 
+ #pragma comment(lib, "ws2_32.lib")
+ 
+@@ -1414,6 +1415,7 @@
+ 		IMAGE_DOS_HEADER* dos = (IMAGE_DOS_HEADER*)baseAddr;
+ 		IMAGE_NT_HEADERS* nt = (IMAGE_NT_HEADERS*)(baseAddr + dos->e_lfanew);
+ 		g_clientImageSize = nt->OptionalHeader.SizeOfImage;
++		PrepareRoomTrace(baseAddr, g_clientImageSize);
+ 		Log::Write("AreaRpcHook", "client image base=%p size=0x%08X", hMod, g_clientImageSize);
+         State3Setter_r = (State3Setter_t)(baseAddr + 0x0037B140);
+ 
+@@ -1571,6 +1573,9 @@
+         return;
+     }
+     result = DetourUpdateThread(GetCurrentThread());
++    if (result == NO_ERROR && NativeRoomRegister_r) result = DetourAttach(&(PVOID&)NativeRoomRegister_r, (PVOID)NativeRoomRegister_Hook);
++    if (result == NO_ERROR && NativeRoomSelect_r) result = DetourAttach(&(PVOID&)NativeRoomSelect_r, (PVOID)NativeRoomSelect_Hook);
++    if (result == NO_ERROR && NativeRoomActivate_r) result = DetourAttach(&(PVOID&)NativeRoomActivate_r, (PVOID)NativeRoomActivate_Hook);
+     if (result == NO_ERROR) result = DetourAttach(&(PVOID&)getaddrinfo_r, (PVOID)getaddrinfo_c);
+     if (result == NO_ERROR) result = DetourAttach(&(PVOID&)recv_r, (PVOID)recv_c);
+     if (result == NO_ERROR) result = DetourAttach(&(PVOID&)send_r, (PVOID)send_c);
+@@ -1613,6 +1618,8 @@
+ 		HeroClassGetField_r ? "enabled" : "disabled",
+ 		SetNodeFieldEnum_r ? "enabled" : "disabled",
+ 		AreaMessageDispatch_r ? "enabled" : "disabled");
++    if (NativeRoomRegister_r && NativeRoomSelect_r && NativeRoomActivate_r)
++        Log::Write("NativeRoomHook", "INSTALLED pid=%lu register=B90CF0 select=B91AE0 activate=B7C390; caps=512/256/256; select changes only; read failure=FFFFFFFF; no scans or game-state writes", GetCurrentProcessId());
+ }
+ ToR::ToR()
+ {

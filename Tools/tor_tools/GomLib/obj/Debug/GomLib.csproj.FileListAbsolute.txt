@@ -1,2 +1,0 @@
-D:\SWTORClassic\swtoremu\Tools\tor_tools\GomLib\obj\Debug\GomLib.csproj.AssemblyReference.cache
-D:\SWTORClassic\swtoremu\Tools\tor_tools\GomLib\obj\Debug\GomLib.csproj.CoreCompileInputs.cache

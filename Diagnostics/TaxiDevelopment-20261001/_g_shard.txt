@@ -1,0 +1,23 @@
+SharpServer\PlatformServer\Handler.cs:46: case "/gamepad/shardlist":
+SharpServer\PlatformServer\Handler.cs:47: case "/gamepad/shardlist/":
+SharpServer\ShardListServer\Program.cs:32: namespace shardlistserver
+SharpServer\ShardListServer\Program.cs:35: public class shardlist
+SharpServer\ShardListServer\Program.cs:38: public list<shardlistentry> shards;
+SharpServer\ShardListServer\Program.cs:53: public static shardlist load()
+SharpServer\ShardListServer\Program.cs:55: xmlserializer ser = new xmlserializer(typeof(shardlist));
+SharpServer\ShardListServer\Program.cs:56: shardlist sl = ser.deserialize(new streamreader("shards.xml")) as shardlist;
+SharpServer\ShardListServer\Program.cs:61: public class shardlistentry
+SharpServer\ShardListServer\Program.cs:101: static shardlist shardlist;
+SharpServer\ShardListServer\Program.cs:109: shardlist = shardlist.load();
+SharpServer\ShardListServer\Program.cs:111: console.writeline("loaded " + shardlist.shardcount + " shards.");
+SharpServer\ShardListServer\Program.cs:136: case "/gamepad/shardlist":
+SharpServer\ShardListServer\Program.cs:138: foreach (shardlistentry shardentry in shardlist.shards)
+SharpServer\ShardListServer\Program.cs:141: s += ",\"timezone\":" + shardentry.timezone + ",\"weight\":100,\"host\":\"" + shardlist.proxyip + ":" + shardlist.proxyport + ":" + shardentry.serveri
+SharpServer\ShardListServer\Program.cs:214: if (requestedpath == "/gamepad/shardlist")
+SharpServer\ShardListServer\Program.cs:217: foreach (shardlistentry shardentry in shardlist.shards)
+SharpServer\ShardListServer\Program.cs:220: s += ",\"timezone\":" + shardentry.timezone + ",\"weight\":100,\"host\":\"" + shardlist.proxyip + ":" + shardlist.proxyport + ":" + shardentry.serveri
+SharpServer\ShardListServer\Properties\AssemblyInfo.cs:8: [assembly: assemblytitle("shardlistserver")]
+SharpServer\ShardListServer\Properties\AssemblyInfo.cs:12: [assembly: assemblyproduct("shardlistserver")]
+SharpServer\ShardListServer\ShardListServer.csproj:11: <rootnamespace>shardlistserver</rootnamespace>
+SharpServer\ShardListServer\ShardListServer.csproj:12: <assemblyname>shardlistserver</assemblyname>
+TOTAL 22 hits for 'shardlist'

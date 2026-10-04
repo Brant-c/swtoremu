@@ -1,0 +1,141 @@
+  00D02750: 53                 push        ebx
+  00D02751: 8B DC              mov         ebx,esp
+  00D02753: 83 EC 08           sub         esp,8
+  00D02756: 83 E4 F0           and         esp,0FFFFFFF0h
+  00D02759: 83 C4 04           add         esp,4
+  00D0275C: 55                 push        ebp
+  00D0275D: 8B 6B 04           mov         ebp,dword ptr [ebx+4]
+  00D02760: 89 6C 24 04        mov         dword ptr [esp+4],ebp
+  00D02764: 8B EC              mov         ebp,esp
+  00D02766: 8A 43 08           mov         al,byte ptr [ebx+8]
+  00D02769: 8B 53 10           mov         edx,dword ptr [ebx+10h]
+  00D0276C: 83 EC 0C           sub         esp,0Ch
+  00D0276F: 56                 push        esi
+  00D02770: 8B F1              mov         esi,ecx
+  00D02772: 8A 0E              mov         cl,byte ptr [esi]
+  00D02774: 24 01              and         al,1
+  00D02776: 02 C0              add         al,al
+  00D02778: 80 E1 F8           and         cl,0F8h
+  00D0277B: 0A C1              or          al,cl
+  00D0277D: 8B 4B 1C           mov         ecx,dword ptr [ebx+1Ch]
+  00D02780: 88 06              mov         byte ptr [esi],al
+  00D02782: 33 C0              xor         eax,eax
+  00D02784: 89 46 04           mov         dword ptr [esi+4],eax
+  00D02787: 89 46 08           mov         dword ptr [esi+8],eax
+  00D0278A: 0F 28 02           movaps      xmm0,xmmword ptr [edx]
+  00D0278D: 8B 43 14           mov         eax,dword ptr [ebx+14h]
+  00D02790: 0F 29 46 10        movaps      xmmword ptr [esi+10h],xmm0
+  00D02794: 0F 28 00           movaps      xmm0,xmmword ptr [eax]
+  00D02797: 0F 29 46 20        movaps      xmmword ptr [esi+20h],xmm0
+  00D0279B: F3 0F 10 43 18     movss       xmm0,dword ptr [ebx+18h]
+  00D027A0: F3 0F 11 46 30     movss       dword ptr [esi+30h],xmm0
+  00D027A5: F3 0F 11 46 34     movss       dword ptr [esi+34h],xmm0
+  00D027AA: 89 4E 38           mov         dword ptr [esi+38h],ecx
+  00D027AD: E8 2E FB FF FF     call        00D022E0
+  00D027B2: 8B 46 38           mov         eax,dword ptr [esi+38h]
+  00D027B5: F3 0F 10 46 30     movss       xmm0,dword ptr [esi+30h]
+  00D027BA: 8B 4B 0C           mov         ecx,dword ptr [ebx+0Ch]
+  00D027BD: C7 40 08 01 00 00  mov         dword ptr [eax+8],1
+  00D027C4: F3 0F 11 80 D0 00  movss       dword ptr [eax+000000D0h],xmm0
+  00D027CC: 89 4E 04           mov         dword ptr [esi+4],ecx
+  00D027CF: 8B C6              mov         eax,esi
+  00D027D1: 5E                 pop         esi
+  00D027D2: 8B E5              mov         esp,ebp
+  00D027D4: 5D                 pop         ebp
+  00D027D5: 8B E3              mov         esp,ebx
+  00D027D7: 5B                 pop         ebx
+  00D027D8: C2 18 00           ret         18h
+  00D027DB: CC                 int         3
+  00D027DC: CC                 int         3
+  00D027DD: CC                 int         3
+  00D027DE: CC                 int         3
+  00D027DF: CC                 int         3
+  00D027E0: 55                 push        ebp
+  00D027E1: 8B EC              mov         ebp,esp
+  00D027E3: 8B 55 08           mov         edx,dword ptr [ebp+8]
+  00D027E6: 56                 push        esi
+  00D027E7: 8B F1              mov         esi,ecx
+  00D027E9: 8B 46 04           mov         eax,dword ptr [esi+4]
+  00D027EC: 8B 4E 0C           mov         ecx,dword ptr [esi+0Ch]
+  00D027EF: 50                 push        eax
+  00D027F0: 51                 push        ecx
+  00D027F1: 52                 push        edx
+  00D027F2: E8 D9 D6 01 00     call        00D1FED0
+  00D027F7: 83 C4 0C           add         esp,0Ch
+  00D027FA: 84 C0              test        al,al
+  00D027FC: 74 13              je          00D02811
+  00D027FE: B0 01              mov         al,1
+  00D02800: 02 C0              add         al,al
+  00D02802: 02 C0              add         al,al
+  00D02804: 32 06              xor         al,byte ptr [esi]
+  00D02806: 24 04              and         al,4
+  00D02808: 30 06              xor         byte ptr [esi],al
+  00D0280A: 32 C0              xor         al,al
+  00D0280C: 5E                 pop         esi
+  00D0280D: 5D                 pop         ebp
+  00D0280E: C2 04 00           ret         4
+  00D02811: 8A 06              mov         al,byte ptr [esi]
+  00D02813: C0 E8 02           shr         al,2
+  00D02816: 24 01              and         al,1
+  00D02818: 02 C0              add         al,al
+  00D0281A: 02 C0              add         al,al
+  00D0281C: 32 06              xor         al,byte ptr [esi]
+  00D0281E: 24 04              and         al,4
+  00D02820: 30 06              xor         byte ptr [esi],al
+  00D02822: 32 C0              xor         al,al
+  00D02824: 5E                 pop         esi
+  00D02825: 5D                 pop         ebp
+  00D02826: C2 04 00           ret         4
+  00D02829: CC                 int         3
+  00D0282A: CC                 int         3
+  00D0282B: CC                 int         3
+  00D0282C: CC                 int         3
+  00D0282D: CC                 int         3
+  00D0282E: CC                 int         3
+  00D0282F: CC                 int         3
+  00D02830: 55                 push        ebp
+  00D02831: 8B EC              mov         ebp,esp
+  00D02833: 8A 45 08           mov         al,byte ptr [ebp+8]
+  00D02836: A2 9C 39 37 01     mov         byte ptr ds:[0137399Ch],al
+  00D0283B: 84 C0              test        al,al
+  00D0283D: 0F 95 C0           setne       al
+  00D02840: 88 81 80 00 00 00  mov         byte ptr [ecx+00000080h],al
+  00D02846: E8 E5 D5 01 00     call        00D1FE30
+  00D0284B: 5D                 pop         ebp
+  00D0284C: C2 04 00           ret         4
+  00D0284F: CC                 int         3
+  00D02850: 55                 push        ebp
+  00D02851: 8B EC              mov         ebp,esp
+  00D02853: 8B 45 08           mov         eax,dword ptr [ebp+8]
+  00D02856: 53                 push        ebx
+  00D02857: 56                 push        esi
+  00D02858: 57                 push        edi
+  00D02859: 8B 78 28           mov         edi,dword ptr [eax+28h]
+  00D0285C: 8B D9              mov         ebx,ecx
+  00D0285E: 85 FF              test        edi,edi
+  00D02860: 75 2A              jne         00D0288C
+  00D02862: 8B 70 20           mov         esi,dword ptr [eax+20h]
+  00D02865: 50                 push        eax
+  00D02866: 85 F6              test        esi,esi
+  00D02868: 74 78              je          00D028E2
+  00D0286A: 0F BE 78 24        movsx       edi,byte ptr [eax+24h]
+  00D0286E: E8 ED E9 6F FF     call        00401260
+  00D02873: B0 01              mov         al,1
+  00D02875: 8B CF              mov         ecx,edi
+  00D02877: D2 E0              shl         al,cl
+  00D02879: 83 C4 04           add         esp,4
+  00D0287C: F6 D0              not         al
+  00D0287E: 20 46 25           and         byte ptr [esi+25h],al
+  00D02881: 75 58              jne         00D028DB
+  00D02883: 8B 7E 28           mov         edi,dword ptr [esi+28h]
+  00D02886: 8B C6              mov         eax,esi
+  00D02888: 85 FF              test        edi,edi
+  00D0288A: 74 D6              je          00D02862
+  00D0288C: 39 7F 04           cmp         dword ptr [edi+4],edi
+  00D0288F: 75 4A              jne         00D028DB
+  00D02891: 83 78 20 00        cmp         dword ptr [eax+20h],0
+  00D02895: 74 44              je          00D028DB
+  00D02897: 8B 70 20           mov         esi,dword ptr [eax+20h]
+  00D0289A: 0F BE 58 24        movsx       ebx,byte ptr [eax+24h]
+  00D0289E: 50                 push        eax
+  00D0289F: E8 BC E9 6F FF     call        00401260

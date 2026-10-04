@@ -1,0 +1,13 @@
+donor: flags=0x01 objects=77 bytes=13488
+walk 5258/5369 delta -111
+
+transplantable tail fields:
+  s64[62] chrCreatureTypeList        5249..5250 00
+  s64[63] cbtFaction                 5250..5251 00
+  s64[66] chrTemplateVisualIndex     5251..5252 b4
+  s64[68] cbtCreatureType            5252..5253 43
+  s64[70] brkResourceName            5253..5254 75
+  s64[77] chrClass                   5254..5255 00
+  s64[78] _characterSpecification    5255..5256 00
+  s64[80] ablContainer               5256..5257 00
+  s64[86] chrLevel                   5257..5258 3f

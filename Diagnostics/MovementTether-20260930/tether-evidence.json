@@ -1,0 +1,16 @@
+{
+  "leash": 2.4000000953674316,
+  "anchor": [
+    -64.87409973144531,
+    -6.90622091293335,
+    -127.6709976196289
+  ],
+  "stop": [
+    -62.9151,
+    -6.8988,
+    -126.2866
+  ],
+  "horizontalDistance": 2.398799015556943,
+  "tailOffset": 1287,
+  "proof": "Fields200 and206 are final present fields in captured CRT4; no later present fields"
+}

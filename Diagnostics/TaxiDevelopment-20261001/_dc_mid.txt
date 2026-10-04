@@ -1,0 +1,109 @@
+        """Read one packed integer.
+
+        Mirrors Tools/Hero/Hero/PackedStream.cs::Read(out ulong), which is the
+        reference implementation and the authority for this encoding. That method,
+        for TransportVersion > 1 (PackedStream_2 pins 5):
+
+            if (b >= 192) { if (b < 200 || b > 207) throw; ReadPacked(b - 199); }
+            else          value = b;
+
+        So 0xC0..0xC7 (192..199) are genuinely invalid and raise, 0xC8..0xCF
+        (200..207) carry 1..8 big-endian bytes, and anything below 192 is a
+        literal. An earlier attempt in this file treated 0xC0..0xC7 as a one-byte
+        signed payload; that hypothesis is dead and the branch is deliberately
+        absent. Note 0xC8 -> 199 + 1 = 200 == 1 byte, which is why CC in the
+        captures carries a 5-byte node: 204 - 199 = 5.
+        """
+        start = self.pos
+        token = self.byte()
+        if token < 0xC0:
+            return token
+        if not 0xC8 <= token <= 0xCF:
+            raise WalkError(f"invalid packed token 0x{token:02X} at {start}")
+        count = token - 0xC7
+        return int.from_bytes(self.raw(count), "big")
+
+    def packed_signed(self):
+        """Read the signed packed integer form used by HeroTypes.Integer."""
+        start = self.pos
+        token = self.byte()
+        if token < 0xC0:
+            return token
+        if token == 0xD0:
+            return -(1 << 63)
+        if 0xC0 <= token <= 0xC7:
+            count = token - 0xBF
+            return -int.from_bytes(self.raw(count), "big")
+        if 0xC8 <= token <= 0xCF:
+            count = token - 0xC7
+            return int.from_bytes(self.raw(count), "big")
+        raise WalkError(f"invalid signed packed token 0x{token:02X} at {start}")
+
+    def part_end(self, part, names, depth=0):
+        """Consume one part value and return the position AFTER it.
+
+        Same traversal as part(), but returns the end offset instead of a display
+        string, so callers can chain a walk without building text.
+        """
+        if depth > 8:
+            raise WalkError("container nested too deeply")
+        kind = part.kind
+        start = self.pos
+        if kind in (1, 2, 3, 4, 5, 6, 15, 17, 18):
+            self.part(part, names, depth)
+            return self.pos
+        if kind == 7:
+            _sequence(self, part, 1, names, depth)
+            return self.pos
+        if kind == 8:
+            _sequence(self, part, 2, names, depth, pairs=True)
+            return self.pos
+        raise WalkError(f"unhandled kind {kind}")
+
+    def sequence_end(self, part, first_element, names, depth=0, pairs=False):
+        """Consume a List/Map value and return the position after it."""
+        start = self.pos
+        _sequence(self, part, first_element, names, depth, pairs=pairs)
+        return self.pos
+
+    def part(self, part, names, depth=0):
+        if depth > 8:
+            raise WalkError("container nested too deeply")
+        kind = part.kind
+        if kind in (1, 2):            # UInt64 / Int64
+            if ValueWalker.INT64_MODE == "fixed8":
+                return "0x%016X" % int.from_bytes(self.raw(8), "little")
+            return str(self.packed() if kind == 1 else self.packed_signed())
+        if kind == 3:                 # Boolean
+            return str(self.byte())
+        if kind == 4:                 # Float
+            return "%g" % struct.unpack("<f", self.raw(4))[0]
+        if kind == 5:                 # Enum
+            return "enum=%d" % self.byte()
+        if kind == 6:                 # String
+            return "str(len=%d)" % self.packed()
+        if kind == 7:                 # List
+            return _sequence(self, part, 1, names, depth)
+        if kind == 8:                 # Map
+            return _sequence(self, part, 2, names, depth, pairs=True)
+        if kind == 15:                # ClassRef / node ref
+            return "ref=0x%X" % self.packed()
+        if kind == 18:                # Vec3
+            return "vec(%g,%g,%g)" % struct.unpack("<3f", self.raw(12))
+        if kind == 17:                # Timer
+            return "timer(%d)" % self.packed()
+        raise WalkError(f"unhandled kind {kind}")
+
+
+def _sequence(self, part, first_element, names, depth, pairs=False):
+    """Walk a List (kind 7) or Map (kind 8) value.
+
+    ``conContents`` is a Map whose parts are [8, key, value]: the key is the
+    1-byte slot index and the value the packed node ref. The count is followed by
+    exactly that many entries -- no more, no fewer -- so the walk always lands on
+    an entry boundary by construction. The repeated 9-byte refs that trail some
+    containers are *not* entries: they are the following fields (conSharedData,
+    conContainerSpecName) and are consumed by them, not here.
+
+    Styles 8 and 10 double the count, per
+    Tools/Hero/Hero/SerializeLookupList.cs and DeserializeLookupList.cs:

@@ -1,0 +1,132 @@
+  00C15380: 53                 push        ebx
+  00C15381: 8B DC              mov         ebx,esp
+  00C15383: 83 EC 08           sub         esp,8
+  00C15386: 83 E4 F0           and         esp,0FFFFFFF0h
+  00C15389: 83 C4 04           add         esp,4
+  00C1538C: 55                 push        ebp
+  00C1538D: 8B 6B 04           mov         ebp,dword ptr [ebx+4]
+  00C15390: 89 6C 24 04        mov         dword ptr [esp+4],ebp
+  00C15394: 8B EC              mov         ebp,esp
+  00C15396: 6A FF              push        0FFFFFFFFh
+  00C15398: 68 1B 97 FA 00     push        0FA971Bh
+  00C1539D: 64 A1 00 00 00 00  mov         eax,dword ptr fs:[00000000h]
+  00C153A3: 50                 push        eax
+  00C153A4: 64 89 25 00 00 00  mov         dword ptr fs:[00000000h],esp
+  00C153AB: 53                 push        ebx
+  00C153AC: 81 EC 1C 01 00 00  sub         esp,11Ch
+  00C153B2: 56                 push        esi
+  00C153B3: 8B 73 18           mov         esi,dword ptr [ebx+18h]
+  00C153B6: 6A 01              push        1
+  00C153B8: 6A 00              push        0
+  00C153BA: 6A 00              push        0
+  00C153BC: 8B CE              mov         ecx,esi
+  00C153BE: E8 ED 3A 8B FF     call        004C8EB0
+  00C153C3: 8B 43 0C           mov         eax,dword ptr [ebx+0Ch]
+  00C153C6: F3 0F 10 00        movss       xmm0,dword ptr [eax]
+  00C153CA: F3 0F 10 48 04     movss       xmm1,dword ptr [eax+4]
+  00C153CF: F3 0F 10 50 08     movss       xmm2,dword ptr [eax+8]
+  00C153D4: 8B 43 10           mov         eax,dword ptr [ebx+10h]
+  00C153D7: F3 0F 11 45 E0     movss       dword ptr [ebp-20h],xmm0
+  00C153DC: F3 0F 10 00        movss       xmm0,dword ptr [eax]
+  00C153E0: F3 0F 11 4D E4     movss       dword ptr [ebp-1Ch],xmm1
+  00C153E5: F3 0F 10 48 04     movss       xmm1,dword ptr [eax+4]
+  00C153EA: F3 0F 11 55 E8     movss       dword ptr [ebp-18h],xmm2
+  00C153EF: F3 0F 10 50 08     movss       xmm2,dword ptr [eax+8]
+  00C153F4: 8D 8D E0 FE FF FF  lea         ecx,[ebp+FFFFFEE0h]
+  00C153FA: F3 0F 11 45 D0     movss       dword ptr [ebp-30h],xmm0
+  00C153FF: F3 0F 11 4D D4     movss       dword ptr [ebp-2Ch],xmm1
+  00C15404: F3 0F 11 55 D8     movss       dword ptr [ebp-28h],xmm2
+  00C15409: E8 E2 CF 0E 00     call        00D023F0
+  00C1540E: C7 45 FC 00 00 00  mov         dword ptr [ebp-4],0
+  00C15415: 0F 10 45 D0        movups      xmm0,xmmword ptr [ebp-30h]
+  00C15419: A1 F0 28 49 01     mov         eax,dword ptr ds:[014928F0h]
+  00C1541E: 0F 29 45 D0        movaps      xmmword ptr [ebp-30h],xmm0
+  00C15422: 0F 10 45 E0        movups      xmm0,xmmword ptr [ebp-20h]
+  00C15426: 0F 29 45 E0        movaps      xmmword ptr [ebp-20h],xmm0
+  00C1542A: 8B 88 58 08 00 00  mov         ecx,dword ptr [eax+00000858h]
+  00C15430: 8B 11              mov         edx,dword ptr [ecx]
+  00C15432: 8B 52 14           mov         edx,dword ptr [edx+14h]
+  00C15435: 8D 85 E0 FE FF FF  lea         eax,[ebp+FFFFFEE0h]
+  00C1543B: 50                 push        eax
+  00C1543C: 6A 02              push        2
+  00C1543E: 8D 45 D0           lea         eax,[ebp-30h]
+  00C15441: 50                 push        eax
+  00C15442: 8D 45 E0           lea         eax,[ebp-20h]
+  00C15445: 50                 push        eax
+  00C15446: FF D2              call        edx
+  00C15448: 84 C0              test        al,al
+  00C1544A: 0F 84 EA 00 00 00  je          00C1553A
+  00C15450: 83 BD E8 FE FF FF  cmp         dword ptr [ebp+FFFFFEE8h],2
+  00C15457: 75 0B              jne         00C15464
+  00C15459: 8D 8D E0 FE FF FF  lea         ecx,[ebp+FFFFFEE0h]
+  00C1545F: E8 BC CE 0E 00     call        00D02320
+  00C15464: 83 BD E8 FE FF FF  cmp         dword ptr [ebp+FFFFFEE8h],1
+  00C1546B: 75 16              jne         00C15483
+  00C1546D: F3 0F 10 45 B0     movss       xmm0,dword ptr [ebp-50h]
+  00C15472: 0F 2E 05 D4 ED 17  ucomiss     xmm0,dword ptr ds:[0117EDD4h]
+  00C15479: 9F                 lahf
+  00C1547A: F6 C4 44           test        ah,44h
+  00C1547D: 0F 8B B7 00 00 00  jnp         00C1553A
+  00C15483: 8D 8D E0 FE FF FF  lea         ecx,[ebp+FFFFFEE0h]
+  00C15489: E8 F2 CF 0E 00     call        00D02480
+  00C1548E: 83 BD EC FE FF FF  cmp         dword ptr [ebp+FFFFFEECh],2
+  00C15495: 75 0B              jne         00C154A2
+  00C15497: 8D 8D E0 FE FF FF  lea         ecx,[ebp+FFFFFEE0h]
+  00C1549D: E8 9E CB 0E 00     call        00D02040
+  00C154A2: 83 BD EC FE FF FF  cmp         dword ptr [ebp+FFFFFEECh],1
+  00C154A9: 8D 85 10 FF FF FF  lea         eax,[ebp+FFFFFF10h]
+  00C154AF: 74 05              je          00C154B6
+  00C154B1: B8 40 39 37 01     mov         eax,1373940h
+  00C154B6: 0F 28 00           movaps      xmm0,xmmword ptr [eax]
+  00C154B9: 8B 43 14           mov         eax,dword ptr [ebx+14h]
+  00C154BC: 0F 29 45 C0        movaps      xmmword ptr [ebp-40h],xmm0
+  00C154C0: 0F 29 45 D0        movaps      xmmword ptr [ebp-30h],xmm0
+  00C154C4: 0F 29 45 E0        movaps      xmmword ptr [ebp-20h],xmm0
+  00C154C8: F3 0F 10 45 E0     movss       xmm0,dword ptr [ebp-20h]
+  00C154CD: F3 0F 11 00        movss       dword ptr [eax],xmm0
+  00C154D1: F3 0F 10 45 D4     movss       xmm0,dword ptr [ebp-2Ch]
+  00C154D6: F3 0F 11 40 04     movss       dword ptr [eax+4],xmm0
+  00C154DB: F3 0F 10 45 C8     movss       xmm0,dword ptr [ebp-38h]
+  00C154E0: F3 0F 11 40 08     movss       dword ptr [eax+8],xmm0
+  00C154E5: 8B 85 60 FF FF FF  mov         eax,dword ptr [ebp+FFFFFF60h]
+  00C154EB: 85 C0              test        eax,eax
+  00C154ED: 74 25              je          00C15514
+  00C154EF: 83 C0 FC           add         eax,0FFFFFFFCh
+  00C154F2: 74 20              je          00C15514
+  00C154F4: 8B 80 94 00 00 00  mov         eax,dword ptr [eax+00000094h]
+  00C154FA: 6A 01              push        1
+  00C154FC: 85 C0              test        eax,eax
+  00C154FE: 74 09              je          00C15509
+  00C15500: 8B 08              mov         ecx,dword ptr [eax]
+  00C15502: 8B 40 04           mov         eax,dword ptr [eax+4]
+  00C15505: 50                 push        eax
+  00C15506: 51                 push        ecx
+  00C15507: EB 04              jmp         00C1550D
+  00C15509: 6A 00              push        0
+  00C1550B: 6A 00              push        0
+  00C1550D: 8B CE              mov         ecx,esi
+  00C1550F: E8 9C 39 8B FF     call        004C8EB0
+  00C15514: C7 45 FC FF FF FF  mov         dword ptr [ebp-4],0FFFFFFFFh
+  00C1551B: 8D 8D E0 FE FF FF  lea         ecx,[ebp+FFFFFEE0h]
+  00C15521: E8 7A 50 F4 FF     call        00B5A5A0
+  00C15526: B0 01              mov         al,1
+  00C15528: 8B 4D F4           mov         ecx,dword ptr [ebp-0Ch]
+  00C1552B: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+  00C15532: 5E                 pop         esi
+  00C15533: 8B E5              mov         esp,ebp
+  00C15535: 5D                 pop         ebp
+  00C15536: 8B E3              mov         esp,ebx
+  00C15538: 5B                 pop         ebx
+  00C15539: C3                 ret
+  00C1553A: C7 45 FC FF FF FF  mov         dword ptr [ebp-4],0FFFFFFFFh
+  00C15541: 8D 8D E0 FE FF FF  lea         ecx,[ebp+FFFFFEE0h]
+  00C15547: E8 54 50 F4 FF     call        00B5A5A0
+  00C1554C: 8B 4D F4           mov         ecx,dword ptr [ebp-0Ch]
+  00C1554F: 32 C0              xor         al,al
+  00C15551: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+  00C15558: 5E                 pop         esi
+  00C15559: 8B E5              mov         esp,ebp
+  00C1555B: 5D                 pop         ebp
+  00C1555C: 8B E3              mov         esp,ebx
+  00C1555E: 5B                 pop         ebx
+  00C1555F: C3                 ret

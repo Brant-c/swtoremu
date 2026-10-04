@@ -1,0 +1,9 @@
+Diagnostics\Experiments\2026-10-02-06-taxi-merged-list-acceptance.md:65: swtor_taxi_clone_control=1      # control: merge the clone ladder rung into set 1
+Diagnostics\Experiments\2026-10-02-06-taxi-merged-list-acceptance.md:67: leaving `swtor_taxi_clone_control` unset is the committed baseline: the
+Diagnostics\TaxiDevelopment-20261001\_slice_1.txt:54: 54          { get { return environment.getenvironmentvariable("swtor_taxi_clone_control") == "1"; } }
+Diagnostics\TaxiDevelopment-20261001\Launch.ps1:47: $env:swtor_taxi_clone_control = if ($clonecontrol) { '1' } else { '0' }
+Diagnostics\TaxiDevelopment-20261001\Launch.ps1:59: $mode = if ($env:swtor_taxi_clone_control -eq '1') { "merged taxi rung $env:swtor_taxi_rung (real taxi payload appended to awareness set 1)" } else { 
+SharpServer\AreaServer\TythonTaxi.cs:54: { get { return environment.getenvironmentvariable("swtor_taxi_clone_control") == "1"; } }
+SharpServer\NET\Packets\Server\AreaMergedAwareness.cs:32: /// opt-in via swtor_taxi_clone_control=1. no captured fixture is modified;
+SharpServer\NET\Packets\Server\AreaTaxiCloneAwareness.cs:21: /// opt-in via swtor_taxi_clone_control=1, which suppresses the taxi payload so
+TOTAL 8 hits for 'swtor_taxi_clone_control'

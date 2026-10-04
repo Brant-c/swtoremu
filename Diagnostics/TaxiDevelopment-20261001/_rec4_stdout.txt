@@ -1,0 +1,19 @@
+awareness: flags=0x01 objects=77 bytes=13488
+node=0x1ac68967a9 struct=13 style=7 inner=33 body=631 value_end=665
+present(3): [0, 1, 2]
+
+body bytes 0..33:
+  +000  02 01 cc 1a c6 89 67 b9 02 cc 1a c6 89 67 c4 cf
+  +016  e0 00 d1 1d ef 61 e9 4c cf e0 00 d1 1d ef 61 e9
+  +032  4c
+
+state bytes: e0
+
+field layout under current grammar:
+    0 @+  0 len=15  k=[8, 2, 15] conContents                  [2]{1:ref=0x1AC68967B9,2:ref=0x1AC68967C4} | 02 01 cc 1a c6 89 67 b9 02 cc 1a c6 89 67 c4
+    1 @+ 15 len=9   k=[15] conSharedData                ref=0xE000D11DEF61E94C | cf e0 00 d1 1d ef 61 e9 4c
+    2 @+ 24 len=9   k=[1] conContainerSpecName         16141130990996285772 | cf e0 00 d1 1d ef 61 e9 4c
+
+consumed=33 inner=33
+
+wrote D:\SWTORClassic\swtoremu\Diagnostics\TaxiDevelopment-20261001\_characterbytes.txt

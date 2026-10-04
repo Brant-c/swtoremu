@@ -1,0 +1,188 @@
+[
+  {
+    "file": "D:\\SWTORClassic\\assettest\\resources\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_jedi_retreat.gr2",
+    "sha256": "27def9b3aa1f27d9ce875ed5197d6feb23c69cecd7c66c64ad479e76f59acd7c",
+    "bytes": 993549,
+    "instance": "4611686037462170005",
+    "room": "gnarls_new.dat",
+    "header_model_bounds_engine_units": [
+      [
+        -7.398975849151611,
+        -2.1893815994262695,
+        -6.200520992279053
+      ],
+      [
+        7.398975849151611,
+        11.674731254577637,
+        12.39897632598877
+      ]
+    ],
+    "model_bounds_metres_reader_conversion": [
+      [
+        -73.98975849151611,
+        -21.893815994262695,
+        -62.00520992279053
+      ],
+      [
+        73.98975849151611,
+        116.74731254577637,
+        123.9897632598877
+      ]
+    ],
+    "authored_position": [
+      -61.7000007629,
+      -8.5,
+      -130.5
+    ],
+    "authored_y_rotation": 45.0,
+    "stop": [
+      -62.91849136352539,
+      -6.89884090423584,
+      -126.28887176513672
+    ],
+    "rotation_conventions": [
+      {
+        "angle_sign": -1,
+        "stop_local": [
+          2.115902739426908,
+          1.6009989693066566,
+          3.838936340510243
+        ],
+        "point_inside_model_AABB": true
+      },
+      {
+        "angle_sign": 1,
+        "stop_local": [
+          -3.838936340510243,
+          1.6009989693066566,
+          2.115902739426908
+        ],
+        "point_inside_model_AABB": true
+      }
+    ]
+  },
+  {
+    "file": "D:\\SWTORClassic\\assettest\\resources\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_jedi_retreat_interior_room.gr2",
+    "sha256": "169496763c8a9424fa6012f2889fb82eb4226d8a5eed4df8dafeb552972e6dc8",
+    "bytes": 122067,
+    "instance": "4611686037462170401",
+    "room": "gnarls_retreat_int_c.dat",
+    "header_model_bounds_engine_units": [
+      [
+        -0.9456796646118164,
+        -0.01186942495405674,
+        -2.082395076751709
+      ],
+      [
+        0.9616424441337585,
+        0.8352751731872559,
+        -4.882812731921149e-07
+      ]
+    ],
+    "model_bounds_metres_reader_conversion": [
+      [
+        -9.456796646118164,
+        -0.1186942495405674,
+        -20.82395076751709
+      ],
+      [
+        9.616424441337585,
+        8.352751731872559,
+        -4.882812731921149e-06
+      ]
+    ],
+    "authored_position": [
+      -62.4071998596,
+      -6.89980316162,
+      -126.964401245
+    ],
+    "authored_y_rotation": -45.0,
+    "stop": [
+      -62.91849136352539,
+      -6.89884090423584,
+      -126.28887176513672
+    ],
+    "rotation_conventions": [
+      {
+        "angle_sign": -1,
+        "stop_local": [
+          -0.8391252392464515,
+          0.0009621611520830968,
+          0.11612217237033401
+        ],
+        "point_inside_model_AABB": false
+      },
+      {
+        "angle_sign": 1,
+        "stop_local": [
+          0.11612217237033401,
+          0.0009621611520830968,
+          0.8391252392464515
+        ],
+        "point_inside_model_AABB": false
+      }
+    ]
+  },
+  {
+    "file": "D:\\SWTORClassic\\assettest\\resources\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_jedi_retreat_interior_room.gr2",
+    "sha256": "169496763c8a9424fa6012f2889fb82eb4226d8a5eed4df8dafeb552972e6dc8",
+    "bytes": 122067,
+    "instance": "4611686037462170400",
+    "room": "gnarls_retreat_int_d.dat",
+    "header_model_bounds_engine_units": [
+      [
+        -0.9456796646118164,
+        -0.01186942495405674,
+        -2.082395076751709
+      ],
+      [
+        0.9616424441337585,
+        0.8352751731872559,
+        -4.882812731921149e-07
+      ]
+    ],
+    "model_bounds_metres_reader_conversion": [
+      [
+        -9.456796646118164,
+        -0.1186942495405674,
+        -20.82395076751709
+      ],
+      [
+        9.616424441337585,
+        8.352751731872559,
+        -4.882812731921149e-06
+      ]
+    ],
+    "authored_position": [
+      -63.6091995239,
+      -6.89979982376,
+      -126.8934021
+    ],
+    "authored_y_rotation": 45.0,
+    "stop": [
+      -62.91849136352539,
+      -6.89884090423584,
+      -126.28887176513672
+    ],
+    "rotation_conventions": [
+      {
+        "angle_sign": -1,
+        "stop_local": [
+          0.9157803300107796,
+          0.0009588236258902452,
+          -0.06093083071305726
+        ],
+        "point_inside_model_AABB": true
+      },
+      {
+        "angle_sign": 1,
+        "stop_local": [
+          0.06093083071305726,
+          0.0009588236258902452,
+          0.9157803300107796
+        ],
+        "point_inside_model_AABB": false
+      }
+    ]
+  }
+]

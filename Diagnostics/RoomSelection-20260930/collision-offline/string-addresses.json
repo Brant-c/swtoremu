@@ -1,0 +1,101 @@
+{
+  "PE_SHA256": "2b47c25d2937a3df2be727a3224a93d748a5cdfa0f629b1a1c4fdcc163fb8494",
+  "strings": [
+    {
+      "name": "Collidable",
+      "encoding": "ascii",
+      "VA": "011770B3",
+      "offset": 14115507
+    },
+    {
+      "name": "Collidable",
+      "encoding": "ascii",
+      "VA": "012CDD4C",
+      "offset": 15515980
+    },
+    {
+      "name": "Collidable",
+      "encoding": "ascii",
+      "VA": "012CDDB8",
+      "offset": 15516088
+    },
+    {
+      "name": "Collidable",
+      "encoding": "ascii",
+      "VA": "012CDE20",
+      "offset": 15516192
+    },
+    {
+      "name": "Collidable",
+      "encoding": "ascii",
+      "VA": "012CDE48",
+      "offset": 15516232
+    },
+    {
+      "name": "Collidable",
+      "encoding": "utf-16le",
+      "VA": "010C8AE6",
+      "offset": 13401318
+    },
+    {
+      "name": "Collidable",
+      "encoding": "utf-16le",
+      "VA": "010C8B4E",
+      "offset": 13401422
+    },
+    {
+      "name": "Collidable",
+      "encoding": "utf-16le",
+      "VA": "01147BAC",
+      "offset": 13921708
+    },
+    {
+      "name": "TriggerInstance",
+      "encoding": "utf-16le",
+      "VA": "01153274",
+      "offset": 13968500
+    },
+    {
+      "name": "TriggerNode",
+      "encoding": "ascii",
+      "VA": "01160D58",
+      "offset": 14024536
+    },
+    {
+      "name": "TriggerNode",
+      "encoding": "ascii",
+      "VA": "01337248",
+      "offset": 15947336
+    },
+    {
+      "name": "TriggerNode",
+      "encoding": "ascii",
+      "VA": "01337FFD",
+      "offset": 15950845
+    },
+    {
+      "name": "TriggerNode",
+      "encoding": "ascii",
+      "VA": "01338045",
+      "offset": 15950917
+    },
+    {
+      "name": "TriggerNode",
+      "encoding": "ascii",
+      "VA": "01338083",
+      "offset": 15950979
+    },
+    {
+      "name": "TriggerNode",
+      "encoding": "utf-16le",
+      "VA": "01147DC8",
+      "offset": 13922248
+    },
+    {
+      "name": "TriggerNode",
+      "encoding": "utf-16le",
+      "VA": "011613F0",
+      "offset": 14026224
+    }
+  ]
+}

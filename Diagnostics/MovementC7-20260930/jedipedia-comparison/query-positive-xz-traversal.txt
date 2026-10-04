@@ -1,0 +1,360 @@
+  00D17520: 53                 push        ebx
+  00D17521: 8B DC              mov         ebx,esp
+  00D17523: 83 EC 08           sub         esp,8
+  00D17526: 83 E4 F0           and         esp,0FFFFFFF0h
+  00D17529: 83 C4 04           add         esp,4
+  00D1752C: 55                 push        ebp
+  00D1752D: 8B 6B 04           mov         ebp,dword ptr [ebx+4]
+  00D17530: 89 6C 24 04        mov         dword ptr [esp+4],ebp
+  00D17534: 8B EC              mov         ebp,esp
+  00D17536: 81 EC 18 0D 00 00  sub         esp,0D18h
+  00D1753C: 56                 push        esi
+  00D1753D: 57                 push        edi
+  00D1753E: 8B 43 0C           mov         eax,dword ptr [ebx+0Ch]
+  00D17541: 0F 28 00           movaps      xmm0,xmmword ptr [eax]
+  00D17544: 0F 57 FF           xorps       xmm7,xmm7
+  00D17547: 0F 28 D0           movaps      xmm2,xmm0
+  00D1754A: 0F C6 D0 55        shufps      xmm2,xmm0,55h
+  00D1754E: F3 0F 10 CF        movss       xmm1,xmm7
+  00D17552: 0F C6 C9 00        shufps      xmm1,xmm1,0
+  00D17556: 0F 59 D1           mulps       xmm2,xmm1
+  00D17559: F3 0F 10 0D D4 D2  movss       xmm1,dword ptr ds:[0106D2D4h]
+  00D17561: 0F 28 E0           movaps      xmm4,xmm0
+  00D17564: 0F C6 E0 00        shufps      xmm4,xmm0,0
+  00D17568: 0F C6 C9 00        shufps      xmm1,xmm1,0
+  00D1756C: 0F C6 C0 AA        shufps      xmm0,xmm0,0AAh
+  00D17570: 0F 28 D9           movaps      xmm3,xmm1
+  00D17573: 0F 28 F0           movaps      xmm6,xmm0
+  00D17576: 0F 59 DC           mulps       xmm3,xmm4
+  00D17579: 0F 2F DA           comiss      xmm3,xmm2
+  00D1757C: 0F 28 C1           movaps      xmm0,xmm1
+  00D1757F: 0F 59 C6           mulps       xmm0,xmm6
+  00D17582: C7 45 DC 00 00 00  mov         dword ptr [ebp-24h],0
+  00D17589: C7 45 F8 07 00 00  mov         dword ptr [ebp-8],7
+  00D17590: 76 78              jbe         00D1760A
+  00D17592: 0F 2F D8           comiss      xmm3,xmm0
+  00D17595: 76 47              jbe         00D175DE
+  00D17597: 0F 2F D0           comiss      xmm2,xmm0
+  00D1759A: C7 45 E8 06 00 00  mov         dword ptr [ebp-18h],6
+  00D175A1: C7 45 EC 01 00 00  mov         dword ptr [ebp-14h],1
+  00D175A8: 76 13              jbe         00D175BD
+  00D175AA: C7 45 E0 04 00 00  mov         dword ptr [ebp-20h],4
+  00D175B1: C7 45 F4 03 00 00  mov         dword ptr [ebp-0Ch],3
+  00D175B8: E9 BD 00 00 00     jmp         00D1767A
+  00D175BD: C7 45 E0 02 00 00  mov         dword ptr [ebp-20h],2
+  00D175C4: C7 45 E4 04 00 00  mov         dword ptr [ebp-1Ch],4
+  00D175CB: C7 45 F0 03 00 00  mov         dword ptr [ebp-10h],3
+  00D175D2: C7 45 F4 05 00 00  mov         dword ptr [ebp-0Ch],5
+  00D175D9: E9 AA 00 00 00     jmp         00D17688
+  00D175DE: C7 45 E0 02 00 00  mov         dword ptr [ebp-20h],2
+  00D175E5: C7 45 E4 01 00 00  mov         dword ptr [ebp-1Ch],1
+  00D175EC: C7 45 E8 03 00 00  mov         dword ptr [ebp-18h],3
+  00D175F3: C7 45 EC 04 00 00  mov         dword ptr [ebp-14h],4
+  00D175FA: C7 45 F0 06 00 00  mov         dword ptr [ebp-10h],6
+  00D17601: C7 45 F4 05 00 00  mov         dword ptr [ebp-0Ch],5
+  00D17608: EB 7E              jmp         00D17688
+  00D1760A: 0F 2F D0           comiss      xmm2,xmm0
+  00D1760D: 76 4F              jbe         00D1765E
+  00D1760F: 0F 2F D8           comiss      xmm3,xmm0
+  00D17612: C7 45 E8 05 00 00  mov         dword ptr [ebp-18h],5
+  00D17619: C7 45 EC 02 00 00  mov         dword ptr [ebp-14h],2
+  00D17620: 76 1E              jbe         00D17640
+  00D17622: C7 45 E0 04 00 00  mov         dword ptr [ebp-20h],4
+  00D17629: C7 45 E4 01 00 00  mov         dword ptr [ebp-1Ch],1
+  00D17630: C7 45 F0 06 00 00  mov         dword ptr [ebp-10h],6
+  00D17637: C7 45 F4 03 00 00  mov         dword ptr [ebp-0Ch],3
+  00D1763E: EB 48              jmp         00D17688
+  00D17640: C7 45 E0 01 00 00  mov         dword ptr [ebp-20h],1
+  00D17647: C7 45 E4 04 00 00  mov         dword ptr [ebp-1Ch],4
+  00D1764E: C7 45 F0 03 00 00  mov         dword ptr [ebp-10h],3
+  00D17655: C7 45 F4 06 00 00  mov         dword ptr [ebp-0Ch],6
+  00D1765C: EB 2A              jmp         00D17688
+  00D1765E: C7 45 E0 01 00 00  mov         dword ptr [ebp-20h],1
+  00D17665: C7 45 E8 03 00 00  mov         dword ptr [ebp-18h],3
+  00D1766C: C7 45 EC 04 00 00  mov         dword ptr [ebp-14h],4
+  00D17673: C7 45 F4 06 00 00  mov         dword ptr [ebp-0Ch],6
+  00D1767A: C7 45 F0 05 00 00  mov         dword ptr [ebp-10h],5
+  00D17681: C7 45 E4 02 00 00  mov         dword ptr [ebp-1Ch],2
+  00D17688: 8B 01              mov         eax,dword ptr [ecx]
+  00D1768A: 85 C0              test        eax,eax
+  00D1768C: 0F 84 FA 03 00 00  je          00D17A8C
+  00D17692: 8B 4B 08           mov         ecx,dword ptr [ebx+8]
+  00D17695: 0F 28 11           movaps      xmm2,xmmword ptr [ecx]
+  00D17698: F3 0F 10 40 2C     movss       xmm0,dword ptr [eax+2Ch]
+  00D1769D: F3 0F 58 43 14     addss       xmm0,dword ptr [ebx+14h]
+  00D176A2: 0F 29 55 A0        movaps      xmmword ptr [ebp-60h],xmm2
+  00D176A6: F3 0F 10 6D A4     movss       xmm5,dword ptr [ebp-5Ch]
+  00D176AB: 0F 29 55 B0        movaps      xmmword ptr [ebp-50h],xmm2
+  00D176AF: 0F 29 95 60 FF FF  movaps      xmmword ptr [ebp+FFFFFF60h],xmm2
+  00D176B6: 0F 28 D1           movaps      xmm2,xmm1
+  00D176B9: 0F 5E D4           divps       xmm2,xmm4
+  00D176BC: 0F 29 55 80        movaps      xmmword ptr [ebp-80h],xmm2
+  00D176C0: 0F 28 50 30        movaps      xmm2,xmmword ptr [eax+30h]
+  00D176C4: F3 0F 10 D8        movss       xmm3,xmm0
+  00D176C8: 0F C6 ED 00        shufps      xmm5,xmm5,0
+  00D176CC: 0F C6 DB 00        shufps      xmm3,xmm3,0
+  00D176D0: 0F C6 D2 55        shufps      xmm2,xmm2,55h
+  00D176D4: 0F 5C D3           subps       xmm2,xmm3
+  00D176D7: F3 0F 10 E5        movss       xmm4,xmm5
+  00D176DB: 0F 2F D4           comiss      xmm2,xmm4
+  00D176DE: 8D B5 E8 F2 FF FF  lea         esi,[ebp+FFFFF2E8h]
+  00D176E4: 89 45 D8           mov         dword ptr [ebp-28h],eax
+  00D176E7: F3 0F 11 45 D4     movss       dword ptr [ebp-2Ch],xmm0
+  00D176EC: 0F 29 6D 90        movaps      xmmword ptr [ebp-70h],xmm5
+  00D176F0: 0F 87 96 03 00 00  ja          00D17A8C
+  00D176F6: 0F 28 50 30        movaps      xmm2,xmmword ptr [eax+30h]
+  00D176FA: 0F C6 D2 55        shufps      xmm2,xmm2,55h
+  00D176FE: 0F 58 D3           addps       xmm2,xmm3
+  00D17701: F3 0F 10 DD        movss       xmm3,xmm5
+  00D17705: 0F 2F DA           comiss      xmm3,xmm2
+  00D17708: 0F 87 7E 03 00 00  ja          00D17A8C
+  00D1770E: F3 0F 10 55 B0     movss       xmm2,dword ptr [ebp-50h]
+  00D17713: F3 0F 10 5D 80     movss       xmm3,dword ptr [ebp-80h]
+  00D17718: F3 0F 10 63 10     movss       xmm4,dword ptr [ebx+10h]
+  00D1771D: 0F 5E CE           divps       xmm1,xmm6
+  00D17720: 0F 29 8D 70 FF FF  movaps      xmmword ptr [ebp+FFFFFF70h],xmm1
+  00D17727: F3 0F 10 B5 70 FF  movss       xmm6,dword ptr [ebp+FFFFFF70h]
+  00D1772F: 0F C6 D2 00        shufps      xmm2,xmm2,0
+  00D17733: 0F C6 DB 00        shufps      xmm3,xmm3,0
+  00D17737: 0F 29 55 A0        movaps      xmmword ptr [ebp-60h],xmm2
+  00D1773B: 0F 29 5D B0        movaps      xmmword ptr [ebp-50h],xmm3
+  00D1773F: 0F 28 48 30        movaps      xmm1,xmmword ptr [eax+30h]
+  00D17743: 0F C6 C9 00        shufps      xmm1,xmm1,0
+  00D17747: 0F 5C CA           subps       xmm1,xmm2
+  00D1774A: 0F 59 CB           mulps       xmm1,xmm3
+  00D1774D: 0F 29 8D 10 FF FF  movaps      xmmword ptr [ebp+FFFFFF10h],xmm1
+  00D17754: F3 0F 10 9D 10 FF  movss       xmm3,dword ptr [ebp+FFFFFF10h]
+  00D1775C: F3 0F 10 4D 80     movss       xmm1,dword ptr [ebp-80h]
+  00D17761: F3 0F 59 C8        mulss       xmm1,xmm0
+  00D17765: 0F 28 D3           movaps      xmm2,xmm3
+  00D17768: F3 0F 5C D1        subss       xmm2,xmm1
+  00D1776C: 0F 2F E2           comiss      xmm4,xmm2
+  00D1776F: F3 0F 11 7D FC     movss       dword ptr [ebp-4],xmm7
+  00D17774: F3 0F 58 D9        addss       xmm3,xmm1
+  00D17778: 0F 86 C3 02 00 00  jbe         00D17A41
+  00D1777E: 0F 2F D7           comiss      xmm2,xmm7
+  00D17781: 76 0A              jbe         00D1778D
+  00D17783: 0F 28 FA           movaps      xmm7,xmm2
+  00D17786: F3 0F 11 7D FC     movss       dword ptr [ebp-4],xmm7
+  00D1778B: EB 09              jmp         00D17796
+  00D1778D: 0F 2F DF           comiss      xmm3,xmm7
+  00D17790: 0F 86 AB 02 00 00  jbe         00D17A41
+  00D17796: 0F 2F E3           comiss      xmm4,xmm3
+  00D17799: 76 08              jbe         00D177A3
+  00D1779B: 0F 28 E3           movaps      xmm4,xmm3
+  00D1779E: F3 0F 11 63 10     movss       dword ptr [ebx+10h],xmm4
+  00D177A3: 0F 28 48 30        movaps      xmm1,xmmword ptr [eax+30h]
+  00D177A7: F3 0F 10 95 68 FF  movss       xmm2,dword ptr [ebp+FFFFFF68h]
+  00D177AF: 0F C6 D2 00        shufps      xmm2,xmm2,0
+  00D177B3: 0F C6 C9 AA        shufps      xmm1,xmm1,0AAh
+  00D177B7: 0F 5C CA           subps       xmm1,xmm2
+  00D177BA: 0F 29 95 F0 FE FF  movaps      xmmword ptr [ebp+FFFFFEF0h],xmm2
+  00D177C1: F3 0F 10 D6        movss       xmm2,xmm6
+  00D177C5: 0F C6 D2 00        shufps      xmm2,xmm2,0
+  00D177C9: 0F 59 CA           mulps       xmm1,xmm2
+  00D177CC: 0F 29 8D 40 FF FF  movaps      xmmword ptr [ebp+FFFFFF40h],xmm1
+  00D177D3: F3 0F 10 9D 40 FF  movss       xmm3,dword ptr [ebp+FFFFFF40h]
+  00D177DB: 0F 29 95 00 FF FF  movaps      xmmword ptr [ebp+FFFFFF00h],xmm2
+  00D177E2: 0F 28 CE           movaps      xmm1,xmm6
+  00D177E5: F3 0F 59 C8        mulss       xmm1,xmm0
+  00D177E9: 0F 28 D3           movaps      xmm2,xmm3
+  00D177EC: F3 0F 5C D1        subss       xmm2,xmm1
+  00D177F0: 0F 2F E2           comiss      xmm4,xmm2
+  00D177F3: F3 0F 58 D9        addss       xmm3,xmm1
+  00D177F7: 0F 86 44 02 00 00  jbe         00D17A41
+  00D177FD: 0F 2F D7           comiss      xmm2,xmm7
+  00D17800: 76 0A              jbe         00D1780C
+  00D17802: 0F 28 FA           movaps      xmm7,xmm2
+  00D17805: F3 0F 11 7D FC     movss       dword ptr [ebp-4],xmm7
+  00D1780A: EB 09              jmp         00D17815
+  00D1780C: 0F 2F DF           comiss      xmm3,xmm7
+  00D1780F: 0F 86 2C 02 00 00  jbe         00D17A41
+  00D17815: 0F 2F E3           comiss      xmm4,xmm3
+  00D17818: 76 08              jbe         00D17822
+  00D1781A: 0F 28 E3           movaps      xmm4,xmm3
+  00D1781D: F3 0F 11 63 10     movss       dword ptr [ebx+10h],xmm4
+  00D17822: 8B 78 28           mov         edi,dword ptr [eax+28h]
+  00D17825: 85 FF              test        edi,edi
+  00D17827: 0F 84 65 01 00 00  je          00D17992
+  00D1782D: 8D 49 00           lea         ecx,[ecx]
+  00D17830: 8D 8D C0 FE FF FF  lea         ecx,[ebp+FFFFFEC0h]
+  00D17836: E8 75 B2 DD FF     call        00AF2AB0
+  00D1783B: 85 FF              test        edi,edi
+  00D1783D: 74 05              je          00D17844
+  00D1783F: 8D 4F FC           lea         ecx,[edi-4]
+  00D17842: EB 02              jmp         00D17846
+  00D17844: 33 C9              xor         ecx,ecx
+  00D17846: 8D 95 A0 FE FF FF  lea         edx,[ebp+FFFFFEA0h]
+  00D1784C: 52                 push        edx
+  00D1784D: E8 1E 78 00 00     call        00D1F070
+  00D17852: 0F 28 08           movaps      xmm1,xmmword ptr [eax]
+  00D17855: 0F 28 5D A0        movaps      xmm3,xmmword ptr [ebp-60h]
+  00D17859: 0F 28 6D B0        movaps      xmm5,xmmword ptr [ebp-50h]
+  00D1785D: F3 0F 10 63 10     movss       xmm4,dword ptr [ebx+10h]
+  00D17862: F3 0F 10 7D FC     movss       xmm7,dword ptr [ebp-4]
+  00D17867: 0F 28 C1           movaps      xmm0,xmm1
+  00D1786A: 0F C6 C1 00        shufps      xmm0,xmm1,0
+  00D1786E: 0F 5C C3           subps       xmm0,xmm3
+  00D17871: 0F 59 E8           mulps       xmm5,xmm0
+  00D17874: 0F 29 8D C0 FE FF  movaps      xmmword ptr [ebp+FFFFFEC0h],xmm1
+  00D1787B: 0F 28 50 10        movaps      xmm2,xmmword ptr [eax+10h]
+  00D1787F: 0F 28 C2           movaps      xmm0,xmm2
+  00D17882: 0F C6 C2 00        shufps      xmm0,xmm2,0
+  00D17886: 0F 5C C3           subps       xmm0,xmm3
+  00D17889: 0F 28 5D B0        movaps      xmm3,xmmword ptr [ebp-50h]
+  00D1788D: 0F 29 AD E0 FE FF  movaps      xmmword ptr [ebp+FFFFFEE0h],xmm5
+  00D17894: 0F 59 D8           mulps       xmm3,xmm0
+  00D17897: F3 0F 10 85 E0 FE  movss       xmm0,dword ptr [ebp+FFFFFEE0h]
+  00D1789F: 0F 2F E0           comiss      xmm4,xmm0
+  00D178A2: F3 0F 11 7D D0     movss       dword ptr [ebp-30h],xmm7
+  00D178A7: 0F 28 F4           movaps      xmm6,xmm4
+  00D178AA: 0F 29 9D 20 FF FF  movaps      xmmword ptr [ebp+FFFFFF20h],xmm3
+  00D178B1: 0F 86 2C 01 00 00  jbe         00D179E3
+  00D178B7: 0F 2F C7           comiss      xmm0,xmm7
+  00D178BA: F3 0F 10 9D 20 FF  movss       xmm3,dword ptr [ebp+FFFFFF20h]
+  00D178C2: 76 07              jbe         00D178CB
+  00D178C4: F3 0F 11 45 D0     movss       dword ptr [ebp-30h],xmm0
+  00D178C9: EB 09              jmp         00D178D4
+  00D178CB: 0F 2F DF           comiss      xmm3,xmm7
+  00D178CE: 0F 86 0F 01 00 00  jbe         00D179E3
+  00D178D4: 0F 2F E3           comiss      xmm4,xmm3
+  00D178D7: 76 03              jbe         00D178DC
+  00D178D9: 0F 28 F3           movaps      xmm6,xmm3
+  00D178DC: 0F 28 6D 90        movaps      xmm5,xmmword ptr [ebp-70h]
+  00D178E0: 0F 28 C1           movaps      xmm0,xmm1
+  00D178E3: 0F C6 C1 55        shufps      xmm0,xmm1,55h
+  00D178E7: 0F 2F C5           comiss      xmm0,xmm5
+  00D178EA: 0F 87 86 00 00 00  ja          00D17976
+  00D178F0: 0F 28 C2           movaps      xmm0,xmm2
+  00D178F3: 0F C6 C2 55        shufps      xmm0,xmm2,55h
+  00D178F7: 0F 2F E8           comiss      xmm5,xmm0
+  00D178FA: 77 7A              ja          00D17976
+  00D178FC: 0F 28 9D 00 FF FF  movaps      xmm3,xmmword ptr [ebp+FFFFFF00h]
+  00D17903: 0F 28 C1           movaps      xmm0,xmm1
+  00D17906: 0F C6 C1 AA        shufps      xmm0,xmm1,0AAh
+  00D1790A: 0F 28 8D F0 FE FF  movaps      xmm1,xmmword ptr [ebp+FFFFFEF0h]
+  00D17911: 0F 5C C1           subps       xmm0,xmm1
+  00D17914: 0F 28 FB           movaps      xmm7,xmm3
+  00D17917: 0F 59 F8           mulps       xmm7,xmm0
+  00D1791A: 0F 28 C2           movaps      xmm0,xmm2
+  00D1791D: 0F 29 BD 50 FF FF  movaps      xmmword ptr [ebp+FFFFFF50h],xmm7
+  00D17924: 0F 2F B5 50 FF FF  comiss      xmm6,dword ptr [ebp+FFFFFF50h]
+  00D1792B: 0F C6 C2 AA        shufps      xmm0,xmm2,0AAh
+  00D1792F: 0F 5C C1           subps       xmm0,xmm1
+  00D17932: 0F 59 D8           mulps       xmm3,xmm0
+  00D17935: 0F 29 9D 30 FF FF  movaps      xmmword ptr [ebp+FFFFFF30h],xmm3
+  00D1793C: 76 33              jbe         00D17971
+  00D1793E: F3 0F 10 85 30 FF  movss       xmm0,dword ptr [ebp+FFFFFF30h]
+  00D17946: 0F 2F 45 D0        comiss      xmm0,dword ptr [ebp-30h]
+  00D1794A: 76 25              jbe         00D17971
+  00D1794C: 85 FF              test        edi,edi
+  00D1794E: 74 05              je          00D17955
+  00D17950: 8D 47 FC           lea         eax,[edi-4]
+  00D17953: EB 02              jmp         00D17957
+  00D17955: 33 C0              xor         eax,eax
+  00D17957: 8B 4B 18           mov         ecx,dword ptr [ebx+18h]
+  00D1795A: 50                 push        eax
+  00D1795B: E8 50 BB FF FF     call        00D134B0
+  00D17960: 84 C0              test        al,al
+  00D17962: 0F 85 17 01 00 00  jne         00D17A7F
+  00D17968: 0F 28 6D 90        movaps      xmm5,xmmword ptr [ebp-70h]
+  00D1796C: F3 0F 10 63 10     movss       xmm4,dword ptr [ebx+10h]
+  00D17971: F3 0F 10 7D FC     movss       xmm7,dword ptr [ebp-4]
+  00D17976: 8B 7F 04           mov         edi,dword ptr [edi+4]
+  00D17979: 8B 45 D8           mov         eax,dword ptr [ebp-28h]
+  00D1797C: 3B 78 28           cmp         edi,dword ptr [eax+28h]
+  00D1797F: 0F 85 AB FE FF FF  jne         00D17830
+  00D17985: F3 0F 10 45 D4     movss       xmm0,dword ptr [ebp-2Ch]
+  00D1798A: F3 0F 10 B5 70 FF  movss       xmm6,dword ptr [ebp+FFFFFF70h]
+  00D17992: 8A 48 25           mov         cl,byte ptr [eax+25h]
+  00D17995: 84 C9              test        cl,cl
+  00D17997: 0F 84 A4 00 00 00  je          00D17A41
+  00D1799D: 0F 28 48 30        movaps      xmm1,xmmword ptr [eax+30h]
+  00D179A1: 0F 28 D0           movaps      xmm2,xmm0
+  00D179A4: F3 0F 59 15 44 8E  mulss       xmm2,dword ptr ds:[010B8E44h]
+  00D179AC: F3 0F 59 05 C0 E7  mulss       xmm0,dword ptr ds:[010BE7C0h]
+  00D179B4: 0F C6 C9 55        shufps      xmm1,xmm1,55h
+  00D179B8: 0F B6 D1           movzx       edx,cl
+  00D179BB: 0F C6 D2 00        shufps      xmm2,xmm2,0
+  00D179BF: 0F 58 CA           addps       xmm1,xmm2
+  00D179C2: 0F 2F E9           comiss      xmm5,xmm1
+  00D179C5: 0F 28 48 30        movaps      xmm1,xmmword ptr [eax+30h]
+  00D179C9: 0F C6 C9 55        shufps      xmm1,xmm1,55h
+  00D179CD: 76 1A              jbe         00D179E9
+  00D179CF: 0F C6 C0 00        shufps      xmm0,xmm0,0
+  00D179D3: 0F 58 C8           addps       xmm1,xmm0
+  00D179D6: 0F 2F E9           comiss      xmm5,xmm1
+  00D179D9: 77 66              ja          00D17A41
+  00D179DB: 81 E2 CC 00 00 00  and         edx,0CCh
+  00D179E1: EB 25              jmp         00D17A08
+  00D179E3: 0F 28 6D 90        movaps      xmm5,xmmword ptr [ebp-70h]
+  00D179E7: EB 8D              jmp         00D17976
+  00D179E9: 0F 5C CA           subps       xmm1,xmm2
+  00D179EC: 0F 2F CD           comiss      xmm1,xmm5
+  00D179EF: 76 19              jbe         00D17A0A
+  00D179F1: 0F 28 48 30        movaps      xmm1,xmmword ptr [eax+30h]
+  00D179F5: 0F C6 C9 55        shufps      xmm1,xmm1,55h
+  00D179F9: 0F C6 C0 00        shufps      xmm0,xmm0,0
+  00D179FD: 0F 5C C8           subps       xmm1,xmm0
+  00D17A00: 0F 2F CD           comiss      xmm1,xmm5
+  00D17A03: 77 3C              ja          00D17A41
+  00D17A05: 83 E2 33           and         edx,33h
+  00D17A08: 74 37              je          00D17A41
+  00D17A0A: 8D 7D DC           lea         edi,[ebp-24h]
+  00D17A0D: EB 04              jmp         00D17A13
+  00D17A0F: 90                 nop
+  00D17A10: 8B 7D CC           mov         edi,dword ptr [ebp-34h]
+  00D17A13: 8B 0F              mov         ecx,dword ptr [edi]
+  00D17A15: B8 01 00 00 00     mov         eax,1
+  00D17A1A: D3 E0              shl         eax,cl
+  00D17A1C: 83 C7 04           add         edi,4
+  00D17A1F: 89 7D CC           mov         dword ptr [ebp-34h],edi
+  00D17A22: 85 C2              test        edx,eax
+  00D17A24: 74 ED              je          00D17A13
+  00D17A26: 8B 7D D8           mov         edi,dword ptr [ebp-28h]
+  00D17A29: 8B 0C 8F           mov         ecx,dword ptr [edi+ecx*4]
+  00D17A2C: 89 0E              mov         dword ptr [esi],ecx
+  00D17A2E: F3 0F 11 7E 04     movss       dword ptr [esi+4],xmm7
+  00D17A33: F3 0F 11 66 08     movss       dword ptr [esi+8],xmm4
+  00D17A38: F7 D0              not         eax
+  00D17A3A: 83 C6 0C           add         esi,0Ch
+  00D17A3D: 23 D0              and         edx,eax
+  00D17A3F: 75 CF              jne         00D17A10
+  00D17A41: 8D 95 E8 F2 FF FF  lea         edx,[ebp+FFFFF2E8h]
+  00D17A47: 3B F2              cmp         esi,edx
+  00D17A49: 76 41              jbe         00D17A8C
+  00D17A4B: 8B 46 F4           mov         eax,dword ptr [esi-0Ch]
+  00D17A4E: F3 0F 10 40 2C     movss       xmm0,dword ptr [eax+2Ch]
+  00D17A53: F3 0F 58 43 14     addss       xmm0,dword ptr [ebx+14h]
+  00D17A58: F3 0F 10 66 FC     movss       xmm4,dword ptr [esi-4]
+  00D17A5D: F3 0F 10 7E F8     movss       xmm7,dword ptr [esi-8]
+  00D17A62: 0F 28 5D B0        movaps      xmm3,xmmword ptr [ebp-50h]
+  00D17A66: 0F 28 55 A0        movaps      xmm2,xmmword ptr [ebp-60h]
+  00D17A6A: 83 EE 0C           sub         esi,0Ch
+  00D17A6D: 89 45 D8           mov         dword ptr [ebp-28h],eax
+  00D17A70: F3 0F 11 45 D4     movss       dword ptr [ebp-2Ch],xmm0
+  00D17A75: F3 0F 11 63 10     movss       dword ptr [ebx+10h],xmm4
+  00D17A7A: E9 C0 FC FF FF     jmp         00D1773F
+  00D17A7F: B0 01              mov         al,1
+  00D17A81: 5F                 pop         edi
+  00D17A82: 5E                 pop         esi
+  00D17A83: 8B E5              mov         esp,ebp
+  00D17A85: 5D                 pop         ebp
+  00D17A86: 8B E3              mov         esp,ebx
+  00D17A88: 5B                 pop         ebx
+  00D17A89: C2 14 00           ret         14h
+  00D17A8C: 5F                 pop         edi
+  00D17A8D: 32 C0              xor         al,al
+  00D17A8F: 5E                 pop         esi
+  00D17A90: 8B E5              mov         esp,ebp
+  00D17A92: 5D                 pop         ebp
+  00D17A93: 8B E3              mov         esp,ebx
+  00D17A95: 5B                 pop         ebx
+  00D17A96: C2 14 00           ret         14h
+  00D17A99: CC                 int         3
+  00D17A9A: CC                 int         3
+  00D17A9B: CC                 int         3
+  00D17A9C: CC                 int         3
+  00D17A9D: CC                 int         3
+  00D17A9E: CC                 int         3
+  00D17A9F: CC                 int         3

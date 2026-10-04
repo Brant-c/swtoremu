@@ -1,0 +1,79 @@
+  00B79F70: 55                 push        ebp
+  00B79F71: 8B EC              mov         ebp,esp
+  00B79F73: 6A FF              push        0FFFFFFFFh
+  00B79F75: 68 C8 29 F8 00     push        0F829C8h
+  00B79F7A: 64 A1 00 00 00 00  mov         eax,dword ptr fs:[00000000h]
+  00B79F80: 50                 push        eax
+  00B79F81: 64 89 25 00 00 00  mov         dword ptr fs:[00000000h],esp
+            00
+  00B79F88: 83 EC 08           sub         esp,8
+  00B79F8B: 53                 push        ebx
+  00B79F8C: 56                 push        esi
+  00B79F8D: 57                 push        edi
+  00B79F8E: 8B F9              mov         edi,ecx
+  00B79F90: 33 DB              xor         ebx,ebx
+  00B79F92: 89 5D FC           mov         dword ptr [ebp-4],ebx
+  00B79F95: 8B 87 BC 01 00 00  mov         eax,dword ptr [edi+000001BCh]
+  00B79F9B: 8D B7 BC 01 00 00  lea         esi,[edi+000001BCh]
+  00B79FA1: 88 5D F3           mov         byte ptr [ebp-0Dh],bl
+  00B79FA4: 3B C3              cmp         eax,ebx
+  00B79FA6: 74 2B              je          00B79FD3
+  00B79FA8: 8B 40 08           mov         eax,dword ptr [eax+8]
+  00B79FAB: 8B 10              mov         edx,dword ptr [eax]
+  00B79FAD: 8B C8              mov         ecx,eax
+  00B79FAF: 8B 42 2C           mov         eax,dword ptr [edx+2Ch]
+  00B79FB2: FF D0              call        eax
+  00B79FB4: 84 C0              test        al,al
+  00B79FB6: 74 04              je          00B79FBC
+  00B79FB8: C6 45 F3 01        mov         byte ptr [ebp-0Dh],1
+  00B79FBC: 8B 45 08           mov         eax,dword ptr [ebp+8]
+  00B79FBF: 85 C0              test        eax,eax
+  00B79FC1: 74 10              je          00B79FD3
+  00B79FC3: 8B 48 08           mov         ecx,dword ptr [eax+8]
+  00B79FC6: 8B 11              mov         edx,dword ptr [ecx]
+  00B79FC8: 8B 42 2C           mov         eax,dword ptr [edx+2Ch]
+  00B79FCB: FF D0              call        eax
+  00B79FCD: 84 C0              test        al,al
+  00B79FCF: 74 02              je          00B79FD3
+  00B79FD1: B3 01              mov         bl,1
+  00B79FD3: 8D 4D 08           lea         ecx,[ebp+8]
+  00B79FD6: 51                 push        ecx
+  00B79FD7: 8B CE              mov         ecx,esi
+  00B79FD9: E8 C2 04 AC FF     call        0063A4A0
+  00B79FDE: 38 5D F3           cmp         byte ptr [ebp-0Dh],bl
+  00B79FE1: 74 21              je          00B7A004
+  00B79FE3: E8 48 7A B7 FF     call        006F1A30
+  00B79FE8: 8A 90 D0 03 00 00  mov         dl,byte ptr [eax+000003D0h]
+  00B79FEE: 80 E2 01           and         dl,1
+  00B79FF1: 88 55 EF           mov         byte ptr [ebp-11h],dl
+  00B79FF4: 8B 45 EF           mov         eax,dword ptr [ebp-11h]
+  00B79FF7: 50                 push        eax
+  00B79FF8: E8 33 7A B7 FF     call        006F1A30
+  00B79FFD: 8B C8              mov         ecx,eax
+  00B79FFF: E8 7C 86 01 00     call        00B92680
+  00B7A004: 8B 97 B8 00 00 00  mov         edx,dword ptr [edi+000000B8h]
+  00B7A00A: 8B 42 10           mov         eax,dword ptr [edx+10h]
+  00B7A00D: 8D 8F B8 00 00 00  lea         ecx,[edi+000000B8h]
+  00B7A013: FF D0              call        eax
+  00B7A015: C7 45 FC FF FF FF  mov         dword ptr [ebp-4],0FFFFFFFFh
+            FF
+  00B7A01C: 8D 4D 08           lea         ecx,[ebp+8]
+  00B7A01F: E8 AC 40 E0 FF     call        0097E0D0
+  00B7A024: 8B 4D F4           mov         ecx,dword ptr [ebp-0Ch]
+  00B7A027: 5F                 pop         edi
+  00B7A028: 5E                 pop         esi
+  00B7A029: 5B                 pop         ebx
+  00B7A02A: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+            00
+  00B7A031: 8B E5              mov         esp,ebp
+  00B7A033: 5D                 pop         ebp
+  00B7A034: C2 08 00           ret         8
+  00B7A037: CC                 int         3
+  00B7A038: CC                 int         3
+  00B7A039: CC                 int         3
+  00B7A03A: CC                 int         3
+  00B7A03B: CC                 int         3
+  00B7A03C: CC                 int         3
+  00B7A03D: CC                 int         3
+  00B7A03E: CC                 int         3
+  00B7A03F: CC                 int         3

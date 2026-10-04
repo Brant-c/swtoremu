@@ -1,0 +1,72 @@
+  00C180D0: 55                 push        ebp
+  00C180D1: 8B EC              mov         ebp,esp
+  00C180D3: 64 A1 00 00 00 00  mov         eax,dword ptr fs:[00000000h]
+  00C180D9: 6A FF              push        0FFFFFFFFh
+  00C180DB: 68 60 23 00 01     push        1002360h
+  00C180E0: 50                 push        eax
+  00C180E1: 64 89 25 00 00 00  mov         dword ptr fs:[00000000h],esp
+  00C180E8: A1 24 72 34 01     mov         eax,dword ptr ds:[01347224h]
+  00C180ED: 33 C9              xor         ecx,ecx
+  00C180EF: 83 EC 10           sub         esp,10h
+  00C180F2: 3B C1              cmp         eax,ecx
+  00C180F4: 0F 85 83 00 00 00  jne         00C1817D
+  00C180FA: 56                 push        esi
+  00C180FB: 57                 push        edi
+  00C180FC: 89 4D E4           mov         dword ptr [ebp-1Ch],ecx
+  00C180FF: 89 4D E8           mov         dword ptr [ebp-18h],ecx
+  00C18102: 89 4D EC           mov         dword ptr [ebp-14h],ecx
+  00C18105: C7 45 FC 01 00 00  mov         dword ptr [ebp-4],1
+  00C1810C: 6A 1F              push        1Fh
+  00C1810E: 8D 4D E4           lea         ecx,[ebp-1Ch]
+  00C18111: E8 6A 2E 86 FF     call        0047AF80
+  00C18116: 8B 75 0C           mov         esi,dword ptr [ebp+0Ch]
+  00C18119: 8B 7D 08           mov         edi,dword ptr [ebp+8]
+  00C1811C: 8D 45 E4           lea         eax,[ebp-1Ch]
+  00C1811F: 50                 push        eax
+  00C18120: 56                 push        esi
+  00C18121: 57                 push        edi
+  00C18122: E8 19 6A 9F FF     call        0060EB40
+  00C18127: 8D 4D E4           lea         ecx,[ebp-1Ch]
+  00C1812A: 51                 push        ecx
+  00C1812B: 56                 push        esi
+  00C1812C: 57                 push        edi
+  00C1812D: E8 6E 83 9F FF     call        006104A0
+  00C18132: 8D 55 E4           lea         edx,[ebp-1Ch]
+  00C18135: 52                 push        edx
+  00C18136: 56                 push        esi
+  00C18137: 57                 push        edi
+  00C18138: E8 63 83 9F FF     call        006104A0
+  00C1813D: 8D 45 E4           lea         eax,[ebp-1Ch]
+  00C18140: 50                 push        eax
+  00C18141: 56                 push        esi
+  00C18142: 57                 push        edi
+  00C18143: E8 E8 83 9F FF     call        00610530
+  00C18148: 8D 4D E4           lea         ecx,[ebp-1Ch]
+  00C1814B: 51                 push        ecx
+  00C1814C: 56                 push        esi
+  00C1814D: 57                 push        edi
+  00C1814E: E8 CD ED FF FF     call        00C16F20
+  00C18153: 8B 16              mov         edx,dword ptr [esi]
+  00C18155: 8B 12              mov         edx,dword ptr [edx]
+  00C18157: 83 C4 3C           add         esp,3Ch
+  00C1815A: 8D 45 E4           lea         eax,[ebp-1Ch]
+  00C1815D: 50                 push        eax
+  00C1815E: 8B CE              mov         ecx,esi
+  00C18160: FF D2              call        edx
+  00C18162: A3 24 72 34 01     mov         dword ptr ds:[01347224h],eax
+  00C18167: C7 45 FC FF FF FF  mov         dword ptr [ebp-4],0FFFFFFFFh
+  00C1816E: 8D 4D E4           lea         ecx,[ebp-1Ch]
+  00C18171: E8 6A CA AE FF     call        00704BE0
+  00C18176: A1 24 72 34 01     mov         eax,dword ptr ds:[01347224h]
+  00C1817B: 5F                 pop         edi
+  00C1817C: 5E                 pop         esi
+  00C1817D: 8B 4D F4           mov         ecx,dword ptr [ebp-0Ch]
+  00C18180: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+  00C18187: 8B E5              mov         esp,ebp
+  00C18189: 5D                 pop         ebp
+  00C1818A: C3                 ret
+  00C1818B: CC                 int         3
+  00C1818C: CC                 int         3
+  00C1818D: CC                 int         3
+  00C1818E: CC                 int         3
+  00C1818F: CC                 int         3

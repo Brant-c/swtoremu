@@ -1,0 +1,2 @@
+tython_blockout-4611686019869492753-1.2.aaw: flags=0x01 objects=9 bytes=1247
+wrote D:\SWTORClassic\swtoremu\Diagnostics\TaxiDevelopment-20261001\_recorddump.txt

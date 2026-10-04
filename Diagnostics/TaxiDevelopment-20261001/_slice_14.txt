@@ -1,0 +1,40 @@
+  14      // health-only record omitted.
+  15      class AreaTaxiAwareness : TORAreaServerPacket
+  16      {
+  17          private byte _module;
+  18          private readonly byte[] _payload;
+  19          private const int FixtureBytes = 677;
+  20          // Authored anchor; must match PLACEMENT in Generate-Taxi.py.
+  21          public const string Placement = "(-53.5,-7.7,-125.5)";
+  22          private static readonly int[] Offsets = { 6,109,115,121,127,486,502,531,538,554,584,600,630,646 };
+  23          private static readonly int[] Slots = { 0,1,2,3,4,1,0,0,2,0,3,0,4,0 };
+  24          public AreaTaxiAwareness(UInt64[] nodes)
+  25          {
+  26              _payload = BuildPayload(nodes);
+  27          }
+  28          /// <summary>
+  29          /// Builds the taxi object-list payload: the five embedded records with
+  30          /// their placeholder identities substituted for this session's nodes.
+  31          /// Shared with the startup awareness merge, which appends the same
+  32          /// records into the payload the client already builds its object map
+  33          /// from, rather than sending a second late awareness packet.
+  34          /// </summary>
+  35          internal static byte[] BuildPayload(UInt64[] nodes)
+  36          {
+  37              byte[] payload;
+  38              if (nodes == null || nodes.Length != 5) throw new ArgumentException("Five taxi identities required");
+  39              for (int i=0;i<nodes.Length;i++) for(int j=0;j<i;j++)
+  40                  if(nodes[i]==nodes[j]) throw new ArgumentException("Taxi identities must be distinct");
+  41              using (Stream resource = Assembly.GetExecutingAssembly().GetManifestResourceStream("taxi.awareness"))
+  42              {
+  43                  if (resource == null || resource.Length != FixtureBytes) throw new InvalidDataException("Taxi awareness fixture missing or changed");
+  44                  payload = new byte[FixtureBytes];
+  45                  int offset = 0, count;
+  46                  while ((count = resource.Read(payload, offset, payload.Length-offset)) > 0) offset += count;
+  47                  if (offset != payload.Length) throw new InvalidDataException("Truncated taxi awareness fixture");
+  48              }
+  49              for (int i=0; i<Offsets.Length; i++)
+  50              {
+  51                  int slot=Slots[i], offset=Offsets[i];
+  52                  byte[] expected=AreaReplicationDestroy.PackNode(0x1AC7001000UL+(UInt64)slot);
+  53                  byte[] replacement=AreaReplicationDestroy.PackNode(nodes[slot]);

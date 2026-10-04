@@ -1,0 +1,24 @@
+{
+  "sha256": "2B47C25D2937A3DF2BE727A3224A93D748A5CDFA0F629B1A1C4FDCC163FB8494",
+  "strings": [],
+  "name_hashes": [
+    {
+      "name": "CollideRaySegment",
+      "key": "0xea7c38e8",
+      "source": "Jedipedia sysBaseClient name dictionary entries270/269",
+      "references": [
+        {
+          "file_offset": "0x8185be",
+          "va": "0xc191be",
+          "context": "0ef999ff8bf85756e815efffff6a0068e8387cea8bd8e847fd99ff83c414688053c100538d4dfc89"
+        }
+      ]
+    },
+    {
+      "name": "RaySegmentIsObstructed",
+      "key": "0xda6fb8a1",
+      "source": "Jedipedia sysBaseClient name dictionary entries270/269",
+      "references": []
+    }
+  ]
+}

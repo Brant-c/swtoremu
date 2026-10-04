@@ -1,0 +1,28 @@
+
+=== resolved layout: Weller node=0x1ac6f6dc6d struct=62 style=8 inner=429
+      0 @+0    len=12   character_position             | c7 9a 80 c2 84 0d dd c0 9f 0d 00 c3
+      1 @+12   len=12   character_rotation             | 00 00 00 80 00 00 70 c1 00 00 00 00
+      9 @+24   len=4    chrScale                       | 00 00 80 3f
+     10 @+28   len=4    chrMeleeDistance               | cd cc cc 3d
+     13 @+32   len=1    staWeaponState                 | 02
+     23 @+33   len=6    phsPhase                       | cc 1a c6 f6 dc 1f
+     24 @+39   len=6    eqpEquipment                   | cc 1a c6 f6 dc 6f
+     25 @+45   len=6    effContainerPositive           | cc 1a c6 f6 dc 71
+     26 @+51   len=6    effContainerNegative           | cc 1a c6 f6 dc 72
+     27 @+57   len=6    effContainerOther              | cc 1a c6 f6 dc 73
+     28 @+63   len=9    spnParentAnchorId              | cf 40 00 00 04 6e 8f bb 53
+     33 @+72   len=6    tmrContainer                   | cc 1a c6 f6 dc 6e
+     35 @+78   len=170  modStatComputed                | 42 02 00 00 00 00 03 00 00 00 00 04 00 00 00 00 05 00 00 00 00 07 00 00 00 00 08 00 00 9b 43 09 00 00 00 00 0a 00 00 00 00 27 33 33 33 3f 28 9a 99 19 3e 30 00 00 3a 43 3a 9a 99 19 3e 3b 00 00 b4 43 73 cd cc 4c 3d 75 00 00 00 3f 77 9a 99 99 3e 79 cd cc 4c 3d 7b 00 00 00 3f 7d 9a 99 99 3e 86 00 00 00 3f 88 00 00 00 3f 8f 00 00 9b 43 98 00 00 00 00 9a 00 00 00 00 9b 00 00 00 00 9c 00 00 00 00 9e 00 00 00 00 a1 00 00 00 00 a3 00 00 00 00 c8 e8 00 00 80 3f c8 e9 00 00 80 3f c8 fe 00 00 00 00 c8 ff 00 00 00 00
+     36 @+248  len=88   modStatBase                    | 22 08 00 00 9b 43 27 33 33 33 3f 28 9a 99 19 3e 30 00 00 3a 43 3a 9a 99 19 3e 3b 00 00 b4 43 73 cd cc 4c 3d 75 00 00 00 3f 77 9a 99 99 3e 79 cd cc 4c 3d 7b 00 00 00 3f 7d 9a 99 99 3e 86 00 00 00 3f 88 00 00 00 3f 8f 00 00 9b 43 c8 e8 00 00 80 3f c8 e9 00 00 80 3f
+     37 @+336  len=4    statHealth                     | 00 00 9b 43
+     38 @+340  len=0    staEnterIdle                   | 
+     39 @+340  len=1    cbtToughnessEnum               | 04
+     40 @+341  len=4    effTargetActiveSnare           | 00 00 80 bf
+     44 @+345  len=2    effContainerEffectlessTags     | 02 00
+     53 @+347  len=1    cnvAlienConversationsRequiredLookup | 01
+     58 @+348  len=1    spnSpawnedSpec                 | 02
+     62 @+349  len=0    tgtTargetIsTargetable          | 
+     63 @+349  <ERROR token 0xD2@738>
+
+=== Weller width search  node=0x1ac6f6dc6d struct=62 style=8 inner=429 present=30
+    NO width assignment reconciles this record

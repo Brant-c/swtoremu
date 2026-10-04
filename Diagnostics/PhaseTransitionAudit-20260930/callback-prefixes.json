@@ -1,0 +1,66 @@
+{
+  "entity_resource": "D:\\SWTORClassic\\assettest\\resources\\systemgenerated\\compilednative\\14988219368268985980",
+  "entity_sha256": "053D8D59B1595A8536D88B7D9335EEB1FE2386F0762E9CB9A69C628DD8902EBD",
+  "oracle_sha256": "1DFA9168BDBD3A1B5267586B97AB7AEFCA9B5D715015ED43FD2188F849DE1F04",
+  "entity_payload_base": "0x14f",
+  "oracle_section_base": "0xc83",
+  "oracle_relative_to_gui_anchor": -3360,
+  "track_line_static_va": "0x5d20a0",
+  "track_line_prefix": "558bec8b45085de9d4a0ffff",
+  "entity_track_lines": [
+    {
+      "return_offset": "0x13",
+      "line": 2
+    },
+    {
+      "return_offset": "0x84",
+      "line": 5
+    },
+    {
+      "return_offset": "0xcb",
+      "line": 7
+    },
+    {
+      "return_offset": "0x19b",
+      "line": 14
+    },
+    {
+      "return_offset": "0x2d9",
+      "line": 12
+    }
+  ],
+  "oracle_track_lines": [
+    {
+      "return_offset": "0x1c59",
+      "line": 253
+    },
+    {
+      "return_offset": "0x1c8e",
+      "line": 257
+    },
+    {
+      "return_offset": "0x1ce3",
+      "line": 258
+    },
+    {
+      "return_offset": "0x1cff",
+      "line": 259
+    },
+    {
+      "return_offset": "0x1d3e",
+      "line": 262
+    },
+    {
+      "return_offset": "0x244c",
+      "line": 315
+    },
+    {
+      "return_offset": "0x2563",
+      "line": 322
+    },
+    {
+      "return_offset": "0x260f",
+      "line": 254
+    }
+  ]
+}

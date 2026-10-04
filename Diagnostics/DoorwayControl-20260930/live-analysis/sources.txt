@@ -1,0 +1,3 @@
+Snapshot=D:\SWTORClassic\swtoremu\Diagnostics\DoorwayControl-20260930\after-crossing-20260930-000710-856
+Server=D:\SWTORClassic\swtoremu\Diagnostics\DoorwayControl-20260930\after-crossing-20260930-000710-856\010-NexusToR.log
+Hook=D:\SWTORClassic\swtoremu\Diagnostics\DoorwayControl-20260930\after-crossing-20260930-000710-856\009-nexus_hook.log

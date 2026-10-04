@@ -1,0 +1,4 @@
+"LogWriteTime","Line","Heading","X","Y","Z","CrossesDetectorPlane","Plaintext","TimestampBasis","Accepted"
+"2026-09-30 00:23:32","1152","-90.0002","-64.8741","-6.906221","-127.671","False","D5-6A-11-61-08-00-B3-65-C5-00-00-00-1A-00-B4-C2-8A-BF-81-C2-C3-FF-DC-C0-8D-57-FF-C2-2D-50-1B-00-00-00-00-00-2C-0D-44-21-38-0C-00-00","server asynchronous log-write time; not receive time","True"
+"2026-09-30 00:23:54","1295","-134.2658","-62.95565","-6.898841","-126.2381","True","D5-6A-11-61-08-00-B3-65-C5-00-00-00-0A-44-06-C3-95-D2-7B-C2-4E-C3-DC-C0-E5-79-FC-C2-2D-50-1B-00-00-00-00-00-51-6D-44-21-38-0C-00-00","server asynchronous log-write time; not receive time","True"
+"2026-09-30 00:23:54","1316","-134.9995","-62.95174","-6.898841","-126.2342","False","D5-6A-11-61-08-00-B3-65-C5-00-00-00-DE-FF-06-C3-95-CE-7B-C2-4E-C3-DC-C0-E5-77-FC-C2-2D-50-1B-00-00-00-00-00-AF-6E-44-21-38-0C-00-00","server asynchronous log-write time; not receive time","True"

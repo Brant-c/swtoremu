@@ -1,0 +1,14 @@
+old 677 bytes  sha256 78ce8d7a66552c5631de89489cc753cb2ddf3060f8c4572a8f28bf72dc95023d
+new 675 bytes  sha256 7f98aa2f0cd596d26ac2fc0d45e088d54b57783d62e1f12bd870b9c621405f39
+delta -2 bytes
+
+identical prefix: 69 bytes
+old tail from there (608 bytes): a0 42 c9 01 84 00 00 56 c2 66 66 f6 c0 00 00 fb c2 00 00 00 80 fe 14 e0
+new tail from there (606 bytes): 9e 42 c9 01 82 00 00 56 c2 66 66 f6 c0 00 00 fb c2 00 00 00 80 fe 14 e0
+
+old tail (last 24): 07 16 0d 13 00 cf e0 00 d1 1d ef 61 e9 4c cf e0 00 d1 1d ef 61 e9 4c e0
+new tail (last 24): 07 16 0d 13 00 cf e0 00 d1 1d ef 61 e9 4c cf e0 00 d1 1d ef 61 e9 4c e0
+new: flags=0x01 objects=5 bytes=675
+
+new record: struct=66 style=8 inner=386 body=74 value_end=484
+objects=5  walked to end: False

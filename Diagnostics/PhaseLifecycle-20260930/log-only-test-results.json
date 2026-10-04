@@ -1,0 +1,32 @@
+[
+  {
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "d9796a",
+      "wall_time_seconds": 0.6828675,
+      "exit_code": 0,
+      "original_token_count": 37,
+      "output": "PASS: area source 65B3, dynamic destinations 8/19, intact character payload, unattached rejection, all 11 legacy area packets use shared routing.\r\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "e56d40",
+      "wall_time_seconds": 1.3084919,
+      "exit_code": 0,
+      "original_token_count": 73,
+      "output": "PASS: 38 packet bodies; all 17 CRTs and 2 awareness blobs preserved byte-for-byte after the 8-byte opcode/component header, with dynamic handles 8/19.\r\nScope: serializer regression only; fixture compatibility with the client and successful world loading are not established by this test.\r\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "18e52f",
+      "wall_time_seconds": 1.6950907,
+      "exit_code": 0,
+      "original_token_count": 62,
+      "output": "PASS: 54 fixture packets, dynamic handles 8/19, byte-exact raw-deflate round trips and transport headers.\r\nScope: fixture preservation and compression only; not native style-7 decoding, encryption, full startup ordering, or world-entry success.\r\n"
+    }
+  }
+]

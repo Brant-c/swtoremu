@@ -1,0 +1,8 @@
+[2026-10-01 00:16:05] PlayerMovementState: RetreatMembership: exited; selected-player link cleared and phase-info removed.
+[2026-10-01 00:16:09] PlayerMovementState: RetreatMembership: reentered; captured phase-info recreated before selected-player phase link restored.
+[2026-10-01 00:16:16] PlayerMovementState: RetreatMembership: exited; selected-player link cleared and phase-info removed.
+[2026-10-01 00:17:20] PlayerMovementState: RetreatMembership: reentered; captured phase-info recreated before selected-player phase link restored.
+[2026-10-01 00:17:34] PlayerMovementState: RetreatMembership: exited; selected-player link cleared and phase-info removed.
+[2026-10-01 00:17:44] PlayerMovementState: RetreatMembership: reentered; captured phase-info recreated before selected-player phase link restored.
+[2026-10-01 00:18:13] PlayerMovementState: RetreatMembership: exited; selected-player link cleared and phase-info removed.
+[2026-10-01 00:18:17] PlayerMovementState: RetreatMembership: reentered; captured phase-info recreated before selected-player phase link restored.

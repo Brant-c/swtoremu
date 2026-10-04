@@ -1,0 +1,1009 @@
+[trace] === ACTIVE ===
+[trace] SWTOR_TRACE_AREA_PAYLOADS=0
+[trace] SWTOR_TRACE_RPC_CALLS=0
+[trace] SWTOR_TRACE_EVENT_DISPATCH=1
+[trace] SWTOR_TRACE_LOADING_SCREEN=0
+[trace] SWTOR_TRACE_PHASE_LIFECYCLE=1
+[trace] SWTOR_CRT_MISSING_MODE=skip
+[trace] SWTOR_MOBILITY_IN_CRT16=1
+[trace] SWTOR_STATMAP_AND_LOADED=1
+[trace] SWTOR_REMOVE_SAFE_LOGIN_EFFECT=1
+[trace] SWTOR_SUPPRESS_SAFE_LOGIN_EFFECT=1
+[trace] SWTOR_AREA_ENTER_STATE=AreaServer
+[trace] SWTOR_POST_STATE_ON_ENTER=0
+[trace] SWTOR_NO_STATUS_PAUSE=
+[trace] SWTOR_AREA_POLL_MODE=
+[trace] SWTOR_RPC_REPLY_MODE=
+[trace] SWTOR_RPC_RESULT_A=
+[trace] SWTOR_RPC_RESULT_B=
+[trace] SWTOR_ABILITY_REPLY_MODE=complete
+[trace] SWTOR_ABILITY_EFFECT_EXPERIMENT=1
+[trace] SWTOR_ABILITY_EFFECT_REPLICATION=1
+[trace] SWTOR_ABILITY_COMBAT_EXPERIMENT=1
+[trace] SWTOR_ABILITY_TIMED_TEST_MS=
+[trace] SWTOR_ENABLE_UNVERIFIED_CRT3=0
+[trace] SWTOR_CRT_OVERRIDE_DIRECTORY=D:\SWTORClassic\swtoremu\Diagnostics\GeneratedPhaseCandidate
+[trace] SWTOR_PHASE_INSTANCE_RETRY= - empty means probe disabled
+[trace] === ALTERNATIVES (all off) ===
+[trace] SWTOR_PLAYERLOADED_ONLY=
+[trace] SWTOR_MOBILITY_AND_LOADED=
+[trace] === DISABLED ===
+[trace] SWTOR_DISABLE_LOADING_CONTINUE_FALLBACK=
+[trace] SWTOR_TRACE_PLAYER_FIELDS=0
+[trace] SWTOR_TRACE_PLAYER_LOADED_ACCESS=
+[trace] SWTOR_TRACE_REPLICATION_CREATE=
+
+
+[trace] SERVER readiness marker: when the log shows
+[trace]   "AreaStartupBundle: area startup sent"
+[trace] the server has emitted the area startup packet sequence. If the
+[trace] client is still on the load screen after that, grab the CLIENT log:
+[trace]   %USERPROFILE%\Documents\SWTOR*\swtor_*\swtor.log
+[trace] and paste its tail (the last 60 lines) so we can see whether the
+[trace] client reached CS_INGAME or stalled at CS_GAME_LAUNCHING. DO NOT
+[trace] close the client before capturing its tail â€” the client must stay
+[trace] alive past the resource-worker idle lines to prove readiness.
+
+[trace] SERVER console captured to: D:\SWTORClassic\swtoremu\Diagnostics\trace-server.out
+[trace] After the run, check that file for:
+[trace]   "AreaStartupBundle: area startup sent" <- area bundle emitted
+[trace]   "Client '...' disconnected" <- client session ended
+
+[trace] Matching April native script archive is already installed.
+[trace] Diagnostic hook installed; previous DLL/log preserved.
+
+Starting old client (single diagnostic attempt)...
+[21:30:30] [STARTUP] Concise progress and blockers: Diagnostics\startup-summary.log
+Compatibility resource cache: D:\SWTORClassic\swtoremu\Diagnostics\GomCompatibility\ResourceCacheApril2012 (client.gom: 526316 bytes).
+SWTOR compatibility bridge is active. Keep this window open while the game runs.
+LoadingContinueFallback: enabled
+Direct shard launch: requested the complete shard-connected state.
+Repository packet dispatch: opcode=A08C1ACF owner=0DC20F00
+Compiler attach started; invoked the client's compilers-connected transition.
+Repository packet dispatch: opcode=26959B72 owner=0DC20F00
+[21:30:42] [READY] Native client received repository synchronization reply.
+[21:30:42] [READY] Native repository synchronization completion callback entered.
+Resource worker RVA=00745CF0 thread=45596 owner=0A7E0A20 state=5 queued=25
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Prototype loader state changed: waiting=1 total=0 loaded=0 pending=0.
+Prototype loader state changed: waiting=0 total=10078 loaded=0 pending=0.
+Prototype-bucket loader state changed: waiting=1 total=0 loaded=0 pending=0.
+Loaded 25 compatibility resources; current: /systemgenerated/buckets/21.bkt
+Prototype-bucket loader state changed: waiting=0 total=500 loaded=1 pending=499.
+Loaded 50 compatibility resources; current: /systemgenerated/buckets/46.bkt
+Loaded 75 compatibility resources; current: /systemgenerated/buckets/71.bkt
+Loaded 100 compatibility resources; current: /systemgenerated/buckets/96.bkt
+Prototype-bucket loader state changed: waiting=0 total=500 loaded=52 pending=448.
+Loaded 125 compatibility resources; current: /systemgenerated/buckets/121.bkt
+Loaded 150 compatibility resources; current: /systemgenerated/buckets/146.bkt
+Prototype-bucket loader state changed: waiting=0 total=500 loaded=103 pending=397.
+Loaded 175 compatibility resources; current: /systemgenerated/buckets/171.bkt
+Loaded 200 compatibility resources; current: /systemgenerated/buckets/196.bkt
+Prototype-bucket loader state changed: waiting=0 total=500 loaded=154 pending=346.
+Loaded 225 compatibility resources; current: /systemgenerated/buckets/221.bkt
+Loaded 250 compatibility resources; current: /systemgenerated/buckets/246.bkt
+Prototype-bucket loader state changed: waiting=0 total=500 loaded=205 pending=295.
+Character-list request is waiting for GOM, scripts, and character-spec initialization.
+Loaded 275 compatibility resources; current: /systemgenerated/buckets/271.bkt
+Loaded 300 compatibility resources; current: /systemgenerated/buckets/296.bkt
+Prototype-bucket loader state changed: waiting=0 total=500 loaded=256 pending=244.
+Loaded 325 compatibility resources; current: /systemgenerated/buckets/321.bkt
+Loaded 350 compatibility resources; current: /systemgenerated/buckets/346.bkt
+Prototype-bucket loader state changed: waiting=0 total=500 loaded=307 pending=193.
+Loaded 375 compatibility resources; current: /systemgenerated/buckets/371.bkt
+Loaded 400 compatibility resources; current: /systemgenerated/buckets/396.bkt
+Prototype-bucket loader state changed: waiting=0 total=500 loaded=358 pending=142.
+Loaded 425 compatibility resources; current: /systemgenerated/buckets/421.bkt
+Loaded 450 compatibility resources; current: /systemgenerated/buckets/446.bkt
+Prototype-bucket loader state changed: waiting=0 total=500 loaded=409 pending=91.
+Loaded 475 compatibility resources; current: /systemgenerated/buckets/471.bkt
+Loaded 500 compatibility resources; current: /systemgenerated/buckets/496.bkt
+Prototype-bucket loader state changed: waiting=0 total=500 loaded=460 pending=40.
+Character-list request is waiting for GOM, scripts, and character-spec initialization.
+Prototype-bucket loader state changed: waiting=0 total=500 loaded=500 pending=0.
+Loaded 504 compatibility resources; current: /systemgenerated/scriptdef.list
+Native script-definition parser entered.
+Native script-definition parser accepted the resource result.
+Native script-definition list was decoded.
+Native script definitions are being registered with GOM.
+Native script-definition registration loop completed.
+Native script-definition parser completed.
+Native script-definition completion callback returned; waiting=0.
+[21:31:50] [READY] Native script definitions registered; beginning game and GUI initialization.
+Character-list request is waiting for GOM, scripts, and character-spec initialization.
+Resource worker RVA=00745CF0 thread=45596 owner=0A7E0A20 state=5 queued=0
+Character-list request is waiting for GOM, scripts, and character-spec initialization.
+Character-list request is waiting for GOM, scripts, and character-spec initialization.
+GUI constructor owner=F3F368C0 disabled=0.
+Post-script resource request: /guixml/guixml.lst result=00000001 owner=F3F36940 vtableRVA=00CB66D4.
+Post-script resource request: /guixml/_heguixml.lst result=00000001 owner=F3F369F0 vtableRVA=00CB66D4.
+Character-spec resource path: /art/dynamic/spec/ithorian.dat
+Character-spec resource path: /art/dynamic/spec/cat.dat
+Character-spec resource path: /art/dynamic/spec/wraidboss.dat
+Character-spec resource path: /art/dynamic/spec/terentatek.dat
+Character-spec resource path: /art/dynamic/spec/walkerhw.dat
+Character-spec resource path: /art/dynamic/spec/battledroid.dat
+Character-spec resource path: /art/dynamic/spec/bull.dat
+Character-spec resource path: /art/dynamic/spec/acklaydroid.dat
+Character-spec resource path: /art/dynamic/spec/bfs.dat
+Character-spec resource path: /art/dynamic/spec/bfn.dat
+Character-spec resource path: /art/dynamic/spec/bfa.dat
+Character-spec resource path: /art/dynamic/spec/bfb.dat
+Character-spec resource path: /art/dynamic/spec/bms.dat
+Character-spec resource path: 
+Character-spec resource path: 
+Character-spec resource path: 
+Character-spec resource path: 
+Character-spec resource path: /art/dynamic/spec/bantha.dat
+Character-spec resource path: /art/dynamic/spec/mousedroidpet.dat
+Character-spec resource path: /art/dynamic/spec/rancor.dat
+Character-spec resource path: /art/dynamic/spec/huttacklaydroid.dat
+Character-spec resource path: /art/dynamic/spec/catboss.dat
+Character-spec resource path: /art/dynamic/spec/ortolan.dat
+Character-spec resource path: /art/dynamic/spec/turretneusmall.dat
+Character-spec resource path: /art/dynamic/spec/dewbackboss.dat
+Character-spec resource path: /art/dynamic/spec/eshka.dat
+Character-spec resource path: /art/dynamic/spec/rakghoulinffemale.dat
+Character-spec resource path: /art/dynamic/spec/petrakghoul.dat
+Character-spec resource path: /art/dynamic/spec/wampaboss.dat
+Character-spec resource path: /art/dynamic/spec/bmanew.dat
+Character-spec resource path: /art/dynamic/spec/mote.dat
+Character-spec resource path: /art/dynamic/spec/wraid.dat
+Character-spec resource path: /art/dynamic/spec/protocol.dat
+Character-spec resource path: /art/dynamic/spec/bfbnew.dat
+Character-spec resource path: /art/dynamic/spec/petprobe.dat
+Character-spec resource path: /art/dynamic/spec/dwarf.dat
+Character-spec resource path: /art/dynamic/spec/dragonbat.dat
+Character-spec resource path: /art/dynamic/spec/hovertank.dat
+Character-spec resource path: /art/dynamic/spec/bmfnew.dat
+Character-spec resource path: /art/dynamic/spec/battledroidboss.dat
+Character-spec resource path: /art/dynamic/spec/dewback.dat
+Character-spec resource path: /art/dynamic/spec/probe.dat
+Character-spec resource path: /art/dynamic/spec/astromech.dat
+Character-spec resource path: /art/dynamic/spec/assassin.dat
+Character-spec resource path: /art/dynamic/spec/geonosian.dat
+Character-spec resource path: /art/dynamic/spec/rakghoulinfmale.dat
+Character-spec resource path: /art/dynamic/spec/bmsnew.dat
+Character-spec resource path: /art/dynamic/spec/colicoiddroid.dat
+Character-spec resource path: /art/dynamic/spec/wampa.dat
+Character-spec resource path: /art/dynamic/spec/walkerkephess.dat
+Character-spec resource path: /art/dynamic/spec/huttsit.dat
+Character-spec resource path: /art/dynamic/spec/rakghoul.dat
+Character-spec resource path: /art/dynamic/spec/klorslug.dat
+Character-spec resource path: /art/dynamic/spec/pettauntaun.dat
+Character-spec resource path: /art/dynamic/spec/rakghoulboss.dat
+Character-spec resource path: 
+Character-spec resource path: 
+Character-spec resource path: /art/dynamic/spec/terentatekboss.dat
+Character-spec resource path: 
+Character-spec resource path: /art/dynamic/spec/banthaboss.dat
+Character-spec resource path: 
+Character-spec resource path: 
+Character-spec resource path: /art/dynamic/spec/bfsnew.dat
+Character-spec resource path: 
+Character-spec resource path: /art/dynamic/spec/tauntaun.dat
+Character-spec resource path: /art/dynamic/spec/dog.dat
+Character-spec resource path: /art/dynamic/spec/bfnnew.dat
+Character-spec resource path: /art/dynamic/spec/rancorboss.dat
+Character-spec resource path: /art/dynamic/spec/bfanew.dat
+Character-spec resource path: /art/dynamic/spec/klorslugboss.dat
+Character-spec resource path: /art/dynamic/spec/bmnnew.dat
+Character-spec resource path: /art/dynamic/spec/colicoid.dat
+Character-spec resource path: /art/dynamic/spec/acklay.dat
+Character-spec resource path: /art/dynamic/spec/petmouse.dat
+Post-script resource request: /gamedata/str/stb.manifest result=00000001 owner=ED5FE900 vtableRVA=00CC5EA4.
+GUI resource callback RVA=007261E0 result=00000001 bytes=2 path=/guixml/guixml.lst.
+GUI resource callback RVA=007261E0 result=00000001 bytes=1353 path=/guixml/_heguixml.lst.
+Post-script resource request: /guixml/_cleanenginebaseborders.xml result=00000001 owner=0AA2AF30 vtableRVA=00CB9694.
+Post-script resource request: /guixml/_cleanenginebasebutton.xml result=00000001 owner=0AA2AEA0 vtableRVA=00CB9694.
+Post-script resource request: /guixml/_cleanenginebasegui.xml result=00000001 owner=0AA2AE10 vtableRVA=00CB9694.
+Post-script resource request: /guixml/_cleanenginebasemenus.xml result=00000001 owner=0AA2AD80 vtableRVA=00CB9694.
+Post-script resource request: /guixml/_cleanenginebasesliders.xml result=00000001 owner=0AA2AC60 vtableRVA=00CB9694.
+Post-script resource request: /guixml/_cleanenginebasetabs.xml result=00000001 owner=0AA2ABD0 vtableRVA=00CB9694.
+Post-script resource request: /guixml/_cleanenginebasewindow.xml result=00000001 owner=0AA2AB40 vtableRVA=00CB9694.
+Post-script resource request: /guixml/_cleanenginecharacterselectiongui.xml result=00000001 owner=0AA2AAB0 vtableRVA=00CB9694.
+Post-script resource request: /guixml/_cleanenginecmgr.xml result=00000001 owner=0AA2AA20 vtableRVA=00CB9694.
+Post-script resource request: /guixml/_cleanenginedropdownbox.xml result=00000001 owner=0AA2A990 vtableRVA=00CB9694.
+Post-script resource request: /guixml/_cleanengineiconmaker.xml result=00000001 owner=0AA2A900 vtableRVA=00CB9694.
+Post-script resource request: /guixml/_cleanengineminimap.xml result=00000001 owner=0AA2A870 vtableRVA=00CB9694.
+Post-script resource request: /guixml/_cleanengineselectbox.xml result=00000001 owner=0AA2A7E0 vtableRVA=00CB9694.
+Post-script resource request: /guixml/_cleanenginesortablecollection.xml result=00000001 owner=0AA2A750 vtableRVA=00CB9694.
+Post-script resource request: /guixml/_confirmdialog.xml result=00000001 owner=0AA2A630 vtableRVA=00CB9694.
+Post-script resource request: /guixml/_cleanengineloadingicon.xml result=00000001 owner=0AA2A5A0 vtableRVA=00CB9694.
+Post-script resource request: /guixml/_cleanenginebasegroupbox.xml result=00000001 owner=0AA2A510 vtableRVA=00CB9694.
+Post-script resource request: /guixml/defaults.xml result=00000001 owner=0AA2A480 vtableRVA=00CB9694.
+Post-script resource request: /guixml/modelfaderpropertypanel_v2.xml result=00000001 owner=0AA2A3F0 vtableRVA=00CB9694.
+Post-script resource request: /guixml/guieditor.xml result=00000001 owner=0AA2A360 vtableRVA=00CB9694.
+Post-script resource request: /guixml/he_charcreationpanel.xml result=00000001 owner=0AA2A2D0 vtableRVA=00CB9694.
+Post-script resource request: /guixml/he_confirmdialog.xml result=00000001 owner=0AA2A240 vtableRVA=00CB9694.
+Post-script resource request: /guixml/he_controlpanelclassaddremovepanel.xml result=00000001 owner=0AA2A1B0 vtableRVA=00CB9694.
+Post-script resource request: /guixml/he_controlpanelglommedclass.xml result=00000001 owner=0AA2A120 vtableRVA=00CB9694.
+Post-script resource request: /guixml/he_controlpanelmainwindow.xml result=00000001 owner=0AA2A090 vtableRVA=00CB9694.
+Post-script resource request: /guixml/he_whogui.xml result=00000001 owner=0AA2A000 vtableRVA=00CB9694.
+Post-script resource request: /guixml/smarttextinputbox.xml result=00000001 owner=0AA2BF30 vtableRVA=00CB9694.
+Post-script resource request: /guixml/specoraclespecselector.xml result=00000001 owner=0AA2BEA0 vtableRVA=00CB9694.
+Post-script resource request: /guixml/transform3dpropertypanel_v2.xml result=00000001 owner=0AA2BE10 vtableRVA=00CB9694.
+Post-script resource request: /guixml/_territorygui.xml result=00000001 owner=0AA2BD80 vtableRVA=00CB9694.
+Post-script resource request: /guixml/_tooltip.xml result=00000001 owner=0AA2BCF0 vtableRVA=00CB9694.
+Post-script resource request: /guixml/specoracleglomclassesdialog.xml result=00000001 owner=0AA2BC60 vtableRVA=00CB9694.
+Post-script resource request: /guixml/specoraclechooser.xml result=00000001 owner=0AA2BBD0 vtableRVA=00CB9694.
+Post-script resource request: /guixml/specoracleaddspec.xml result=00000001 owner=0AA2BB40 vtableRVA=00CB9694.
+Post-script resource request: /guixml/unsavedchangesdialog.xml result=00000001 owner=0AA2BAB0 vtableRVA=00CB9694.
+Post-script resource request: /guixml/stylesetgui.xml result=00000001 owner=0AA2BA20 vtableRVA=00CB9694.
+Post-script resource request: /guixml/smartnamevaluepairinput.xml result=00000001 owner=0AA2B990 vtableRVA=00CB9694.
+Post-script resource request: /guixml/nodepropertyeditor.xml result=00000001 owner=0AA2B900 vtableRVA=00CB9694.
+Post-script resource request: /guixml/nodepropertyeditorbuttons.xml result=00000001 owner=0AA2B870 vtableRVA=00CB9694.
+Post-script resource request: /guixml/nodepropertyeditorboolean.xml result=00000001 owner=0AA2B7E0 vtableRVA=00CB9694.
+Post-script resource request: /guixml/specoraclepropertyeditor.xml result=00000001 owner=0AA2B750 vtableRVA=00CB9694.
+Post-script resource request: /guixml/_aidebugger.xml result=00000001 owner=0AA2B6C0 vtableRVA=00CB9694.
+Post-script resource request: /guixml/_aidebugpropertyeditor.xml result=00000001 owner=0AA2B630 vtableRVA=00CB9694.
+Post-script resource request: /guixml/_nodepropertyeditormarshaltimer.xml result=00000001 owner=0AA2B5A0 vtableRVA=00CB9694.
+Post-script resource request: /guixml/he_areaeditlockinggui.xml result=00000001 owner=0AA2B510 vtableRVA=00CB9694.
+Post-script resource request: /guixml/_hotspot.xml result=00000001 owner=0AA2B480 vtableRVA=00CB9694.
+Post-script resource request: /guixml/collapsablecategory.xml result=00000001 owner=0AA2B3F0 vtableRVA=00CB9694.
+Post-script resource request: /guixml/_cursors.xml result=00000001 owner=0AA2B360 vtableRVA=00CB9694.
+Post-script resource request: /guixml/_colorviewer.xml result=00000001 owner=0AA2B2D0 vtableRVA=00CB9694.
+[21:32:22] [WAIT] Character-spec initialization: ready=0/74, waiting=74, failed=0. Pending examples: bmf, wraid, colicoiddroid, chevin, manta.
+[21:32:22] [BLOCKER] The native character-spec loader has not completed. Character selection cannot finish startup; pings only confirm the server connection is alive.
+Resource worker RVA=00745CF0 thread=45596 owner=0A7E0A20 state=5 queued=0
+Character-spec pipeline RVA=00773040 owner=EBB4FDC0 state=0 return=005CA020 args=00000278,EDA40C80 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4FDC0 state=0 return=009A30BC args=0E2EFAA4,FBA37608 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4FDC0 state=0 return=FBA37608 args=EBB4FDC0,EBB4FD00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4FBF0 state=0 return=005CA020 args=000002A6,EDA50AC0 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4FBF0 state=0 return=009A30BC args=0E2EFAA4,FBA32B88 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4FBF0 state=0 return=FBA32B88 args=EBB4FBF0,EBB4FB00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4FA20 state=0 return=005CA020 args=000001F4,EDA70E00 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4FA20 state=0 return=009A30BC args=0E2EFAA4,FBA34008 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4FA20 state=0 return=FBA34008 args=EBB4FA20,EBB4FA00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4F850 state=0 return=005CA020 args=000002DB,EC7D0B80 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4F850 state=0 return=009A30BC args=0E2EFAA4,FBA30D48 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4F850 state=0 return=FBA30D48 args=EBB4F850,EBB4F800 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4F680 state=0 return=005CA020 args=00000282,EC980CD0 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4F680 state=0 return=009A30BC args=0E2EFAA4,FBA35F48 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4F680 state=0 return=FBA35F48 args=EBB4F680,EBB4F600 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4F4B0 state=0 return=005CA020 args=000002D0,EDAA0B40 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4F4B0 state=0 return=009A30BC args=0E2EFAA4,FBA32C48 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4F4B0 state=0 return=FBA32C48 args=EBB4F4B0,EBB4F400 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4F2E0 state=0 return=005CA020 args=000002C6,EDAC0B40 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4F2E0 state=0 return=009A30BC args=0E2EFAA4,FBA36B08 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4F2E0 state=0 return=FBA36B08 args=EBB4F2E0,EBB4F200 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4F110 state=0 return=005CA020 args=000002C9,EDAD0B40 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4F110 state=0 return=009A30BC args=0E2EFAA4,FBA35E88 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4F110 state=0 return=FBA35E88 args=EBB4F110,EBB4F100 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4EF40 state=0 return=005CA020 args=0000029A,EDAE0D20 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4EF40 state=0 return=009A30BC args=0E2EFAA4,FBA35DC8 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4EF40 state=0 return=FBA35DC8 args=EBB4EF40,EBB4EF00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4ED70 state=0 return=005CA020 args=0000029A,EDAE0A80 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4ED70 state=0 return=009A30BC args=0E2EFAA4,FBA32D08 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4ED70 state=0 return=FBA32D08 args=EBB4ED70,EBB4ED00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4EBA0 state=0 return=005CA020 args=0000029A,EDAE07E0 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4EBA0 state=0 return=009A30BC args=0E2EFAA4,FBA35D08 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4EBA0 state=0 return=FBA35D08 args=EBB4EBA0,EBB4EB00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4E9D0 state=0 return=005CA020 args=0000029A,EDAE0540 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4E9D0 state=0 return=009A30BC args=0E2EFAA4,FBA30C88 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4E9D0 state=0 return=FBA30C88 args=EBB4E9D0,EBB4E900 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4E800 state=0 return=005CA020 args=00000298,EDAF0D20 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4E800 state=0 return=009A30BC args=0E2EFAA4,FBA35C48 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4E800 state=0 return=FBA35C48 args=EBB4E800,EBB4E800 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4E630 state=0 return=005CA020 args=00000298,EDAF0A80 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4E630 state=0 return=009A30BC args=0E2EFAA4,FBA32DC8 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4E630 state=0 return=FBA32DC8 args=EBB4E630,EBB4E600 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4E460 state=0 return=005CA020 args=00000298,EDAF07E0 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4E460 state=0 return=009A30BC args=0E2EFAA4,FBA35B88 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4E460 state=0 return=FBA35B88 args=EBB4E460,EBB4E400 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4E290 state=0 return=005CA020 args=00000298,EDAF0540 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4E290 state=0 return=009A30BC args=0E2EFAA4,FB9EB908 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4E290 state=0 return=FB9EB908 args=EBB4E290,EBB4E200 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4E0C0 state=0 return=005CA020 args=000002CB,EDAD0870 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4E0C0 state=0 return=009A30BC args=0E2EFAA4,FBA35AC8 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4E0C0 state=0 return=FBA35AC8 args=EBB4E0C0,EBB4E000 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4DEF0 state=0 return=005CA020 args=00000294,EDB00D20 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4DEF0 state=0 return=009A30BC args=0E2EFAA4,FBA32E88 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4DEF0 state=0 return=FBA32E88 args=EBB4DEF0,EBB4DE00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4DD20 state=0 return=005CA020 args=00000298,EDAF02A0 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4DD20 state=0 return=009A30BC args=0E2EFAA4,FBA35A08 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4DD20 state=0 return=FBA35A08 args=EBB4DD20,EBB4DD00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4DB50 state=0 return=005CA020 args=00000299,EDAE02A0 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4DB50 state=0 return=009A30BC args=0E2EFAA4,FBA30BC8 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4DB50 state=0 return=FBA30BC8 args=EBB4DB50,EBB4DB00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4D980 state=0 return=005CA020 args=0000030F,EDB20C40 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4D980 state=0 return=009A30BC args=0E2EFAA4,FBA35948 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4D980 state=0 return=FBA35948 args=EBB4D980,EBB4D900 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4D7B0 state=0 return=005CA020 args=000001EC,EDB40D90 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4D7B0 state=0 return=009A30BC args=0E2EFAA4,FBA32F48 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4D7B0 state=0 return=FBA32F48 args=EBB4D7B0,EBB4D700 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4D5E0 state=0 return=005CA020 args=000001D1,EC900D20 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4D5E0 state=0 return=009A30BC args=0E2EFAA4,FBA35888 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4D5E0 state=0 return=FBA35888 args=EBB4D5E0,EBB4D500 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4D410 state=0 return=005CA020 args=000002E9,FAAA0BC0 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4D410 state=0 return=009A30BC args=0E2EFAA4,FB9ED5C8 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4D410 state=0 return=FB9ED5C8 args=EBB4D410,EBB4D400 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4D240 state=0 return=005CA020 args=000002D2,EDB80B80 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4D240 state=0 return=009A30BC args=0E2EFAA4,FBA32648 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4D240 state=0 return=FBA32648 args=EBB4D240,EBB4D200 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4D070 state=0 return=005CA020 args=0000026F,EDB90C30 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4D070 state=0 return=009A30BC args=0E2EFAA4,FBA34C08 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4D070 state=0 return=FBA34C08 args=EBB4D070,EBB4D000 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4CEA0 state=0 return=005CA020 args=00000303,EDBB0C40 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4CEA0 state=0 return=009A30BC args=0E2EFAA4,FB9EF048 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4CEA0 state=0 return=FB9EF048 args=EBB4CEA0,EBB4CE00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4CCD0 state=0 return=005CA020 args=000002A3,EDBC0AC0 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4CCD0 state=0 return=009A30BC args=0E2EFAA4,FB9E7988 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4CCD0 state=0 return=FB9E7988 args=EBB4CCD0,EBB4CC00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4CB00 state=0 return=005CA020 args=000002D0,EDAA0870 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4CB00 state=0 return=009A30BC args=0E2EFAA4,FBA324C8 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4CB00 state=0 return=FBA324C8 args=EBB4CB00,EBB4CB00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4C930 state=0 return=005CA020 args=00000275,EDA40A00 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4C930 state=0 return=009A30BC args=0E2EFAA4,FB9EF108 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4C930 state=0 return=FB9EF108 args=EBB4C930,EBB4C900 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4C760 state=0 return=005CA020 args=0000026A,EDBF0C30 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4C760 state=0 return=009A30BC args=0E2EFAA4,FBA34FC8 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4C760 state=0 return=FBA34FC8 args=EBB4C760,EBB4C700 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4C590 state=0 return=005CA020 args=00000290,EC4E0CD0 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4C590 state=0 return=009A30BC args=0E2EFAA4,FBA33088 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4C590 state=0 return=FBA33088 args=EBB4C590,EBB4C500 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4C3C0 state=0 return=005CA020 args=000002B2,EDC00B00 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4C3C0 state=0 return=009A30BC args=0E2EFAA4,FBA32408 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4C3C0 state=0 return=FBA32408 args=EBB4C3C0,EBB4C300 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4C1F0 state=0 return=005CA020 args=00000277,EDA40C80 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4C1F0 state=0 return=009A30BC args=0E2EFAA4,FB9EF1C8 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4C1F0 state=0 return=FB9EF1C8 args=EBB4C1F0,EBB4C100 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4C020 state=0 return=005CA020 args=000002D4,EDB808A0 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4C020 state=0 return=009A30BC args=0E2EFAA4,FBA32288 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4C020 state=0 return=FBA32288 args=EBB4C020,EBB4C000 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4BE50 state=0 return=005CA020 args=000002A4,EDBC0810 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4BE50 state=0 return=009A30BC args=0E2EFAA4,FBA33388 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4BE50 state=0 return=FBA33388 args=EBB4BE50,EBB4BE00 result=00000000
+Character-list request is waiting for GOM, scripts, and character-spec initialization.
+Character-spec pipeline RVA=00773040 owner=EBB4BC80 state=0 return=005CA020 args=00000289,EDC30CD0 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4BC80 state=0 return=009A30BC args=0E2EFAA4,FB9EBA88 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4BC80 state=0 return=FB9EBA88 args=EBB4BC80,EBB4BC00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4BAB0 state=0 return=005CA020 args=000002D2,EDB805C0 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4BAB0 state=0 return=009A30BC args=0E2EFAA4,FB9EF288 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4BAB0 state=0 return=FB9EF288 args=EBB4BAB0,EBB4BA00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4B8E0 state=0 return=005CA020 args=00000275,EDA40780 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4B8E0 state=0 return=009A30BC args=0E2EFAA4,FBA32108 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4B8E0 state=0 return=FBA32108 args=EBB4B8E0,EBB4B800 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4B710 state=0 return=005CA020 args=00000308,EDC40C40 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4B710 state=0 return=009A30BC args=0E2EFAA4,FB9ED208 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4B710 state=0 return=FB9ED208 args=EBB4B710,EBB4B700 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4B540 state=0 return=005CA020 args=00000298,EDAF0000 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4B540 state=0 return=009A30BC args=0E2EFAA4,FBA32048 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4B540 state=0 return=FBA32048 args=EBB4B540,EBB4B500 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4B370 state=0 return=005CA020 args=00000291,EDB00A80 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4B370 state=0 return=009A30BC args=0E2EFAA4,FBA33808 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4B370 state=0 return=FBA33808 args=EBB4B370,EBB4B300 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4B1A0 state=0 return=005CA020 args=000002C1,EDC50B40 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4B1A0 state=0 return=009A30BC args=0E2EFAA4,FB9EF348 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4B1A0 state=0 return=FB9EF348 args=EBB4B1A0,EBB4B100 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4AFD0 state=0 return=005CA020 args=000001D3,EC900B40 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4AFD0 state=0 return=009A30BC args=0E2EFAA4,FB9E9A08 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4AFD0 state=0 return=FB9E9A08 args=EBB4AFD0,EBB4AF00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4AE00 state=0 return=005CA020 args=00000299,EDAE0000 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4AE00 state=0 return=009A30BC args=0E2EFAA4,FBA33EC8 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4AE00 state=0 return=FBA33EC8 args=EBB4AE00,EBB4AE00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4AC30 state=0 return=005CA020 args=000002F5,EDC60C00 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4AC30 state=0 return=009A30BC args=0E2EFAA4,FB9EF408 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4AC30 state=0 return=FB9EF408 args=EBB4AC30,EBB4AC00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4AA60 state=0 return=005CA020 args=00000275,EDA40500 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4AA60 state=0 return=009A30BC args=0E2EFAA4,FBA33E08 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4AA60 state=0 return=FBA33E08 args=EBB4AA60,EBB4AA00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4A890 state=0 return=005CA020 args=000002D3,EDB802E0 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4A890 state=0 return=009A30BC args=0E2EFAA4,FB9ED148 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4A890 state=0 return=FB9ED148 args=EBB4A890,EBB4A800 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4A6C0 state=0 return=005CA020 args=0000029D,F42E0D20 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4A6C0 state=0 return=009A30BC args=0E2EFAA4,FBA33D48 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4A6C0 state=0 return=FBA33D48 args=EBB4A6C0,EBB4A600 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4A4F0 state=0 return=005CA020 args=000002E3,EDC70BC0 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4A4F0 state=0 return=009A30BC args=0E2EFAA4,FB9EF4C8 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4A4F0 state=0 return=FB9EF4C8 args=EBB4A4F0,EBB4A400 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4A320 state=0 return=005CA020 args=000002C1,EDC50870 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4A320 state=0 return=009A30BC args=0E2EFAA4,FBA310C8 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4A320 state=0 return=FBA310C8 args=EBB4A320,EBB4A300 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB4A150 state=0 return=005CA020 args=000002E2,EDC708D0 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB4A150 state=0 return=009A30BC args=0E2EFAA4,FBA31188 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB4A150 state=0 return=FBA31188 args=EBB4A150,EBB4A100 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB49F80 state=0 return=005CA020 args=0000027F,ECB80C80 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB49F80 state=0 return=009A30BC args=0E2EFAA4,FBA31248 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB49F80 state=0 return=FBA31248 args=EBB49F80,EBB49F00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB49DB0 state=0 return=005CA020 args=000002A3,EDBC0560 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB49DB0 state=0 return=009A30BC args=0E2EFAA4,FBA31308 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB49DB0 state=0 return=FBA31308 args=EBB49DB0,EBB49D00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB49BE0 state=0 return=005CA020 args=000002F6,EDC60900 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB49BE0 state=0 return=009A30BC args=0E2EFAA4,FBA313C8 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB49BE0 state=0 return=FBA313C8 args=EBB49BE0,EBB49B00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB49A10 state=0 return=005CA020 args=00000279,EE610C80 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB49A10 state=0 return=009A30BC args=0E2EFAA4,FBA31488 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB49A10 state=0 return=FBA31488 args=EBB49A10,EBB49A00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB49840 state=0 return=005CA020 args=00000296,EDAF02A0 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB49840 state=0 return=009A30BC args=0E2EFAA4,FBA31548 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB49840 state=0 return=FBA31548 args=EBB49840,EBB49800 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB49670 state=0 return=005CA020 args=00000313,ECB60C80 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB49670 state=0 return=009A30BC args=0E2EFAA4,FBA31608 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB49670 state=0 return=FBA31608 args=EBB49670,EBB49600 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB494A0 state=0 return=005CA020 args=00000297,EDAF0540 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB494A0 state=0 return=009A30BC args=0E2EFAA4,FBA316C8 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB494A0 state=0 return=FBA316C8 args=EBB494A0,EBB49400 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB492D0 state=0 return=005CA020 args=000001F8,EE620E00 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB492D0 state=0 return=009A30BC args=0E2EFAA4,FBA31788 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB492D0 state=0 return=FBA31788 args=EBB492D0,EBB49200 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB49100 state=0 return=005CA020 args=00000279,EE610A00 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB49100 state=0 return=009A30BC args=0E2EFAA4,FB9ED808 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB49100 state=0 return=FB9ED808 args=EBB49100,EBB49100 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB48F30 state=0 return=005CA020 args=00000298,EDAF07E0 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB48F30 state=0 return=009A30BC args=0E2EFAA4,FBA31848 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB48F30 state=0 return=FBA31848 args=EBB48F30,EBB48F00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB48D60 state=0 return=005CA020 args=00000277,EDA40280 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB48D60 state=0 return=009A30BC args=0E2EFAA4,FBA319C8 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB48D60 state=0 return=FBA319C8 args=EBB48D60,EBB48D00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB48B90 state=0 return=005CA020 args=000002AE,EE630AC0 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB48B90 state=0 return=009A30BC args=0E2EFAA4,FBA305C8 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB48B90 state=0 return=FBA305C8 args=EBB48B90,EBB48B00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB489C0 state=0 return=005CA020 args=000002B4,EDC00840 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB489C0 state=0 return=009A30BC args=0E2EFAA4,FBA31A88 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB489C0 state=0 return=FBA31A88 args=EBB489C0,EBB48900 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB487F0 state=0 return=005CA020 args=00000288,F44F0CD0 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB487F0 state=0 return=009A30BC args=0E2EFAA4,FBA31C08 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB487F0 state=0 return=FBA31C08 args=EBB487F0,EBB48700 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB48620 state=0 return=005CA020 args=00000277,EDA40000 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB48620 state=0 return=009A30BC args=0E2EFAA4,FBA31CC8 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB48620 state=0 return=FBA31CC8 args=EBB48620,EBB48600 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB48450 state=0 return=005CA020 args=000002F3,EE640C00 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB48450 state=0 return=009A30BC args=0E2EFAA4,FBA31D88 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB48450 state=0 return=FBA31D88 args=EBB48450,EBB48400 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB48280 state=0 return=005CA020 args=00000277,EDA41C80 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB48280 state=0 return=009A30BC args=0E2EFAA4,FBA31E48 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB48280 state=0 return=FBA31E48 args=EBB48280,EBB48200 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB480B0 state=0 return=005CA020 args=000001E3,EDA30D90 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB480B0 state=0 return=009A30BC args=0E2EFAA4,FBA31F08 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB480B0 state=0 return=FBA31F08 args=EBB480B0,EBB48000 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB47EE0 state=0 return=005CA020 args=00000275,EDA41A00 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB47EE0 state=0 return=009A30BC args=0E2EFAA4,FBA31FC8 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB47EE0 state=0 return=FBA31FC8 args=EBB47EE0,EBB47E00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB47D10 state=0 return=005CA020 args=000002BA,EE660B00 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB47D10 state=0 return=009A30BC args=0E2EFAA4,FBA30088 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB47D10 state=0 return=FBA30088 args=EBB47D10,EBB47D00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB47B40 state=0 return=005CA020 args=00000294,EDB00D20 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB47B40 state=0 return=009A30BC args=0E2EFAA4,FBA30148 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB47B40 state=0 return=FBA30148 args=EBB47B40,EBB47B00 result=00000000
+Character-spec pipeline RVA=00773040 owner=EBB47970 state=0 return=005CA020 args=000002D6,EC910B80 result=009A3040
+Character-spec pipeline RVA=007C01B0 owner=EBB47970 state=0 return=009A30BC args=0E2EFAA4,FBA30208 result=00EF31E4
+Character-spec pipeline RVA=007730BC owner=EBB47970 state=0 return=FBA30208 args=EBB47970,EBB47900 result=00000000
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+GUI resource callback RVA=00738490 result=00000001 bytes=4133 path=/guixml/_cleanenginealert.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=8537 path=/guixml/_cleanenginebaseborders.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=1160 path=/guixml/_cleanenginebasebutton.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=10283 path=/guixml/_cleanenginebasegui.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=4977 path=/guixml/_cleanenginebasemenus.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=10859 path=/guixml/_cleanenginebasescrollbar.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=1702 path=/guixml/_cleanenginebasesliders.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=4551 path=/guixml/_cleanenginebasetabs.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=5062 path=/guixml/_cleanenginebasewindow.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=11231 path=/guixml/_cleanenginecharacterselectiongui.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=15332 path=/guixml/_cleanenginecmgr.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=5412 path=/guixml/_cleanenginedropdownbox.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=21900 path=/guixml/_cleanengineiconmaker.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=1865 path=/guixml/_cleanengineminimap.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=3630 path=/guixml/_cleanengineselectbox.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=59625 path=/guixml/_cleanenginesortablecollection.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=20601 path=/guixml/_cleanenginetextureviewer.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=1250 path=/guixml/_confirmdialog.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=2083 path=/guixml/_cleanengineloadingicon.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=2721 path=/guixml/_cleanenginebasegroupbox.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=2595 path=/guixml/defaults.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=1913 path=/guixml/modelfaderpropertypanel_v2.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=11643 path=/guixml/guieditor.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=940 path=/guixml/he_charcreationpanel.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=1166 path=/guixml/he_confirmdialog.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=1455 path=/guixml/he_controlpanelclassaddremovepanel.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=717 path=/guixml/he_controlpanelglommedclass.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=2424 path=/guixml/he_controlpanelmainwindow.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=1083 path=/guixml/he_whogui.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=498 path=/guixml/smarttextinputbox.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=4751 path=/guixml/specoraclespecselector.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=11295 path=/guixml/transform3dpropertypanel_v2.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=4909 path=/guixml/_territorygui.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=842 path=/guixml/_tooltip.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=2860 path=/guixml/specoracleglomclassesdialog.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=1528 path=/guixml/specoraclechooser.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=1388 path=/guixml/specoracleaddspec.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=2776 path=/guixml/unsavedchangesdialog.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=5138 path=/guixml/stylesetgui.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=844 path=/guixml/smartnamevaluepairinput.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=312 path=/guixml/nodepropertyeditor.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=782 path=/guixml/nodepropertyeditorbuttons.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=759 path=/guixml/nodepropertyeditorboolean.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=224 path=/guixml/specoraclepropertyeditor.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=6132 path=/guixml/_aidebugger.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=309 path=/guixml/_aidebugpropertyeditor.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=3075 path=/guixml/_nodepropertyeditormarshaltimer.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=3133 path=/guixml/he_areaeditlockinggui.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=16000 path=/guixml/_hotspot.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=3407 path=/guixml/collapsablecategory.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=318 path=/guixml/_cursors.xml.
+GUI resource callback RVA=00738490 result=00000001 bytes=4961 path=/guixml/_colorviewer.xml.
+Character-list request is waiting for GOM, scripts, and character-spec initialization.
+Character-list request is waiting for GOM, scripts, and character-spec initialization.
+[21:32:52] [WAIT] Character-spec initialization: ready=0/74, waiting=74, failed=0. Pending examples: bmf, wraid, colicoiddroid, chevin, manta.
+[21:32:52] [BLOCKER] The native character-spec loader has not completed. Character selection cannot finish startup; pings only confirm the server connection is alive.
+Resource worker RVA=00745CF0 thread=45596 owner=0A7E0A20 state=5 queued=0
+Character-list request is waiting for GOM, scripts, and character-spec initialization.
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+[21:33:10] [READY] Character-spec initialization: ready=74/74, waiting=0, failed=0. Pending examples: none.
+World travel transition RVA=0034F46A area=F36A39A0 state=0 selection=1 result=0 queued=''
+World travel transition RVA=0034F46A area=F36A39A0 state=0 selection=1 result=0 queued=''
+World travel transition RVA=0034F46A area=F36A39A0 state=0 selection=1 result=0 queued=''
+Post-script resource request: /bnk2/location_characterselect_data.bnk result=00000001 owner=F1FD9F00 vtableRVA=00CED814.
+Post-script resource request: /bnk2/location_characterselect_media.bnk result=00000001 owner=F1FD9E40 vtableRVA=00CED814.
+World travel transition RVA=0034F46A area=F36A39A0 state=0 selection=1 result=0 queued=''
+World travel transition RVA=0034F46A area=F36A39A0 state=0 selection=1 result=0 queued=''
+World travel transition RVA=0034F46A area=F36A39A0 state=0 selection=1 result=0 queued=''
+World travel transition RVA=0034F46A area=F36A39A0 state=0 selection=1 result=0 queued=''
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+World travel transition RVA=0034F46A area=F36A39A0 state=0 selection=1 result=0 queued=''
+World travel transition RVA=0034F46A area=F36A39A0 state=0 selection=1 result=0 queued=''
+World travel transition RVA=0034F46A area=F36A39A0 state=3 selection=1 result=1 queued=''
+World travel transition RVA=0034F482 area=F36A39A0 state=3 selection=1 result=248 queued=''
+[21:33:12] [TRAVEL] Native area-load completion reached the active-area transition.
+World travel transition RVA=00350240 area=F36A39A0 state=3 selection=1 result=240 queued=''
+Post-script resource request: /world/areas/1/mapnotes.not result=00000001 owner=ED5F5900 vtableRVA=00CC5EA4.
+Post-script resource request: /version.txt result=00000001 owner=ED5FCCC0 vtableRVA=00CC5EA4.
+World travel transition RVA=00350461 area=F36A39A0 state=3 selection=1 result=160 queued=''
+Character-list handler started: state+28=0xF36A39A0 state+70=1.
+Character-list handler finished character iteration.
+Character dispatch RVA=0034EFFB eax=0A52FF00 ecx=0E2EF7A4 edx=0A52FF00 esi=0A52FF00 cached=F3CB1CBC/EC71C0C0 gom=0DD806D0 script=F9739880 args=0A560D4C E56E7215 00000000 0E2EF704 EC591138 2D91B772
+Character dispatch RVA=0034F0ED eax=00EF5AD4 ecx=F3CB1CBC edx=00A06620 esi=F97398C8 cached=F3CB1CBC/EC71C0C0 gom=0DD806D0 script=F9739880 args=F97398C8 00000012 00000000 00000032 00000000 0E2EF77C
+Character dispatch RVA=0034F0EF eax=3B9ACA01 ecx=3B9ACA01 edx=00000000 esi=F97398C8 cached=F3CB1CBC/EC71C0C0 gom=0DD806D0 script=F9739880 args=00000012 00000000 00000032 00000000 0E2EF77C 0E2EF71C
+Character dispatch RVA=00350B91 eax=ED553A20 ecx=F3CB1CBC edx=0E2EF728 esi=F97398C8 cached=F3CB1CBC/EC71C0C0 gom=0DD806D0 script=F9739880 args=4000010D F97398C8 0E2EF7A4 00E54666 FFFFFFFF 0E2EF7A4
+Character dispatch RVA=00350C14 eax=3B9ACA01 ecx=F3CB1CBC edx=00A064D0 esi=0E2EF6C0 cached=F3CB1CBC/EC71C0C0 gom=0DD806D0 script=F9739880 args=3B9ACA01 00000000 012CB528 FB7DD360 0E2EF6C0 00000000
+Rebuilding the character callback method cache after script registration.
+Script lookup RVA=001CA7D6 eax=F04FFF78 ecx=00000000 edx=0AA27360 esi=ECD31E60 frame=00000000 FFFFFFFF 0E2EF59C object=ECD31E00 ED24F6E0 class=F36B8B60
+Script lookup RVA=001CA7D6 eax=F04FFF78 ecx=00000000 edx=0AA272D0 esi=ECD31E60 frame=00000000 0E2EEFD4 00325ED9 object=ECD31E00 ED24F6E0 class=F36B8B60
+Script lookup RVA=001CA7D6 eax=EBC76D70 ecx=00000000 edx=007034F0 esi=EC3D85A0 frame=EC5059F8 00000000 FBD6E840 object=EC3D8540 00000000 class=EC7861C0
+Script lookup RVA=001CA7D6 eax=EBC76D70 ecx=00000000 edx=007034F0 esi=EC3D85A0 frame=EC505A00 0E2EF364 00E3554A object=EC3D8540 00000000 class=EC7861C0
+Script lookup RVA=001CA7D6 eax=EBC76D70 ecx=00000000 edx=007034F0 esi=EC3D85A0 frame=EC505A08 00000001 00F56D44 object=EC3D8540 00000000 class=EC7861C0
+Script lookup RVA=001CA7D6 eax=F04FFF78 ecx=00000000 edx=0AA272D0 esi=ECD31E60 frame=00000000 0E2EEFD4 00325ED9 object=ECD31E00 ED24F6E0 class=F36B8B60
+Script lookup RVA=001CA7D6 eax=EBC76D28 ecx=00000000 edx=007034F0 esi=EC3DF760 frame=EC505A10 00000000 FB9F5800 object=EC3DF700 00000000 class=EC3D8540
+Script lookup RVA=001CA7D6 eax=EBC76D28 ecx=00000000 edx=007034F0 esi=EC3DF760 frame=EC505A18 00000000 FB9F5800 object=EC3DF700 00000000 class=EC3D8540
+Script lookup RVA=001CA7D6 eax=F04FFF78 ecx=00000000 edx=007034F0 esi=ECD31E60 frame=EC505A20 00000001 FBD7C620 object=ECD31E00 ED24F6E0 class=F36B8B60
+Script lookup RVA=001CA7D6 eax=F04FFF78 ecx=00000000 edx=007034F0 esi=ECD31E60 frame=EC505A28 0E2EF394 00E57E31 object=ECD31E00 ED24F6E0 class=F36B8B60
+Script lookup RVA=001CA7D6 eax=F04FFF78 ecx=00000000 edx=0AA272D0 esi=ECD31E60 frame=00000000 0E2EF034 00325ED9 object=ECD31E00 ED24F6E0 class=F36B8B60
+Script lookup RVA=001CA7D6 eax=EBC76D70 ecx=00000000 edx=007034F0 esi=EC3D85A0 frame=EC505A40 00000000 00002710 object=EC3D8540 00000000 class=EC7861C0
+Script lookup RVA=001CA7D6 eax=EBBB9044 ecx=00000000 edx=007034F0 esi=EC3D2060 frame=EC505A48 00000000 FBAD58A0 object=EC3D2000 EE9634E0 class=F4329C40
+Script lookup RVA=001CA7D6 eax=EBBB7E20 ecx=00000000 edx=007034F0 esi=ECD32E60 frame=F3E5BD10 00000001 FBD7C620 object=ECD32E00 00000000 class=ECD32EE0
+Character callback returned; removed its temporary script-lookup probes.
+Character dispatch RVA=00350C16 eax=00000000 ecx=0E2EF7A4 edx=00A06420 esi=0E2EF6C0 cached=F3CB1CBC/EC71C0C0 gom=0DD806D0 script=F9739880 args=4000010D F97398C8 ED553A20 0E2EF728 00000012 00000000
+Character dispatch RVA=0034F0FC eax=00000000 ecx=0E2EF7A4 edx=00A06420 esi=F97398C8 cached=F3CB1CBC/EC71C0C0 gom=0DD806D0 script=F9739880 args=0A560D4C E56E7215 00000000 0E2EF704 EC591138 012CBA78
+Character-list handler completed normally.
+Post-script resource request: /art/dynamic/garmenthue/index.xml result=00000001 owner=ED5FBA80 vtableRVA=00CC5EA4.
+Post-script resource request: /art/dynamic/boot/index.xml result=00000001 owner=ED5FBB40 vtableRVA=00CC5EA4.
+Post-script resource request: /art/dynamic/bracer/index.xml result=00000001 owner=ED5FBC00 vtableRVA=00CC5EA4.
+Post-script resource request: /art/dynamic/chest/index.xml result=00000001 owner=ED5FBCC0 vtableRVA=00CC5EA4.
+Post-script resource request: /art/dynamic/creature/index.xml result=00000001 owner=ED5FBE40 vtableRVA=00CC5EA4.
+Post-script resource request: /art/dynamic/face/index.xml result=00000001 owner=ED5FBF00 vtableRVA=00CC5EA4.
+Post-script resource request: /art/dynamic/facehair/index.xml result=00000001 owner=ED5FA000 vtableRVA=00CC5EA4.
+Post-script resource request: /art/dynamic/hair/index.xml result=00000001 owner=ED5FA0C0 vtableRVA=00CC5EA4.
+Post-script resource request: /art/dynamic/hand/index.xml result=00000001 owner=ED5FBD80 vtableRVA=00CC5EA4.
+Post-script resource request: /art/dynamic/head/index.xml result=00000001 owner=ED5FA180 vtableRVA=00CC5EA4.
+Post-script resource request: /art/dynamic/leg/index.xml result=00000001 owner=ED5FA240 vtableRVA=00CC5EA4.
+Post-script resource request: /art/dynamic/waist/index.xml result=00000001 owner=ED5FA300 vtableRVA=00CC5EA4.
+Post-script resource request: /art/dynamic/facepaint/index.xml result=00000001 owner=ED5FA3C0 vtableRVA=00CC5EA4.
+Post-script resource request: /art/dynamic/complexion/index.xml result=00000001 owner=ED5FA480 vtableRVA=00CC5EA4.
+Post-script resource request: /art/dynamic/skincolor/index.xml result=00000001 owner=ED5FA540 vtableRVA=00CC5EA4.
+Post-script resource request: /art/dynamic/haircolor/index.xml result=00000001 owner=ED5FA600 vtableRVA=00CC5EA4.
+Post-script resource request: /art/dynamic/eyecolor/index.xml result=00000001 owner=ED5FA6C0 vtableRVA=00CC5EA4.
+Post-script resource request: /art/dynamic/age/index.xml result=00000001 owner=ED5FA780 vtableRVA=00CC5EA4.
+Post-script resource request: /art/dynamic/colorscheme/index.xml result=00000001 owner=ED5FA840 vtableRVA=00CC5EA4.
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Game data and script definitions are initialized; converting this module report into a character-list request.
+Sent the character-list request through the client's normal packet path.
+Character-list handler started: state+28=0xF36A39A0 state+70=1.
+Character-list handler finished character iteration.
+Character dispatch RVA=0034EFFB eax=0A52FF00 ecx=0E2EF7A4 edx=796B61C0 esi=0A52FF00 cached=F3CB1CBC/EC71C0C0 gom=0DD806D0 script=F9739880 args=0A560D4C D9AA10D5 00000000 0E2EF704 EC5943B8 2D91B772
+Character dispatch RVA=0034F0ED eax=00EF5AD4 ecx=F3CB1CBC edx=00A06620 esi=F97398C8 cached=F3CB1CBC/EC71C0C0 gom=0DD806D0 script=F9739880 args=F97398C8 00000012 00000000 00000032 00000000 0E2EF77C
+Character dispatch RVA=0034F0EF eax=3B9ACA01 ecx=3B9ACA01 edx=00000000 esi=F97398C8 cached=F3CB1CBC/EC71C0C0 gom=0DD806D0 script=F9739880 args=00000012 00000000 00000032 00000000 0E2EF77C 0E2EF71C
+Character dispatch RVA=00350B91 eax=D2589420 ecx=F3CB1CBC edx=0E2EF728 esi=F97398C8 cached=F3CB1CBC/EC71C0C0 gom=0DD806D0 script=F9739880 args=4000010D F97398C8 0E2EF7A4 00E54666 FFFFFFFF 0E2EF7A4
+Character dispatch RVA=00350C14 eax=3B9ACA01 ecx=F3CB1CBC edx=00A064D0 esi=0E2EF6C0 cached=F3CB1CBC/EC71C0C0 gom=0DD806D0 script=F9739880 args=3B9ACA01 00000000 012CB528 FB7DD360 0E2EF6C0 00000000
+Script lookup RVA=001CA7D6 eax=F04FFF78 ecx=00000000 edx=0AA27360 esi=ECD31E60 frame=00000000 0E2EF59C 002E3438 object=ECD31E00 ED24F6E0 class=F36B8B60
+Script lookup RVA=001CA7D6 eax=EBC76D70 ecx=00000000 edx=007034F0 esi=EC3D85A0 frame=EC5059F8 00000000 FBD6E840 object=EC3D8540 00000000 class=EC7861C0
+Script lookup RVA=001CA7D6 eax=EBC76D70 ecx=00000000 edx=007034F0 esi=EC3D85A0 frame=EC505A00 0E2EF364 00E3554A object=EC3D8540 00000000 class=EC7861C0
+Script lookup RVA=001CA7D6 eax=EBC76D70 ecx=00000000 edx=007034F0 esi=EC3D85A0 frame=EC505A08 00000001 EA39A4D4 object=EC3D8540 00000000 class=EC7861C0
+Script lookup RVA=001CA7D6 eax=EBC76D28 ecx=00000000 edx=007034F0 esi=EC3DF760 frame=EC505A10 00000000 FB9F5800 object=EC3DF700 00000000 class=EC3D8540
+Script lookup RVA=001CA7D6 eax=EBC76D28 ecx=00000000 edx=007034F0 esi=EC3DF760 frame=EC505A18 00000000 FB9F5800 object=EC3DF700 00000000 class=EC3D8540
+Script lookup RVA=001CA7D6 eax=F04FFF78 ecx=00000000 edx=007034F0 esi=ECD31E60 frame=EC505A20 00000001 FBD7C620 object=ECD31E00 ED24F6E0 class=F36B8B60
+Script lookup RVA=001CA7D6 eax=F04FFF78 ecx=00000000 edx=007034F0 esi=ECD31E60 frame=EC505A28 0E2EF394 00E57E31 object=ECD31E00 ED24F6E0 class=F36B8B60
+Script lookup RVA=001CA7D6 eax=EBC76D70 ecx=00000000 edx=007034F0 esi=EC3D85A0 frame=EC505A40 0DD80C7C 0E2EF350 object=EC3D8540 00000000 class=EC3D7460
+Script lookup RVA=001CA7D6 eax=EBBB9044 ecx=00000000 edx=007034F0 esi=EC3D2060 frame=EC505A48 00000000 FBAD58A0 object=EC3D2000 EE9634E0 class=F4329C40
+Script lookup RVA=001CA7D6 eax=EBBB7E20 ecx=00000000 edx=007034F0 esi=ECD32E60 frame=F3E5BD10 00000001 FBD7C620 object=ECD32E00 EE72E440 class=EC3DA1C0
+Script lookup RVA=001CA7D6 eax=EBBB78C8 ecx=00000000 edx=007034F0 esi=EC783220 frame=F29D7120 00000000 FBCA4A40 object=EC7831C0 00000000 class=EC7827E0
+Script lookup RVA=001CA7D6 eax=EBBB78C8 ecx=00000000 edx=007034F0 esi=EC783220 frame=F336D750 0A3B0580 0DD60EE0 object=EC7831C0 00000000 class=EC7827E0
+Script lookup RVA=001CA7D6 eax=EBBB797C ecx=00000000 edx=007034F0 esi=ECD32BC0 frame=F336D720 00000000 FBDA2B00 object=ECD32B60 00000000 class=F36B8B60
+Script lookup RVA=001CA7D6 eax=F04FFF0C ecx=00000000 edx=007034F0 esi=F36BEF40 frame=0A3E63A0 00000000 FBDC7880 object=F36BEEE0 00000000 class=EC3D4540
+Script lookup RVA=001CA7D6 eax=F04FFF78 ecx=00000000 edx=0AA272D0 esi=ECD31E60 frame=00000000 0E2EEEB4 00325ED9 object=ECD31E00 ED24F6E0 class=F36B8B60
+Script lookup RVA=001CA7D6 eax=EBC76EB4 ecx=00000000 edx=007034F0 esi=F4326BC0 frame=F336D728 00000001 0DD806D0 object=F4326B60 00000000 class=EC78B7E0
+Script lookup RVA=001CA7D6 eax=EBBB78C8 ecx=00000000 edx=007034F0 esi=EC783220 frame=F336D738 0000000C D25CC024 object=EC7831C0 00000000 class=EC7827E0
+Script lookup RVA=001CA7D6 eax=EBBB78C8 ecx=00000000 edx=007034F0 esi=EC783220 frame=F336D778 035F606A 40000000 object=EC7831C0 00000000 class=EC7827E0
+Character callback returned; removed its temporary script-lookup probes.
+Character dispatch RVA=00350C16 eax=00000000 ecx=0E2EF7A4 edx=00A06420 esi=0E2EF6C0 cached=F3CB1CBC/EC71C0C0 gom=0DD806D0 script=F9739880 args=4000010D F97398C8 D2589420 0E2EF728 00000012 00000000
+Character dispatch RVA=0034F0FC eax=00000000 ecx=0E2EF7A4 edx=00A06420 esi=F97398C8 cached=F3CB1CBC/EC71C0C0 gom=0DD806D0 script=F9739880 args=0A560D4C D9AA10D5 00000000 0E2EF704 EC5943B8 012CBA78
+Character-list handler completed normally.
+Character-spec resource path: /art/dynamic/spec/bma.dat
+Character-spec resource path: /art/dynamic/spec/bfa.dat
+Character-spec resource path: /art/dynamic/spec/bfb.dat
+Post-script resource request: /anim/humanoid/bmanew/cc_stand_select_gender_01.jba result=00000001 owner=EF6EFC38 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bmanew/cc_stand_agent_01.jba result=00000001 owner=EF6EFB48 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bmanew/cc_stand_bountyhunter_01.jba result=00000001 owner=EF6EFA58 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bmanew/cc_stand_consular_01.jba result=00000001 owner=EF6EF968 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bmanew/cc_stand_inquisitor_01.jba result=00000001 owner=EF6EF878 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bmanew/cc_stand_knight_01.jba result=00000001 owner=EF6EF788 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bmanew/cc_stand_smuggler_01.jba result=00000001 owner=EF6EF698 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bmanew/cc_stand_trooper_01.jba result=00000001 owner=EF6EF5A8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bmanew/cc_stand_warrior_01.jba result=00000001 owner=EF6EF4B8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bmanew/ad_face_blink_01.jba result=00000001 owner=EF6EF3C8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bmanew/ad_face_idle.jba result=00000001 owner=EF6EF2D8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bmanew/ad_blank.jba result=00000001 owner=EF6EF1E8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/cc_stand_idle_1.jba result=00000001 owner=EF6EF0F8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/cc_stand_idle_2.jba result=00000001 owner=EF6EF008 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/cc_stand_idle_3.jba result=00000001 owner=D2700F08 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/cc_stand_idle_4.jba result=00000001 owner=D2700E18 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/cc_stand_select_gender_01.jba result=00000001 owner=D2700B48 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_blink_01.jba result=00000001 owner=D27002D8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_idle.jba result=00000001 owner=D27001E8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_blank.jba result=00000001 owner=D27000F8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfbnew/cc_stand_idle_1.jba result=00000001 owner=D2700008 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfbnew/cc_stand_idle_2.jba result=00000001 owner=D2701F08 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfbnew/cc_stand_idle_3.jba result=00000001 owner=D2701E18 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfbnew/cc_stand_idle_4.jba result=00000001 owner=D2701D28 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfbnew/cc_stand_idle_5.jba result=00000001 owner=D2701C38 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfbnew/cc_stand_idle_6.jba result=00000001 owner=D2701B48 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfbnew/cc_stand_select_gender_01.jba result=00000001 owner=D2701A58 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfbnew/ad_face_blink_01.jba result=00000001 owner=D2701968 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfbnew/ad_face_idle.jba result=00000001 owner=D2701878 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfbnew/ad_blank.jba result=00000001 owner=D2701788 vtableRVA=00D7248C.
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Resource worker RVA=00745CF0 thread=45596 owner=0A7E0A20 state=5 queued=0
+World travel transition RVA=0034F2B0 area=F36A39A0 state=0 selection=0 result=240 queued=''
+World travel transition RVA=0034F46A area=F36A39A0 state=0 selection=0 result=0 queued='AreaServer-tython_blockout-4611686019869492753-1-:areaserver'
+World travel transition RVA=0034F46A area=F36A39A0 state=0 selection=0 result=0 queued='AreaServer-tython_blockout-4611686019869492753-1-:areaserver'
+Post-script resource request: /bnk2/location_tython_data.bnk result=00000001 owner=F1FD9D80 vtableRVA=00CED814.
+Post-script resource request: /bnk2/location_tython_media.bnk result=00000001 owner=F1FD9CC0 vtableRVA=00CED814.
+World travel transition RVA=0034F46A area=F36A39A0 state=0 selection=0 result=0 queued='AreaServer-tython_blockout-4611686019869492753-1-:areaserver'
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+World travel transition RVA=0034F46A area=F36A39A0 state=3 selection=0 result=1 queued='AreaServer-tython_blockout-4611686019869492753-1-:areaserver'
+World travel transition RVA=0034F482 area=F36A39A0 state=3 selection=0 result=248 queued='AreaServer-tython_blockout-4611686019869492753-1-:areaserver'
+[21:33:43] [TRAVEL] Native area-load completion reached the active-area transition.
+World travel transition RVA=00350240 area=F36A39A0 state=3 selection=0 result=176 queued='AreaServer-tython_blockout-4611686019869492753-1-:areaserver'
+Post-script resource request: /world/areas/4611686019869492753/mapnotes.not result=00000001 owner=ED5FD6C0 vtableRVA=00CC5EA4.
+World travel transition RVA=00350461 area=F36A39A0 state=3 selection=0 result=160 queued='AreaServer-tython_blockout-4611686019869492753-1-:areaserver'
+World travel transition RVA=0034F2B0 area=F36A39A0 state=3 selection=0 result=160 queued='AreaServer-tython_blockout-4611686019869492753-1-:areaserver'
+World travel transition RVA=00241740 area=F36A39A0 state=3 selection=0 result=64 queued='AreaServer-tython_blockout-4611686019869492753-1-:areaserver'
+[21:33:43] [TRAVEL] Native client is connecting to the destination area service.
+LoadingContinueFallback: CheckContinue=EC294320 patched to local PhaseNeedsContinue(false); asset waits preserved (event path).
+Resource worker RVA=00745CF0 thread=45596 owner=0A7E0A20 state=5 queued=0
+Post-script resource request: /gamedata/svy/bug/gui.svy result=00000001 owner=ED5FC6C0 vtableRVA=00CC5EA4.
+Character-spec resource path: /art/dynamic/spec/bfa.dat
+Character-spec resource path: /art/dynamic/spec/bms.dat
+Character-spec resource path: /art/dynamic/spec/protocol.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bms.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+World-entry C++ exception firstChance=1 type=.?AVConversionException@G@@
+  World-entry stack KERNELBASE + 0016AED4
+  World-entry stack MSVCR90 + 0005DF60
+  World-entry stack swtor-emu + 000D6C0E
+  World-entry stack swtor-emu + 00101A70
+  World-entry stack swtor-emu + 00101BF0
+  World-entry stack swtor-emu + 000F47FD
+  World-entry stack swtor-emu + 004D5097
+  World-entry stack swtor-emu + 004D51C4
+  World-entry stack swtor-emu + 004D5A2D
+  World-entry stack swtor-emu + 003182DC
+  World-entry stack swtor-emu + 00243261
+  World-entry stack swtor-emu + 0024F143
+  World-entry stack MemoryMan + 000048E3
+  World-entry stack swtor-emu + 005E74D3
+  World-entry stack swtor-emu + 005C6D8B
+  World-entry stack swtor-emu + 005C3EF9
+  World-entry stack swtor-emu + 005C1CB6
+  World-entry stack swtor-emu + 005C3229
+  World-entry stack swtor-emu + 005C48C2
+  World-entry stack swtor-emu + 005C3D9A
+  World-entry stack swtor-emu + 005C433E
+  World-entry stack swtor-emu + 005C44A5
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Post-script resource request: /bnk2/voc_Rephuman_M_Low_1_Soundset.bnk result=00000001 owner=F1FD9180 vtableRVA=00CED814.
+Post-script resource request: /bnk2/voc_Rephuman_M_Med_5_Soundset.bnk result=00000001 owner=F1FD9780 vtableRVA=00CED814.
+Post-script resource request: /bnk2/voc_Rephuman_M_Med_6_Soundset.bnk result=00000001 owner=F1FD9300 vtableRVA=00CED814.
+Post-script resource request: /bnk2/voc_Rephuman_M_Med_7_Soundset.bnk result=00000001 owner=F1FD9540 vtableRVA=00CED814.
+Post-script resource request: /bnk2/voc_all.bnk result=00000001 owner=F1FDA0C0 vtableRVA=00CED814.
+Post-script resource request: /bnk2/voc_player_jedi_knight_f.bnk result=00000001 owner=F1FD99C0 vtableRVA=00CED814.
+Post-script resource request: /bnk2/voc_protocoldroidrepmedical.bnk result=00000001 owner=F1FD90C0 vtableRVA=00CED814.
+Post-script resource request: /anim/humanoid/bfanew/ad_rotate_180.jba result=00000001 owner=D2705B48 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_stand_yaw_down.jba result=00000001 owner=D2705788 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_stand_yaw_mid.jba result=00000001 owner=D2705698 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_stand_yaw_up.jba result=00000001 owner=D27055A8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_mv_walk_back_yaw_mid.jba result=00000001 owner=D27053C8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_mv_walk_forward_yaw_mid.jba result=00000001 owner=D27052D8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_mv_run_back_yaw_mid.jba result=00000001 owner=D27051E8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_mv_run_forward_yaw_mid.jba result=00000001 owner=D27050F8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_eye_yaw_low.jba result=00000001 owner=D2705008 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_eye_yaw_mid.jba result=00000001 owner=D2706F08 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_eye_yaw_high.jba result=00000001 owner=D2706E18 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_forward.jba result=00000001 owner=D270A968 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_left.jba result=00000001 owner=D270A878 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_right.jba result=00000001 owner=D270A788 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_back.jba result=00000001 owner=D270A698 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_normal_north.jba result=00000001 owner=D270A5A8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_normal_south.jba result=00000001 owner=D270A4B8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_normal_west.jba result=00000001 owner=D270A3C8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_normal_east.jba result=00000001 owner=D270A2D8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_1h_north.jba result=00000001 owner=D270A1E8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_1h_east.jba result=00000001 owner=D270A0F8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_1h_south.jba result=00000001 owner=D270A008 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_1h_west.jba result=00000001 owner=D270BF08 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_2h_north.jba result=00000001 owner=D270BE18 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_2h_east.jba result=00000001 owner=D270BD28 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_2h_south.jba result=00000001 owner=D270BC38 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_2h_west.jba result=00000001 owner=D270BB48 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_pistol_north.jba result=00000001 owner=D270BA58 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_pistol_east.jba result=00000001 owner=D270B968 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_pistol_south.jba result=00000001 owner=D270B878 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_2pistol_north.jba result=00000001 owner=D270B698 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_2pistol_east.jba result=00000001 owner=D270B5A8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_2pistol_south.jba result=00000001 owner=D270B4B8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_2pistol_west.jba result=00000001 owner=D270B3C8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_rifle_east.jba result=00000001 owner=D270B1E8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_rifle_south.jba result=00000001 owner=D270B0F8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_rifle_west.jba result=00000001 owner=D270B008 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_bfg_north.jba result=00000001 owner=D270CF08 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_bfg_east.jba result=00000001 owner=D270CE18 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_bfg_south.jba result=00000001 owner=D270CD28 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_bfg_west.jba result=00000001 owner=D270CC38 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_2pistol_crit_damage_east.jba result=00000001 owner=D270CB48 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_2pistol_crit_damage_north.jba result=00000001 owner=D270CA58 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_2pistol_crit_damage_south.jba result=00000001 owner=D270C968 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_2pistol_crit_damage_west.jba result=00000001 owner=D270C878 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_bfg_crit_damage_east.jba result=00000001 owner=D270C788 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_bfg_crit_damage_north.jba result=00000001 owner=D270C698 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_bfg_crit_damage_south.jba result=00000001 owner=D270C5A8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_bfg_crit_damage_west.jba result=00000001 owner=D270C4B8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_normal_crit_damage_east.jba result=00000001 owner=D270C3C8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_normal_crit_damage_north.jba result=00000001 owner=D270C2D8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_normal_crit_damage_south.jba result=00000001 owner=D270C1E8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_normal_crit_damage_west.jba result=00000001 owner=D270C0F8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_pistol_crit_damage_east.jba result=00000001 owner=D270C008 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_pistol_crit_damage_north.jba result=00000001 owner=D270DF08 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_pistol_crit_damage_south.jba result=00000001 owner=D270DE18 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_pistol_crit_damage_west.jba result=00000001 owner=D270DD28 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_rifle_crit_damage_east.jba result=00000001 owner=D270DC38 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_rifle_crit_damage_north.jba result=00000001 owner=D270DB48 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_rifle_crit_damage_south.jba result=00000001 owner=D270DA58 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_rifle_crit_damage_west.jba result=00000001 owner=D270D968 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_1h_crit_damage_east.jba result=00000001 owner=D270D878 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_1h_crit_damage_north.jba result=00000001 owner=D270D788 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_1h_crit_damage_south.jba result=00000001 owner=D270D698 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_1h_crit_damage_west.jba result=00000001 owner=D270D5A8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_2h_crit_damage_east.jba result=00000001 owner=D270D4B8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_2h_crit_damage_north.jba result=00000001 owner=D270D3C8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_2h_crit_damage_south.jba result=00000001 owner=D270D2D8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_2h_crit_damage_west.jba result=00000001 owner=D270D1E8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_chuckle_01.jba result=00000001 owner=D270D0F8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_pain_01.jba result=00000001 owner=D270D008 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_pain_02.jba result=00000001 owner=D270EF08 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_attack_grimace_01.jba result=00000001 owner=D270EE18 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_attack_grimace_02.jba result=00000001 owner=D270ED28 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_attack_grimace_03.jba result=00000001 owner=D270EC38 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_attack_grimace_04.jba result=00000001 owner=D270EB48 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_attack_grimace_long_01.jba result=00000001 owner=D270EA58 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_attack_grimace_long_02.jba result=00000001 owner=D270E968 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_attack_grimace_long_03.jba result=00000001 owner=D270E878 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_attack_grimace_long_04.jba result=00000001 owner=D270E788 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_rotate_360.jba result=00000001 owner=D270E4B8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_jump_mid.jba result=00000001 owner=D270E2D8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_body_pitch.jba result=00000001 owner=D270E1E8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_jump_yaw.jba result=00000001 owner=D270E0F8 vtableRVA=00D7248C.
+Character-spec resource path: /art/dynamic/spec/bfa.dat
+Character-spec resource path: /art/dynamic/spec/bfa.dat
+Character-spec resource path: /art/dynamic/spec/bfa.dat
+Character-spec resource path: 
+Character-spec resource path: 
+Character-spec resource path: /art/dynamic/spec/bfa.dat
+Character-spec resource path: 
+Character-spec resource path: /art/dynamic/spec/bfa.dat
+Character-spec resource path: 
+Character-spec resource path: /art/dynamic/spec/bms.dat
+Character-spec resource path: /art/dynamic/spec/bms.dat
+Character-spec resource path: /art/dynamic/spec/bms.dat
+Character-spec resource path: 
+Character-spec resource path: 
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: 
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: 
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DC20F00
+Resource worker RVA=00745CF0 thread=45596 owner=0A7E0A20 state=5 queued=0
+Resource worker RVA=00745CF0 thread=45596 owner=0A7E0A20 state=5 queued=0
+Resource worker RVA=00745CF0 thread=45596 owner=0A7E0A20 state=5 queued=0
+Resource worker RVA=00745CF0 thread=45596 owner=0A7E0A20 state=5 queued=0
+Client process exited with code 0x00000000 after 504 bridged resource reads.
+Client process exited with code 0x00000000 after 504 bridged resource reads.
+
+The client run finished with code 0.
+=== Tython world-entry trace summary ===
+Hook log: D:\SWTORClassic\swtoremu\nexusclient\nexusclient\nexus_hook.log
+Correlated field-copy contexts (not VM calls): 0
+Correlated replicated-field samples: 63
+  [21:34:28] ReadinessVmHook: phase=enter this=F3CB1BE4 callerRva=0x001C173B character=4000010E218A839B method=D000199A7D03034B contexts=0E2EFCA4,FC13EEE0,0E2EFC58,00000000
+  [21:34:28] ReadinessVmHook: this=F3CB1BE4 bytes=03 00 00 00 00 00 00 00 EC 1B CB F3 EC 1B CB F3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 1C CB F3 08 1C CB F3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2C CB 16 01 ascii=............................................................,...
+  [21:34:28] ReadinessVmHook: context5=0E2EFCA4 bytes=20 DE 22 F4 00 00 00 00 9A 19 00 D0 36 EE 83 02 FF A8 11 41 AA 92 E3 50 A2 C2 BF 00 44 3A 35 00 26 94 00 00 00 00 00 00 00 00 00 00 A0 B5 46 0A CC 08 3E 0A 42 01 00 00 C3 58 40 77 FD 10 0F 47 ascii= .".........6......A...P....D:5.&.............F...>.B....X@w...G
+  [21:34:28] ReadinessVmHook: context6=FC13EEE0 bytes=64 30 13 FB B0 8D 4A 0A B8 8D 4A 0A B8 8D 4A 0A 00 00 00 00 08 00 00 00 E0 EE 13 FC E0 EE 13 FC 40 EA 13 FC 00 D3 13 FC C0 E5 13 FC 01 00 00 00 FC BC 62 0B D0 E6 00 E0 01 00 00 00 C0 09 E3 00 ascii=d0....J...J...J.................@.................b.............
+  [21:34:28] ReadinessVmHook: context7=0E2EFC58 bytes=70 5C 5F 3A 36 00 00 40 2C FD 2E 0E 96 F0 3E 00 9B 83 8A 21 0E 01 00 40 4B 03 03 7D 9A 19 00 D0 70 5C 5F 3A 36 00 00 40 A0 B5 46 0A BC 1C CB F3 C0 3A 6C ED 04 FD 2E 0E 00 2F 86 77 80 08 3E 0A ascii=p\_:6..@,.....>....!...@K..}....p\_:6..@..F......:l....../.w..>.
+  [21:34:28] ReadinessVmHook: context8=null
+  [21:34:28] ReadinessVmHook: phase=deep-dump begin
+  [21:34:28] ReadinessVmHook: this.ptr[08]=F3CB1BEC bytes=EC 1B CB F3 EC 1B CB F3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 1C CB F3 08 1C CB F3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2C CB 16 01 2C CB 16 01 2E CB 16 01 ascii=....................................................,...,.......
+  [21:34:28] ReadinessVmHook: this.ptr[0C]=F3CB1BEC bytes=EC 1B CB F3 EC 1B CB F3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 1C CB F3 08 1C CB F3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2C CB 16 01 2C CB 16 01 2E CB 16 01 ascii=....................................................,...,.......
+  [21:34:28] ReadinessVmHook: this.ptr[24]=F3CB1C08 bytes=08 1C CB F3 08 1C CB F3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2C CB 16 01 2C CB 16 01 2E CB 16 01 00 00 00 00 00 00 00 00 90 0B 5C 07 90 0B 5C 07 90 4B 5C 07 00 00 00 00 00 00 00 00 ascii=........................,...,.................\...\..K\.........
+  [21:34:28] ReadinessVmHook: this.ptr[28]=F3CB1C08 bytes=08 1C CB F3 08 1C CB F3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2C CB 16 01 2C CB 16 01 2E CB 16 01 00 00 00 00 00 00 00 00 90 0B 5C 07 90 0B 5C 07 90 4B 5C 07 00 00 00 00 00 00 00 00 ascii=........................,...,.................\...\..K\.........
+  [21:34:28] ReadinessVmHook: this.ptr[3C]=0116CB2C bytes=00 00 00 00 64 0F E5 09 00 00 00 00 00 00 00 00 80 0B 2A 0A E8 0D 2A 0A 58 0E 2A 0A 01 00 00 00 00 00 00 00 6E 6F 74 5F 66 6F 75 6E 64 00 00 00 00 00 00 00 09 00 00 00 0F 00 00 00 00 00 00 00 ascii=....d.............*...*.X.*.........not_found...................
+  [21:34:28] ReadinessVmHook: context5.ptr[00]=F422DE20 bytes=7F 07 00 00 40 4D 30 F4 5A 4D 30 F4 5C 4D 30 F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 7E 07 00 00 60 4D 30 F4 78 4D 30 F4 7A 4D 30 F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ascii=....@M0.ZM0.\M0.................~...`M0.xM0.zM0.................
+  [21:34:28] ReadinessVmHook: context5.ptr[08]=D000199A bytes=FC 00 FA FB FC 00 EF F4 F7 00 C8 D1 DD 00 B6 C4 CF 00 B1 BF CA 00 CC 19 F1 00 40 80 41 CF 02 00 00 00 FF FF FF FF 6C 19 F1 00 00 00 00 00 A0 77 41 CF 20 1A 00 D0 00 00 00 00 00 00 00 00 00 F9 ascii=..........................@.A.........l........wA. .............
+  [21:34:28] ReadinessVmHook: context5.ptr[18]=00BFC2A2 bytes=F3 0F 10 05 D4 D2 E9 00 F3 0F 11 40 08 F3 0F 11 40 0C 5D C2 04 00 CC CC CC CC CC CC CC CC 55 8B EC 6A FF 68 66 E9 DE 00 64 A1 00 00 00 00 50 64 89 25 00 00 00 00 83 EC 08 56 8B F1 57 89 75 F0 ascii=...........@....@.]...........U..j.hf...d.....Pd.%.......V..W.u.
+  [21:34:28] ReadinessVmHook: context5.ptr[1C]=00353A44 bytes=64 89 25 00 00 00 00 83 EC 48 53 56 57 8B F9 8B 47 0C 8B C8 C1 E9 0C F6 C1 01 74 07 8B CF E8 D9 35 FB FF 8B D0 81 E2 00 03 00 00 81 FA 00 02 00 00 74 07 8B CF E8 B2 36 FB FF C1 E8 0F A8 01 74 ascii=d.%......HSVW...G.........t.....5................t.....6.......t
+  [21:34:28] ReadinessVmHook: context5.ptr[2C]=0A46B5A0 bytes=D4 94 F5 00 5C 2E 48 D1 00 00 00 00 03 0A 00 00 3A 02 00 00 63 00 5C 00 1D AB CF 25 38 0C 00 00 02 00 00 00 00 00 6C 00 E5 35 CF 25 38 0C 00 00 00 DB 01 E0 94 08 00 00 00 DB 01 E0 94 08 00 00 ascii=....\.H.........:...c.\....%8.........l..5.%8...................
+  [21:34:28] ReadinessVmHook: context5.ptr[30]=0A3E08CC bytes=10 E9 96 CD 01 03 00 00 DA EC 22 0D 00 EC 22 0D 68 02 00 00 00 00 80 3F 10 E9 96 CD 01 03 00 00 C0 3A 6C ED D8 3A 6C ED 00 3B 6C ED 6F 00 72 00 D0 06 D8 0D C0 0D 47 0A 01 00 00 00 00 00 00 00 ascii=.........."...".h......?.........:l..:l..;l.o.r.......G.........
+  [21:34:28] ReadinessVmHook: context5.ptr[38]=774058C3 bytes=79 70 74 44 65 63 72 79 70 74 00 00 00 4E 43 72 79 70 74 44 65 6C 65 74 65 4B 65 79 00 4E 43 72 79 70 74 44 65 72 69 76 65 4B 65 79 00 4E 43 72 79 70 74 45 6E 63 61 70 73 75 6C 61 74 65 00 00 ascii=yptDecrypt...NCryptDeleteKey.NCryptDeriveKey.NCryptEncapsulate..
+  [21:34:28] ReadinessVmHook: context6.ptr[00]=FB133064 bytes=B0 A1 70 FB C0 A1 70 FB C0 A1 70 FB 44 FB 2E 0E E0 EE 13 FC 00 00 00 00 00 00 00 00 B8 5E 83 28 62 76 57 43 01 00 23 00 03 2F 47 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 98 29 00 00 ascii=..p...p...p.D................^.(bvWC..#../G..................)..
+  [21:34:28] ReadinessVmHook: context6.ptr[04]=0A4A8DB0 bytes=00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 8C 86 FA 00 00 00 00 00 00 00 00 ascii=................................................................
+  [21:34:28] ReadinessVmHook: context6.ptr[08]=0A4A8DB8 bytes=00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 8C 86 FA 00 00 00 00 00 00 00 00 01 00 00 00 00 78 86 FA ascii=.............................................................x..
+  [21:34:28] ReadinessVmHook: context6.ptr[0C]=0A4A8DB8 bytes=00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 8C 86 FA 00 00 00 00 00 00 00 00 01 00 00 00 00 78 86 FA ascii=.............................................................x..
+  [21:34:28] ReadinessVmHook: context6.ptr[18]=FC13EEE0 bytes=64 30 13 FB B0 8D 4A 0A B8 8D 4A 0A B8 8D 4A 0A 00 00 00 00 08 00 00 00 E0 EE 13 FC E0 EE 13 FC 40 EA 13 FC 00 D3 13 FC C0 E5 13 FC 01 00 00 00 FC BC 62 0B D0 E6 00 E0 01 00 00 00 C0 09 E3 00 ascii=d0....J...J...J.................@.................b.............
+  [21:34:28] ReadinessVmHook: context6.ptr[1C]=FC13EEE0 bytes=64 30 13 FB B0 8D 4A 0A B8 8D 4A 0A B8 8D 4A 0A 00 00 00 00 08 00 00 00 E0 EE 13 FC E0 EE 13 FC 40 EA 13 FC 00 D3 13 FC C0 E5 13 FC 01 00 00 00 FC BC 62 0B D0 E6 00 E0 01 00 00 00 C0 09 E3 00 ascii=d0....J...J...J.................@.................b.............
+  [21:34:28] ReadinessVmHook: context6.ptr[20]=FC13EA40 bytes=40 E8 13 FC C0 EC 13 FC 00 EF 13 FC 01 00 00 00 27 31 A8 A8 D6 E6 00 E0 03 00 00 00 C0 09 E3 00 00 00 00 00 00 00 00 00 80 EA 13 FC 01 00 00 00 DF 33 3C 44 D6 E6 00 E0 03 00 00 00 C0 09 E3 00 ascii=@...............'1...............................3<D............
+  [21:34:28] ReadinessVmHook: context6.ptr[24]=FC13D300 bytes=00 D1 13 FC 40 D5 13 FC 00 EF 13 FC 01 00 00 00 98 E4 E4 3B CC E6 00 E0 03 00 00 00 C0 09 E3 00 00 00 00 00 00 00 00 00 40 D3 13 FC 01 00 00 00 0C 89 D6 39 CC E6 00 E0 03 00 00 00 C0 09 E3 00 ascii=....@..............;....................@..........9............
+  [21:34:28] ReadinessVmHook: context6.ptr[28]=FC13E5C0 bytes=80 FD 13 FC 00 EF 13 FC 40 D7 13 FC 01 00 00 00 9D 0B B5 DF DB E6 00 E0 03 00 00 00 C0 09 E3 00 00 00 00 00 00 00 00 00 00 E6 13 FC 01 00 00 00 B6 49 85 4F DB E6 00 E0 03 00 00 00 C0 09 E3 00 ascii=........@........................................I.O............
+  [21:34:28] ReadinessVmHook: context6.ptr[30]=0B62BCFC bytes=DF 19 00 00 C0 52 00 00 E3 F2 B8 68 2A 46 6D A1 8A B3 1B 53 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 88 55 0B 00 00 00 00 40 04 32 C1 A1 0D 36 3A B1 6B 57 1F ascii=.....R.....h*Fm....S........................ .U.....@.2...6:.kW.
+  [21:34:28] ReadinessVmHook: context6.ptr[34]=E000E6D0 bytes=63 44 BE DE 6F F6 3B EB 89 CD 8E 74 9A 3E E6 2E 8E 83 3E 62 5F 3A 06 BF F1 22 97 52 4A 23 BA 4B 84 AA 00 C1 54 07 11 31 A6 13 4B A6 4D 2A B0 E2 B1 14 DA F6 63 53 86 A2 72 65 CD A8 59 44 28 93 ascii=cD..o.;....t.>....>b_:...".RJ#.K....T..1..K.M*......cS..re..YD(.
+Observed player-field reads: 0
+WARNING: No target player-field reads were observed. This means the client did not naturally call the traced getter for
+ these fields during the captured interval; it does not establish their runtime values.
+Loading-screen GOM lookups: 0
+WARNING: No loading-screen GOM lookup matched. Confirm loading-screen trace=enabled at client startup.
+WARNING: No outbound RPC operations were captured.
+Event dispatcher:
+  class 1, handler RVA 0x007D6550: 14 samples, 9 payload fingerprints
+Event-dispatch direct callers:
+  RVA 0x00000000: 14
+Class-1 runtime recipients:
+  recipient 0A5D0D50, method RVA 0x00242A20: 14 calls
+Inbound SMSG_RESULTS fields decoded: 0 (field 1: 0, field 2: 0)
+Inbound SMSG_RESULTS handler entries: 0
+Client activation boundaries: OnEnter=0, state-receiver=0, scoped script-lookups=0
+Loading-screen timer accesses: 0
+WARNING:   The On Enter RPC batch did not reach its client callback.
+Server log: D:\SWTORClassic\swtoremu\SharpServer\bin\Debug\NexusToR.log
+  startup bundle emitted: True
+  Omega result replies:    0
+  client disconnected:    True
+Diagnosis:
+  No repeated readiness loop was captured.
+
+[trace] Post-run logs:
+[trace]   D:\SWTORClassic\swtoremu\Diagnostics\last-nexus-hook.log
+[trace]   D:\SWTORClassic\swtoremu\Diagnostics\last-server-out.log
+[trace]   D:\SWTORClassic\swtoremu\Diagnostics\last-compatibility-run.log

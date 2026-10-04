@@ -1,0 +1,2 @@
+awareness: flags=0x01 objects=77 bytes=13488
+wrote D:\SWTORClassic\swtoremu\Diagnostics\TaxiDevelopment-20261001\_recorddump.txt

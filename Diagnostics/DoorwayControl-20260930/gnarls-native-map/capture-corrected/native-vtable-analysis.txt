@@ -1,0 +1,32 @@
+exe=D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe
+runtime_base=0x006E0000
+runtime_vtable=0x01405ECC
+rva=0x00D25ECC
+image_base=0x00400000
+preferred_vtable=0x01125ECC
+complete_object_locator=0x011A94A0
+rtti_signature=0 object_offset=0x0 cd_offset=0x0
+type_descriptor=0x01324C94
+type_name=.?AVHeroNode@@
+class_hierarchy_descriptor=0x011A94B4
+vtable_entries:
+  [00] 0x004C55A0 rva=0x000C55A0
+  [01] 0x004D8460 rva=0x000D8460
+  [02] 0x004C6B80 rva=0x000C6B80
+  [03] 0x004C6CE0 rva=0x000C6CE0
+  [04] 0x004D8470 rva=0x000D8470
+  [05] 0x0049B860 rva=0x0009B860
+  [06] 0x004C7260 rva=0x000C7260
+  [07] 0x0049B860 rva=0x0009B860
+  [08] 0x004C7270 rva=0x000C7270
+  [09] 0x004D7AB0 rva=0x000D7AB0
+  [10] 0x008D34F0 rva=0x004D34F0
+  [11] 0x004D6FA0 rva=0x000D6FA0
+  [12] 0x004D6FD0 rva=0x000D6FD0
+  [13] 0x00812A00 rva=0x00412A00
+  [14] 0x00812A00 rva=0x00412A00
+  [15] 0x00812A00 rva=0x00412A00
+preferred_vtable_dword_occurrences:
+  va=0x004C5407 section=.text file=0xC4807
+  va=0x004C5636 section=.text file=0xC4A36
+  va=0x004C5855 section=.text file=0xC4C55

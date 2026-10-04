@@ -1,0 +1,215 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+using NexusToRServer.NET;
+using NexusToRServer.NET.Packets.Server;
+
+namespace NexusToRServer.AreaServer
+{
+    /// <summary>
+    /// Server side of the phase exit for the Masters' Retreat story area.
+    ///
+    /// The captured player phsPhase field references phase-info node
+    /// 0x1AC6F6DC1F, whose parent is the retreat phased instance. Destroy-only
+    /// delivery was verified but did not resolve the doorway wall. The opt-in
+    /// phase-field experiment also clears the player's link, which is the
+    /// script input to phsEntity.Replication_Update's phase-change callback.
+    ///
+    /// In the live game the server detects the player crossing the
+    /// doorway trigger; the production response sequence remains unverified.
+    /// This emulator cannot run the HeroEngine trigger, so it reproduces the
+    /// same response by watching the character's replicated move state
+    /// (CMsg61116AD5) and firing once when the character walks out past the
+    /// doorway X plane.
+    /// </summary>
+    internal static class PhaseExit
+    {
+        // Structural membership: the local player's phsPhaseInfo child.
+        private const UInt64 PhaseInfoNode = 0x0000001AC6F6DC1FUL;
+
+        // The next sequential replication stream id after the capture's
+        // 0x001B5012..0x001B502D range (CRT17 ends at 0x2D). The ability-effect
+        // replication uses the same "next" id for its first post-startup
+        // transaction, so stay sequential rather than skipping to 0x2F.
+        private const UInt32 StreamID = 0x001B502E;
+
+        // The INSTANCE_GATEWAY trigger sits at X = -63.6168 (April Tython area,
+        // room gnarls_new). The captured spawn is X = -64.8741 (inside). Walking
+        // out means X rises past the doorway; use a threshold just outside it.
+        private const float ExitX = -63.0f;
+
+        // _Room_Activate on _BaseClient. Selector = classScriptHash:methodHash.
+        //
+        // VERIFIED (2026-09-28 run): the client resolved BOTH halves —
+        //   RPC error( 14988256013797863880:FN_1351023327 ): unable to call
+        //   function as server
+        // 14988256013797863880 = the client _BaseClientClassMethods script
+        // (class hash 0x2B7E4202, from _JPEXTRACT/Scriptdef.listdump.csv), and
+        // FN_1351023327 = 0x5086FADF = _Room_Activate. The earlier 0x1BC55124
+        // was only the class *name* hash, not a script hash.
+        //
+        // The decisive error is "unable to call function as server": _Room_Activate
+        // is a SERVER-ONLY method. It is invoked by the server on its own
+        // $BASECLIENT copy; the actual room stream to the client is a native
+        // HeroEngine operation, NOT a script RPC. Do not send this blob to the
+        // client as an AreaRequestRPC.
+        private const UInt32 BaseClientScriptHash = 0x2B7E4202;
+        private const UInt32 RoomActivateMethodHash = 0x5086FADF;
+
+        private static UInt64 MakeSelector(UInt32 scriptHash, UInt32 methodHash)
+        {
+            return ((UInt64)scriptHash << 32) | methodHash;
+        }
+
+        // Room id of gnarls_new in the April tython_blockout area
+        // (/resources/world/areas/4611686019869492753/gnarls_new.dat). CONFIRMED
+        // from _JPEXTRACT/DAT/gnarls_new.dat(settings).txt ("Room id").
+        private const UInt64 GnarlsNewRoomID = 4611686024647056040UL;
+
+        private static bool _exited;
+        private static bool _firstLogged;
+        private static float _lastX = float.NaN;
+
+        internal static void OnMove(TORGameClient client, float x, float y, float z)
+        {
+            if (client == null || _exited)
+                return;
+
+            if (!_firstLogged)
+            {
+                _firstLogged = true;
+                Log.Write(LogLevel.Client,
+                    "PhaseExit: tracking move state; first position ({0:F3}, {1:F3}, {2:F3}), doorway X = {3:F2}.",
+                    x, y, z, ExitX);
+            }
+
+            if (float.IsNaN(_lastX))
+            {
+                _lastX = x;
+                return;
+            }
+
+            // Crossed the doorway from inside to outside: emit the exit once.
+            if (_lastX < ExitX && x >= ExitX)
+            {
+                bool clearPlayerPhase = String.Equals(
+                    Environment.GetEnvironmentVariable("SWTOR_PHASE_EXIT_CLEAR_FIELD"),
+                    "1", StringComparison.Ordinal);
+                UInt64 playerID = client.ActiveCharacter == null ? 0UL : client.ActiveCharacter._id;
+                if (clearPlayerPhase && playerID == 0)
+                {
+                    Log.Write(LogLevel.Warning, "PhaseExit: phase clear skipped; no selected player identity.");
+                    return;
+                }
+                _exited = true;
+                UInt32 stream = PlayerMovementState.Enabled("SWTOR_MOVEMENT_TETHER_REFRESH") ? AreaAbilityEffectReplication.NextStreamID() : StreamID;
+                client.SendPacket(new AreaReplicationDestroy(stream, PhaseInfoNode, clearPlayerPhase, playerID));
+                Log.Write(LogLevel.Warning,
+                    "PhaseExit: character crossed the retreat doorway ({0:F2} -> {1:F2}); destroyed phase-info child 0x{2:X16} via stream 0x{3:X8}.",
+                    _lastX, x, PhaseInfoNode, stream);
+
+                // CRT18 is a generated duplicate-instance probe, not a proven
+                // native room stream. Preserve the destroy-only control.
+                Log.Write(LogLevel.Warning,
+                    "PhaseExit: CRT18 suppressed; native room-stream semantics unverified (doorway control 2026-09-30-01).");
+            }
+
+            _lastX = x;
+        }
+
+        internal static void Reset()
+        {
+            _exited = false;
+            _firstLogged = false;
+            _lastX = float.NaN;
+        }
+
+        /// <summary>
+        /// Re-sends the awareness set at the doorway crossing. Hypothesis: the
+        /// exterior room never becomes resident because awareness is only ever
+        /// established once at startup, and in HeroEngine awareness is what makes
+        /// rooms/objects visible and loaded.
+        ///
+        /// Run 1 (22:21:18) re-sent BOTH sets and the client answered with
+        /// "Character already exists" for dozens of nodes: set 1 (13,488 bytes)
+        /// is the world-population/character-creation awareness and is NOT
+        /// idempotent, so it must not be re-sent. Set 2 (1,247 bytes) contains
+        /// the room name "gnarls_new" plus dynamic .mag geometry spec paths
+        /// (mag_repdropship_ship.mag, "SnapLanded", "Hidden_Cinematic"), i.e. the
+        /// room/environment awareness. Re-send only set 2.
+        /// </summary>
+        private static void SendAwarenessRefresh(TORGameClient client)
+        {
+            if (String.IsNullOrEmpty(client._area) ||
+                String.IsNullOrEmpty(client._areaID) ||
+                String.IsNullOrEmpty(client._areaCode))
+            {
+                Log.Write(LogLevel.Warning,
+                    "PhaseExit: awareness refresh skipped; area context incomplete on client (area={0}, id={1}, code={2}).",
+                    client._area, client._areaID, client._areaCode);
+                return;
+            }
+
+            string area = client._area;
+            string areaID = client._areaID;
+            string areaCode = client._areaCode;
+
+            client.SendPacket(new AreaAwarenessEntered(area, areaID, areaCode, 2));
+            Log.Write(LogLevel.Warning,
+                "PhaseExit: re-sent room awareness at the doorway (area={0}, id={1}, code={2}, set 2 only).",
+                area, areaID, areaCode);
+        }
+
+        /// <summary>
+        /// Emits the _Room_Activate shared-method RPC for the exterior room
+        /// (gnarls_new). This is the room-loading trigger the emulator was
+        /// missing: the client only loads a room's walkable collision when the
+        /// server tells it to activate that room.
+        /// </summary>
+        private static void SendRoomActivate(TORGameClient client)
+        {
+            client.SendPacket(new AreaRequestRPC(BuildRoomActivateBlob()));
+            Log.Write(LogLevel.Warning,
+                "PhaseExit: sent _Room_Activate for room gnarls_new (id {0}).",
+                GnarlsNewRoomID);
+        }
+
+        private static byte[] BuildRoomActivateBlob()
+        {
+            List<byte> blob = new List<byte>();
+            AddPacked(blob, MakeSelector(BaseClientScriptHash, RoomActivateMethodHash));
+            AddPacked(blob, GnarlsNewRoomID);   // a1 room id (confirmed)
+            AddPacked(blob, 1UL);               // a2 instance id (UNVERIFIED guess)
+            AddString(blob, "tython_blockout"); // a3 area name (UNVERIFIED guess)
+            AddString(blob, "gnarls_new");      // a4 room name (confirmed)
+            return blob.ToArray();
+        }
+
+        private static void AddPacked(List<byte> blob, UInt64 value)
+        {
+            if (value < 0xC0)
+            {
+                blob.Add((byte)value);
+                return;
+            }
+            int length = 0;
+            UInt64 remaining = value;
+            do
+            {
+                ++length;
+                remaining >>= 8;
+            }
+            while (remaining != 0);
+            blob.Add((byte)(0xC7 + length));
+            for (int shift = (length - 1) * 8; shift >= 0; shift -= 8)
+                blob.Add((byte)(value >> shift));
+        }
+
+        private static void AddString(List<byte> blob, string value)
+        {
+            byte[] bytes = Encoding.ASCII.GetBytes(value);
+            blob.Add((byte)bytes.Length);
+            blob.AddRange(bytes);
+        }
+    }
+}

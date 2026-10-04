@@ -1,0 +1,12 @@
+{
+  "Time": "2026-09-30T14:57:26-04:00",
+  "Bytes": 46,
+  "SHA256": "2F816FE78E5A1C9983D2E151EB705E079AF4A323B4FE8F0559DE0B186766E5DF",
+  "DestroyEntry": 1,
+  "DestroyReturn": 1,
+  "NestedGateway": 0,
+  "PlayerPhaseCreateEntries": 1,
+  "PlayerPhaseDestroyEntries": 0,
+  "OperatorResult": "Stopped, stuck on wall",
+  "LogsSaved": "Diagnostics/DoorwayControl-20260930/phase-lifecycle-logonly-blocked-20260930-145754-227"
+}

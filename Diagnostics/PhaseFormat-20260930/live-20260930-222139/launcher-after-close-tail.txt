@@ -1,0 +1,300 @@
+Character callback returned; removed its temporary script-lookup probes.
+Character dispatch RVA=00350C16 eax=00000000 ecx=0E1FF2E4 edx=00A06420 esi=0E1FF200 cached=F4A91CBC/ED4FC0C0 gom=0DD106D0 script=FAAE0D80 args=4000010D FAAE0DC8 EDF55D50 0E1FF268 00000012 00000000
+Character dispatch RVA=0034F0FC eax=00000000 ecx=0E1FF2E4 edx=00A06420 esi=FAAE0DC8 cached=F4A91CBC/ED4FC0C0 gom=0DD106D0 script=FAAE0D80 args=0A500C4C DA4A9425 00000000 0E1FF244 ED3944F8 012CBA78
+Character-list handler completed normally.
+Resource worker RVA=00745CF0 thread=44808 owner=0A780A20 state=5 queued=0
+World travel transition RVA=0034F46A area=F44839A0 state=0 selection=1 result=0 queued=''
+World travel transition RVA=0034F46A area=F44839A0 state=0 selection=1 result=0 queued=''
+World travel transition RVA=0034F46A area=F44839A0 state=0 selection=1 result=0 queued=''
+Repository packet dispatch: opcode=2F7A6A25 owner=0DBC0F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DBC0F00
+World travel transition RVA=0034F46A area=F44839A0 state=3 selection=1 result=1 queued=''
+World travel transition RVA=0034F482 area=F44839A0 state=3 selection=1 result=248 queued=''
+[22:21:25] [TRAVEL] Native area-load completion reached the active-area transition.
+World travel transition RVA=00350240 area=F44839A0 state=3 selection=1 result=16 queued=''
+World travel transition RVA=00350461 area=F44839A0 state=3 selection=1 result=160 queued=''
+Character-list handler started: state+28=0xF44839A0 state+70=1.
+Character-list handler finished character iteration.
+Character dispatch RVA=0034EFFB eax=0A4CFEA0 ecx=0E1FF2E4 edx=6AAF61C0 esi=0A4CFEA0 cached=F4A91CBC/ED4FC0C0 gom=0DD106D0 script=FAAE0D80 args=0A500C4C F60CAC95 00000000 0E1FF244 ED3943B8 2D91B772
+Character dispatch RVA=0034F0ED eax=00EF5AD4 ecx=F4A91CBC edx=00A06620 esi=FAAE0DC8 cached=F4A91CBC/ED4FC0C0 gom=0DD106D0 script=FAAE0D80 args=FAAE0DC8 00000012 00000000 00000032 00000000 0E1FF2BC
+Character dispatch RVA=0034F0EF eax=3B9ACA01 ecx=3B9ACA01 edx=00000000 esi=FAAE0DC8 cached=F4A91CBC/ED4FC0C0 gom=0DD106D0 script=FAAE0D80 args=00000012 00000000 00000032 00000000 0E1FF2BC 0E1FF25C
+Character dispatch RVA=00350B91 eax=D3170270 ecx=F4A91CBC edx=0E1FF268 esi=FAAE0DC8 cached=F4A91CBC/ED4FC0C0 gom=0DD106D0 script=FAAE0D80 args=4000010D FAAE0DC8 0E1FF2E4 00E54666 FFFFFFFF 0E1FF2E4
+Character dispatch RVA=00350C14 eax=3B9ACA01 ecx=F4A91CBC edx=00A064D0 esi=0E1FF200 cached=F4A91CBC/ED4FC0C0 gom=0DD106D0 script=FAAE0D80 args=3B9ACA01 00000000 012CB528 FC5BD360 0E1FF200 00000000
+Script lookup RVA=001CA7D6 eax=F12EFF78 ecx=00000000 edx=0A9C7360 esi=EDB11E60 frame=00000000 0E1FF0DC 002E3438 object=EDB11E00 EE02F6E0 class=F4498B60
+Script lookup RVA=001CA7D6 eax=ECA66D70 ecx=00000000 edx=007034F0 esi=ED1B85A0 frame=ED2E59F8 00000000 FCB4E840 object=ED1B8540 00000000 class=ED1B7460
+Script lookup RVA=001CA7D6 eax=ECA66D70 ecx=00000000 edx=007034F0 esi=ED1B85A0 frame=ED2E5A00 0E1FEEA4 00E3554A object=ED1B8540 00000000 class=ED1B7460
+Script lookup RVA=001CA7D6 eax=ECA66D70 ecx=00000000 edx=007034F0 esi=ED1B85A0 frame=ED2E5A08 00000001 EB19A4D4 object=ED1B8540 00000000 class=ED1B7460
+Script lookup RVA=001CA7D6 eax=ECA66D28 ecx=00000000 edx=007034F0 esi=ED1BF760 frame=ED2E5A10 00000000 FC7D5800 object=ED1BF700 00000000 class=ED1B8540
+Script lookup RVA=001CA7D6 eax=ECA66D28 ecx=00000000 edx=007034F0 esi=ED1BF760 frame=ED2E5A18 00000000 FC7D5800 object=ED1BF700 00000000 class=ED1B8540
+Script lookup RVA=001CA7D6 eax=F12EFF78 ecx=00000000 edx=007034F0 esi=EDB11E60 frame=ED2E5A20 00000001 FCB5C620 object=EDB11E00 EE02F6E0 class=F4498B60
+Script lookup RVA=001CA7D6 eax=F12EFF78 ecx=00000000 edx=007034F0 esi=EDB11E60 frame=ED2E5A28 0E1FEED4 00E57E31 object=EDB11E00 EE02F6E0 class=F4498B60
+Script lookup RVA=001CA7D6 eax=F12EFF78 ecx=00000000 edx=0A9C72D0 esi=EDB11E60 frame=00000000 0E1FEB74 00325ED9 object=EDB11E00 EE02F6E0 class=F4498B60
+Script lookup RVA=001CA7D6 eax=ECA66D70 ecx=00000000 edx=007034F0 esi=ED1B85A0 frame=ED2E5A40 00000000 00002710 object=ED1B8540 00000000 class=ED1B7460
+Script lookup RVA=001CA7D6 eax=EC9A9044 ecx=00000000 edx=007034F0 esi=ED1B2060 frame=ED2E5A48 00000000 FC8B58A0 object=ED1B2000 EF743840 class=F5119C40
+Script lookup RVA=001CA7D6 eax=EC9A7E20 ecx=00000000 edx=007034F0 esi=EDB12E60 frame=F4C3BD10 00000001 FCB5C620 object=EDB12E00 EF59E3A0 class=ED1BA1C0
+Script lookup RVA=001CA7D6 eax=EC9A78C8 ecx=00000000 edx=007034F0 esi=ED563220 frame=F37B7120 00000000 FCA84A40 object=ED5631C0 00000000 class=ED5627E0
+Script lookup RVA=001CA7D6 eax=EC9A78C8 ecx=00000000 edx=007034F0 esi=ED563220 frame=F414D750 0A3500E0 0DCF0EE0 object=ED5631C0 00000000 class=ED5627E0
+Script lookup RVA=001CA7D6 eax=EC9A797C ecx=00000000 edx=007034F0 esi=EDB12BC0 frame=F414D720 00000000 FCB82B00 object=EDB12B60 00000000 class=F449F8C0
+Script lookup RVA=001CA7D6 eax=F12EFF0C ecx=00000000 edx=007034F0 esi=F449EF40 frame=0A3863A0 00000000 FCBA7880 object=F449EEE0 00000000 class=ED1B4E00
+Script lookup RVA=001CA7D6 eax=F12EFF78 ecx=00000000 edx=0A9C72D0 esi=EDB11E60 frame=00000000 0E1FE9F4 00325ED9 object=EDB11E00 EE02F6E0 class=F4498B60
+Script lookup RVA=001CA7D6 eax=EC9CA584 ecx=00000000 edx=007034F0 esi=F5116BC0 frame=F414D728 00000001 0DD106D0 object=F5116B60 00000000 class=F5110700
+Script lookup RVA=001CA7D6 eax=EC9A78C8 ecx=00000000 edx=007034F0 esi=ED563220 frame=F414D738 0000000C E92B0384 object=ED5631C0 00000000 class=ED5627E0
+Script lookup RVA=001CA7D6 eax=EC9A78C8 ecx=00000000 edx=007034F0 esi=ED563220 frame=F414D778 035F606A 40000000 object=ED5631C0 00000000 class=ED5627E0
+Character callback returned; removed its temporary script-lookup probes.
+Character dispatch RVA=00350C16 eax=00000000 ecx=0E1FF2E4 edx=00A06420 esi=0E1FF200 cached=F4A91CBC/ED4FC0C0 gom=0DD106D0 script=FAAE0D80 args=4000010D FAAE0DC8 D3170270 0E1FF268 00000012 00000000
+Character dispatch RVA=0034F0FC eax=00000000 ecx=0E1FF2E4 edx=00A06420 esi=FAAE0DC8 cached=F4A91CBC/ED4FC0C0 gom=0DD106D0 script=FAAE0D80 args=0A500C4C F60CAC95 00000000 0E1FF244 ED3943B8 012CBA78
+Character-list handler completed normally.
+Repository packet dispatch: opcode=2F7A6A25 owner=0DBC0F00
+Character-spec resource path: /art/dynamic/spec/bma.dat
+Character-spec resource path: /art/dynamic/spec/bfa.dat
+Character-spec resource path: /art/dynamic/spec/bfb.dat
+Post-script resource request: /anim/humanoid/bmanew/cc_stand_select_gender_01.jba result=00000001 owner=F04CFD28 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bmanew/cc_stand_agent_01.jba result=00000001 owner=F04CFC38 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bmanew/cc_stand_bountyhunter_01.jba result=00000001 owner=F04CFB48 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bmanew/cc_stand_consular_01.jba result=00000001 owner=F04CFA58 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bmanew/cc_stand_inquisitor_01.jba result=00000001 owner=F04CF968 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bmanew/cc_stand_knight_01.jba result=00000001 owner=F04CF878 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bmanew/cc_stand_smuggler_01.jba result=00000001 owner=F04CF788 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bmanew/cc_stand_trooper_01.jba result=00000001 owner=F04CF698 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bmanew/cc_stand_warrior_01.jba result=00000001 owner=F04CF5A8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bmanew/ad_face_blink_01.jba result=00000001 owner=F04CF4B8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bmanew/ad_face_idle.jba result=00000001 owner=F04CF3C8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bmanew/ad_blank.jba result=00000001 owner=F04CF2D8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/cc_stand_idle_1.jba result=00000001 owner=F04CF1E8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/cc_stand_idle_2.jba result=00000001 owner=F04CF0F8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/cc_stand_idle_3.jba result=00000001 owner=F04CF008 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/cc_stand_idle_4.jba result=00000001 owner=D3210F08 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/cc_stand_idle_5.jba result=00000001 owner=D3210E18 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/cc_stand_idle_6.jba result=00000001 owner=D3210D28 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/cc_stand_select_gender_01.jba result=00000001 owner=D3210C38 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_blink_01.jba result=00000001 owner=D32103C8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_idle.jba result=00000001 owner=D32102D8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_blank.jba result=00000001 owner=D32101E8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfbnew/cc_stand_idle_1.jba result=00000001 owner=D32100F8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfbnew/cc_stand_idle_2.jba result=00000001 owner=D3210008 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfbnew/cc_stand_idle_3.jba result=00000001 owner=D3211F08 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfbnew/cc_stand_idle_4.jba result=00000001 owner=D3211E18 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfbnew/cc_stand_idle_5.jba result=00000001 owner=D3211D28 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfbnew/cc_stand_idle_6.jba result=00000001 owner=D3211C38 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfbnew/cc_stand_select_gender_01.jba result=00000001 owner=D3211B48 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfbnew/ad_face_blink_01.jba result=00000001 owner=D3211A58 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfbnew/ad_face_idle.jba result=00000001 owner=D3211968 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfbnew/ad_blank.jba result=00000001 owner=D3211878 vtableRVA=00D7248C.
+Repository packet dispatch: opcode=2F7A6A25 owner=0DBC0F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DBC0F00
+World travel transition RVA=0034F2B0 area=F44839A0 state=0 selection=0 result=240 queued=''
+Post-script resource request: /bnk2/location_tython_data.bnk result=00000001 owner=F2DB9D80 vtableRVA=00CED814.
+Post-script resource request: /bnk2/location_tython_media.bnk result=00000001 owner=F2DB9CC0 vtableRVA=00CED814.
+Repository packet dispatch: opcode=2F7A6A25 owner=0DBC0F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DBC0F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DBC0F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DBC0F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DBC0F00
+World travel transition RVA=0034F46A area=F44839A0 state=3 selection=0 result=1 queued='AreaServer-tython_blockout-4611686019869492753-1-:areaserver'
+World travel transition RVA=0034F482 area=F44839A0 state=3 selection=0 result=248 queued='AreaServer-tython_blockout-4611686019869492753-1-:areaserver'
+[22:21:34] [TRAVEL] Native area-load completion reached the active-area transition.
+World travel transition RVA=00350240 area=F44839A0 state=3 selection=0 result=48 queued='AreaServer-tython_blockout-4611686019869492753-1-:areaserver'
+Post-script resource request: /world/areas/4611686019869492753/mapnotes.not result=00000001 owner=EE3DD840 vtableRVA=00CC5EA4.
+World travel transition RVA=00350461 area=F44839A0 state=3 selection=0 result=160 queued='AreaServer-tython_blockout-4611686019869492753-1-:areaserver'
+World travel transition RVA=0034F2B0 area=F44839A0 state=3 selection=0 result=160 queued='AreaServer-tython_blockout-4611686019869492753-1-:areaserver'
+World travel transition RVA=00241740 area=F44839A0 state=3 selection=0 result=64 queued='AreaServer-tython_blockout-4611686019869492753-1-:areaserver'
+[22:21:34] [TRAVEL] Native client is connecting to the destination area service.
+LoadingContinueFallback: CheckContinue=ED084320 patched to local PhaseNeedsContinue(false); asset waits preserved (event path).
+Post-script resource request: /gamedata/svy/bug/gui.svy result=00000001 owner=EE3DC300 vtableRVA=00CC5EA4.
+Character-spec resource path: /art/dynamic/spec/bfa.dat
+Character-spec resource path: /art/dynamic/spec/bms.dat
+Character-spec resource path: /art/dynamic/spec/protocol.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bms.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+World-entry C++ exception firstChance=1 type=.?AVConversionException@G@@
+  World-entry stack KERNELBASE + 0016AED4
+  World-entry stack MSVCR90 + 0005DF60
+  World-entry stack swtor-emu + 000D6C0E
+  World-entry stack swtor-emu + 00101A70
+  World-entry stack swtor-emu + 00101BF0
+  World-entry stack swtor-emu + 000F47FD
+  World-entry stack swtor-emu + 004D5097
+  World-entry stack swtor-emu + 004D51C4
+  World-entry stack swtor-emu + 004D5A2D
+  World-entry stack swtor-emu + 003182DC
+  World-entry stack swtor-emu + 00243261
+  World-entry stack swtor-emu + 0024F143
+  World-entry stack MemoryMan + 00004923
+  World-entry stack swtor-emu + 005E74D3
+  World-entry stack swtor-emu + 005C6D8B
+  World-entry stack swtor-emu + 005C3EF9
+  World-entry stack swtor-emu + 005C1CB6
+  World-entry stack swtor-emu + 005C3229
+  World-entry stack swtor-emu + 005C48C2
+  World-entry stack swtor-emu + 005C3D9A
+  World-entry stack swtor-emu + 005C4357
+  World-entry stack swtor-emu + 005C44A5
+Repository packet dispatch: opcode=2F7A6A25 owner=0DBC0F00
+Post-script resource request: /bnk2/voc_Rephuman_M_Low_1_Soundset.bnk result=00000001 owner=F2DB9780 vtableRVA=00CED814.
+Post-script resource request: /bnk2/voc_Rephuman_M_Med_5_Soundset.bnk result=00000001 owner=F2DB9540 vtableRVA=00CED814.
+Post-script resource request: /bnk2/voc_Rephuman_M_Med_6_Soundset.bnk result=00000001 owner=F2DB9480 vtableRVA=00CED814.
+Post-script resource request: /bnk2/voc_Rephuman_M_Med_7_Soundset.bnk result=00000001 owner=F2DB9600 vtableRVA=00CED814.
+Post-script resource request: /bnk2/voc_all.bnk result=00000001 owner=F2DB96C0 vtableRVA=00CED814.
+Post-script resource request: /bnk2/voc_player_jedi_knight_f.bnk result=00000001 owner=F2DB90C0 vtableRVA=00CED814.
+Post-script resource request: /bnk2/voc_protocoldroidrepmedical.bnk result=00000001 owner=F2DB9300 vtableRVA=00CED814.
+Post-script resource request: /anim/humanoid/bfanew/ad_rotate_180.jba result=00000001 owner=D3215B48 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_stand_yaw_down.jba result=00000001 owner=D3215788 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_stand_yaw_mid.jba result=00000001 owner=D3215698 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_stand_yaw_up.jba result=00000001 owner=D32155A8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_mv_walk_back_yaw_mid.jba result=00000001 owner=D32153C8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_mv_walk_forward_yaw_mid.jba result=00000001 owner=D32152D8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_mv_run_back_yaw_mid.jba result=00000001 owner=D32151E8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_mv_run_forward_yaw_mid.jba result=00000001 owner=D32150F8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_eye_yaw_low.jba result=00000001 owner=D3215008 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_eye_yaw_mid.jba result=00000001 owner=D3216F08 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_eye_yaw_high.jba result=00000001 owner=D3216E18 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_forward.jba result=00000001 owner=D321A968 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_left.jba result=00000001 owner=D321A878 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_right.jba result=00000001 owner=D321A788 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_back.jba result=00000001 owner=D321A698 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_normal_north.jba result=00000001 owner=D321A5A8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_normal_south.jba result=00000001 owner=D321A4B8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_normal_west.jba result=00000001 owner=D321A3C8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_normal_east.jba result=00000001 owner=D321A2D8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_1h_north.jba result=00000001 owner=D321A1E8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_1h_east.jba result=00000001 owner=D321A0F8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_1h_south.jba result=00000001 owner=D321A008 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_1h_west.jba result=00000001 owner=D321BF08 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_2h_north.jba result=00000001 owner=D321BE18 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_2h_east.jba result=00000001 owner=D321BD28 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_2h_south.jba result=00000001 owner=D321BC38 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_2h_west.jba result=00000001 owner=D321BB48 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_pistol_north.jba result=00000001 owner=D321BA58 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_pistol_south.jba result=00000001 owner=D321B878 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_2pistol_north.jba result=00000001 owner=D321B698 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_2pistol_east.jba result=00000001 owner=D321B5A8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_2pistol_south.jba result=00000001 owner=D321B4B8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_2pistol_west.jba result=00000001 owner=D321B3C8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_rifle_north.jba result=00000001 owner=D321B2D8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_rifle_east.jba result=00000001 owner=D321B1E8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_rifle_south.jba result=00000001 owner=D321B0F8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_rifle_west.jba result=00000001 owner=D321B008 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_bfg_north.jba result=00000001 owner=D321CF08 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_bfg_east.jba result=00000001 owner=D321CE18 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_bfg_south.jba result=00000001 owner=D321CD28 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_bfg_west.jba result=00000001 owner=D321CC38 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_2pistol_crit_damage_east.jba result=00000001 owner=D321CB48 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_2pistol_crit_damage_north.jba result=00000001 owner=D321CA58 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_2pistol_crit_damage_south.jba result=00000001 owner=D321C968 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_2pistol_crit_damage_west.jba result=00000001 owner=D321C878 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_bfg_crit_damage_east.jba result=00000001 owner=D321C788 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_bfg_crit_damage_north.jba result=00000001 owner=D321C698 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_bfg_crit_damage_south.jba result=00000001 owner=D321C5A8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_bfg_crit_damage_west.jba result=00000001 owner=D321C4B8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_normal_crit_damage_east.jba result=00000001 owner=D321C3C8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_normal_crit_damage_north.jba result=00000001 owner=D321C2D8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_normal_crit_damage_south.jba result=00000001 owner=D321C1E8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_normal_crit_damage_west.jba result=00000001 owner=D321C0F8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_pistol_crit_damage_east.jba result=00000001 owner=D321C008 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_pistol_crit_damage_north.jba result=00000001 owner=D321DF08 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_pistol_crit_damage_south.jba result=00000001 owner=D321DE18 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_pistol_crit_damage_west.jba result=00000001 owner=D321DD28 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_rifle_crit_damage_east.jba result=00000001 owner=D321DC38 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_rifle_crit_damage_north.jba result=00000001 owner=D321DB48 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_rifle_crit_damage_south.jba result=00000001 owner=D321DA58 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_rifle_crit_damage_west.jba result=00000001 owner=D321D968 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_1h_crit_damage_east.jba result=00000001 owner=D321D878 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_1h_crit_damage_north.jba result=00000001 owner=D321D788 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_1h_crit_damage_south.jba result=00000001 owner=D321D698 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_1h_crit_damage_west.jba result=00000001 owner=D321D5A8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_2h_crit_damage_east.jba result=00000001 owner=D321D4B8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_2h_crit_damage_north.jba result=00000001 owner=D321D3C8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_2h_crit_damage_south.jba result=00000001 owner=D321D2D8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_dg_saber_2h_crit_damage_west.jba result=00000001 owner=D321D1E8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_chuckle_01.jba result=00000001 owner=D321D0F8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_pain_01.jba result=00000001 owner=D321D008 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_pain_02.jba result=00000001 owner=D321EF08 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_attack_grimace_01.jba result=00000001 owner=D321EE18 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_attack_grimace_02.jba result=00000001 owner=D321ED28 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_attack_grimace_03.jba result=00000001 owner=D321EC38 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_attack_grimace_04.jba result=00000001 owner=D321EB48 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_attack_grimace_long_01.jba result=00000001 owner=D321EA58 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_attack_grimace_long_02.jba result=00000001 owner=D321E968 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_attack_grimace_long_03.jba result=00000001 owner=D321E878 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_face_attack_grimace_long_04.jba result=00000001 owner=D321E788 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_rotate_360.jba result=00000001 owner=D321E4B8 vtableRVA=00D7248C.
+Post-script resource request: /anim/humanoid/bfanew/ad_jump_mid.jba result=00000001 owner=D321E2D8 vtableRVA=00D7248C.
+Character-spec resource path: /art/dynamic/spec/bfa.dat
+Character-spec resource path: /art/dynamic/spec/bfa.dat
+Character-spec resource path: /art/dynamic/spec/bfa.dat
+Character-spec resource path: /art/dynamic/spec/bfa.dat
+Character-spec resource path: /art/dynamic/spec/bfa.dat
+Character-spec resource path: /art/dynamic/spec/bfa.dat
+Character-spec resource path: /art/dynamic/spec/bfa.dat
+Character-spec resource path: /art/dynamic/spec/bfa.dat
+Character-spec resource path: /art/dynamic/spec/bms.dat
+Character-spec resource path: /art/dynamic/spec/bms.dat
+Character-spec resource path: 
+Character-spec resource path: /art/dynamic/spec/bms.dat
+Character-spec resource path: /art/dynamic/spec/bma.dat
+Character-spec resource path: /art/dynamic/spec/bma.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: 
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: 
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: 
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/bmn.dat
+Character-spec resource path: /art/dynamic/spec/astromech.dat
+Repository packet dispatch: opcode=2F7A6A25 owner=0DBC0F00
+Repository packet dispatch: opcode=2F7A6A25 owner=0DBC0F00
+Resource worker RVA=00745CF0 thread=44808 owner=0A780A20 state=5 queued=0
+Client process exited with code 0x00000000 after 504 bridged resource reads.
+Client process exited with code 0x00000000 after 504 bridged resource reads.
+
+The client run finished with code 0.
+=== Tython world-entry trace summary ===
+Hook log: D:\SWTORClassic\swtoremu\nexusclient\nexusclient\nexus_hook.log
+Correlated field-copy contexts (not VM calls): 0
+Correlated replicated-field samples: 0
+Observed player-field reads: 0
+WARNING: No target player-field reads were observed. This means the client did not naturally call the traced getter for
+ these fields during the captured interval; it does not establish their runtime values.
+Loading-screen GOM lookups: 0
+WARNING: No loading-screen GOM lookup matched. Confirm loading-screen trace=enabled at client startup.
+WARNING: No outbound RPC operations were captured.
+Event dispatcher:
+  class 1, handler RVA 0x007D6550: 12 samples, 11 payload fingerprints
+Event-dispatch direct callers:
+  RVA 0x00000000: 12
+Class-1 runtime recipients:
+  recipient 0A570D50, method RVA 0x00242A20: 12 calls
+Inbound SMSG_RESULTS fields decoded: 0 (field 1: 0, field 2: 0)
+Inbound SMSG_RESULTS handler entries: 0
+Client activation boundaries: OnEnter=0, state-receiver=0, scoped script-lookups=0
+Loading-screen timer accesses: 0
+WARNING:   The On Enter RPC batch did not reach its client callback.
+Server log: D:\SWTORClassic\swtoremu\SharpServer\bin\Debug\NexusToR.log
+  startup bundle emitted: True
+  Omega result replies:    0
+  client disconnected:    True
+Diagnosis:
+  No repeated readiness loop was captured.
+
+[trace] Post-run logs:
+[trace]   D:\SWTORClassic\swtoremu\Diagnostics\last-nexus-hook.log
+[trace]   D:\SWTORClassic\swtoremu\Diagnostics\last-server-out.log
+[trace]   D:\SWTORClassic\swtoremu\Diagnostics\last-compatibility-run.log

@@ -1,0 +1,39 @@
+{
+  "Executable": "D:\\SWTORClassic\\swtoremu\\nexusclient\\nexusclient\\swtor-emu.exe",
+  "ExecutableSHA256": "2b47c25d2937a3df2be727a3224a93d748a5cdfa0f629b1a1c4fdcc163fb8494",
+  "ImageBase": "0x400000",
+  "Listing": "D:\\SWTORClassic\\swtoremu\\Diagnostics\\swtor-disasm.txt",
+  "VerifiedInstructionPrefixes": 2439,
+  "DirectCallReferences": 46,
+  "Strings": {
+    "010BDF48": {
+      "ascii": "_",
+      "utf16": "_Room_Activate"
+    },
+    "01158040": {
+      "ascii": "_",
+      "utf16": "_everywhere_"
+    },
+    "010BFC84": {
+      "ascii": "_",
+      "utf16": "_Room_Transition"
+    },
+    "010BFA00": {
+      "ascii": "A",
+      "utf16": "AreaBlur"
+    },
+    "010BE638": {
+      "ascii": "[",
+      "utf16": "[SETTINGS]"
+    },
+    "010BDCE0": {
+      "ascii": "A",
+      "utf16": "Area"
+    },
+    "0115A950": {
+      "ascii": "E",
+      "utf16": "EnviroScheme"
+    }
+  },
+  "Limits": "Existing dumpbin listing, not fresh decoding. Printed instruction byte prefixes verified; omitted continuation bytes and instruction boundaries not independently decoded. Direct calls only, not all xrefs."
+}

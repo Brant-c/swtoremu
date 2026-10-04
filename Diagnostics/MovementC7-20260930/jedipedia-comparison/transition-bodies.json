@@ -1,0 +1,29 @@
+{
+  "section_base_in_payload": 5231,
+  "dictionary_hashes": {
+    "172": "0x7f34cd54",
+    "173": "0x43a3b07f",
+    "174": "0xbf20a815"
+  },
+  "bodies": {
+    "_NotifyPlayerCanTravel": {
+      "offset": "0x7a40",
+      "bytes": "C3",
+      "instruction": "RET"
+    },
+    "_NotifyChangeAreaRequest": {
+      "offset": "0x7a90",
+      "bytes": "C3",
+      "instruction": "RET"
+    },
+    "_Room_Transition": {
+      "offset": "0x7ac0",
+      "bytes": "83ec04c7042454030000e8fcffffff8b442420890424e8fcffffff85c00f94c00fb6c085d20f98c10fb6c9660f44c884c983c404c3",
+      "calls": [
+        "!HM.TrackLine",
+        "!HM.GetStringLength"
+      ]
+    }
+  },
+  "scope": "Compiled script bodies only; native callbacks and other scripts may have additional behavior."
+}

@@ -1,0 +1,45 @@
+ 128              if (client.ActiveCharacter != null)
+ 129                  client.SendPacket(new HasMail(client.ActiveCharacter._id));
+ 130              client.SendPacket(new AreaRequestRPC(new byte[] { 0xC7, 0x4F, 0x77, 0x41, 0xBD, 0xE7, 0xFF, 0x95, 0x39, 0x02, 0x05, 0x02, 0x05 }));
+ 131              // Taxi experiment. In CONTROL mode the selected ladder rung is merged INTO
+ 132              // awareness set 1 below rather than sent as its own packet.
+ 133              //
+ 134              // The rung fixtures are byte splices of the CAPTURED medcenter droid
+ 135              // record (0x1AC68957EB), which the April client has always rendered.
+ 136              // Rung 0 differs from that capture only by node identity and a 5 m X
+ 137              // offset, so a visible second droid would prove transport, framing and
+ 138              // placement end to end.
+ 139              UInt64[] mergeNodes = AreaServer.TythonTaxi.MergeNodes();
+ 140              if (mergeNodes != null)
+ 141              {
+ 142                  AreaMergedAwareness merged;
+ 143                  AreaMergedAwareness.AreaTaxiRung rung = AreaMergedAwareness.SelectedRung;
+ 144                  // Never let a control experiment take down the whole area startup.
+ 145                  // A previous failure mode was an exception escaping this call, which
+ 146                  // aborted the rest of the bundle: no awareness set 1, no NPCs at all,
+ 147                  // and a player who could not move. Fall back to the untouched set.
+ 148                  try { merged = new AreaMergedAwareness(area, areaID, areaCode, 1,
+ 149                                                          mergeNodes, rung); }
+ 150                  catch (Exception ex)
+ 151                  {
+ 152                      Log.Write(LogLevel.Warning,
+ 153                          "AreaStartupBundle: merged taxi construction failed ({0}); falling back to the captured awareness set 1 unchanged.", ex.Message);
+ 154                      client.SendPacket(new AreaAwarenessEntered(area, areaID, areaCode, 1));
+ 155                      AreaServer.TythonTaxi.LogCloneFailed();
+ 156                      return;
+ 157                  }
+ 158                  client.SendPacket(merged);
+ 159                  AreaServer.TythonTaxi.LogCloneMerged(mergeNodes[0], (int)rung);
+ 160              }
+ 161              else
+ 162              {
+ 163                  AreaServer.TythonTaxi.Initialize(client);
+ 164                  client.SendPacket(new AreaAwarenessEntered(area, areaID, areaCode, 1));
+ 165              }
+ 166              client.SendPacket(CreateOnEnter(characterID));
+ 167              for (int eff = 2; eff <= 8; eff++)
+ 168                  client.SendPacket(new AreaEffEventMessage(area, areaID, areaCode, eff, characterID));
+ 169              for (int crt = 4; crt <= 17; crt++)
+ 170              {
+ 171                  client.SendPacket(new AreaClientReplicationTransaction(area, areaID, areaCode, crt, characterID));
+ 172                  if (crt == 10)

@@ -1,0 +1,6 @@
+PASS roomRegisterPrefix: VA=00B90CF0, 48 exact PE bytes
+PASS roomSelectPrefix: VA=00B91AE0, 48 exact PE bytes
+PASS roomActivatePrefix: VA=00B7C390, 48 exact PE bytes
+PASS pinned April executable identity. No process access.
+PASS triggerStringPrefix: VA=007FE1F0, 48 exact PE bytes
+PASS triggerBooleanPrefix: VA=007FDE70, 48 exact PE bytes

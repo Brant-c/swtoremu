@@ -1,0 +1,54 @@
+[21:33:39] MainHook: WSASend Called [127.0.0.1:20060]
+[21:33:40] TriggerCollisionHook: pid=39120 identity control object=D3201000 param=tython_trooper_hangar result=1 flagsE0=05000481
+[21:33:40] TriggerCollisionHook: pid=39120 identity control object=D3202D20 param=tython_trooper_hangar result=1 flagsE0=05000481
+[21:33:40] TriggerCollisionHook: pid=39120 identity control object=D3202B40 param=tython_trooper_hangar result=1 flagsE0=05000481
+[21:33:40] TriggerCollisionHook: pid=39120 identity control object=D3202960 param=tython_consular_hangar result=1 flagsE0=05000481
+[21:33:40] TriggerCollisionHook: pid=39120 identity control object=D3202780 param=tython_consular_hangar result=1 flagsE0=05000481
+[21:33:40] TriggerCollisionHook: pid=39120 identity control object=D32025A0 param=hyd.location.tython.hearth_stone.suppress_travel_trigger result=1 flagsE0=05000481
+[21:33:40] TriggerCollisionHook: pid=39120 identity control object=D32023C0 param=tython_consular_hangar result=1 flagsE0=05000481
+[21:33:40] TriggerCollisionHook: pid=39120 identity control object=D32021E0 param=tython_knight_hangar result=1 flagsE0=05000481
+[21:33:40] TriggerCollisionHook: pid=39120 identity return object=D33535A0 result=1 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=00000000 collider=EAA9BBD0
+[21:33:40] TriggerCollisionHook: pid=39120 identity return object=D33535A0 transform24=00000007 local2cBits=C27E779A,C0D77F63,C2FDC4F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[21:33:40] TriggerCollisionHook: pid=39120 Collidable enter object=D33535A0 requested=0
+[21:33:40] TriggerCollisionHook: pid=39120 collision before object=D33535A0 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=00000000 collider=EAA9BBD0
+[21:33:40] TriggerCollisionHook: pid=39120 collision before object=D33535A0 transform24=00000007 local2cBits=C27E779A,C0D77F63,C2FDC4F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[21:33:40] TriggerCollisionHook: pid=39120 collision return object=D33535A0 result=1 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=00000000 collider=EAA9BBD0
+[21:33:40] TriggerCollisionHook: pid=39120 collision return object=D33535A0 transform24=00000007 local2cBits=C27E779A,C0D77F63,C2FDC4F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[21:33:40] TriggerCollisionHook: pid=39120 identity return object=D33533C0 result=1 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=00000000 collider=EAA9BCC0
+[21:33:40] TriggerCollisionHook: pid=39120 identity return object=D33533C0 transform24=00000007 local2cBits=C280D03B,C0D1999A,C2FF77E9 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[21:33:40] TriggerCollisionHook: pid=39120 Collidable enter object=D33533C0 requested=0
+[21:33:40] TriggerCollisionHook: pid=39120 collision before object=D33533C0 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=00000000 collider=EAA9BCC0
+[21:33:40] TriggerCollisionHook: pid=39120 collision before object=D33533C0 transform24=00000007 local2cBits=C280D03B,C0D1999A,C2FF77E9 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[21:33:40] TriggerCollisionHook: pid=39120 collision return object=D33533C0 result=1 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=00000000 collider=EAA9BCC0
+[21:33:40] TriggerCollisionHook: pid=39120 collision return object=D33533C0 transform24=00000007 local2cBits=C280D03B,C0D1999A,C2FF77E9 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[21:33:40] TriggerCollisionHook: pid=39120 identity return object=D3354960 result=1 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=00000000 collider=EAA97FC0
+[21:33:40] TriggerCollisionHook: pid=39120 identity return object=D3354960 transform24=00000007 local2cBits=C2632944,C10700D2,C2F42ACE collider2c=01010101 paramHash=FF5F184AAA9ECE77
+[21:33:40] TriggerCollisionHook: pid=39120 Collidable enter object=D3354960 requested=0
+[21:33:40] TriggerCollisionHook: pid=39120 collision before object=D3354960 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=00000000 collider=EAA97FC0
+[21:33:40] TriggerCollisionHook: pid=39120 collision before object=D3354960 transform24=00000007 local2cBits=C2632944,C10700D2,C2F42ACE collider2c=01010101 paramHash=FF5F184AAA9ECE77
+[21:33:40] TriggerCollisionHook: pid=39120 collision return object=D3354960 result=1 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=00000000 collider=EAA97FC0
+[21:33:40] TriggerCollisionHook: pid=39120 collision return object=D3354960 transform24=00000007 local2cBits=C2632944,C10700D2,C2F42ACE collider2c=01010101 paramHash=FF5F184AAA9ECE77
+[21:33:40] TriggerCollisionHook: pid=39120 identity return object=D33543C0 result=1 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=00000000 collider=EAA95150
+[21:33:40] TriggerCollisionHook: pid=39120 identity return object=D33543C0 transform24=00000007 local2cBits=C27F0034,C0D4C3CA,C2FE15F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[21:33:40] TriggerCollisionHook: pid=39120 Collidable enter object=D33543C0 requested=0
+[21:33:40] TriggerCollisionHook: pid=39120 collision before object=D33543C0 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=00000000 collider=EAA95150
+[21:33:40] TriggerCollisionHook: pid=39120 collision before object=D33543C0 transform24=00000007 local2cBits=C27F0034,C0D4C3CA,C2FE15F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[21:33:40] TriggerCollisionHook: pid=39120 collision return object=D33543C0 result=1 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=00000000 collider=EAA95150
+[21:33:40] TriggerCollisionHook: pid=39120 collision return object=D33543C0 transform24=00000007 local2cBits=C27F0034,C0D4C3CA,C2FE15F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[21:33:41] MainHook: WSASend Called [127.0.0.1:20060]
+[21:33:41] MainHook: WSARecv Called [127.0.0.1:20060]
+[21:33:41] MainHook: WSARecv Called [127.0.0.1:20060]
+[21:33:41] MainHook: WSASend Called [127.0.0.1:20060]
+[21:33:41] MainHook: WSARecv Called [127.0.0.1:20060]
+[21:33:41] MainHook: WSASend Called [127.0.0.1:20060]
+[21:33:41] MainHook: WSARecv Called [127.0.0.1:20060]
+[21:33:41] MainHook: WSARecv Called [127.0.0.1:20060]
+[21:33:42] MainHook: WSASend Called [127.0.0.1:20060]
+[21:33:44] MainHook: WSASend Called [127.0.0.1:20060]
+[21:33:44] MainHook: WSARecv Called [127.0.0.1:20060]
+[21:33:44] MainHook: WSASend Called [127.0.0.1:20060]
+[21:33:44] MainHook: WSARecv Called [127.0.0.1:20060]
+[21:33:44] EventDispatchHook: class=1 count=2 caller=F04464C4 callerRva=0x00000000 envelope=EB6CFA20 payload=EB6CFA34 logicalLen=15 hash=0x2706BD54 changed=1 manager=F3CB1CBC vtable=00EF5AD4 handler=00A06550 handlerRva=0x007D6550 bytes=B8 E0 E9 00 00 04 00 00 00 00 00 00 0F 00 00 00 50 FA 6C EB 05 00 00 00 00 00 00 00 C7 71 C3 79 12 5B 66 8E A0 06 04 74 72 75 65 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7AF0543A>7AF04E0F
+[21:33:44] Class1BridgeHook: phase=enter recipient=0A5D0D50 vtable=00F6F108 method=00472A20 methodRva=0x00242A20 unused=00000001 payload=EB6CFA34
+[21:33:44] Class1BridgeHook: phase=return recipient=0A5D0D50 payload=EB6CFA34
+[21:33:44] MainHook: WSASend Called [127.0.0.1:20060]

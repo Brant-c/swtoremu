@@ -1,0 +1,7 @@
+Opt-in RequestWorldFadeIn gate observer is missing.
+At D:\SWTORClassic\swtoremu\Diagnostics\Test-WorldEntryOffline.ps1:39 char:5
++     throw 'Opt-in RequestWorldFadeIn gate observer is missing.'
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Opt-in RequestW...ver is missing.:String) [], RuntimeException
+    + FullyQualifiedErrorId : Opt-in RequestWorldFadeIn gate observer is missing.
+ 

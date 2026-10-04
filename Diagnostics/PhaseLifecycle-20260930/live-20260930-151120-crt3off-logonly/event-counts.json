@@ -1,0 +1,10 @@
+{
+  "PhaseDestroyEnter": 1,
+  "PhaseDestroyReturn": 1,
+  "NestedGateway": 0,
+  "PlayerPhaseCreate": 0,
+  "PlayerPhaseDestroy": 0,
+  "DestroySHA256": "2F816FE78E5A1C9983D2E151EB705E079AF4A323B4FE8F0559DE0B186766E5DF",
+  "FullLogs": "D:\\SWTORClassic\\swtoremu\\Diagnostics\\DoorwayControl-20260930\\phase-lifecycle-crt3off-blocked-20260930-152018-571",
+  "Operator": "walked to wall ran into it for a second and still stuck"
+}

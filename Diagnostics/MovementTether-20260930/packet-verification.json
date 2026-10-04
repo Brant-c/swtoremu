@@ -1,0 +1,66 @@
+[
+  {
+    "packet": "packet-4000010E218A839B-19-False.bin",
+    "stream": 1790000,
+    "selectedField": 206,
+    "objects": 1,
+    "bytes": 101,
+    "fullyConsumed": true
+  },
+  {
+    "packet": "packet-4000010E218A839B-19-True.bin",
+    "stream": 1790001,
+    "selectedField": 25,
+    "objects": 2,
+    "bytes": 143,
+    "fullyConsumed": true
+  },
+  {
+    "packet": "packet-4000010E218A839B-8-False.bin",
+    "stream": 1789998,
+    "selectedField": 206,
+    "objects": 1,
+    "bytes": 101,
+    "fullyConsumed": true
+  },
+  {
+    "packet": "packet-4000010E218A839B-8-True.bin",
+    "stream": 1789999,
+    "selectedField": 25,
+    "objects": 2,
+    "bytes": 143,
+    "fullyConsumed": true
+  },
+  {
+    "packet": "packet-4000010E218A839C-19-False.bin",
+    "stream": 1790004,
+    "selectedField": 206,
+    "objects": 1,
+    "bytes": 101,
+    "fullyConsumed": true
+  },
+  {
+    "packet": "packet-4000010E218A839C-19-True.bin",
+    "stream": 1790005,
+    "selectedField": 25,
+    "objects": 2,
+    "bytes": 143,
+    "fullyConsumed": true
+  },
+  {
+    "packet": "packet-4000010E218A839C-8-False.bin",
+    "stream": 1790002,
+    "selectedField": 206,
+    "objects": 1,
+    "bytes": 101,
+    "fullyConsumed": true
+  },
+  {
+    "packet": "packet-4000010E218A839C-8-True.bin",
+    "stream": 1790003,
+    "selectedField": 25,
+    "objects": 2,
+    "bytes": 143,
+    "fullyConsumed": true
+  }
+]

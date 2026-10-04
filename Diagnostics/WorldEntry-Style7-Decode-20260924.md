@@ -1074,3 +1074,111 @@ yet.  Node ids and class ids printed before that offset are read from the record
 header and remain valid; the tool reports the stop rather than mis-parsing the
 remaining bytes.
 
+## 2026-09-28: phase-boundary semantic run enabled
+
+The earlier controlled client run accepted the matched reconstructed CRT1/CRT3
+pair without a serialization error and rendered the world plus quest NPC. The
+normal Tython trace launcher now enables that same pair through
+`SWTOR_ENABLE_UNVERIFIED_CRT3=1` and
+`SWTOR_CRT_OVERRIDE_DIRECTORY=Diagnostics\GeneratedPhaseCandidate`.
+
+The loading-continuation fallback remains enabled. This run therefore tests
+only whether a valid `phsPlayerPhaseData` object restores gateway/boundary and
+phase-exit behavior; it does not reintroduce the already isolated final-loading
+stall. Expected evidence is either a usable gateway/exit or a new phase RPC
+when the player approaches or crosses the boundary. If neither occurs, the
+next missing input is likely gateway/phase-instance state rather than basic
+player phase-data construction.
+
+### Result of the first semantic run
+
+The reconstructed CRT1/CRT3 pair was emitted with the expected hashes and the
+client entered the world normally. Repeated attempts to walk through the phase
+door produced movement traffic only. There was no phase join, leave, continue,
+or transition request for the server to answer. The collision wall beyond the
+door is therefore a consequence of the client never beginning the phase-exit
+transition, not the primary blocker.
+
+The next run enables the focused `HeroClass::getField` observer for
+`phsCurrentInstanceNameID`, `phsActiveInstances`, `phsActivePhaseData`,
+`phsPhase`, `phsPhasedInstanceToTrigger`, `phsGatewayList`, and `phsPhases`.
+This should show whether the doorway path lacks a current-instance assignment,
+an active instance, or a gateway-to-trigger mapping.
+
+The run produced no reads for those fields: like the ability modal path, these
+phase scripts use compiled offsets and bypass the generic getter. The apparent
+`0x852644E5` RPC occurred in the startup burst before world control was
+returned, not during the later doorway attempts. Once in-world, repeated door
+approaches generated movement updates only: no gateway script dispatch and no
+phase-exit RPC. This localizes the failure ahead of RPC construction, most
+likely to active `phsPhasedInstance`/gateway attachment or its eligibility
+state. The next evidence required is the listed client script implementations
+for `phsGateway`, `phsPhasedInstance`, and their phase-info dependencies.
+
+### Concrete phased-instance proof and CRT4 candidate
+
+The extracted scripts close that question:
+
+- `phsGateway.TriggerEnter` resolves the doorway's stable `TriggerParam`
+  through `$PHASE.GetPhasedInstanceNode`; it does nothing when that lookup has
+  no active instance.
+- `phsPhasedInstance.OnReplicationNodeCreate` registers
+  `$PHASE.phsActiveInstances[Me.phsNameID]`, scans the already-created type-4
+  triggers, and attaches `phsGateway` to the matching trigger.
+- `phsClassPhasedInstance.DeterminePhaseEligibility` returns `phsCanExit` when
+  the player's current phase-info points back to that instance.
+- CRT4 creates phase-info node `0x1AC6F6DC1F` with parent `0x1AC688C97E`.
+  Decoding CRT1's schema-bounded trailing transaction (which the earlier
+  `--dump-objects` mode skipped) shows that CRT1 does create this parent—but it
+  does so before Awareness 1 creates the doorway triggers. Its create handler
+  therefore has no matching trigger to attach at that point.
+
+The authoritative CRT1 record identifies the instance as
+`phs.tyt_jedi_knight_masters_retreat` (`0xE000E8E230304F84`). April prototype
+data confirms its exit map note, Hydra condition script, phase name ID, and
+Jedi Knight class requirement. Captured structure 3 is
+`phsClassPhasedInstance`; the record carries three exact
+`phsPhasedInstanceToAnchor` mappings and its exact `hydRunScriptProtoId`.
+
+`Generate-MatchedPhaseCrtCandidate.py` now produces an isolated CRT4 override
+that relocates the exact 87-byte record from CRT1 to the first CRT4 record.
+CRT1's trailing object count changes from 53 to 52; CRT4's changes from 11 to
+12. All record bytes, including anchors, Hydra script, value sizes, and state
+bits, are unchanged, and both resulting transactions walk exactly to their
+ends. This placement is intentional: Awareness 1 creates the area triggers
+before CRT4, while the existing phase-info child is created later in CRT4. The
+next live run tests whether the reordered create handler attaches the doorway
+and initiates the real exit path.
+
+### Doorway retry result and corrected room-stream boundary
+
+The CRT4 relocation was accepted without a serialization or script error, but
+the gateway still did not fire. Repeated approaches and retreats at the phase
+door produced only movement/state packets; there was no `CMsgF96DCDB0` gateway
+RPC. This proves the failure remains before server-side eligibility handling.
+
+The April Tython area data identifies the exact static engine trigger in room
+`gnarls_new`: instance `4611686037462170014`, `TriggerClassType` equal to
+`INSTANCE_GATEWAY`, `TriggerParam` equal to
+`tyt_jedi_knight_masters_retreat`, and position
+`(-63.6167984009,-6.73430013657,-126.88469696)`. Its parameter corresponds to
+the active phase ID `0xFF5F184AAA9ECE77`.
+
+Awareness 1 creates 35 `hydTriggerEntity` nodes only; it does not establish
+this static gateway. Awareness 2, sent after CRT10, creates the `gnarls_new`
+room object. Therefore CRT4 was still too early. The diagnostic generator now
+removes the exact phase-info child from CRT4 and emits the unchanged 87-byte
+phase-instance record followed by the unchanged 48-byte child record at the
+front of CRT11, immediately after Awareness 2. This preserves parent-before-
+child order while rerunning `OnReplicationNodeCreate` after the room gateway
+has been streamed.
+
+The subsequent out/in/out live test produced unchanged behavior and no
+doorway-correlated gateway RPC. CRT11 was accepted without a script or native
+exception, so replication order alone is now ruled out as a sufficient fix.
+The complete checkpoint, preserved log hashes, confirmed trigger data, and
+ranked next steps are in `Diagnostics/PhaseExit-Checkpoint-20260928.md`.
+
+
+
+2026-09-30 correction: native style7 class field states are ONE bit per field; style8 TWO bits. Previous shared two-bit decoder invalidates style7 field-selection reports. Explicit style support and main/dump callers corrected. Old phase-clear style7 mask selected51 chrCurrentInteraction, not25 phsPhase. Serializer now style8, one-byte change only, opt-in. Experiment14 prepared; native regression and relevant packet tests pass, existing fade-in observer offline failure remains. Live outcome pending. See Diagnostics/PhaseFormat-20260930/FINDING.md.

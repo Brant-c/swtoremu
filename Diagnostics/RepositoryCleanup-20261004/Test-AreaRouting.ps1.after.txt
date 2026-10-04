@@ -1,0 +1,1 @@
+PASS: area source 65B3, dynamic destinations 8/19, intact character payload, unattached rejection, all 11 legacy area packets use shared routing.

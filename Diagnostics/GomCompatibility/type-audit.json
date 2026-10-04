@@ -1,0 +1,24 @@
+{
+  "field_count": 10014,
+  "incompatible_field_count": 1,
+  "affected_class_count": 1,
+  "incompatible_fields": [
+    {
+      "id": "4611686316368904000",
+      "name": "",
+      "file_offset": 579400,
+      "type_hex": "08011803010202",
+      "status": "incompatible",
+      "reason": "Unsupported type 24 at root.value, byte 2"
+    }
+  ],
+  "affected_classes": [
+    {
+      "id": "4611690223225570000",
+      "name": "",
+      "incompatible_fields": [
+        "4611686316368904000"
+      ]
+    }
+  ]
+}

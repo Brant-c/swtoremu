@@ -1,0 +1,91 @@
+[
+  {
+    "name": "chrLocoAnim_PreAnimUpdate_CPP",
+    "hash": "0xd97553ea",
+    "source": "Jedipedia chrBehaviorClassMethods / chrStandDebugClassMethods dictionaries, April1.2.0",
+    "refs": [
+      {
+        "va": "0xafa53c",
+        "context": "8bf85756e8e7f0ffff6a0068ea5375d98bd8e8c9e9abff83c4146820a4af0089"
+      }
+    ]
+  },
+  {
+    "name": "GetBehaveMoveVector_w",
+    "hash": "0x9e01f9a0",
+    "source": "Jedipedia chrBehaviorClassMethods / chrStandDebugClassMethods dictionaries, April1.2.0",
+    "refs": [
+      {
+        "va": "0xc1d3d2",
+        "context": "8bf85756e801c7edff6a0068a0f9019e8bd8e833bb99ff83c41468e0a2c10089"
+      }
+    ]
+  },
+  {
+    "name": "GetBehaveActionTransformer_w",
+    "hash": "0x32d34133",
+    "source": "Jedipedia chrBehaviorClassMethods / chrStandDebugClassMethods dictionaries, April1.2.0",
+    "refs": [
+      {
+        "va": "0xc2cc5c",
+        "context": "8bf85756e8875efdff6a00683341d3328bd8e8a9c298ff83c41468b04ec20089"
+      }
+    ]
+  },
+  {
+    "name": "BehaviorPostAnimUpdate",
+    "hash": "0xeeed7b75",
+    "source": "Jedipedia chrBehaviorClassMethods / chrStandDebugClassMethods dictionaries, April1.2.0",
+    "refs": []
+  },
+  {
+    "name": "BehaviorFinalAnimUpdate",
+    "hash": "0xd742e6a9",
+    "source": "Jedipedia chrBehaviorClassMethods / chrStandDebugClassMethods dictionaries, April1.2.0",
+    "refs": []
+  },
+  {
+    "name": "GetCharacterColliderBounds_o",
+    "hash": "0x103589fd",
+    "source": "Jedipedia chrBehaviorClassMethods / chrStandDebugClassMethods dictionaries, April1.2.0",
+    "refs": [
+      {
+        "va": "0xc1dba0",
+        "context": "8bf85756e8434ffeff6a0068fd8935108bd8e865b399ff83c4146890aac10089"
+      }
+    ]
+  },
+  {
+    "name": "GetCharacterGroundingBounds_o",
+    "hash": "0x5bbe1820",
+    "source": "Jedipedia chrBehaviorClassMethods / chrStandDebugClassMethods dictionaries, April1.2.0",
+    "refs": [
+      {
+        "va": "0xc1dbd6",
+        "context": "8bf85756e8bdedffff6a00682018be5b8bd8e82fb399ff83c4146870abc10089"
+      }
+    ]
+  },
+  {
+    "name": "GetCharacterSlopeThreshold",
+    "hash": "0xced9bda4",
+    "source": "Jedipedia chrBehaviorClassMethods / chrStandDebugClassMethods dictionaries, April1.2.0",
+    "refs": [
+      {
+        "va": "0xc1d5b8",
+        "context": "8bf85756e8cbc3edff6a0068a4bdd9ce8bd8e84db999ff83c4146800a5c10089"
+      }
+    ]
+  },
+  {
+    "name": "GetSupportingSurface",
+    "hash": "0x9478901d",
+    "source": "Jedipedia chrBehaviorClassMethods / chrStandDebugClassMethods dictionaries, April1.2.0",
+    "refs": [
+      {
+        "va": "0xc19698",
+        "context": "8bf85756e8fbf7ffff6a00681d9078948bd8e86df899ff83c41468e050c10089"
+      }
+    ]
+  }
+]

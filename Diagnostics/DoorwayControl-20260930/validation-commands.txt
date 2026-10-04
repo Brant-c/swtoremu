@@ -1,0 +1,5 @@
+Build command (before and after, with respective output/intermediate paths):
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\MSBuild.exe SharpServer/NexusToRServer.csproj /t:Build /p:Configuration=Debug /p:Platform=x86 /p:OutputPath=<this-folder>/build/ /p:IntermediateOutputPath=<this-folder>/obj/ /v:minimal
+Test command:
+C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -File Diagnostics/Test-<name>.ps1 -AssemblyPath <this-folder>/build/NexusToRServer.exe
+Before uses before-build and before-obj. PacketWorkbench omits AssemblyPath.

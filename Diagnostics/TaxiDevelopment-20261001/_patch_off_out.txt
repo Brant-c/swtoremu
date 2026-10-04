@@ -1,0 +1,5 @@
+  AreaTaxiAwareness.cs     Offsets = { 6,108,114,120,126,484,500,529,536,552,582,598,628,644 }
+  AreaTaxiAwareness.cs     FixtureBytes = 675
+  AreaMergedAwareness.cs   Offsets = { 6, 108, 114, 120, 126, 484, 500, 529, 536, 552, 582, 598, 
+  AreaMergedAwareness.cs   RungBytes = { 675, 677 }
+  AreaMergedAwareness.cs   -- an 8-byte change out of 675 that keeps the taxi template,

@@ -1,0 +1,500 @@
+[2026-09-30 21:33:59] CapturedCharacterRemap: Character fixture remap [CRT 9]: 1 packed + 0 little-endian references, 4000010E218A839C->4000010E218A839B.
+[2026-09-30 21:33:59] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-30 21:33:59] CRT: CRT emit [tython_blockout-4611686019869492753-1.10.acrt] bytes=621 sha256=2191ff1a7c8440ec003e1a3bc82f98241e3ec0741802519c27587d9539617185
+[2026-09-30 21:33:59] CapturedCharacterRemap: Character fixture remap [CRT 10]: 1 packed + 0 little-endian references, 4000010E218A839C->4000010E218A839B.
+[2026-09-30 21:33:59] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-30 21:33:59] TORGameServerPacket: Constructing Packet [AreaAwarenessEntered]
+[2026-09-30 21:33:59] CRT: CRT emit [tython_blockout-4611686019869492753-1.11.acrt] bytes=621 sha256=1faccc880f0951a00e1a007b30d08debcbab6881e4d5d10caad1716db08e53f3
+[2026-09-30 21:33:59] CapturedCharacterRemap: Character fixture remap [CRT 11]: 1 packed + 0 little-endian references, 4000010E218A839C->4000010E218A839B.
+[2026-09-30 21:33:59] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-30 21:33:59] CRT: CRT emit [tython_blockout-4611686019869492753-1.12.acrt] bytes=26 sha256=0f0e635c88fa30a07c54df6ccfd53e049d477a15c267386b617b4eab070dffbf
+[2026-09-30 21:33:59] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-30 21:33:59] CRT: CRT emit [tython_blockout-4611686019869492753-1.13.acrt] bytes=622 sha256=cc534454fa56e73e8e3cbd980ef1aa165ed18fc442d58ea1cab59d8d525fc762
+[2026-09-30 21:33:59] CapturedCharacterRemap: Character fixture remap [CRT 13]: 1 packed + 0 little-endian references, 4000010E218A839C->4000010E218A839B.
+[2026-09-30 21:33:59] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-30 21:33:59] CRT: CRT emit [tython_blockout-4611686019869492753-1.14.acrt] bytes=621 sha256=afb3b9a7e3a9cb881041e1c885b0c5388818ac607abd3de22f0ef6260c16de5d
+[2026-09-30 21:33:59] CapturedCharacterRemap: Character fixture remap [CRT 14]: 1 packed + 0 little-endian references, 4000010E218A839C->4000010E218A839B.
+[2026-09-30 21:33:59] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-30 21:33:59] CRT: CRT emit [tython_blockout-4611686019869492753-1.15.acrt] bytes=621 sha256=b025481633398f6296854280de65fc00b02e973120a84665f46fbdf3de6e83ca
+[2026-09-30 21:33:59] CapturedCharacterRemap: Character fixture remap [CRT 15]: 1 packed + 0 little-endian references, 4000010E218A839C->4000010E218A839B.
+[2026-09-30 21:33:59] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-30 21:33:59] CRT: CRT emit [tython_blockout-4611686019869492753-1.16.acrt] bytes=621 sha256=3695b16c150aec27354d1848e23018e6e0d70d8040299111240032e528bacd9f
+[2026-09-30 21:33:59] CapturedCharacterRemap: Character fixture remap [CRT 16]: 1 packed + 0 little-endian references, 4000010E218A839C->4000010E218A839B.
+[2026-09-30 21:33:59] AreaClientReplicationTransaction: CRT16: single-field staMobilityFree record; the captured field-100 stat map is dropped here and still delivered by CRT17.
+[2026-09-30 21:33:59] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-30 21:33:59] CRT: CRT emit [tython_blockout-4611686019869492753-1.17.acrt] bytes=736 sha256=540ca26f451d44bd6e7fce688ebd45f4f8caf7f7362a8bb7d3d668519900a790
+[2026-09-30 21:33:59] CapturedCharacterRemap: Character fixture remap [CRT 17]: 1 packed + 0 little-endian references, 4000010E218A839C->4000010E218A839B.
+[2026-09-30 21:33:59] AreaClientReplicationTransaction: CRT17: DIAGNOSTIC statmap variant, modMetaStatComputed_Shared and chrPlayerLoaded=true only; staMobility is NOT delivered.
+[2026-09-30 21:33:59] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-30 21:33:59] AreaStartupBundle: AreaStartupBundle: area startup sent; area=(tython_blockout)/(4611686019869492753)/(1).
+[2026-09-30 21:33:59] AreaModulesList: AreaModulesList: startup bundle sent (startupSent=True).
+[2026-09-30 21:33:59] TORGamePacketHandler: Received a packet [CMsgCCACB51D]
+[2026-09-30 21:33:59] TORGamePacketHandler: CMsgCCACB51D rx    1D B5 AC CC 08 00 B3 65 30 00 00 00 27 62 12 89 25 C1 | .......e0...'b..%.
+   8B 78 F2 69 B3 08 60 CC 61 3A FB DD C4 1E AB 90 14 EA | .x.i..`.a:........
+   76 EC 25 F1 D9 A8 0A B0 AB 05 3E 1C 9D B6 04 00 CC 2B | v.%.......>......+
+   45 93 31 F8 32 14                                     | E.1.2.
+
+[2026-09-30 21:33:59] AreaPollExperiment: AREA-POLL CMsgCCACB51D: component=0x65B30008 len=52 placed=4611687178631283611 areaSvc=8 mode=Swallow body=30-00-00-00-27-62-12-89-25-C1-8B-78-F2-69-B3-08-60-CC-61-3A-FB-DD-C4-1E-AB-90-14-EA-76-EC-25-F1-D9-A8-0A-B0-AB-05-3E-1C-9D-B6-04-00-CC-2B-45-93-31-F8-32-14
+[2026-09-30 21:33:59] AreaPollExperiment: AREA-POLL CMsgCCACB51D: decision=swallowed
+[2026-09-30 21:33:59] TORGamePacketHandler: Received a packet [CMsgF96DCDB0]
+[2026-09-30 21:34:00] TORGamePacketHandler: CMsgF96DCDB0 rx    B0 CD 6D F9 08 00 B3 65 09 00 00 00 C7 71 C3 79 12 2C | ..m....e.....q.y.,
+   EF 39 EF                                              | .9.
+
+[2026-09-30 21:34:00] AreaPollExperiment: AREA-POLL CMsgF96DCDB0: component=0x65B30008 len=13 placed=4611687178631283611 areaSvc=8 mode=Echo sub=09 trueTail=False body=09-00-00-00-C7-71-C3-79-12-2C-EF-39-EF
+[2026-09-30 21:34:00] AreaPollExperiment: AREA-POLL CMsgF96DCDB0: decision=swallowed
+[2026-09-30 21:34:00] TORGamePacketHandler: Received a packet [CMsg4A765897]
+[2026-09-30 21:34:00] TORGamePacketHandler: CMsg4A765897 rx    97 58 76 4A 09 00 AC 65 09 00 00 00 CF 6F 6F 2E 93 B7 | .XvJ...e.....oo...
+   43 63 6C                                              | Ccl
+
+[2026-09-30 21:34:00] CMsg4A765897: CMsg4A765897: client rpc received (body 13 bytes), swallowed. hex=09-00-00-00-CF-6F-6F-2E-93-B7-43-63-6C
+[2026-09-30 21:34:00] TORGamePacketHandler: Received a packet [CMsgF96DCDB0]
+[2026-09-30 21:34:00] TORGamePacketHandler: CMsgF96DCDB0 rx    B0 CD 6D F9 08 00 B3 65 09 00 00 00 C7 71 C3 79 12 6B | ..m....e.....q.y.k
+   ED 20 CE                                              | . .
+
+[2026-09-30 21:34:00] AreaPollExperiment: AREA-POLL CMsgF96DCDB0: component=0x65B30008 len=13 placed=4611687178631283611 areaSvc=8 mode=Echo sub=09 trueTail=False body=09-00-00-00-C7-71-C3-79-12-6B-ED-20-CE
+[2026-09-30 21:34:00] AreaPollExperiment: AREA-POLL CMsgF96DCDB0: decision=swallowed
+[2026-09-30 21:34:00] TORGamePacketHandler: Received a packet [CMsgF96DCDB0]
+[2026-09-30 21:34:00] TORGamePacketHandler: CMsgF96DCDB0 rx    B0 CD 6D F9 08 00 B3 65 09 00 00 00 C7 71 C3 79 12 F2 | ..m....e.....q.y..
+   40 F5 F5                                              | @..
+
+[2026-09-30 21:34:00] AreaPollExperiment: AREA-POLL CMsgF96DCDB0: component=0x65B30008 len=13 placed=4611687178631283611 areaSvc=8 mode=Echo sub=09 trueTail=False body=09-00-00-00-C7-71-C3-79-12-F2-40-F5-F5
+[2026-09-30 21:34:00] AreaPollExperiment: AREA-POLL CMsgF96DCDB0: decision=swallowed
+[2026-09-30 21:34:00] TORGamePacketHandler: Received a packet [CMsgF96DCDB0]
+[2026-09-30 21:34:00] TORGamePacketHandler: CMsgF96DCDB0 rx    B0 CD 6D F9 08 00 B3 65 15 00 00 00 C7 71 C3 79 12 CC | ..m....e.....q.y..
+   27 D5 17 02 C7 1C 1C E7 85 B2 80 36 8E 03 00          | '..........6...
+
+[2026-09-30 21:34:00] AreaPollExperiment: AREA-POLL CMsgF96DCDB0: component=0x65B30008 len=25 placed=4611687178631283611 areaSvc=8 mode=Echo sub=15 trueTail=False body=15-00-00-00-C7-71-C3-79-12-CC-27-D5-17-02-C7-1C-1C-E7-85-B2-80-36-8E-03-00
+[2026-09-30 21:34:00] AreaPollExperiment: AREA-POLL CMsgF96DCDB0: decision=swallowed
+[2026-09-30 21:34:00] TORGamePacketHandler: Received a packet [CMsgF96DCDB0]
+[2026-09-30 21:34:00] TORGamePacketHandler: CMsgF96DCDB0 rx    B0 CD 6D F9 08 00 B3 65 15 00 00 00 C7 71 C3 79 12 CC | ..m....e.....q.y..
+   27 D5 17 02 C7 53 67 7E EB A7 AD 4C 60 03 00          | '....Sg~...L`..
+
+[2026-09-30 21:34:00] AreaPollExperiment: AREA-POLL CMsgF96DCDB0: component=0x65B30008 len=25 placed=4611687178631283611 areaSvc=8 mode=Echo sub=15 trueTail=False body=15-00-00-00-C7-71-C3-79-12-CC-27-D5-17-02-C7-53-67-7E-EB-A7-AD-4C-60-03-00
+[2026-09-30 21:34:00] AreaPollExperiment: AREA-POLL CMsgF96DCDB0: decision=swallowed
+[2026-09-30 21:34:00] TORGamePacketHandler: Received a packet [CMsgF96DCDB0]
+[2026-09-30 21:34:00] TORGamePacketHandler: CMsgF96DCDB0 rx    B0 CD 6D F9 08 00 B3 65 15 00 00 00 C7 71 C3 79 12 CC | ..m....e.....q.y..
+   27 D5 17 02 CF 4B 8B 68 67 5C 82 05 D4 03 00          | '....K.hg\.....
+
+[2026-09-30 21:34:00] AreaPollExperiment: AREA-POLL CMsgF96DCDB0: component=0x65B30008 len=25 placed=4611687178631283611 areaSvc=8 mode=Echo sub=15 trueTail=False body=15-00-00-00-C7-71-C3-79-12-CC-27-D5-17-02-CF-4B-8B-68-67-5C-82-05-D4-03-00
+[2026-09-30 21:34:00] AreaPollExperiment: AREA-POLL CMsgF96DCDB0: decision=swallowed
+[2026-09-30 21:34:00] TORGamePacketHandler: Received a packet [CMsgF96DCDB0]
+[2026-09-30 21:34:00] TORGamePacketHandler: CMsgF96DCDB0 rx    B0 CD 6D F9 08 00 B3 65 0B 00 00 00 CF 14 63 F5 32 F5 | ..m....e......c.2.
+   5F 35 EB 02 96                                        | _5...
+
+[2026-09-30 21:34:00] AreaPollExperiment: AREA-POLL CMsgF96DCDB0: component=0x65B30008 len=15 placed=4611687178631283611 areaSvc=8 mode=Echo sub=0B trueTail=False body=0B-00-00-00-CF-14-63-F5-32-F5-5F-35-EB-02-96
+[2026-09-30 21:34:00] AreaPollExperiment: AREA-POLL CMsgF96DCDB0: decision=swallowed
+[2026-09-30 21:34:00] TORGamePacketHandler: Received a packet [CMsgC586BD22]
+[2026-09-30 21:34:00] TORGamePacketHandler: CMsgC586BD22 rx    22 BD 86 C5 08 00 B3 65 01 00 00 00                   | "......e....
+
+[2026-09-30 21:34:00] CMsgC586BD22: CMsgC586BD22: component=0x65B30008 len=4 body=01-00-00-00
+[2026-09-30 21:34:00] CMsgC586BD22: CMsgC586BD22: observed area message; no synthetic response sent.
+[2026-09-30 21:34:00] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-30 21:34:00] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-30 21:34:00] RepositoryDataRequest: Repository asset unavailable: request=103, path='/art/fx/fxspec/0.fxspec'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-30 21:34:00] TORGamePacketHandler: Received a packet [CMsg61116AD5]
+[2026-09-30 21:34:00] TORGamePacketHandler: CMsg61116AD5 rx    D5 6A 11 61 08 00 B3 65 C5 00 00 00 1A 00 B4 C2 8A BF | .j.a...e..........
+   81 C2 C3 FF DC C0 8D 57 FF C2 2D 50 1B 00 00 00 00 00 | .......W..-P......
+   06 37 CF 25 38 0C 00 00                               | .7.%8...
+
+[2026-09-30 21:34:00] AreaPollExperiment: AREA-POLL CMsg61116AD5: component=0x65B30008 len=36 placed=4611687178631283611 areaSvc=8 mode=Swallow body=C5-00-00-00-1A-00-B4-C2-8A-BF-81-C2-C3-FF-DC-C0-8D-57-FF-C2-2D-50-1B-00-00-00-00-00-06-37-CF-25-38-0C-00-00
+[2026-09-30 21:34:00] AreaPollExperiment: AREA-POLL CMsg61116AD5: decision=swallowed
+[2026-09-30 21:34:00] PhaseExit: PhaseExit: tracking move state; first position (-64.874, -6.906, -127.671), doorway X = -63.00.
+[2026-09-30 21:34:00] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-30 21:34:00] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-30 21:34:00] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-30 21:34:00] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-30 21:34:00] RepositoryDataRequest: Repository asset unavailable: request=104, path='/art/shaders/materials/speedtree_collision.mat'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-30 21:34:00] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-30 21:34:00] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-30 21:34:00] TORGamePacketHandler: Received a packet [CMsgC26464A9]
+[2026-09-30 21:34:00] AreaPollExperiment: AREA-POLL CMsgC26464A9: component=0x65AB0007 len=43 placed=4611687178631283611 areaSvc=8 mode=Swallow body=27-00-00-00-CD-80-61-31-20-00-00-00-00-00-00-00-00-CF-AC-41-D7-0D-00-00-00-00-00-00-00-00-CD-80-61-31-1A-00-00-00-00-00-00-00-00
+[2026-09-30 21:34:00] AreaPollExperiment: AREA-POLL CMsgC26464A9: decision=swallowed
+[2026-09-30 21:34:01] TORGamePacketHandler: Received a packet [RepositoryDataRequest]
+[2026-09-30 21:34:01] TORGameServerPacket: Constructing Packet [RepositoryDataNotFound]
+[2026-09-30 21:34:01] RepositoryDataRequest: Repository asset unavailable: request=105, path='/.tex'. Returned FQN NOT FOUND; verify the matching local archives.
+[2026-09-30 21:34:01] TORGamePacketHandler: Received a packet [RepositoryDataReceipt]
+[2026-09-30 21:34:01] RepositoryDataReceipt: Repository resource receipt: value=0.
+[2026-09-30 21:34:01] TORGamePacketHandler: Received a packet [Ping]
+[2026-09-30 21:34:01] TORGameServerPacket: Constructing Packet [Ping]
+[2026-09-30 21:34:01] TORGamePacketHandler: Received a packet [CMsgF96DCDB0]
+[2026-09-30 21:34:01] TORGamePacketHandler: CMsgF96DCDB0 rx    B0 CD 6D F9 08 00 B3 65 09 00 00 00 C7 71 C3 79 12 E5 | ..m....e.....q.y..
+   44 26 85                                              | D&.
+
+[2026-09-30 21:34:01] AreaPollExperiment: AREA-POLL CMsgF96DCDB0: component=0x65B30008 len=13 placed=4611687178631283611 areaSvc=8 mode=Echo sub=09 trueTail=False body=09-00-00-00-C7-71-C3-79-12-E5-44-26-85
+[2026-09-30 21:34:01] AreaPollExperiment: AREA-POLL CMsgF96DCDB0: decision=swallowed
+[2026-09-30 21:34:02] TORGamePacketHandler: Received a packet [ModulesList]
+[2026-09-30 21:34:02] ModulesList: ModulesList: len=12 startupSent=True hex=08-00-00-00-04-00-00-00-00-00-00-00
+[2026-09-30 21:34:03] TORGamePacketHandler: Received a packet [CMsg7CB9A193]
+[2026-09-30 21:34:03] AreaPollExperiment: AREA-POLL CMsg7CB9A193: component=0x65B30008 len=43 placed=4611687178631283611 areaSvc=8 mode=Swallow body=27-00-00-00-A3-82-FD-6C-13-00-00-00-00-00-00-00-00-CF-AC-41-D7-06-00-00-00-00-00-00-00-00-CF-AC-41-D7-19-00-00-00-00-00-00-00-00
+[2026-09-30 21:34:03] AreaPollExperiment: AREA-POLL CMsg7CB9A193: decision=swallowed
+[2026-09-30 21:34:06] TORGamePacketHandler: Received a packet [WorldByteReport]
+[2026-09-30 21:34:06] WorldByteReport: World report 8EB28DE9: component=0x65AB0007 bytes=48 words=[005A3B07,2D34DBCC,6F694685,2B4CB77F,1EC4DDFB,EA1490AB,F125EC76,B00AA8D9,1C3E05AB,0004B69D,93452BCC,1432F831] hex=07-3B-5A-00-CC-DB-34-2D-85-46-69-6F-7F-B7-4C-2B-FB-DD-C4-1E-AB-90-14-EA-76-EC-25-F1-D9-A8-0A-B0-AB-05-3E-1C-9D-B6-04-00-CC-2B-45-93-31-F8-32-14; no synthetic WorldTravelStatus reply sent.
+[2026-09-30 21:34:06] TORGamePacketHandler: Received a packet [HackNotifyData]
+[2026-09-30 21:34:06] TORGamePacketHandler: Received a packet [Ping]
+[2026-09-30 21:34:06] TORGameServerPacket: Constructing Packet [Ping]
+[2026-09-30 21:34:08] TORGamePacketHandler: Received a packet [CMsgCCACB51D]
+[2026-09-30 21:34:08] TORGamePacketHandler: CMsgCCACB51D rx    1D B5 AC CC 08 00 B3 65 30 00 00 00 49 C5 BC 3F FA B9 | .......e0...I..?..
+   64 DB 2F 87 DE D6 7A D3 DA 2D FB DD C4 1E AB 90 14 EA | d./...z..-........
+   76 EC 25 F1 D9 A8 0A B0 AB 05 3E 1C 9D B6 04 00 CC 2B | v.%.......>......+
+   45 93 31 F8 32 14                                     | E.1.2.
+
+[2026-09-30 21:34:08] AreaPollExperiment: AREA-POLL CMsgCCACB51D: component=0x65B30008 len=52 placed=4611687178631283611 areaSvc=8 mode=Swallow body=30-00-00-00-49-C5-BC-3F-FA-B9-64-DB-2F-87-DE-D6-7A-D3-DA-2D-FB-DD-C4-1E-AB-90-14-EA-76-EC-25-F1-D9-A8-0A-B0-AB-05-3E-1C-9D-B6-04-00-CC-2B-45-93-31-F8-32-14
+[2026-09-30 21:34:08] AreaPollExperiment: AREA-POLL CMsgCCACB51D: decision=swallowed
+[2026-09-30 21:34:11] TORGamePacketHandler: Received a packet [Ping]
+[2026-09-30 21:34:11] TORGameServerPacket: Constructing Packet [Ping]
+[2026-09-30 21:34:13] TORGamePacketHandler: Received a packet [AreaModulesList]
+[2026-09-30 21:34:13] AreaPollExperiment: AREA-POLL AreaModulesList: component=0x65B30008 len=12 placed=4611687178631283611 areaSvc=8 mode=Echo body=08-00-00-00-04-00-00-00-00-00-00-00
+[2026-09-30 21:34:13] TORGameServerPacket: Constructing Packet [AreaModulesList]
+[2026-09-30 21:34:13] AreaPollExperiment: AREA-POLL AreaModulesList: decision=echo-reply-sent
+[2026-09-30 21:34:13] AreaModulesList: AreaModulesList: startup bundle already sent; skipped.
+[2026-09-30 21:34:13] TORGamePacketHandler: Received a packet [CMsgC26464A9]
+[2026-09-30 21:34:13] AreaPollExperiment: AREA-POLL CMsgC26464A9: component=0x65AB0007 len=43 placed=4611687178631283611 areaSvc=8 mode=Swallow body=27-00-00-00-D3-AD-AC-A9-27-00-00-00-00-00-00-00-00-CF-AC-41-D7-22-00-00-00-00-00-00-00-00-A3-82-FD-6C-12-00-00-00-00-00-00-00-00
+[2026-09-30 21:34:13] AreaPollExperiment: AREA-POLL CMsgC26464A9: decision=swallowed
+[2026-09-30 21:34:14] TORGamePacketHandler: Received a packet [ModulesList]
+[2026-09-30 21:34:14] ModulesList: ModulesList: len=12 startupSent=True hex=08-00-00-00-04-00-00-00-00-00-00-00
+[2026-09-30 21:34:16] TORGamePacketHandler: Received a packet [WorldByteReport]
+[2026-09-30 21:34:16] WorldByteReport: World report 8EB28DE9: component=0x65AB0007 bytes=48 words=[B9EDE4D9,4A636841,93B5FB3A,C4C86B08,1EC4DDFB,EA1490AB,F125EC76,B00AA8D9,1C3E05AB,0004B69D,93452BCC,1432F831] hex=D9-E4-ED-B9-41-68-63-4A-3A-FB-B5-93-08-6B-C8-C4-FB-DD-C4-1E-AB-90-14-EA-76-EC-25-F1-D9-A8-0A-B0-AB-05-3E-1C-9D-B6-04-00-CC-2B-45-93-31-F8-32-14; no synthetic WorldTravelStatus reply sent.
+[2026-09-30 21:34:16] TORGamePacketHandler: Received a packet [HackNotifyData]
+[2026-09-30 21:34:16] TORGamePacketHandler: Received a packet [Ping]
+[2026-09-30 21:34:16] TORGameServerPacket: Constructing Packet [Ping]
+[2026-09-30 21:34:18] TORGamePacketHandler: Received a packet [CMsgCCACB51D]
+[2026-09-30 21:34:18] TORGamePacketHandler: CMsgCCACB51D rx    1D B5 AC CC 08 00 B3 65 30 00 00 00 A1 DD BA 36 DA 1E | .......e0......6..
+   6C 5D CE 9B AF F7 CA F3 DD FF FB DD C4 1E AB 90 14 EA | l]................
+   76 EC 25 F1 D9 A8 0A B0 AB 05 3E 1C 9D B6 04 00 CC 2B | v.%.......>......+
+   45 93 31 F8 32 14                                     | E.1.2.
+
+[2026-09-30 21:34:18] AreaPollExperiment: AREA-POLL CMsgCCACB51D: component=0x65B30008 len=52 placed=4611687178631283611 areaSvc=8 mode=Swallow body=30-00-00-00-A1-DD-BA-36-DA-1E-6C-5D-CE-9B-AF-F7-CA-F3-DD-FF-FB-DD-C4-1E-AB-90-14-EA-76-EC-25-F1-D9-A8-0A-B0-AB-05-3E-1C-9D-B6-04-00-CC-2B-45-93-31-F8-32-14
+[2026-09-30 21:34:18] AreaPollExperiment: AREA-POLL CMsgCCACB51D: decision=swallowed
+[2026-09-30 21:34:20] TORGamePacketHandler: Received a packet [CMsg7CB9A193]
+[2026-09-30 21:34:20] AreaPollExperiment: AREA-POLL CMsg7CB9A193: component=0x65B30008 len=43 placed=4611687178631283611 areaSvc=8 mode=Swallow body=27-00-00-00-CF-AC-41-D7-05-00-00-00-00-00-00-00-00-CD-80-61-31-1C-00-00-00-00-00-00-00-00-9D-90-CC-B1-09-00-00-00-00-00-00-00-00
+[2026-09-30 21:34:20] AreaPollExperiment: AREA-POLL CMsg7CB9A193: decision=swallowed
+[2026-09-30 21:34:21] TORGamePacketHandler: Received a packet [Ping]
+[2026-09-30 21:34:21] TORGameServerPacket: Constructing Packet [Ping]
+[2026-09-30 21:34:26] TORGamePacketHandler: Received a packet [WorldByteReport]
+[2026-09-30 21:34:26] WorldByteReport: World report 8EB28DE9: component=0x65AB0007 bytes=48 words=[076A030F,11A05ECC,464A8415,29C9B83B,1EC4DDFB,EA1490AB,F125EC76,B00AA8D9,1C3E05AB,0004B69D,93452BCC,1432F831] hex=0F-03-6A-07-CC-5E-A0-11-15-84-4A-46-3B-B8-C9-29-FB-DD-C4-1E-AB-90-14-EA-76-EC-25-F1-D9-A8-0A-B0-AB-05-3E-1C-9D-B6-04-00-CC-2B-45-93-31-F8-32-14; no synthetic WorldTravelStatus reply sent.
+[2026-09-30 21:34:26] TORGamePacketHandler: Received a packet [HackNotifyData]
+[2026-09-30 21:34:26] TORGamePacketHandler: Received a packet [Ping]
+[2026-09-30 21:34:26] TORGameServerPacket: Constructing Packet [Ping]
+[2026-09-30 21:34:26] TORGamePacketHandler: Received a packet [CMsgC26464A9]
+[2026-09-30 21:34:26] AreaPollExperiment: AREA-POLL CMsgC26464A9: component=0x65AB0007 len=43 placed=4611687178631283611 areaSvc=8 mode=Swallow body=27-00-00-00-A3-82-FD-6C-10-00-00-00-00-00-00-00-00-A3-82-FD-6C-12-00-00-00-00-00-00-00-00-CE-47-09-D2-17-00-00-00-00-00-00-00-00
+[2026-09-30 21:34:26] AreaPollExperiment: AREA-POLL CMsgC26464A9: decision=swallowed
+[2026-09-30 21:34:26] TORGamePacketHandler: Received a packet [ModulesList]
+[2026-09-30 21:34:26] ModulesList: ModulesList: len=12 startupSent=True hex=08-00-00-00-04-00-00-00-00-00-00-00
+[2026-09-30 21:34:28] TORGamePacketHandler: Received a packet [AreaModulesList]
+[2026-09-30 21:34:28] AreaPollExperiment: AREA-POLL AreaModulesList: component=0x65B30008 len=12 placed=4611687178631283611 areaSvc=8 mode=Echo body=08-00-00-00-04-00-00-00-00-00-00-00
+[2026-09-30 21:34:28] TORGameServerPacket: Constructing Packet [AreaModulesList]
+[2026-09-30 21:34:28] AreaPollExperiment: AREA-POLL AreaModulesList: decision=echo-reply-sent
+[2026-09-30 21:34:28] AreaModulesList: AreaModulesList: startup bundle already sent; skipped.
+[2026-09-30 21:34:28] TORGamePacketHandler: Received a packet [CMsgCCACB51D]
+[2026-09-30 21:34:28] TORGamePacketHandler: CMsgCCACB51D rx    1D B5 AC CC 08 00 B3 65 30 00 00 00 A5 98 3F BF FA 5A | .......e0.....?..Z
+   24 C1 F9 87 8F F6 7B 87 D9 8F FB DD C4 1E AB 90 14 EA | $.....{...........
+   76 EC 25 F1 D9 A8 0A B0 AB 05 3E 1C 9D B6 04 00 CC 2B | v.%.......>......+
+   45 93 31 F8 32 14                                     | E.1.2.
+
+[2026-09-30 21:34:28] AreaPollExperiment: AREA-POLL CMsgCCACB51D: component=0x65B30008 len=52 placed=4611687178631283611 areaSvc=8 mode=Swallow body=30-00-00-00-A5-98-3F-BF-FA-5A-24-C1-F9-87-8F-F6-7B-87-D9-8F-FB-DD-C4-1E-AB-90-14-EA-76-EC-25-F1-D9-A8-0A-B0-AB-05-3E-1C-9D-B6-04-00-CC-2B-45-93-31-F8-32-14
+[2026-09-30 21:34:28] AreaPollExperiment: AREA-POLL CMsgCCACB51D: decision=swallowed
+[2026-09-30 21:34:28] TORGamePacketHandler: Received a packet [CMsgF96DCDB0]
+[2026-09-30 21:34:28] TORGamePacketHandler: CMsgF96DCDB0 rx    B0 CD 6D F9 08 00 B3 65 09 00 00 00 C7 71 C3 79 12 F2 | ..m....e.....q.y..
+   40 F5 F5                                              | @..
+
+[2026-09-30 21:34:28] AreaPollExperiment: AREA-POLL CMsgF96DCDB0: component=0x65B30008 len=13 placed=4611687178631283611 areaSvc=8 mode=Echo sub=09 trueTail=False body=09-00-00-00-C7-71-C3-79-12-F2-40-F5-F5
+[2026-09-30 21:34:28] AreaPollExperiment: AREA-POLL CMsgF96DCDB0: decision=swallowed
+[2026-09-30 21:34:31] TORGamePacketHandler: Received a packet [Ping]
+[2026-09-30 21:34:31] TORGameServerPacket: Constructing Packet [Ping]
+[2026-09-30 21:34:36] TORGamePacketHandler: Received a packet [WorldByteReport]
+[2026-09-30 21:34:36] WorldByteReport: World report 8EB28DE9: component=0x65AB0007 bytes=48 words=[BD8FFCF8,3733F035,B25E5FB8,462B76EA,1EC4DDFB,EA1490AB,F125EC76,B00AA8D9,1C3E05AB,0004B69D,93452BCC,1432F831] hex=F8-FC-8F-BD-35-F0-33-37-B8-5F-5E-B2-EA-76-2B-46-FB-DD-C4-1E-AB-90-14-EA-76-EC-25-F1-D9-A8-0A-B0-AB-05-3E-1C-9D-B6-04-00-CC-2B-45-93-31-F8-32-14; no synthetic WorldTravelStatus reply sent.
+[2026-09-30 21:34:36] TORGamePacketHandler: Received a packet [HackNotifyData]
+[2026-09-30 21:34:36] TORGamePacketHandler: Received a packet [Ping]
+[2026-09-30 21:34:36] TORGameServerPacket: Constructing Packet [Ping]
+[2026-09-30 21:34:37] TORGamePacketHandler: Received a packet [CMsg7CB9A193]
+[2026-09-30 21:34:37] AreaPollExperiment: AREA-POLL CMsg7CB9A193: component=0x65B30008 len=43 placed=4611687178631283611 areaSvc=8 mode=Swallow body=27-00-00-00-A3-82-FD-6C-14-00-00-00-00-00-00-00-00-A3-82-FD-6C-12-00-00-00-00-00-00-00-00-7B-70-AA-55-25-00-00-00-00-00-00-00-00
+[2026-09-30 21:34:37] AreaPollExperiment: AREA-POLL CMsg7CB9A193: decision=swallowed
+[2026-09-30 21:34:38] TORGamePacketHandler: Received a packet [CMsgCCACB51D]
+[2026-09-30 21:34:38] TORGamePacketHandler: CMsgCCACB51D rx    1D B5 AC CC 08 00 B3 65 30 00 00 00 40 CE 5B EF BA 1D | .......e0...@.[...
+   9C B5 82 CF DB FE 17 8C EF 84 FB DD C4 1E AB 90 14 EA | ..................
+   76 EC 25 F1 D9 A8 0A B0 AB 05 3E 1C 9D B6 04 00 CC 2B | v.%.......>......+
+   45 93 31 F8 32 14                                     | E.1.2.
+
+[2026-09-30 21:34:38] AreaPollExperiment: AREA-POLL CMsgCCACB51D: component=0x65B30008 len=52 placed=4611687178631283611 areaSvc=8 mode=Swallow body=30-00-00-00-40-CE-5B-EF-BA-1D-9C-B5-82-CF-DB-FE-17-8C-EF-84-FB-DD-C4-1E-AB-90-14-EA-76-EC-25-F1-D9-A8-0A-B0-AB-05-3E-1C-9D-B6-04-00-CC-2B-45-93-31-F8-32-14
+[2026-09-30 21:34:38] AreaPollExperiment: AREA-POLL CMsgCCACB51D: decision=swallowed
+[2026-09-30 21:34:38] TORGamePacketHandler: Received a packet [ModulesList]
+[2026-09-30 21:34:38] ModulesList: ModulesList: len=12 startupSent=True hex=08-00-00-00-04-00-00-00-00-00-00-00
+[2026-09-30 21:34:39] TORGamePacketHandler: Received a packet [CMsgC26464A9]
+[2026-09-30 21:34:39] AreaPollExperiment: AREA-POLL CMsgC26464A9: component=0x65AB0007 len=43 placed=4611687178631283611 areaSvc=8 mode=Swallow body=27-00-00-00-CF-AC-41-D7-21-00-00-00-00-00-00-00-00-CF-AC-41-D7-0C-00-00-00-00-00-00-00-00-CF-AC-41-D7-26-00-00-00-00-00-00-00-00
+[2026-09-30 21:34:39] AreaPollExperiment: AREA-POLL CMsgC26464A9: decision=swallowed
+[2026-09-30 21:34:41] TORGamePacketHandler: Received a packet [Ping]
+[2026-09-30 21:34:41] TORGameServerPacket: Constructing Packet [Ping]
+[2026-09-30 21:34:43] TORGamePacketHandler: Received a packet [AreaModulesList]
+[2026-09-30 21:34:43] AreaPollExperiment: AREA-POLL AreaModulesList: component=0x65B30008 len=12 placed=4611687178631283611 areaSvc=8 mode=Echo body=08-00-00-00-04-00-00-00-00-00-00-00
+[2026-09-30 21:34:43] TORGameServerPacket: Constructing Packet [AreaModulesList]
+[2026-09-30 21:34:43] AreaPollExperiment: AREA-POLL AreaModulesList: decision=echo-reply-sent
+[2026-09-30 21:34:43] AreaModulesList: AreaModulesList: startup bundle already sent; skipped.
+[2026-09-30 21:34:46] TORGamePacketHandler: Received a packet [WorldByteReport]
+[2026-09-30 21:34:46] WorldByteReport: World report 8EB28DE9: component=0x65AB0007 bytes=48 words=[FDE7EDD9,5D4E29D7,93DC192B,DCFBC3A1,1EC4DDFB,EA1490AB,F125EC76,B00AA8D9,1C3E05AB,0004B69D,93452BCC,1432F831] hex=D9-ED-E7-FD-D7-29-4E-5D-2B-19-DC-93-A1-C3-FB-DC-FB-DD-C4-1E-AB-90-14-EA-76-EC-25-F1-D9-A8-0A-B0-AB-05-3E-1C-9D-B6-04-00-CC-2B-45-93-31-F8-32-14; no synthetic WorldTravelStatus reply sent.
+[2026-09-30 21:34:46] TORGamePacketHandler: Received a packet [HackNotifyData]
+[2026-09-30 21:34:46] TORGamePacketHandler: Received a packet [Ping]
+[2026-09-30 21:34:46] TORGameServerPacket: Constructing Packet [Ping]
+[2026-09-30 21:34:48] TORGamePacketHandler: Received a packet [CMsgCCACB51D]
+[2026-09-30 21:34:48] TORGamePacketHandler: CMsgCCACB51D rx    1D B5 AC CC 08 00 B3 65 30 00 00 00 F3 62 03 49 25 44 | .......e0....b.I%D
+   DB A2 F5 59 F4 08 F7 40 42 60 FB DD C4 1E AB 90 14 EA | ...Y...@B`........
+   76 EC 25 F1 D9 A8 0A B0 AB 05 3E 1C 9D B6 04 00 CC 2B | v.%.......>......+
+   45 93 31 F8 32 14                                     | E.1.2.
+
+[2026-09-30 21:34:48] AreaPollExperiment: AREA-POLL CMsgCCACB51D: component=0x65B30008 len=52 placed=4611687178631283611 areaSvc=8 mode=Swallow body=30-00-00-00-F3-62-03-49-25-44-DB-A2-F5-59-F4-08-F7-40-42-60-FB-DD-C4-1E-AB-90-14-EA-76-EC-25-F1-D9-A8-0A-B0-AB-05-3E-1C-9D-B6-04-00-CC-2B-45-93-31-F8-32-14
+[2026-09-30 21:34:48] AreaPollExperiment: AREA-POLL CMsgCCACB51D: decision=swallowed
+[2026-09-30 21:34:50] TORGamePacketHandler: Received a packet [ModulesList]
+[2026-09-30 21:34:50] ModulesList: ModulesList: len=12 startupSent=True hex=08-00-00-00-04-00-00-00-00-00-00-00
+[2026-09-30 21:34:51] TORGamePacketHandler: Received a packet [Ping]
+[2026-09-30 21:34:51] TORGameServerPacket: Constructing Packet [Ping]
+[2026-09-30 21:34:52] TORGamePacketHandler: Received a packet [CMsgC26464A9]
+[2026-09-30 21:34:52] AreaPollExperiment: AREA-POLL CMsgC26464A9: component=0x65AB0007 len=43 placed=4611687178631283611 areaSvc=8 mode=Swallow body=27-00-00-00-CF-AC-41-D7-19-00-00-00-00-00-00-00-00-A3-82-FD-6C-13-00-00-00-00-00-00-00-00-CD-80-61-31-1E-00-00-00-00-00-00-00-00
+[2026-09-30 21:34:52] AreaPollExperiment: AREA-POLL CMsgC26464A9: decision=swallowed
+[2026-09-30 21:34:54] TORGamePacketHandler: Received a packet [CMsg7CB9A193]
+[2026-09-30 21:34:54] AreaPollExperiment: AREA-POLL CMsg7CB9A193: component=0x65B30008 len=43 placed=4611687178631283611 areaSvc=8 mode=Swallow body=27-00-00-00-A3-82-FD-6C-0F-00-00-00-00-00-00-00-00-CF-AC-41-D7-05-00-00-00-00-00-00-00-00-CE-47-09-D2-17-00-00-00-00-00-00-00-00
+[2026-09-30 21:34:54] AreaPollExperiment: AREA-POLL CMsg7CB9A193: decision=swallowed
+[2026-09-30 21:34:56] TORGamePacketHandler: Received a packet [WorldByteReport]
+[2026-09-30 21:34:56] WorldByteReport: World report 8EB28DE9: component=0x65AB0007 bytes=48 words=[6732220F,27B14A52,4E2BC054,DB1AD8B6,1EC4DDFB,EA1490AB,F125EC76,B00AA8D9,1C3E05AB,0004B69D,93452BCC,1432F831] hex=0F-22-32-67-52-4A-B1-27-54-C0-2B-4E-B6-D8-1A-DB-FB-DD-C4-1E-AB-90-14-EA-76-EC-25-F1-D9-A8-0A-B0-AB-05-3E-1C-9D-B6-04-00-CC-2B-45-93-31-F8-32-14; no synthetic WorldTravelStatus reply sent.
+[2026-09-30 21:34:56] TORGamePacketHandler: Received a packet [HackNotifyData]
+[2026-09-30 21:34:56] TORGamePacketHandler: Received a packet [Ping]
+[2026-09-30 21:34:56] TORGameServerPacket: Constructing Packet [Ping]
+[2026-09-30 21:34:58] TORGamePacketHandler: Received a packet [AreaModulesList]
+[2026-09-30 21:34:58] AreaPollExperiment: AREA-POLL AreaModulesList: component=0x65B30008 len=12 placed=4611687178631283611 areaSvc=8 mode=Echo body=08-00-00-00-04-00-00-00-00-00-00-00
+[2026-09-30 21:34:58] TORGameServerPacket: Constructing Packet [AreaModulesList]
+[2026-09-30 21:34:58] AreaPollExperiment: AREA-POLL AreaModulesList: decision=echo-reply-sent
+[2026-09-30 21:34:58] AreaModulesList: AreaModulesList: startup bundle already sent; skipped.
+[2026-09-30 21:34:58] TORGamePacketHandler: Received a packet [CMsgCCACB51D]
+[2026-09-30 21:34:58] TORGamePacketHandler: CMsgCCACB51D rx    1D B5 AC CC 08 00 B3 65 30 00 00 00 4C D4 08 EF FA 3D | .......e0...L....=
+   9C 21 DD D7 09 BF BE E6 EF 10 FB DD C4 1E AB 90 14 EA | .!................
+   76 EC 25 F1 D9 A8 0A B0 AB 05 3E 1C 9D B6 04 00 CC 2B | v.%.......>......+
+   45 93 31 F8 32 14                                     | E.1.2.
+
+[2026-09-30 21:34:58] AreaPollExperiment: AREA-POLL CMsgCCACB51D: component=0x65B30008 len=52 placed=4611687178631283611 areaSvc=8 mode=Swallow body=30-00-00-00-4C-D4-08-EF-FA-3D-9C-21-DD-D7-09-BF-BE-E6-EF-10-FB-DD-C4-1E-AB-90-14-EA-76-EC-25-F1-D9-A8-0A-B0-AB-05-3E-1C-9D-B6-04-00-CC-2B-45-93-31-F8-32-14
+[2026-09-30 21:34:58] AreaPollExperiment: AREA-POLL CMsgCCACB51D: decision=swallowed
+[2026-09-30 21:34:58] TORGamePacketHandler: Received a packet [CMsgF96DCDB0]
+[2026-09-30 21:34:58] TORGamePacketHandler: CMsgF96DCDB0 rx    B0 CD 6D F9 08 00 B3 65 09 00 00 00 C7 71 C3 79 12 F2 | ..m....e.....q.y..
+   40 F5 F5                                              | @..
+
+[2026-09-30 21:34:58] AreaPollExperiment: AREA-POLL CMsgF96DCDB0: component=0x65B30008 len=13 placed=4611687178631283611 areaSvc=8 mode=Echo sub=09 trueTail=False body=09-00-00-00-C7-71-C3-79-12-F2-40-F5-F5
+[2026-09-30 21:34:58] AreaPollExperiment: AREA-POLL CMsgF96DCDB0: decision=swallowed
+[2026-09-30 21:35:01] TORGamePacketHandler: Received a packet [Ping]
+[2026-09-30 21:35:01] TORGameServerPacket: Constructing Packet [Ping]
+[2026-09-30 21:35:02] TORGamePacketHandler: Received a packet [ModulesList]
+[2026-09-30 21:35:02] ModulesList: ModulesList: len=12 startupSent=True hex=08-00-00-00-04-00-00-00-00-00-00-00
+[2026-09-30 21:35:05] TORGamePacketHandler: Received a packet [CMsgC26464A9]
+[2026-09-30 21:35:05] AreaPollExperiment: AREA-POLL CMsgC26464A9: component=0x65AB0007 len=43 placed=4611687178631283611 areaSvc=8 mode=Swallow body=27-00-00-00-CD-80-61-31-1E-00-00-00-00-00-00-00-00-CF-AC-41-D7-03-00-00-00-00-00-00-00-00-A3-82-FD-6C-15-00-00-00-00-00-00-00-00
+[2026-09-30 21:35:05] AreaPollExperiment: AREA-POLL CMsgC26464A9: decision=swallowed
+[2026-09-30 21:35:06] TORGamePacketHandler: Received a packet [WorldByteReport]
+[2026-09-30 21:35:06] WorldByteReport: World report 8EB28DE9: component=0x65AB0007 bytes=48 words=[9FEFF4F1,58473BFB,98DC3BB8,0C36A14C,1EC4DDFB,EA1490AB,F125EC76,B00AA8D9,1C3E05AB,0004B69D,93452BCC,1432F831] hex=F1-F4-EF-9F-FB-3B-47-58-B8-3B-DC-98-4C-A1-36-0C-FB-DD-C4-1E-AB-90-14-EA-76-EC-25-F1-D9-A8-0A-B0-AB-05-3E-1C-9D-B6-04-00-CC-2B-45-93-31-F8-32-14; no synthetic WorldTravelStatus reply sent.
+[2026-09-30 21:35:06] TORGamePacketHandler: Received a packet [HackNotifyData]
+[2026-09-30 21:35:06] TORGamePacketHandler: Received a packet [Ping]
+[2026-09-30 21:35:06] TORGameServerPacket: Constructing Packet [Ping]
+[2026-09-30 21:35:08] TORGamePacketHandler: Received a packet [CMsgCCACB51D]
+[2026-09-30 21:35:08] TORGamePacketHandler: CMsgCCACB51D rx    1D B5 AC CC 08 00 B3 65 30 00 00 00 39 84 F9 7F FA 1C | .......e0...9.....
+   74 ED CB B6 DB DE 3D 1B A0 33 FB DD C4 1E AB 90 14 EA | t.....=..3........
+   76 EC 25 F1 D9 A8 0A B0 AB 05 3E 1C 9D B6 04 00 CC 2B | v.%.......>......+
+   45 93 31 F8 32 14                                     | E.1.2.
+
+[2026-09-30 21:35:08] AreaPollExperiment: AREA-POLL CMsgCCACB51D: component=0x65B30008 len=52 placed=4611687178631283611 areaSvc=8 mode=Swallow body=30-00-00-00-39-84-F9-7F-FA-1C-74-ED-CB-B6-DB-DE-3D-1B-A0-33-FB-DD-C4-1E-AB-90-14-EA-76-EC-25-F1-D9-A8-0A-B0-AB-05-3E-1C-9D-B6-04-00-CC-2B-45-93-31-F8-32-14
+[2026-09-30 21:35:08] AreaPollExperiment: AREA-POLL CMsgCCACB51D: decision=swallowed
+[2026-09-30 21:35:11] TORGamePacketHandler: Received a packet [CMsg7CB9A193]
+[2026-09-30 21:35:11] AreaPollExperiment: AREA-POLL CMsg7CB9A193: component=0x65B30008 len=43 placed=4611687178631283611 areaSvc=8 mode=Swallow body=27-00-00-00-CF-AC-41-D7-03-00-00-00-00-00-00-00-00-CF-AC-41-D7-0E-00-00-00-00-00-00-00-00-9D-90-CC-B1-0A-00-00-00-00-00-00-00-00
+[2026-09-30 21:35:11] AreaPollExperiment: AREA-POLL CMsg7CB9A193: decision=swallowed
+[2026-09-30 21:35:11] TORGamePacketHandler: Received a packet [Ping]
+[2026-09-30 21:35:11] TORGameServerPacket: Constructing Packet [Ping]
+[2026-09-30 21:35:13] TORGamePacketHandler: Received a packet [AreaModulesList]
+[2026-09-30 21:35:13] AreaPollExperiment: AREA-POLL AreaModulesList: component=0x65B30008 len=12 placed=4611687178631283611 areaSvc=8 mode=Echo body=08-00-00-00-04-00-00-00-00-00-00-00
+[2026-09-30 21:35:13] TORGameServerPacket: Constructing Packet [AreaModulesList]
+[2026-09-30 21:35:13] AreaPollExperiment: AREA-POLL AreaModulesList: decision=echo-reply-sent
+[2026-09-30 21:35:13] AreaModulesList: AreaModulesList: startup bundle already sent; skipped.
+[2026-09-30 21:35:14] TORGamePacketHandler: Received a packet [ModulesList]
+[2026-09-30 21:35:14] ModulesList: ModulesList: len=12 startupSent=True hex=08-00-00-00-04-00-00-00-00-00-00-00
+[2026-09-30 21:35:16] TORGamePacketHandler: Received a packet [WorldByteReport]
+[2026-09-30 21:35:16] WorldByteReport: World report 8EB28DE9: component=0x65AB0007 bytes=48 words=[67002326,564C16A2,64C02B17,45EE3FFD,1EC4DDFB,EA1490AB,F125EC76,B00AA8D9,1C3E05AB,0004B69D,93452BCC,1432F831] hex=26-23-00-67-A2-16-4C-56-17-2B-C0-64-FD-3F-EE-45-FB-DD-C4-1E-AB-90-14-EA-76-EC-25-F1-D9-A8-0A-B0-AB-05-3E-1C-9D-B6-04-00-CC-2B-45-93-31-F8-32-14; no synthetic WorldTravelStatus reply sent.
+[2026-09-30 21:35:16] TORGamePacketHandler: Received a packet [HackNotifyData]
+[2026-09-30 21:35:16] TORGamePacketHandler: Received a packet [Ping]
+[2026-09-30 21:35:16] TORGameServerPacket: Constructing Packet [Ping]
+[2026-09-30 21:35:18] TORGamePacketHandler: Received a packet [CMsgCCACB51D]
+[2026-09-30 21:35:18] TORGamePacketHandler: CMsgCCACB51D rx    1D B5 AC CC 08 00 B3 65 30 00 00 00 15 D9 B9 7E FA FC | .......e0......~..
+   24 97 22 A2 CF D6 7B D1 4F FB FB DD C4 1E AB 90 14 EA | $."...{.O.........
+   76 EC 25 F1 D9 A8 0A B0 AB 05 3E 1C 9D B6 04 00 CC 2B | v.%.......>......+
+   45 93 31 F8 32 14                                     | E.1.2.
+
+[2026-09-30 21:35:18] AreaPollExperiment: AREA-POLL CMsgCCACB51D: component=0x65B30008 len=52 placed=4611687178631283611 areaSvc=8 mode=Swallow body=30-00-00-00-15-D9-B9-7E-FA-FC-24-97-22-A2-CF-D6-7B-D1-4F-FB-FB-DD-C4-1E-AB-90-14-EA-76-EC-25-F1-D9-A8-0A-B0-AB-05-3E-1C-9D-B6-04-00-CC-2B-45-93-31-F8-32-14
+[2026-09-30 21:35:18] AreaPollExperiment: AREA-POLL CMsgCCACB51D: decision=swallowed
+[2026-09-30 21:35:18] TORGamePacketHandler: Received a packet [CMsgC26464A9]
+[2026-09-30 21:35:18] AreaPollExperiment: AREA-POLL CMsgC26464A9: component=0x65AB0007 len=43 placed=4611687178631283611 areaSvc=8 mode=Swallow body=27-00-00-00-A3-82-FD-6C-0F-00-00-00-00-00-00-00-00-CF-AC-41-D7-24-00-00-00-00-00-00-00-00-CF-AC-41-D7-04-00-00-00-00-00-00-00-00
+[2026-09-30 21:35:18] AreaPollExperiment: AREA-POLL CMsgC26464A9: decision=swallowed
+[2026-09-30 21:35:21] TORGamePacketHandler: Received a packet [Ping]
+[2026-09-30 21:35:21] TORGameServerPacket: Constructing Packet [Ping]
+[2026-09-30 21:35:26] TORGamePacketHandler: Received a packet [WorldByteReport]
+[2026-09-30 21:35:26] WorldByteReport: World report 8EB28DE9: component=0x65AB0007 bytes=48 words=[9AADD4F1,78437E11,98751BFB,0C01497C,1EC4DDFB,EA1490AB,F125EC76,B00AA8D9,1C3E05AB,0004B69D,93452BCC,1432F831] hex=F1-D4-AD-9A-11-7E-43-78-FB-1B-75-98-7C-49-01-0C-FB-DD-C4-1E-AB-90-14-EA-76-EC-25-F1-D9-A8-0A-B0-AB-05-3E-1C-9D-B6-04-00-CC-2B-45-93-31-F8-32-14; no synthetic WorldTravelStatus reply sent.
+[2026-09-30 21:35:26] TORGamePacketHandler: Received a packet [HackNotifyData]
+[2026-09-30 21:35:26] TORGamePacketHandler: Received a packet [Ping]
+[2026-09-30 21:35:26] TORGameServerPacket: Constructing Packet [Ping]
+[2026-09-30 21:35:26] TORGamePacketHandler: Received a packet [ModulesList]
+[2026-09-30 21:35:26] ModulesList: ModulesList: len=12 startupSent=True hex=08-00-00-00-04-00-00-00-00-00-00-00
+[2026-09-30 21:35:28] TORGamePacketHandler: Received a packet [AreaModulesList]
+[2026-09-30 21:35:28] AreaPollExperiment: AREA-POLL AreaModulesList: component=0x65B30008 len=12 placed=4611687178631283611 areaSvc=8 mode=Echo body=08-00-00-00-04-00-00-00-00-00-00-00
+[2026-09-30 21:35:28] TORGameServerPacket: Constructing Packet [AreaModulesList]
+[2026-09-30 21:35:28] AreaPollExperiment: AREA-POLL AreaModulesList: decision=echo-reply-sent
+[2026-09-30 21:35:28] AreaModulesList: AreaModulesList: startup bundle already sent; skipped.
+[2026-09-30 21:35:28] TORGamePacketHandler: Received a packet [CMsg7CB9A193]
+[2026-09-30 21:35:28] AreaPollExperiment: AREA-POLL CMsg7CB9A193: component=0x65B30008 len=43 placed=4611687178631283611 areaSvc=8 mode=Swallow body=27-00-00-00-A3-82-FD-6C-13-00-00-00-00-00-00-00-00-CF-AC-41-D7-06-00-00-00-00-00-00-00-00-D3-AD-AC-A9-00-00-00-00-00-00-00-00-00
+[2026-09-30 21:35:28] AreaPollExperiment: AREA-POLL CMsg7CB9A193: decision=swallowed
+[2026-09-30 21:35:28] TORGamePacketHandler: Received a packet [CMsgCCACB51D]
+[2026-09-30 21:35:28] TORGamePacketHandler: CMsgCCACB51D rx    1D B5 AC CC 08 00 B3 65 30 00 00 00 A5 94 1B B6 DA 3B | .......e0........;
+   6C CB 0E B2 CA DF 6D 48 9B 81 FB DD C4 1E AB 90 14 EA | l.....mH..........
+   76 EC 25 F1 D9 A8 0A B0 AB 05 3E 1C 9D B6 04 00 CC 2B | v.%.......>......+
+   45 93 31 F8 32 14                                     | E.1.2.
+
+[2026-09-30 21:35:28] AreaPollExperiment: AREA-POLL CMsgCCACB51D: component=0x65B30008 len=52 placed=4611687178631283611 areaSvc=8 mode=Swallow body=30-00-00-00-A5-94-1B-B6-DA-3B-6C-CB-0E-B2-CA-DF-6D-48-9B-81-FB-DD-C4-1E-AB-90-14-EA-76-EC-25-F1-D9-A8-0A-B0-AB-05-3E-1C-9D-B6-04-00-CC-2B-45-93-31-F8-32-14
+[2026-09-30 21:35:28] AreaPollExperiment: AREA-POLL CMsgCCACB51D: decision=swallowed
+[2026-09-30 21:35:28] TORGamePacketHandler: Received a packet [CMsgF96DCDB0]
+[2026-09-30 21:35:28] TORGamePacketHandler: CMsgF96DCDB0 rx    B0 CD 6D F9 08 00 B3 65 09 00 00 00 C7 71 C3 79 12 F2 | ..m....e.....q.y..
+   40 F5 F5                                              | @..
+
+[2026-09-30 21:35:28] AreaPollExperiment: AREA-POLL CMsgF96DCDB0: component=0x65B30008 len=13 placed=4611687178631283611 areaSvc=8 mode=Echo sub=09 trueTail=False body=09-00-00-00-C7-71-C3-79-12-F2-40-F5-F5
+[2026-09-30 21:35:28] AreaPollExperiment: AREA-POLL CMsgF96DCDB0: decision=swallowed
+[2026-09-30 21:35:31] TORGamePacketHandler: Received a packet [Ping]
+[2026-09-30 21:35:31] TORGameServerPacket: Constructing Packet [Ping]
+[2026-09-30 21:35:31] TORGamePacketHandler: Received a packet [CMsgC26464A9]
+[2026-09-30 21:35:31] AreaPollExperiment: AREA-POLL CMsgC26464A9: component=0x65AB0007 len=43 placed=4611687178631283611 areaSvc=8 mode=Swallow body=27-00-00-00-CF-AC-41-D7-22-00-00-00-00-00-00-00-00-CF-AC-41-D7-07-00-00-00-00-00-00-00-00-CF-AC-41-D7-19-00-00-00-00-00-00-00-00
+[2026-09-30 21:35:31] AreaPollExperiment: AREA-POLL CMsgC26464A9: decision=swallowed
+[2026-09-30 21:35:36] TORGamePacketHandler: Received a packet [WorldByteReport]
+[2026-09-30 21:35:36] WorldByteReport: World report 8EB28DE9: component=0x65AB0007 bytes=48 words=[B8A5EDD0,671AB9B1,B0CF1CEA,6A203244,1EC4DDFB,EA1490AB,F125EC76,B00AA8D9,1C3E05AB,0004B69D,93452BCC,1432F831] hex=D0-ED-A5-B8-B1-B9-1A-67-EA-1C-CF-B0-44-32-20-6A-FB-DD-C4-1E-AB-90-14-EA-76-EC-25-F1-D9-A8-0A-B0-AB-05-3E-1C-9D-B6-04-00-CC-2B-45-93-31-F8-32-14; no synthetic WorldTravelStatus reply sent.
+[2026-09-30 21:35:36] TORGamePacketHandler: Received a packet [HackNotifyData]
+[2026-09-30 21:35:36] TORGamePacketHandler: Received a packet [Ping]
+[2026-09-30 21:35:36] TORGameServerPacket: Constructing Packet [Ping]
+[2026-09-30 21:35:38] TORGamePacketHandler: Received a packet [CMsgCCACB51D]
+[2026-09-30 21:35:38] TORGamePacketHandler: CMsgCCACB51D rx    1D B5 AC CC 08 00 B3 65 30 00 00 00 27 6A C7 48 05 E0 | .......e0...'j.H..
+   8B 1A 07 4D 61 21 D1 9C D4 7E FB DD C4 1E AB 90 14 EA | ...Ma!...~........
+   76 EC 25 F1 D9 A8 0A B0 AB 05 3E 1C 9D B6 04 00 CC 2B | v.%.......>......+
+   45 93 31 F8 32 14                                     | E.1.2.
+
+[2026-09-30 21:35:38] AreaPollExperiment: AREA-POLL CMsgCCACB51D: component=0x65B30008 len=52 placed=4611687178631283611 areaSvc=8 mode=Swallow body=30-00-00-00-27-6A-C7-48-05-E0-8B-1A-07-4D-61-21-D1-9C-D4-7E-FB-DD-C4-1E-AB-90-14-EA-76-EC-25-F1-D9-A8-0A-B0-AB-05-3E-1C-9D-B6-04-00-CC-2B-45-93-31-F8-32-14
+[2026-09-30 21:35:38] AreaPollExperiment: AREA-POLL CMsgCCACB51D: decision=swallowed
+[2026-09-30 21:35:38] TORGamePacketHandler: Received a packet [ModulesList]
+[2026-09-30 21:35:38] ModulesList: ModulesList: len=12 startupSent=True hex=08-00-00-00-04-00-00-00-00-00-00-00
+[2026-09-30 21:35:41] TORGamePacketHandler: Received a packet [Ping]
+[2026-09-30 21:35:41] TORGameServerPacket: Constructing Packet [Ping]
+[2026-09-30 21:35:43] TORGamePacketHandler: Received a packet [AreaModulesList]
+[2026-09-30 21:35:43] AreaPollExperiment: AREA-POLL AreaModulesList: component=0x65B30008 len=12 placed=4611687178631283611 areaSvc=8 mode=Echo body=08-00-00-00-04-00-00-00-00-00-00-00
+[2026-09-30 21:35:43] TORGameServerPacket: Constructing Packet [AreaModulesList]
+[2026-09-30 21:35:43] AreaPollExperiment: AREA-POLL AreaModulesList: decision=echo-reply-sent
+[2026-09-30 21:35:43] AreaModulesList: AreaModulesList: startup bundle already sent; skipped.
+[2026-09-30 21:35:44] TORGamePacketHandler: Received a packet [CMsg61116AD5]
+[2026-09-30 21:35:44] TORGamePacketHandler: CMsg61116AD5 rx    D5 6A 11 61 08 00 B3 65 C7 00 00 00 7A 66 C5 C2 EE C9 | .j.a...e....zf....
+   17 3F 00 00 00 00 1C 76 BA 3D 76 BC 81 C2 C3 FF DC C0 | .?.....v.=v.......
+   14 57 FF C2 2D 50 1B 00 00 00 00 00 B6 D1 D0 25 38 0C | .W..-P.........%8.
+   00 00                                                 | ..
+
+[2026-09-30 21:35:44] AreaPollExperiment: AREA-POLL CMsg61116AD5: component=0x65B30008 len=48 placed=4611687178631283611 areaSvc=8 mode=Swallow body=C7-00-00-00-7A-66-C5-C2-EE-C9-17-3F-00-00-00-00-1C-76-BA-3D-76-BC-81-C2-C3-FF-DC-C0-14-57-FF-C2-2D-50-1B-00-00-00-00-00-B6-D1-D0-25-38-0C-00-00
+[2026-09-30 21:35:44] AreaPollExperiment: AREA-POLL CMsg61116AD5: decision=swallowed
+[2026-09-30 21:35:44] TORGamePacketHandler: Received a packet [CMsg61116AD5]
+[2026-09-30 21:35:44] TORGamePacketHandler: CMsg61116AD5 rx    D5 6A 11 61 08 00 B3 65 C7 00 00 00 EA 24 D5 C2 3C 28 | .j.a...e.....$..<(
+   13 3F 00 00 00 00 F6 1D 2F 3E EE E0 80 C2 C4 FF DC C0 | .?....../>........
+   33 31 FF C2 2D 50 1B 00 00 00 00 00 8A D4 D0 25 38 0C | 31..-P.........%8.
+   00 00                                                 | ..
+
+[2026-09-30 21:35:44] AreaPollExperiment: AREA-POLL CMsg61116AD5: component=0x65B30008 len=48 placed=4611687178631283611 areaSvc=8 mode=Swallow body=C7-00-00-00-EA-24-D5-C2-3C-28-13-3F-00-00-00-00-F6-1D-2F-3E-EE-E0-80-C2-C4-FF-DC-C0-33-31-FF-C2-2D-50-1B-00-00-00-00-00-8A-D4-D0-25-38-0C-00-00
+[2026-09-30 21:35:44] AreaPollExperiment: AREA-POLL CMsg61116AD5: decision=swallowed
+[2026-09-30 21:35:44] TORGamePacketHandler: Received a packet [CMsgC26464A9]
+[2026-09-30 21:35:44] AreaPollExperiment: AREA-POLL CMsgC26464A9: component=0x65AB0007 len=43 placed=4611687178631283611 areaSvc=8 mode=Swallow body=27-00-00-00-CF-AC-41-D7-0D-00-00-00-00-00-00-00-00-CF-AC-41-D7-19-00-00-00-00-00-00-00-00-A3-82-FD-6C-0F-00-00-00-00-00-00-00-00
+[2026-09-30 21:35:44] AreaPollExperiment: AREA-POLL CMsgC26464A9: decision=swallowed
+[2026-09-30 21:35:44] TORGamePacketHandler: Received a packet [CMsg61116AD5]
+[2026-09-30 21:35:44] TORGamePacketHandler: CMsg61116AD5 rx    D5 6A 11 61 08 00 B3 65 C7 00 00 00 69 0E E9 C2 4F 71 | .j.a...e....i...Oq
+   09 3F 00 00 00 00 18 3B 89 3E 7F B8 80 C2 C4 FF DC C0 | .?.....;.>........
+   D5 20 FF C2 2D 50 1B 00 00 00 00 00 18 D5 D0 25 38 0C | . ..-P.........%8.
+   00 00                                                 | ..
+
+[2026-09-30 21:35:44] AreaPollExperiment: AREA-POLL CMsg61116AD5: component=0x65B30008 len=48 placed=4611687178631283611 areaSvc=8 mode=Swallow body=C7-00-00-00-69-0E-E9-C2-4F-71-09-3F-00-00-00-00-18-3B-89-3E-7F-B8-80-C2-C4-FF-DC-C0-D5-20-FF-C2-2D-50-1B-00-00-00-00-00-18-D5-D0-25-38-0C-00-00
+[2026-09-30 21:35:44] AreaPollExperiment: AREA-POLL CMsg61116AD5: decision=swallowed
+[2026-09-30 21:35:45] TORGamePacketHandler: Received a packet [CMsg61116AD5]
+[2026-09-30 21:35:45] TORGamePacketHandler: CMsg61116AD5 rx    D5 6A 11 61 08 00 B3 65 C7 00 00 00 13 C2 FD C2 6D 8A | .j.a...e........m.
+   F5 3E 00 00 00 00 DD 8D B8 3E 1E A3 80 C2 C4 FF DC C0 | .>.......>........
+   9D 13 FF C2 2D 50 1B 00 00 00 00 00 6B D5 D0 25 38 0C | ....-P......k..%8.
+   00 00                                                 | ..
+
+[2026-09-30 21:35:45] AreaPollExperiment: AREA-POLL CMsg61116AD5: component=0x65B30008 len=48 placed=4611687178631283611 areaSvc=8 mode=Swallow body=C7-00-00-00-13-C2-FD-C2-6D-8A-F5-3E-00-00-00-00-DD-8D-B8-3E-1E-A3-80-C2-C4-FF-DC-C0-9D-13-FF-C2-2D-50-1B-00-00-00-00-00-6B-D5-D0-25-38-0C-00-00
+[2026-09-30 21:35:45] AreaPollExperiment: AREA-POLL CMsg61116AD5: decision=swallowed
+[2026-09-30 21:35:45] TORGamePacketHandler: Received a packet [CMsg61116AD5]
+[2026-09-30 21:35:45] TORGamePacketHandler: CMsg61116AD5 rx    D5 6A 11 61 08 00 B3 65 C7 00 00 00 16 09 09 C3 84 55 | .j.a...e.........U
+   D1 3E 00 00 00 00 B1 B2 E0 3E 98 93 80 C2 C4 FF DC C0 | .>.......>........
+   01 05 FF C2 2D 50 1B 00 00 00 00 00 B0 D5 D0 25 38 0C | ....-P.........%8.
+   00 00                                                 | ..
+
+[2026-09-30 21:35:45] AreaPollExperiment: AREA-POLL CMsg61116AD5: component=0x65B30008 len=48 placed=4611687178631283611 areaSvc=8 mode=Swallow body=C7-00-00-00-16-09-09-C3-84-55-D1-3E-00-00-00-00-B1-B2-E0-3E-98-93-80-C2-C4-FF-DC-C0-01-05-FF-C2-2D-50-1B-00-00-00-00-00-B0-D5-D0-25-38-0C-00-00
+[2026-09-30 21:35:45] AreaPollExperiment: AREA-POLL CMsg61116AD5: decision=swallowed
+[2026-09-30 21:35:45] TORGamePacketHandler: Received a packet [CMsg7CB9A193]
+[2026-09-30 21:35:45] AreaPollExperiment: AREA-POLL CMsg7CB9A193: component=0x65B30008 len=43 placed=4611687178631283611 areaSvc=8 mode=Swallow body=27-00-00-00-7B-70-AA-55-25-00-00-00-00-00-00-00-00-A3-82-FD-6C-14-00-00-00-00-00-00-00-00-CF-AC-41-D7-18-00-00-00-00-00-00-00-00
+[2026-09-30 21:35:45] AreaPollExperiment: AREA-POLL CMsg7CB9A193: decision=swallowed
+[2026-09-30 21:35:45] TORGamePacketHandler: Received a packet [CMsg61116AD5]
+[2026-09-30 21:35:45] TORGamePacketHandler: CMsg61116AD5 rx    D5 6A 11 61 08 00 B3 65 C7 00 00 00 22 89 00 C3 6E 56 | .j.a...e...."...nV
+   F0 3E 00 00 00 00 37 4E BF 3E 39 2D 80 C2 C4 FF DC C0 | .>....7N.>9-......
+   F7 8B FE C2 2D 50 1B 00 00 00 00 00 B4 D7 D0 25 38 0C | ....-P.........%8.
+   00 00                                                 | ..
+
+[2026-09-30 21:35:45] AreaPollExperiment: AREA-POLL CMsg61116AD5: component=0x65B30008 len=48 placed=4611687178631283611 areaSvc=8 mode=Swallow body=C7-00-00-00-22-89-00-C3-6E-56-F0-3E-00-00-00-00-37-4E-BF-3E-39-2D-80-C2-C4-FF-DC-C0-F7-8B-FE-C2-2D-50-1B-00-00-00-00-00-B4-D7-D0-25-38-0C-00-00
+[2026-09-30 21:35:45] AreaPollExperiment: AREA-POLL CMsg61116AD5: decision=swallowed
+[2026-09-30 21:35:46] TORGamePacketHandler: Received a packet [CMsg61116AD5]
+[2026-09-30 21:35:46] TORGamePacketHandler: CMsg61116AD5 rx    D5 6A 11 61 08 00 B3 65 C7 00 00 00 70 3E FD C2 F6 AB | .j.a...e....p>....
+   F6 3E 5D B1 25 3F B6 18 B7 3E 90 67 7F C2 D2 0B DD C0 | .>].%?...>.g......
+   A4 35 FE C2 2D 50 1B 00 00 00 00 00 9A D9 D0 25 38 0C | .5..-P.........%8.
+   00 00                                                 | ..
+
+[2026-09-30 21:35:46] AreaPollExperiment: AREA-POLL CMsg61116AD5: component=0x65B30008 len=48 placed=4611687178631283611 areaSvc=8 mode=Swallow body=C7-00-00-00-70-3E-FD-C2-F6-AB-F6-3E-5D-B1-25-3F-B6-18-B7-3E-90-67-7F-C2-D2-0B-DD-C0-A4-35-FE-C2-2D-50-1B-00-00-00-00-00-9A-D9-D0-25-38-0C-00-00
+[2026-09-30 21:35:46] AreaPollExperiment: AREA-POLL CMsg61116AD5: decision=swallowed
+[2026-09-30 21:35:46] TORGamePacketHandler: Received a packet [CMsg61116AD5]
+[2026-09-30 21:35:46] TORGamePacketHandler: CMsg61116AD5 rx    D5 6A 11 61 08 00 B3 65 C7 00 00 00 5E 8F FD C2 EB 0A | .j.a...e....^.....
+   F6 3E E3 19 97 3E FE F2 B7 3E 07 63 7F C2 8A F5 DC C0 | .>...>...>.c......
+   F2 33 FE C2 2D 50 1B 00 00 00 00 00 A2 D9 D0 25 38 0C | .3..-P.........%8.
+   00 00                                                 | ..
+
+[2026-09-30 21:35:46] AreaPollExperiment: AREA-POLL CMsg61116AD5: component=0x65B30008 len=48 placed=4611687178631283611 areaSvc=8 mode=Swallow body=C7-00-00-00-5E-8F-FD-C2-EB-0A-F6-3E-E3-19-97-3E-FE-F2-B7-3E-07-63-7F-C2-8A-F5-DC-C0-F2-33-FE-C2-2D-50-1B-00-00-00-00-00-A2-D9-D0-25-38-0C-00-00
+[2026-09-30 21:35:46] AreaPollExperiment: AREA-POLL CMsg61116AD5: decision=swallowed
+[2026-09-30 21:35:46] TORGamePacketHandler: Received a packet [WorldByteReport]
+[2026-09-30 21:35:46] WorldByteReport: World report 8EB28DE9: component=0x65AB0007 bytes=48 words=[DF95CDF1,F7E7EAF9,997E1D79,F66D8935,1EC4DDFB,EA1490AB,F125EC76,B00AA8D9,1C3E05AB,0004B69D,93452BCC,1432F831] hex=F1-CD-95-DF-F9-EA-E7-F7-79-1D-7E-99-35-89-6D-F6-FB-DD-C4-1E-AB-90-14-EA-76-EC-25-F1-D9-A8-0A-B0-AB-05-3E-1C-9D-B6-04-00-CC-2B-45-93-31-F8-32-14; no synthetic WorldTravelStatus reply sent.
+[2026-09-30 21:35:46] TORGamePacketHandler: Received a packet [HackNotifyData]
+[2026-09-30 21:35:46] TORGamePacketHandler: Received a packet [CMsg61116AD5]
+[2026-09-30 21:35:46] TORGamePacketHandler: CMsg61116AD5 rx    D5 6A 11 61 08 00 B3 65 C7 00 00 00 9A CB 05 C3 38 D7 | .j.a...e........8.
+   DD 3E 00 00 00 00 9B 92 D4 3E 88 46 7E C2 4E C3 DC C0 | .>.......>.F~.N...
+   8A B5 FD C2 2D 50 1B 00 00 00 00 00 0F DC D0 25 38 0C | ....-P.........%8.
+   00 00                                                 | ..
+
+[2026-09-30 21:35:46] AreaPollExperiment: AREA-POLL CMsg61116AD5: component=0x65B30008 len=48 placed=4611687178631283611 areaSvc=8 mode=Swallow body=C7-00-00-00-9A-CB-05-C3-38-D7-DD-3E-00-00-00-00-9B-92-D4-3E-88-46-7E-C2-4E-C3-DC-C0-8A-B5-FD-C2-2D-50-1B-00-00-00-00-00-0F-DC-D0-25-38-0C-00-00
+[2026-09-30 21:35:46] AreaPollExperiment: AREA-POLL CMsg61116AD5: decision=swallowed
+[2026-09-30 21:35:46] TORGamePacketHandler: Received a packet [Ping]
+[2026-09-30 21:35:46] TORGameServerPacket: Constructing Packet [Ping]
+[2026-09-30 21:35:47] TORGamePacketHandler: Received a packet [CMsg61116AD5]
+[2026-09-30 21:35:47] TORGamePacketHandler: CMsg61116AD5 rx    D5 6A 11 61 08 00 B3 65 C7 00 00 00 F1 FF 06 C3 D3 27 | .j.a...e.........'
+   D9 3E 00 00 00 00 D3 27 D9 3E EF 8D 7C C2 4D C3 DC C0 | .>.....'.>..|.M...
+   44 DF FC C2 2D 50 1B 00 00 00 00 00 F7 DF D0 25 38 0C | D...-P.........%8.
+   00 00                                                 | ..
+
+[2026-09-30 21:35:47] AreaPollExperiment: AREA-POLL CMsg61116AD5: component=0x65B30008 len=48 placed=4611687178631283611 areaSvc=8 mode=Swallow body=C7-00-00-00-F1-FF-06-C3-D3-27-D9-3E-00-00-00-00-D3-27-D9-3E-EF-8D-7C-C2-4D-C3-DC-C0-44-DF-FC-C2-2D-50-1B-00-00-00-00-00-F7-DF-D0-25-38-0C-00-00
+[2026-09-30 21:35:47] AreaPollExperiment: AREA-POLL CMsg61116AD5: decision=swallowed
+[2026-09-30 21:35:48] TORGamePacketHandler: Received a packet [CMsg61116AD5]
+[2026-09-30 21:35:48] TORGamePacketHandler: CMsg61116AD5 rx    D5 6A 11 61 08 00 B3 65 C5 00 00 00 EC 33 07 C3 00 CA | .j.a...e.....3....
+   7B C2 4E C3 DC C0 75 7B FC C2 2D 50 1B 00 00 00 00 00 | {.N...u{..-P......
+   CA E1 D0 25 38 0C 00 00                               | ...%8...
+
+[2026-09-30 21:35:48] AreaPollExperiment: AREA-POLL CMsg61116AD5: component=0x65B30008 len=36 placed=4611687178631283611 areaSvc=8 mode=Swallow body=C5-00-00-00-EC-33-07-C3-00-CA-7B-C2-4E-C3-DC-C0-75-7B-FC-C2-2D-50-1B-00-00-00-00-00-CA-E1-D0-25-38-0C-00-00
+[2026-09-30 21:35:48] AreaPollExperiment: AREA-POLL CMsg61116AD5: decision=swallowed
+[2026-09-30 21:35:48] AreaReplicationDestroy: PhaseExit: EXPERIMENT player phsPhase=None update; player=0x4000010E218A839B field=0x40000002641F28CC structure=26 index=25; before phase-info removal.
+[2026-09-30 21:35:48] AreaReplicationDestroy: AreaReplicationDestroy: stream=0x001B502E node=0x0000001AC6F6DC1F
+[2026-09-30 21:35:48] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-09-30 21:35:48] TORGameServerPacket: AREA-PAYLOAD type=AreaClientReplicationTransaction bytes=120 prefixBytes=120 hex=80-6E-44-0D-B3-65-08-00-2E-50-1B-00-00-00-00-00-03-02-CF-40-00-01-0E-21-8A-83-9B-09-05-07-C9-00-3B-1A-C9-00-01-00-00-00-00-00-00-00-10-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-CC-1A-C6-F6-DC-0E-09-05-08-0B-0D-08-03-01-CC-1A-C6-F6-DC-17-78-01-CC-1A-C6-F6-DC-1F
+[2026-09-30 21:35:48] PhaseExit: PhaseExit: character crossed the retreat doorway (-63.14 -> -62.95); destroyed phase-info child 0x0000001AC6F6DC1F via stream 0x001B502E.
+[2026-09-30 21:35:48] PhaseExit: PhaseExit: CRT18 suppressed; native room-stream semantics unverified (doorway control 2026-09-30-01).
+[2026-09-30 21:35:48] TORGamePacketHandler: Received a packet [CMsgCCACB51D]
+[2026-09-30 21:35:48] TORGamePacketHandler: CMsgCCACB51D rx    1D B5 AC CC 08 00 B3 65 30 00 00 00 06 77 F0 D0 45 A1 | .......e0....w..E.
+   C3 62 BB 20 75 00 F1 3A 06 B8 FB DD C4 1E AB 90 14 EA | .b. u..:..........
+   76 EC 25 F1 D9 A8 0A B0 AB 05 3E 1C 9D B6 04 00 CC 2B | v.%.......>......+
+   45 93 31 F8 32 14                                     | E.1.2.
+
+[2026-09-30 21:35:48] AreaPollExperiment: AREA-POLL CMsgCCACB51D: component=0x65B30008 len=52 placed=4611687178631283611 areaSvc=8 mode=Swallow body=30-00-00-00-06-77-F0-D0-45-A1-C3-62-BB-20-75-00-F1-3A-06-B8-FB-DD-C4-1E-AB-90-14-EA-76-EC-25-F1-D9-A8-0A-B0-AB-05-3E-1C-9D-B6-04-00-CC-2B-45-93-31-F8-32-14
+[2026-09-30 21:35:48] AreaPollExperiment: AREA-POLL CMsgCCACB51D: decision=swallowed
+[2026-09-30 21:35:50] TORGamePacketHandler: Received a packet [ModulesList]
+[2026-09-30 21:35:50] ModulesList: ModulesList: len=12 startupSent=True hex=08-00-00-00-04-00-00-00-00-00-00-00
+[2026-09-30 21:35:51] TORGamePacketHandler: Received a packet [Ping]
+[2026-09-30 21:35:51] TORGameServerPacket: Constructing Packet [Ping]

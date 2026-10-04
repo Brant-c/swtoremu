@@ -1,0 +1,85 @@
+  0071AD61: 89 9F 38 08 00 00  mov         dword ptr [edi+00000838h],ebx
+  0071AD67: 89 9F 3C 08 00 00  mov         dword ptr [edi+0000083Ch],ebx
+  0071AD6D: 89 18              mov         dword ptr [eax],ebx
+  0071AD6F: 89 45 EC           mov         dword ptr [ebp-14h],eax
+  0071AD72: 89 58 04           mov         dword ptr [eax+4],ebx
+  0071AD75: C6 45 FC 1E        mov         byte ptr [ebp-4],1Eh
+  0071AD79: 8D 87 48 08 00 00  lea         eax,[edi+00000848h]
+  0071AD7F: 89 18              mov         dword ptr [eax],ebx
+  0071AD81: 89 45 EC           mov         dword ptr [ebp-14h],eax
+  0071AD84: 89 58 04           mov         dword ptr [eax+4],ebx
+  0071AD87: C6 45 FC 20        mov         byte ptr [ebp-4],20h
+  0071AD8B: 8D 87 50 08 00 00  lea         eax,[edi+00000850h]
+  0071AD91: 89 18              mov         dword ptr [eax],ebx
+  0071AD93: 89 45 EC           mov         dword ptr [ebp-14h],eax
+  0071AD96: 89 58 04           mov         dword ptr [eax+4],ebx
+  0071AD99: C6 45 FC 22        mov         byte ptr [ebp-4],22h
+  0071AD9D: 8D 87 60 08 00 00  lea         eax,[edi+00000860h]
+  0071ADA3: 89 9F 58 08 00 00  mov         dword ptr [edi+00000858h],ebx
+  0071ADA9: 89 9F 5C 08 00 00  mov         dword ptr [edi+0000085Ch],ebx
+  0071ADAF: 89 45 EC           mov         dword ptr [ebp-14h],eax
+  0071ADB2: 89 18              mov         dword ptr [eax],ebx
+  0071ADB4: 89 58 04           mov         dword ptr [eax+4],ebx
+  0071ADB7: 89 58 08           mov         dword ptr [eax+8],ebx
+  0071ADBA: C6 45 FC 24        mov         byte ptr [ebp-4],24h
+  0071ADBE: 8D 87 70 08 00 00  lea         eax,[edi+00000870h]
+  0071ADC4: 89 45 EC           mov         dword ptr [ebp-14h],eax
+  0071ADC7: 89 18              mov         dword ptr [eax],ebx
+  0071ADC9: 89 58 04           mov         dword ptr [eax+4],ebx
+  0071ADCC: 89 58 08           mov         dword ptr [eax+8],ebx
+  0071ADCF: C6 45 FC 26        mov         byte ptr [ebp-4],26h
+  0071ADD3: 8D 87 80 08 00 00  lea         eax,[edi+00000880h]
+  0071ADD9: 89 45 EC           mov         dword ptr [ebp-14h],eax
+  0071ADDC: 89 18              mov         dword ptr [eax],ebx
+  0071ADDE: 89 58 04           mov         dword ptr [eax+4],ebx
+  0071ADE1: 89 58 08           mov         dword ptr [eax+8],ebx
+  0071ADE4: C6 45 FC 28        mov         byte ptr [ebp-4],28h
+  0071ADE8: 8D 87 90 08 00 00  lea         eax,[edi+00000890h]
+  0071ADEE: 89 45 EC           mov         dword ptr [ebp-14h],eax
+  0071ADF1: 89 18              mov         dword ptr [eax],ebx
+  0071ADF3: 89 58 04           mov         dword ptr [eax+4],ebx
+  0071ADF6: 89 58 08           mov         dword ptr [eax+8],ebx
+  0071ADF9: C6 45 FC 2A        mov         byte ptr [ebp-4],2Ah
+  0071ADFD: 8D 87 A0 08 00 00  lea         eax,[edi+000008A0h]
+  0071AE03: 89 45 EC           mov         dword ptr [ebp-14h],eax
+  0071AE06: 89 18              mov         dword ptr [eax],ebx
+  0071AE08: 89 58 04           mov         dword ptr [eax+4],ebx
+  0071AE0B: 89 58 08           mov         dword ptr [eax+8],ebx
+  0071AE0E: C6 45 FC 2C        mov         byte ptr [ebp-4],2Ch
+  0071AE12: 8D 8F B0 08 00 00  lea         ecx,[edi+000008B0h]
+  0071AE18: E8 D3 6C D4 FF     call        00461AF0
+  0071AE1D: C6 45 FC 2D        mov         byte ptr [ebp-4],2Dh
+  0071AE21: 8D 8F C0 08 00 00  lea         ecx,[edi+000008C0h]
+  0071AE27: E8 C4 6C D4 FF     call        00461AF0
+  0071AE2C: C6 45 FC 2E        mov         byte ptr [ebp-4],2Eh
+  0071AE30: 8D 87 D4 08 00 00  lea         eax,[edi+000008D4h]
+  0071AE36: 50                 push        eax
+  0071AE37: 89 9F D0 08 00 00  mov         dword ptr [edi+000008D0h],ebx
+  0071AE3D: E8 EE EE 0B 00     call        007D9D30
+  0071AE42: C6 45 FC 2F        mov         byte ptr [ebp-4],2Fh
+  0071AE46: 8D 87 94 09 00 00  lea         eax,[edi+00000994h]
+  0071AE4C: 89 9F 90 09 00 00  mov         dword ptr [edi+00000990h],ebx
+  0071AE52: 89 45 EC           mov         dword ptr [ebp-14h],eax
+  0071AE55: 89 18              mov         dword ptr [eax],ebx
+  0071AE57: 89 58 04           mov         dword ptr [eax+4],ebx
+  0071AE5A: 89 58 08           mov         dword ptr [eax+8],ebx
+  0071AE5D: C6 45 FC 32        mov         byte ptr [ebp-4],32h
+  0071AE61: 8D 8F A8 09 00 00  lea         ecx,[edi+000009A8h]
+  0071AE67: 51                 push        ecx
+  0071AE68: E8 A3 42 00 00     call        0071F110
+  0071AE6D: C6 45 FC 33        mov         byte ptr [ebp-4],33h
+  0071AE71: 53                 push        ebx
+  0071AE72: 53                 push        ebx
+  0071AE73: 68 30 35 2E 01     push        12E3530h
+  0071AE78: 68 84 FD 14 01     push        114FD84h
+  0071AE7D: E8 BE D2 FC FF     call        006E8140
+  0071AE82: 80 25 BF 31 2E 01  and         byte ptr ds:[012E31BFh],7Fh
+  0071AE89: 53                 push        ebx
+  0071AE8A: C7 05 D0 39 49 01  mov         dword ptr ds:[014939D0h],12E31BFh
+  0071AE94: E8 D7 47 60 00     call        00D1F670
+  0071AE99: 8B 15 44 1D 06 01  mov         edx,dword ptr ds:[01061D44h]
+  0071AE9F: 89 87 58 08 00 00  mov         dword ptr [edi+00000858h],eax
+  0071AEA5: 66 0F EF C0        pxor        xmm0,xmm0
+  0071AEA9: 66 0F D6 87 10 08  movq        mmword ptr [edi+00000810h],xmm0
+  0071AEB1: 66 0F D6 87 18 08  movq        mmword ptr [edi+00000818h],xmm0
+  0071AEB9: 66 0F D6 87 20 08  movq        mmword ptr [edi+00000820h],xmm0

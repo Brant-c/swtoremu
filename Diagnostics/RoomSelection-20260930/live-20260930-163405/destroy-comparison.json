@@ -1,0 +1,30 @@
+{
+  "Source": "D:\\SWTORClassic\\swtoremu\\Diagnostics\\RoomSelection-20260930\\live-20260930-163405\\doorway-destroy.bin",
+  "Packet": {
+    "Valid": true,
+    "Length": 46,
+    "Opcode": "0x0D446E80",
+    "Name": "ClientReplicationTransaction",
+    "Direction": "S2C",
+    "Family": "Area",
+    "Confidence": "Captured",
+    "Evidence": "Server/Framework/Src/Network/Packet.h; Diagnostics/Test-AreaWireRoundTrip.ps1",
+    "Envelope": "opcode + routed component + replication blob",
+    "BodySchema": "Captured .acrt fixture payloads",
+    "Component": "0x000865B3",
+    "SourceHandle": "0x0008",
+    "DestinationHandle": "0x65B3",
+    "BodyOffset": 8,
+    "BodyLength": 38,
+    "BodyHex": "2E 50 1B 00 00 00 00 00 03 01 CC 1A C6 F6 DC 0E 09 05 08 0B 0D 08 03 01 CC 1A C6 F6 DC 17 78 01 CC 1A C6 F6 DC 1F",
+    "RawHex": "80 6E 44 0D B3 65 08 00 2E 50 1B 00 00 00 00 00 03 01 CC 1A C6 F6 DC 0E 09 05 08 0B 0D 08 03 01 CC 1A C6 F6 DC 17 78 01 CC 1A C6 F6 DC 1F"
+  },
+  "CompareSource": "D:\\SWTORClassic\\swtoremu\\Diagnostics\\PhaseLifecycle-20260930\\live-20260930-145102-logonly\\doorway-destroy.bin",
+  "Comparison": {
+    "LeftLength": 46,
+    "RightLength": 46,
+    "Equal": true,
+    "DifferenceCount": 0,
+    "Differences": []
+  }
+}

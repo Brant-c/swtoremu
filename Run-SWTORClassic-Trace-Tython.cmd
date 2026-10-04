@@ -6,190 +6,264 @@ REM
 REM The servers must NOT already be running, otherwise their environment was
 REM fixed when they started and these switches will be ignored.
 REM
-REM Configuration is grouped:
-REM   1. ACTIVE       what this run actually does
-REM   2. ALTERNATIVES measured variants, all OFF, never enable more than one
-REM   3. DISABLED     deliberately off, with the reason
-REM   4. ECHO         startup summary
-REM
-REM Investigation history: Diagnostics\Ability-Gate-Findings-20260925.md
+REM This file only sets configuration and launches. It does not record the
+REM history behind each switch; that lives in:
+REM   Diagnostics\WorldEntry-Checkpoint-20260924.md
+REM   Diagnostics\Ability-Gate-Findings-20260925.md
+REM   Diagnostics\Ability-Result-Contract-20260926.md
 REM ===========================================================================
 
 REM --- 1. ACTIVE -------------------------------------------------------------
-REM All tracing below is read-only: no value is written, no accessor invoked.
+REM All tracing is read-only: no value is written, no accessor invoked.
 
-REM AREA_PAYLOADS   plaintext of every area packet, plus each CRT's length and
-REM                 SHA256, so emitted bytes can be diffed against the .acrt
-REM                 fixtures on disk.
-REM RPC_CALLS       client hook on the outbound CMsgF96DCDB0 wrapper; records
-REM                 the C7 call id, payload and caller address to
-REM                 nexusclient\nexusclient\nexus_hook.log.
-REM EVENT_DISPATCH  the common world/event dispatcher: event class, payload
-REM                 fingerprint, concrete handler RVA, rate-limited bytes.
-REM LOADING_SCREEN  only guiGFxLoadingScreen's GOM class/field definition
-REM                 lookups, filtered to ids decoded from client.gom.
-REM ABILITY_GATE    the proven "not ready yet" chain: chrPlayerLoaded (the
-REM                 replicated input), ablUserCacheIsFrozen (the cached gate
-REM                 result), ablUserCacheIsLucid and
-REM                 ablUserCacheGlobalTimerRunning. It also resolves three
-REM                 control fields whose values are independently known
-REM                 (chrIsMe, chrCharacterPlayMode, chrCharacterPhaseMode), so
-REM                 a "3 pass" verdict means the gate readings can be believed.
-REM                 Source: _JPEXTRACT\ablUserComponentClassMethods.txt.
+REM Verbose logging. AREA_PAYLOADS also prints each CRT's length and SHA256 so
+REM emitted bytes can be diffed against the .acrt fixtures on disk.
 set SWTOR_TRACE_AREA_PAYLOADS=1
 set SWTOR_TRACE_RPC_CALLS=1
 set SWTOR_TRACE_EVENT_DISPATCH=1
 set SWTOR_TRACE_LOADING_SCREEN=1
-REM set SWTOR_TRACE_ABILITY_GATE=1  (no handler in the current source; probe removed)
-REM ABILITY_EFFECTS reads chrPlayerCharacter.f148 (ablContainer,
-REM 0x400000118A7E6088 -- note gom_type_names.xml also names 0x40000002F8C347F1
-REM "ablContainer" but the player does not have that one), follows the ClassRef to
-REM the live container node, and dumps its conContents raw bytes so the live read
-REM can be diffed against the 208-byte capture that Decode-CrtValues.py now
-REM decodes exactly (count 27, then 27x slot+CC+5, then 2x CF+8 shared refs).
-REM Read-only. A mismatch means the node reference is wrong, not the field -- the
-REM probe reports which of the three failure modes it hit rather than going silent.
-REM Investigation: Diagnostics\Ability-Gate-Findings-20260925.md, phase (2).
-REM set SWTOR_TRACE_ABILITY_EFFECTS=1  (no handler in the current source; probe removed)
-REM A missing .acrt suppresses the whole transaction instead of sending a
-REM zero-length one. CRT3 is disabled, so this decides whether the remaining
-REM problem is caused by the empty packet or by something unrelated to CRT
-REM traffic.
-set SWTOR_CRT_MISSING_MODE=skip
-REM ABILITY_CONTAINER is intentionally OFF. The probe that read it walked the
-REM player field chain inside the travel-start breakpoint and stalled the client
-REM before character select. The question it answered (does the live
-REM ablContainer hold entries?) is still open, but it must be re-asked from a
-REM passive breakpoint, not inline on the travel path.
-REM set SWTOR_TRACE_ABILITY_CONTAINER=1
+set SWTOR_TRACE_PHASE_LIFECYCLE=1
 
-REM Replication shaping. Measured record shapes for the player node
-REM 0x4000010E218A839C (structure 26, 215 fields):
-REM
-REM   {100}          captured; accepted, changes nothing
-REM   {129}          chrPlayerLoaded=1  frozen=0  abilities fire
-REM   {100, 129}     chrPlayerLoaded=1  frozen=0  abilities fire
-REM   {9, 129}       chrPlayerLoaded=0  frozen=1
-REM   {9, 100, 129}  chrPlayerLoaded=0  frozen=1
-REM
-REM staMobility is the one field that poisons a shared record, so it travels
-REM alone in CRT16 while CRT17 carries the stat map and the load flag. The two
-REM together are the first configuration observed to give movement AND an
-REM unlocked ability bar at the same time.
+REM World entry. A missing .acrt suppresses its whole transaction rather than
+REM sending a zero-length one.
+set SWTOR_CRT_MISSING_MODE=skip
+
+REM Player-state spoofing. Together these let the character move and load:
+REM   MOBILITY_IN_CRT16        staMobility travels alone in CRT16, because field 9
+REM                            poisons any record it shares and freezes the client.
+REM   STATMAP_AND_LOADED      modMetaStatComputed_Shared + chrPlayerLoaded in CRT17.
+REM   REMOVE_SAFE_LOGIN_EFFECT  strips the immobilizing /0/2 effect from CRT2.
+REM The client has no timeout: without chrPlayerLoaded=true the cast never
+REM completes, so all three are required together.
 set SWTOR_MOBILITY_IN_CRT16=1
 set SWTOR_STATMAP_AND_LOADED=1
-REM CRT2 create still suppresses the Safe Login Immunity effect, and CRT17
-REM still carries the schema-derived mobility and chrPlayerLoaded merge.
 set SWTOR_REMOVE_SAFE_LOGIN_EFFECT=1
-REM Effect fixture 1 reports Safe Login Immunity. Suppression is retained for
-REM isolation, although a prior run proved the effect is created elsewhere;
-REM omitting this replicated notification alone does not release mobility.
+
+REM Kept for isolation only. A prior run proved the effect is created elsewhere
+REM and that omitting this notification alone does not release mobility.
 set SWTOR_SUPPRESS_SAFE_LOGIN_EFFECT=1
 
-REM 2026-09-25: switched back from "echo" to "swallow" for the ability work.
-REM "echo" answers an ability activation with AreaRPCPollAck -- the poll-ack
-REM shape that belongs to AreaModulesList -- carrying the request body. The
-REM client most likely misreads that as a result, and OnAbilityResult's failure
-REM branch calls _InternalAbilityCancel, which fits "animation plays, then no
-REM cast bar and no buff". "swallow" sends nothing, so the client's own cast
-REM timer (ablCastTimeEnd, set client-side by SetClientCastingTime) is the only
-REM thing in play. If a cast bar appears under swallow, the echo was the poison.
-REM   SWTOR_RPC_REPLY_MODE  mirror (default) | results | echo | swallow | ack
-REM   SWTOR_RPC_RESULT_A    result name  (results mode; default "true")
-REM   SWTOR_RPC_RESULT_B    result value (both modes; default "true")
-REM mirror/results send SMSG_RESULTS, which native tracing showed reaches the
-REM route map but is NOT the response contract for these packed RPC calls.
-REM "ack" sends an empty poll-ack and is the next thing to try if swallow gets
-REM a cast bar but never completes it.
-REM
-REM Two request shapes now reach us and neither has a real response yet:
-REM   sub=29  ability activation. ablOracle.RequestAbilityActivate sends
-REM            server untrustedMethods:OnRequestAbilityActivate(abilitySpec,
-REM            requestId, syncTime, int, bool). Byte 29 of the body is a clean
-REM            1,2,3... counter and is ablActiveRequestId, so replies can be
-REM            correlated. OnAbilityResult only runs on FAILURE, so a successful
-REM            ability cannot be signalled by an RPC reply at all - it has to
-REM            arrive as a replicated effect in the positive effContainer. That
-REM            is server behaviour still to be written.
-REM   sub=10  area-object request for node 0x1AC6F6DC6D, which is structure
-REM            62 chrNonPlayerCharacter. CRT12 is the only struct-62 record in
-REM            the captures and it is an empty shell (inner=0, only staEnterIdle
-REM            reset to default), so the client re-requests it ~21 times. This
-REM            is missing content, not a protocol bug: re-sending the same
-REM            bytes cannot populate an NPC.
-set SWTOR_RPC_REPLY_MODE=swallow
-set SWTOR_RPC_RESULT_A=true
-set SWTOR_RPC_RESULT_B=true
-
-REM Area polls. AreaModulesList remains the readiness gate. The others are
-REM client character-sync traffic, not verified request/reply pairs, and must
-REM not be reflected back: the old echo was experimental, non-canonical, and
-REM was active immediately before the MemoryMan failure.
-set SWTOR_AREA_POLL_MODE=AreaModulesList=Echo;CMsg61116AD5=Swallow;CMsg7CB9A193=Swallow;CMsgC26464A9=Swallow;CMsgCCACB51D=Swallow
-REM The captured packet carries an empty state string, which leaves the local
-REM character/NPCs absent and world assets only partially initialized.
-REM "AreaServer" is the narrow client compatibility state that produced a
-REM fully rendered world.
+REM Area entry. "AreaServer" is the narrow compatibility state that produced a
+REM fully rendered world; the captured packet's empty state string leaves the
+REM local character and NPCs absent and world assets partially initialised.
 set SWTOR_AREA_ENTER_STATE=AreaServer
 set SWTOR_POST_STATE_ON_ENTER=0
-set SWTOR_NO_STATUS_PAUSE=1
 
-REM --- 2. ALTERNATIVES -------------------------------------------------------
-REM Record-shape bisects used to isolate the staMobility behaviour. All OFF.
-REM The active configuration above is the combination that worked; the rest
-REM are kept so a future regression can be re-bisected without re-deriving it.
+REM --- 2. ALTERNATIVES (measured variants, all OFF) --------------------------
+REM Record-shape bisects used to isolate the staMobility behaviour. Enabling more
+REM than one makes the result uninterpretable.
 REM   PLAYERLOADED_ONLY    CRT17 = {129} only. Proved the field applies alone.
 REM   MOBILITY_AND_LOADED  CRT17 = {9, 129}. Proved field 9 breaks a record.
-REM   (SWTOR_MOBILITY_IN_CRT16 and SWTOR_STATMAP_AND_LOADED above are the
-REM   two active shapes; do not enable these alongside them.)
 set SWTOR_PLAYERLOADED_ONLY=
 set SWTOR_MOBILITY_AND_LOADED=
 
-REM --- 3. DISABLED -----------------------------------------------------------
-REM Leave the verified local fade-in fallback enabled. A diagnostic run with
-REM the fallback disabled proved the original phase path stalls before it
-REM constructs a CheckPhaseNeedsContinue RPC, so there is no captured request
-REM to answer.
+REM --- 3. DISABLED (deliberately off) ---------------------------------------
+REM Probes removed after they stalled the client. Both walked the player field
+REM chain inline on the travel-start breakpoint; the container probe prevented
+REM reaching character select at all. The question they addressed (does the live
+REM ablContainer hold entries?) is unanswered and must be re-asked from a
+REM passive breakpoint.
+REM set SWTOR_TRACE_ABILITY_GATE=1
+REM set SWTOR_TRACE_ABILITY_EFFECTS=1
+REM set SWTOR_TRACE_ABILITY_CONTAINER=1
+
+REM Overrides the ability activation reply (selector 1279C371:001703D5)
+REM independently of the
+REM 30-second keepalive sharing the same opcode. Unset = inherit
+REM SWTOR_RPC_REPLY_MODE, which is the current behaviour.
+REM ECHO TEST RESULT: NEGATIVE, reverted. A controlled run (37 presses, 37
+REM ability:echo-reply-sent decisions, no in-game effect, no regressions) showed
+REM AreaRPCPollAck cannot work: GetType() returns PacketType.CMsgF96DCDB0, a
+REM client-to-server opcode, and its body is the request blob rather than a
+REM typed argument block. Prior notes blamed echo for making casts worse, but
+REM that was a global echo run before the sub=29 dispatch existed.
+REM set SWTOR_ABILITY_REPLY_MODE=echo
+
+REM Native inbound-dispatch and the April ablOracle SCPT now identify the exact
+REM typed completion RPC. "complete" replies with OnQueuedAbilityResult using
+REM the ability-spec and request id decoded from this activation.
+set SWTOR_ABILITY_REPLY_MODE=complete
+
+REM First authoritative effect-event experiment. The JP effEvent exports map
+REM the queued activation to effEventActivateRequestId, caster, and effectSpec.
+REM This sends an action-bearing self-target root event for both abilities. For
+REM Force Might it also sends the dependent /3/4 AddEffect event. In the capture,
+REM byte 0x2C is AbilityActivate and the following UInt32 is string length 19.
+set SWTOR_ABILITY_EFFECT_EXPERIMENT=1
+
+REM The accepted effEvent packets expire after two seconds and do not populate
+REM effContainerPositive. This opt-in transaction creates the real /3/4 Force
+REM Might, Shii-Cho, or Sprint effEffect instance and inserts it into
+REM positive-container slots 2-4. Sprint and Shii-Cho also update the player's
+REM replicated modal-active list so their quickbar state follows the buff.
+set SWTOR_ABILITY_EFFECT_REPLICATION=1
+
+REM Until NPC combat ownership is implemented, a hostile-target ability marks
+REM the player in combat and ten seconds without another hostile activation
+REM clears it. This exercises Sprint's real IsNotInCombat condition path.
+set SWTOR_ABILITY_COMBAT_EXPERIMENT=1
+
+REM Optional timed-effect expiry override for short diagnostics. Empty uses
+REM the effect's real duration (Force Might is 3600000 ms).
+set SWTOR_ABILITY_TIMED_TEST_MS=
+
+REM Lets CheckContinue issue its genuine CheckPhaseNeedsContinue RPC instead of
+REM the local fallback. This is the original world-entry stall: the legacy
+REM server has no matching RPC, so the native loading screen's final
+REM phase-confirmation step never completes. The launcher routes it to the
+REM engine's own no-player fallback (PhaseNeedsContinue(false) -> FadeIn),
+REM preserving asset and string-table waits. Empty keeps the fallback default.
 set SWTOR_DISABLE_LOADING_CONTINUE_FALLBACK=
-REM The 2026-09-24 schema-matched candidate is intentionally disabled. The
-REM client rejected its authored CRT1 schema with "Unable to read field count".
-REM Keep the files as offline evidence, but do not transmit them again until
-REM the native type-description grammar has been reconstructed.
-set SWTOR_CRT_OVERRIDE_DIRECTORY=
-REM CRT3 is known-incomplete; only useful for decoder experiments.
-set SWTOR_ENABLE_UNVERIFIED_CRT3=
-REM The readiness values and the full Replication_Create path are verified, so
-REM their breakpoint observers are off in favour of ABILITY_GATE.
-set SWTOR_TRACE_PLAYER_FIELDS=
+
+REM Supply the reconstructed player phase-data object (CRT3) and deliver the
+REM captured phase-info child in CRT1, before CRT2 creates the local player
+REM character. chrCharacter.Replication_Create fires OnPlayerCharacterNodeReady
+REM -> phsoracle.OnPhasedInstanceUpdated exactly once, and that method returns
+REM early when the player has no phase-info child, so the child must already
+REM exist when CRT2 is applied. Without that the phase banner never appears and
+REM pc.GetPhasedInstance() stays invalid, which also blocks phsCanExit.
+REM See Diagnostics/Phase-Mechanics-20260928.md.
+REM Still outstanding for the doorway itself: the captured session schema
+REM declares no engine trigger class at all - its 61 base classes are all GOM
+REM game classes, with hydTriggerEntity the only trigger among them - so no
+REM INSTANCE_GATEWAY trigger is ever replicated and GetTriggersByType(4) cannot
+REM match one from the replication stream. Whether the client materialises the
+REM doorway trigger from its own area data is what the probe below now tests.
+REM Keeping the loading fallback enabled isolates this exit-path experiment.
+if not defined SWTOR_ENABLE_UNVERIFIED_CRT3 set SWTOR_ENABLE_UNVERIFIED_CRT3=1
+set SWTOR_CRT_OVERRIDE_DIRECTORY=%~dp0Diagnostics\GeneratedPhaseCandidate
+rem Phase-exit probe: CORRECTED - ready to run, disabled by default.
+rem The first version of this probe was invalid three ways at once, so its
+rem "the client answered with nothing" result proves nothing:
+rem   1. its "fresh" node ID 0x1AC688C980 is a live CRT1 object (record 4), so
+rem      the transaction was an update and OnReplicationNodeCreate never re-ran;
+rem   2. it reused CRT11's stream id 0x001B5023, which the startup bundle had
+rem      already delivered, so the client can discard it as a duplicate stream;
+rem   3. re-sending an existing instance node cannot re-fire the create handler.
+rem The regenerated CRT18 is proven rather than asserted: node 0x1AC688C981 has
+rem zero references across all 20 .acrt files, and stream 0x001B502E is the next
+rem id after the capture's 0x001B5012..0x001B502D range. The payload is CRT1
+rem object 3 (the captured instance) with only its 6-byte packed node ID changed.
+rem Run by giving the interval a value, e.g.:
+rem   set SWTOR_PHASE_INSTANCE_RETRY=40
+rem Then watch the phase doorway. If the client holds the INSTANCE_GATEWAY
+rem trigger, the create handler attaches a gateway and a phsGatewayFx portal
+rem appears at the phase door. Nothing appearing means the trigger is absent
+rem client-side and must come from server-side area-object streaming.
+rem Regenerate the fixture with:
+rem   python Diagnostics/Generate-PhaseInstanceDuplicate.py
+rem Preset SWTOR_PHASE_INSTANCE_RETRY before calling this script to run the
+rem probe; see Run-SWTORClassic-PhaseExitProbe.cmd. An empty value keeps it off.
+if not defined SWTOR_PHASE_INSTANCE_RETRY set SWTOR_PHASE_INSTANCE_RETRY=
+if not defined SWTOR_PHASE_INSTANCE_RETRY_START set SWTOR_PHASE_INSTANCE_RETRY_START=25
+if not defined SWTOR_PHASE_INSTANCE_RETRY_CRT set SWTOR_PHASE_INSTANCE_RETRY_CRT=18
+if not defined SWTOR_PHASE_INSTANCE_RETRY_MAX set SWTOR_PHASE_INSTANCE_RETRY_MAX=1
+
+rem Spawn placement. Keep this empty to use the captured Masters' Retreat
+rem doorway (inside the phase): the level-1 Jedi Knight is supposed to start
+rem inside the story area and exit by walking out the door. A value here only
+rem overrides the placement for diagnostics (e.g. the Gnarls arrival trigger at
+rem -16.0,-2.2,-99.5); leaving the character in-phase while placed outside is an
+rem invalid state, not a movement bug.
+rem
+rem [ROOM-LOAD EXPERIMENT] Spawn past the doorway wall (world X=-62.92) into
+rem gnarls_new to test whether the client loads the exterior room's collision on
+rem its own (position-driven) or requires a server signal. Outcome: standing on a
+rem floor = client-position-driven; falling / nothing renders = server-signal.
+rem NOTE: -60,-6.9,-127.67 turned out to be the Tython medcenter (not gnarls_new)
+rem and produced an invalid in-phase/outside state (immobilized). Left OFF below.
+rem Set back to -64.87,-6.9,-127.67 to restore the normal in-phase spawn.
+set SWTOR_SPAWN_POSITION=
+REM Extra client-side probes, normally off. The filtered Hero getter observer
+REM cannot see ablUserModalActiveSpecs because this script path uses compiled
+REM field offsets rather than the generic getter.
+REM The phase scripts access their fields through compiled offsets, so the
+REM generic getter observer cannot see the doorway path.
+set SWTOR_TRACE_PLAYER_FIELDS=1
 set SWTOR_TRACE_PLAYER_LOADED_ACCESS=
 set SWTOR_TRACE_REPLICATION_CREATE=
 
-REM --- 4. ECHO ---------------------------------------------------------------
+REM Keep only the event-dispatch/CRT instrumentation required to install the
+REM named lifecycle observer. Suppress full CRT hex and unrelated field/RPC
+REM tracing for the bounded doorway log-only run.
+if "%SWTOR_PHASE_LIFECYCLE_LOG_ONLY%"=="1" (
+    set SWTOR_TRACE_AREA_PAYLOADS=0
+    set SWTOR_TRACE_RPC_CALLS=0
+    set SWTOR_TRACE_LOADING_SCREEN=0
+    set SWTOR_TRACE_PLAYER_FIELDS=0
+)
+
+REM --- 4. ECHO --------------------------------------------------------------
 echo [trace] === ACTIVE ===
 echo [trace] SWTOR_TRACE_AREA_PAYLOADS=%SWTOR_TRACE_AREA_PAYLOADS%
 echo [trace] SWTOR_TRACE_RPC_CALLS=%SWTOR_TRACE_RPC_CALLS%
 echo [trace] SWTOR_TRACE_EVENT_DISPATCH=%SWTOR_TRACE_EVENT_DISPATCH%
 echo [trace] SWTOR_TRACE_LOADING_SCREEN=%SWTOR_TRACE_LOADING_SCREEN%
+echo [trace] SWTOR_TRACE_PHASE_LIFECYCLE=%SWTOR_TRACE_PHASE_LIFECYCLE%
 echo [trace] SWTOR_CRT_MISSING_MODE=%SWTOR_CRT_MISSING_MODE%
 echo [trace] SWTOR_MOBILITY_IN_CRT16=%SWTOR_MOBILITY_IN_CRT16%
 echo [trace] SWTOR_STATMAP_AND_LOADED=%SWTOR_STATMAP_AND_LOADED%
 echo [trace] SWTOR_REMOVE_SAFE_LOGIN_EFFECT=%SWTOR_REMOVE_SAFE_LOGIN_EFFECT%
 echo [trace] SWTOR_SUPPRESS_SAFE_LOGIN_EFFECT=%SWTOR_SUPPRESS_SAFE_LOGIN_EFFECT%
-echo [trace] SWTOR_RPC_REPLY_MODE=%SWTOR_RPC_REPLY_MODE%
-echo [trace] SWTOR_AREA_POLL_MODE=%SWTOR_AREA_POLL_MODE%
 echo [trace] SWTOR_AREA_ENTER_STATE=%SWTOR_AREA_ENTER_STATE%
 echo [trace] SWTOR_POST_STATE_ON_ENTER=%SWTOR_POST_STATE_ON_ENTER%
 echo [trace] SWTOR_NO_STATUS_PAUSE=%SWTOR_NO_STATUS_PAUSE%
+echo [trace] SWTOR_AREA_POLL_MODE=%SWTOR_AREA_POLL_MODE%
+echo [trace] SWTOR_RPC_REPLY_MODE=%SWTOR_RPC_REPLY_MODE%
+echo [trace] SWTOR_RPC_RESULT_A=%SWTOR_RPC_RESULT_A%
+echo [trace] SWTOR_RPC_RESULT_B=%SWTOR_RPC_RESULT_B%
+echo [trace] SWTOR_ABILITY_REPLY_MODE=%SWTOR_ABILITY_REPLY_MODE%
+echo [trace] SWTOR_ABILITY_EFFECT_EXPERIMENT=%SWTOR_ABILITY_EFFECT_EXPERIMENT%
+echo [trace] SWTOR_ABILITY_EFFECT_REPLICATION=%SWTOR_ABILITY_EFFECT_REPLICATION%
+echo [trace] SWTOR_ABILITY_COMBAT_EXPERIMENT=%SWTOR_ABILITY_COMBAT_EXPERIMENT%
+echo [trace] SWTOR_ABILITY_TIMED_TEST_MS=%SWTOR_ABILITY_TIMED_TEST_MS%
+echo [trace] SWTOR_ENABLE_UNVERIFIED_CRT3=%SWTOR_ENABLE_UNVERIFIED_CRT3%
+echo [trace] SWTOR_CRT_OVERRIDE_DIRECTORY=%SWTOR_CRT_OVERRIDE_DIRECTORY%
+echo [trace] SWTOR_PHASE_INSTANCE_RETRY=%SWTOR_PHASE_INSTANCE_RETRY% - empty means probe disabled
 echo [trace] === ALTERNATIVES (all off) ===
 echo [trace] SWTOR_PLAYERLOADED_ONLY=%SWTOR_PLAYERLOADED_ONLY%
 echo [trace] SWTOR_MOBILITY_AND_LOADED=%SWTOR_MOBILITY_AND_LOADED%
 echo [trace] === DISABLED ===
 echo [trace] SWTOR_DISABLE_LOADING_CONTINUE_FALLBACK=%SWTOR_DISABLE_LOADING_CONTINUE_FALLBACK%
-echo [trace] SWTOR_CRT_OVERRIDE_DIRECTORY=%SWTOR_CRT_OVERRIDE_DIRECTORY%
-echo [trace] SWTOR_ENABLE_UNVERIFIED_CRT3=%SWTOR_ENABLE_UNVERIFIED_CRT3%
 echo [trace] SWTOR_TRACE_PLAYER_FIELDS=%SWTOR_TRACE_PLAYER_FIELDS%
 echo [trace] SWTOR_TRACE_PLAYER_LOADED_ACCESS=%SWTOR_TRACE_PLAYER_LOADED_ACCESS%
 echo [trace] SWTOR_TRACE_REPLICATION_CREATE=%SWTOR_TRACE_REPLICATION_CREATE%
+
+set SWTOR_NO_STATUS_PAUSE=1
+
+REM Area poll policy. AreaModulesList is the readiness gate and must be echoed.
+REM The others are client character-sync traffic, not verified request/reply
+REM pairs, and must not be reflected back.
+set SWTOR_AREA_POLL_MODE=AreaModulesList=Echo;CMsg61116AD5=Swallow;CMsg7CB9A193=Swallow;CMsgC26464A9=Swallow;CMsgCCACB51D=Swallow
+
+REM Script RPC replies. "swallow" sends nothing, leaving the client's own cast
+REM timer in play. Echo and ack send a client-to-server opcode, and SMsgResults
+REM frames two strings where a typed argument block is required. Ability
+REM activation is handled independently by SWTOR_ABILITY_REPLY_MODE above. The remaining
+REM sub=10 struct-62 NPC request still has only an empty captured shell.
+REM See Diagnostics\Ability-Result-Contract-20260926.md.
+set SWTOR_RPC_REPLY_MODE=swallow
+set SWTOR_RPC_RESULT_A=true
+set SWTOR_RPC_RESULT_B=true
+
+REM Pure configuration check: stop before installing files or starting a
+REM server/client. Launch.ps1 uses these same explicit settings for the run.
+if /I "%~1"=="--verify-config" (
+    echo [verified] CRT3=%SWTOR_ENABLE_UNVERIFIED_CRT3%
+    echo [verified] PHASE_INSTANCE_RETRY=%SWTOR_PHASE_INSTANCE_RETRY%
+    echo [verified] PHASE_LIFECYCLE=%SWTOR_TRACE_PHASE_LIFECYCLE%
+    echo [verified] LOG_ONLY=%SWTOR_PHASE_LIFECYCLE_LOG_ONLY%
+    echo [verified] FULL_CRT_HEX=%SWTOR_TRACE_AREA_PAYLOADS%
+    if not "%~2"=="1" if not "%~2"=="0" exit /b 1
+    if not "%SWTOR_ENABLE_UNVERIFIED_CRT3%"=="%~2" exit /b 1
+    if defined SWTOR_PHASE_INSTANCE_RETRY exit /b 1
+    if not "%SWTOR_TRACE_PHASE_LIFECYCLE%"=="1" exit /b 1
+    if not "%SWTOR_PHASE_LIFECYCLE_LOG_ONLY%"=="1" exit /b 1
+    if not "%SWTOR_TRACE_AREA_PAYLOADS%"=="0" exit /b 1
+    set SWTOR_
+    exit /b 0
+)
+
 echo.
 echo.
 echo [trace] SERVER readiness marker: when the log shows
@@ -202,10 +276,10 @@ echo [trace] client reached CS_INGAME or stalled at CS_GAME_LAUNCHING. DO NOT
 echo [trace] close the client before capturing its tail â€” the client must stay
 echo [trace] alive past the resource-worker idle lines to prove readiness.
 echo.
-echo [trace] SERVER console captured to: %USERPROFILE%\NexusToR.server.out
+echo [trace] SERVER console captured to: %~dp0Diagnostics\trace-server.out
 echo [trace] After the run, check that file for:
-echo [trace]   "AreaStartupBundle: area startup sent" <- area bundle emitted
-echo [trace]   "Client '...' disconnected" <- client session ended
+echo [trace]   "AreaStartupBundle: area startup sent" ^<- area bundle emitted
+echo [trace]   "Client '...' disconnected" ^<- client session ended
 echo.
 
 REM Install the freshly built, workspace-local diagnostic hook. Preserve the
@@ -310,7 +384,7 @@ if exist "%SERVER_LOG%" (
     del /Q "%SERVER_LOG%"
 )
 start "SWTORClassic server" /D "%~dp0SharpServer\bin\Debug" /LOW ^
-  "%~dp0SharpServer\bin\Debug\NexusToRServer.exe" > "%USERPROFILE%\NexusToR.server.out" 2>&1
+  "%~dp0SharpServer\bin\Debug\NexusToRServer.exe" > "%~dp0Diagnostics\trace-server.out" 2>&1
 
 REM Give the server a moment to bind before the client tries to connect.
 timeout /t 2 /nobreak >nul
@@ -339,7 +413,7 @@ goto wait_for_client_exit
 REM Collect stable workspace copies for post-run analysis.
 :collect_trace
 if exist "%HOOK_LOG%" powershell -NoProfile -Command "Copy-Item -LiteralPath '%HOOK_LOG%' -Destination '%~dp0Diagnostics\last-nexus-hook.log' -Force"
-if exist "%USERPROFILE%\NexusToR.server.out" powershell -NoProfile -Command "Copy-Item -LiteralPath '%USERPROFILE%\NexusToR.server.out' -Destination '%~dp0Diagnostics\last-server-out.log' -Force"
+if exist "%~dp0Diagnostics\trace-server.out" powershell -NoProfile -Command "Copy-Item -LiteralPath '%~dp0Diagnostics\trace-server.out' -Destination '%~dp0Diagnostics\last-server-out.log' -Force"
 if exist "%~dp0SharpServer\bin\Debug\NexusToR.log" powershell -NoProfile -Command "Copy-Item -LiteralPath '%~dp0SharpServer\bin\Debug\NexusToR.log' -Destination '%~dp0Diagnostics\last-server-full.log' -Force"
 
 if exist "%HOOK_LOG%" (

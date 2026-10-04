@@ -1,0 +1,1224 @@
+DEF Enumeration 0x400000050E8128D1 
+  ENUM 1 chrInteractionTypeNone
+  ENUM 2 chrInteractionTypeConversation
+  ENUM 3 chrInteractionTypeTaxi
+  ENUM 4 chrInteractionTypeVendor
+  ENUM 5 chrInteractionTypeBank
+  ENUM 6 chrInteractionTypeMail
+  ENUM 7 chrInteractionTypeAuction
+  ENUM 8 chrInteractionTypeWonkavator
+  ENUM 9 chrInteractionTypeFaceClinic
+  ENUM 10 chrInteractionTypeEnhancementStation
+  ENUM 11 chrInteractionTypeTrainer
+  ENUM 12 chrInteractionTypeGuildBank
+DEF Node 0xE0005063A3A0179B enc.test.ammer.directory.tython.enc_kalikori_taxi
+  BASE Class ; GLOMS 
+  FIELD 40000003D9A52AB9  lookuplist indexed by String of String = [ "A": "spn.test.ammer.directory.tython.kalikori_taxi_droid",  ]
+    KEY "A"
+  FIELD 40000003E56C4D97 ? lookuplist indexed by String of Boolean = [ "A": False,  ]
+    KEY "A"
+  FIELD 40000004382D9B19 ? Integer = 5
+  FIELD 40000004566BEA5A ? String = "0"
+  FIELD 400000065F8874E4  lookuplist indexed by String of noderef of 0xE00016F758F20EC2 = [ "A": 0xE00016F758F20EC2,  ]
+    KEY "A"
+  FIELD 4000000700A1ED6B  String = "action.fadeout"
+  FIELD 4000000B15AC249A ? Integer = -8382170770659400438
+  FIELD 4000000B15AC249B ? Integer = 2810978363206593086
+  FIELD 4000000B1F264A19 ? enum = 2
+  FIELD 4000000B1F264A1A ? Float = 0.2
+  FIELD 4000000B1F264A1B ? Float = 0.8
+  FIELD 800000087C382B3B ? Boolean = True
+DEF Node 0xE000AC681B75D3C4 enc.test.ammer.directory.tython.enc_temple_taxi
+  BASE Class ; GLOMS 
+  FIELD 40000003D9A52AB9  lookuplist indexed by String of String = [ "A": "spn.test.ammer.directory.tython.temple_taxi_droid",  ]
+    KEY "A"
+  FIELD 40000003E56C4D97 ? lookuplist indexed by String of Boolean = [ "A": False,  ]
+    KEY "A"
+  FIELD 40000004382D9B19 ? Integer = 5
+  FIELD 40000004566BEA5A ? String = "0"
+  FIELD 400000065F8874E4  lookuplist indexed by String of noderef of 0xE0003AF7A1D5B29A = [ "A": 0xE0003AF7A1D5B29A,  ]
+    KEY "A"
+  FIELD 4000000700A1ED6B  String = "action.fadeout"
+  FIELD 4000000B15AC249A ? Integer = -8382170770659400438
+  FIELD 4000000B15AC249B ? Integer = 2810978363206593086
+  FIELD 4000000B1F264A19 ? enum = 2
+  FIELD 4000000B1F264A1A ? Float = 0.2
+  FIELD 4000000B1F264A1B ? Float = 0.8
+  FIELD 800000087C382B3B ? Boolean = True
+DEF Node 0xE00027A1D57DB33F hyd.location.tython.taxi.inst_jedi_retreat_taxi_unlock
+  BASE Class ; GLOMS 
+  FIELD 40000001E389E2E3  lookuplist indexed by String of Class  = [ "On Interact": --Data--,  ]
+    KEY "On Interact"
+      0x40000001E3C45DDD String = "On Interact"
+      Field  as list of Class  list of class = { --Data--,  }
+        --Data--
+          Field  as list of Class  list of class = { --Data--,  }
+            --Data--
+              Field  as list of Class  list of class = { --Data--, --Data--,  }
+                --Data--
+                  Field  as String String = "Unlock Taxi Destination"
+                  Field  as String String = "tax.tython.poi_jedi_retreat_pathone"
+                  Field  as Integer Integer = -7570262538488060923
+                --Data--
+                  Field  as String String = "Unlock Taxi Destination"
+                  Field  as String String = "tax.tython.poi_jedi_retreat_pathtwo"
+                  Field  as Integer Integer = -7570262538488060923
+          Field  as Class  class = --Data--
+            Field  as list of Class  list of class = {  }
+            Field  as String String = "and"
+            Field  as list of String list of String = {  }
+            0x40000034BC126750 list of Id = {  }
+      0x40000002C13AAAD0 class = --Data--
+        0x40000002BB83598F Boolean = True
+        0x40000002BB835993 list of String = {  }
+        0x4000000564513CFB enum = 3
+  FIELD 4000000A4E63E81C  Id = 16140944640520860479
+DEF Node 0xE000875AA4DC5698 hyd.location.tython.taxi.poi_gnarls1_to_poi_retreat1
+  BASE Class ; GLOMS 
+  FIELD 40000001E389E2E3  lookuplist indexed by String of Class  = [ "On Interact": --Data--,  ]
+    KEY "On Interact"
+      0x40000001E3C45DDD String = "On Interact"
+      Field  as list of Class  list of class = { --Data--,  }
+        --Data--
+          Field  as list of Class  list of class = { --Data--,  }
+            --Data--
+              Field  as list of Class  list of class = { --Data--, --Data--, --Data--, --Data--, --Data--,  }
+                --Data--
+                  Field  as String String = "Unlock Taxi Destination"
+                  Field  as String String = "tax.tython.poi_gnarls_outpost_pathone"
+                  Field  as Integer Integer = -7570262538488060923
+                --Data--
+                  Field  as String String = "Unlock Taxi Destination"
+                  Field  as String String = "tax.tython.poi_gnarls_outpost_pathtwo"
+                  Field  as Integer Integer = -7570262538488060923
+                --Data--
+                  Field  as String String = "Unlock Taxi Destination"
+                  Field  as String String = "tax.tython.poi_jedi_retreat_pathone"
+                  Field  as Integer Integer = -7570262538488060923
+                --Data--
+                  Field  as String String = "Unlock Taxi Destination"
+                  Field  as String String = "tax.tython.poi_jedi_retreat_pathtwo"
+                  Field  as Integer Integer = -7570262538488060923
+                --Data--
+                  Field  as String String = "Show Taxi UI"
+                  Field  as String String = "tax.tython.poi_gnarls_outpost_pathone"
+                  Field  as Integer Integer = -7570262538488060923
+          Field  as Class  class = --Data--
+            Field  as list of Class  list of class = {  }
+            Field  as String String = "and"
+            Field  as list of String list of String = {  }
+            0x40000034BC126750 list of Id = {  }
+      0x40000002C13AAAD0 class = --Data--
+        0x40000002BB83598F Boolean = True
+        0x40000002BB835993 list of String = {  }
+        0x4000000564513CFB enum = 3
+  FIELD 4000000A4E63E81C  Id = 16141049887878567576
+DEF Node 0xE000399BB3898A31 hyd.location.tython.taxi.poi_gnarls2_to_poi_retreat2
+  BASE Class ; GLOMS 
+  FIELD 40000001E389E2E3  lookuplist indexed by String of Class  = [ "On Interact": --Data--,  ]
+    KEY "On Interact"
+      0x40000001E3C45DDD String = "On Interact"
+      Field  as list of Class  list of class = { --Data--,  }
+        --Data--
+          Field  as list of Class  list of class = { --Data--,  }
+            --Data--
+              Field  as list of Class  list of class = { --Data--, --Data--, --Data--, --Data--, --Data--,  }
+                --Data--
+                  Field  as String String = "Unlock Taxi Destination"
+                  Field  as String String = "tax.tython.poi_gnarls_outpost_pathone"
+                  Field  as Integer Integer = -7570262538488060923
+                --Data--
+                  Field  as String String = "Unlock Taxi Destination"
+                  Field  as String String = "tax.tython.poi_gnarls_outpost_pathtwo"
+                  Field  as Integer Integer = -7570262538488060923
+                --Data--
+                  Field  as String String = "Unlock Taxi Destination"
+                  Field  as String String = "tax.tython.poi_jedi_retreat_pathone"
+                  Field  as Integer Integer = -7570262538488060923
+                --Data--
+                  Field  as String String = "Unlock Taxi Destination"
+                  Field  as String String = "tax.tython.poi_jedi_retreat_pathtwo"
+                  Field  as Integer Integer = -7570262538488060923
+                --Data--
+                  Field  as String String = "Show Taxi UI"
+                  Field  as String String = "tax.tython.poi_gnarls_outpost_pathtwo"
+                  Field  as Integer Integer = -7570262538488060923
+          Field  as Class  class = --Data--
+            Field  as list of Class  list of class = {  }
+            Field  as String String = "and"
+            Field  as list of String list of String = {  }
+            0x40000034BC126750 list of Id = {  }
+      0x40000002C13AAAD0 class = --Data--
+        0x40000002BB83598F Boolean = True
+        0x40000002BB835993 list of String = {  }
+        0x4000000564513CFB enum = 3
+  FIELD 4000000A4E63E81C  Id = 16140964405390707249
+DEF Node 0xE000177110DDC3F0 hyd.location.tython.taxi.poi_retreat1_to_poi_gnarls
+  BASE Class ; GLOMS 
+  FIELD 40000001E389E2E3  lookuplist indexed by String of Class  = [ "On Interact": --Data--,  ]
+    KEY "On Interact"
+      0x40000001E3C45DDD String = "On Interact"
+      Field  as list of Class  list of class = { --Data--,  }
+        --Data--
+          Field  as list of Class  list of class = { --Data--,  }
+            --Data--
+              Field  as list of Class  list of class = { --Data--, --Data--, --Data--,  }
+                --Data--
+                  Field  as String String = "Unlock Taxi Destination"
+                  Field  as String String = "tax.tython.poi_jedi_retreat_pathone"
+                  Field  as Integer Integer = -7570262538488060923
+                --Data--
+                  Field  as String String = "Unlock Taxi Destination"
+                  Field  as String String = "tax.tython.poi_gnarlsoutpost_to_temple"
+                  Field  as Integer Integer = -7570262538488060923
+                --Data--
+                  Field  as String String = "Show Taxi UI"
+                  Field  as String String = "tax.tython.poi_jedi_retreat_pathone"
+                  Field  as Integer Integer = -7570262538488060923
+          Field  as Class  class = --Data--
+            Field  as list of Class  list of class = {  }
+            Field  as String String = "and"
+            Field  as list of String list of String = {  }
+            0x40000034BC126750 list of Id = {  }
+      0x40000002C13AAAD0 class = --Data--
+        0x40000002BB83598F Boolean = True
+        0x40000002BB835993 list of String = {  }
+        0x4000000564513CFB enum = 3
+  FIELD 4000000A4E63E81C  Id = 16140926838877570032
+DEF Node 0xE0006D1FA7CB3FC3 hyd.location.tython.taxi.poi_retreat1_to_poi_gnarls1
+  BASE Class ; GLOMS 
+  FIELD 40000001E389E2E3  lookuplist indexed by String of Class  = [ "On Interact": --Data--,  ]
+    KEY "On Interact"
+      0x40000001E3C45DDD String = "On Interact"
+      Field  as list of Class  list of class = { --Data--,  }
+        --Data--
+          Field  as list of Class  list of class = { --Data--,  }
+            --Data--
+              Field  as list of Class  list of class = { --Data--, --Data--, --Data--, --Data--, --Data--,  }
+                --Data--
+                  Field  as String String = "Unlock Taxi Destination"
+                  Field  as String String = "tax.alderaan.taxi_h4_r1_poi18_republic_wardpost_jakavin_rep"
+                  Field  as Integer Integer = -7570262538488060923
+                --Data--
+                  Field  as String String = "Unlock Taxi Destination"
+                  Field  as String String = "tax.tython.poi_gnarls_outpost_pathtwo"
+                  Field  as Integer Integer = -7570262538488060923
+                --Data--
+                  Field  as String String = "Unlock Taxi Destination"
+                  Field  as String String = "tax.tython.poi_jedi_retreat_pathone"
+                  Field  as Integer Integer = -7570262538488060923
+                --Data--
+                  Field  as String String = "Unlock Taxi Destination"
+                  Field  as String String = "tax.tython.poi_jedi_retreat_pathtwo"
+                  Field  as Integer Integer = -7570262538488060923
+                --Data--
+                  Field  as String String = "Show Taxi UI"
+                  Field  as String String = "tax.tython.poi_jedi_retreat_pathone"
+                  Field  as Integer Integer = -7570262538488060923
+          Field  as Class  class = --Data--
+            Field  as list of Class  list of class = {  }
+            Field  as String String = "and"
+            Field  as list of String list of String = {  }
+            0x40000034BC126750 list of Id = {  }
+      0x40000002C13AAAD0 class = --Data--
+        0x40000002BB83598F Boolean = True
+        0x40000002BB835993 list of String = {  }
+        0x4000000564513CFB enum = 3
+  FIELD 4000000A4E63E81C  Id = 16141021047222386627
+DEF Node 0xE0007CC122F7763D hyd.location.tython.taxi.poi_retreat2_to_poi_gnarls
+  BASE Class ; GLOMS 
+  FIELD 40000001E389E2E3  lookuplist indexed by String of Class  = [ "On Interact": --Data--,  ]
+    KEY "On Interact"
+      0x40000001E3C45DDD String = "On Interact"
+      Field  as list of Class  list of class = { --Data--,  }
+        --Data--
+          Field  as list of Class  list of class = { --Data--,  }
+            --Data--
+              Field  as list of Class  list of class = { --Data--, --Data--, --Data--,  }
+                --Data--
+                  Field  as String String = "Unlock Taxi Destination"
+                  Field  as String String = "tax.tython.poi_jedi_retreat_pathtwo"
+                  Field  as Integer Integer = -7570262538488060923
+                --Data--
+                  Field  as String String = "Unlock Taxi Destination"
+                  Field  as String String = "tax.tython.poi_gnarlsoutpost_to_temple"
+                  Field  as Integer Integer = -7570262538488060923
+                --Data--
+                  Field  as String String = "Show Taxi UI"
+                  Field  as String String = "tax.tython.poi_jedi_retreat_pathtwo"
+                  Field  as Integer Integer = -7570262538488060923
+          Field  as Class  class = --Data--
+            Field  as list of Class  list of class = {  }
+            Field  as String String = "and"
+            Field  as list of String list of String = {  }
+            0x40000034BC126750 list of Id = {  }
+      0x40000002C13AAAD0 class = --Data--
+        0x40000002BB83598F Boolean = True
+        0x40000002BB835993 list of String = {  }
+        0x4000000564513CFB enum = 3
+  FIELD 4000000A4E63E81C  Id = 16141038233453033021
+DEF Node 0xE0004A2E69FBFCFA hyd.location.tython.taxi.poi_retreat2_to_poi_gnarls2
+  BASE Class ; GLOMS 
+  FIELD 40000001E389E2E3  lookuplist indexed by String of Class  = [ "On Interact": --Data--,  ]
+    KEY "On Interact"
+      0x40000001E3C45DDD String = "On Interact"
+      Field  as list of Class  list of class = { --Data--,  }
+        --Data--
+          Field  as list of Class  list of class = { --Data--,  }
+            --Data--
+              Field  as list of Class  list of class = { --Data--, --Data--, --Data--, --Data--, --Data--,  }
+                --Data--
+                  Field  as String String = "Unlock Taxi Destination"
+                  Field  as String String = "tax.tython.poi_gnarls_outpost_pathone"
+                  Field  as Integer Integer = -7570262538488060923
+                --Data--
+                  Field  as String String = "Unlock Taxi Destination"
+                  Field  as String String = "tax.tython.poi_gnarls_outpost_pathtwo"
+                  Field  as Integer Integer = -7570262538488060923
+                --Data--
+                  Field  as String String = "Unlock Taxi Destination"
+                  Field  as String String = "tax.tython.poi_jedi_retreat_pathone"
+                  Field  as Integer Integer = -7570262538488060923
+                --Data--
+                  Field  as String String = "Unlock Taxi Destination"
+                  Field  as String String = "tax.tython.poi_jedi_retreat_pathtwo"
+                  Field  as Integer Integer = -7570262538488060923
+                --Data--
+                  Field  as String String = "Show Taxi UI"
+                  Field  as String String = "tax.tython.poi_jedi_retreat_pathtwo"
+                  Field  as Integer Integer = -7570262538488060923
+          Field  as Class  class = --Data--
+            Field  as list of Class  list of class = {  }
+            Field  as String String = "and"
+            Field  as list of String list of String = {  }
+            0x40000034BC126750 list of Id = {  }
+      0x40000002C13AAAD0 class = --Data--
+        0x40000002BB83598F Boolean = True
+        0x40000002BB835993 list of String = {  }
+        0x4000000564513CFB enum = 3
+  FIELD 4000000A4E63E81C  Id = 16140982627702930682
+DEF Node 0xE0000C962BC459FB hyd.test.ammer.directory.tython.isnt_droid_taxi
+  BASE Class ; GLOMS 
+  FIELD 40000001E389E2E3  lookuplist indexed by String of Class  = [ "On Spawn": --Data--,  ]
+    KEY "On Spawn"
+      0x40000001E3C45DDD String = "On Spawn"
+      Field  as list of Class  list of class = { --Data--,  }
+        --Data--
+          Field  as list of Class  list of class = { --Data--,  }
+            --Data--
+              Field  as list of Class  list of class = { --Data--, --Data--, --Data--,  }
+                --Data--
+                  Field  as String String = "Play VFX"
+                  Field  as String String = "worlddesign/generic/directory_droid_rep_yellow"
+                  Field  as Integer Integer = -7813765306377090648
+                --Data--
+                  Field  as String String = "Wait"
+                  Field  as String String = "1"
+                  Field  as Boolean Boolean = True
+                  Field  as Integer Integer = -7813765306377090648
+                  Field  as Integer Integer = -7813765306377090648
+                --Data--
+                  Field  as String String = "Use Walk Path"
+                  Field  as String String = "pth.test.ammer.directory.tython.foot_trail_taxi"
+                  Field  as Integer Integer = -7813765306377090648
+                  Field  as Integer Integer = -7813765306377090648
+          Field  as Class  class = --Data--
+            Field  as list of Class  list of class = {  }
+            Field  as String String = "and"
+            Field  as list of String list of String = {  }
+            0x40000034BC126750 list of Id = {  }
+      0x40000002C13AAAD0 class = --Data--
+        0x40000002BB83598F Boolean = True
+        0x40000002BB835993 list of String = {  }
+        0x4000000564513CFB enum = 3
+  FIELD 4000000A4E63E81C  Id = 16140914903614773755
+DEF Node 0xE000897B816BEEEC mpn.location.tython.class.jedi_knight.attack_of_the_flesh_raiders.taxi_breadcrumb
+  BASE Class ; GLOMS 
+  FIELD 400000057946402A  String = "QuestCircle"
+  FIELD 400000095EC2FF39  Integer = 1063266398765056
+  FIELD 4000000BB7FE6703  Integer = 2959999436154067372
+  FIELD 4000000BB7FE6704  Integer = 2959999436154067372
+  FIELD 4000000DE986726F  enum  = Quest
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -2761358831308646330: --Data--,  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 1063266398765056
+      Field  as String String = "str.mpn"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "Speeders to the Gnarls",  ]
+        KEY STRVARIANT_ARCHETYPE
+DEF Node 0xE000950A510FDFFF mpn.location.tython.taxi.gnarlsoutpost_pad1
+  BASE Class ; GLOMS 
+  FIELD 400000057946402A  String = "Taxi"
+  FIELD 400000095EC2FF39  Integer = 1063511211900928
+  FIELD 4000000DE986726F  enum  = TaxiTerminal
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -2761358831308646330: --Data--,  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 1063511211900928
+      Field  as String String = "str.mpn"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "Default Mapnote",  ]
+        KEY STRVARIANT_ARCHETYPE
+  FIELD 4000003067688080  Id = 16140905181979661917
+DEF Node 0xE000920A510FD2D6 mpn.location.tython.taxi.gnarlsoutpost_pad2
+  BASE Class ; GLOMS 
+  FIELD 400000057946402A  String = "Taxi"
+  FIELD 400000095EC2FF39  Integer = 1063515506868224
+  FIELD 4000000DE986726F  enum  = TaxiTerminal
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -2761358831308646330: --Data--,  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 1063515506868224
+      Field  as String String = "str.mpn"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "Default Mapnote",  ]
+        KEY STRVARIANT_ARCHETYPE
+  FIELD 4000003067688080  Id = 16141003039415266500
+DEF Node 0xE00036329F24F917 mpn.location.tython.taxi.gnarlsoutpost_to_jeditemple
+  BASE Class ; GLOMS 
+  FIELD 400000057946402A  String = "Taxi"
+  FIELD 400000095EC2FF39  Integer = 1063519801835520
+  FIELD 4000000DE986726F  enum  = TaxiTerminal
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -2761358831308646330: --Data--,  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 1063519801835520
+      Field  as String String = "str.mpn"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "Default Mapnote",  ]
+        KEY STRVARIANT_ARCHETYPE
+  FIELD 4000003067688080  Id = 16141073232114671970
+DEF Node 0xE0009CBCE3A2F933 mpn.location.tython.taxi.jediretreat_pad1
+  BASE Class ; GLOMS 
+  FIELD 400000057946402A  String = "Taxi"
+  FIELD 400000095EC2FF39  Integer = 1063524096802816
+  FIELD 4000000DE986726F  enum  = TaxiTerminal
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -2761358831308646330: --Data--,  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 1063524096802816
+      Field  as String String = "str.mpn"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "Default Mapnote",  ]
+        KEY STRVARIANT_ARCHETYPE
+  FIELD 4000003067688080  Id = 16141143243244138328
+DEF Node 0xE0009DBCE3A2FFE6 mpn.location.tython.taxi.jediretreat_pad2
+  BASE Class ; GLOMS 
+  FIELD 400000057946402A  String = "Taxi"
+  FIELD 400000095EC2FF39  Integer = 1063528391770112
+  FIELD 4000000DE986726F  enum  = TaxiTerminal
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -2761358831308646330: --Data--,  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 1063528391770112
+      Field  as String String = "str.mpn"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "Default Mapnote",  ]
+        KEY STRVARIANT_ARCHETYPE
+  FIELD 4000003067688080  Id = 16140994808761061920
+DEF Node 0xE0000C4585A38E54 mpn.location.tython.taxi.jeditemple
+  BASE Class ; GLOMS 
+  FIELD 400000057946402A  String = "Taxi"
+  FIELD 400000095EC2FF39  Integer = 1063532686737408
+  FIELD 4000000DE986726F  enum  = TaxiTerminal
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -2761358831308646330: --Data--,  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 1063532686737408
+      Field  as String String = "str.mpn"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "Default Mapnote",  ]
+        KEY STRVARIANT_ARCHETYPE
+  FIELD 4000003067688080  Id = 16140912939330946100
+DEF Node 0xE00095519AFF051E mpn.location.tython.taxi.poi05_kalikori_village
+  BASE Class ; GLOMS 
+  FIELD 400000057946402A  String = "Taxi"
+  FIELD 400000095EC2FF39  Integer = 1063536981704704
+  FIELD 4000000DE986726F  enum  = TaxiTerminal
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -2761358831308646330: --Data--,  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 1063536981704704
+      Field  as String String = "str.mpn"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "Palace Guards",  ]
+        KEY STRVARIANT_ARCHETYPE
+  FIELD 4000003067688080  Id = 16141087230955519565
+DEF Node 0xE000943A7984EC4F mpn.location.tython.taxi.tythosvalley_forwardcamp
+  BASE Class ; GLOMS 
+  FIELD 400000057946402A  String = "Taxi"
+  FIELD 400000095EC2FF39  Integer = 1063541276672000
+  FIELD 4000000DE986726F  enum  = TaxiTerminal
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -2761358831308646330: --Data--,  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 1063541276672000
+      Field  as String String = "str.mpn"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "Default Mapnote",  ]
+        KEY STRVARIANT_ARCHETYPE
+  FIELD 4000003067688080  Id = 16141115072427766680
+DEF Node 0xE00028516EDBE410 npc.location.tython.taxi.gnarlsoutpost_to_jeditemple
+  BASE Class ; GLOMS 0x819DD27F27FB9C78,0x663DE6674381C181
+  FIELD 4000000027BDA14B ? Integer = 10
+  FIELD 4000000027BDA14C ? Integer = 10
+  FIELD 40000003DE992C09  Id = 16141073232114671970
+  FIELD 40000004DDA27A71  enum  = NPC_APPEARANCE_OVERRIDE_NO_OVERRIDE
+  FIELD 40000005618EC27C ? enum = 2
+  FIELD 40000007EE70D683 ? String = "pkg.movement.npc.regular"
+  FIELD 40000007EE70D684 ? String = "pkg.cover.none"
+  FIELD 40000007F6B3B43C ? String = "pkg.wander.npc.none"
+  FIELD 40000007F6B3B43D ? String = "pkg.aggro.custom.extreme"
+  FIELD 400000082CFBE218 ? Boolean = True
+  FIELD 400000082DE6DE61  list of Class  = { --Data--,  }
+    --Data--
+      Field  as String String = "protocol"
+      Field  as Float Float = 1
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141079152419016671
+  FIELD 400000097E10EBAB  Integer = -878620586690540766
+  FIELD 400000098A308CF7 ? lookuplist indexed by enum of Boolean = [ 0: True,  ]
+    KEY 0
+  FIELD 40000009AF9F1222 ? Integer = 2542725673921961678
+  FIELD 4000000A1D72EA3C ? Id = 16141128598192354444
+  FIELD 4000000A4E63E821  Id = 16140945394713224208
+  FIELD 4000000A731CD8C0  Id = 16140921840742184344
+  FIELD 4000000E582939A7  Id = 16141090805656758403
+  FIELD 4000000F3BBA9ABC  Id = 16141124283000987478
+  FIELD 4000000F9C1EB267 ? enum = 2
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -8863348193830878519: --Data--, -2761358831308646330: --Data--,  ]
+    KEY -8863348193830878519
+      Field  as Integer Integer = 836157118149170
+      Field  as String String = "str.sys.titles"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [  ]
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 527074091597824
+      Field  as String String = "str.npc"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "Gnarls Outpost Speeder",  ]
+        KEY STRVARIANT_ARCHETYPE
+  FIELD 400000355F990B41  enum  = NPC_GENDER_NEUTRAL_PROPER
+DEF Node 0xE0008B8CC0FAEA1D npc.location.tython.taxi.jediretreat_pad1
+  BASE Class ; GLOMS 0x819DD27F27F86060,0x663DE6674381C181
+  FIELD 4000000027BDA14B ? Integer = 10
+  FIELD 4000000027BDA14C ? Integer = 10
+  FIELD 40000003DE992C09  Id = 16141143243244138328
+  FIELD 40000004DDA27A71  enum  = NPC_APPEARANCE_OVERRIDE_NO_OVERRIDE
+  FIELD 40000005618EC27C ? enum = 2
+  FIELD 40000007EE70D683 ? String = "pkg.movement.npc.regular"
+  FIELD 40000007EE70D684 ? String = "pkg.cover.none"
+  FIELD 40000007F6B3B43C ? String = "pkg.wander.npc.none"
+  FIELD 40000007F6B3B43D ? String = "pkg.aggro.custom.extreme"
+  FIELD 400000082CFBE218 ? Boolean = True
+  FIELD 400000082DE6DE61  list of Class  = { --Data--,  }
+    --Data--
+      Field  as String String = "protocol"
+      Field  as Float Float = 1
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141079152419016671
+  FIELD 400000097E10EBAB  Integer = -878620586690540766
+  FIELD 400000098A308CF7 ? lookuplist indexed by enum of Boolean = [ 0: True,  ]
+    KEY 0
+  FIELD 40000009AF9F1222 ? Integer = 2542725673921961678
+  FIELD 4000000A1D72EA3C ? Id = 16141128598192354444
+  FIELD 4000000A4E63E821  Id = 16141054501145209373
+  FIELD 4000000A4FA14A24 ? Id = 16140944640520860479
+  FIELD 4000000A731CD8C0  Id = 16140921840742184344
+  FIELD 4000000E582939A7  Id = 16141090805656758403
+  FIELD 4000000F3BBA9ABC  Id = 16141124283000987478
+  FIELD 4000000F9C1EB267 ? enum = 2
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -8863348193830878519: --Data--, -2761358831308646330: --Data--,  ]
+    KEY -8863348193830878519
+      Field  as Integer Integer = 836157118149170
+      Field  as String String = "str.sys.titles"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [  ]
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 522568670904320
+      Field  as String String = "str.npc"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "Masters' Retreat Taxi",  ]
+        KEY STRVARIANT_ARCHETYPE
+  FIELD 400000355F990B41  enum  = NPC_GENDER_NEUTRAL_PROPER
+DEF Node 0xE000888CC0FAF134 npc.location.tython.taxi.jediretreat_pad2
+  BASE Class ; GLOMS 0x819DD27F27F86060,0x663DE6674381C181
+  FIELD 4000000027BDA14B ? Integer = 10
+  FIELD 4000000027BDA14C ? Integer = 10
+  FIELD 40000003DE992C09  Id = 16140994808761061920
+  FIELD 40000004DDA27A71  enum  = NPC_APPEARANCE_OVERRIDE_NO_OVERRIDE
+  FIELD 40000005618EC27C ? enum = 2
+  FIELD 40000007EE70D683 ? String = "pkg.movement.npc.regular"
+  FIELD 40000007EE70D684 ? String = "pkg.cover.none"
+  FIELD 40000007F6B3B43C ? String = "pkg.wander.npc.none"
+  FIELD 40000007F6B3B43D ? String = "pkg.aggro.custom.extreme"
+  FIELD 400000082CFBE218 ? Boolean = True
+  FIELD 400000082DE6DE61  list of Class  = { --Data--,  }
+    --Data--
+      Field  as String String = "protocol"
+      Field  as Float Float = 1
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141079152419016671
+  FIELD 400000097E10EBAB  Integer = -878620586690540766
+  FIELD 400000098A308CF7 ? lookuplist indexed by enum of Boolean = [ 0: True,  ]
+    KEY 0
+  FIELD 40000009AF9F1222 ? Integer = 2542725673921961678
+  FIELD 4000000A1D72EA3C ? Id = 16141128598192354444
+  FIELD 4000000A4E63E821  Id = 16141051202610327860
+  FIELD 4000000A4FA14A24 ? Id = 16140944640520860479
+  FIELD 4000000A731CD8C0  Id = 16140921840742184344
+  FIELD 4000000E582939A7  Id = 16141090805656758403
+  FIELD 4000000F3BBA9ABC  Id = 16141124283000987478
+  FIELD 4000000F9C1EB267 ? enum = 2
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -8863348193830878519: --Data--, -2761358831308646330: --Data--,  ]
+    KEY -8863348193830878519
+      Field  as Integer Integer = 836157118149170
+      Field  as String String = "str.sys.titles"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [  ]
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 522572965871616
+      Field  as String String = "str.npc"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "Jedi Retreat Taxi",  ]
+        KEY STRVARIANT_ARCHETYPE
+  FIELD 400000355F990B41  enum  = NPC_GENDER_NEUTRAL_PROPER
+DEF Node 0xE000DBA3CD45E767 npc.location.tython.taxi.jeditemple
+  BASE Class ; GLOMS 0x819DD27F27F8639C,0x663DE6674381C181
+  FIELD 4000000027BDA14B ? Integer = 10
+  FIELD 4000000027BDA14C ? Integer = 10
+  FIELD 40000003DE992C09  Id = 16140912939330946100
+  FIELD 40000004DDA27A71  enum  = NPC_APPEARANCE_OVERRIDE_NO_OVERRIDE
+  FIELD 40000005618EC27C ? enum = 2
+  FIELD 40000007EE70D683 ? String = "pkg.movement.npc.regular"
+  FIELD 40000007EE70D684 ? String = "pkg.cover.none"
+  FIELD 40000007F6B3B43C ? String = "pkg.wander.npc.none"
+  FIELD 40000007F6B3B43D ? String = "pkg.aggro.custom.extreme"
+  FIELD 400000082CFBE218 ? Boolean = True
+  FIELD 400000082DE6DE61  list of Class  = { --Data--,  }
+    --Data--
+      Field  as String String = "protocol"
+      Field  as Float Float = 1
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141079152419016671
+  FIELD 400000097E10EBAB  Integer = -878620586690540766
+  FIELD 400000098A308CF7 ? lookuplist indexed by enum of Boolean = [ 0: True,  ]
+    KEY 0
+  FIELD 40000009AF9F1222 ? Integer = 2542725673921961678
+  FIELD 4000000A1D72EA3C ? Id = 16141128598192354444
+  FIELD 4000000A4E63E821  Id = 16141142561065920359
+  FIELD 4000000A731CD8C0  Id = 16140921840742184344
+  FIELD 4000000E582939A7  Id = 16141090805656758403
+  FIELD 4000000F3BBA9ABC  Id = 16141124283000987478
+  FIELD 4000000F9C1EB267 ? enum = 2
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -8863348193830878519: --Data--, -2761358831308646330: --Data--,  ]
+    KEY -8863348193830878519
+      Field  as Integer Integer = 836157118149170
+      Field  as String String = "str.sys.titles"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [  ]
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 527069796630528
+      Field  as String String = "str.npc"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "Jedi Temple Speeder",  ]
+        KEY STRVARIANT_ARCHETYPE
+  FIELD 400000355F990B41  enum  = NPC_GENDER_NEUTRAL_PROPER
+DEF Node 0xE000A94BB83244A6 npc.location.tython.taxi.poi05_kalikori_village
+  BASE Class ; GLOMS 0x39481DD27F27F82,0x24FA40CC7BCCCE87
+  FIELD 4000000027BDA14B ? Integer = 10
+  FIELD 4000000027BDA14C ? Integer = 10
+  FIELD 40000003DE992C09  Id = 16141087230955519565
+  FIELD 40000004DDA27A71  enum  = NPC_APPEARANCE_OVERRIDE_NO_OVERRIDE
+  FIELD 40000005618EC27C ? enum = 2
+  FIELD 40000007EE70D683 ? String = "pkg.movement.npc.regular"
+  FIELD 40000007EE70D684 ? String = "pkg.cover.none"
+  FIELD 40000007F6B3B43C ? String = "pkg.wander.npc.none"
+  FIELD 40000007F6B3B43D ? String = "pkg.aggro.custom.extreme"
+  FIELD 400000082CFBE218 ? Boolean = True
+  FIELD 400000082DE6DE61  list of Class  = { --Data--,  }
+    --Data--
+      Field  as String String = "protocol"
+      Field  as Float Float = 1
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141079152419016671
+  FIELD 400000097E10EBAB  Integer = 3780939478746129694
+  FIELD 400000098A308CF7 ? lookuplist indexed by enum of Boolean = [ 0: True,  ]
+    KEY 0
+  FIELD 40000009AF9F1222 ? Integer = 2542725673921961678
+  FIELD 4000000A1D72EA3C ? Id = 16141128598192354444
+  FIELD 4000000A4E63E821  Id = 16141087207173801126
+  FIELD 4000000A731CD8C0  Id = 16140921840742184344
+  FIELD 4000000E582939A7  Id = 16141090805656758403
+  FIELD 4000000F3BBA9ABC  Id = 16141009496739649142
+  FIELD 4000000F9C1EB267 ? enum = 2
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -8863348193830878519: --Data--, -2761358831308646330: --Data--,  ]
+    KEY -8863348193830878519
+      Field  as Integer Integer = 836157118148170
+      Field  as String String = "str.sys.titles"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [  ]
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 582698213048320
+      Field  as String String = "str.npc"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "Kalikori Village Speeder",  ]
+        KEY STRVARIANT_ARCHETYPE
+  FIELD 400000355F990B41  enum  = NPC_GENDER_NEUTRAL_PROPER
+DEF Node 0xE0001B40B58D66DC npc.location.tython.taxi.tythosvalley_forwardcamp
+  BASE Class ; GLOMS 0x819DD27F27F86060,0x663DE6674381C181
+  FIELD 4000000027BDA14B ? Integer = 10
+  FIELD 4000000027BDA14C ? Integer = 10
+  FIELD 40000003DE992C09  Id = 16141115072427766680
+  FIELD 40000004DDA27A71  enum  = NPC_APPEARANCE_OVERRIDE_NO_OVERRIDE
+  FIELD 40000005618EC27C ? enum = 2
+  FIELD 40000007EE70D683 ? String = "pkg.movement.npc.regular"
+  FIELD 40000007EE70D684 ? String = "pkg.cover.none"
+  FIELD 40000007F6B3B43C ? String = "pkg.wander.npc.none"
+  FIELD 40000007F6B3B43D ? String = "pkg.aggro.custom.extreme"
+  FIELD 400000082CFBE218 ? Boolean = True
+  FIELD 400000082DE6DE61  list of Class  = { --Data--,  }
+    --Data--
+      Field  as String String = "protocol"
+      Field  as Float Float = 1
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141079152419016671
+  FIELD 400000097E10EBAB  Integer = -878620586690540766
+  FIELD 400000098A308CF7 ? lookuplist indexed by enum of Boolean = [ 0: True,  ]
+    KEY 0
+  FIELD 40000009AF9F1222 ? Integer = 2542725673921961678
+  FIELD 4000000A1D72EA3C ? Id = 16141128598192354444
+  FIELD 4000000A4E63E821  Id = 16140931029233657564
+  FIELD 4000000A731CD8C0  Id = 16140921840742184344
+  FIELD 4000000E582939A7  Id = 16141090805656758403
+  FIELD 4000000F3BBA9ABC  Id = 16141124283000987478
+  FIELD 4000000F9C1EB267 ? enum = 2
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -8863348193830878519: --Data--, -2761358831308646330: --Data--,  ]
+    KEY -8863348193830878519
+      Field  as Integer Integer = 836157118149170
+      Field  as String String = "str.sys.titles"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [  ]
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 527331789635584
+      Field  as String String = "str.npc"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "Forward Camp Speeder",  ]
+        KEY STRVARIANT_ARCHETYPE
+  FIELD 400000355F990B41  enum  = NPC_GENDER_NEUTRAL_PROPER
+DEF Node 0xE000E00F0BF6F61D npc.test.ammer.directory.tython.kalikori_taxi_droid
+  BASE Class ; GLOMS 
+  FIELD 4000000027BDA14B ? Integer = 1
+  FIELD 4000000027BDA14C ? Integer = 1
+  FIELD 40000004DDA27A71  enum  = NPC_APPEARANCE_OVERRIDE_NO_OVERRIDE
+  FIELD 40000005618EC27C ? enum = 2
+  FIELD 40000007EE70D683 ? String = "pkg.movement.npc.regular"
+  FIELD 40000007EE70D684 ? String = "pkg.cover.none"
+  FIELD 40000007F6B3B43C ? String = "pkg.wander.npc.none"
+  FIELD 40000007F6B3B43D ? String = "pkg.aggro.npc.exterior_high_baf"
+  FIELD 400000082CFBE218 ? Boolean = True
+  FIELD 400000082DE6DE61  list of Class  = { --Data--,  }
+    --Data--
+      Field  as String String = "mote"
+      Field  as Float Float = 1
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141055351827422683
+  FIELD 400000097E10EBAB  Integer = 3780939478746129694
+  FIELD 400000098A308CF7 ? lookuplist indexed by enum of Boolean = [ 0: True,  ]
+    KEY 0
+  FIELD 40000009AF9F1222 ? Integer = 154578349802304063
+  FIELD 4000000A1D72EA3C ? Id = 16141128598192354444
+  FIELD 4000000A4E63E821  Id = 16141147419725723165
+  FIELD 4000000A4FA14A24 ? Id = 16140914903614773755
+  FIELD 4000000A731CD8C0  Id = 16141160777998100175
+  FIELD 4000000F3BBA9ABC  Id = 16141058365224121633
+  FIELD 4000000F9C1EB267 ? enum = 3
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -2761358831308646330: --Data--,  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 825587203571712
+      Field  as String String = "str.test.npc"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "'Taxi' Navigation Droid",  ]
+        KEY STRVARIANT_ARCHETYPE
+  FIELD 400000355F990B41  enum  = NPC_GENDER_NEUTRAL_PROPER
+DEF Node 0xE0006207CCAF010F npc.test.ammer.directory.tython.temple_taxi_droid
+  BASE Class ; GLOMS 
+  FIELD 4000000027BDA14B ? Integer = 1
+  FIELD 4000000027BDA14C ? Integer = 1
+  FIELD 40000004DDA27A71  enum  = NPC_APPEARANCE_OVERRIDE_NO_OVERRIDE
+  FIELD 40000005618EC27C ? enum = 2
+  FIELD 40000007EE70D683 ? String = "pkg.movement.npc.regular"
+  FIELD 40000007EE70D684 ? String = "pkg.cover.none"
+  FIELD 40000007F6B3B43C ? String = "pkg.wander.npc.none"
+  FIELD 40000007F6B3B43D ? String = "pkg.aggro.npc.exterior_high_baf"
+  FIELD 400000082CFBE218 ? Boolean = True
+  FIELD 400000082DE6DE61  list of Class  = { --Data--,  }
+    --Data--
+      Field  as String String = "mote"
+      Field  as Float Float = 1
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141055351827422683
+  FIELD 400000097E10EBAB  Integer = 3780939478746129694
+  FIELD 400000098A308CF7 ? lookuplist indexed by enum of Boolean = [ 0: True,  ]
+    KEY 0
+  FIELD 40000009AF9F1222 ? Integer = 154578349802304063
+  FIELD 4000000A1D72EA3C ? Id = 16141128598192354444
+  FIELD 4000000A4E63E821  Id = 16141008850134171919
+  FIELD 4000000A4FA14A24 ? Id = 16140914903614773755
+  FIELD 4000000A731CD8C0  Id = 16141160777998100175
+  FIELD 4000000F3BBA9ABC  Id = 16141058365224121633
+  FIELD 4000000F9C1EB267 ? enum = 3
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -2761358831308646330: --Data--,  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 826094009712640
+      Field  as String String = "str.test.npc"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "'Taxi' Navigation Droid",  ]
+        KEY STRVARIANT_ARCHETYPE
+  FIELD 400000355F990B41  enum  = NPC_GENDER_NEUTRAL_PROPER
+DEF Node 0xE0003C21019F8189 npc.test.ericy.tython.taxi_1
+  BASE Class ; GLOMS 0x81855BF51ADB9C78
+  FIELD 4000000024C97989  String = "cnv.test.ericy.tython.taxi_1"
+  FIELD 4000000027BDA14B ? Integer = 1
+  FIELD 4000000027BDA14C ? Integer = 50
+  FIELD 4000000027BDA151 ? String = "chr.cinematics_placeholder_no_lines"
+  FIELD 40000004DDA27A71  enum  = NPC_APPEARANCE_OVERRIDE_NO_OVERRIDE
+  FIELD 40000005618EC27C ? enum = 2
+  FIELD 40000007EE70D683 ? String = "pkg.movement.npc.regular"
+  FIELD 40000007EE70D684 ? String = "pkg.cover.npc.regular"
+  FIELD 40000007F6B3B43C ? String = "pkg.wander.npc.none"
+  FIELD 40000007F6B3B43D ? String = "pkg.aggro.npc.exterior_high_baf"
+  FIELD 400000082CFBE218 ? Boolean = True
+  FIELD 400000082DE6DE61  list of Class  = { --Data--,  }
+    --Data--
+      Field  as String String = "bmn"
+      Field  as Float Float = 1
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141168936432784379
+  FIELD 400000097E10EBAB  Integer = 3780939478746129694
+  FIELD 400000098A308CF7 ? lookuplist indexed by enum of Boolean = [ 0: True,  ]
+    KEY 0
+  FIELD 40000009AF9F1222 ? Integer = 2542725673921961678
+  FIELD 40000009D3254F2B ? Integer = -8702689744285669011
+  FIELD 4000000A1D72EA3C ? Id = 16141128598192354444
+  FIELD 4000000A4E63E821  Id = 16140967176954675593
+  FIELD 4000000A731CD8C0  Id = 16140963006707226272
+  FIELD 4000000F3BBA9ABC  Id = 16140966305425822495
+  FIELD 4000000F9C1EB267 ? enum = 3
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -2761358831308646330: --Data--,  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 392538536017920
+      Field  as String String = "str.test.npc"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "Taxi 1",  ]
+        KEY STRVARIANT_ARCHETYPE
+DEF Node 0xE0003F21019F86F0 npc.test.ericy.tython.taxi_2
+  BASE Class ; GLOMS 0x81855BF51ADB9C78
+  FIELD 4000000024C97989  String = "cnv.test.ericy.tython.taxi_2"
+  FIELD 4000000027BDA14B ? Integer = 1
+  FIELD 4000000027BDA14C ? Integer = 50
+  FIELD 4000000027BDA151 ? String = "chr.cinematics_placeholder_no_lines"
+  FIELD 40000004DDA27A71  enum  = NPC_APPEARANCE_OVERRIDE_NO_OVERRIDE
+  FIELD 40000005618EC27C ? enum = 2
+  FIELD 40000007EE70D683 ? String = "pkg.movement.npc.regular"
+  FIELD 40000007EE70D684 ? String = "pkg.cover.npc.regular"
+  FIELD 40000007F6B3B43C ? String = "pkg.wander.npc.none"
+  FIELD 40000007F6B3B43D ? String = "pkg.aggro.npc.exterior_high_baf"
+  FIELD 400000082CFBE218 ? Boolean = True
+  FIELD 400000082DE6DE61  list of Class  = { --Data--,  }
+    --Data--
+      Field  as String String = "bmn"
+      Field  as Float Float = 1
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141168936432784379
+  FIELD 400000097E10EBAB  Integer = 3780939478746129694
+  FIELD 400000098A308CF7 ? lookuplist indexed by enum of Boolean = [ 0: True,  ]
+    KEY 0
+  FIELD 40000009AF9F1222 ? Integer = 2542725673921961678
+  FIELD 40000009D3254F2B ? Integer = -8702689744285669011
+  FIELD 4000000A1D72EA3C ? Id = 16141128598192354444
+  FIELD 4000000A4E63E821  Id = 16140970475489560304
+  FIELD 4000000A731CD8C0  Id = 16140963006707226272
+  FIELD 4000000F3BBA9ABC  Id = 16140966305425822495
+  FIELD 4000000F9C1EB267 ? enum = 3
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -2761358831308646330: --Data--,  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 392547125952512
+      Field  as String String = "str.test.npc"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "Taxi 2",  ]
+        KEY STRVARIANT_ARCHETYPE
+DEF Node 0xE0003E21019F8427 npc.test.ericy.tython.taxi_3
+  BASE Class ; GLOMS 0x81855BF51ADB9C78
+  FIELD 4000000024C97989  String = "cnv.test.ericy.tython.taxi_3"
+  FIELD 4000000027BDA14B ? Integer = 1
+  FIELD 4000000027BDA14C ? Integer = 50
+  FIELD 4000000027BDA151 ? String = "chr.cinematics_placeholder_no_lines"
+  FIELD 40000004DDA27A71  enum  = NPC_APPEARANCE_OVERRIDE_NO_OVERRIDE
+  FIELD 40000005618EC27C ? enum = 2
+  FIELD 40000007EE70D683 ? String = "pkg.movement.npc.regular"
+  FIELD 40000007EE70D684 ? String = "pkg.cover.npc.regular"
+  FIELD 40000007F6B3B43C ? String = "pkg.wander.npc.none"
+  FIELD 40000007F6B3B43D ? String = "pkg.aggro.npc.exterior_high_baf"
+  FIELD 400000082CFBE218 ? Boolean = True
+  FIELD 400000082DE6DE61  list of Class  = { --Data--,  }
+    --Data--
+      Field  as String String = "bmn"
+      Field  as Float Float = 1
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141168936432784379
+  FIELD 400000097E10EBAB  Integer = 3780939478746129694
+  FIELD 400000098A308CF7 ? lookuplist indexed by enum of Boolean = [ 0: True,  ]
+    KEY 0
+  FIELD 40000009AF9F1222 ? Integer = 2542725673921961678
+  FIELD 40000009D3254F2B ? Integer = -8702689744285669011
+  FIELD 4000000A1D72EA3C ? Id = 16141128598192354444
+  FIELD 4000000A4E63E821  Id = 16140969375977931815
+  FIELD 4000000A731CD8C0  Id = 16140963006707226272
+  FIELD 4000000F3BBA9ABC  Id = 16140966305425822495
+  FIELD 4000000F9C1EB267 ? enum = 3
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -2761358831308646330: --Data--,  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 392542830985216
+      Field  as String String = "str.test.npc"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "Taxi 3",  ]
+        KEY STRVARIANT_ARCHETYPE
+DEF Node 0xE0003921019FBCA6 npc.test.ericy.tython.taxi_4
+  BASE Class ; GLOMS 0x81855BF51ADB9C78
+  FIELD 4000000024C97989  String = "cnv.test.ericy.tython.taxi_4"
+  FIELD 4000000027BDA14B ? Integer = 1
+  FIELD 4000000027BDA14C ? Integer = 50
+  FIELD 4000000027BDA151 ? String = "chr.cinematics_placeholder_no_lines"
+  FIELD 40000004DDA27A71  enum  = NPC_APPEARANCE_OVERRIDE_NO_OVERRIDE
+  FIELD 40000005618EC27C ? enum = 2
+  FIELD 40000007EE70D683 ? String = "pkg.movement.npc.regular"
+  FIELD 40000007EE70D684 ? String = "pkg.cover.npc.regular"
+  FIELD 40000007F6B3B43C ? String = "pkg.wander.npc.none"
+  FIELD 40000007F6B3B43D ? String = "pkg.aggro.npc.exterior_high_baf"
+  FIELD 400000082CFBE218 ? Boolean = True
+  FIELD 400000082DE6DE61  list of Class  = { --Data--,  }
+    --Data--
+      Field  as String String = "bmn"
+      Field  as Float Float = 1
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141168936432784379
+  FIELD 400000097E10EBAB  Integer = 3780939478746129694
+  FIELD 400000098A308CF7 ? lookuplist indexed by enum of Boolean = [ 0: True,  ]
+    KEY 0
+  FIELD 40000009AF9F1222 ? Integer = 2542725673921961678
+  FIELD 40000009D3254F2B ? Integer = -8702689744285669011
+  FIELD 4000000A1D72EA3C ? Id = 16141128598192354444
+  FIELD 4000000A4E63E821  Id = 16140963878419807398
+  FIELD 4000000A731CD8C0  Id = 16140963006707226272
+  FIELD 4000000F3BBA9ABC  Id = 16140966305425822495
+  FIELD 4000000F9C1EB267 ? enum = 3
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -2761358831308646330: --Data--,  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 392551420919808
+      Field  as String String = "str.test.npc"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "Taxi 4",  ]
+        KEY STRVARIANT_ARCHETYPE
+DEF Node 0xE000FDA72B783712 npc.test.quest_utility.tython.ambient.taxi
+  BASE Class ; GLOMS 0x81855BF51AD86063
+  FIELD 4000000024C97989  String = "cnv.test.quest_utility.tython.taxi"
+  FIELD 4000000027BDA14B ? Integer = 1
+  FIELD 4000000027BDA14C ? Integer = 50
+  FIELD 4000000027BDA151 ? String = "chr.cinematics_placeholder_no_lines"
+  FIELD 40000004DDA27A71  enum  = NPC_APPEARANCE_OVERRIDE_NO_OVERRIDE
+  FIELD 40000005618EC27C ? enum = 2
+  FIELD 40000007EE70D683 ? String = "pkg.movement.npc.regular"
+  FIELD 40000007EE70D684 ? String = "pkg.cover.npc.regular"
+  FIELD 40000007F6B3B43C ? String = "pkg.wander.npc.none"
+  FIELD 40000007F6B3B43D ? String = "pkg.aggro.npc.exterior_high_baf"
+  FIELD 400000082CFBE218 ? Boolean = True
+  FIELD 400000082DE6DE61  list of Class  = { --Data--,  }
+    --Data--
+      Field  as String String = "protocol"
+      Field  as Float Float = 1
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16140939642748132325
+  FIELD 400000097E10EBAB  Integer = 3780939478746129694
+  FIELD 400000098A308CF7 ? lookuplist indexed by enum of Boolean = [ 16: True,  ]
+    KEY 16
+  FIELD 40000009AF9F1222 ? Integer = 2542725673921961678
+  FIELD 40000009D3254F2B ? Integer = -8702689744285669011
+  FIELD 4000000A1D72EA3C ? Id = 16141128598192354444
+  FIELD 4000000A4E63E821  Id = 16141179958926522130
+  FIELD 4000000A731CD8C0  Id = 16140963006707226272
+  FIELD 4000000F3BBA9ABC  Id = 16140966305425822495
+  FIELD 4000000F9C1EB267 ? enum = 3
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -2761358831308646330: --Data--,  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 516401097867264
+      Field  as String String = "str.test.npc"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "Taxi",  ]
+        KEY STRVARIANT_ARCHETYPE
+  FIELD 400000355F990B41  enum  = NPC_GENDER_NEUTRAL_PROPER
+DEF Node 0xE000DE8B9D591AB6 npc.test.quest_utility.tython.ambient.taxi_gnarls
+  BASE Class ; GLOMS 0x81855BF51AD86060
+  FIELD 4000000024C97989  String = "cnv.test.quest_utility.tython.taxi_gnarls"
+  FIELD 4000000027BDA14B ? Integer = 1
+  FIELD 4000000027BDA14C ? Integer = 50
+  FIELD 4000000027BDA151 ? String = "chr.cinematics_placeholder_no_lines"
+  FIELD 40000004DDA27A71  enum  = NPC_APPEARANCE_OVERRIDE_NO_OVERRIDE
+  FIELD 40000005618EC27C ? enum = 2
+  FIELD 40000007EE70D683 ? String = "pkg.movement.npc.regular"
+  FIELD 40000007EE70D684 ? String = "pkg.cover.npc.regular"
+  FIELD 40000007F6B3B43C ? String = "pkg.wander.npc.none"
+  FIELD 40000007F6B3B43D ? String = "pkg.aggro.npc.exterior_high_baf"
+  FIELD 400000082CFBE218 ? Boolean = True
+  FIELD 400000082DE6DE61  list of Class  = { --Data--,  }
+    --Data--
+      Field  as String String = "protocol"
+      Field  as Float Float = 1
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16140939642748132325
+  FIELD 400000097E10EBAB  Integer = 3780939478746129694
+  FIELD 400000098A308CF7 ? lookuplist indexed by enum of Boolean = [ 16: True,  ]
+    KEY 16
+  FIELD 40000009AF9F1222 ? Integer = 2542725673921961678
+  FIELD 40000009D3254F2B ? Integer = -8702689744285669011
+  FIELD 4000000A1D72EA3C ? Id = 16141128598192354444
+  FIELD 4000000A4E63E821  Id = 16141145755717540534
+  FIELD 4000000A731CD8C0  Id = 16140963006707226272
+  FIELD 4000000F3BBA9ABC  Id = 16140966305425822495
+  FIELD 4000000F9C1EB267 ? enum = 3
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -2761358831308646330: --Data--,  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 388965123227648
+      Field  as String String = "str.test.npc"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "Taxi Gnarls",  ]
+        KEY STRVARIANT_ARCHETYPE
+  FIELD 400000355F990B41  enum  = NPC_GENDER_NEUTRAL_PROPER
+DEF Node 0xE0007BD8FA44270D npc.test.quest_utility.tython.ambient.taxi_temple
+  BASE Class ; GLOMS 0x81855BF51AD86060
+  FIELD 4000000024C97989  String = "cnv.test.quest_utility.tython.taxi_temple"
+  FIELD 4000000027BDA14B ? Integer = 1
+  FIELD 4000000027BDA14C ? Integer = 50
+  FIELD 4000000027BDA151 ? String = "chr.cinematics_placeholder_no_lines"
+  FIELD 40000004DDA27A71  enum  = NPC_APPEARANCE_OVERRIDE_NO_OVERRIDE
+  FIELD 40000005618EC27C ? enum = 2
+  FIELD 40000007EE70D683 ? String = "pkg.movement.npc.regular"
+  FIELD 40000007EE70D684 ? String = "pkg.cover.npc.regular"
+  FIELD 40000007F6B3B43C ? String = "pkg.wander.npc.none"
+  FIELD 40000007F6B3B43D ? String = "pkg.aggro.npc.exterior_high_baf"
+  FIELD 400000082CFBE218 ? Boolean = True
+  FIELD 400000082DE6DE61  list of Class  = { --Data--,  }
+    --Data--
+      Field  as String String = "protocol"
+      Field  as Float Float = 1
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16140939642748132325
+  FIELD 400000097E10EBAB  Integer = 3780939478746129694
+  FIELD 400000098A308CF7 ? lookuplist indexed by enum of Boolean = [ 16: True,  ]
+    KEY 16
+  FIELD 40000009AF9F1222 ? Integer = 2542725673921961678
+  FIELD 40000009D3254F2B ? Integer = -8702689744285669011
+  FIELD 4000000A1D72EA3C ? Id = 16141128598192354444
+  FIELD 4000000A4E63E821  Id = 16141037236337780493
+  FIELD 4000000A731CD8C0  Id = 16140963006707226272
+  FIELD 4000000F3BBA9ABC  Id = 16140966305425822495
+  FIELD 4000000F9C1EB267 ? enum = 3
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -2761358831308646330: --Data--,  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 519167056805888
+      Field  as String String = "str.test.npc"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "Taxi",  ]
+        KEY STRVARIANT_ARCHETYPE
+  FIELD 400000355F990B41  enum  = NPC_GENDER_NEUTRAL_PROPER
+DEF Node 0xE00048643AC28D1F npc.test.quest_utility.tython.ambient.taxi_temple_to_gnarls
+  BASE Class ; GLOMS 0x81855BF51AD8639C
+  FIELD 4000000024C97989  String = "cnv.test.quest_utility.tython.taxi_temple"
+  FIELD 4000000027BDA14B ? Integer = 1
+  FIELD 4000000027BDA14C ? Integer = 50
+  FIELD 4000000027BDA151 ? String = "chr.cinematics_placeholder_no_lines"
+  FIELD 40000004DDA27A71  enum  = NPC_APPEARANCE_OVERRIDE_NO_OVERRIDE
+  FIELD 40000005618EC27C ? enum = 2
+  FIELD 40000007EE70D683 ? String = "pkg.movement.npc.regular"
+  FIELD 40000007EE70D684 ? String = "pkg.cover.npc.regular"
+  FIELD 40000007F6B3B43C ? String = "pkg.wander.npc.none"
+  FIELD 40000007F6B3B43D ? String = "pkg.aggro.npc.exterior_high_baf"
+  FIELD 400000082CFBE218 ? Boolean = True
+  FIELD 400000082DE6DE61  list of Class  = { --Data--,  }
+    --Data--
+      Field  as String String = "protocol"
+      Field  as Float Float = 1
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16141173282837695788
+      Field  as Id Id = 16140939642748132325
+  FIELD 400000097E10EBAB  Integer = 3780939478746129694
+  FIELD 400000098A308CF7 ? lookuplist indexed by enum of Boolean = [ 16: True,  ]
+    KEY 16
+  FIELD 40000009AF9F1222 ? Integer = 2542725673921961678
+  FIELD 40000009D3254F2B ? Integer = -8702689744285669011
+  FIELD 4000000A1D72EA3C ? Id = 16141128598192354444
+  FIELD 4000000A4E63E821  Id = 16140980659815615775
+  FIELD 4000000A731CD8C0  Id = 16140963006707226272
+  FIELD 4000000F3BBA9ABC  Id = 16140966305425822495
+  FIELD 4000000F9C1EB267 ? enum = 3
+  FIELD 40000013A787EE87  lookuplist indexed by Integer of Class  = [ -2761358831308646330: --Data--,  ]
+    KEY -2761358831308646330
+      Field  as Integer Integer = 519154171904000
+      Field  as String String = "str.test.npc"
+      Field  as lookuplist indexed by enum  of Float lookuplist indexed by enum  of Float = [ STRVARIANT_ARCHETYPE: 0,  ]
+        KEY STRVARIANT_ARCHETYPE
+      Field  as lookuplist indexed by enum  of String lookuplist indexed by enum  of String = [ STRVARIANT_ARCHETYPE: "Taxi",  ]
+        KEY STRVARIANT_ARCHETYPE
+  FIELD 400000355F990B41  enum  = NPC_GENDER_NEUTRAL_PROPER
+DEF Node 0xE000C51EAD34A3AE pth.location.tython.mob.taxi.arrival_taxi_poi_gnarls1_from_poi_retreat1
+  BASE Class ; GLOMS 
+DEF Node 0xE0002524FEB698C8 pth.location.tython.mob.taxi.arrival_taxi_poi_jeditemple_from_poi_gnarls3
+  BASE Class ; GLOMS 
+DEF Node 0xE000436FBD8E6AA8 pth.location.tython.mob.taxi.poi_gnarls1_to_poi_retreat1
+  BASE Class ; GLOMS 
+DEF Node 0xE00033095BE044E8 pth.location.tython.mob.taxi.poi_gnarls2_to_poi_retreat2
+  BASE Class ; GLOMS 
+DEF Node 0xE000B1936106A882 pth.location.tython.mob.taxi.poi_gnarls3_to_poi_jeditemple
+  BASE Class ; GLOMS 
+DEF Node 0xE000F37E6556B82C pth.location.tython.mob.taxi.poi_jeditemple_to_poi_tythosforwardcamp
+  BASE Class ; GLOMS 
+DEF Node 0xE00009BD20C496E6 pth.location.tython.mob.taxi.poi_kalikorivillage_to_poi_tythosforwardcamp
+  BASE Class ; GLOMS 
+DEF Node 0xE000EE45913071F0 pth.location.tython.mob.taxi.poi04_jeditemple_to_poi_05_kalikorivillage
+  BASE Class ; GLOMS 
+DEF Node 0xE00054CA0A34BE2F pth.location.tython.mob.taxi.shunt_poi_retreat1_to_poi_jeditemple
+  BASE Class ; GLOMS 
+DEF Node 0xE0002A2B9EDA409B pth.test.ammer.directory.tython.foot_trail_taxi
+  BASE Class ; GLOMS 
+  FIELD 40000002C8E2537B ? lookuplist indexed by Integer of class = [ 1: --Data--, 2: --Data--, 3: --Data--,  ]
+    KEY 1
+      0x40000002C8E25607 Integer = 1
+      0x40000002D9D8A238 Float = 0.2
+      0x4000000A4FA14A21 Id = 16141005754626027393
+    KEY 2
+      0x40000002C8E25607 Integer = 2
+      0x40000002D9D8A238 Float = 0.2
+      0x4000000A4FA14A21 Id = 16141119687495889963
+    KEY 3
+      0x40000002C8E25607 Integer = 3
+      0x40000002D9D8A238 Float = 0.2
+      0x4000000A4FA14A21 Id = 16140941298978848318
+DEF Node 0xE0009C95E5C2E162 tax.tython.poi_gnarlsoutpost_to_temple
+  BASE Class ; GLOMS 
+  FIELD 40000003B981A0B3  list of Class  = { --Data--, --Data--,  }
+    --Data--
+      Field  as Id Id = 16141143243244138328
+      0x40000003B981A0B1 String = "pth.location.tython.mob.taxi.poi_gnarls1_to_poi_retreat1"
+    --Data--
+      Field  as Integer Integer = 10
+      Field  as Id Id = 16140912939330946100
+      0x40000003B981A0B1 String = "pth.location.tython.mob.taxi.poi_gnarls3_to_poi_jeditemple"
+      0x4000001CE68E2EF0 String = "pth.location.tython.mob.taxi.arrival_taxi_poi_jeditemple_from_poi_gnarls3"
+  FIELD 400000097AB2CAA6  Integer = 1086966210362573345
+  FIELD 4000001CC29B7480 ? Integer = -2382338499169829124
+  FIELD 40000029F75AA580  Integer = 6
+  FIELD 4000003075BD0524 ? Id = 5628847529996583042
+DEF Node 0xE000DC42A2436F58 tax.tython.poi_jedi_retreat_pathone
+  BASE Class ; GLOMS 
+  FIELD 40000003B981A0B3  list of Class  = { --Data--,  }
+    --Data--
+      Field  as Id Id = 16141073232114671970
+      0x40000003B981A0B0 Boolean = True
+      0x40000003B981A0B1 String = "pth.location.tython.mob.taxi.poi_gnarls1_to_poi_retreat1"
+      0x4000001CE68E2EF0 String = "pth.location.tython.mob.taxi.arrival_taxi_poi_gnarls1_from_poi_retreat1"
+  FIELD 400000097AB2CAA6  Integer = 1086966210362573345
+  FIELD 4000001CC29B7480 ? Integer = -2389280195590604053
+  FIELD 40000029F75AA580  Integer = 4
+  FIELD 4000003075BD0524 ? Id = 5628847529996583036
+DEF Node 0xE0000ACCD353C434 tax.tython.poi_jedi_temple
+  BASE Class ; GLOMS 
+  FIELD 40000003B981A0B3  list of Class  = { --Data--, --Data--, --Data--,  }
+    --Data--
+      Field  as Integer Integer = 10
+      Field  as Id Id = 16141073232114671970
+      0x40000003B981A0B0 Boolean = True
+      0x40000003B981A0B1 String = "pth.location.tython.mob.taxi.poi_gnarls3_to_poi_jeditemple"
+    --Data--
+      Field  as Integer Integer = 10
+      Field  as Id Id = 16141115072427766680
+      0x40000003B981A0B1 String = "pth.location.tython.mob.taxi.poi_jeditemple_to_poi_tythosforwardcamp"
+    --Data--
+      Field  as Integer Integer = 10
+      Field  as Id Id = 16141087230955519565
+      0x40000003B981A0B1 String = "pth.location.tython.mob.taxi.poi04_jeditemple_to_poi_05_kalikorivillage"
+  FIELD 400000097AB2CAA6  Integer = 1086966210362573345
+  FIELD 4000001CC29B7480 ? Integer = -2382338499169829124
+  FIELD 40000029F75AA580  Integer = 5
+  FIELD 4000003075BD0524 ? Id = 5628847529996583041
+DEF Node 0xE000C2A39AC2B398 tax.tython.poi_tythosvalley_forwardcamp
+  BASE Class ; GLOMS 
+  FIELD 40000003B981A0B3  list of Class  = { --Data--, --Data--,  }
+    --Data--
+      Field  as Integer Integer = 10
+      Field  as Id Id = 16140912939330946100
+      0x40000003B981A0B0 Boolean = True
+      0x40000003B981A0B1 String = "pth.location.tython.mob.taxi.poi_jeditemple_to_poi_tythosforwardcamp"
+    --Data--
+      Field  as Integer Integer = 10
+      Field  as Id Id = 16141087230955519565
+      0x40000003B981A0B1 String = "pth.location.tython.mob.taxi.poi_kalikorivillage_to_poi_tythosforwardcamp"
+  FIELD 400000097AB2CAA6  Integer = 1086966210362573345
+  FIELD 4000001CC29B7480 ? Integer = -2382338499169829124
+  FIELD 40000029F75AA580  Integer = 7
+  FIELD 4000003075BD0524 ? Id = 5628847529996583043
+DEF Node 0xE000A95141B27E4D tax.tython.poi05_kalikori_village
+  BASE Class ; GLOMS 
+  FIELD 40000003B981A0B3  list of Class  = { --Data--, --Data--,  }
+    --Data--
+      Field  as Integer Integer = 10
+      Field  as Id Id = 16140912939330946100
+      0x40000003B981A0B0 Boolean = True
+      0x40000003B981A0B1 String = "pth.location.tython.mob.taxi.poi04_jeditemple_to_poi_05_kalikorivillage"
+    --Data--
+      Field  as Integer Integer = 10
+      Field  as Id Id = 16141115072427766680
+      0x40000003B981A0B0 Boolean = True
+      0x40000003B981A0B1 String = "pth.location.tython.mob.taxi.poi_kalikorivillage_to_poi_tythosforwardcamp"
+  FIELD 400000097AB2CAA6  Integer = 1086966210362573345
+  FIELD 4000001CC29B7480 ? Integer = -2382338499169829124
+  FIELD 40000029F75AA580  Integer = 8
+  FIELD 4000003075BD0524 ? Id = 5628847529996583053

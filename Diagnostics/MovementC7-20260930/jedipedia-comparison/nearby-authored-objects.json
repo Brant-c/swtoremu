@@ -1,0 +1,5039 @@
+{
+  "stop": [
+    -62.91849136352539,
+    -6.89884090423584,
+    -126.28887176513672
+  ],
+  "limit": "Origins within5 engine units or retreat shell names; not mesh bounds or proof of live contacts",
+  "objects": [
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170286",
+      "asset_id": "4611686019869492767",
+      "asset": "\\engine\\light.lit",
+      "origin_distance_to_stop": 0.4767761947237715,
+      "properties": {
+        "Position": "(-63.1094017029,-6.60869979858,-126.615501404)",
+        "Rotation": "(90.,-0.,0.)",
+        "Scale": "(1.24530005455,1.26320004463,1.69630002975)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686170128770004",
+      "asset_id": "4611686170128770003",
+      "asset": "\\cos\\location\\tython\\mob\\the_gnarls\\gnarls_guard.cos",
+      "origin_distance_to_stop": 0.5389307509623149,
+      "properties": {
+        "Position": "(-63.3708992004,-6.89979982376,-125.996002197)",
+        "Rotation": "(0.,60.,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686170128770005",
+      "asset_id": "4611686170128770003",
+      "asset": "\\cos\\location\\tython\\mob\\the_gnarls\\gnarls_guard.cos",
+      "origin_distance_to_stop": 0.6413752882030819,
+      "properties": {
+        "Position": "(-63.5276985168,-6.89979982376,-126.088302612)",
+        "Rotation": "(0.,-120.,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686069191632234",
+      "asset_id": "4611686069191632233",
+      "asset": "\\server\\mpn\\location\\tython\\class\\jedi_knight\\multi_new\\class_instance_kickout.mpn",
+      "origin_distance_to_stop": 0.7396527103407116,
+      "properties": {
+        "Position": "(-63.4818992615,-6.89979982376,-126.768096924)",
+        "Rotation": "(-0.,45.3216018677,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170229",
+      "asset_id": "4611686022097034024",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_light.gr2",
+      "origin_distance_to_stop": 0.7531145480390301,
+      "properties": {
+        "Position": "(-62.2137985229,-6.82859802246,-126.54510498)",
+        "Rotation": "(-5.12263977726e-006,-135.210998535,133.981994629)",
+        "Scale": "(1.20009994507,1.40009999275,1.20009994507)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284676900985",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 0.7686396389582801,
+      "properties": {
+        "Position": "(-63.377658844,-6.88902568817,-125.672531128)",
+        "Rotation": "(0.,47.9516448975,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284681881666",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 0.7686396389582801,
+      "properties": {
+        "Position": "(-63.377658844,-6.88902568817,-125.672531128)",
+        "Rotation": "(0.,47.9516448975,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170396",
+      "asset_id": "4611686024807162224",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_vent_01.gr2",
+      "origin_distance_to_stop": 0.7799829679280658,
+      "properties": {
+        "Position": "(-63.4986000061,-6.90339994431,-125.767501831)",
+        "Rotation": "(-0.,135.442001343,0.)",
+        "Scale": "(0.800100028515,0.800100028515,0.800100028515)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284676900986",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 0.788404128267657,
+      "properties": {
+        "Position": "(-63.5984458923,-6.88909196854,-125.889938354)",
+        "Rotation": "(0.,-137.067398071,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284681881667",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 0.788404128267657,
+      "properties": {
+        "Position": "(-63.5984458923,-6.88909196854,-125.889938354)",
+        "Rotation": "(0.,-137.067398071,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686053681731630",
+      "asset_id": "4611686053681731478",
+      "asset": "\\enc\\location\\tython\\mob\\poi01\\e01_masters_retreat_sf01.enc",
+      "origin_distance_to_stop": 0.8124356984440769,
+      "properties": {
+        "Position": "(-63.7294998169,-6.89979982376,-126.336997986)",
+        "Rotation": "(0.,0.,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170200",
+      "asset_id": "4611686024847980820",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_barricade_concrete.gr2",
+      "origin_distance_to_stop": 0.8300745625721695,
+      "properties": {
+        "Position": "(-62.1547012329,-6.90119934082,-126.613899231)",
+        "Rotation": "(-0.,134.789001465,0.)",
+        "Scale": "(0.900099992752,0.800100028515,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170401",
+      "asset_id": "4611686025199175580",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_jedi_retreat_interior_room.gr2",
+      "origin_distance_to_stop": 0.8472071801454024,
+      "properties": {
+        "Position": "(-62.4071998596,-6.89980316162,-126.964401245)",
+        "Rotation": "(-0.,-45.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170551",
+      "asset_id": "4611686034611470000",
+      "asset": "\\engine\\portal.p",
+      "origin_distance_to_stop": 0.8484951804699522,
+      "properties": {
+        "Position": "(-62.4149017334,-6.74280023575,-126.953697205)",
+        "Rotation": "(89.7752990723,-135.,-89.7770996094)",
+        "Scale": "(0.268999993801,1.0000000475e-003,0.316399991512)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "PortalTarget": "4611686024647056040 gnarls_new",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686071629653994",
+      "asset_id": "4611686071216931284",
+      "asset": "\\art\\static\\area\\all_all\\arch\\fadeportal\\all_arch_fadeportal_tyt_rep_building_grey.gr2",
+      "origin_distance_to_stop": 0.8488560456176966,
+      "properties": {
+        "Position": "(-62.4152984619,-6.89979982376,-126.972503662)",
+        "Rotation": "(-0.,-45.,0.)",
+        "Scale": "(0.217999994755,0.187199994922,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "false",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686051989071332",
+      "asset_id": "4611686051989071316",
+      "asset": "\\art\\static\\area\\all_all\\item\\all_item_banner_republic.gr2",
+      "origin_distance_to_stop": 0.8507385362746585,
+      "properties": {
+        "Position": "(-62.1430015564,-6.86660003662,-126.637199402)",
+        "Rotation": "(-0.,-44.4210014343,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170222",
+      "asset_id": "4611686022097034024",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_light.gr2",
+      "origin_distance_to_stop": 0.8562242442178797,
+      "properties": {
+        "Position": "(-63.1952018738,-6.82859802246,-127.096099854)",
+        "Rotation": "(-3.41510008184e-006,-45.,133.981994629)",
+        "Scale": "(1.20009994507,1.40009999275,1.20009994507)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686071629653996",
+      "asset_id": "4611686071523847426",
+      "asset": "\\art\\static\\area\\all_all\\arch\\fadeportal\\all_arch_fadeportal_tyt_rep_building_outside.gr2",
+      "origin_distance_to_stop": 0.8646572209813356,
+      "properties": {
+        "Position": "(-62.4039993286,-6.89979982376,-126.983802795)",
+        "Rotation": "(-0.,135.,0.)",
+        "Scale": "(0.217999994755,0.187199994922,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "false",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170240",
+      "asset_id": "4611686022097034024",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_light.gr2",
+      "origin_distance_to_stop": 0.8726545036133783,
+      "properties": {
+        "Position": "(-62.8053016663,-6.82859802246,-127.151298523)",
+        "Rotation": "(-3.42843009093e-006,-134.444000244,133.981994629)",
+        "Scale": "(1.20009994507,1.40009999275,1.20009994507)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170261",
+      "asset_id": "4611686022097034024",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_light.gr2",
+      "origin_distance_to_stop": 0.9116553913794223,
+      "properties": {
+        "Position": "(-63.8059005737,-6.82869720459,-126.485595703)",
+        "Rotation": "(-3.41510008184e-006,-45.,133.981994629)",
+        "Scale": "(1.20009994507,1.40009999275,1.20009994507)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686071629653993",
+      "asset_id": "4611686071216931284",
+      "asset": "\\art\\static\\area\\all_all\\arch\\fadeportal\\all_arch_fadeportal_tyt_rep_building_grey.gr2",
+      "origin_distance_to_stop": 0.9176793975669129,
+      "properties": {
+        "Position": "(-63.6053009033,-6.89979982376,-126.897499084)",
+        "Rotation": "(-0.,45.,0.)",
+        "Scale": "(0.222800001502,0.187000006437,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "false",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170400",
+      "asset_id": "4611686025199175580",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_jedi_retreat_interior_room.gr2",
+      "origin_distance_to_stop": 0.9178973842999277,
+      "properties": {
+        "Position": "(-63.6091995239,-6.89979982376,-126.8934021)",
+        "Rotation": "(-0.,45.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170553",
+      "asset_id": "4611686034611470000",
+      "asset": "\\engine\\portal.p",
+      "origin_distance_to_stop": 0.9204093356909414,
+      "properties": {
+        "Position": "(-63.5996017456,-6.74069976807,-126.887397766)",
+        "Rotation": "(89.7752990723,-134.99899292,-179.776000977)",
+        "Scale": "(0.268999993801,1.0000000475e-003,0.316399991512)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "PortalTarget": "4611686024647056040 gnarls_new",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170552",
+      "asset_id": "4611686034611470000",
+      "asset": "\\engine\\portal.p",
+      "origin_distance_to_stop": 0.926566497187148,
+      "properties": {
+        "Position": "(-62.3585014343,-6.72209978104,-127.005599976)",
+        "Rotation": "(89.7752990723,-134.99899292,90.2244033813)",
+        "Scale": "(0.419200003147,1.0000000475e-003,0.392199993134)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "PortalTarget": "4611686037462170535 gnarls_retreat_int_c",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170424",
+      "asset_id": "4611686026420608650",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_interior_computer_panel_02.gr2",
+      "origin_distance_to_stop": 0.9306617777290999,
+      "properties": {
+        "Position": "(-62.2136993408,-6.7326965332,-126.873504639)",
+        "Rotation": "(-0.,45.,0.)",
+        "Scale": "(0.40000000596,0.40000000596,0.40000000596)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686071629653995",
+      "asset_id": "4611686071523847426",
+      "asset": "\\art\\static\\area\\all_all\\arch\\fadeportal\\all_arch_fadeportal_tyt_rep_building_outside.gr2",
+      "origin_distance_to_stop": 0.9320792811810681,
+      "properties": {
+        "Position": "(-63.6155014038,-6.89979982376,-126.907699585)",
+        "Rotation": "(-0.,-135.,0.)",
+        "Scale": "(0.222800001502,0.187000006437,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "false",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170014",
+      "asset_id": "4611686019869492758",
+      "asset": "\\engine\\trigger.trg",
+      "origin_distance_to_stop": 0.9325846050117048,
+      "properties": {
+        "Position": "(-63.6167984009,-6.73430013657,-126.88469696)",
+        "Rotation": "(-0.,-133.574996948,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "false",
+        "IgnoreForPlayerCollision": "false",
+        "TriggerParam": "tyt_jedi_knight_masters_retreat",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170211",
+      "asset_id": "4611686024847980820",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_barricade_concrete.gr2",
+      "origin_distance_to_stop": 0.9332654826040743,
+      "properties": {
+        "Position": "(-63.2648010254,-6.90119934082,-127.155502319)",
+        "Rotation": "(-0.,-135.,0.)",
+        "Scale": "(0.900099992752,0.800100028515,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170209",
+      "asset_id": "4611686024847980820",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_barricade_concrete.gr2",
+      "origin_distance_to_stop": 0.9483358436395048,
+      "properties": {
+        "Position": "(-62.7466011047,-6.90119934082,-127.221496582)",
+        "Rotation": "(-0.,135.555999756,0.)",
+        "Scale": "(0.900099992752,0.800100028515,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686051989071320",
+      "asset_id": "4611686051989071316",
+      "asset": "\\art\\static\\area\\all_all\\item\\all_item_banner_republic.gr2",
+      "origin_distance_to_stop": 0.9591821723123922,
+      "properties": {
+        "Position": "(-63.2925987244,-6.86660003662,-127.17150116)",
+        "Rotation": "(-0.,45.7900009155,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686051989071318",
+      "asset_id": "4611686051989071316",
+      "asset": "\\art\\static\\area\\all_all\\item\\all_item_banner_republic.gr2",
+      "origin_distance_to_stop": 0.9792108970065082,
+      "properties": {
+        "Position": "(-62.7308998108,-6.86660003662,-127.249404907)",
+        "Rotation": "(-0.,-43.6539993286,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170554",
+      "asset_id": "4611686034611470000",
+      "asset": "\\engine\\portal.p",
+      "origin_distance_to_stop": 0.9794290235683348,
+      "properties": {
+        "Position": "(-63.6394996643,-6.71969985962,-126.927101135)",
+        "Rotation": "(89.7752990723,-134.998001099,0.223792999983)",
+        "Scale": "(0.414600014687,0.164599999785,0.368499994278)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "PortalTarget": "4611686037462170536 gnarls_retreat_int_d",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170199",
+      "asset_id": "4611686024847980820",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_barricade_concrete.gr2",
+      "origin_distance_to_stop": 0.9876135685513314,
+      "properties": {
+        "Position": "(-63.8712005615,-6.90119934082,-126.549102783)",
+        "Rotation": "(-0.,-135.,0.)",
+        "Scale": "(0.900099992752,0.800100028515,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170416",
+      "asset_id": "4611686026420608650",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_interior_computer_panel_02.gr2",
+      "origin_distance_to_stop": 1.0124853330391341,
+      "properties": {
+        "Position": "(-63.5183982849,-6.73179626465,-127.087203979)",
+        "Rotation": "(-0.,135.,0.)",
+        "Scale": "(0.40000000596,0.40000000596,0.40000000596)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170226",
+      "asset_id": "4611686022097034024",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_light.gr2",
+      "origin_distance_to_stop": 1.0126661437989202,
+      "properties": {
+        "Position": "(-62.3384017944,-6.53289794922,-127.033905029)",
+        "Rotation": "(-0.,-45.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686051989071330",
+      "asset_id": "4611686051989071316",
+      "asset": "\\art\\static\\area\\all_all\\item\\all_item_banner_republic.gr2",
+      "origin_distance_to_stop": 1.0145935916043287,
+      "properties": {
+        "Position": "(-63.8916015625,-6.86930084229,-126.574501038)",
+        "Rotation": "(-0.,45.7900009155,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170100",
+      "asset_id": "4611686022096902351",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_pillar.gr2",
+      "origin_distance_to_stop": 1.0632746040076446,
+      "properties": {
+        "Position": "(-63.9528999329,-6.89980316162,-126.042800903)",
+        "Rotation": "(-0.,45.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170310",
+      "asset_id": "4611686019869492767",
+      "asset": "\\engine\\light.lit",
+      "origin_distance_to_stop": 1.0751089713694861,
+      "properties": {
+        "Position": "(-62.2773017883,-6.61460113525,-127.10369873)",
+        "Rotation": "(67.0550994873,132.447998047,-180.)",
+        "Scale": "(0.500100016594,0.500100016594,0.627900004387)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170463",
+      "asset_id": "4611686025791752763",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_vent_05_mirror.gr2",
+      "origin_distance_to_stop": 1.0763087853260065,
+      "properties": {
+        "Position": "(-61.8443984985,-6.89980316162,-126.357894897)",
+        "Rotation": "(-0.,-45.,0.)",
+        "Scale": "(0.895799994469,1.20130002499,1.20009994507)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170230",
+      "asset_id": "4611686022097034024",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_light.gr2",
+      "origin_distance_to_stop": 1.080080942914471,
+      "properties": {
+        "Position": "(-63.6789016724,-6.53199768066,-126.962501526)",
+        "Rotation": "(-0.,45.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170316",
+      "asset_id": "4611686019869492767",
+      "asset": "\\engine\\light.lit",
+      "origin_distance_to_stop": 1.1106447985173598,
+      "properties": {
+        "Position": "(-63.7150993347,-6.60859680176,-127.00630188)",
+        "Rotation": "(84.8518981934,-135.,-180.)",
+        "Scale": "(0.40000000596,0.600099980831,0.5)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170417",
+      "asset_id": "4611686026420608650",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_interior_computer_panel_02.gr2",
+      "origin_distance_to_stop": 1.1493291072856129,
+      "properties": {
+        "Position": "(-62.4384002686,-6.68789672852,-127.311599731)",
+        "Rotation": "(-0.,-56.9570007324,0.)",
+        "Scale": "(0.40000000596,0.40000000596,0.40000000596)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037853470885",
+      "asset_id": "4611686019869492758",
+      "asset": "\\engine\\trigger.trg",
+      "origin_distance_to_stop": 1.1501155080631469,
+      "properties": {
+        "Position": "(-63.7501983643,-6.64890003204,-127.042900085)",
+        "Rotation": "(-0.,-43.5750999451,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "false",
+        "IgnoreForPlayerCollision": "false",
+        "TriggerParam": "tyt_jedi_knight_masters_retreat",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170175",
+      "asset_id": "4611686024807158317",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_internal_computer_01.gr2",
+      "origin_distance_to_stop": 1.1601421935728309,
+      "properties": {
+        "Position": "(-61.9126014709,-6.90010070801,-126.866897583)",
+        "Rotation": "(-0.,-15.,0.)",
+        "Scale": "(0.664499998093,0.664499998093,0.664499998093)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170223",
+      "asset_id": "4611686022097034024",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_light.gr2",
+      "origin_distance_to_stop": 1.196276333369395,
+      "properties": {
+        "Position": "(-62.2019996643,-6.50869750977,-127.163803101)",
+        "Rotation": "(-0.,-45.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170422",
+      "asset_id": "4611686026420608650",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_interior_computer_panel_02.gr2",
+      "origin_distance_to_stop": 1.204773142870167,
+      "properties": {
+        "Position": "(-63.9566001892,-6.68699645996,-126.86239624)",
+        "Rotation": "(-0.,33.0429992676,0.)",
+        "Scale": "(0.40000000596,0.40000000596,0.40000000596)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170165",
+      "asset_id": "4611686024807158317",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_internal_computer_01.gr2",
+      "origin_distance_to_stop": 1.2493562499226691,
+      "properties": {
+        "Position": "(-63.5119018555,-6.89920043945,-127.388305664)",
+        "Rotation": "(-0.,75.,0.)",
+        "Scale": "(0.664499998093,0.664499998093,0.664499998093)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170142",
+      "asset_id": "4611686021704428180",
+      "asset": "\\art\\static\\area\\all_all\\item\\container\\all_item_con_crate_04.gr2",
+      "origin_distance_to_stop": 1.253995706355705,
+      "properties": {
+        "Position": "(-62.4126014709,-6.90010070801,-127.436294556)",
+        "Rotation": "(-0.,-90.,0.)",
+        "Scale": "(1.30009996891,1.30009996891,1.30009996891)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170220",
+      "asset_id": "4611686022097034024",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_light.gr2",
+      "origin_distance_to_stop": 1.2655866789313885,
+      "properties": {
+        "Position": "(-63.8087997437,-6.50779724121,-127.098899841)",
+        "Rotation": "(-0.,45.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170436",
+      "asset_id": "4611686025791752458",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_vent_05.gr2",
+      "origin_distance_to_stop": 1.2715528694241442,
+      "properties": {
+        "Position": "(-64.1894989014,-6.89980316162,-126.326095581)",
+        "Rotation": "(-0.,45.,0.)",
+        "Scale": "(0.895799994469,1.20130002499,1.20009994507)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170071",
+      "asset_id": "4611686024847982302",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_ammo_box.gr2",
+      "origin_distance_to_stop": 1.3146018005857776,
+      "properties": {
+        "Position": "(-64.0957946777,-6.89920043945,-126.873794556)",
+        "Rotation": "(-0.,-116.121002197,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170078",
+      "asset_id": "4611686024847982302",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_ammo_box.gr2",
+      "origin_distance_to_stop": 1.3170198436908136,
+      "properties": {
+        "Position": "(-61.7625999451,-6.89980316162,-126.92010498)",
+        "Rotation": "(-0.,-90.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284676900931",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 1.333996057458685,
+      "properties": {
+        "Position": "(-62.6722450256,-6.88909196854,-124.977836609)",
+        "Rotation": "(0.,-137.067398071,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284681881612",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 1.333996057458685,
+      "properties": {
+        "Position": "(-62.6722450256,-6.88909196854,-124.977836609)",
+        "Rotation": "(0.,-137.067398071,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170124",
+      "asset_id": "4611686021704428180",
+      "asset": "\\art\\static\\area\\all_all\\item\\container\\all_item_con_crate_04.gr2",
+      "origin_distance_to_stop": 1.3718752851304186,
+      "properties": {
+        "Position": "(-62.4651985168,-6.90010070801,-127.583694458)",
+        "Rotation": "(-0.,15.,0.)",
+        "Scale": "(1.30009996891,1.30009996891,1.30009996891)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170109",
+      "asset_id": "4611686022096902351",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_pillar.gr2",
+      "origin_distance_to_stop": 1.4015282731884182,
+      "properties": {
+        "Position": "(-61.6593017578,-6.908203125,-126.904205322)",
+        "Rotation": "(-0.,178.800003052,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170141",
+      "asset_id": "4611686021704428180",
+      "asset": "\\art\\static\\area\\all_all\\item\\container\\all_item_con_crate_04.gr2",
+      "origin_distance_to_stop": 1.4197414108953186,
+      "properties": {
+        "Position": "(-64.2286987305,-6.89920043945,-126.835700989)",
+        "Rotation": "(-0.,105.,0.)",
+        "Scale": "(1.30009996891,1.30009996891,1.30009996891)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686124156325044",
+      "asset_id": "4611686024807162224",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_vent_01.gr2",
+      "origin_distance_to_stop": 1.4746666301915317,
+      "properties": {
+        "Position": "(-62.5723991394,-6.90339994431,-124.855400085)",
+        "Rotation": "(-0.,135.442001343,0.)",
+        "Scale": "(0.800100028515,0.800100028515,0.800100028515)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170104",
+      "asset_id": "4611686022096902351",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_pillar.gr2",
+      "origin_distance_to_stop": 1.481611417081918,
+      "properties": {
+        "Position": "(-62.4584007263,-6.908203125,-127.69720459)",
+        "Rotation": "(-0.,90.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170095",
+      "asset_id": "4611686022096902351",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_pillar.gr2",
+      "origin_distance_to_stop": 1.4924649402190115,
+      "properties": {
+        "Position": "(-63.5491981506,-6.90730285645,-127.641494751)",
+        "Rotation": "(-0.,-91.1999969482,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170437",
+      "asset_id": "4611686025791752458",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_vent_05.gr2",
+      "origin_distance_to_stop": 1.50183698319284,
+      "properties": {
+        "Position": "(-61.4229011536,-6.89980316162,-126.425704956)",
+        "Rotation": "(-0.,45.,0.)",
+        "Scale": "(1.20009994507,1.20130002499,1.20009994507)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170098",
+      "asset_id": "4611686022096902351",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_pillar.gr2",
+      "origin_distance_to_stop": 1.5275877281744241,
+      "properties": {
+        "Position": "(-64.3422012329,-6.90730285645,-126.842498779)",
+        "Rotation": "(-0.,180.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170454",
+      "asset_id": "4611686026420608651",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_interior_computer_panel_01.gr2",
+      "origin_distance_to_stop": 1.545149359053156,
+      "properties": {
+        "Position": "(-61.4906997681,-6.68609619141,-126.839904785)",
+        "Rotation": "(-0.,10.6510000229,0.)",
+        "Scale": "(0.40000000596,0.40000000596,0.40000000596)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170138",
+      "asset_id": "4611686021704428180",
+      "asset": "\\art\\static\\area\\all_all\\item\\container\\all_item_con_crate_04.gr2",
+      "origin_distance_to_stop": 1.5871512593967358,
+      "properties": {
+        "Position": "(-61.4566993713,-6.90010070801,-126.907104492)",
+        "Rotation": "(-0.,-135.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284676900930",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 1.5982415217720691,
+      "properties": {
+        "Position": "(-62.4514579773,-6.88902568817,-124.760421753)",
+        "Rotation": "(0.,47.9516448975,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284681881611",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 1.5982415217720691,
+      "properties": {
+        "Position": "(-62.4514579773,-6.88902568817,-124.760421753)",
+        "Rotation": "(0.,47.9516448975,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170256",
+      "asset_id": "4611686022097034024",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_light.gr2",
+      "origin_distance_to_stop": 1.6316125890687287,
+      "properties": {
+        "Position": "(-61.4711990356,-6.50869750977,-126.933303833)",
+        "Rotation": "(-0.,10.0710000992,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170453",
+      "asset_id": "4611686026420608651",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_interior_computer_panel_01.gr2",
+      "origin_distance_to_stop": 1.6373418924667567,
+      "properties": {
+        "Position": "(-63.4849014282,-6.68520355225,-127.810195923)",
+        "Rotation": "(-0.,100.651000977,0.)",
+        "Scale": "(0.40000000596,0.40000000596,0.40000000596)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170421",
+      "asset_id": "4611686026420608650",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_interior_computer_panel_02.gr2",
+      "origin_distance_to_stop": 1.6464267220494924,
+      "properties": {
+        "Position": "(-61.388999939,-6.6867980957,-126.860198975)",
+        "Rotation": "(-0.,15.,0.)",
+        "Scale": "(0.40000000596,0.40000000596,0.40000000596)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170132",
+      "asset_id": "4611686021704428180",
+      "asset": "\\art\\static\\area\\all_all\\item\\container\\all_item_con_crate_04.gr2",
+      "origin_distance_to_stop": 1.6793449007947356,
+      "properties": {
+        "Position": "(-63.5521011353,-6.89920043945,-127.844100952)",
+        "Rotation": "(-0.,-45.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170144",
+      "asset_id": "4611686021704428180",
+      "asset": "\\art\\static\\area\\all_all\\item\\container\\all_item_con_crate_04.gr2",
+      "origin_distance_to_stop": 1.6828777129398025,
+      "properties": {
+        "Position": "(-61.3614997864,-6.90010070801,-126.927505493)",
+        "Rotation": "(-0.,-165.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170470",
+      "asset_id": "4611686026420608652",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_interior_computer_panel_03.gr2",
+      "origin_distance_to_stop": 1.6902331317907417,
+      "properties": {
+        "Position": "(-61.345199585,-6.68650054932,-126.869003296)",
+        "Rotation": "(-0.,15.,0.)",
+        "Scale": "(0.40000000596,0.40000000596,0.40000000596)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170406",
+      "asset_id": "4611686020979019979",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_peasant_chair.gr2",
+      "origin_distance_to_stop": 1.7093663692556795,
+      "properties": {
+        "Position": "(-62.3255996704,-6.90630340576,-127.892105103)",
+        "Rotation": "(-0.,-150.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170251",
+      "asset_id": "4611686022097034024",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_light.gr2",
+      "origin_distance_to_stop": 1.7211637204668735,
+      "properties": {
+        "Position": "(-63.5783004761,-6.50779724121,-127.829696655)",
+        "Rotation": "(-0.,100.069999695,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170023",
+      "asset_id": "4611686022091765150",
+      "asset": "\\art\\static\\area\\all_all\\item\\misc\\all_item_misc_glasses_01_b.gr2",
+      "origin_distance_to_stop": 1.7239456777866158,
+      "properties": {
+        "Position": "(-62.3884010315,-6.81400299072,-127.927101135)",
+        "Rotation": "(-0.,-15.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170259",
+      "asset_id": "4611686022097034024",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_light.gr2",
+      "origin_distance_to_stop": 1.7301863476929378,
+      "properties": {
+        "Position": "(-62.4331016541,-6.50869750977,-127.90309906)",
+        "Rotation": "(-0.,79.6070022583,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686284676900008",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 1.7309909228105034,
+      "properties": {
+        "Position": "(-64.4843063354,-6.90470981598,-127.026786804)",
+        "Rotation": "(0.,67.0175552368,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686284681880629",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 1.7309909228105034,
+      "properties": {
+        "Position": "(-64.4843063354,-6.90470981598,-127.026786804)",
+        "Rotation": "(0.,67.0175552368,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170282",
+      "asset_id": "4611686022097034025",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_light_round.gr2",
+      "origin_distance_to_stop": 1.7338856135734455,
+      "properties": {
+        "Position": "(-61.5648994446,-6.14640045166,-127.068603516)",
+        "Rotation": "(17.2262001038,-63.75,-43.6189994812)",
+        "Scale": "(0.750100016594,0.750100016594,0.750100016594)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170414",
+      "asset_id": "4611686026420608650",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_interior_computer_panel_02.gr2",
+      "origin_distance_to_stop": 1.7388679081339142,
+      "properties": {
+        "Position": "(-63.5051002502,-6.68589782715,-127.911895752)",
+        "Rotation": "(-0.,105.,0.)",
+        "Scale": "(0.40000000596,0.40000000596,0.40000000596)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170408",
+      "asset_id": "4611686020979019979",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_peasant_chair.gr2",
+      "origin_distance_to_stop": 1.739613000992186,
+      "properties": {
+        "Position": "(-64.5363006592,-6.91319990158,-126.928199768)",
+        "Rotation": "(-5.20124006271,-118.210998535,0.932928025723)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170225",
+      "asset_id": "4611686022097034024",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_light.gr2",
+      "origin_distance_to_stop": 1.773042826331023,
+      "properties": {
+        "Position": "(-64.5480957031,-6.50779724121,-126.867797852)",
+        "Rotation": "(-0.,169.606994629,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170120",
+      "asset_id": "4611686021704428180",
+      "asset": "\\art\\static\\area\\all_all\\item\\container\\all_item_con_crate_04.gr2",
+      "origin_distance_to_stop": 1.7752859942383625,
+      "properties": {
+        "Position": "(-63.5724983215,-6.89920043945,-127.939300537)",
+        "Rotation": "(-0.,-75.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170473",
+      "asset_id": "4611686026420608652",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_interior_computer_panel_03.gr2",
+      "origin_distance_to_stop": 1.7827155640067802,
+      "properties": {
+        "Position": "(-63.513999939,-6.68560028076,-127.955596924)",
+        "Rotation": "(-0.,105.,0.)",
+        "Scale": "(0.40000000596,0.40000000596,0.40000000596)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170270",
+      "asset_id": "4611686022097034025",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_light_round.gr2",
+      "origin_distance_to_stop": 1.8024494417885426,
+      "properties": {
+        "Position": "(-62.3009986877,-6.14479827881,-127.805099487)",
+        "Rotation": "(14.3816995621,-24.3449993134,44.7070007324)",
+        "Scale": "(0.750100016594,0.750100016594,0.750100016594)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170271",
+      "asset_id": "4611686022097034025",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_light_round.gr2",
+      "origin_distance_to_stop": 1.8148671663996803,
+      "properties": {
+        "Position": "(-63.7135009766,-6.14550018311,-127.736000061)",
+        "Rotation": "(17.2262001038,26.25,-43.6189994812)",
+        "Scale": "(0.750100016594,0.750100016594,0.750100016594)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686051989071334",
+      "asset_id": "4611686051989071316",
+      "asset": "\\art\\static\\area\\all_all\\item\\all_item_banner_republic.gr2",
+      "origin_distance_to_stop": 1.81971271172279,
+      "properties": {
+        "Position": "(-61.1077003479,-6.89990234375,-126.108901978)",
+        "Rotation": "(-0.,43.5110015869,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170021",
+      "asset_id": "4611686022091765150",
+      "asset": "\\art\\static\\area\\all_all\\item\\misc\\all_item_misc_glasses_01_b.gr2",
+      "origin_distance_to_stop": 1.8360578210651668,
+      "properties": {
+        "Position": "(-64.6374969482,-6.81749725342,-126.92880249)",
+        "Rotation": "(-0.,-145.14100647,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170272",
+      "asset_id": "4611686022097034025",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_light_round.gr2",
+      "origin_distance_to_stop": 1.8496858164611159,
+      "properties": {
+        "Position": "(-64.4501037598,-6.14389801025,-126.999900818)",
+        "Rotation": "(14.3816995621,65.6552963257,44.7070007324)",
+        "Scale": "(0.750100016594,0.750100016594,0.750100016594)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170466",
+      "asset_id": "4611686023933932087",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_table_platform.gr2",
+      "origin_distance_to_stop": 1.8501585856856237,
+      "properties": {
+        "Position": "(-62.3884010315,-6.91400146484,-128.061401367)",
+        "Rotation": "(-0.,-22.8460006714,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170448",
+      "asset_id": "4611686024587809201",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_table_lamp.gr2",
+      "origin_distance_to_stop": 1.8547539237373187,
+      "properties": {
+        "Position": "(-62.4123001099,-6.81400299072,-128.07119751)",
+        "Rotation": "(-0.,-30.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170468",
+      "asset_id": "4611686023933932087",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_table_platform.gr2",
+      "origin_distance_to_stop": 1.8830253577035072,
+      "properties": {
+        "Position": "(-64.6659011841,-6.91750335693,-126.99029541)",
+        "Rotation": "(-0.,157.026000977,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170167",
+      "asset_id": "4611686024807158317",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_internal_computer_01.gr2",
+      "origin_distance_to_stop": 1.8914191736453259,
+      "properties": {
+        "Position": "(-64.6046981812,-6.93129730225,-127.145095825)",
+        "Rotation": "(-0.,-23.3449993134,0.)",
+        "Scale": "(0.500100016594,0.40000000596,0.300000011921)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170374",
+      "asset_id": "4611686024776867364",
+      "asset": "\\art\\static\\area\\all_all\\item\\tech\\all_item_tech_remote_detonator.gr2",
+      "origin_distance_to_stop": 1.9029987091827463,
+      "properties": {
+        "Position": "(-61.1722984314,-6.90390014648,-127.045303345)",
+        "Rotation": "(-0.,-146.319000244,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170168",
+      "asset_id": "4611686024807158317",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_internal_computer_01.gr2",
+      "origin_distance_to_stop": 1.9142146372570303,
+      "properties": {
+        "Position": "(-61.1365013123,-6.93360137939,-126.987098694)",
+        "Rotation": "(-0.,33.6800003052,0.)",
+        "Scale": "(0.500100016594,0.500100016594,0.500100016594)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686284676900004",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 1.9143941890803224,
+      "properties": {
+        "Position": "(-62.2131118774,-6.90174150467,-128.068572998)",
+        "Rotation": "(0.,-45.0051956177,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686284681880423",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 1.9143941890803224,
+      "properties": {
+        "Position": "(-62.2131118774,-6.90174150467,-128.068572998)",
+        "Rotation": "(0.,-45.0051956177,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170027",
+      "asset_id": "4611686022091765150",
+      "asset": "\\art\\static\\area\\all_all\\item\\misc\\all_item_misc_glasses_01_b.gr2",
+      "origin_distance_to_stop": 1.937957598139289,
+      "properties": {
+        "Position": "(-64.6688995361,-6.81749725342,-127.116600037)",
+        "Rotation": "(-0.,-145.14100647,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170340",
+      "asset_id": "4611686020984834657",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_peasant_lamp.gr2",
+      "origin_distance_to_stop": 1.9481603503685225,
+      "properties": {
+        "Position": "(-64.7700958252,-6.81749725342,-126.889099121)",
+        "Rotation": "(-0.,45.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170025",
+      "asset_id": "4611686022091765150",
+      "asset": "\\art\\static\\area\\all_all\\item\\misc\\all_item_misc_glasses_01_b.gr2",
+      "origin_distance_to_stop": 1.9508596448072608,
+      "properties": {
+        "Position": "(-62.3270988464,-6.81400299072,-128.145996094)",
+        "Rotation": "(-0.,-45.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170404",
+      "asset_id": "4611686020979019979",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_peasant_chair.gr2",
+      "origin_distance_to_stop": 1.959321131146159,
+      "properties": {
+        "Position": "(-62.2196006775,-6.90579986572,-128.119293213)",
+        "Rotation": "(-0.,-45.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170046",
+      "asset_id": "4611686025791755672",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_vent_06.gr2",
+      "origin_distance_to_stop": 1.9905174237688144,
+      "properties": {
+        "Position": "(-61.1463012695,-6.08270263672,-126.683105469)",
+        "Rotation": "(90.,135.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170285",
+      "asset_id": "4611686019869492767",
+      "asset": "\\engine\\light.lit",
+      "origin_distance_to_stop": 2.026012069303636,
+      "properties": {
+        "Position": "(-61.6357002258,-6.28029632568,-127.729904175)",
+        "Rotation": "(90.,-45.,0.)",
+        "Scale": "(1.1017999649,1.0013999939,0.682600021362)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170405",
+      "asset_id": "4611686020979019979",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_peasant_chair.gr2",
+      "origin_distance_to_stop": 2.0319123813028277,
+      "properties": {
+        "Position": "(-64.7978973389,-6.91190004349,-127.061096191)",
+        "Rotation": "(-0.,75.4561004639,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686284676900007",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 2.0366339373909965,
+      "properties": {
+        "Position": "(-64.7658843994,-6.90522289276,-127.146179199)",
+        "Rotation": "(0.,-112.982444763,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686284681880628",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 2.0366339373909965,
+      "properties": {
+        "Position": "(-64.7658843994,-6.90522289276,-127.146179199)",
+        "Rotation": "(0.,-112.982444763,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170329",
+      "asset_id": "4611686022097034026",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_column.gr2",
+      "origin_distance_to_stop": 2.061846194502726,
+      "properties": {
+        "Position": "(-61.1740989685,-6.93190002441,-127.38760376)",
+        "Rotation": "(-0.,-123.900001526,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170088",
+      "asset_id": "4611686024847982302",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_ammo_box.gr2",
+      "origin_distance_to_stop": 2.0920177278642575,
+      "properties": {
+        "Position": "(-62.2710990906,-6.90010070801,-128.278198242)",
+        "Rotation": "(-0.,-53.4029998779,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686056988131443",
+      "asset_id": "4611686035847870300",
+      "asset": "\\spn\\test\\path\\seed_point.spn_c",
+      "origin_distance_to_stop": 2.094417865609213,
+      "properties": {
+        "Position": "(-64.4589004517,-6.90789985657,-127.707901001)",
+        "Rotation": "(0.,0.,0.)",
+        "Scale": "(2.,2.,2.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170302",
+      "asset_id": "4611686019869492767",
+      "asset": "\\engine\\light.lit",
+      "origin_distance_to_stop": 2.0973400748707682,
+      "properties": {
+        "Position": "(-64.3749008179,-6.27940368652,-127.665100098)",
+        "Rotation": "(90.,45.,0.)",
+        "Scale": "(1.0870000124,1.24070000648,0.741199970245)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170015",
+      "asset_id": "4611686019869492758",
+      "asset": "\\engine\\trigger.trg",
+      "origin_distance_to_stop": 2.1036700119910665,
+      "properties": {
+        "Position": "(-64.4067001343,-6.55000019073,-127.734199524)",
+        "Rotation": "(-0.,-43.5750999451,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "false",
+        "IgnoreForPlayerCollision": "false",
+        "TriggerParam": "tyt_jedi_knight_masters_retreat",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170440",
+      "asset_id": "4611686022021163949",
+      "asset": "\\art\\static\\area\\all_all\\item\\temple\\all_item_temple_bronzium_statue_01_statue.gr2",
+      "origin_distance_to_stop": 2.114058356563319,
+      "properties": {
+        "Position": "(-60.9253005981,-7.05690002441,-126.975494385)",
+        "Rotation": "(-0.,45.8624000549,0.)",
+        "Scale": "(1.39750003815,1.39750003815,1.39750003815)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170118",
+      "asset_id": "4611686024232920673",
+      "asset": "\\art\\static\\area\\all_all\\item\\temple\\all_item_temple_bronzium_statue_01_base.gr2",
+      "origin_distance_to_stop": 2.121783369107229,
+      "properties": {
+        "Position": "(-60.9131011963,-7.05690002441,-126.963699341)",
+        "Rotation": "(-0.,45.8624000549,0.)",
+        "Scale": "(1.39750003815,1.39750003815,1.39750003815)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686050574671275",
+      "asset_id": "4611686050574671274",
+      "asset": "\\gamedata\\stg\\location\\all\\single_player\\holocall\\1_npc_bmn_holocall.stg",
+      "origin_distance_to_stop": 2.1324252881011767,
+      "properties": {
+        "Position": "(-64.3038024902,-6.90789985657,-127.910003662)",
+        "Rotation": "(-0.,90.,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686050574671368",
+      "asset_id": "4611686050574671314",
+      "asset": "\\gamedata\\stg\\location\\tython\\class\\jedi_knight\\derrin_weller_1.stg",
+      "origin_distance_to_stop": 2.1324252881011767,
+      "properties": {
+        "Position": "(-64.3038024902,-6.90789985657,-127.910003662)",
+        "Rotation": "(-0.,90.,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170433",
+      "asset_id": "4611686024807161456",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_store_prop_wall_piece01.gr2",
+      "origin_distance_to_stop": 2.1485934520999033,
+      "properties": {
+        "Position": "(-62.1366004944,-6.90040016174,-124.287597656)",
+        "Rotation": "(-6.20302989773e-006,45.,90.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170334",
+      "asset_id": "4611686022097034026",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_column.gr2",
+      "origin_distance_to_stop": 2.1493996338908947,
+      "properties": {
+        "Position": "(-64.0326004028,-6.93099975586,-128.126708984)",
+        "Rotation": "(-0.,-33.9000015259,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170206",
+      "asset_id": "4611686024847980820",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_barricade_concrete.gr2",
+      "origin_distance_to_stop": 2.150168820052716,
+      "properties": {
+        "Position": "(-60.854598999,-6.91590118408,-126.891601563)",
+        "Rotation": "(-0.,-135.,0.)",
+        "Scale": "(0.900099992752,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170097",
+      "asset_id": "4611686022096902351",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_pillar.gr2",
+      "origin_distance_to_stop": 2.1611922897879396,
+      "properties": {
+        "Position": "(-62.1991004944,-6.908203125,-128.326797485)",
+        "Rotation": "(-0.,45.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170177",
+      "asset_id": "4611686024647060752",
+      "asset": "\\art\\static\\area\\all_all\\item\\container\\all_item_con_footlocker_main.gr2",
+      "origin_distance_to_stop": 2.1852379030472706,
+      "properties": {
+        "Position": "(-61.1324005127,-6.4548034668,-127.466995239)",
+        "Rotation": "(-0.,59.5089988708,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170235",
+      "asset_id": "4611686022097034024",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_light.gr2",
+      "origin_distance_to_stop": 2.186517071578517,
+      "properties": {
+        "Position": "(-61.1034011841,-6.50869750977,-127.443901062)",
+        "Rotation": "(-0.,55.6609992981,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686331933380003",
+      "asset_id": "4611686246968430026",
+      "asset": "\\cos\\location\\tython\\mob\\the_temple_grounds\\astromech.cos",
+      "origin_distance_to_stop": 2.2026816167814545,
+      "properties": {
+        "Position": "(-61.5507011414,-6.90719985962,-128.015396118)",
+        "Rotation": "(-0.,-90.,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170221",
+      "asset_id": "4611686022097034024",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_light.gr2",
+      "origin_distance_to_stop": 2.2055037831188713,
+      "properties": {
+        "Position": "(-60.7813987732,-6.8343963623,-126.830101013)",
+        "Rotation": "(-3.41510008184e-006,-45.,133.981994629)",
+        "Scale": "(1.20009994507,1.40009999275,1.20009994507)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170113",
+      "asset_id": "4611686022096902351",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_pillar.gr2",
+      "origin_distance_to_stop": 2.2083944138079725,
+      "properties": {
+        "Position": "(-64.9718017578,-6.90730285645,-127.101799011)",
+        "Rotation": "(-0.,135.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170087",
+      "asset_id": "4611686024847982302",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_ammo_box.gr2",
+      "origin_distance_to_stop": 2.2196487846939865,
+      "properties": {
+        "Position": "(-63.9996986389,-6.45590209961,-128.176101685)",
+        "Rotation": "(-0.,-150.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170451",
+      "asset_id": "4611686032080682241",
+      "asset": "\\spn\\location\\tython\\class\\jedi_knight\\attack_of_the_flesh_raiders\\derrin_weller.spn_c",
+      "origin_distance_to_stop": 2.2422950839863347,
+      "properties": {
+        "Position": "(-64.3022994995,-6.90789985657,-128.053207397)",
+        "Rotation": "(-0.,-15.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170058",
+      "asset_id": "4611686024647059074",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_wardrobe.gr2",
+      "origin_distance_to_stop": 2.2500865218382935,
+      "properties": {
+        "Position": "(-60.9096984863,-6.90010070801,-127.302597046)",
+        "Rotation": "(-0.,-125.855003357,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170074",
+      "asset_id": "4611686024847982302",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_ammo_box.gr2",
+      "origin_distance_to_stop": 2.2533287377609006,
+      "properties": {
+        "Position": "(-64.1031036377,-6.45590209961,-128.153808594)",
+        "Rotation": "(-0.,75.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170290",
+      "asset_id": "4611686019869492767",
+      "asset": "\\engine\\light.lit",
+      "origin_distance_to_stop": 2.2598580431817683,
+      "properties": {
+        "Position": "(-60.7112007141,-6.76920318604,-126.75579834)",
+        "Rotation": "(-68.5576019287,-135.,-180.)",
+        "Scale": "(0.347200006247,0.365099996328,1.15530002117)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170242",
+      "asset_id": "4611686022097034024",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_light.gr2",
+      "origin_distance_to_stop": 2.272669199980517,
+      "properties": {
+        "Position": "(-64.0887985229,-6.50779724121,-128.197402954)",
+        "Rotation": "(-0.,145.660995483,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170191",
+      "asset_id": "4611686022096902352",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_box.gr2",
+      "origin_distance_to_stop": 2.273234425443248,
+      "properties": {
+        "Position": "(-62.1449012756,-6.45670318604,-128.380203247)",
+        "Rotation": "(-0.,135.,0.)",
+        "Scale": "(0.620100021362,0.620100021362,0.620100021362)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170053",
+      "asset_id": "4611686025791755672",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_vent_06.gr2",
+      "origin_distance_to_stop": 2.278952285958072,
+      "properties": {
+        "Position": "(-61.1395988464,-6.47969818115,-127.650299072)",
+        "Rotation": "(-0.,-10.3109998703,0.)",
+        "Scale": "(0.300000011921,0.300000011921,0.300000011921)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170189",
+      "asset_id": "4611686022096902352",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_box.gr2",
+      "origin_distance_to_stop": 2.3208644466485118,
+      "properties": {
+        "Position": "(-65.0251998901,-6.45580291748,-127.15599823)",
+        "Rotation": "(-0.,-135.,0.)",
+        "Scale": "(0.620100021362,0.620100021362,0.620100021362)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170059",
+      "asset_id": "4611686024647059074",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_wardrobe.gr2",
+      "origin_distance_to_stop": 2.323937684938689,
+      "properties": {
+        "Position": "(-62.0462989807,-6.90989685059,-128.442901611)",
+        "Rotation": "(-0.,36.913898468,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686050852971777",
+      "asset_id": "4611686020979017532",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_desk_computer_01.gr2",
+      "origin_distance_to_stop": 2.332519431597427,
+      "properties": {
+        "Position": "(-64.273399353,-6.90789985657,-128.1875)",
+        "Rotation": "(-0.,-10.6077003479,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170063",
+      "asset_id": "4611686024647059074",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_wardrobe.gr2",
+      "origin_distance_to_stop": 2.340603055524999,
+      "properties": {
+        "Position": "(-63.9476013184,-6.89920043945,-128.391098022)",
+        "Rotation": "(-0.,-35.8549995422,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170148",
+      "asset_id": "4611686021704428180",
+      "asset": "\\art\\static\\area\\all_all\\item\\container\\all_item_con_crate_04.gr2",
+      "origin_distance_to_stop": 2.343336289654551,
+      "properties": {
+        "Position": "(-62.0988998413,-6.581199646,-128.461105347)",
+        "Rotation": "(-0.,-90.,0.)",
+        "Scale": "(0.771600008011,0.771600008011,0.771600008011)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686331933380002",
+      "asset_id": "4611686170128770003",
+      "asset": "\\cos\\location\\tython\\mob\\the_gnarls\\gnarls_guard.cos",
+      "origin_distance_to_stop": 2.345135508750182,
+      "properties": {
+        "Position": "(-61.3282012939,-6.90719985962,-128.012405396)",
+        "Rotation": "(0.,165.,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170043",
+      "asset_id": "4611686025791755672",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_vent_06.gr2",
+      "origin_distance_to_stop": 2.3617868889682736,
+      "properties": {
+        "Position": "(-64.2953033447,-6.4787979126,-128.161300659)",
+        "Rotation": "(-0.,79.6886978149,0.)",
+        "Scale": "(0.300000011921,0.300000011921,0.300000011921)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170062",
+      "asset_id": "4611686024647059074",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_wardrobe.gr2",
+      "origin_distance_to_stop": 2.3746708053102394,
+      "properties": {
+        "Position": "(-65.0878982544,-6.90899658203,-127.254600525)",
+        "Rotation": "(-0.,126.914001465,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170267",
+      "asset_id": "4611686022097034025",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_light_round.gr2",
+      "origin_distance_to_stop": 2.4178258545740916,
+      "properties": {
+        "Position": "(-60.9861984253,-6.14600372314,-127.531997681)",
+        "Rotation": "(-12.4736003876,-33.46900177,-39.7929000854)",
+        "Scale": "(0.750100016594,0.750100016594,0.750100016594)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686056988131437",
+      "asset_id": "4611686035847870300",
+      "asset": "\\spn\\test\\path\\seed_point.spn_c",
+      "origin_distance_to_stop": 2.420975422946164,
+      "properties": {
+        "Position": "(-61.5877990723,-6.89979982376,-124.266403198)",
+        "Rotation": "(0.,0.,0.)",
+        "Scale": "(2.,2.,2.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170333",
+      "asset_id": "4611686022097034026",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_column.gr2",
+      "origin_distance_to_stop": 2.4520499159264837,
+      "properties": {
+        "Position": "(-61.0760993958,-6.93190002441,-127.906600952)",
+        "Rotation": "(-0.,-77.3000030518,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686053681731629",
+      "asset_id": "4611686053681731478",
+      "asset": "\\enc\\location\\tython\\mob\\poi01\\e01_masters_retreat_sf01.enc",
+      "origin_distance_to_stop": 2.453649006033174,
+      "properties": {
+        "Position": "(-61.4670982361,-6.90789985657,-128.267196655)",
+        "Rotation": "(0.,0.,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170410",
+      "asset_id": "4611686020979019979",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_peasant_chair.gr2",
+      "origin_distance_to_stop": 2.457807078727836,
+      "properties": {
+        "Position": "(-61.3879013062,-6.90759992599,-128.211898804)",
+        "Rotation": "(-0.,90.,0.)",
+        "Scale": "(0.950800001621,0.950800001621,0.950800001621)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170139",
+      "asset_id": "4611686021704428180",
+      "asset": "\\art\\static\\area\\all_all\\item\\container\\all_item_con_crate_04.gr2",
+      "origin_distance_to_stop": 2.462590763752922,
+      "properties": {
+        "Position": "(-61.1239013672,-6.90789794922,-127.975204468)",
+        "Rotation": "(-0.,-75.,0.)",
+        "Scale": "(0.878400027752,0.878400027752,0.878400027752)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170245",
+      "asset_id": "4611686022097034024",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_light.gr2",
+      "origin_distance_to_stop": 2.462653813251974,
+      "properties": {
+        "Position": "(-61.0242996216,-6.50869750977,-127.813499451)",
+        "Rotation": "(-0.,100.661003113,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170376",
+      "asset_id": "4611686024776867364",
+      "asset": "\\art\\static\\area\\all_all\\item\\tech\\all_item_tech_remote_detonator.gr2",
+      "origin_distance_to_stop": 2.4693374387666296,
+      "properties": {
+        "Position": "(-60.8095016479,-6.90390014648,-127.573303223)",
+        "Rotation": "(-0.,-103.283996582,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170217",
+      "asset_id": "4611686024776865439",
+      "asset": "\\art\\static\\area\\all_all\\item\\tech\\all_item_tech_power_cores_shielded_01.gr2",
+      "origin_distance_to_stop": 2.4826524363090052,
+      "properties": {
+        "Position": "(-61.0335006714,-6.45649719238,-127.842803955)",
+        "Rotation": "(-0.,-135.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170277",
+      "asset_id": "4611686022097034025",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_light_round.gr2",
+      "origin_distance_to_stop": 2.4851283525584282,
+      "properties": {
+        "Position": "(-61.824798584,-6.14720153809,-128.38999939)",
+        "Rotation": "(-13.0806999207,-62.4739990234,35.5593986511)",
+        "Scale": "(0.750100016594,0.750100016594,0.750100016594)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170278",
+      "asset_id": "4611686022097034025",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_light_round.gr2",
+      "origin_distance_to_stop": 2.5011131670909608,
+      "properties": {
+        "Position": "(-64.1770019531,-6.14510345459,-128.314605713)",
+        "Rotation": "(-12.4736003876,56.5313987732,-39.7929000854)",
+        "Scale": "(0.750100016594,0.750100016594,0.750100016594)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170152",
+      "asset_id": "4611686024807158317",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_internal_computer_01.gr2",
+      "origin_distance_to_stop": 2.5168467910720462,
+      "properties": {
+        "Position": "(-60.7436981201,-6.93360137939,-127.555198669)",
+        "Rotation": "(-0.,76.716003418,0.)",
+        "Scale": "(0.500100016594,0.500100016594,0.500100016594)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686284676900005",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 2.5219113114996654,
+      "properties": {
+        "Position": "(-61.4093322754,-6.90622472763,-128.309371948)",
+        "Rotation": "(0.,180.,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686284681880424",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 2.5219113114996654,
+      "properties": {
+        "Position": "(-61.4093322754,-6.90622472763,-128.309371948)",
+        "Rotation": "(0.,180.,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170125",
+      "asset_id": "4611686021704428180",
+      "asset": "\\art\\static\\area\\all_all\\item\\container\\all_item_con_crate_04.gr2",
+      "origin_distance_to_stop": 2.5231421474340094,
+      "properties": {
+        "Position": "(-65.1265029907,-6.45580005646,-127.426696777)",
+        "Rotation": "(-0.,0.,0.)",
+        "Scale": "(0.771600008011,0.771600008011,0.771600008011)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284676900934",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 2.5245527489834076,
+      "properties": {
+        "Position": "(-61.7376441956,-6.88909196854,-124.057533264)",
+        "Rotation": "(0.,-137.067398071,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284681881615",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 2.5245527489834076,
+      "properties": {
+        "Position": "(-61.7376441956,-6.88909196854,-124.057533264)",
+        "Rotation": "(0.,-137.067398071,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170331",
+      "asset_id": "4611686022097034026",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_column.gr2",
+      "origin_distance_to_stop": 2.5328895796626743,
+      "properties": {
+        "Position": "(-64.5516052246,-6.93099975586,-128.224700928)",
+        "Rotation": "(-0.,12.6999998093,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170280",
+      "asset_id": "4611686022097034025",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_light_round.gr2",
+      "origin_distance_to_stop": 2.540710280857009,
+      "properties": {
+        "Position": "(-65.0350036621,-6.14630126953,-127.475997925)",
+        "Rotation": "(-13.0806999207,27.5259990692,35.5593986511)",
+        "Scale": "(0.750100016594,0.750100016594,0.750100016594)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170237",
+      "asset_id": "4611686022097034024",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_light.gr2",
+      "origin_distance_to_stop": 2.5447156273009286,
+      "properties": {
+        "Position": "(-64.4584960938,-6.50779724121,-128.276596069)",
+        "Rotation": "(-0.,-169.339004517,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686284676900006",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 2.5526279074911473,
+      "properties": {
+        "Position": "(-61.2806549072,-6.90622472763,-128.246765137)",
+        "Rotation": "(0.,90.,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686284681880425",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 2.5526279074911473,
+      "properties": {
+        "Position": "(-61.2806549072,-6.90622472763,-128.246765137)",
+        "Rotation": "(0.,90.,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170232",
+      "asset_id": "4611686022097034024",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_light.gr2",
+      "origin_distance_to_stop": 2.560569426263179,
+      "properties": {
+        "Position": "(-61.784198761,-6.50869750977,-128.551101685)",
+        "Rotation": "(-0.,8.48198986053,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170143",
+      "asset_id": "4611686021704428180",
+      "asset": "\\art\\static\\area\\all_all\\item\\container\\all_item_con_crate_04.gr2",
+      "origin_distance_to_stop": 2.5625354370589704,
+      "properties": {
+        "Position": "(-64.3968048096,-6.45590209961,-128.334594727)",
+        "Rotation": "(-0.,-30.,0.)",
+        "Scale": "(1.30009996891,1.30009996891,1.30009996891)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170052",
+      "asset_id": "4611686025791755672",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_vent_06.gr2",
+      "origin_distance_to_stop": 2.5749702121780027,
+      "properties": {
+        "Position": "(-60.6459999084,-6.08270263672,-127.183395386)",
+        "Rotation": "(90.,135.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170182",
+      "asset_id": "4611686024647060752",
+      "asset": "\\art\\static\\area\\all_all\\item\\container\\all_item_con_footlocker_main.gr2",
+      "origin_distance_to_stop": 2.5962388296270427,
+      "properties": {
+        "Position": "(-65.209197998,-6.89720153809,-127.510803223)",
+        "Rotation": "(-0.,104.509002686,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170351",
+      "asset_id": "4611686024647060818",
+      "asset": "\\art\\static\\area\\all_all\\item\\container\\all_item_con_footlocker_lid.gr2",
+      "origin_distance_to_stop": 2.5965903366712713,
+      "properties": {
+        "Position": "(-65.2097015381,-6.90119934082,-127.510604858)",
+        "Rotation": "(-0.,103.558998108,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170186",
+      "asset_id": "4611686024647060752",
+      "asset": "\\art\\static\\area\\all_all\\item\\container\\all_item_con_footlocker_main.gr2",
+      "origin_distance_to_stop": 2.6053938197420528,
+      "properties": {
+        "Position": "(-64.520401001,-6.45590209961,-128.295303345)",
+        "Rotation": "(-0.,89.5090026855,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170026",
+      "asset_id": "4611686022091765150",
+      "asset": "\\art\\static\\area\\all_all\\item\\misc\\all_item_misc_glasses_01_b.gr2",
+      "origin_distance_to_stop": 2.611833136824008,
+      "properties": {
+        "Position": "(-61.8148002625,-6.76750183105,-128.652404785)",
+        "Rotation": "(-0.,-45.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170253",
+      "asset_id": "4611686022097034024",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_light.gr2",
+      "origin_distance_to_stop": 2.616816593832135,
+      "properties": {
+        "Position": "(-65.1960983276,-6.50779724121,-127.516601563)",
+        "Rotation": "(-0.,98.4822998047,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170135",
+      "asset_id": "4611686021704428180",
+      "asset": "\\art\\static\\area\\all_all\\item\\container\\all_item_con_crate_04.gr2",
+      "origin_distance_to_stop": 2.6499114620265942,
+      "properties": {
+        "Position": "(-61.6008987427,-6.90010070801,-128.587997437)",
+        "Rotation": "(-0.,-105.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170342",
+      "asset_id": "4611686020984834657",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_peasant_lamp.gr2",
+      "origin_distance_to_stop": 2.6545508625807743,
+      "properties": {
+        "Position": "(-61.6036987305,-6.82009887695,-128.593597412)",
+        "Rotation": "(-0.,-76.3020019531,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170045",
+      "asset_id": "4611686025791755672",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_vent_06.gr2",
+      "origin_distance_to_stop": 2.656508698717976,
+      "properties": {
+        "Position": "(-61.4835014343,-6.47550201416,-128.484008789)",
+        "Rotation": "(-0.,79.6890029907,0.)",
+        "Scale": "(0.300000011921,0.300000011921,0.300000011921)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170020",
+      "asset_id": "4611686022091765150",
+      "asset": "\\art\\static\\area\\all_all\\item\\misc\\all_item_misc_glasses_01_b.gr2",
+      "origin_distance_to_stop": 2.6664239152973073,
+      "properties": {
+        "Position": "(-65.2974014282,-6.7666015625,-127.486000061)",
+        "Rotation": "(-0.,45.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170076",
+      "asset_id": "4611686024847982302",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_ammo_box.gr2",
+      "origin_distance_to_stop": 2.6759721645856716,
+      "properties": {
+        "Position": "(-60.7775993347,-6.89980316162,-127.894302368)",
+        "Rotation": "(-0.,75.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686124156325045",
+      "asset_id": "4611686024807162224",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_vent_01.gr2",
+      "origin_distance_to_stop": 2.6796366074968794,
+      "properties": {
+        "Position": "(-61.6377983093,-6.90339994431,-123.935096741)",
+        "Rotation": "(-0.,135.442001343,0.)",
+        "Scale": "(0.800100028515,0.800100028515,0.800100028515)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170298",
+      "asset_id": "4611686019869492767",
+      "asset": "\\engine\\light.lit",
+      "origin_distance_to_stop": 2.6817258175270853,
+      "properties": {
+        "Position": "(-61.1753997803,-6.28029632568,-128.230697632)",
+        "Rotation": "(90.,-45.,0.)",
+        "Scale": "(0.483900010586,0.706600010395,0.972699999809)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170131",
+      "asset_id": "4611686021704428180",
+      "asset": "\\art\\static\\area\\all_all\\item\\container\\all_item_con_crate_04.gr2",
+      "origin_distance_to_stop": 2.6839228456077353,
+      "properties": {
+        "Position": "(-64.4051971436,-6.89920043945,-128.523406982)",
+        "Rotation": "(-0.,169.85899353,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170449",
+      "asset_id": "4611686024587809201",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_table_lamp.gr2",
+      "origin_distance_to_stop": 2.689029844022972,
+      "properties": {
+        "Position": "(-65.296005249,-6.7666015625,-127.538200378)",
+        "Rotation": "(-0.,30.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170345",
+      "asset_id": "4611686020984834657",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_peasant_lamp.gr2",
+      "origin_distance_to_stop": 2.6949936213619785,
+      "properties": {
+        "Position": "(-64.4114990234,-6.8191986084,-128.531097412)",
+        "Rotation": "(-0.,45.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170022",
+      "asset_id": "4611686022091765150",
+      "asset": "\\art\\static\\area\\all_all\\item\\misc\\all_item_misc_glasses_01_b.gr2",
+      "origin_distance_to_stop": 2.714744262597659,
+      "properties": {
+        "Position": "(-61.1319007874,-6.81379699707,-128.331100464)",
+        "Rotation": "(-0.,-45.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170049",
+      "asset_id": "4611686025791755672",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_vent_06.gr2",
+      "origin_distance_to_stop": 2.7207922098278683,
+      "properties": {
+        "Position": "(-65.1289978027,-6.47460174561,-127.817398071)",
+        "Rotation": "(-0.,169.688995361,0.)",
+        "Scale": "(0.300000011921,0.300000011921,0.300000011921)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170492",
+      "asset_id": "4611686020980125086",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_crate.gr2",
+      "origin_distance_to_stop": 2.7208627411542152,
+      "properties": {
+        "Position": "(-60.8087997437,-6.90059661865,-128.007095337)",
+        "Rotation": "(-0.,-150.,0.)",
+        "Scale": "(0.600099980831,0.600099980831,0.600099980831)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170107",
+      "asset_id": "4611686022096902351",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_pillar.gr2",
+      "origin_distance_to_stop": 2.72246922089953,
+      "properties": {
+        "Position": "(-60.9075012207,-6.908203125,-128.12399292)",
+        "Rotation": "(-0.,-63.9000015259,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170105",
+      "asset_id": "4611686022096902351",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_pillar.gr2",
+      "origin_distance_to_stop": 2.7448375914564354,
+      "properties": {
+        "Position": "(-61.254901886,-6.908203125,-128.472106934)",
+        "Rotation": "(-0.,-23.8999996185,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170183",
+      "asset_id": "4611686024647060752",
+      "asset": "\\art\\static\\area\\all_all\\item\\container\\all_item_con_footlocker_main.gr2",
+      "origin_distance_to_stop": 2.7452808148793135,
+      "properties": {
+        "Position": "(-61.3866004944,-6.90049743652,-128.567001343)",
+        "Rotation": "(-0.,-16.7929992676,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170354",
+      "asset_id": "4611686024647060818",
+      "asset": "\\art\\static\\area\\all_all\\item\\container\\all_item_con_footlocker_lid.gr2",
+      "origin_distance_to_stop": 2.7453032748345105,
+      "properties": {
+        "Position": "(-61.3870010376,-6.90450286865,-128.56729126)",
+        "Rotation": "(-0.,-17.7430000305,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170486",
+      "asset_id": "4611686022095838948",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_generator.gr2",
+      "origin_distance_to_stop": 2.748215101218284,
+      "properties": {
+        "Position": "(-61.1306991577,-6.24520111084,-128.271102905)",
+        "Rotation": "(-0.100000999868,-133.699996948,-130.300003052)",
+        "Scale": "(0.750100016594,0.750100016594,0.750100016594)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170309",
+      "asset_id": "4611686019869492767",
+      "asset": "\\engine\\light.lit",
+      "origin_distance_to_stop": 2.754426366914527,
+      "properties": {
+        "Position": "(-64.8742980957,-6.27940368652,-128.126800537)",
+        "Rotation": "(90.,45.,0.)",
+        "Scale": "(0.483900010586,0.706600010395,0.972699999809)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_c.dat",
+      "instance": "4611686037462170465",
+      "asset_id": "4611686023933932087",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_table_platform.gr2",
+      "origin_distance_to_stop": 2.764868507630518,
+      "properties": {
+        "Position": "(-61.0458984375,-6.91380310059,-128.322998047)",
+        "Rotation": "(-0.,43.9473991394,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170136",
+      "asset_id": "4611686021704428180",
+      "asset": "\\art\\static\\area\\all_all\\item\\container\\all_item_con_crate_04.gr2",
+      "origin_distance_to_stop": 2.775573804030506,
+      "properties": {
+        "Position": "(-65.2113037109,-6.89920043945,-127.853103638)",
+        "Rotation": "(-0.,-15.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170461",
+      "asset_id": "4611686025791752763",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_vent_05_mirror.gr2",
+      "origin_distance_to_stop": 2.783963098953301,
+      "properties": {
+        "Position": "(-60.3914985657,-6.89980316162,-127.457099915)",
+        "Rotation": "(-0.,45.,0.)",
+        "Scale": "(1.20009994507,1.20130002499,1.20009994507)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170479",
+      "asset_id": "4611686020979017532",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_desk_computer_01.gr2",
+      "origin_distance_to_stop": 2.785622445644383,
+      "properties": {
+        "Position": "(-64.3576965332,-6.89920043945,-128.673904419)",
+        "Rotation": "(-0.,-15.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170119",
+      "asset_id": "4611686021704428180",
+      "asset": "\\art\\static\\area\\all_all\\item\\container\\all_item_con_crate_04.gr2",
+      "origin_distance_to_stop": 2.798870997896542,
+      "properties": {
+        "Position": "(-65.1750946045,-6.89920043945,-127.944595337)",
+        "Rotation": "(-0.,2.62673006546e-006,0.)",
+        "Scale": "(1.30009996891,1.30009996891,1.30009996891)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170250",
+      "asset_id": "4611686022097034024",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_light.gr2",
+      "origin_distance_to_stop": 2.800009804957571,
+      "properties": {
+        "Position": "(-61.0329017639,-6.50869750977,-128.32170105)",
+        "Rotation": "(-0.,-47.3040008545,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170094",
+      "asset_id": "4611686022096902351",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_pillar.gr2",
+      "origin_distance_to_stop": 2.802327923515451,
+      "properties": {
+        "Position": "(-64.7689971924,-6.90730285645,-128.393295288)",
+        "Rotation": "(-0.,26.1000003815,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170103",
+      "asset_id": "4611686022096902351",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_pillar.gr2",
+      "origin_distance_to_stop": 2.8145073815045287,
+      "properties": {
+        "Position": "(-65.1170959473,-6.90730285645,-128.046005249)",
+        "Rotation": "(-0.,66.0999984741,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170488",
+      "asset_id": "4611686022095838948",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_generator.gr2",
+      "origin_distance_to_stop": 2.8209749309902348,
+      "properties": {
+        "Position": "(-64.9160995483,-6.24430084229,-128.17010498)",
+        "Rotation": "(-0.100000999868,-43.7000007629,-130.300003052)",
+        "Scale": "(0.750100016594,0.750100016594,0.750100016594)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284676900933",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 2.8215364287793427,
+      "properties": {
+        "Position": "(-61.5168571472,-6.88902568817,-123.840118408)",
+        "Rotation": "(0.,47.9516448975,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284681881614",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 2.8215364287793427,
+      "properties": {
+        "Position": "(-61.5168571472,-6.88902568817,-123.840118408)",
+        "Rotation": "(0.,47.9516448975,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170089",
+      "asset_id": "4611686024847982302",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_ammo_box.gr2",
+      "origin_distance_to_stop": 2.8429999177695398,
+      "properties": {
+        "Position": "(-65.0598983765,-6.89920043945,-128.158905029)",
+        "Rotation": "(-0.,15.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_retreat_int_d.dat",
+      "instance": "4611686037462170246",
+      "asset_id": "4611686022097034024",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_light.gr2",
+      "origin_distance_to_stop": 2.8748291465926505,
+      "properties": {
+        "Position": "(-64.9667053223,-6.50779724121,-128.26789856)",
+        "Rotation": "(-0.,42.6958999634,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686124156325052",
+      "asset_id": "4611686020980125086",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_crate.gr2",
+      "origin_distance_to_stop": 2.925364633130952,
+      "properties": {
+        "Position": "(-60.2883987427,-6.89979982376,-125.008102417)",
+        "Rotation": "(-0.,-165.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686124156325051",
+      "asset_id": "4611686020980125086",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_crate.gr2",
+      "origin_distance_to_stop": 2.9693827427816317,
+      "properties": {
+        "Position": "(-60.3398017883,-6.89979982376,-124.816596985)",
+        "Rotation": "(-0.,-120.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686051989071323",
+      "asset_id": "4611686051989071316",
+      "asset": "\\art\\static\\area\\all_all\\item\\all_item_banner_republic.gr2",
+      "origin_distance_to_stop": 2.9704967716675443,
+      "properties": {
+        "Position": "(-60.0735015869,-6.89990234375,-127.143203735)",
+        "Rotation": "(-0.,43.5110015869,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170064",
+      "asset_id": "4611686024807159933",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_exterior_pipe_01.gr2",
+      "origin_distance_to_stop": 2.979906164214396,
+      "properties": {
+        "Position": "(-60.8148002625,-6.89849853516,-128.399398804)",
+        "Rotation": "(-0.,45.,0.)",
+        "Scale": "(1.50020003319,1.50010001659,1.50020003319)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170370",
+      "asset_id": "4611686024844903483",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_sandbag.gr2",
+      "origin_distance_to_stop": 3.008185082279749,
+      "properties": {
+        "Position": "(-60.4833984375,-6.86450195313,-124.522994995)",
+        "Rotation": "(-0.,-118.845001221,0.)",
+        "Scale": "(0.600099980831,0.600099980831,0.600099980831)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170457",
+      "asset_id": "4611686025791752763",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_vent_05_mirror.gr2",
+      "origin_distance_to_stop": 3.0118427003273847,
+      "properties": {
+        "Position": "(-60.4444999695,-6.89980316162,-128.006591797)",
+        "Rotation": "(-0.,135.,0.)",
+        "Scale": "(0.895799994469,1.20130002499,1.20009994507)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686170128770006",
+      "asset_id": "4611686170106980011",
+      "asset": "\\cos\\location\\tython\\mob\\the_temple_grounds\\jedi_initiate.cos",
+      "origin_distance_to_stop": 3.0955412286061708,
+      "properties": {
+        "Position": "(-59.9655990601,-6.89979982376,-125.36000061)",
+        "Rotation": "(0.,-135.,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170367",
+      "asset_id": "4611686024844903483",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_sandbag.gr2",
+      "origin_distance_to_stop": 3.1150620259316657,
+      "properties": {
+        "Position": "(-60.4589996338,-6.86450195313,-124.377502441)",
+        "Rotation": "(-0.,153.867996216,0.)",
+        "Scale": "(0.600099980831,0.600099980831,0.600099980831)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170476",
+      "asset_id": "4611686021704489950",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_pallet_02.gr2",
+      "origin_distance_to_stop": 3.1213492907864984,
+      "properties": {
+        "Position": "(-60.4301986694,-6.89980316162,-124.404403687)",
+        "Rotation": "(-0.,180.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284676900998",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 3.1245046229524265,
+      "properties": {
+        "Position": "(-60.5523605347,-6.82514286041,-124.24962616)",
+        "Rotation": "(0.,133.499740601,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284681881679",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 3.1245046229524265,
+      "properties": {
+        "Position": "(-60.5523605347,-6.82514286041,-124.24962616)",
+        "Rotation": "(0.,133.499740601,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170364",
+      "asset_id": "4611686024844903483",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_sandbag.gr2",
+      "origin_distance_to_stop": 3.1314900617986012,
+      "properties": {
+        "Position": "(-60.5250015259,-6.86450195313,-124.269897461)",
+        "Rotation": "(-0.,127.487998962,0.)",
+        "Scale": "(0.600099980831,0.600099980831,0.600099980831)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170365",
+      "asset_id": "4611686024844903483",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_sandbag.gr2",
+      "origin_distance_to_stop": 3.1364043367751275,
+      "properties": {
+        "Position": "(-60.4697990417,-6.8258972168,-124.33039856)",
+        "Rotation": "(-0.,147.593002319,0.)",
+        "Scale": "(0.600099980831,0.600099980831,0.600099980831)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170038",
+      "asset_id": "4611686024778442812",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_barricade_metal.gr2",
+      "origin_distance_to_stop": 3.1422862602123702,
+      "properties": {
+        "Position": "(-60.407699585,-6.8683013916,-124.399703979)",
+        "Rotation": "(-0.,90.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170369",
+      "asset_id": "4611686024844903483",
+      "asset": "\\art\\static\\area\\all_all\\item\\republic\\all_item_rep_sandbag.gr2",
+      "origin_distance_to_stop": 3.1635740268942976,
+      "properties": {
+        "Position": "(-60.2915000916,-6.86450195313,-124.526504517)",
+        "Rotation": "(-0.,-171.848007202,0.)",
+        "Scale": "(0.600099980831,0.600099980831,0.600099980831)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170065",
+      "asset_id": "4611686024807159933",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_exterior_pipe_01.gr2",
+      "origin_distance_to_stop": 3.16580407891945,
+      "properties": {
+        "Position": "(-61.567199707,-6.89849853516,-129.151794434)",
+        "Rotation": "(-0.,45.,0.)",
+        "Scale": "(1.50020003319,1.50010001659,1.50020003319)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686053681731626",
+      "asset_id": "4611686053681731478",
+      "asset": "\\enc\\location\\tython\\mob\\poi01\\e01_masters_retreat_sf01.enc",
+      "origin_distance_to_stop": 3.193901347257085,
+      "properties": {
+        "Position": "(-59.7816009521,-6.89979982376,-125.688102722)",
+        "Rotation": "(0.,0.,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686101380271042",
+      "asset_id": "4611686101380271041",
+      "asset": "\\gamedata\\stg\\location\\tython\\class\\jedi_knight\\opening_ship_cinematic.stg",
+      "origin_distance_to_stop": 3.220580791497613,
+      "properties": {
+        "Position": "(-60.9211006165,-6.89989995956,-123.762496948)",
+        "Rotation": "(-0.,135.,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170429",
+      "asset_id": "4611686024807161456",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_store_prop_wall_piece01.gr2",
+      "origin_distance_to_stop": 3.263640760825532,
+      "properties": {
+        "Position": "(-61.304599762,-6.89589691162,-123.452201843)",
+        "Rotation": "(-0.,-135.,90.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284676900983",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 3.296561739315208,
+      "properties": {
+        "Position": "(-60.866897583,-6.88542842865,-128.86920166)",
+        "Rotation": "(0.,47.5085716248,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284681881664",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 3.296561739315208,
+      "properties": {
+        "Position": "(-60.866897583,-6.88542842865,-128.86920166)",
+        "Rotation": "(0.,47.5085716248,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170395",
+      "asset_id": "4611686024807162224",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_vent_01.gr2",
+      "origin_distance_to_stop": 3.3003777042306757,
+      "properties": {
+        "Position": "(-60.9870986938,-6.89980316162,-128.965103149)",
+        "Rotation": "(-0.,135.,0.)",
+        "Scale": "(0.800100028515,0.800100028515,0.800100028515)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170430",
+      "asset_id": "4611686024807161456",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_store_prop_wall_piece01.gr2",
+      "origin_distance_to_stop": 3.32292585846677,
+      "properties": {
+        "Position": "(-59.8720016479,-6.89979982376,-127.61579895)",
+        "Rotation": "(1.70755004092e-006,-45.,90.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284676900984",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 3.3458961640243614,
+      "properties": {
+        "Position": "(-61.0859985352,-6.88549518585,-129.088302612)",
+        "Rotation": "(0.,-137.507080078,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284681881665",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 3.3458961640243614,
+      "properties": {
+        "Position": "(-61.0859985352,-6.88549518585,-129.088302612)",
+        "Rotation": "(0.,-137.507080078,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170174",
+      "asset_id": "4611686024807158317",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_internal_computer_01.gr2",
+      "origin_distance_to_stop": 3.3491287668201895,
+      "properties": {
+        "Position": "(-59.6907997131,-6.90390014648,-125.395202637)",
+        "Rotation": "(-0.,45.,0.)",
+        "Scale": "(0.600099980831,0.600099980831,0.600099980831)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170170",
+      "asset_id": "4611686024807158317",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_internal_computer_01.gr2",
+      "origin_distance_to_stop": 3.351376126366173,
+      "properties": {
+        "Position": "(-59.6879997253,-6.90390014648,-125.396896362)",
+        "Rotation": "(-0.,-135.,0.)",
+        "Scale": "(0.600099980831,0.600099980831,0.600099980831)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686043674370016",
+      "asset_id": "4611686021218548913",
+      "asset": "\\art\\static\\area\\tyt_tython\\env\\tyt_env_boulders_lrg_no_moss_01.gr2",
+      "origin_distance_to_stop": 3.3923352524616748,
+      "properties": {
+        "Position": "(-61.2074012756,-9.77770042419,-126.829498291)",
+        "Rotation": "(-80.0239028931,-151.328994751,121.069999695)",
+        "Scale": "(2.96040010452,2.96040010452,2.96040010452)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686101695870289",
+      "asset_id": "4611686038683675483",
+      "asset": "\\art\\static\\area\\all_all\\item\\tech\\all_item_tech_resurrection_point.gr2",
+      "origin_distance_to_stop": 3.4184378944159346,
+      "properties": {
+        "Position": "(-59.956199646,-6.89979982376,-127.994903564)",
+        "Rotation": "(-0.,-45.,0.)",
+        "Scale": "(0.75,0.75,0.75)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170462",
+      "asset_id": "4611686025791752763",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_vent_05_mirror.gr2",
+      "origin_distance_to_stop": 3.424140104896347,
+      "properties": {
+        "Position": "(-61.9856987,-6.90799713135,-129.583496094)",
+        "Rotation": "(-0.,135.,0.)",
+        "Scale": "(1.20009994507,1.20130002499,1.20009994507)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170067",
+      "asset_id": "4611686024807159933",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_exterior_pipe_01.gr2",
+      "origin_distance_to_stop": 3.4801910734344563,
+      "properties": {
+        "Position": "(-62.0765991211,-5.77359771729,-129.472702026)",
+        "Rotation": "(-0.,45.,0.)",
+        "Scale": "(1.20009994507,1.20009994507,1.20009994507)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170248",
+      "asset_id": "4611686022097034024",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_light.gr2",
+      "origin_distance_to_stop": 3.6349797973639357,
+      "properties": {
+        "Position": "(-61.29529953,-6.89980316162,-129.541305542)",
+        "Rotation": "(-0.,45.,180.)",
+        "Scale": "(1.20009994507,1.40009999275,1.20009994507)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686101695870302",
+      "asset_id": "4611686101695870300",
+      "asset": "\\spn\\location\\tython\\medcenter\\med_poi01_masters_retreat_medic_droid.spn_c",
+      "origin_distance_to_stop": 3.74042441236825,
+      "properties": {
+        "Position": "(-59.7872009277,-6.89979982376,-128.334793091)",
+        "Rotation": "(-0.,-112.041000366,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284676900948",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 3.7868363124803,
+      "properties": {
+        "Position": "(-61.2593307495,-6.8988404274,-129.692886353)",
+        "Rotation": "(0.,-55.4608268738,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284681881629",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 3.7868363124803,
+      "properties": {
+        "Position": "(-61.2593307495,-6.8988404274,-129.692886353)",
+        "Rotation": "(0.,-55.4608268738,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284676900947",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 3.824947727932668,
+      "properties": {
+        "Position": "(-61.3208732605,-6.8988404274,-129.764190674)",
+        "Rotation": "(0.,-73.4546890259,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284681881628",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 3.824947727932668,
+      "properties": {
+        "Position": "(-61.3208732605,-6.8988404274,-129.764190674)",
+        "Rotation": "(0.,-73.4546890259,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686084390793061",
+      "asset_id": "4611686084390793060",
+      "asset": "\\spn\\location\\tython\\medcenter\\med_poi01_masters_retreat.spn_c",
+      "origin_distance_to_stop": 3.9048393996232766,
+      "properties": {
+        "Position": "(-59.7000007629,-6.89979982376,-128.5)",
+        "Rotation": "(-0.,-135.,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170426",
+      "asset_id": "4611686024807161456",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_store_prop_wall_piece01.gr2",
+      "origin_distance_to_stop": 3.9314048204224563,
+      "properties": {
+        "Position": "(-59.0052986145,-6.89979982376,-125.910896301)",
+        "Rotation": "(1.22180995277e-006,75.,90.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170233",
+      "asset_id": "4611686022097034024",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_light.gr2",
+      "origin_distance_to_stop": 3.9411075111354825,
+      "properties": {
+        "Position": "(-60.8109016418,-6.90170288086,-129.619094849)",
+        "Rotation": "(-0.,135.,180.)",
+        "Scale": "(1.20009994507,1.40009999275,1.20009994507)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686043674370022",
+      "asset_id": "4611686021218548913",
+      "asset": "\\art\\static\\area\\tyt_tython\\env\\tyt_env_boulders_lrg_no_moss_01.gr2",
+      "origin_distance_to_stop": 4.018162390865184,
+      "properties": {
+        "Position": "(-63.3479003906,-10.8840999603,-126.007896423)",
+        "Rotation": "(25.3293991089,72.0263977051,31.7469005585)",
+        "Scale": "(1.72730004787,1.72730004787,1.72730004787)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170116",
+      "asset_id": "4611686024232920673",
+      "asset": "\\art\\static\\area\\all_all\\item\\temple\\all_item_temple_bronzium_statue_01_base.gr2",
+      "origin_distance_to_stop": 4.034831707199497,
+      "properties": {
+        "Position": "(-61.0723991394,-6.89980316162,-129.876602173)",
+        "Rotation": "(-0.,43.5424995422,0.)",
+        "Scale": "(2.00020003319,2.00020003319,2.00020003319)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170441",
+      "asset_id": "4611686022021163949",
+      "asset": "\\art\\static\\area\\all_all\\item\\temple\\all_item_temple_bronzium_statue_01_statue.gr2",
+      "origin_distance_to_stop": 4.034831707199497,
+      "properties": {
+        "Position": "(-61.0723991394,-6.89980316162,-129.876602173)",
+        "Rotation": "(-0.,43.5424995422,0.)",
+        "Scale": "(2.00020003319,2.00020003319,2.00020003319)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686099883870219",
+      "asset_id": "4611686019869492758",
+      "asset": "\\engine\\trigger.trg",
+      "origin_distance_to_stop": 4.245019257319597,
+      "properties": {
+        "Position": "(-58.885799408,-6.43359994888,-127.530296326)",
+        "Rotation": "(-0.,-45.,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "Collidable": "false",
+        "IgnoreForPlayerCollision": "false",
+        "TriggerParam": "hyd.location.tython.ambient.ambient_conversations.masters_retreat",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686051989071333",
+      "asset_id": "4611686051989071316",
+      "asset": "\\art\\static\\area\\all_all\\item\\all_item_banner_republic.gr2",
+      "origin_distance_to_stop": 4.266636465290167,
+      "properties": {
+        "Position": "(-61.9922981262,-5.69999694824,-130.277496338)",
+        "Rotation": "(-0.,45.,0.)",
+        "Scale": "(1.30009996891,1.30009996891,0.700100004673)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686099883870179",
+      "asset_id": "4611686099883870178",
+      "asset": "\\spn\\location\\tython\\ambient\\masters_retreat\\amb_masters_retreat_knight.spn_c",
+      "origin_distance_to_stop": 4.295302149338258,
+      "properties": {
+        "Position": "(-58.7396011353,-6.89979982376,-127.282096863)",
+        "Rotation": "(-0.,-15.,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284676900927",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 4.3350524647461866,
+      "properties": {
+        "Position": "(-58.6028060913,-6.89855194092,-125.879554749)",
+        "Rotation": "(0.,-136.249298096,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284681881608",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 4.3350524647461866,
+      "properties": {
+        "Position": "(-58.6028060913,-6.89855194092,-125.879554749)",
+        "Rotation": "(0.,-136.249298096,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170231",
+      "asset_id": "4611686022097034024",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_house_ceiling_light.gr2",
+      "origin_distance_to_stop": 4.395329177952555,
+      "properties": {
+        "Position": "(-60.7337989807,-6.89980316162,-130.102798462)",
+        "Rotation": "(-0.,45.,180.)",
+        "Scale": "(1.20009994507,1.40009999275,1.20009994507)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686099883870195",
+      "asset_id": "4611686099883870194",
+      "asset": "\\spn\\location\\tython\\ambient\\masters_retreat\\amb_masters_retreat_master.spn_c",
+      "origin_distance_to_stop": 4.39985563047606,
+      "properties": {
+        "Position": "(-58.6862983704,-6.89979982376,-127.491897583)",
+        "Rotation": "(-0.,165.,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284676900990",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 4.427969655259889,
+      "properties": {
+        "Position": "(-60.0667953491,-6.88549518585,-129.67628479)",
+        "Rotation": "(0.,42.4929275513,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284681881671",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 4.427969655259889,
+      "properties": {
+        "Position": "(-60.0667953491,-6.88549518585,-129.67628479)",
+        "Rotation": "(0.,42.4929275513,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686101695870287",
+      "asset_id": "4611686038683675483",
+      "asset": "\\art\\static\\area\\all_all\\item\\tech\\all_item_tech_resurrection_point.gr2",
+      "origin_distance_to_stop": 4.458415563831661,
+      "properties": {
+        "Position": "(-59.1996002197,-6.89979982376,-128.748001099)",
+        "Rotation": "(-0.,-45.,0.)",
+        "Scale": "(0.75,0.75,0.75)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170398",
+      "asset_id": "4611686024807162224",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_vent_01.gr2",
+      "origin_distance_to_stop": 4.461207669632845,
+      "properties": {
+        "Position": "(-60.1656990051,-6.89980316162,-129.799499512)",
+        "Rotation": "(-0.,-45.,0.)",
+        "Scale": "(0.800100028515,0.800100028515,0.800100028515)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284676900989",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 4.465150576508673,
+      "properties": {
+        "Position": "(-60.2858963013,-6.88542795181,-129.895370483)",
+        "Rotation": "(0.,-132.491424561,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284681881670",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 4.465150576508673,
+      "properties": {
+        "Position": "(-60.2858963013,-6.88542795181,-129.895370483)",
+        "Rotation": "(0.,-132.491424561,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686036538870008",
+      "asset_id": "4611686019869492758",
+      "asset": "\\engine\\trigger.trg",
+      "origin_distance_to_stop": 4.578362469303398,
+      "properties": {
+        "Position": "(-58.9079017639,-5.40999984741,-127.919799805)",
+        "Rotation": "(-0.,-45.,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "Collidable": "false",
+        "IgnoreForPlayerCollision": "false",
+        "TriggerParam": "hyd.location.tython.hearth_stone.suppress_travel_trigger",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686124156325042",
+      "asset_id": "4611686026489978655",
+      "asset": "\\art\\static\\area\\all_all\\item\\furniture\\all_item_furn_temple_bench_interior.gr2",
+      "origin_distance_to_stop": 4.61535096049693,
+      "properties": {
+        "Position": "(-58.3534011841,-6.89979982376,-125.609596252)",
+        "Rotation": "(-0.,135.861999512,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170005",
+      "asset_id": "4611686025199172721",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\all_arch_rep_jedi_retreat.gr2",
+      "origin_distance_to_stop": 4.667122325825998,
+      "properties": {
+        "Position": "(-61.7000007629,-8.5,-130.5)",
+        "Rotation": "(0.,45.,0.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170066",
+      "asset_id": "4611686024807159933",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_exterior_pipe_01.gr2",
+      "origin_distance_to_stop": 4.693297451942046,
+      "properties": {
+        "Position": "(-59.6031990051,-6.89849853516,-129.610900879)",
+        "Rotation": "(-0.,-135.,0.)",
+        "Scale": "(1.50020003319,1.50010001659,1.50020003319)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170432",
+      "asset_id": "4611686024807161456",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_store_prop_wall_piece01.gr2",
+      "origin_distance_to_stop": 4.728206834404446,
+      "properties": {
+        "Position": "(-58.824798584,-6.89979982376,-128.654800415)",
+        "Rotation": "(-5.12263977726e-006,135.,90.)",
+        "Scale": "(1.00010001659,1.00010001659,1.00010001659)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170460",
+      "asset_id": "4611686025791752763",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_vent_05_mirror.gr2",
+      "origin_distance_to_stop": 4.739534934798992,
+      "properties": {
+        "Position": "(-59.2108001709,-6.89980316162,-129.241195679)",
+        "Rotation": "(-0.,-45.,0.)",
+        "Scale": "(0.895799994469,1.20130002499,1.20009994507)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170068",
+      "asset_id": "4611686024807159933",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_exterior_pipe_01.gr2",
+      "origin_distance_to_stop": 4.813491421785252,
+      "properties": {
+        "Position": "(-60.3557014465,-6.89849853516,-130.36340332)",
+        "Rotation": "(-0.,-135.,0.)",
+        "Scale": "(1.50020003319,1.50010001659,1.50020003319)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686051989071322",
+      "asset_id": "4611686051989071316",
+      "asset": "\\art\\static\\area\\all_all\\item\\all_item_banner_republic.gr2",
+      "origin_distance_to_stop": 4.878932153018935,
+      "properties": {
+        "Position": "(-61.4766998291,-5.69999694824,-130.79309082)",
+        "Rotation": "(-0.,45.,0.)",
+        "Scale": "(1.30009996891,1.30009996891,0.700100004673)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686056988131439",
+      "asset_id": "4611686035847870300",
+      "asset": "\\spn\\test\\path\\seed_point.spn_c",
+      "origin_distance_to_stop": 4.926789263945899,
+      "properties": {
+        "Position": "(-58.0257987976,-6.89979982376,-126.867500305)",
+        "Rotation": "(0.,0.,0.)",
+        "Scale": "(2.,2.,2.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284676900926",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 4.941553656601087,
+      "properties": {
+        "Position": "(-58.0600967407,-6.89912939072,-125.386123657)",
+        "Rotation": "(0.,47.9758529663,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686284681881607",
+      "asset_id": "4611686101695870596",
+      "asset": "\\engine\\cover_point.cvr",
+      "origin_distance_to_stop": 4.941553656601087,
+      "properties": {
+        "Position": "(-58.0600967407,-6.89912939072,-125.386123657)",
+        "Rotation": "(0.,47.9758529663,0.)",
+        "Scale": "(1.,1.,1.)",
+        "ParentInstance": "0",
+        "IgnoreForPlayerCollision": "false",
+        "Hidden": "false"
+      }
+    },
+    {
+      "room": "gnarls_new.dat",
+      "instance": "4611686037462170459",
+      "asset_id": "4611686025791752763",
+      "asset": "\\art\\static\\area\\all_all\\arch\\republic\\prop\\all_arch_rep_house_b_prop_vent_05_mirror.gr2",
+      "origin_distance_to_stop": 4.981153547799961,
+      "properties": {
+        "Position": "(-60.7692985535,-6.91130065918,-130.782501221)",
+        "Rotation": "(-0.,-45.,0.)",
+        "Scale": "(1.20009994507,1.20130002499,1.20009994507)",
+        "ParentInstance": "0",
+        "Collidable": "true",
+        "IgnoreForPlayerCollision": "false",
+        "PhysicsType": "STATIC",
+        "PhysicsShape": "SPHERE",
+        "PhysicsCollisionGroup": "0",
+        "PortalTarget": "",
+        "Hidden": "false"
+      }
+    }
+  ]
+}

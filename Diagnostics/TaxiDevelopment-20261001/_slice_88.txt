@@ -1,0 +1,10 @@
+  88  template; vendor `1`; Weller `2`) is the next candidate AFTER this run resolves,
+  89  because it is a field both reference NPCs populate with a small handle and we
+  90  populate with a self-reference — but it changes record length, so it must be its
+  91  own run.
+  92  
+  93  ## Regression gate
+  94  
+  95  `Diagnostics/Test-TaxiValueWalk.ps1` re-walks every generated fixture and fails
+  96  unless each record consumes exactly its `inner_size`. Run it before and after any
+  97  fixture edit from now on.

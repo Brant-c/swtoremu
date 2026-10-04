@@ -1,0 +1,44 @@
+  00D023F0: 55                 push        ebp
+  00D023F1: 8B EC              mov         ebp,esp
+  00D023F3: 6A FF              push        0FFFFFFFFh
+  00D023F5: 68 88 70 FD 00     push        0FD7088h
+  00D023FA: 64 A1 00 00 00 00  mov         eax,dword ptr fs:[00000000h]
+  00D02400: 50                 push        eax
+  00D02401: 64 89 25 00 00 00  mov         dword ptr fs:[00000000h],esp
+  00D02408: 51                 push        ecx
+  00D02409: 56                 push        esi
+  00D0240A: 8B F1              mov         esi,ecx
+  00D0240C: 89 75 F0           mov         dword ptr [ebp-10h],esi
+  00D0240F: C7 06 00 00 00 00  mov         dword ptr [esi],0
+  00D02415: C7 45 FC 00 00 00  mov         dword ptr [ebp-4],0
+  00D0241C: 8B 06              mov         eax,dword ptr [esi]
+  00D0241E: F3 0F 10 05 D4 ED  movss       xmm0,dword ptr ds:[0117EDD4h]
+  00D02426: C7 86 80 00 00 00  mov         dword ptr [esi+00000080h],0
+  00D02430: C7 46 04 00 00 00  mov         dword ptr [esi+4],0
+  00D02437: F3 0F 11 86 D0 00  movss       dword ptr [esi+000000D0h],xmm0
+  00D0243F: 85 C0              test        eax,eax
+  00D02441: 74 18              je          00D0245B
+  00D02443: 8B 48 04           mov         ecx,dword ptr [eax+4]
+  00D02446: 8B 51 04           mov         edx,dword ptr [ecx+4]
+  00D02449: 83 44 02 08 FF     add         dword ptr [edx+eax+8],0FFFFFFFFh
+  00D0244E: 8D 4C 02 04        lea         ecx,[edx+eax+4]
+  00D02452: 75 07              jne         00D0245B
+  00D02454: 8B 01              mov         eax,dword ptr [ecx]
+  00D02456: 8B 50 04           mov         edx,dword ptr [eax+4]
+  00D02459: FF D2              call        edx
+  00D0245B: C7 06 00 00 00 00  mov         dword ptr [esi],0
+  00D02461: C7 45 FC FF FF FF  mov         dword ptr [ebp-4],0FFFFFFFFh
+  00D02468: 8B 4D F4           mov         ecx,dword ptr [ebp-0Ch]
+  00D0246B: 8B C6              mov         eax,esi
+  00D0246D: 5E                 pop         esi
+  00D0246E: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+  00D02475: 8B E5              mov         esp,ebp
+  00D02477: 5D                 pop         ebp
+  00D02478: C3                 ret
+  00D02479: CC                 int         3
+  00D0247A: CC                 int         3
+  00D0247B: CC                 int         3
+  00D0247C: CC                 int         3
+  00D0247D: CC                 int         3
+  00D0247E: CC                 int         3
+  00D0247F: CC                 int         3

@@ -1,0 +1,90 @@
+diff --git a/Diagnostics/DoorwayControl-20260930/PhaseExit.before.cs b/Diagnostics/DoorwayControl-20260930/PhaseExit.after.cs
+index ed3e1e2..fb08902 100644
+--- a/Diagnostics/DoorwayControl-20260930/PhaseExit.before.cs
++++ b/Diagnostics/DoorwayControl-20260930/PhaseExit.after.cs
+@@ -33,13 +33,6 @@ namespace NexusToRServer.AreaServer
+         // transaction, so stay sequential rather than skipping to 0x2F.
+         private const UInt32 StreamID = 0x001B502E;
+ 
+-        // The room-load stream (loading gnarls_new's walkable collision) is the
+-        // native HeroEngine GomUpdate object stream, reproduced by replaying a
+-        // captured .acrt fixture. CRT18 is the next free fixture slot after the
+-        // startup bundle's 1..17; its StreamID is the next id after the destroy.
+-        private const int RoomStreamCrtID = 18;
+-        private const UInt32 RoomStreamID = 0x001B502F;
+-
+         // The INSTANCE_GATEWAY trigger sits at X = -63.6168 (April Tython area,
+         // room gnarls_new). The captured spawn is X = -64.8741 (inside). Walking
+         // out means X rises past the doorway; use a threshold just outside it.
+@@ -105,12 +98,10 @@ namespace NexusToRServer.AreaServer
+                     "PhaseExit: character crossed the retreat doorway ({0:F2} -> {1:F2}); destroyed phase-info child 0x{2:X16} via stream 0x{3:X8}.",
+                     _lastX, x, PhaseInfoNode, StreamID);
+ 
+-                // Loading the exterior room so the doorway actually opens is a
+-                // native HeroEngine GomUpdate object stream, NOT an RPC
+-                // (_Room_Activate is server-only) and NOT an awareness re-send
+-                // (non-idempotent creation sets). See SendRoomStream and
+-                // Diagnostics/RoomStreaming-Plan-20260928.md.
+-                SendRoomStream(client);
++                // CRT18 is a generated duplicate-instance probe, not a proven
++                // native room stream. Preserve the destroy-only control.
++                Log.Write(LogLevel.Warning,
++                    "PhaseExit: CRT18 suppressed; native room-stream semantics unverified (doorway control 2026-09-30-01).");
+             }
+ 
+             _lastX = x;
+@@ -123,54 +114,6 @@ namespace NexusToRServer.AreaServer
+             _lastX = float.NaN;
+         }
+ 
+-        /// <summary>
+-        /// Emits the room-load stream for the exterior room (gnarls_new).
+-        ///
+-        /// Room loading is a native HeroEngine GomUpdate object stream: the live
+-        /// server, on the player's room transition, pushes a replication
+-        /// transaction that creates the destination room's "world object" nodes
+-        /// (0xE000... ids) and links them under a room container. The client only
+-        /// loads a room's walkable collision after receiving that stream.
+-        ///
+-        /// There is no script RPC for this (_Room_Activate is server-only; the
+-        /// area poll messages are one-way sync) and awareness sets are creation
+-        /// sets (non-idempotent). So the fix is to replay a captured stream.
+-        ///
+-        /// Drop-in: place the captured gnarls_new room stream at
+-        ///   AreaServer/CRT/{area}-{areaID}-{areaCode}.18.acrt
+-        /// (or SWTOR_CRT_OVERRIDE_DIRECTORY), with its 4-byte StreamID field set
+-        /// to 0x001B502F. Character-id remap is applied automatically by the
+-        /// AreaClientReplicationTransaction constructor.
+-        /// </summary>
+-        private static void SendRoomStream(TORGameClient client)
+-        {
+-            if (client == null || client.ActiveCharacter == null)
+-                return;
+-
+-            string area = client._area;
+-            string areaID = client._areaID;
+-            string areaCode = client._areaCode;
+-            if (String.IsNullOrEmpty(area) || String.IsNullOrEmpty(areaID) || String.IsNullOrEmpty(areaCode))
+-            {
+-                Log.Write(LogLevel.Warning,
+-                    "PhaseExit: room stream skipped; area context incomplete on client.");
+-                return;
+-            }
+-
+-            if (!CRT.Has(area, areaID, areaCode, RoomStreamCrtID))
+-            {
+-                Log.Write(LogLevel.Warning,
+-                    "PhaseExit: room-load stream fixture missing (CRT {0}); gnarls_new collision will NOT open. Drop the captured stream at AreaServer/CRT/{1}-{2}-{3}.{0}.acrt.",
+-                    RoomStreamCrtID, area, areaID, areaCode);
+-                return;
+-            }
+-
+-            client.SendPacket(new AreaClientReplicationTransaction(area, areaID, areaCode, RoomStreamCrtID, client.ActiveCharacter._id));
+-            Log.Write(LogLevel.Warning,
+-                "PhaseExit: emitted room-load stream (CRT {0}, stream 0x{1:X8}) for exterior room gnarls_new.",
+-                RoomStreamCrtID, RoomStreamID);
+-        }
+-
+         /// <summary>
+         /// Re-sends the awareness set at the doorway crossing. Hypothesis: the
+         /// exterior room never becomes resident because awareness is only ever

@@ -1,0 +1,4 @@
+@{Name=FORK-COMMITTED; Count=2983}
+@{Name=LOCAL-UNCOMMITTED-OR-IGNORED; Count=8686}
+@{Name=UPSTREAM-PATH; Count=2097}
+Inventory after: 13766 filesystem files; 4447 indexed files; 2097 upstream paths; 5157 HEAD paths.

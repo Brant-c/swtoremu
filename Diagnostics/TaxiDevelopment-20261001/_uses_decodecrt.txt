@@ -1,0 +1,7 @@
+Diagnostics\Decode-CrtValues.py
+Diagnostics\Generate-CrtValues.py
+Diagnostics\TaxiDevelopment-20261001\Analyze-CharacterWalk.py
+Diagnostics\TaxiDevelopment-20261001\Show-CharacterBytes.py
+Diagnostics\TaxiDevelopment-20261001\Solve-CharacterWalk.py
+Diagnostics\TaxiDevelopment-20261001\Solve-ModStatEncoding.py
+Diagnostics\TaxiDevelopment-20261001\Solve-TailWidths.py

@@ -1,0 +1,10 @@
+{
+  "BaselineSettings": 29,
+  "CurrentSettings": 30,
+  "Differences": {
+    "SWTOR_TRACE_TRIGGER_COLLISION": [
+      null,
+      "1"
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+ 160  taxi_spec = b'\xCF' + TAXI_CHAR_SPEC.to_bytes(8, 'big')
+ 161  assert len(donor_spec) == len(taxi_spec) == 9
+ 162  assert tail_block.count(donor_spec) == 1, f'donor char spec count {tail_block.count(donor_spec)}'
+ 163  tail_block = tail_block.replace(donor_spec, taxi_spec)
+ 164  assert taxi_spec in tail_block and donor_spec not in tail_block
+ 165  # The donor's captured tail fields, in struct-64 order, and their struct-66
+ 166  # indices (struct 66 drops struct-64 index 69, so indices >= 70 shift by one).
+ 167  donor_tail = [i for i,state in enumerate(donor_states) if state==1 and i>=62]
+ 168  assert donor_tail==[62,63,66,68,70,77,78,80,86], donor_tail
+ 169  APPEARANCE = (62,63,66,68,69,76,77,79,85)
+ 170  assert len(tail_block)==57, len(tail_block)
+ 171  # Targetability is represented by the captured Boolean field state, with no
+ 172  # value byte. This is provisional until the client renders/selects this NPC.
+ 173  states = [1 if i in values or i == 61 or i in APPEARANCE else 2 for i in range(len(s[66].fields))]
+ 174  assert states[37] == 1, 'staEnterIdle must be marked present'
+ 175  body=b''.join(values[i] for i in sorted(values) if i<=61)+tail_block
+ 176  bits=''.join('01' if state==1 else '00' for state in states)
+ 177  bits+='0'*(-len(bits)%8)
+ 178  state_bytes=bytes(int(bits[i:i+8],2) for i in range(0,len(bits),8))
+ 179  assert g.dc.field_states(state_bytes,0,len(state_bytes),len(states),8)==states
+ 180  outer=pack(66)+pack(len(body))+body+state_bytes
+ 181  record=pack(NPC)+bytes([0x7A])+pack(TEMPLATE)+pack(donor['parent_id'])
+ 182  record+=bytes([1])+struct.pack('<I',len(s[66].additional_classes))
+ 183  record+=b''.join(struct.pack('<Q',c) for c in s[66].additional_classes)
+ 184  record+=bytes([5,8])+pack(len(outer))+outer
+ 185  generated=[record]
+ 186  for old,new in ((0x1AC68957ED,EQP),(0x1AC68957EF,POS),(0x1AC68957F0,NEG),(0x1AC68957F1,OTHER)):
+ 187      captured=next(x for x in records if x['node']==old)
+ 188      assert g.roundtrip_record(data,captured,s[captured['structure_id']],g.d7.name_table())[0]
+ 189      # Preserve prototype/shared-container spec fields, empty the effect list,
+ 190      # and make the equipment owner point to this NPC. No copied effect nodes.
+ 191      start=captured['body_start']; end=start+captured['inner_size']
+ 192      walker=g.ValueWalker(data,start,end,7)
+ 193      states=g.dc.field_states(data,end,captured['value_end']-end,5,7)
+ 194      fields={}
+ 195      for i,state in enumerate(states):
+ 196          if state != 1: continue
+ 197          field=s[captured['structure_id']].fields[i]
+ 198          part=g.parse_container(walker,field,7) if field.parts[0].kind in (7,8) else g.parse_part(walker,field,0,7)
+ 199          if i==0: part.count=0; part.children=[]
+ 200          if i==3: part.value=NPC
+ 201          output=bytearray();g.emit_part(output,part);fields[i]=bytes(output)
+ 202      assert walker.pos==end
+ 203      body=b''.join(fields[i] for i in sorted(fields))
+ 204      outer=pack(captured['structure_id'])+pack(len(body))+body+g.encode_states(states,7)
+ 205      generated.append(pack(new)+bytes([0xAA])+pack(captured['class_id'])+pack(NPC)+bytes([5,7])+pack(len(outer))+outer)
+ 206  payload=struct.pack('<I',0)+bytes([1])+pack(len(generated))+b''.join(generated)
+ 207  reader,_,count=g.d7.read_gom_update(payload,0,'generated taxi awareness')
+ 208  result=[g.d7.read_object_record(payload,reader) for _ in range(count)]
+ 209  assert reader.pos==len(payload) and len(result)==5
+ 210  assert result[0]['template_id']==TEMPLATE and result[0]['structure_id']==66
+ 211  output=ROOT/'SharpServer/AreaServer/TaxiNpc.bin'
+ 212  output.write_bytes(payload)
+ 213  patches=[]

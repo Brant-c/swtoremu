@@ -1,0 +1,9 @@
+Source: D:\SWTORClassic\swtoremu\Diagnostics\MovementTether-20260930\packet-4000010E218A839B-8-False.bin
+Length: 101
+Opcode: 0x0D446E80 ClientReplicationTransaction
+Registry: S2C / Area / Captured
+Component: 0x000865B3 source=0x0008 destination=0x65B3
+Evidence: Server/Framework/Src/Network/Packet.h; Diagnostics/Test-AreaWireRoundTrip.ps1
+Body schema: Captured .acrt fixture payloads
+Body: offset=8 length=93
+Body hex: 2E 50 1B 00 00 00 00 00 01 01 CF 40 00 01 0E 21 8A 83 9B 09 05 08 46 1A C9 00 0C 9A 99 7B C2 CD CC DC C0 9A 99 FC C2 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04 00 00

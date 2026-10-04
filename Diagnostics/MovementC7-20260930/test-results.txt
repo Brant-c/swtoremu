@@ -1,0 +1,3 @@
+Before: AreaRouting PASS; AreaBlobFraming PASS; AreaWireRoundTrip PASS; PacketDecoder C5 PASS; WorldEntryOffline FAIL missing RequestWorldFadeIn observer; PacketWorkbench FAIL registry opcode/direction uniqueness3groups.
+After: Debug x86 MSBuild PASS (existing warnings); native prefix verification PASS341; PacketDecoder C5/C7 correctposition/rawpreservation/100truncations/dispatcher-no-gameplay PASS; AreaRouting PASS; AreaBlobFraming PASS; AreaWireRoundTrip PASS; PacketWorkbench PASS after claim-identity uniqueness correction; WorldEntryOffline same pre-existing observer failure.
+Launch VerifyOnly PASS, pinned inputs agree. Effective environment comparison to experiment09 PASS identical. No processes auto-started. Native acceptance/wall outcome pending experiment10.

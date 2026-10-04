@@ -1,0 +1,2 @@
+Run-SWTORClassic-Taxi.cmd
+Launch.ps1

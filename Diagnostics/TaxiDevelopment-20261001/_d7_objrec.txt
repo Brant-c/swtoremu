@@ -1,0 +1,52 @@
+    ``BasicVector<Packed<uint64_t>, uint8_t>``.  Every captured fixture walks
+    exactly to its own end under this rule.
+    """
+    record = {"start": reader.pos, "node": reader.packed()}
+    flags = reader.byte()
+    record["flags"] = flags
+    record["class_id"] = reader.packed() if flags & 0x80 else 0
+    record["template_id"] = reader.packed() if flags & 0x40 else 0
+    record["parent_id"] = reader.packed() if flags & 0x20 else 0
+    metadata_counts = []
+    if flags & 0x10:
+        metadata_flags = reader.byte()
+        for bit in (0x01, 0x02):
+            if metadata_flags & bit:
+                count = int.from_bytes(data[reader.pos:reader.pos + 4], "little")
+                reader.pos += 4
+                metadata_counts.append(count)
+                reader.pos += 8 * count
+    record["metadata_counts"] = metadata_counts
+    record["field_version"] = None
+    record["style"] = None
+    record["structure_id"] = None
+    record["inner_size"] = None
+    record["body_start"] = None
+    record["value_end"] = None
+    if flags & 0x08:
+        record["field_version"] = reader.packed()
+        record["style"] = reader.packed()
+        field_size = reader.packed()
+        # value_end bounds the whole outer value, so it is measured from the
+        # outer start, before the style-7/8 structure header is consumed.
+        record["outer_start"] = reader.pos
+        record["value_end"] = reader.pos + field_size
+        if record["style"] in (7, 8):
+            record["structure_id"] = reader.packed()
+            record["inner_size"] = reader.packed()
+        # body_start is the first *value* byte, i.e. after the style-7/8
+        # structure header.  main() already advanced past it that way; taking
+        # it before the header made every dump_field_states()/Locate-CrtValue
+        # state_start four bytes early and mis-reported the transmitted fields.
+        record["body_start"] = reader.pos
+        reader.pos = record["value_end"]
+    return record
+
+
+def dump_field_states(crt_numbers, names, structures):
+    """Print every field the captured stream transmits for the replicated player.
+
+    The walk uses the documented GomUpdateObject framing and stops as soon as
+    the player record is decoded.
+    """
+    structure = structures[PLAYER_STRUCTURE]

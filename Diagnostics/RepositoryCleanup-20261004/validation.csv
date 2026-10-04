@@ -1,0 +1,6 @@
+"Check","Exit","Assembly","Result"
+"Test-AreaRouting.ps1","0","D:\SWTORClassic\swtoremu\Diagnostics\RepositoryCleanup-20261004\build\server\NexusToRServer.exe","PASS"
+"Test-AreaBlobFraming.ps1","0","D:\SWTORClassic\swtoremu\Diagnostics\RepositoryCleanup-20261004\build\server\NexusToRServer.exe","PASS"
+"Test-AreaWireRoundTrip.ps1","0","D:\SWTORClassic\swtoremu\Diagnostics\RepositoryCleanup-20261004\build\server\NexusToRServer.exe","PASS"
+"Test-WorldEntryOffline.ps1","1","D:\SWTORClassic\swtoremu\Diagnostics\RepositoryCleanup-20261004\build\server\NexusToRServer.exe","FAIL"
+"Test-PacketWorkbench.ps1","0","D:\SWTORClassic\swtoremu\Diagnostics\RepositoryCleanup-20261004\build\server\NexusToRServer.exe","PASS"

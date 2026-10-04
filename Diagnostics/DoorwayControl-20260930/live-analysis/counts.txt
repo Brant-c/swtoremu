@@ -1,0 +1,1 @@
+Accepted C5 rows in snapshot: 8 Rejected movement records in snapshot: 13 PhaseExit crossing records: 1 CRT18 override emit records: 0 Phase retry records: 0

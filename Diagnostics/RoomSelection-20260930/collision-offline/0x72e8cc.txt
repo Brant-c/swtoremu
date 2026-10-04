@@ -1,0 +1,58 @@
+  0072E86C: 8D 4D E0           lea         ecx,[ebp-20h]
+  0072E86F: 51                 push        ecx
+  0072E870: E8 AB 6D 16 00     call        00895620
+  0072E875: C6 45 FC 12        mov         byte ptr [ebp-4],12h
+  0072E879: 8B 00              mov         eax,dword ptr [eax]
+  0072E87B: 50                 push        eax
+  0072E87C: 8D 95 34 FF FF FF  lea         edx,[ebp+FFFFFF34h]
+  0072E882: 52                 push        edx
+  0072E883: E8 B8 03 D5 FF     call        0047EC40
+  0072E888: 83 C4 10           add         esp,10h
+  0072E88B: C6 45 FC 02        mov         byte ptr [ebp-4],2
+  0072E88F: 8D 4D E0           lea         ecx,[ebp-20h]
+  0072E892: E8 39 A1 CE FF     call        004189D0
+  0072E897: 8D 45 D4           lea         eax,[ebp-2Ch]
+  0072E89A: 50                 push        eax
+  0072E89B: 8D 8D 34 FF FF FF  lea         ecx,[ebp+FFFFFF34h]
+  0072E8A1: E8 3A 71 EB FF     call        005E59E0
+  0072E8A6: C6 45 FC 13        mov         byte ptr [ebp-4],13h
+  0072E8AA: 83 78 18 08        cmp         dword ptr [eax+18h],8
+  0072E8AE: 0F 82 2C 02 00 00  jb          0072EAE0
+  0072E8B4: 8B 40 04           mov         eax,dword ptr [eax+4]
+  0072E8B7: 8B 75 08           mov         esi,dword ptr [ebp+8]
+  0072E8BA: 8D 4D 17           lea         ecx,[ebp+17h]
+  0072E8BD: 51                 push        ecx
+  0072E8BE: 50                 push        eax
+  0072E8BF: 8B CE              mov         ecx,esi
+  0072E8C1: E8 EA 9F CE FF     call        004188B0
+  0072E8C6: E9 4B F6 FF FF     jmp         0072DF16
+  0072E8CB: 53                 push        ebx
+  0072E8CC: 68 AC 7B 14 01     push        1147BACh
+  0072E8D1: E8 4A 43 F9 FF     call        006C2C20
+  0072E8D6: 83 C4 08           add         esp,8
+  0072E8D9: 84 C0              test        al,al
+  0072E8DB: 74 5E              je          0072E93B
+  0072E8DD: 8B 96 E0 00 00 00  mov         edx,dword ptr [esi+000000E0h]
+  0072E8E3: C1 EA 0C           shr         edx,0Ch
+  0072E8E6: 80 E2 01           and         dl,1
+  0072E8E9: 0F B6 C2           movzx       eax,dl
+  0072E8EC: 50                 push        eax
+  0072E8ED: 8D 4D E0           lea         ecx,[ebp-20h]
+  0072E8F0: 51                 push        ecx
+  0072E8F1: E8 2A 97 F9 FF     call        006C8020
+  0072E8F6: C6 45 FC 15        mov         byte ptr [ebp-4],15h
+  0072E8FA: 50                 push        eax
+  0072E8FB: 8D 95 34 FF FF FF  lea         edx,[ebp+FFFFFF34h]
+  0072E901: 52                 push        edx
+  0072E902: E8 99 25 D7 FF     call        004A0EA0
+  0072E907: 83 C4 10           add         esp,10h
+  0072E90A: C6 45 FC 02        mov         byte ptr [ebp-4],2
+  0072E90E: 8D 4D E0           lea         ecx,[ebp-20h]
+  0072E911: E8 BA A0 CE FF     call        004189D0
+  0072E916: 8D 45 D4           lea         eax,[ebp-2Ch]
+  0072E919: 50                 push        eax
+  0072E91A: 8D 8D 34 FF FF FF  lea         ecx,[ebp+FFFFFF34h]
+  0072E920: E8 BB 70 EB FF     call        005E59E0
+  0072E925: C6 45 FC 16        mov         byte ptr [ebp-4],16h
+  0072E929: 83 78 18 08        cmp         dword ptr [eax+18h],8
+  0072E92D: 0F 82 68 01 00 00  jb          0072EA9B

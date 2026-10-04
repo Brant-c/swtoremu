@@ -1,0 +1,4 @@
+[2026-09-30 23:36:31] PhaseExit: PhaseExit: tracking move state; first position (-64.874, -6.906, -127.671), doorway X = -63.00.
+[2026-09-30 23:36:40] AreaReplicationDestroy: PhaseExit: EXPERIMENT player phsPhase=None update; player=0x4000010E218A839B field=0x40000002641F28CC structure=26 index=25; before phase-info removal.
+[2026-09-30 23:36:40] PhaseExit: PhaseExit: character crossed the retreat doorway (-63.37 -> -62.94); destroyed phase-info child 0x0000001AC6F6DC1F via stream 0x001B502E.
+[2026-09-30 23:36:40] PhaseExit: PhaseExit: CRT18 suppressed; native room-stream semantics unverified (doorway control 2026-09-30-01).

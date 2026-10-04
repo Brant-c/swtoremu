@@ -1,0 +1,21 @@
+TaxiNpc.bin: flags=0x01 objects=5 bytes=677
+tail 57 bytes: cfe0005cb11264f32d020101c70c317cc4ba08f4de0103cfe000ac918e7ea883cfe00012e558c83598cfe0008b8cc0faea1dcc1ac68957ee0a
+
+ off  s64  s66 field                      value
+   0   62   62 chrCreatureTypeList        head=0xE0005CB11264F32D + 020101
+  12   63   63 cbtFaction                 -878620586690540766
+  21   66   66 chrTemplateVisualIndex     1
+  22   68   68 cbtCreatureType            enum=3
+  23   70   69 brkResourceName            0xE000AC918E7EA883
+  32   77   76 chrClass                   0xE00012E558C83598
+  41   78   77 _characterSpecification    16141054501145209373 (0xE0008B8CC0FAEA1D)
+  50   80   79 ablContainer               0x1AC68957EE
+  56   86   85 chrLevel                   10
+
+consumed 57/57 -> EXACT
+
+cross-checks against the taxi prototype (authoritative client content):
+  cbtFaction  == npcFaction          : True
+  chrClass    == npcClassPackage     : True (0xE00012E558C83598)
+  brkResourceName == taxi brkResourceName: True (0xE000AC918E7EA883)
+  _characterSpecification           : 16141054501145209373 <- the 'Unknown spec' candidate

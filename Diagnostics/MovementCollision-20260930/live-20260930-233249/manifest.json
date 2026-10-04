@@ -1,0 +1,18 @@
+[
+  {
+    "Source": "D:\\SWTORClassic\\swtoremu\\nexusclient\\nexusclient\\nexus_hook.log",
+    "Saved": "D:\\SWTORClassic\\swtoremu\\Diagnostics\\MovementCollision-20260930\\live-20260930-233249\\nexus_hook.log",
+    "Bytes": 173061,
+    "SHA256": "B235A8EC8F4B75B60FFB52826029C2089C1455C1FE5FCE0620662C272256A771",
+    "CapturedAt": "2026-09-30T23:39:12.501515-04:00",
+    "Mode": "full-live-snapshot"
+  },
+  {
+    "Source": "D:\\SWTORClassic\\swtoremu\\SharpServer\\bin\\Debug\\NexusToR.log",
+    "Saved": "D:\\SWTORClassic\\swtoremu\\Diagnostics\\MovementCollision-20260930\\live-20260930-233249\\NexusToR.log",
+    "Bytes": 272254,
+    "SHA256": "8FF83B55311B6101A5FCA8EDE50DA840425CD774DF4625D52B8C45BC7A2F8381",
+    "CapturedAt": "2026-09-30T23:39:12.501515-04:00",
+    "Mode": "full-live-snapshot"
+  }
+]

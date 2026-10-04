@@ -1,0 +1,27 @@
+  007FB1E1: 53                 push        ebx
+  007FB1E2: 53                 push        ebx
+  007FB1E3: 53                 push        ebx
+  007FB1E4: 8B F1              mov         esi,ecx
+  007FB1E6: 50                 push        eax
+  007FB1E7: 89 75 F0           mov         dword ptr [ebp-10h],esi
+  007FB1EA: E8 41 29 ED FF     call        006CDB30
+  007FB1EF: 89 5D FC           mov         dword ptr [ebp-4],ebx
+  007FB1F2: B8 01 00 00 00     mov         eax,1
+  007FB1F7: 01 05 9C 1F 49 01  add         dword ptr ds:[01491F9Ch],eax
+  007FB1FD: 88 45 FC           mov         byte ptr [ebp-4],al
+  007FB200: 8D 8E 10 01 00 00  lea         ecx,[esi+00000110h]
+  007FB206: C7 06 6C 11 16 01  mov         dword ptr [esi],116116Ch
+  007FB20C: C7 46 04 84 13 16  mov         dword ptr [esi+4],1161384h
+            01
+  007FB213: C7 46 08 A4 13 16  mov         dword ptr [esi+8],11613A4h
+            01
+  007FB21A: E8 51 C1 C2 FF     call        00427370
+  007FB21F: C6 45 FC 02        mov         byte ptr [ebp-4],2
+  007FB223: 8D 8E 20 01 00 00  lea         ecx,[esi+00000120h]
+  007FB229: E8 42 C1 C2 FF     call        00427370
+  007FB22E: C6 45 FC 03        mov         byte ptr [ebp-4],3
+  007FB232: 8B 0D 88 83 49 01  mov         ecx,dword ptr ds:[01498388h]
+  007FB238: 89 8E 30 01 00 00  mov         dword ptr [esi+00000130h],ecx
+  007FB23E: 8B 15 70 83 49 01  mov         edx,dword ptr ds:[01498370h]
+  007FB244: 8D 8E 38 01 00 00  lea         ecx,[esi+00000138h]
+  007FB24A: 89 96 34 01 00 00  mov         dword ptr [esi+00000134h],edx

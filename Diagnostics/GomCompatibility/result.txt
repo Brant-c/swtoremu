@@ -1,0 +1,8 @@
+Original archive reader: filename hash lookup and every payload byte PASS
+Records=13153; accepted=13153; ignored=0; failed=0; definitions=13153
+Association: 12
+Class: 2221
+Enumeration: 752
+Field: 10014
+Node: 154
+Script: 0

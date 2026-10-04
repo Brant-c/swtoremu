@@ -29,7 +29,12 @@ namespace NexusToRServer.NET
             }
             catch (Exception ex)
             {
-                Log.Write(LogLevel.Error, "Failed reading '{0}':\n{1}", GetType().ToString(), ex.ToString());
+                var decode = ex as Protocol.PacketDecodeException;
+                long offset = decode != null ? decode.Offset : (_stream == null ? 0 : _stream.Position);
+                string component = _buffer != null && _buffer.Length >= 8
+                    ? "0x" + BitConverter.ToUInt32(_buffer, 4).ToString("X8") : "unavailable";
+                Log.Write(LogLevel.Error, "Rejected decode opcode=0x{0:X8} component={1} length={2} offset={3} reason={4}",
+                    (uint)GetType(), component, _buffer == null ? 0 : _buffer.Length, offset, ex.Message);
             }
             return false;
         }

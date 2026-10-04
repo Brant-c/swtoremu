@@ -1,0 +1,79 @@
+  00B7B010: 53                 push        ebx
+  00B7B011: 8B DC              mov         ebx,esp
+  00B7B013: 83 EC 08           sub         esp,8
+  00B7B016: 83 E4 F0           and         esp,0FFFFFFF0h
+  00B7B019: 83 C4 04           add         esp,4
+  00B7B01C: 55                 push        ebp
+  00B7B01D: 8B 6B 04           mov         ebp,dword ptr [ebx+4]
+  00B7B020: 89 6C 24 04        mov         dword ptr [esp+4],ebp
+  00B7B024: 8B EC              mov         ebp,esp
+  00B7B026: 83 EC 1C           sub         esp,1Ch
+  00B7B029: 56                 push        esi
+  00B7B02A: 8B F1              mov         esi,ecx
+  00B7B02C: E8 1F 6A B7 FF     call        006F1A50
+  00B7B031: 85 C0              test        eax,eax
+  00B7B033: 0F 94 C0           sete        al
+  00B7B036: 0F B6 C8           movzx       ecx,al
+  00B7B039: 51                 push        ecx
+  00B7B03A: 8B CE              mov         ecx,esi
+  00B7B03C: E8 5F F7 FF FF     call        00B7A7A0
+  00B7B041: 80 7B 0C 00        cmp         byte ptr [ebx+0Ch],0
+  00B7B045: 8B 43 08           mov         eax,dword ptr [ebx+8]
+  00B7B048: F3 0F 10 00        movss       xmm0,dword ptr [eax]
+  00B7B04C: F3 0F 10 50 08     movss       xmm2,dword ptr [eax+8]
+  00B7B051: F3 0F 10 58 04     movss       xmm3,dword ptr [eax+4]
+  00B7B056: 0F 28 C8           movaps      xmm1,xmm0
+  00B7B059: 8D 8E C0 00 00 00  lea         ecx,[esi+000000C0h]
+  00B7B05F: 0F 14 C2           unpcklps    xmm0,xmm2
+  00B7B062: 0F 14 D9           unpcklps    xmm3,xmm1
+  00B7B065: 0F 14 C3           unpcklps    xmm0,xmm3
+  00B7B068: 0F 29 45 F0        movaps      xmmword ptr [ebp-10h],xmm0
+  00B7B06C: 74 13              je          00B7B081
+  00B7B06E: 8D 55 F0           lea         edx,[ebp-10h]
+  00B7B071: 52                 push        edx
+  00B7B072: E8 A9 7E F7 FF     call        00AF2F20
+  00B7B077: 5E                 pop         esi
+  00B7B078: 8B E5              mov         esp,ebp
+  00B7B07A: 5D                 pop         ebp
+  00B7B07B: 8B E3              mov         esp,ebx
+  00B7B07D: 5B                 pop         ebx
+  00B7B07E: C2 08 00           ret         8
+  00B7B081: 8D 45 F0           lea         eax,[ebp-10h]
+  00B7B084: 50                 push        eax
+  00B7B085: E8 46 7E F7 FF     call        00AF2ED0
+  00B7B08A: 5E                 pop         esi
+  00B7B08B: 8B E5              mov         esp,ebp
+  00B7B08D: 5D                 pop         ebp
+  00B7B08E: 8B E3              mov         esp,ebx
+  00B7B090: 5B                 pop         ebx
+  00B7B091: C2 08 00           ret         8
+  00B7B094: CC                 int         3
+  00B7B095: CC                 int         3
+  00B7B096: CC                 int         3
+  00B7B097: CC                 int         3
+  00B7B098: CC                 int         3
+  00B7B099: CC                 int         3
+  00B7B09A: CC                 int         3
+  00B7B09B: CC                 int         3
+  00B7B09C: CC                 int         3
+  00B7B09D: CC                 int         3
+  00B7B09E: CC                 int         3
+  00B7B09F: CC                 int         3
+  00B7B0A0: 0F 28 81 D0 00 00  movaps      xmm0,xmmword ptr [ecx+000000D0h]
+            00
+  00B7B0A7: 0F 28 89 C0 00 00  movaps      xmm1,xmmword ptr [ecx+000000C0h]
+            00
+  00B7B0AE: 56                 push        esi
+  00B7B0AF: 8D B1 C0 00 00 00  lea         esi,[ecx+000000C0h]
+  00B7B0B5: 0F C2 C8 02        cmpleps     xmm1,xmm0
+  00B7B0B9: 0F 50 C1           movmskps    eax,xmm1
+  00B7B0BC: 83 E0 07           and         eax,7
+  00B7B0BF: 3C 07              cmp         al,7
+  00B7B0C1: 74 07              je          00B7B0CA
+  00B7B0C3: 6A 00              push        0
+  00B7B0C5: E8 D6 F6 FF FF     call        00B7A7A0
+  00B7B0CA: 8B C6              mov         eax,esi
+  00B7B0CC: 5E                 pop         esi
+  00B7B0CD: C3                 ret
+  00B7B0CE: CC                 int         3
+  00B7B0CF: CC                 int         3

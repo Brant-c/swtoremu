@@ -1,0 +1,22 @@
+[
+  {
+    "name": "GetPhaseInfo",
+    "reader_dictionary_hash": "0x9073beca",
+    "references": []
+  },
+  {
+    "name": "GetPhase",
+    "reader_dictionary_hash": "0xa172bd52",
+    "references": []
+  },
+  {
+    "name": "GetPhasedInstance",
+    "reader_dictionary_hash": "0x88b3771d",
+    "references": []
+  },
+  {
+    "name": "OnPhasedInstanceUpdated",
+    "reader_dictionary_hash": "0xf44ec2d1",
+    "references": []
+  }
+]

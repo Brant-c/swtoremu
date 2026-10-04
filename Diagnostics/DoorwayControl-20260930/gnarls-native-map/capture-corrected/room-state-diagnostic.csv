@@ -1,0 +1,4 @@
+LocalTime,ElapsedMs,Event,PID,Area,RootState,RootAux,PrimaryRoom,PrimaryState,PrimaryAux,SecondaryRoom,SecondaryState,SecondaryAux,TreeSentinel,TreeBegin
+2026-09-30T00:40:55.3559768-04:00,9,change,2860,0xF41D39A0,3,6,0xD2D94000,3,6,0xD2D95000,3,6,0xF41D3D7C,0xD2CD4E10
+2026-09-30T00:40:56.4291184-04:00,1087,heartbeat,2860,0xF41D39A0,3,6,0xD2D94000,3,6,0xD2D95000,3,6,0xF41D3D7C,0xD2CD4E10
+2026-09-30T00:40:57.3494786-04:00,2007,observer-end,2860,,,,,,,,,,,,

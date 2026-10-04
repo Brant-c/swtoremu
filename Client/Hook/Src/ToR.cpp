@@ -18,6 +18,9 @@
 #include "StdAfx.h"
 #include "acpdump2.h"
 #include "ToR.h"
+#include "RoomSelectionTrace.h"
+#include "TriggerCollisionTrace.h"
+#include "MovementCollisionTrace.h"
 
 #pragma comment(lib, "ws2_32.lib")
 
@@ -211,8 +214,25 @@ static bool g_inState3Hook = false;
 // Keep this opt-in because it is a version-specific diagnostic hook.
 typedef void (__thiscall * AreaRpcSend_t)(void* pThis, void* blob);
 static AreaRpcSend_t AreaRpcSend_r = NULL;
+
+// Client 1.0.0.0 inbound AreaRequestRPC bridge at static VA 0x00642CA0.
+// The outer message handler reaches this through the concrete virtual slot at
+// 0x0113F084+4.  When the optional global interface at 0x01491A88 is null, as
+// observed in-world, it forwards the message to slot +8 of the listener at
+// pThis+0x2C.  Observe the routing state and arguments without decoding or
+// mutating client-owned state.
+typedef void (__thiscall * AreaRpcReceiveBridge_t)(void* pThis, void* context,
+	void* rpcMessage);
+static AreaRpcReceiveBridge_t AreaRpcReceiveBridge_r = NULL;
+static volatile LONG g_areaRpcReceiveCount = 0;
 static DWORD g_clientImageBase = 0;
 static DWORD g_clientImageSize = 0;
+
+// Style-5 compact signed integer reader. The inbound RPC dispatcher calls it
+// at 0x005BDA90 for the composite script/method selector. Filter on that exact
+// return RVA so this read-only observer does not log unrelated stream values.
+typedef bool (__stdcall * PackedSigned64Read_t)(void* stream, void* output);
+static PackedSigned64Read_t PackedSigned64Read_r = NULL;
 
 // Common client event bridge at static VA 0x005D12A0. It accepts an event
 // class (1..4) plus a client-owned envelope, then dispatches envelope+0x14 to
@@ -356,6 +376,33 @@ typedef void* (__thiscall * HeroClassGetField_t)(void* pThis, void* output,
 	DWORD fieldLow, DWORD fieldHigh);
 static HeroClassGetField_t HeroClassGetField_r = NULL;
 static volatile LONG g_playerFieldAccessCount = 0;
+	// Area message dispatcher at static VA 0x0064ED70. Signature derived from
+	// Diagnostics/swtor-disasm.txt: __thiscall with FOUR stack args. arg2
+	// ([ebp+0Ch]) is the message opcode; arg4 ([ebp+14h]) is the byte reader.
+	// arg1/arg3 are branch-local out-params. No arg5/arg6 (0 refs). Hook is
+	// __fastcall(pThis,EDX,...) with a __thiscall typedef, like AreaRpcSend_Hook.
+	typedef void (__thiscall * AreaMessageDispatch_t)(void* pThis, DWORD arg1, DWORD arg2, DWORD arg3, void* arg4);
+	static AreaMessageDispatch_t AreaMessageDispatch_r = NULL;
+	static volatile LONG g_areaMessageCount = 0;
+
+// Opt-in April HeroScript lifecycle observer.  These functions are loaded into
+// executable private memory rather than the main image, so locate them by the
+// byte-exact prologues in the preserved April .scpt resources.  The signatures
+// below are the generated cdecl contracts: (Me, replication argument) for
+// replication callbacks and (Me) for the oracle GUI method. Hooks forward unchanged.
+typedef void (__cdecl * PhaseLifecycleMethod_t)(void* me, DWORD argument);
+typedef void (__cdecl * PhaseGuiUpdate_t)(void* me);
+static PhaseLifecycleMethod_t PhaseInfoDestroy_r = NULL;
+static PhaseGuiUpdate_t UpdateGatewayForInstance_r = NULL;
+static PhaseLifecycleMethod_t PlayerPhaseDataCreate_r = NULL;
+static PhaseLifecycleMethod_t PlayerPhaseDataDestroy_r = NULL;
+static volatile LONG g_phaseLifecycleInstallState = 0;
+static volatile LONG g_phaseInfoDestroyDepth = 0;
+static bool g_tracePhaseLifecycle = false;
+
+static void TryInstallPhaseLifecycleHooks();
+
+
 
 // HM.SetNodeFieldEnum at static VA 0x005D9FF0. This binding is verified from
 // the patched call target in the loaded _BaseClientClassMethods module, not
@@ -376,6 +423,14 @@ static const char* PlayerFieldName(ULONGLONG id)
 	case 0x400000077CDF593BULL: return "chrCharacterPlayMode";
 	case 0x4000000886E130D2ULL: return "chrCharacterPhaseMode";
 	case 0x4000000D5DF53477ULL: return "chrPlayerLoaded";
+	case 0x40000020F9D88CE0ULL: return "ablUserModalActiveSpecs";
+	case 0x4000000C5FA2056AULL: return "phsCurrentInstanceNameID";
+	case 0x4000000C5FA20570ULL: return "phsActiveInstances";
+	case 0x40000012338B5ACCULL: return "phsActivePhaseData";
+	case 0x40000002641F28CCULL: return "phsPhase";
+	case 0x4000000C5FA6998BULL: return "phsPhasedInstanceToTrigger";
+	case 0x40000013D713DE2BULL: return "phsGatewayList";
+	case 0x4000000255DB920AULL: return "phsPhases";
 	case 0x40000000009654C3ULL: return "guiHud2";
 	case 0x40000000009C971FULL: return "gfxLoaded";
 	default: return NULL;
@@ -537,7 +592,12 @@ void __cdecl ParseInboundFrame_Hook(void* frame, DWORD* opcode,
 		g_parsedInboundOpcode = opcode ? *opcode : 0;
 		g_parsedInboundFirst = firstHandle ? *firstHandle : 0;
 		g_parsedInboundSecond = secondHandle ? *secondHandle : 0;
-		if (g_parsedInboundOpcode == 0xD5280283)
+		if (g_parsedInboundOpcode == 0xD5280283 ||
+			g_parsedInboundOpcode == 0x0D446E80 ||  // CRT (area client replication transaction)
+			g_parsedInboundOpcode == 0xA1D9E226 ||  // AreaAwarenessEntered
+			g_parsedInboundOpcode == 0x1CA72F2D ||  // AreaSendAwarenessRange
+			g_parsedInboundOpcode == 0x0ADFF9BF ||  // AreaRequestRPC
+			g_parsedInboundOpcode == 0x0E71623B)    // AreaHackPack
 			Log::Write("InboundRouteHook",
 				"phase=parsed frame=%p opcode=0x%08X first=0x%04X second=0x%04X",
 				frame, g_parsedInboundOpcode, g_parsedInboundFirst, g_parsedInboundSecond);
@@ -547,6 +607,290 @@ void __cdecl ParseInboundFrame_Hook(void* frame, DWORD* opcode,
 		Log::Write("InboundRouteHook", "phase=parse-inspection-failed frame=%p", frame);
 	}
 }
+
+static void LogPhaseLifecycleArgument(const char* method, const char* phase,
+	void* me, DWORD argument)
+{
+	__try
+	{
+		DWORD words[6] = { 0 };
+		if (me)
+			for (DWORD i = 0; i < ARRAYSIZE(words); ++i)
+				words[i] = *(DWORD*)((BYTE*)me + i * sizeof(DWORD));
+		Log::Write("PhaseLifecycleHook",
+			"method=%s phase=%s me=%p argument=0x%08X words=%08X,%08X,%08X,%08X,%08X,%08X destroyDepth=%ld",
+			method, phase, me, argument, words[0], words[1], words[2],
+			words[3], words[4], words[5], g_phaseInfoDestroyDepth);
+	}
+	__except (EXCEPTION_EXECUTE_HANDLER)
+	{
+		Log::Write("PhaseLifecycleHook",
+			"method=%s phase=%s me=%p argument=0x%08X inspection-failed destroyDepth=%ld",
+			method, phase, me, argument, g_phaseInfoDestroyDepth);
+	}
+}
+
+void __cdecl PhaseInfoDestroy_Hook(void* me, DWORD argument)
+{
+	InterlockedIncrement(&g_phaseInfoDestroyDepth);
+	LogPhaseLifecycleArgument("phsPhaseInfo.OnReplicationNodeDestroy", "enter",
+		me, argument);
+	if (PhaseInfoDestroy_r) PhaseInfoDestroy_r(me, argument);
+	LogPhaseLifecycleArgument("phsPhaseInfo.OnReplicationNodeDestroy", "return",
+		me, argument);
+	InterlockedDecrement(&g_phaseInfoDestroyDepth);
+}
+
+void __cdecl UpdateGatewayForInstance_Hook(void* me)
+{
+	if (g_phaseInfoDestroyDepth > 0)
+		LogPhaseLifecycleArgument("phsOracle.SendCurrentPhaseInfoToGUI",
+			"called-from-phase-info-destroy", me, 0);
+	if (UpdateGatewayForInstance_r) UpdateGatewayForInstance_r(me);
+}
+
+void __cdecl PlayerPhaseDataCreate_Hook(void* me, DWORD argument)
+{
+	LogPhaseLifecycleArgument("phsPlayerPhaseData.OnReplicationNodeCreate",
+		"enter", me, argument);
+	if (PlayerPhaseDataCreate_r) PlayerPhaseDataCreate_r(me, argument);
+	LogPhaseLifecycleArgument("phsPlayerPhaseData.OnReplicationNodeCreate",
+		"return", me, argument);
+}
+
+void __cdecl PlayerPhaseDataDestroy_Hook(void* me, DWORD argument)
+{
+	LogPhaseLifecycleArgument("phsPlayerPhaseData.OnReplicationNodeDestroy",
+		"enter", me, argument);
+	if (PlayerPhaseDataDestroy_r) PlayerPhaseDataDestroy_r(me, argument);
+	LogPhaseLifecycleArgument("phsPlayerPhaseData.OnReplicationNodeDestroy",
+		"return", me, argument);
+}
+
+static bool MatchesLifecyclePattern(const BYTE* candidate,
+	const BYTE* pattern, SIZE_T length)
+{
+	for (SIZE_T i = 0; i < length; ++i)
+	{
+		if (candidate[i] != pattern[i]) return false;
+		// Pinned resources use E8 FC FF FF FF for unresolved external calls.
+		// The loader relocates only the rel32 operand; retain the CALL opcode
+		// and every other byte of the longer method prefix as exact evidence.
+		if (pattern[i] == 0xE8 && i + 4 < length &&
+			pattern[i + 1] == 0xFC && pattern[i + 2] == 0xFF &&
+			pattern[i + 3] == 0xFF && pattern[i + 4] == 0xFF)
+			i += 4;
+	}
+	return true;
+}
+
+static DWORD FindExecutablePattern(const BYTE* pattern, SIZE_T length,
+	DWORD* matchCount)
+{
+	DWORD first = 0;
+	DWORD count = 0;
+	ULONGLONG address = 0x00010000;
+	MEMORY_BASIC_INFORMATION info = { 0 };
+	// This large-address-aware April client materialises script bodies above
+	// 2 GB. Keep arithmetic wide so the final 32-bit region cannot wrap.
+	while (address < 0x100000000ULL &&
+		VirtualQuery((void*)(DWORD)address, &info, sizeof(info)) == sizeof(info))
+	{
+		DWORD protection = info.Protect & 0xFF;
+		bool executable = protection == PAGE_EXECUTE ||
+			protection == PAGE_EXECUTE_READ ||
+			protection == PAGE_EXECUTE_READWRITE ||
+			protection == PAGE_EXECUTE_WRITECOPY;
+		// HeroScript native bodies are materialised in private executable
+		// allocations.  Excluding MEM_IMAGE is essential: the byte-pattern
+		// constants below live in this hook DLL's image and would otherwise
+		// self-match as four adjacent false method addresses.
+		if (info.State == MEM_COMMIT && info.Type == MEM_PRIVATE && executable &&
+			!(info.Protect & (PAGE_GUARD | PAGE_NOACCESS)) &&
+			info.RegionSize >= length)
+		{
+			BYTE* end = (BYTE*)info.BaseAddress + info.RegionSize - length + 1;
+			__try
+			{
+				for (BYTE* cursor = (BYTE*)info.BaseAddress; cursor < end; ++cursor)
+				{
+					if (*cursor == pattern[0] &&
+						MatchesLifecyclePattern(cursor, pattern, length))
+					{
+						if (!first) first = (DWORD)cursor;
+						++count;
+					}
+				}
+			}
+			__except (EXCEPTION_EXECUTE_HANDLER)
+			{
+				// Retry on the next CRT if an executable allocation changes.
+			}
+		}
+		ULONGLONG next = (ULONGLONG)(DWORD)info.BaseAddress + info.RegionSize;
+		if (next <= address) break;
+		address = next;
+	}
+	if (matchCount) *matchCount = count;
+	return first;
+}
+
+#include "PhaseUpdateTrace.h"
+
+static void TryInstallPhaseLifecycleHooks()
+{
+	if (!g_tracePhaseLifecycle ||
+		InterlockedCompareExchange(&g_phaseLifecycleInstallState, 1, 0) != 0)
+		return;
+
+	// SHA-256-pinned April resources and decrypted payload offsets:
+	//   phsPhaseInfoClassMethods     65A4399D0102A007.scpt +0x0B78
+	//   phsOracle.SendCurrentPhaseInfoToGUI C10C1F8290BE3551.scpt +0x32E3
+	// The historical updateGateway variable/pattern name is retained for old
+	// diagnostic test compatibility; the reader symbol identifies the GUI method.
+	//   phsPlayerPhaseData methods   9308DE76F6AAF774.scpt +0x00B1/+0x03A1
+	static const BYTE phaseInfoDestroyPattern[] =
+		{ 0x55, 0x53, 0x57, 0x56, 0x83, 0xEC, 0x4C, 0xC7,
+		  0x04, 0x24, 0x3F, 0x00, 0x00, 0x00, 0xE8, 0xFC,
+		  0xFF, 0xFF, 0xFF, 0x8D, 0x74, 0x24, 0x40, 0x89,
+		  0x74, 0x24, 0x04, 0xC7, 0x04, 0x24, 0x02, 0x00,
+		  0x00, 0x00, 0xE8, 0xFC, 0xFF, 0xFF, 0xFF, 0x8D,
+		  0x7C, 0x24, 0x38, 0x89, 0x7C, 0x24, 0x04, 0xC7,
+		  0x04, 0x24, 0x02, 0x00, 0x00, 0x00 };
+	static const BYTE updateGatewayPattern[] =
+		{ 0x55, 0x53, 0x57, 0x56, 0x83, 0xEC, 0x6C, 0xC7,
+		  0x04, 0x24, 0x4A, 0x01, 0x00, 0x00, 0xE8, 0xFC,
+		  0xFF, 0xFF, 0xFF, 0x8D, 0x74, 0x24, 0x60, 0x89,
+		  0x74, 0x24, 0x04, 0xC7, 0x04, 0x24, 0x11, 0x00,
+		  0x00, 0x00, 0xE8, 0xFC, 0xFF, 0xFF, 0xFF, 0x8D,
+		  0x7C, 0x24, 0x58, 0x89, 0x7C, 0x24, 0x04, 0xC7,
+		  0x04, 0x24, 0x06, 0x00, 0x00, 0x00 };
+	static const BYTE playerPhaseCreatePattern[] =
+		{ 0x56, 0x83, 0xEC, 0x18, 0xC7, 0x04, 0x24, 0x05,
+		  0x00, 0x00, 0x00, 0xE8, 0xFC, 0xFF, 0xFF, 0xFF,
+		  0x8D, 0x74, 0x24, 0x10, 0x89, 0x74, 0x24, 0x04,
+		  0xC7, 0x44, 0x24, 0x0C, 0xC6, 0x7C, 0x00, 0xE0,
+		  0xC7, 0x44, 0x24, 0x08, 0xEC, 0x0D, 0xE7, 0xD0,
+		  0xC7, 0x04, 0x24, 0x02, 0x00, 0x00, 0x00, 0xE8,
+		  0xFC, 0xFF, 0xFF, 0xFF, 0x8B, 0x44, 0x24, 0x20 };
+	static const BYTE playerPhaseDestroyPattern[] =
+		{ 0x55, 0x53, 0x57, 0x56, 0x83, 0xEC, 0x2C, 0xC7,
+		  0x04, 0x24, 0x1B, 0x00, 0x00, 0x00, 0xE8, 0xFC,
+		  0xFF, 0xFF, 0xFF, 0x8B, 0x74, 0x24, 0x40, 0x89,
+		  0x34, 0x24, 0xC7, 0x44, 0x24, 0x04, 0x01, 0x00,
+		  0x00, 0x00, 0xE8, 0xFC, 0xFF, 0xFF, 0xFF, 0x89,
+		  0x04, 0x24, 0xC7, 0x44, 0x24, 0x04, 0x02, 0x00,
+		  0x00, 0x00, 0xE8, 0xFC, 0xFF, 0xFF, 0xFF, 0x09 };
+
+	DWORD destroyCount = 0, updateCount = 0, createCount = 0,
+		destroyPhaseDataCount = 0;
+	DWORD destroy = FindExecutablePattern(phaseInfoDestroyPattern,
+		sizeof(phaseInfoDestroyPattern), &destroyCount);
+	DWORD update = FindExecutablePattern(updateGatewayPattern,
+		sizeof(updateGatewayPattern), &updateCount);
+	DWORD create = FindExecutablePattern(playerPhaseCreatePattern,
+		sizeof(playerPhaseCreatePattern), &createCount);
+	DWORD destroyPhaseData = FindExecutablePattern(playerPhaseDestroyPattern,
+		sizeof(playerPhaseDestroyPattern), &destroyPhaseDataCount);
+
+	if (destroyCount != 1 || updateCount != 1 || createCount != 1 ||
+		destroyPhaseDataCount != 1)
+	{
+		Log::Write("PhaseLifecycleHook",
+			"discovery pending/ambiguous phaseInfoDestroy=%p/%u updateGateway=%p/%u playerPhaseCreate=%p/%u playerPhaseDestroy=%p/%u",
+			(void*)destroy, destroyCount, (void*)update, updateCount,
+			(void*)create, createCount, (void*)destroyPhaseData,
+			destroyPhaseDataCount);
+		InterlockedExchange(&g_phaseLifecycleInstallState, 0);
+		return;
+	}
+
+	const DWORD addresses[] = { destroy, update, create, destroyPhaseData };
+	const SIZE_T lengths[] = { sizeof(phaseInfoDestroyPattern),
+		sizeof(updateGatewayPattern), sizeof(playerPhaseCreatePattern),
+		sizeof(playerPhaseDestroyPattern) };
+	for (SIZE_T i = 0; i < ARRAYSIZE(addresses); ++i)
+		for (SIZE_T j = i + 1; j < ARRAYSIZE(addresses); ++j)
+			if ((ULONGLONG)addresses[i] < (ULONGLONG)addresses[j] + lengths[j] &&
+				(ULONGLONG)addresses[j] < (ULONGLONG)addresses[i] + lengths[i])
+			{
+				Log::Write("PhaseLifecycleHook", "discovery rejected: method prefixes overlap");
+				InterlockedExchange(&g_phaseLifecycleInstallState, 0);
+				return;
+			}
+
+	// A rejected optional phase-update observer must not suppress the existing
+	// validated lifecycle observers. Preparation disables only that observer.
+	PreparePhaseUpdateTrace(update);
+	PhaseInfoDestroy_r = (PhaseLifecycleMethod_t)destroy;
+	UpdateGatewayForInstance_r = (PhaseGuiUpdate_t)update;
+	PlayerPhaseDataCreate_r = (PhaseLifecycleMethod_t)create;
+	PlayerPhaseDataDestroy_r = (PhaseLifecycleMethod_t)destroyPhaseData;
+
+	LONG result = DetourTransactionBegin();
+	if (result == NO_ERROR) result = DetourUpdateThread(GetCurrentThread());
+	if (result == NO_ERROR) result = DetourAttach(
+		&(PVOID&)PhaseInfoDestroy_r, (PVOID)PhaseInfoDestroy_Hook);
+	if (result == NO_ERROR) result = DetourAttach(
+		&(PVOID&)UpdateGatewayForInstance_r, (PVOID)UpdateGatewayForInstance_Hook);
+	if (result == NO_ERROR) result = DetourAttach(
+		&(PVOID&)PlayerPhaseDataCreate_r, (PVOID)PlayerPhaseDataCreate_Hook);
+	if (result == NO_ERROR) result = DetourAttach(
+		&(PVOID&)PlayerPhaseDataDestroy_r, (PVOID)PlayerPhaseDataDestroy_Hook);
+	if (result == NO_ERROR && g_tracePhaseUpdate) result = DetourAttach(
+		&(PVOID&)PhaseOracleUpdated_r, (PVOID)PhaseOracleUpdated_Hook);
+	if (result == NO_ERROR && g_tracePhaseUpdate) result = DetourAttach(
+		&(PVOID&)PhaseTrackLine_r, (PVOID)PhaseTrackLine_Hook);
+	if (result == NO_ERROR) result = DetourTransactionCommit();
+	else DetourTransactionAbort();
+
+	if (result == NO_ERROR)
+	{
+		InterlockedExchange(&g_phaseLifecycleInstallState, 2);
+		if (g_tracePhaseUpdate)
+			Log::Write("PhaseUpdateHook", "installed discovery=relative-gui-anchor-and-executing-call oracle=%p trackLine=%p checkpointCap=128 callbackCap=32", (void*)g_phaseOracleBody, (void*)(g_clientImageBase + phaseTrackLineRva));
+		Log::Write("PhaseLifecycleHook",
+			"installed discovery=private-full32-relocated-prefix-v2 phaseInfoDestroy=%p updateGateway=%p playerPhaseCreate=%p playerPhaseDestroy=%p",
+			(void*)destroy, (void*)update, (void*)create, (void*)destroyPhaseData);
+	}
+	else
+	{
+		InterlockedExchange(&g_phaseLifecycleInstallState, 3);
+		Log::Write("PhaseLifecycleHook", "install failed result=%ld", result);
+	}
+}
+
+void __fastcall AreaMessageDispatch_Hook(void* pThis, void* EDX, DWORD arg1, DWORD arg2, DWORD arg3, void* arg4)
+	{
+		bool isCrt = (arg2 == 0x0D446E80);
+		LONG count = isCrt ? InterlockedIncrement(&g_areaMessageCount) : 0;
+		if (isCrt)
+		{
+			DWORD member = 0, consumer = 0, gate = 0, applyFunc = 0;
+			__try
+			{
+				member = *(DWORD*)((BYTE*)pThis + 0x0C);
+				consumer = member ? *(DWORD*)((BYTE*)member + 0x40) : 0;
+				gate = *(DWORD*)((BYTE*)pThis + 0x38);
+				{ DWORD vt = gate ? *(DWORD*)gate : 0; applyFunc = vt ? *(DWORD*)((BYTE*)vt + 0xB4) : 0; }
+			}
+			__except (EXCEPTION_EXECUTE_HANDLER) { consumer = 0; gate = 0; applyFunc = 0; }
+			DWORD consumerRva = (g_clientImageBase && consumer >= g_clientImageBase && consumer < g_clientImageBase + g_clientImageSize) ? consumer - g_clientImageBase : 0;
+			DWORD applyRva = (g_clientImageBase && applyFunc >= g_clientImageBase && applyFunc < g_clientImageBase + g_clientImageSize) ? applyFunc - g_clientImageBase : 0;
+			Log::Write("CrtApplyHook", "crt count=%ld pThis=%p opcode=0x%08X reader=%p consumer=0x%08X consumerRva=0x%08X gate=0x%08X apply=0x%08X applyRva=0x%08X", count, pThis, arg2, arg4, consumer, consumerRva, gate, applyFunc, applyRva);
+		}
+		if (isCrt) ++g_phaseCrtDepth;
+		if (AreaMessageDispatch_r) AreaMessageDispatch_r(pThis, arg1, arg2, arg3, arg4);
+		if (isCrt) --g_phaseCrtDepth;
+		if (isCrt)
+		{
+			Log::Write("CrtApplyHook", "crt count=%ld applied pThis=%p", count, pThis);
+			// Script method bodies are allocated while CRTs are applied. Retry the
+			// byte-exact discovery after each successful CRT until all four named
+			// lifecycle callbacks are present, then install the observer once.
+			TryInstallPhaseLifecycleHooks();
+		}
+	}
 
 void __fastcall RouteLookup_Hook(void* routeMap, void* EDX,
 	void* outputIterator, void* key)
@@ -731,7 +1075,7 @@ DWORD __fastcall ScriptDispatch_Hook(void* pThis, void* EDX, DWORD a1, DWORD a2,
 	if (a3 == 0x7D03034B && a4 == 0xD000199A)
 	{
 		Log::Write("ReadinessVmHook",
-			"phase=enter this=%p callerRva=0x%08X character=%08X%08X method=%08X%08X contexts=%08X,%08X,%08X,%08X",
+			"call=enter this=%p callerRva=0x%08X character=%08X%08X method=%08X%08X contexts=%08X,%08X,%08X,%08X",
 			pThis, callerRva, a2, a1, a4, a3, a5, a6, a7, a8);
 		LogReadinessMemory("this", (DWORD)pThis);
 		LogReadinessMemory("context5", a5);
@@ -749,7 +1093,7 @@ DWORD __fastcall ScriptDispatch_Hook(void* pThis, void* EDX, DWORD a1, DWORD a2,
 		}
 		char stack[512] = { 0 };
 		FormatRpcStack(stack, sizeof(stack));
-		Log::Write("ReadinessVmHook", "phase=enter stack=%s", stack);
+		Log::Write("ReadinessVmHook", "call=enter stack=%s", stack);
 	}
 
 	DWORD activeIndex = g_activeScriptDepth < ARRAYSIZE(g_activeScriptDispatch)
@@ -914,6 +1258,123 @@ void __fastcall AreaRpcSend_Hook(void* pThis, void* EDX, void* blob)
 		AreaRpcSend_r(pThis, blob);
 }
 
+void __fastcall AreaRpcReceiveBridge_Hook(void* pThis, void* EDX,
+	void* context, void* rpcMessage)
+{
+	LONG count = InterlockedIncrement(&g_areaRpcReceiveCount);
+	__try
+	{
+		DWORD interfaceObject = g_clientImageBase
+			? *(DWORD*)(g_clientImageBase + (0x01491A88 - 0x00400000)) : 0;
+		DWORD interfaceVtable = interfaceObject ? *(DWORD*)interfaceObject : 0;
+		DWORD slots[5] = { 0 };
+		if (interfaceVtable)
+			for (DWORD i = 0; i < ARRAYSIZE(slots); ++i)
+				slots[i] = *(DWORD*)(interfaceVtable + i * sizeof(DWORD));
+		DWORD listenerObject = pThis ? *(DWORD*)((BYTE*)pThis + 0x2C) : 0;
+		DWORD listenerVtable = listenerObject ? *(DWORD*)listenerObject : 0;
+		DWORD listenerSlots[10] = { 0 };
+		if (listenerVtable)
+			for (DWORD i = 0; i < ARRAYSIZE(listenerSlots); ++i)
+				listenerSlots[i] = *(DWORD*)(listenerVtable + i * sizeof(DWORD));
+		BYTE listenerMode = listenerObject ? *(BYTE*)(listenerObject + 0x0C) : 0;
+
+		// 0x00715760 wraps the received byte range in an engine stream, then
+		// dispatches it through slot +0x74 of this process-global service.
+		// Resolve the concrete virtual target here without altering the call.
+		DWORD rpcServiceRoot = g_clientImageBase
+			? *(DWORD*)(g_clientImageBase + (0x014926F0 - 0x00400000)) : 0;
+		DWORD rpcServiceLink = rpcServiceRoot ? *(DWORD*)(rpcServiceRoot + 0x04) : 0;
+		DWORD rpcServiceOffset = rpcServiceLink ? *(DWORD*)(rpcServiceLink + 0x04) : 0;
+		DWORD rpcServiceObject = rpcServiceRoot
+			? rpcServiceRoot + rpcServiceOffset + 0x04 : 0;
+		DWORD rpcServiceVtable = rpcServiceObject ? *(DWORD*)rpcServiceObject : 0;
+		DWORD rpcServiceDispatch = rpcServiceVtable
+			? *(DWORD*)(rpcServiceVtable + 0x74) : 0;
+
+		char messageHex[3 * 64 + 1] = { 0 };
+		BYTE* messageBytes = (BYTE*)rpcMessage;
+		for (DWORD i = 0; messageBytes && i < 64; ++i)
+			_snprintf(messageHex + i * 3, sizeof(messageHex) - i * 3,
+				"%02X%s", messageBytes[i], (i < 63) ? " " : "");
+		DWORD blobLength = rpcMessage ? *(DWORD*)((BYTE*)rpcMessage + 0x0C) : 0;
+		BYTE* blobBytes = (rpcMessage && blobLength <= 4096)
+			? *(BYTE**)((BYTE*)rpcMessage + 0x10) : NULL;
+		char blobHex[3 * 64 + 1] = { 0 };
+		DWORD blobShown = blobLength < 64 ? blobLength : 64;
+		for (DWORD i = 0; blobBytes && i < blobShown; ++i)
+			_snprintf(blobHex + i * 3, sizeof(blobHex) - i * 3,
+				"%02X%s", blobBytes[i], (i + 1 < blobShown) ? " " : "");
+
+		char stack[512] = { 0 };
+		FormatRpcStack(stack, sizeof(stack));
+		Log::Write("AreaRpcReceiveHook",
+			"count=%ld bridge=%p context=%p message=%p interface=%p vtable=%p slots=%p/%p/%p/%p/%p slotRvas=%08X/%08X/%08X/%08X/%08X listener=%p listenerMode=%u listenerVtable=%p listenerSlots=%p/%p/%p/%p/%p/%p/%p/%p/%p/%p listenerSlotRvas=%08X/%08X/%08X/%08X/%08X/%08X/%08X/%08X/%08X/%08X rpcServiceRoot=%p rpcServiceObject=%p rpcServiceVtable=%p rpcServiceDispatch=%p rpcServiceDispatchRva=%08X blobLen=%u blob=%s messageBytes=%s stack=%s",
+			count, pThis, context, rpcMessage, (void*)interfaceObject,
+			(void*)interfaceVtable, (void*)slots[0], (void*)slots[1],
+			(void*)slots[2], (void*)slots[3], (void*)slots[4],
+			(g_clientImageBase && slots[0] >= g_clientImageBase && slots[0] < g_clientImageBase + g_clientImageSize) ? slots[0] - g_clientImageBase : 0,
+			(g_clientImageBase && slots[1] >= g_clientImageBase && slots[1] < g_clientImageBase + g_clientImageSize) ? slots[1] - g_clientImageBase : 0,
+			(g_clientImageBase && slots[2] >= g_clientImageBase && slots[2] < g_clientImageBase + g_clientImageSize) ? slots[2] - g_clientImageBase : 0,
+			(g_clientImageBase && slots[3] >= g_clientImageBase && slots[3] < g_clientImageBase + g_clientImageSize) ? slots[3] - g_clientImageBase : 0,
+			(g_clientImageBase && slots[4] >= g_clientImageBase && slots[4] < g_clientImageBase + g_clientImageSize) ? slots[4] - g_clientImageBase : 0,
+			(void*)listenerObject, listenerMode, (void*)listenerVtable,
+			(void*)listenerSlots[0], (void*)listenerSlots[1], (void*)listenerSlots[2],
+			(void*)listenerSlots[3], (void*)listenerSlots[4], (void*)listenerSlots[5],
+			(void*)listenerSlots[6], (void*)listenerSlots[7], (void*)listenerSlots[8],
+			(void*)listenerSlots[9],
+			(g_clientImageBase && listenerSlots[0] >= g_clientImageBase && listenerSlots[0] < g_clientImageBase + g_clientImageSize) ? listenerSlots[0] - g_clientImageBase : 0,
+			(g_clientImageBase && listenerSlots[1] >= g_clientImageBase && listenerSlots[1] < g_clientImageBase + g_clientImageSize) ? listenerSlots[1] - g_clientImageBase : 0,
+			(g_clientImageBase && listenerSlots[2] >= g_clientImageBase && listenerSlots[2] < g_clientImageBase + g_clientImageSize) ? listenerSlots[2] - g_clientImageBase : 0,
+			(g_clientImageBase && listenerSlots[3] >= g_clientImageBase && listenerSlots[3] < g_clientImageBase + g_clientImageSize) ? listenerSlots[3] - g_clientImageBase : 0,
+			(g_clientImageBase && listenerSlots[4] >= g_clientImageBase && listenerSlots[4] < g_clientImageBase + g_clientImageSize) ? listenerSlots[4] - g_clientImageBase : 0,
+			(g_clientImageBase && listenerSlots[5] >= g_clientImageBase && listenerSlots[5] < g_clientImageBase + g_clientImageSize) ? listenerSlots[5] - g_clientImageBase : 0,
+			(g_clientImageBase && listenerSlots[6] >= g_clientImageBase && listenerSlots[6] < g_clientImageBase + g_clientImageSize) ? listenerSlots[6] - g_clientImageBase : 0,
+			(g_clientImageBase && listenerSlots[7] >= g_clientImageBase && listenerSlots[7] < g_clientImageBase + g_clientImageSize) ? listenerSlots[7] - g_clientImageBase : 0,
+			(g_clientImageBase && listenerSlots[8] >= g_clientImageBase && listenerSlots[8] < g_clientImageBase + g_clientImageSize) ? listenerSlots[8] - g_clientImageBase : 0,
+			(g_clientImageBase && listenerSlots[9] >= g_clientImageBase && listenerSlots[9] < g_clientImageBase + g_clientImageSize) ? listenerSlots[9] - g_clientImageBase : 0,
+			(void*)rpcServiceRoot, (void*)rpcServiceObject,
+			(void*)rpcServiceVtable, (void*)rpcServiceDispatch,
+			(g_clientImageBase && rpcServiceDispatch >= g_clientImageBase && rpcServiceDispatch < g_clientImageBase + g_clientImageSize) ? rpcServiceDispatch - g_clientImageBase : 0,
+			blobLength, blobHex, messageHex, stack);
+	}
+	__except (EXCEPTION_EXECUTE_HANDLER)
+	{
+		Log::Write("AreaRpcReceiveHook",
+			"inspection failed: count=%ld bridge=%p context=%p message=%p",
+			count, pThis, context, rpcMessage);
+	}
+
+	if (AreaRpcReceiveBridge_r)
+		AreaRpcReceiveBridge_r(pThis, context, rpcMessage);
+}
+
+bool __stdcall PackedSigned64Read_Hook(void* stream, void* output)
+{
+	void* caller = _ReturnAddress();
+	bool result = PackedSigned64Read_r
+		? PackedSigned64Read_r(stream, output) : false;
+	DWORD callerRva = g_clientImageBase ? (DWORD)caller - g_clientImageBase : 0;
+	if (callerRva == (0x005BDA95 - 0x00400000))
+	{
+		__try
+		{
+			DWORD low = result && output ? *(DWORD*)output : 0;
+			DWORD high = result && output ? *(DWORD*)((BYTE*)output + 4) : 0;
+			Log::Write("AreaRpcSelectorHook",
+				"success=%u selector=%08X:%08X stream=%p output=%p callerRva=0x%08X",
+				result ? 1 : 0, high, low, stream, output, callerRva);
+		}
+		__except (EXCEPTION_EXECUTE_HANDLER)
+		{
+			Log::Write("AreaRpcSelectorHook",
+				"inspection failed success=%u stream=%p output=%p callerRva=0x%08X",
+				result ? 1 : 0, stream, output, callerRva);
+		}
+	}
+	return result;
+}
+
 void __fastcall State3Setter_Hook(void* pThis, void* EDX)
 {
 	if (g_inState3Hook)
@@ -972,6 +1433,9 @@ void ToR::InitHooks()
 		IMAGE_DOS_HEADER* dos = (IMAGE_DOS_HEADER*)baseAddr;
 		IMAGE_NT_HEADERS* nt = (IMAGE_NT_HEADERS*)(baseAddr + dos->e_lfanew);
 		g_clientImageSize = nt->OptionalHeader.SizeOfImage;
+		PrepareRoomTrace(baseAddr, g_clientImageSize);
+		PrepareTriggerTrace(baseAddr, g_clientImageSize);
+		PrepareMovementTrace(baseAddr, g_clientImageSize);
 		Log::Write("AreaRpcHook", "client image base=%p size=0x%08X", hMod, g_clientImageSize);
         State3Setter_r = (State3Setter_t)(baseAddr + 0x0037B140);
 
@@ -984,9 +1448,39 @@ void ToR::InitHooks()
 				AreaRpcSend_r = (AreaRpcSend_t)candidate;
 			else
 				Log::Write("AreaRpcHook", "Unsupported client bytes at %p; RPC hook not installed", candidate);
+
+			BYTE* receiveBridge = (BYTE*)(baseAddr + (0x00642CA0 - 0x00400000));
+			static const BYTE expectedReceiveBridge[] =
+				{ 0x55, 0x8B, 0xEC, 0x56, 0x8B, 0xF1, 0x8B, 0x0D };
+			if (memcmp(receiveBridge, expectedReceiveBridge, sizeof(expectedReceiveBridge)) == 0)
+				AreaRpcReceiveBridge_r = (AreaRpcReceiveBridge_t)receiveBridge;
+			else
+				Log::Write("AreaRpcReceiveHook",
+					"Unsupported client bytes at %p; inbound RPC bridge hook not installed",
+					receiveBridge);
+
+			BYTE* packedSigned64Read = (BYTE*)(baseAddr + (0x004C9A10 - 0x00400000));
+			static const BYTE expectedPackedSigned64Read[] =
+				{ 0x55, 0x8B, 0xEC, 0x83, 0xEC, 0x08 };
+			if (memcmp(packedSigned64Read, expectedPackedSigned64Read,
+				sizeof(expectedPackedSigned64Read)) == 0)
+				PackedSigned64Read_r = (PackedSigned64Read_t)packedSigned64Read;
+			else
+				Log::Write("AreaRpcSelectorHook",
+					"Unsupported client bytes at %p; selector observer not installed",
+					packedSigned64Read);
 		}
 
 		char traceEvents[8] = { 0 };
+		char tracePhaseLifecycle[8] = { 0 };
+		g_tracePhaseLifecycle =
+			GetEnvironmentVariableA("SWTOR_TRACE_PHASE_LIFECYCLE",
+				tracePhaseLifecycle, sizeof(tracePhaseLifecycle)) > 0 &&
+			tracePhaseLifecycle[0] == '1';
+		if (g_tracePhaseLifecycle)
+			Log::Write("PhaseLifecycleHook",
+				"enabled; discovery will begin after each applied CRT");
+
 		if (GetEnvironmentVariableA("SWTOR_TRACE_EVENT_DISPATCH", traceEvents, sizeof(traceEvents)) > 0 && traceEvents[0] == '1')
 		{
 			BYTE* candidate = (BYTE*)(baseAddr + (0x005D12A0 - 0x00400000));
@@ -1034,6 +1528,15 @@ void ToR::InitHooks()
 				ParseInboundFrame_r = (ParseInboundFrame_t)inboundParser;
 			else
 				Log::Write("InboundRouteHook", "Unsupported parser bytes at %p; parser hook not installed", inboundParser);
+
+			// Area message dispatcher (CRT apply path). Prologue verified from
+			// Diagnostics/swtor-disasm.txt at 0x0064ED70: 55 8B EC 6A FF.
+			BYTE* areaDispatch = (BYTE*)(baseAddr + (0x0064ED70 - 0x00400000));
+			static const BYTE expectedAreaDispatch[] = { 0x55, 0x8B, 0xEC, 0x6A, 0xFF };
+			if (memcmp(areaDispatch, expectedAreaDispatch, sizeof(expectedAreaDispatch)) == 0)
+				AreaMessageDispatch_r = (AreaMessageDispatch_t)areaDispatch;
+			else
+				Log::Write("CrtApplyHook", "Unsupported client bytes at %p; CRT-apply observer not installed", areaDispatch);
 
 			BYTE* routeLookup = (BYTE*)(baseAddr + (0x009ECAA0 - 0x00400000));
 			static const BYTE expectedRouteLookup[] = { 0x55, 0x8B, 0xEC };
@@ -1090,6 +1593,14 @@ void ToR::InitHooks()
         return;
     }
     result = DetourUpdateThread(GetCurrentThread());
+    if (result == NO_ERROR && NativeRoomRegister_r) result = DetourAttach(&(PVOID&)NativeRoomRegister_r, (PVOID)NativeRoomRegister_Hook);
+    if (result == NO_ERROR && NativeRoomSelect_r) result = DetourAttach(&(PVOID&)NativeRoomSelect_r, (PVOID)NativeRoomSelect_Hook);
+    if (result == NO_ERROR && NativeRoomActivate_r) result = DetourAttach(&(PVOID&)NativeRoomActivate_r, (PVOID)NativeRoomActivate_Hook);
+    if (result == NO_ERROR && TriggerString_r) result = DetourAttach(&(PVOID&)TriggerString_r, (PVOID)TriggerString_Hook);
+    if (result == NO_ERROR && TriggerBoolean_r) result = DetourAttach(&(PVOID&)TriggerBoolean_r, (PVOID)TriggerBoolean_Hook);
+    if (result == NO_ERROR && MovementSweep_r) result = DetourAttach(&(PVOID&)MovementSweep_r, (PVOID)MovementSweep_Hook);
+    if (result == NO_ERROR && MovementSupport_r) result = DetourAttach(&(PVOID&)MovementSupport_r, (PVOID)MovementSupport_Hook);
+    if (result == NO_ERROR && MovementGround_r) result = DetourAttach(&(PVOID&)MovementGround_r, (PVOID)MovementGround_Hook);
     if (result == NO_ERROR) result = DetourAttach(&(PVOID&)getaddrinfo_r, (PVOID)getaddrinfo_c);
     if (result == NO_ERROR) result = DetourAttach(&(PVOID&)recv_r, (PVOID)recv_c);
     if (result == NO_ERROR) result = DetourAttach(&(PVOID&)send_r, (PVOID)send_c);
@@ -1097,12 +1608,15 @@ void ToR::InitHooks()
     if (result == NO_ERROR) result = DetourAttach(&(PVOID&)recvFrom_r, (PVOID)recvFrom_c);
     if (result == NO_ERROR) result = DetourAttach(&(PVOID&)SSL_CTX_set_verify_r, (PVOID)SSL_CTX_set_verify);
 	if (result == NO_ERROR && AreaRpcSend_r) result = DetourAttach(&(PVOID&)AreaRpcSend_r, (PVOID)AreaRpcSend_Hook);
+	if (result == NO_ERROR && AreaRpcReceiveBridge_r) result = DetourAttach(&(PVOID&)AreaRpcReceiveBridge_r, (PVOID)AreaRpcReceiveBridge_Hook);
+	if (result == NO_ERROR && PackedSigned64Read_r) result = DetourAttach(&(PVOID&)PackedSigned64Read_r, (PVOID)PackedSigned64Read_Hook);
 	if (result == NO_ERROR && EventDispatch_r) result = DetourAttach(&(PVOID&)EventDispatch_r, (PVOID)EventDispatch_Hook);
 	if (result == NO_ERROR && Class1EventBridge_r) result = DetourAttach(&(PVOID&)Class1EventBridge_r, (PVOID)Class1EventBridge_Hook);
 	if (result == NO_ERROR && ScriptDispatch_r) result = DetourAttach(&(PVOID&)ScriptDispatch_r, (PVOID)ScriptDispatch_Hook);
 	if (result == NO_ERROR && ReadPackedString_r) result = DetourAttach(&(PVOID&)ReadPackedString_r, (PVOID)ReadPackedString_Hook);
 	if (result == NO_ERROR && OmegaMessage_r) result = DetourAttach(&(PVOID&)OmegaMessage_r, (PVOID)OmegaMessage_Hook);
 	if (result == NO_ERROR && ParseInboundFrame_r) result = DetourAttach(&(PVOID&)ParseInboundFrame_r, (PVOID)ParseInboundFrame_Hook);
+	if (result == NO_ERROR && AreaMessageDispatch_r) result = DetourAttach(&(PVOID&)AreaMessageDispatch_r, (PVOID)AreaMessageDispatch_Hook);
 	if (result == NO_ERROR && RouteLookup_r) result = DetourAttach(&(PVOID&)RouteLookup_r, (PVOID)RouteLookup_Hook);
 	if (result == NO_ERROR && GomDefinitionLookup_r) result = DetourAttach(&(PVOID&)GomDefinitionLookup_r, (PVOID)GomDefinitionLookup_Hook);
 	if (result == NO_ERROR && HeroClassGetField_r) result = DetourAttach(&(PVOID&)HeroClassGetField_r, (PVOID)HeroClassGetField_Hook);
@@ -1123,11 +1637,16 @@ void ToR::InitHooks()
         Log::Write("NexusToR", "Hook transaction failed: %ld", result);
         return;
     }
-	Log::Write("NexusToR", "Network and SSL hooks installed; RPC trace=%s event trace=%s loading-screen trace=%s player-field read=%s write=%s",
+	Log::Write("NexusToR", "Network and SSL hooks installed; RPC trace=%s event trace=%s loading-screen trace=%s player-field read=%s write=%s CRT-apply=%s",
 		AreaRpcSend_r ? "enabled" : "disabled", EventDispatch_r ? "enabled" : "disabled",
 		GomDefinitionLookup_r ? "enabled" : "disabled",
 		HeroClassGetField_r ? "enabled" : "disabled",
-		SetNodeFieldEnum_r ? "enabled" : "disabled");
+		SetNodeFieldEnum_r ? "enabled" : "disabled",
+		AreaMessageDispatch_r ? "enabled" : "disabled");
+    if (NativeRoomRegister_r && NativeRoomSelect_r && NativeRoomActivate_r)
+        Log::Write("NativeRoomHook", "INSTALLED pid=%lu register=B90CF0 select=B91AE0 activate=B7C390; caps=512/256/256; select changes only; read failure=FFFFFFFF; no scans or game-state writes", GetCurrentProcessId());
+    if (TriggerString_r && TriggerBoolean_r)
+        Log::Write("TriggerCollisionHook", "INSTALLED pid=%lu string=7FE1F0 boolean=7FDE70; knight-retreat only; caps=256/256 plus 8 identity controls; read failure=FFFFFFFF; no game-state writes", GetCurrentProcessId());
 }
 ToR::ToR()
 {

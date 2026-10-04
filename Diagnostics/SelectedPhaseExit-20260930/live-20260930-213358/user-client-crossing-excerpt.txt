@@ -1,0 +1,62 @@
+[21:35:46] MainHook: WSARecv Called [127.0.0.1:20060]
+[21:35:47] NativeRoomHook: pid=39120 select enter area=F36A39A0 old=D26CA500 requested=F41F9500 state8c=00000003 state90=00000006
+[21:35:47] TriggerCollisionHook: pid=39120 room-select before object=D33535A0 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05800C81 room=F41F9500 collider=EAA9BBD0
+[21:35:47] TriggerCollisionHook: pid=39120 room-select before object=D33535A0 transform24=00000007 local2cBits=C27E779A,C0D77F63,C2FDC4F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[21:35:47] TriggerCollisionHook: pid=39120 room-select before object=D33533C0 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05800C81 room=F41F9500 collider=EAA9BCC0
+[21:35:47] TriggerCollisionHook: pid=39120 room-select before object=D33533C0 transform24=00000007 local2cBits=C280D03B,C0D1999A,C2FF77E9 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[21:35:47] TriggerCollisionHook: pid=39120 room-select before object=D3354960 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05800C81 room=F41F9500 collider=EAA97FC0
+[21:35:47] TriggerCollisionHook: pid=39120 room-select before object=D3354960 transform24=00000007 local2cBits=C2632944,C10700D2,C2F42ACE collider2c=01010101 paramHash=FF5F184AAA9ECE77
+[21:35:47] TriggerCollisionHook: pid=39120 room-select before object=D33543C0 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05800C81 room=F41F9500 collider=EAA95150
+[21:35:47] TriggerCollisionHook: pid=39120 room-select before object=D33543C0 transform24=00000007 local2cBits=C27F0034,C0D4C3CA,C2FE15F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[21:35:47] TriggerCollisionHook: pid=39120 room-select before object=D3356960 result=0 param=tyt_jedi_knight_masters_retreat name=tyt_jedi_knight_masters_retreat flagsE0=0D800C81 room=00000000 collider=EA8BF5A0
+[21:35:47] TriggerCollisionHook: pid=39120 room-select before object=D3356960 transform24=0000000F local2cBits=C27E779A,C0D77F63,C2FDC4F7 collider2c=01010101 paramHash=FF5F184AAA9ECE77
+[21:35:47] TriggerCollisionHook: pid=39120 room-select before area=F36A39A0 requested=F41F9500 knownValidTargets=5; fixed event-derived table only
+[21:35:47] NativeRoomHook: pid=39120 activate enter room=F41F9500 args=00000001,00000001,00000000 state8c=00000003 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate enter room=D26C4500 args=00000000,00000001,00000000 state8c=00000002 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate enter room=D26C4000 args=00000000,00000000,00000000 state8c=00000003 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate return room=D26C4000 state8c=00000003 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate return room=D26C4500 state8c=00000003 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate enter room=D26C9000 args=00000000,00000001,00000000 state8c=00000002 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate enter room=D26C4000 args=00000000,00000000,00000000 state8c=00000003 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate return room=D26C4000 state8c=00000003 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate return room=D26C9000 state8c=00000003 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate enter room=D26CA000 args=00000000,00000001,00000000 state8c=00000002 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate enter room=D26C4000 args=00000000,00000000,00000000 state8c=00000003 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate return room=D26C4000 state8c=00000003 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate return room=D26CA000 state8c=00000003 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate enter room=D26CBC80 args=00000000,00000001,00000000 state8c=00000002 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate enter room=D26C4000 args=00000000,00000000,00000000 state8c=00000003 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate return room=D26C4000 state8c=00000003 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate return room=D26CBC80 state8c=00000003 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate enter room=F41F8000 args=00000000,00000001,00000000 state8c=00000002 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate enter room=D26C4000 args=00000000,00000000,00000000 state8c=00000003 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate return room=D26C4000 state8c=00000003 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate return room=F41F8000 state8c=00000003 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate enter room=F41F8A00 args=00000000,00000001,00000000 state8c=00000002 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate enter room=D26C4000 args=00000000,00000000,00000000 state8c=00000003 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate return room=D26C4000 state8c=00000003 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate return room=F41F8A00 state8c=00000003 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate return room=F41F9500 state8c=00000003 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate enter room=D26C4000 args=00000000,00000001,00000000 state8c=00000003 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate return room=D26C4000 state8c=00000003 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate enter room=D26C5000 args=00000001,00000000,00000001 state8c=00000003 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 activate return room=D26C5000 state8c=00000003 state90=00000006
+[21:35:47] NativeRoomHook: pid=39120 select return area=F36A39A0 selected=F41F9500 requested=F41F9500 state8c=00000003 state90=00000006
+[21:35:47] TriggerCollisionHook: pid=39120 room-select return object=D33535A0 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05800C81 room=F41F9500 collider=EAA9BBD0
+[21:35:47] TriggerCollisionHook: pid=39120 room-select return object=D33535A0 transform24=00000007 local2cBits=C27E779A,C0D77F63,C2FDC4F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[21:35:47] TriggerCollisionHook: pid=39120 room-select return object=D33533C0 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05800C81 room=F41F9500 collider=EAA9BCC0
+[21:35:47] TriggerCollisionHook: pid=39120 room-select return object=D33533C0 transform24=00000007 local2cBits=C280D03B,C0D1999A,C2FF77E9 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[21:35:47] TriggerCollisionHook: pid=39120 room-select return object=D3354960 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05800C81 room=F41F9500 collider=EAA97FC0
+[21:35:47] TriggerCollisionHook: pid=39120 room-select return object=D3354960 transform24=00000007 local2cBits=C2632944,C10700D2,C2F42ACE collider2c=01010101 paramHash=FF5F184AAA9ECE77
+[21:35:47] TriggerCollisionHook: pid=39120 room-select return object=D33543C0 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05800C81 room=F41F9500 collider=EAA95150
+[21:35:47] TriggerCollisionHook: pid=39120 room-select return object=D33543C0 transform24=00000007 local2cBits=C27F0034,C0D4C3CA,C2FE15F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[21:35:47] TriggerCollisionHook: pid=39120 room-select return object=D3356960 result=0 param=tyt_jedi_knight_masters_retreat name=tyt_jedi_knight_masters_retreat flagsE0=0D800C81 room=00000000 collider=EA8BF5A0
+[21:35:47] TriggerCollisionHook: pid=39120 room-select return object=D3356960 transform24=0000000F local2cBits=C27E779A,C0D77F63,C2FDC4F7 collider2c=01010101 paramHash=FF5F184AAA9ECE77
+[21:35:47] TriggerCollisionHook: pid=39120 room-select return area=F36A39A0 requested=F41F9500 knownValidTargets=5; fixed event-derived table only
+[21:35:47] MainHook: WSASend Called [127.0.0.1:20060]
+[21:35:48] MainHook: WSASend Called [127.0.0.1:20060]
+[21:35:48] InboundRouteHook: phase=parsed frame=0ED7EFCC opcode=0x0D446E80 first=0x65B3 second=0x0008
+[21:35:48] MainHook: WSARecv Called [127.0.0.1:20060]
+[21:35:48] CrtApplyHook: crt count=17 pThis=0A5D0D20 opcode=0x0D446E80 reader=0A640B9C consumer=0x00473230 consumerRva=0x00243230 gate=0x012CAEA8 apply=0x005482C0 applyRva=0x003182C0
+[21:35:48] CrtApplyHook: crt count=17 applied pThis=0A5D0D20
+[21:35:48] MainHook: WSASend Called [127.0.0.1:20060]

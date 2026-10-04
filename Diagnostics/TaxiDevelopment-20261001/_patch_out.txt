@@ -1,0 +1,2 @@
+patched Generate-Taxi.py (266 -> 270 lines)
+removed field 8 (chrGender) and field 59 (chrAppearanceNppOverride)

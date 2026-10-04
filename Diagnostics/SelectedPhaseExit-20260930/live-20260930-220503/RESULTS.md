@@ -1,0 +1,13 @@
+# Experiment13 live checkpoint
+
+22:05:03: oracle D20 offset validates prefix/epilogue/helper targets, then installed. Phase entity body identified by executing call ECC3EAD0. Startup stream1B5015 reaches phase-field-matched and local-player-comparison-passed; PHASE.OnPhasedInstanceUpdated count2 resolves FF5F184AAA9ECE77, executes instance-changed and returns. Observer coverage is independently exercised. Do not interpret the later entity checkpoint label player-phase-info-invalid as an independently decoded raw phsPhase value; that label needs separate branch-semantics auditing.
+
+22:05:35: server emits selected839B phase clear+phase-info removal, stream1B502E. Named phase-info destroy enters/returns. CRT apply17 enters, entity-update-entry on same local entity me=FAB9E2CC with stream1B502E, then CRT applied. No phase-field-matched or local-player-comparison-passed or new oracle callback occurs at the doorway in the saved tail. Only24 total checkpoint lines, far below128 cap; no inspection failure logged. The observer is installed and has proven startup coverage, so this is a meaningful branch difference, not failed hook installation.
+
+This establishes that the observed entity notification did not take its phsPhase-changed branch. It does not alone decode the raw field storage or establish exactly why the changed-field list differs. Next offline task: compare startup accepted player phase record with exit record and April native changed-field notification semantics. Do not infer malformed transport or successful phase exit from generic apply.
+
+Operator was asked whether the doorway attempt still hit the invisible barrier; response pending. Client currently running when checkpoint saved. No extra run needed for observer installation.
+
+Operator confirmed Still blocked at the invisible barrier. Visible traversal failed; observer coverage worked. The earlier pending-outcome text is superseded by this response.
+
+Offline accepted-startup versus exit comparison saved in startup-exit-field-comparison.json. Both target selected839B, use recordflags09, structure26, and present field25 definition40000002641F28CC. Startup CRT4 is style8 and carries phase-info reference1AC6F6DC1F plus other player fields; exit is style7 with zero and only field25. This rules out an obvious static field-index mismatch in these fixtures, but actual notification semantics of style7 versus style8 remain unresolved. Legacy PackedStream groups7/8 flags together, so merely changing the style byte is not yet a proven fix. Need native apply/changed-field list semantics before promoting this difference to cause. No packet change made.

@@ -1,0 +1,5 @@
+SharpServer\AreaServer\TythonTaxi.cs:            if (Environment.GetEnvironmentVariable("SWTOR_TYTHON_TAXI") != "1" || client.ActiveCharacter == null || client.AreaServiceID == 0) return;
+SharpServer\AreaServer\TythonTaxi.cs:            if (Environment.GetEnvironmentVariable("SWTOR_TYTHON_TAXI") != "1" || CloneControl || client.ActiveCharacter==null ||
+SharpServer\NET\Packets\Server\AreaMergedAwareness.cs:                { "taxi.awareness", "taxi.record1" };
+SharpServer\NET\Packets\Server\AreaTaxiAwareness.cs:            using (Stream resource = Assembly.GetExecutingAssembly().GetManifestResourceStream("taxi.awareness"))
+SharpServer\NET\Packets\Server\AreaTaxiCloneAwareness.cs:            using (Stream resource = Assembly.GetExecutingAssembly().GetManifestResourceStream("taxi.clone"))

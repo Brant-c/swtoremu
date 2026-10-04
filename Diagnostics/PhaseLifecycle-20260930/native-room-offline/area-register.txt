@@ -1,0 +1,201 @@
+  00B90C00: E8 3B F2 FF FF     call        00B8FE40
+  00B90C05: 8B 4E 78           mov         ecx,dword ptr [esi+78h]
+  00B90C08: 89 7D F0           mov         dword ptr [ebp-10h],edi
+  00B90C0B: 89 7D F4           mov         dword ptr [ebp-0Ch],edi
+  00B90C0E: 8D 7E 78           lea         edi,[esi+78h]
+  00B90C11: 8B D1              mov         edx,ecx
+  00B90C13: 2B D1              sub         edx,ecx
+  00B90C15: 89 4F 04           mov         dword ptr [edi+4],ecx
+  00B90C18: 8B 43 14           mov         eax,dword ptr [ebx+14h]
+  00B90C1B: C1 FA 03           sar         edx,3
+  00B90C1E: 3B C2              cmp         eax,edx
+  00B90C20: 76 1A              jbe         00B90C3C
+  00B90C22: 8D 55 F0           lea         edx,[ebp-10h]
+  00B90C25: 52                 push        edx
+  00B90C26: 8B D1              mov         edx,ecx
+  00B90C28: 2B D1              sub         edx,ecx
+  00B90C2A: C1 FA 03           sar         edx,3
+  00B90C2D: 2B C2              sub         eax,edx
+  00B90C2F: 50                 push        eax
+  00B90C30: 8B C1              mov         eax,ecx
+  00B90C32: 50                 push        eax
+  00B90C33: 8B CF              mov         ecx,edi
+  00B90C35: E8 56 CE FF FF     call        00B8DA90
+  00B90C3A: EB 0F              jmp         00B90C4B
+  00B90C3C: 8B 57 04           mov         edx,dword ptr [edi+4]
+  00B90C3F: 8D 04 C1           lea         eax,[ecx+eax*8]
+  00B90C42: 52                 push        edx
+  00B90C43: 50                 push        eax
+  00B90C44: 8B CF              mov         ecx,edi
+  00B90C46: E8 F5 CD FF FF     call        00B8DA40
+  00B90C4B: 8B 07              mov         eax,dword ptr [edi]
+  00B90C4D: 8B 4E 7C           mov         ecx,dword ptr [esi+7Ch]
+  00B90C50: 8B 7B 08           mov         edi,dword ptr [ebx+8]
+  00B90C53: 89 45 08           mov         dword ptr [ebp+8],eax
+  00B90C56: 89 4D F8           mov         dword ptr [ebp-8],ecx
+  00B90C59: 3B C1              cmp         eax,ecx
+  00B90C5B: 74 7E              je          00B90CDB
+  00B90C5D: EB 04              jmp         00B90C63
+  00B90C5F: 90                 nop
+  00B90C60: 8B 45 08           mov         eax,dword ptr [ebp+8]
+  00B90C63: 8B 4F 20           mov         ecx,dword ptr [edi+20h]
+  00B90C66: 89 48 04           mov         dword ptr [eax+4],ecx
+  00B90C69: 80 BE CC 00 00 00  cmp         byte ptr [esi+000000CCh],0
+            00
+  00B90C70: 8B 47 20           mov         eax,dword ptr [edi+20h]
+  00B90C73: 8B 9E C8 00 00 00  mov         ebx,dword ptr [esi+000000C8h]
+  00B90C79: 89 45 FC           mov         dword ptr [ebp-4],eax
+  00B90C7C: 75 31              jne         00B90CAF
+  00B90C7E: 85 DB              test        ebx,ebx
+  00B90C80: 74 2D              je          00B90CAF
+  00B90C82: 3B C3              cmp         eax,ebx
+  00B90C84: 74 1D              je          00B90CA3
+  00B90C86: 8D 55 FC           lea         edx,[ebp-4]
+  00B90C89: 52                 push        edx
+  00B90C8A: 8D 45 F4           lea         eax,[ebp-0Ch]
+  00B90C8D: 50                 push        eax
+  00B90C8E: 8D 8B 94 01 00 00  lea         ecx,[ebx+00000194h]
+  00B90C94: E8 47 7A E5 FF     call        009E86E0
+  00B90C99: 81 C3 98 01 00 00  add         ebx,198h
+  00B90C9F: 39 18              cmp         dword ptr [eax],ebx
+  00B90CA1: 74 0C              je          00B90CAF
+  00B90CA3: 8B 4F 20           mov         ecx,dword ptr [edi+20h]
+  00B90CA6: 51                 push        ecx
+  00B90CA7: 8D 86 98 00 00 00  lea         eax,[esi+00000098h]
+  00B90CAD: EB 0A              jmp         00B90CB9
+  00B90CAF: 8B 57 20           mov         edx,dword ptr [edi+20h]
+  00B90CB2: 52                 push        edx
+  00B90CB3: 8D 86 B8 00 00 00  lea         eax,[esi+000000B8h]
+  00B90CB9: 50                 push        eax
+  00B90CBA: E8 01 F4 FF FF     call        00B900C0
+  00B90CBF: 83 C4 08           add         esp,8
+  00B90CC2: 57                 push        edi
+  00B90CC3: E8 C8 23 DE FF     call        00973090
+  00B90CC8: 8B F8              mov         edi,eax
+  00B90CCA: 8B 45 08           mov         eax,dword ptr [ebp+8]
+  00B90CCD: 83 C0 08           add         eax,8
+  00B90CD0: 83 C4 04           add         esp,4
+  00B90CD3: 89 45 08           mov         dword ptr [ebp+8],eax
+  00B90CD6: 3B 45 F8           cmp         eax,dword ptr [ebp-8]
+  00B90CD9: 75 85              jne         00B90C60
+  00B90CDB: 5F                 pop         edi
+  00B90CDC: 5E                 pop         esi
+  00B90CDD: 5B                 pop         ebx
+  00B90CDE: 8B E5              mov         esp,ebp
+  00B90CE0: 5D                 pop         ebp
+  00B90CE1: C2 04 00           ret         4
+  00B90CE4: CC                 int         3
+  00B90CE5: CC                 int         3
+  00B90CE6: CC                 int         3
+  00B90CE7: CC                 int         3
+  00B90CE8: CC                 int         3
+  00B90CE9: CC                 int         3
+  00B90CEA: CC                 int         3
+  00B90CEB: CC                 int         3
+  00B90CEC: CC                 int         3
+  00B90CED: CC                 int         3
+  00B90CEE: CC                 int         3
+  00B90CEF: CC                 int         3
+  00B90CF0: 55                 push        ebp
+  00B90CF1: 8B EC              mov         ebp,esp
+  00B90CF3: 64 A1 00 00 00 00  mov         eax,dword ptr fs:[00000000h]
+  00B90CF9: 6A FF              push        0FFFFFFFFh
+  00B90CFB: 68 83 F9 F9 00     push        0F9F983h
+  00B90D00: 50                 push        eax
+  00B90D01: 64 89 25 00 00 00  mov         dword ptr fs:[00000000h],esp
+            00
+  00B90D08: 83 EC 1C           sub         esp,1Ch
+  00B90D0B: 53                 push        ebx
+  00B90D0C: 56                 push        esi
+  00B90D0D: 57                 push        edi
+  00B90D0E: 8B 7D 08           mov         edi,dword ptr [ebp+8]
+  00B90D11: 8B F1              mov         esi,ecx
+  00B90D13: 57                 push        edi
+  00B90D14: 8D 45 08           lea         eax,[ebp+8]
+  00B90D17: 8D 9E D8 03 00 00  lea         ebx,[esi+000003D8h]
+  00B90D1D: 50                 push        eax
+  00B90D1E: 8B CB              mov         ecx,ebx
+  00B90D20: E8 7B B8 FF FF     call        00B8C5A0
+  00B90D25: 8B 00              mov         eax,dword ptr [eax]
+  00B90D27: 8D 8E DC 03 00 00  lea         ecx,[esi+000003DCh]
+  00B90D2D: 3B C1              cmp         eax,ecx
+  00B90D2F: 74 0B              je          00B90D3C
+  00B90D31: 8B 40 20           mov         eax,dword ptr [eax+20h]
+  00B90D34: 85 C0              test        eax,eax
+  00B90D36: 0F 85 BC 00 00 00  jne         00B90DF8
+  00B90D3C: 6A 28              push        28h
+  00B90D3E: 68 34 3F 15 01     push        1153F34h
+  00B90D43: 68 80 02 00 00     push        280h
+  00B90D48: 68 48 A3 2C 01     push        12CA348h
+  00B90D4D: E8 6E 56 8F FF     call        004863C0
+  00B90D52: 83 C4 10           add         esp,10h
+  00B90D55: 89 45 F0           mov         dword ptr [ebp-10h],eax
+  00B90D58: 33 C9              xor         ecx,ecx
+  00B90D5A: 89 4D FC           mov         dword ptr [ebp-4],ecx
+  00B90D5D: 3B C1              cmp         eax,ecx
+  00B90D5F: 74 0E              je          00B90D6F
+  00B90D61: 57                 push        edi
+  00B90D62: 56                 push        esi
+  00B90D63: 8B C8              mov         ecx,eax
+  00B90D65: E8 D6 B0 FE FF     call        00B7BE40
+  00B90D6A: 89 45 08           mov         dword ptr [ebp+8],eax
+  00B90D6D: EB 03              jmp         00B90D72
+  00B90D6F: 89 4D 08           mov         dword ptr [ebp+8],ecx
+  00B90D72: C7 45 FC FF FF FF  mov         dword ptr [ebp-4],0FFFFFFFFh
+            FF
+  00B90D79: 8B 4D 08           mov         ecx,dword ptr [ebp+8]
+  00B90D7C: 8D 55 F0           lea         edx,[ebp-10h]
+  00B90D7F: 52                 push        edx
+  00B90D80: 89 4D F0           mov         dword ptr [ebp-10h],ecx
+  00B90D83: 57                 push        edi
+  00B90D84: 8D 4D D8           lea         ecx,[ebp-28h]
+  00B90D87: E8 34 BD 00 00     call        00B9CAC0
+  00B90D8C: C7 45 FC 01 00 00  mov         dword ptr [ebp-4],1
+            00
+  00B90D93: C6 45 F0 00        mov         byte ptr [ebp-10h],0
+  00B90D97: 8B 4D F0           mov         ecx,dword ptr [ebp-10h]
+  00B90D9A: 51                 push        ecx
+  00B90D9B: 50                 push        eax
+  00B90D9C: 8D 55 EC           lea         edx,[ebp-14h]
+  00B90D9F: 52                 push        edx
+  00B90DA0: 8B CB              mov         ecx,ebx
+  00B90DA2: E8 69 EC FF FF     call        00B8FA10
+  00B90DA7: C7 45 FC FF FF FF  mov         dword ptr [ebp-4],0FFFFFFFFh
+            FF
+  00B90DAE: 8D 4D D8           lea         ecx,[ebp-28h]
+  00B90DB1: E8 4A 0B C1 FF     call        007A1900
+  00B90DB6: 8B 07              mov         eax,dword ptr [edi]
+  00B90DB8: 68 40 80 15 01     push        1158040h
+  00B90DBD: 50                 push        eax
+  00B90DBE: E8 2D 1E B3 FF     call        006C2BF0
+  00B90DC3: 83 C4 08           add         esp,8
+  00B90DC6: 84 C0              test        al,al
+  00B90DC8: 74 09              je          00B90DD3
+  00B90DCA: 8B 45 08           mov         eax,dword ptr [ebp+8]
+  00B90DCD: 89 86 A0 02 00 00  mov         dword ptr [esi+000002A0h],eax
+  00B90DD3: 53                 push        ebx
+  00B90DD4: 8D 8E B0 02 00 00  lea         ecx,[esi+000002B0h]
+  00B90DDA: E8 C1 FD FF FF     call        00B90BA0
+  00B90DDF: 57                 push        edi
+  00B90DE0: 8B CE              mov         ecx,esi
+  00B90DE2: E8 C9 C7 FF FF     call        00B8D5B0
+  00B90DE7: 84 C0              test        al,al
+  00B90DE9: 74 0A              je          00B90DF5
+  00B90DEB: 8B 4D 08           mov         ecx,dword ptr [ebp+8]
+  00B90DEE: 6A 01              push        1
+  00B90DF0: E8 7B 8B FE FF     call        00B79970
+  00B90DF5: 8B 45 08           mov         eax,dword ptr [ebp+8]
+  00B90DF8: 8B 4D F4           mov         ecx,dword ptr [ebp-0Ch]
+  00B90DFB: 5F                 pop         edi
+  00B90DFC: 5E                 pop         esi
+  00B90DFD: 5B                 pop         ebx
+  00B90DFE: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+            00
+  00B90E05: 8B E5              mov         esp,ebp
+  00B90E07: 5D                 pop         ebp
+  00B90E08: C2 04 00           ret         4
+  00B90E0B: CC                 int         3
+  00B90E0C: CC                 int         3
+  00B90E0D: CC                 int         3
+  00B90E0E: CC                 int         3
+  00B90E0F: CC                 int         3

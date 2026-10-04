@@ -1,0 +1,23 @@
+  00B7D53B: 8B 55 F0           mov         edx,dword ptr [ebp-10h]
+  00B7D53E: 8B 02              mov         eax,dword ptr [edx]
+  00B7D540: 68 50 A9 15 01     push        115A950h
+  00B7D545: 50                 push        eax
+  00B7D546: E8 A5 56 B4 FF     call        006C2BF0
+  00B7D54B: 83 C4 08           add         esp,8
+  00B7D54E: 84 C0              test        al,al
+  00B7D550: 74 36              je          00B7D588
+  00B7D552: 8B 4D EC           mov         ecx,dword ptr [ebp-14h]
+  00B7D555: 8B 75 E8           mov         esi,dword ptr [ebp-18h]
+  00B7D558: 83 EC 08           sub         esp,8
+  00B7D55B: 8B C4              mov         eax,esp
+  00B7D55D: 89 65 0C           mov         dword ptr [ebp+0Ch],esp
+  00B7D560: 51                 push        ecx
+  00B7D561: 8B 8E 18 01 00 00  mov         ecx,dword ptr [esi+00000118h]
+  00B7D567: 50                 push        eax
+  00B7D568: 81 C1 30 01 00 00  add         ecx,130h
+  00B7D56E: E8 6D A9 01 00     call        00B97EE0
+  00B7D573: C6 45 FC 02        mov         byte ptr [ebp-4],2
+  00B7D577: C6 45 FC 00        mov         byte ptr [ebp-4],0
+  00B7D57B: 8D 4E F8           lea         ecx,[esi-8]
+  00B7D57E: E8 ED C9 FF FF     call        00B79F70
+  00B7D583: E9 A8 00 00 00     jmp         00B7D630

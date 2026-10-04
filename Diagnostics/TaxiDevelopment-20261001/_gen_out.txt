@@ -1,0 +1,108 @@
+captured awareness: flags=0x01 objects=77 bytes=13488
+generated taxi awareness: flags=0x01 objects=5 bytes=675
+taxi clone control: flags=0x01 objects=1 bytes=478
+{
+  "source_sha256": "c9a50ab8d7b60d7a1c1c3d47489de63aa99c54e9a5f87fa6d56bb13dcecce374",
+  "fixture_sha256": "7f98aa2f0cd596d26ac2fc0d45e088d54b57783d62e1f12bd870b9c621405f39",
+  "bytes": 675,
+  "patches": [
+    {
+      "offset": 6,
+      "slot": 0
+    },
+    {
+      "offset": 108,
+      "slot": 1
+    },
+    {
+      "offset": 114,
+      "slot": 2
+    },
+    {
+      "offset": 120,
+      "slot": 3
+    },
+    {
+      "offset": 126,
+      "slot": 4
+    },
+    {
+      "offset": 484,
+      "slot": 1
+    },
+    {
+      "offset": 500,
+      "slot": 0
+    },
+    {
+      "offset": 529,
+      "slot": 0
+    },
+    {
+      "offset": 536,
+      "slot": 2
+    },
+    {
+      "offset": 552,
+      "slot": 0
+    },
+    {
+      "offset": 582,
+      "slot": 3
+    },
+    {
+      "offset": 598,
+      "slot": 0
+    },
+    {
+      "offset": 628,
+      "slot": 4
+    },
+    {
+      "offset": 644,
+      "slot": 0
+    }
+  ],
+  "placement": [
+    -53.5,
+    -7.7,
+    -125.5
+  ],
+  "placement_source": "authored taxi_poi01_jediretreat_pad1.spn_c instance row (-535,-1255,-77); X=col1/10 Z=col2/10 Y=col3/10 calibrated against the captured vendor",
+  "taxi_template": "0xe0008b8cc0faea1d",
+  "terminal": "0xe000dc42a2436f58",
+  "appearance_fields": [
+    62,
+    63,
+    66,
+    68,
+    69,
+    76,
+    77,
+    79,
+    85
+  ],
+  "donor_tail_bytes": 57,
+  "donor_tail_fields": [
+    62,
+    63,
+    66,
+    68,
+    70,
+    77,
+    78,
+    80,
+    86
+  ],
+  "confidence": "Hypothesis",
+  "clone_control": {
+    "file": "SharpServer/AreaServer/TaxiClone.bin",
+    "bytes": 478,
+    "sha256": "50ec661e1854158405ac7fb791312bea60a84d86cb6a2687fe6c7270cf403a1a",
+    "node_offset": 6,
+    "source_node": "0x1ac68957eb",
+    "source_template": "0xe0005cb11264f32d",
+    "structure_id": 64,
+    "confidence": "Behavior-verified pending"
+  }
+}

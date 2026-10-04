@@ -1,0 +1,1 @@
+PASS: launch-time SWTOR assignments match planned preview exactly.

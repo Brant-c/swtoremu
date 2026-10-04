@@ -1,0 +1,109 @@
+        return value
+
+    def zero_run(self):
+        count = 0
+        while ((self.data[self.pos] >> (self.in_byte - 1)) & 1) == 0:
+            self.bit()
+            count += 1
+        return count
+
+    def code(self):
+        width = self.zero_run() + 1
+        if width == 1:
+            self.bit()
+            return 1
+        suffix_width = self.bits(width) - 1
+        return self.bits(suffix_width) | (1 << suffix_width)
+
+
+def field_states(data, offset, size, count, style=8):
+    # Native class reader switch at VA005AC65C: style7 ->005AC358
+    # consumes one presence bit; style8 ->005AC1DE consumes two-bit states.
+    # Existing callers without a style retain the historical style8 behavior.
+    bits = BitReader(data, offset, size)
+    if style == 7:
+        return [1 if bits.bit() else 2 for _ in range(count)], bits
+    if style != 8:
+        raise ValueError(f"unsupported compact class style {style}")
+    states = []
+    missing_run = 0
+    for field_index in range(count):
+        if missing_run:
+            states.append(2)
+            missing_run -= 1
+            continue
+        code = bits.bits(2)
+        if code == 0:
+            states.append(2)
+        elif code == 1:
+            # The native decoder distinguishes state 1/3 using type metadata.
+            # All scalar fields in the player schema use the normal state 1.
+            states.append(1)
+        elif code == 2:
+            states.append(0)
+        elif code == 3:
+            missing_run = bits.code() + 2
+            states.append(2)
+        else:
+            raise ValueError(f"unexpected field-state code {code} at field {field_index}, "
+                             f"byte {bits.pos} bit {8-bits.in_byte}")
+    return states, bits
+
+@dataclass
+class TypePart:
+    kind: int
+    definition: int
+    structure: int
+
+
+@dataclass
+class Field:
+    definition: int
+    parts: list
+
+
+@dataclass
+class Structure:
+    number: int
+    base_class: int
+    additional_classes: list
+    fields: list
+
+
+def fixture(number):
+    return (CRT_DIR / f"tython_blockout-4611686019869492753-1.{number}.acrt").read_bytes()
+
+
+def read_schema():
+    data = fixture(1)
+    reader = Reader(data, 8)
+    structures = {}
+    for _ in range(reader.packed()):
+        number = reader.packed()
+        base_class = reader.packed()
+        additional = [reader.packed() for _ in range(reader.packed())]
+        fields = []
+        for _ in range(reader.packed()):
+            definition = reader.packed()
+            parts = []
+            for _ in range(reader.packed()):
+                parts.append(TypePart(reader.packed(), reader.packed(), reader.packed()))
+            fields.append(Field(definition, parts))
+        structures[number] = Structure(number, base_class, additional, fields)
+    return structures, reader.pos, len(data)
+
+
+def name_table():
+    return {int(node.attrib["id"]): node.attrib.get("name", "")
+            for node in ET.parse(NAMES).getroot()}
+
+
+def describe_part(part, names):
+    kinds = {
+        1: "UInt64", 2: "Int64", 3: "Boolean", 4: "Float", 5: "Enum",
+        6: "String", 7: "List", 8: "Map", 9: "EmbeddedClass",
+        11: "Array", 12: "Table", 13: "Cubic", 14: "Script",
+        15: "ClassRef", 17: "Timer", 18: "Vec3", 20: "TimeSpan",
+        21: "Time",
+    }
+    text = kinds.get(part.kind, f"type{part.kind}")

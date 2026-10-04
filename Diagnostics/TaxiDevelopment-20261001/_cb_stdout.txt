@@ -1,0 +1,51 @@
+awareness: flags=0x01 objects=77 bytes=13488
+node=0x1ac68957eb struct=64 style=8 inner=380 body=4989 value_end=5393
+present(30): [0, 1, 9, 10, 13, 22, 23, 24, 25, 26, 27, 30, 33, 34, 35, 36, 38, 39, 44, 57, 61, 62, 63, 66, 68, 70, 77, 78, 80, 86]
+
+body bytes 0..380:
+  +000  18 26 6f c2 29 cb dc c0 b5 55 00 c3 00 00 00 80
+  +016  fe 14 e0 c2 00 00 00 00 00 00 80 3f cd cc cc 3d
+  +032  02 01 cc 1a c6 89 57 ed cc 1a c6 89 57 ef cc 1a
+  +048  c6 89 57 f0 cc 1a c6 89 57 f1 cf 40 00 00 13 63
+  +064  30 35 5e cc 1a c6 89 57 ec 3e 02 00 00 00 00 03
+  +080  00 00 00 00 04 00 00 00 00 05 00 00 00 00 07 00
+  +096  00 00 00 08 00 00 e6 43 09 00 00 00 00 0a 00 00
+  +112  00 00 27 33 33 33 3f 28 9a 99 19 3e 30 00 80 9d
+  +128  43 3a 9a 99 19 3e 3b 00 00 b4 43 75 00 00 00 3f
+  +144  77 9a 99 99 3e 7b 00 00 00 3f 7d 9a 99 99 3e 86
+  +160  00 00 00 3f 88 00 00 00 3f 8f 00 00 e6 43 98 00
+  +176  00 00 00 9a 00 00 00 00 9b 00 00 00 00 9c 00 00
+  +192  00 00 9e 00 00 00 00 a1 00 00 00 00 a3 00 00 00
+  +208  00 c8 e8 00 00 80 3f c8 e9 00 00 80 3f c8 fe 00
+  +224  00 00 00 c8 ff 00 00 00 00 1e 08 00 00 e6 43 27
+  +240  33 33 33 3f 28 9a 99 19 3e 30 00 80 9d 43 3a 9a
+  +256  99 19 3e 3b 00 00 b4 43 75 00 00 00 3f 77 9a 99
+  +272  99 3e 7b 00 00 00 3f 7d 9a 99 99 3e 86 00 00 00
+  +288  3f 88 00 00 00 3f 8f 00 00 e6 43 c8 e8 00 00 80
+  +304  3f c8 e9 00 00 80 3f 00 00 e6 43 03 00 00 80 bf
+  +320  02 00 01 cf e0 00 5c b1 12 64 f3 2d 02 01 01 c7
+  +336  0c 31 7c c4 ba 08 f4 de 01 03 cf e0 00 c9 70 f1
+  +352  86 ee c0 cf e0 00 12 e5 58 c8 35 98 cf 55 41 e5
+  +368  69 31 b5 83 35 cc 1a c6 89 57 ee 0a
+
+state bytes: 50 aa 96 12 aa a5 55 a6 95 65 88 6a aa 8a 9a 95 26 66 a0 96 74 60 2a 80
+
+field layout under current grammar:
+    0 @+  0 len=12  k=[18] character_position           vec(-59.7872,-6.8998,-128.335) | 18 26 6f c2 29 cb dc c0 b5 55 00 c3
+    1 @+ 12 len=12  k=[18] character_rotation           vec(-0,-112.041,0) | 00 00 00 80 fe 14 e0 c2 00 00 00 00
+    9 @+ 24 len=4   k=[4] chrScale                     1 | 00 00 80 3f
+   10 @+ 28 len=4   k=[4] chrMeleeDistance             0.1 | cd cc cc 3d
+   13 @+ 32 len=1   k=[5] staWeaponState               enum=2 | 02
+   22 @+ 33 len=1   k=[1] phsPhase                     1 | 01
+   23 @+ 34 len=6   k=[15] eqpEquipment                 ref=0x1AC68957ED | cc 1a c6 89 57 ed
+   24 @+ 40 len=6   k=[15] effContainerPositive         ref=0x1AC68957EF | cc 1a c6 89 57 ef
+   25 @+ 46 len=6   k=[15] effContainerNegative         ref=0x1AC68957F0 | cc 1a c6 89 57 f0
+   26 @+ 52 len=6   k=[15] effContainerOther            ref=0x1AC68957F1 | cc 1a c6 89 57 f1
+   27 @+ 58 len=9   k=[1] spnParentAnchorId            4611686101695870302 | cf 40 00 00 13 63 30 35 5e
+   30 @+ 67 len=1   k=[3] vndVendorCanRepair           204 | cc
+   33 @+ 68 len=1   k=[15] tmrContainer                 ref=0x1A | 1a
+   34 @+ 69 k=[8, 5, 4] modStatComputed              <ERROR invalid packed token 0xC6 at 5058>
+
+consumed=70 inner=380
+
+wrote D:\SWTORClassic\swtoremu\Diagnostics\TaxiDevelopment-20261001\_characterbytes.txt

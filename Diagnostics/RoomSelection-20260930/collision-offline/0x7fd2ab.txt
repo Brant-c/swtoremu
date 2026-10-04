@@ -1,0 +1,59 @@
+  007FD24C: 51                 push        ecx
+  007FD24D: 68 54 0E 16 01     push        1160E54h
+  007FD252: 8D 4C 24 20        lea         ecx,[esp+20h]
+  007FD256: E8 55 B6 C1 FF     call        004188B0
+  007FD25B: C7 44 24 34 05 00  mov         dword ptr [esp+34h],5
+            00 00
+  007FD263: 8D 54 24 18        lea         edx,[esp+18h]
+  007FD267: 52                 push        edx
+  007FD268: B9 68 C3 49 01     mov         ecx,149C368h
+  007FD26D: E8 AE A4 C7 FF     call        00477720
+  007FD272: 89 74 24 34        mov         dword ptr [esp+34h],esi
+  007FD276: 8B 4C 24 20        mov         ecx,dword ptr [esp+20h]
+  007FD27A: 8B 44 24 18        mov         eax,dword ptr [esp+18h]
+  007FD27E: 2B C8              sub         ecx,eax
+  007FD280: 83 E1 FE           and         ecx,0FFFFFFFEh
+  007FD283: 83 F9 02           cmp         ecx,2
+  007FD286: 7E 1E              jle         007FD2A6
+  007FD288: 8B F8              mov         edi,eax
+  007FD28A: 3B C3              cmp         eax,ebx
+  007FD28C: 74 18              je          007FD2A6
+  007FD28E: 38 1D A9 E9 48 01  cmp         byte ptr ds:[0148E9A9h],bl
+  007FD294: 75 05              jne         007FD29B
+  007FD296: E8 65 3D C0 FF     call        00401000
+  007FD29B: 8B 15 58 1D 06 01  mov         edx,dword ptr ds:[01061D58h]
+  007FD2A1: 8B 02              mov         eax,dword ptr [edx]
+  007FD2A3: 57                 push        edi
+  007FD2A4: FF D0              call        eax
+  007FD2A6: 8D 4C 24 13        lea         ecx,[esp+13h]
+  007FD2AA: 51                 push        ecx
+  007FD2AB: 68 AC 7B 14 01     push        1147BACh
+  007FD2B0: 8D 4C 24 20        lea         ecx,[esp+20h]
+  007FD2B4: E8 F7 B5 C1 FF     call        004188B0
+  007FD2B9: C7 44 24 34 06 00  mov         dword ptr [esp+34h],6
+            00 00
+  007FD2C1: 8D 54 24 18        lea         edx,[esp+18h]
+  007FD2C5: 52                 push        edx
+  007FD2C6: B9 68 C3 49 01     mov         ecx,149C368h
+  007FD2CB: E8 50 A4 C7 FF     call        00477720
+  007FD2D0: 89 74 24 34        mov         dword ptr [esp+34h],esi
+  007FD2D4: 8B 4C 24 20        mov         ecx,dword ptr [esp+20h]
+  007FD2D8: 8B 44 24 18        mov         eax,dword ptr [esp+18h]
+  007FD2DC: 2B C8              sub         ecx,eax
+  007FD2DE: 83 E1 FE           and         ecx,0FFFFFFFEh
+  007FD2E1: 83 F9 02           cmp         ecx,2
+  007FD2E4: 7E 1E              jle         007FD304
+  007FD2E6: 8B F8              mov         edi,eax
+  007FD2E8: 3B C3              cmp         eax,ebx
+  007FD2EA: 74 18              je          007FD304
+  007FD2EC: 38 1D A9 E9 48 01  cmp         byte ptr ds:[0148E9A9h],bl
+  007FD2F2: 75 05              jne         007FD2F9
+  007FD2F4: E8 07 3D C0 FF     call        00401000
+  007FD2F9: 8B 15 58 1D 06 01  mov         edx,dword ptr ds:[01061D58h]
+  007FD2FF: 8B 02              mov         eax,dword ptr [edx]
+  007FD301: 57                 push        edi
+  007FD302: FF D0              call        eax
+  007FD304: 8D 4C 24 13        lea         ecx,[esp+13h]
+  007FD308: 51                 push        ecx
+  007FD309: 68 C0 0E 16 01     push        1160EC0h
+  007FD30E: 8D 4C 24 20        lea         ecx,[esp+20h]

@@ -1,0 +1,262 @@
+  00D516D0: 53                 push        ebx
+  00D516D1: 8B DC              mov         ebx,esp
+  00D516D3: 83 EC 08           sub         esp,8
+  00D516D6: 83 E4 F0           and         esp,0FFFFFFF0h
+  00D516D9: 83 C4 04           add         esp,4
+  00D516DC: 55                 push        ebp
+  00D516DD: 8B 6B 04           mov         ebp,dword ptr [ebx+4]
+  00D516E0: 89 6C 24 04        mov         dword ptr [esp+4],ebp
+  00D516E4: 8B EC              mov         ebp,esp
+  00D516E6: 6A FF              push        0FFFFFFFFh
+  00D516E8: 68 0B 49 FB 00     push        0FB490Bh
+  00D516ED: 64 A1 00 00 00 00  mov         eax,dword ptr fs:[00000000h]
+  00D516F3: 50                 push        eax
+  00D516F4: 64 89 25 00 00 00  mov         dword ptr fs:[00000000h],esp
+  00D516FB: 53                 push        ebx
+  00D516FC: 81 EC 78 01 00 00  sub         esp,178h
+  00D51702: 56                 push        esi
+  00D51703: 8B F1              mov         esi,ecx
+  00D51705: 57                 push        edi
+  00D51706: 8D 8D 80 FE FF FF  lea         ecx,[ebp+FFFFFE80h]
+  00D5170C: E8 DF 0C FB FF     call        00D023F0
+  00D51711: C7 45 FC 00 00 00  mov         dword ptr [ebp-4],0
+  00D51718: 8B 7B 18           mov         edi,dword ptr [ebx+18h]
+  00D5171B: 8D 45 B0           lea         eax,[ebp-50h]
+  00D5171E: 50                 push        eax
+  00D5171F: 8B 43 0C           mov         eax,dword ptr [ebx+0Ch]
+  00D51722: 8D 4D E8           lea         ecx,[ebp-18h]
+  00D51725: 51                 push        ecx
+  00D51726: 8B 4B 08           mov         ecx,dword ptr [ebx+8]
+  00D51729: 8D 55 A0           lea         edx,[ebp-60h]
+  00D5172C: 52                 push        edx
+  00D5172D: 57                 push        edi
+  00D5172E: 50                 push        eax
+  00D5172F: 51                 push        ecx
+  00D51730: 8B CE              mov         ecx,esi
+  00D51732: E8 A9 FD FF FF     call        00D514E0
+  00D51737: 88 45 EF           mov         byte ptr [ebp-11h],al
+  00D5173A: 84 C0              test        al,al
+  00D5173C: 0F 84 54 01 00 00  je          00D51896
+  00D51742: 8B 73 1C           mov         esi,dword ptr [ebx+1Ch]
+  00D51745: F3 0F 10 45 E8     movss       xmm0,dword ptr [ebp-18h]
+  00D5174A: 8D 55 D0           lea         edx,[ebp-30h]
+  00D5174D: 52                 push        edx
+  00D5174E: 8D 45 C0           lea         eax,[ebp-40h]
+  00D51751: 50                 push        eax
+  00D51752: 8D 4D B0           lea         ecx,[ebp-50h]
+  00D51755: 51                 push        ecx
+  00D51756: 8B CE              mov         ecx,esi
+  00D51758: C7 46 08 01 00 00  mov         dword ptr [esi+8],1
+  00D5175F: F3 0F 11 86 D0 00  movss       dword ptr [esi+000000D0h],xmm0
+  00D51767: E8 84 08 FB FF     call        00D01FF0
+  00D5176C: D9 EE              fldz
+  00D5176E: 83 EC 08           sub         esp,8
+  00D51771: D9 54 24 04        fst         dword ptr [esp+4]
+  00D51775: D9 1C 24           fstp        dword ptr [esp]
+  00D51778: 8D 55 D0           lea         edx,[ebp-30h]
+  00D5177B: 52                 push        edx
+  00D5177C: 8D 45 C0           lea         eax,[ebp-40h]
+  00D5177F: 50                 push        eax
+  00D51780: 8D 4D B0           lea         ecx,[ebp-50h]
+  00D51783: 51                 push        ecx
+  00D51784: 8D 55 A0           lea         edx,[ebp-60h]
+  00D51787: 52                 push        edx
+  00D51788: E8 E3 DA FC FF     call        00D1F270
+  00D5178D: 0F 28 45 A0        movaps      xmm0,xmmword ptr [ebp-60h]
+  00D51791: 0F 28 55 B0        movaps      xmm2,xmmword ptr [ebp-50h]
+  00D51795: 0F 28 4D D0        movaps      xmm1,xmmword ptr [ebp-30h]
+  00D51799: 0F 5C CA           subps       xmm1,xmm2
+  00D5179C: B8 02 00 00 00     mov         eax,2
+  00D517A1: 89 46 0C           mov         dword ptr [esi+0Ch],eax
+  00D517A4: 0F 29 46 30        movaps      xmmword ptr [esi+30h],xmm0
+  00D517A8: 0F 28 45 C0        movaps      xmm0,xmmword ptr [ebp-40h]
+  00D517AC: 0F 5C C2           subps       xmm0,xmm2
+  00D517AF: 0F 28 D1           movaps      xmm2,xmm1
+  00D517B2: 0F C6 D1 09        shufps      xmm2,xmm1,9
+  00D517B6: 0F C6 C9 12        shufps      xmm1,xmm1,12h
+  00D517BA: 0F 28 D8           movaps      xmm3,xmm0
+  00D517BD: 0F C6 D8 09        shufps      xmm3,xmm0,9
+  00D517C1: 0F 59 CB           mulps       xmm1,xmm3
+  00D517C4: 0F C6 C0 12        shufps      xmm0,xmm0,12h
+  00D517C8: 0F 59 D0           mulps       xmm2,xmm0
+  00D517CB: 0F 5C CA           subps       xmm1,xmm2
+  00D517CE: 0F 28 E1           movaps      xmm4,xmm1
+  00D517D1: 0F 28 C4           movaps      xmm0,xmm4
+  00D517D4: 0F 59 C4           mulps       xmm0,xmm4
+  00D517D7: 0F 28 D0           movaps      xmm2,xmm0
+  00D517DA: 0F C6 D0 01        shufps      xmm2,xmm0,1
+  00D517DE: 0F 28 C8           movaps      xmm1,xmm0
+  00D517E1: 0F C6 C8 02        shufps      xmm1,xmm0,2
+  00D517E5: 0F 58 CA           addps       xmm1,xmm2
+  00D517E8: F3 0F 10 15 E8 11  movss       xmm2,dword ptr ds:[010B11E8h]
+  00D517F0: 0F 58 C8           addps       xmm1,xmm0
+  00D517F3: 0F 28 C1           movaps      xmm0,xmm1
+  00D517F6: 0F C6 C0 00        shufps      xmm0,xmm0,0
+  00D517FA: 0F 28 E8           movaps      xmm5,xmm0
+  00D517FD: F3 0F 10 05 D4 D2  movss       xmm0,dword ptr ds:[0106D2D4h]
+  00D51805: 0F 52 DD           rsqrtps     xmm3,xmm5
+  00D51808: 0F C6 C0 00        shufps      xmm0,xmm0,0
+  00D5180C: 0F 28 CB           movaps      xmm1,xmm3
+  00D5180F: 0F 59 CB           mulps       xmm1,xmm3
+  00D51812: 0F 59 CD           mulps       xmm1,xmm5
+  00D51815: 0F 28 F0           movaps      xmm6,xmm0
+  00D51818: 0F 5C F1           subps       xmm6,xmm1
+  00D5181B: 0F C6 D2 00        shufps      xmm2,xmm2,0
+  00D5181F: 0F 28 CB           movaps      xmm1,xmm3
+  00D51822: 0F 59 CA           mulps       xmm1,xmm2
+  00D51825: 0F 59 CE           mulps       xmm1,xmm6
+  00D51828: 0F 58 CB           addps       xmm1,xmm3
+  00D5182B: 0F 28 D9           movaps      xmm3,xmm1
+  00D5182E: 0F 59 CB           mulps       xmm1,xmm3
+  00D51831: 0F 59 CD           mulps       xmm1,xmm5
+  00D51834: 0F 5C C1           subps       xmm0,xmm1
+  00D51837: 0F 28 CB           movaps      xmm1,xmm3
+  00D5183A: 0F 59 CA           mulps       xmm1,xmm2
+  00D5183D: 0F 59 C8           mulps       xmm1,xmm0
+  00D51840: 0F 58 CB           addps       xmm1,xmm3
+  00D51843: 0F 59 CC           mulps       xmm1,xmm4
+  00D51846: 0F 57 C0           xorps       xmm0,xmm0
+  00D51849: 83 C4 18           add         esp,18h
+  00D5184C: 0F 5C C1           subps       xmm0,xmm1
+  00D5184F: 89 46 10           mov         dword ptr [esi+10h],eax
+  00D51852: 0F 29 46 40        movaps      xmmword ptr [esi+40h],xmm0
+  00D51856: 8B 07              mov         eax,dword ptr [edi]
+  00D51858: 8B 10              mov         edx,dword ptr [eax]
+  00D5185A: 8D 8D 60 FF FF FF  lea         ecx,[ebp+FFFFFF60h]
+  00D51860: 51                 push        ecx
+  00D51861: 8B CF              mov         ecx,edi
+  00D51863: FF D2              call        edx
+  00D51865: 0F 28 00           movaps      xmm0,xmmword ptr [eax]
+  00D51868: 0F 29 86 90 00 00  movaps      xmmword ptr [esi+00000090h],xmm0
+  00D5186F: 0F 28 40 10        movaps      xmm0,xmmword ptr [eax+10h]
+  00D51873: 0F 29 86 A0 00 00  movaps      xmmword ptr [esi+000000A0h],xmm0
+  00D5187A: 0F 28 40 20        movaps      xmm0,xmmword ptr [eax+20h]
+  00D5187E: 0F 29 86 B0 00 00  movaps      xmmword ptr [esi+000000B0h],xmm0
+  00D51885: 0F 28 40 30        movaps      xmm0,xmmword ptr [eax+30h]
+  00D51889: 0F 29 86 C0 00 00  movaps      xmmword ptr [esi+000000C0h],xmm0
+  00D51890: 89 BE 80 00 00 00  mov         dword ptr [esi+00000080h],edi
+  00D51896: C7 45 FC FF FF FF  mov         dword ptr [ebp-4],0FFFFFFFFh
+  00D5189D: 8D 8D 80 FE FF FF  lea         ecx,[ebp+FFFFFE80h]
+  00D518A3: E8 F8 8C E0 FF     call        00B5A5A0
+  00D518A8: 8B 4D F4           mov         ecx,dword ptr [ebp-0Ch]
+  00D518AB: 8A 45 EF           mov         al,byte ptr [ebp-11h]
+  00D518AE: 5F                 pop         edi
+  00D518AF: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+  00D518B6: 5E                 pop         esi
+  00D518B7: 8B E5              mov         esp,ebp
+  00D518B9: 5D                 pop         ebp
+  00D518BA: 8B E3              mov         esp,ebx
+  00D518BC: 5B                 pop         ebx
+  00D518BD: C2 18 00           ret         18h
+  00D518C0: 53                 push        ebx
+  00D518C1: 8B DC              mov         ebx,esp
+  00D518C3: 83 EC 08           sub         esp,8
+  00D518C6: 83 E4 F0           and         esp,0FFFFFFF0h
+  00D518C9: 83 C4 04           add         esp,4
+  00D518CC: 55                 push        ebp
+  00D518CD: 8B 6B 04           mov         ebp,dword ptr [ebx+4]
+  00D518D0: 89 6C 24 04        mov         dword ptr [esp+4],ebp
+  00D518D4: 8B EC              mov         ebp,esp
+  00D518D6: 83 EC 78           sub         esp,78h
+  00D518D9: 56                 push        esi
+  00D518DA: 57                 push        edi
+  00D518DB: 8B F9              mov         edi,ecx
+  00D518DD: 89 7D F0           mov         dword ptr [ebp-10h],edi
+  00D518E0: 8B 43 10           mov         eax,dword ptr [ebx+10h]
+  00D518E3: 0F 28 08           movaps      xmm1,xmmword ptr [eax]
+  00D518E6: 8B 43 0C           mov         eax,dword ptr [ebx+0Ch]
+  00D518E9: F3 0F 10 05 C4 EC  movss       xmm0,dword ptr ds:[0117ECC4h]
+  00D518F1: 8B 4B 08           mov         ecx,dword ptr [ebx+8]
+  00D518F4: 83 C1 40           add         ecx,40h
+  00D518F7: 51                 push        ecx
+  00D518F8: 0F C6 C0 00        shufps      xmm0,xmm0,0
+  00D518FC: 8D 55 D0           lea         edx,[ebp-30h]
+  00D518FF: 0F 59 C1           mulps       xmm0,xmm1
+  00D51902: 0F 28 08           movaps      xmm1,xmmword ptr [eax]
+  00D51905: 52                 push        edx
+  00D51906: 0F 58 C1           addps       xmm0,xmm1
+  00D51909: 50                 push        eax
+  00D5190A: 8D 4D 90           lea         ecx,[ebp-70h]
+  00D5190D: 0F 29 45 D0        movaps      xmmword ptr [ebp-30h],xmm0
+  00D51911: E8 1A E8 FC FF     call        00D20130
+  00D51916: D9 05 C4 EC 17 01  fld         dword ptr ds:[0117ECC4h]
+  00D5191C: F3 0F 10 05 C4 EC  movss       xmm0,dword ptr ds:[0117ECC4h]
+  00D51924: 8D 45 F4           lea         eax,[ebp-0Ch]
+  00D51927: 50                 push        eax
+  00D51928: 51                 push        ecx
+  00D51929: D9 1C 24           fstp        dword ptr [esp]
+  00D5192C: 8D 4D B0           lea         ecx,[ebp-50h]
+  00D5192F: 51                 push        ecx
+  00D51930: 8D 55 90           lea         edx,[ebp-70h]
+  00D51933: 52                 push        edx
+  00D51934: 8D 4F 10           lea         ecx,[edi+10h]
+  00D51937: F3 0F 11 45 F4     movss       dword ptr [ebp-0Ch],xmm0
+  00D5193C: E8 0F 18 DA FF     call        00AF3150
+  00D51941: 84 C0              test        al,al
+  00D51943: 75 0D              jne         00D51952
+  00D51945: 32 C0              xor         al,al
+  00D51947: 5F                 pop         edi
+  00D51948: 5E                 pop         esi
+  00D51949: 8B E5              mov         esp,ebp
+  00D5194B: 5D                 pop         ebp
+  00D5194C: 8B E3              mov         esp,ebx
+  00D5194E: 5B                 pop         ebx
+  00D5194F: C2 18 00           ret         18h
+  00D51952: F3 0F 10 45 F4     movss       xmm0,dword ptr [ebp-0Ch]
+  00D51957: 0F 2F 45 C0        comiss      xmm0,dword ptr [ebp-40h]
+  00D5195B: 77 E8              ja          00D51945
+  00D5195D: 0F 28 4D B0        movaps      xmm1,xmmword ptr [ebp-50h]
+  00D51961: 8B 43 18           mov         eax,dword ptr [ebx+18h]
+  00D51964: 8B 4B 14           mov         ecx,dword ptr [ebx+14h]
+  00D51967: 0F C6 C0 00        shufps      xmm0,xmm0,0
+  00D5196B: 0F 59 C1           mulps       xmm0,xmm1
+  00D5196E: 0F 28 D0           movaps      xmm2,xmm0
+  00D51971: 0F 28 CA           movaps      xmm1,xmm2
+  00D51974: 0F 59 CA           mulps       xmm1,xmm2
+  00D51977: 0F 28 C1           movaps      xmm0,xmm1
+  00D5197A: 0F C6 C1 02        shufps      xmm0,xmm1,2
+  00D5197E: 0F 28 D9           movaps      xmm3,xmm1
+  00D51981: 0F C6 D9 01        shufps      xmm3,xmm1,1
+  00D51985: 0F 58 C3           addps       xmm0,xmm3
+  00D51988: 0F 58 C1           addps       xmm0,xmm1
+  00D5198B: 0F C6 C0 00        shufps      xmm0,xmm0,0
+  00D5198F: 0F 51 C0           sqrtps      xmm0,xmm0
+  00D51992: 0F 29 45 D0        movaps      xmmword ptr [ebp-30h],xmm0
+  00D51996: F3 0F 10 45 D0     movss       xmm0,dword ptr [ebp-30h]
+  00D5199B: F3 0F 11 00        movss       dword ptr [eax],xmm0
+  00D5199F: 0F 28 45 90        movaps      xmm0,xmmword ptr [ebp-70h]
+  00D519A3: 0F 58 D0           addps       xmm2,xmm0
+  00D519A6: F3 0F 10 05 98 A9  movss       xmm0,dword ptr ds:[0109A998h]
+  00D519AE: B8 64 A1 0D 01     mov         eax,10DA164h
+  00D519B3: 0F 29 11           movaps      xmmword ptr [ecx],xmm2
+  00D519B6: F3 0F 11 45 F8     movss       dword ptr [ebp-8],xmm0
+  00D519BB: 89 45 FC           mov         dword ptr [ebp-4],eax
+  00D519BE: EB 06              jmp         00D519C6
+  00D519C0: 8B 45 FC           mov         eax,dword ptr [ebp-4]
+  00D519C3: 8B 7D F0           mov         edi,dword ptr [ebp-10h]
+  00D519C6: 8B 70 FC           mov         esi,dword ptr [eax-4]
+  00D519C9: 8B 4D F0           mov         ecx,dword ptr [ebp-10h]
+  00D519CC: 83 C6 03           add         esi,3
+  00D519CF: C1 E6 04           shl         esi,4
+  00D519D2: 03 F7              add         esi,edi
+  00D519D4: 8B 38              mov         edi,dword ptr [eax]
+  00D519D6: 8B 40 04           mov         eax,dword ptr [eax+4]
+  00D519D9: 83 C0 03           add         eax,3
+  00D519DC: 83 C7 03           add         edi,3
+  00D519DF: C1 E0 04           shl         eax,4
+  00D519E2: 03 C1              add         eax,ecx
+  00D519E4: C1 E7 04           shl         edi,4
+  00D519E7: 03 F9              add         edi,ecx
+  00D519E9: 8D 55 EC           lea         edx,[ebp-14h]
+  00D519EC: 52                 push        edx
+  00D519ED: 8D 4D E4           lea         ecx,[ebp-1Ch]
+  00D519F0: 51                 push        ecx
+  00D519F1: 8D 55 E0           lea         edx,[ebp-20h]
+  00D519F4: 52                 push        edx
+  00D519F5: 8D 4D D0           lea         ecx,[ebp-30h]
+  00D519F8: 51                 push        ecx
+  00D519F9: 50                 push        eax
+  00D519FA: 57                 push        edi
+  00D519FB: 56                 push        esi
+  00D519FC: 8D 55 B0           lea         edx,[ebp-50h]
+  00D519FF: 89 45 E8           mov         dword ptr [ebp-18h],eax

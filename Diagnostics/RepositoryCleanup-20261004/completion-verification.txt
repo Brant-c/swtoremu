@@ -1,0 +1,7 @@
+All nine cleanup phases assessed; twelve-part final report: docs/repository-cleanup.md.
+Both isolated C# builds pass; four offline checks pass; WorldEntryOffline retains preexisting failure.
+75 archive moves and hashes verified; 710 index-only removals; no physical deletion.
+553 existing runtime input hashes preserved; maintained Markdown links resolve.
+Log collector: eight saved copies hash-verified; all workflow scripts parse; server preflight passes.
+No server/client launch, gameplay/protocol change, commit, push or new AI research layer.
+Stop and await user review.

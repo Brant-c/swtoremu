@@ -1,0 +1,14 @@
+{
+  "samples": 189,
+  "farthest": [
+    "[2026-10-01 00:11:10]",
+    [
+      -53.4820671081543,
+      -7.713921546936035,
+      -125.84817504882812
+    ]
+  ],
+  "max_horizontal_radius": 11.536944544148055,
+  "user_report": "Allowed beyond barrier; left running a long time",
+  "snapshot": "live snapshot; processes still running when copied"
+}

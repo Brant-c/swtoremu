@@ -1,0 +1,40 @@
+  006DF370: E8 AB 00 00 00     call        006DF420
+  006DF375: 85 FF              test        edi,edi
+  006DF377: 74 05              je          006DF37E
+  006DF379: E8 52 58 FF FF     call        006D4BD0
+  006DF37E: 8B 86 FC 02 00 00  mov         eax,dword ptr [esi+000002FCh]
+  006DF384: 85 C0              test        eax,eax
+  006DF386: 74 08              je          006DF390
+  006DF388: 8B B8 98 00 00 00  mov         edi,dword ptr [eax+00000098h]
+  006DF38E: EB 02              jmp         006DF392
+  006DF390: 33 FF              xor         edi,edi
+  006DF392: 3B BE 98 00 00 00  cmp         edi,dword ptr [esi+00000098h]
+  006DF398: 74 0D              je          006DF3A7
+  006DF39A: 8B 16              mov         edx,dword ptr [esi]
+  006DF39C: 8B 82 04 02 00 00  mov         eax,dword ptr [edx+00000204h]
+  006DF3A2: 57                 push        edi
+  006DF3A3: 8B CE              mov         ecx,esi
+  006DF3A5: FF D0              call        eax
+  006DF3A7: 39 35 64 5F 49 01  cmp         dword ptr ds:[01495F64h],esi
+  006DF3AD: 75 27              jne         006DF3D6
+  006DF3AF: 8B 16              mov         edx,dword ptr [esi]
+  006DF3B1: 8B 82 68 01 00 00  mov         eax,dword ptr [edx+00000168h]
+  006DF3B7: 8B CE              mov         ecx,esi
+  006DF3B9: FF D0              call        eax
+  006DF3BB: 84 C0              test        al,al
+  006DF3BD: 75 17              jne         006DF3D6
+  006DF3BF: 0F B6 0D A2 26 49  movzx       ecx,byte ptr ds:[014926A2h]
+            01
+  006DF3C6: F7 D9              neg         ecx
+  006DF3C8: 1B C9              sbb         ecx,ecx
+  006DF3CA: 23 0D 20 6E 49 01  and         ecx,dword ptr ds:[01496E20h]
+  006DF3D0: 57                 push        edi
+  006DF3D1: E8 0A 27 4B 00     call        00B91AE0
+  006DF3D6: 5F                 pop         edi
+  006DF3D7: 5E                 pop         esi
+  006DF3D8: 59                 pop         ecx
+  006DF3D9: 5D                 pop         ebp
+  006DF3DA: C2 04 00           ret         4
+  006DF3DD: CC                 int         3
+  006DF3DE: CC                 int         3
+  006DF3DF: CC                 int         3

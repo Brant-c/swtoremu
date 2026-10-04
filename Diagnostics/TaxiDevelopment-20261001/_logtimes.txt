@@ -1,0 +1,24 @@
+now: 2026-10-02 19:24:15
+
+--- preserved run directories (newest 5) ---
+prelaunch-20261002-004121-403  dir-mtime=2026-10-02 00:41:21
+prelaunch-20261002-004138-300  dir-mtime=2026-10-02 00:41:38
+prelaunch-20261002-004231-490  dir-mtime=2026-10-02 00:42:31
+prelaunch-20261002-125716-189  dir-mtime=2026-10-02 12:57:16
+prelaunch-20261002-191757-283  dir-mtime=2026-10-02 19:17:57
+
+--- files in the newest directory ---
+launcher-console.log             113411  2026-10-02 13:08:53
+launcher-errors.log                   0  2026-10-02 12:57:16
+manifest.csv                       1165  2026-10-02 19:17:57
+nexus_hook.log                   211026  2026-10-02 13:08:21
+NexusToR.log                     459165  2026-10-02 13:08:21
+
+--- live NexusToR.log ---
+NexusToR.log                     269780  2026-10-02 19:22:17
+merge lines in live log: 1
+   [2026-10-02 19:21:26] AreaMergedAwareness: AreaMergedAwareness: MERGED taxi rung=0 sha256=5D3E2E381960277F14AE92FF3CF41C971F1E8BB00B315D2C2390E93B3BDCDD20 bytes=14159 captured=13488 count=77->82 npc=0
+
+--- every preserved log containing a merge line, newest first ---
+prelaunch-20261002-191757-283 / NexusToR.log  (mtime 2026-10-02 13:08:21)  1 line(s)
+    [2026-10-02 13:06:00] AreaMergedAwareness: AreaMergedAwareness: MERGED taxi rung=1 sha256=5A45CEEB6D2124F177EF5B0CEE569A1EBA9E06127161A5E96503FDB85BB6C960 bytes=14159 captured=13488 count=77->82 npc=0

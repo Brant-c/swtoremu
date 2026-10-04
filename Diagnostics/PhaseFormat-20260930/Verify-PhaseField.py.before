@@ -1,0 +1,28 @@
+"""Check actual C# serialized packets against captured schema and decoder."""
+import importlib.util,sys,json,hashlib
+from pathlib import Path
+out=Path(__file__).resolve().parent
+spec=importlib.util.spec_from_file_location('phase_decoder',out.parent/'Decode-Style7Replication.py')
+d=importlib.util.module_from_spec(spec);sys.modules[spec.name]=d;spec.loader.exec_module(d)
+structures,_,_=d.read_schema();s=structures[26];f=s.fields[25]
+assert len(s.fields)==215
+assert f.definition==0x40000002641F28CC and len(f.parts)==1 and f.parts[0].kind==1
+reports=[]
+for handle in [8,19]:
+ b=(out/f'clear-{handle}.bin').read_bytes();r=d.Reader(b,16)
+ assert r.byte()==3 and r.packed()==2
+ player=d.read_object_record(b,r)
+ assert player['node']==d.PLAYER_NODE and player['flags']==9
+ assert player['structure_id']==26 and player['style']==7 and player['inner_size']==1
+ assert b[player['body_start']:player['body_start']+1]==b'\0'
+ state_start=player['body_start']+1
+ states,_=d.field_states(b,state_start,player['value_end']-state_start,215)
+ assert [i for i,v in enumerate(states) if v==1]==[25]
+ assert all(v==2 for i,v in enumerate(states) if i!=25)
+ container=d.read_object_record(b,r)
+ baseline=(out/f'baseline-{handle}.bin').read_bytes()
+ assert b[container['start']:r.pos]==baseline[18:-7]
+ assert r.packed()==1 and r.packed()==0x1AC6F6DC1F and r.pos==len(b)
+ reports.append({'handle':handle,'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest().upper(),'hex':b.hex().upper(),'present_fields':[25],'value':0,'removed_node':'0x1AC6F6DC1F'})
+(out/'packet-verification.json').write_text(json.dumps(reports,indent=2))
+print('PASS: captured structure26 field25 is phsPhase UInt64; exact single-field clear, retained container update/removal, complete packet consumption.')

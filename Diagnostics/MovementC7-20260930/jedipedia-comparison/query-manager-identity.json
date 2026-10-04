@@ -1,0 +1,16 @@
+{
+  "vtable": "0x10d98f4",
+  "slots": [
+    "0xd1ee20",
+    "0xd1ee00",
+    "0xd1f500",
+    "0xd1f5a0",
+    "0xea9620",
+    "0xd1f6d0",
+    "0xd1eb60",
+    "0xd1f2d0",
+    "0xd1f3f0",
+    "0xd1f330"
+  ],
+  "rtti": ".?AVCollisionScene@bwa@@"
+}

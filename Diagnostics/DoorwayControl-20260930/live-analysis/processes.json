@@ -1,0 +1,20 @@
+[
+  {
+    "Id": 32304,
+    "ProcessName": "NexusToRServer",
+    "Path": "D:\\SWTORClassic\\swtoremu\\Diagnostics\\DoorwayControl-20260930\\build\\NexusToRServer.exe",
+    "StartTime": "2026-09-30T00:03:03.5209698-04:00"
+  },
+  {
+    "Id": 28416,
+    "ProcessName": "swtor-emu",
+    "Path": "D:\\SWTORClassic\\swtoremu\\nexusclient\\nexusclient\\swtor-emu.exe",
+    "StartTime": "2026-09-30T00:03:05.4612018-04:00"
+  },
+  {
+    "Id": 33844,
+    "ProcessName": "swtor-emu",
+    "Path": "D:\\SWTORClassic\\swtoremu\\nexusclient\\nexusclient\\swtor-emu.exe",
+    "StartTime": "2026-09-30T00:03:09.8648117-04:00"
+  }
+]

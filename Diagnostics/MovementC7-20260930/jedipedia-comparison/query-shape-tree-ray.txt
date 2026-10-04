@@ -1,0 +1,79 @@
+  00D20690: 55                 push        ebp
+  00D20691: 8B EC              mov         ebp,esp
+  00D20693: 8B 55 1C           mov         edx,dword ptr [ebp+1Ch]
+  00D20696: D9 45 10           fld         dword ptr [ebp+10h]
+  00D20699: 8B 01              mov         eax,dword ptr [ecx]
+  00D2069B: 8B 40 4C           mov         eax,dword ptr [eax+4Ch]
+  00D2069E: 52                 push        edx
+  00D2069F: 8B 55 18           mov         edx,dword ptr [ebp+18h]
+  00D206A2: 52                 push        edx
+  00D206A3: 8B 55 14           mov         edx,dword ptr [ebp+14h]
+  00D206A6: 52                 push        edx
+  00D206A7: 8B 55 0C           mov         edx,dword ptr [ebp+0Ch]
+  00D206AA: 51                 push        ecx
+  00D206AB: D9 1C 24           fstp        dword ptr [esp]
+  00D206AE: 52                 push        edx
+  00D206AF: 8B 55 08           mov         edx,dword ptr [ebp+8]
+  00D206B2: 52                 push        edx
+  00D206B3: FF D0              call        eax
+  00D206B5: 5D                 pop         ebp
+  00D206B6: C2 18 00           ret         18h
+  00D206B9: CC                 int         3
+  00D206BA: CC                 int         3
+  00D206BB: CC                 int         3
+  00D206BC: CC                 int         3
+  00D206BD: CC                 int         3
+  00D206BE: CC                 int         3
+  00D206BF: CC                 int         3
+  00D206C0: 55                 push        ebp
+  00D206C1: 8B EC              mov         ebp,esp
+  00D206C3: 6A FF              push        0FFFFFFFFh
+  00D206C5: 68 B8 12 FD 00     push        0FD12B8h
+  00D206CA: 64 A1 00 00 00 00  mov         eax,dword ptr fs:[00000000h]
+  00D206D0: 50                 push        eax
+  00D206D1: 64 89 25 00 00 00  mov         dword ptr fs:[00000000h],esp
+  00D206D8: 51                 push        ecx
+  00D206D9: 8B C1              mov         eax,ecx
+  00D206DB: B9 01 00 00 00     mov         ecx,1
+  00D206E0: 89 45 F0           mov         dword ptr [ebp-10h],eax
+  00D206E3: C7 00 50 D1 06 01  mov         dword ptr [eax],106D150h
+  00D206E9: 89 48 04           mov         dword ptr [eax+4],ecx
+  00D206EC: 89 48 08           mov         dword ptr [eax+8],ecx
+  00D206EF: C7 45 FC 00 00 00  mov         dword ptr [ebp-4],0
+  00D206F6: 8B 4D 08           mov         ecx,dword ptr [ebp+8]
+  00D206F9: C7 00 00 9A 0D 01  mov         dword ptr [eax],10D9A00h
+  00D206FF: 89 48 0C           mov         dword ptr [eax+0Ch],ecx
+  00D20702: C7 45 FC FF FF FF  mov         dword ptr [ebp-4],0FFFFFFFFh
+  00D20709: 8B 4D F4           mov         ecx,dword ptr [ebp-0Ch]
+  00D2070C: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+  00D20713: 8B E5              mov         esp,ebp
+  00D20715: 5D                 pop         ebp
+  00D20716: C2 04 00           ret         4
+  00D20719: CC                 int         3
+  00D2071A: CC                 int         3
+  00D2071B: CC                 int         3
+  00D2071C: CC                 int         3
+  00D2071D: CC                 int         3
+  00D2071E: CC                 int         3
+  00D2071F: CC                 int         3
+  00D20720: 55                 push        ebp
+  00D20721: 8B EC              mov         ebp,esp
+  00D20723: 8B 49 04           mov         ecx,dword ptr [ecx+4]
+  00D20726: 85 C9              test        ecx,ecx
+  00D20728: 74 06              je          00D20730
+  00D2072A: 5D                 pop         ebp
+  00D2072B: E9 A0 55 00 00     jmp         00D25CD0
+  00D20730: 5D                 pop         ebp
+  00D20731: C2 08 00           ret         8
+  00D20734: CC                 int         3
+  00D20735: CC                 int         3
+  00D20736: CC                 int         3
+  00D20737: CC                 int         3
+  00D20738: CC                 int         3
+  00D20739: CC                 int         3
+  00D2073A: CC                 int         3
+  00D2073B: CC                 int         3
+  00D2073C: CC                 int         3
+  00D2073D: CC                 int         3
+  00D2073E: CC                 int         3
+  00D2073F: CC                 int         3

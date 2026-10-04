@@ -108,8 +108,15 @@ class BitReader:
         return self.bits(suffix_width) | (1 << suffix_width)
 
 
-def field_states(data, offset, size, count):
+def field_states(data, offset, size, count, style=8):
+    # Native class reader switch at VA005AC65C: style7 ->005AC358
+    # consumes one presence bit; style8 ->005AC1DE consumes two-bit states.
+    # Existing callers without a style retain the historical style8 behavior.
     bits = BitReader(data, offset, size)
+    if style == 7:
+        return [1 if bits.bit() else 2 for _ in range(count)], bits
+    if style != 8:
+        raise ValueError(f"unsupported compact class style {style}")
     states = []
     missing_run = 0
     for field_index in range(count):
@@ -257,7 +264,7 @@ def main():
                     state_start = body_start + inner_size
                     states, bits = field_states(data, state_start,
                                                 value_end - state_start,
-                                                len(structures[26].fields))
+                                                len(structures[26].fields), style=style)
                     print(f"    state bits end at byte={bits.pos} bit={8-bits.in_byte}; "
                           f"present={sum(s != 2 for s in states)}")
                     # High-value player-entry gates.  staMobility is the
@@ -433,7 +440,7 @@ def dump_field_states(crt_numbers, names, structures):
                 state_start = record["body_start"] + record["inner_size"]
                 states, bits = field_states(data, state_start,
                                             record["value_end"] - state_start,
-                                            len(structure.fields))
+                                            len(structure.fields), style=record["style"])
                 present = [index for index in range(len(states)) if states[index] != 2]
                 print(f"    transmitted={len(present)}/{len(states)}; "
                       f"state bits end at byte={bits.pos} bit={8 - bits.in_byte}")
@@ -450,7 +457,7 @@ def dump_field_states(crt_numbers, names, structures):
             print(f"\nCRT{crt_number}: no record for the replicated player node")
 
 
-def dump_objects(crt_numbers, names):
+def dump_objects(crt_numbers, names, structures):
     """Print every record of each transaction with its resolved class name.
 
     The walk uses the documented GomUpdateObject framing, so each fixture is
@@ -459,14 +466,29 @@ def dump_objects(crt_numbers, names):
     """
     for crt_number in crt_numbers:
         data = fixture(crt_number)
-        reader, update_flags, object_count = read_gom_update(
-            data, CRT_UPDATE_OFFSET, f"CRT{crt_number}")
-        if reader is None:
-            continue
+        if crt_number == 1:
+            # CRT1 is special: bytes 4..7 are the compact-schema byte count,
+            # followed by that schema and then the GomUpdate flags directly.
+            # Treating offset 4 as a normal contract count hid all 53 objects
+            # in its trailing transaction, including the phased instances.
+            _, schema_end, _ = read_schema()
+            reader = Reader(data, schema_end)
+            update_flags = reader.byte()
+            object_count = reader.packed() if update_flags & 0x01 else 0
+            print(f"CRT1: schemaEnd=0x{schema_end:X} flags=0x{update_flags:02X} "
+                  f"objects={object_count} bytes={len(data)}")
+        else:
+            reader, update_flags, object_count = read_gom_update(
+                data, CRT_UPDATE_OFFSET, f"CRT{crt_number}")
+            if reader is None:
+                continue
         inventory = {}
         for object_index in range(object_count):
             record = read_object_record(data, reader)
             class_name = names.get(record["class_id"], "")
+            if not class_name and record["structure_id"] in structures:
+                class_name = names.get(
+                    structures[record["structure_id"]].base_class, "")
             if class_name:
                 inventory[class_name] = inventory.get(class_name, 0) + 1
             extras = []
@@ -519,4 +541,5 @@ if __name__ == "__main__":
             dump_field_states(arguments.dump_fields or list(range(2, 18)),
                               dump_names, dump_structures)
         if arguments.dump_objects is not None:
-            dump_objects(arguments.dump_objects or list(range(2, 18)), dump_names)
+            dump_objects(arguments.dump_objects or list(range(2, 18)),
+                         dump_names, dump_structures)

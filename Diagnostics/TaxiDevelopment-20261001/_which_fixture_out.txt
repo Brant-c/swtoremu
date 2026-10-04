@@ -1,0 +1,35 @@
+log mtime : 2026-10-04 15:00:34
+log lines : 1932
+
+[2026-10-04 14:59:41] AreaTaxiAwareness: AreaTaxiAwareness: fixture sha256=336316F50704B681D838645B3B13EC8E79DAEF006340E5829027502741D2B77A bytes=675 placement=(-53.5,-7.7,-125.5) npc=0x0000001AC7000001 containers=0x0000001AC70000
+[2026-10-04 14:59:41] TythonTaxi: TythonTaxi: EXPERIMENT taxi NPC=0x0000001AC7000001; template=npc.location.tython.taxi.jediretreat_pad1; placement=(-53.5,-7.7,-125.5) (fixture hash logged by AreaTaxiAwareness); Retreat/Gnarls des
+
+NEW fixture hash present in this log: False
+OLD fixture hash present in this log: False
+
+--- last 25 lines of the log ---
+[2026-10-04 15:00:28] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-10-04 15:00:29] TORGamePacketHandler: Received a packet [CMsg61116AD5]
+[2026-10-04 15:00:29] TORGamePacketHandler: CMsg61116AD5 rx    D5 6A 11 61 08 00 B3 65 C7 00 00 00 0A FC 27 C3 31 BF | .j.a...e......'.1.
+FF 3D 00 00 00 00 39 51 16 3F 8D 00 57 C2 72 D8 F6 C0 | .=....9Q.?..W.r...
+D0 CC FC C2 56 50 1B 00 00 00 00 00 50 68 00 39 38 0C | ....VP......Ph.98.
+00 00                                                 | ..
+
+[2026-10-04 15:00:29] AreaPollExperiment: AREA-POLL CMsg61116AD5: component=0x65B30008 len=48 placed=4611687178631283611 areaSvc=8 mode=Swallow body=C7-00-00-00-0A-FC-27-C3-31-BF-FF-3D-00-00-00-00-39-
+[2026-10-04 15:00:29] AreaPollExperiment: AREA-POLL CMsg61116AD5: decision=swallowed
+[2026-10-04 15:00:29] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-10-04 15:00:30] TORGamePacketHandler: Received a packet [Ping]
+[2026-10-04 15:00:30] TORGameServerPacket: Constructing Packet [Ping]
+[2026-10-04 15:00:30] TORGamePacketHandler: Received a packet [CMsg61116AD5]
+[2026-10-04 15:00:30] TORGamePacketHandler: CMsg61116AD5 rx    D5 6A 11 61 08 00 B3 65 C5 00 00 00 08 FC 27 C3 85 C9 | .j.a...e......'...
+56 C2 72 D8 F6 C0 88 4B FC C2 57 50 1B 00 00 00 00 00 | V.r....K..WP......
+0E 6A 00 39 38 0C 00 00                               | .j.98...
+
+[2026-10-04 15:00:30] AreaPollExperiment: AREA-POLL CMsg61116AD5: component=0x65B30008 len=36 placed=4611687178631283611 areaSvc=8 mode=Swallow body=C5-00-00-00-08-FC-27-C3-85-C9-56-C2-72-D8-F6-C0-88-
+[2026-10-04 15:00:30] AreaPollExperiment: AREA-POLL CMsg61116AD5: decision=swallowed
+[2026-10-04 15:00:30] TORGameServerPacket: Constructing Packet [AreaClientReplicationTransaction]
+[2026-10-04 15:00:32] TORGamePacketHandler: Received a packet [CMsgC26464A9]
+[2026-10-04 15:00:32] AreaPollExperiment: AREA-POLL CMsgC26464A9: component=0x65AB0007 len=43 placed=4611687178631283611 areaSvc=8 mode=Swallow body=27-00-00-00-CF-AC-41-D7-05-00-00-00-00-00-00-00-00-
+[2026-10-04 15:00:32] AreaPollExperiment: AREA-POLL CMsgC26464A9: decision=swallowed
+[2026-10-04 15:00:34] Handler: Client '15407622' disconnected from TimeServer
+[2026-10-04 15:00:34] Handler: Client '783737' disconnected from Shard01

@@ -1,0 +1,40 @@
+ 180              TcpListener listener = (TcpListener)ar.AsyncState;
+ 181              TcpClient client = listener.EndAcceptTcpClient(ar);
+ 182              Console.WriteLine("new client");
+ 183              new Thread(new ThreadStart(() =>
+ 184                  {
+ 185                      ProcessTcpClient(client);
+ 186                  })).Start();
+ 187  
+ 188              listener.BeginAcceptTcpClient(new AsyncCallback(EndAcceptClient), listener);
+ 189          }
+ 190  
+ 191          static void ProcessTcpClient(TcpClient client)
+ 192          {
+ 193              try
+ 194              {
+ 195                  SslStream stream = new SslStream(client.GetStream());
+ 196                  X509Certificate cert = new X509Certificate2(Certificate.CreateSelfSignCertificatePfx(
+ 197                      "CN=localhost", //host name
+ 198                      DateTime.Parse("2000-01-01"), //not valid before
+ 199                      DateTime.Parse("2099-01-01"), //not valid after
+ 200                      "mypassword"), "mypassword"); //password to encrypt key file)
+ 201                  stream.AuthenticateAsServer(cert);
+ 202  
+ 203                  byte[] requestBuffer = new byte[8192];
+ 204                  int read = stream.Read(requestBuffer, 0, 8192);
+ 205                  Array.Resize<byte>(ref requestBuffer, read);
+ 206  
+ 207                  string request = Encoding.UTF8.GetString(requestBuffer);
+ 208                  string requestedPath = request.Split('?')[0].Replace("GET ", "");
+ 209  
+ 210                  Console.WriteLine(client.GetHashCode() + " => " + requestedPath);
+ 211  
+ 212                  string response = "";
+ 213  
+ 214                  if (requestedPath == "/gamepad/shardlist")
+ 215                  {
+ 216                      List<string> shardEntries = new List<string>();
+ 217                      foreach (ShardListEntry shardEntry in shardList.Shards)
+ 218                      {
+ 219                          string s = "{\"region\":" + (byte)shardEntry.Region + ",\"isup\":" + (shardEntry.Online ? "true" : "false");

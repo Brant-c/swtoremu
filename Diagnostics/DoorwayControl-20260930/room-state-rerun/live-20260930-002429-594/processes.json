@@ -1,0 +1,356 @@
+[
+  {
+    "ProcessName": "NexusToRServer",
+    "Id": 29560,
+    "StartTime": "2026-09-30T00:20:12.1592943-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 1348,
+    "StartTime": "2026-09-29T12:37:54.4426896-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 2472,
+    "StartTime": "2026-09-29T21:54:22.7766444-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 3484,
+    "StartTime": "2026-09-29T19:08:51.883328-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 3684,
+    "StartTime": "2026-09-29T21:53:12.4824325-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 6740,
+    "StartTime": "2026-09-29T20:47:59.7796428-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 7552,
+    "StartTime": "2026-09-29T18:44:25.4897524-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 8232,
+    "StartTime": "2026-09-29T21:54:48.7112303-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 9448,
+    "StartTime": "2026-09-29T19:01:45.5448891-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 9664,
+    "StartTime": "2026-09-29T18:47:03.2644093-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 11692,
+    "StartTime": "2026-09-30T00:20:14.1473762-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 14828,
+    "StartTime": "2026-09-30T00:20:06.4507619-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 14904,
+    "StartTime": "2026-09-29T12:16:09.4178519-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 17260,
+    "StartTime": "2026-09-29T12:20:24.7911265-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 19004,
+    "StartTime": "2026-09-29T21:55:28.6433753-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 19864,
+    "StartTime": "2026-09-29T19:06:58.497791-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 20112,
+    "StartTime": "2026-09-29T12:32:47.6162461-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 20140,
+    "StartTime": "2026-09-29T12:19:40.7339251-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 21412,
+    "StartTime": "2026-09-29T18:44:56.3093324-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 21612,
+    "StartTime": "2026-09-29T20:47:36.1600314-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 22736,
+    "StartTime": "2026-09-29T19:09:09.7877317-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 23108,
+    "StartTime": "2026-09-29T21:52:37.9073072-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 23680,
+    "StartTime": "2026-09-29T18:55:49.0674736-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 25192,
+    "StartTime": "2026-09-29T20:39:56.8840386-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 25744,
+    "StartTime": "2026-09-29T21:54:36.8850802-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 26064,
+    "StartTime": "2026-09-29T18:56:52.9594853-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 26072,
+    "StartTime": "2026-09-29T19:05:41.6760325-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 27724,
+    "StartTime": "2026-09-29T18:39:55.5092605-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 28288,
+    "StartTime": "2026-09-30T00:20:11.4548912-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 29316,
+    "StartTime": "2026-09-29T18:47:40.7607811-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 30112,
+    "StartTime": "2026-09-29T20:43:37.0837782-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 30608,
+    "StartTime": "2026-09-29T12:16:23.1977887-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 31128,
+    "StartTime": "2026-09-29T18:55:38.2440817-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 31224,
+    "StartTime": "2026-09-29T18:58:45.419591-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 31644,
+    "StartTime": "2026-09-29T18:43:30.721333-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 32604,
+    "StartTime": "2026-09-29T20:40:55.3616307-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 33064,
+    "StartTime": "2026-09-29T18:45:49.4899531-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 33164,
+    "StartTime": "2026-09-29T23:14:40.1271583-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 33400,
+    "StartTime": "2026-09-29T18:43:21.487598-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 34348,
+    "StartTime": "2026-09-29T21:55:16.2746077-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 35308,
+    "StartTime": "2026-09-29T18:51:58.5499571-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 36272,
+    "StartTime": "2026-09-29T18:54:33.2769505-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 37024,
+    "StartTime": "2026-09-29T18:51:50.0354079-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 37828,
+    "StartTime": "2026-09-29T20:41:10.4189145-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 38604,
+    "StartTime": "2026-09-29T18:52:45.024592-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 40464,
+    "StartTime": "2026-09-29T19:08:02.7956378-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 40992,
+    "StartTime": "2026-09-29T18:43:56.8288187-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 41320,
+    "StartTime": "2026-09-29T19:06:52.4958801-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 42680,
+    "StartTime": "2026-09-29T21:54:29.8486958-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 42692,
+    "StartTime": "2026-09-29T12:28:50.5908964-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 43252,
+    "StartTime": "2026-09-29T18:49:13.571045-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 43416,
+    "StartTime": "2026-09-29T18:58:03.8222573-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 44396,
+    "StartTime": "2026-09-29T18:57:36.8584628-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 44404,
+    "StartTime": "2026-09-29T19:07:44.5609521-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 46216,
+    "StartTime": "2026-09-29T21:53:25.4846532-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "powershell",
+    "Id": 46388,
+    "StartTime": "2026-09-29T18:56:40.1358805-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "ShardListServer",
+    "Id": 1916,
+    "StartTime": "2026-09-30T00:20:12.0313757-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "swtor-emu",
+    "Id": 35240,
+    "StartTime": "2026-09-30T00:20:18.7816203-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "swtor-emu",
+    "Id": 45972,
+    "StartTime": "2026-09-30T00:20:14.4183461-04:00",
+    "MainWindowTitle": ""
+  }
+]

@@ -8,6 +8,8 @@ namespace NexusToRServer.NET.Packets.Server
 {
     class AreaUpdateTimeSource : TORAreaServerPacket
     {
+        private static readonly DateTime UnixEpochUtc =
+            new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
         private byte _module;
 
         public AreaUpdateTimeSource()
@@ -23,9 +25,24 @@ namespace NexusToRServer.NET.Packets.Server
             WriteUInt32((UInt32)GetType()); // Packet Type
             WriteAreaComponent();
 
-            // TODO: Figure out what these are
-            WriteUInt64(0x05557892); 
-            WriteUInt64(0x0136AB22986F);
+            // The second captured value is Unix time in milliseconds.  The
+            // old fixture was 2012-04-13T09:57:12.943Z, which made newly
+            // replicated timed effects disagree with the client's clock.
+            // Unknown1 is retained verbatim until its purpose is known.
+            WriteUInt64(0x05557892);
+            WriteUInt64(GetUnixTimeMillisecondsUtc());
+        }
+
+        internal static UInt64 GetUnixTimeMillisecondsUtc()
+        {
+            return checked((UInt64)((DateTime.UtcNow - UnixEpochUtc).Ticks /
+                TimeSpan.TicksPerMillisecond));
+        }
+
+        internal static UInt64 GetFileTimeMillisecondsUtc()
+        {
+            return checked((UInt64)(DateTime.UtcNow.ToFileTimeUtc() /
+                TimeSpan.TicksPerMillisecond));
         }
 
         /// <summary>

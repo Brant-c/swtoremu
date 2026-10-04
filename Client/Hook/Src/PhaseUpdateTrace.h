@@ -1,0 +1,144 @@
+// Passive, opt-in checkpoints for the verified April phase update path.
+// No memory search: oracle is relative to the already discovered GUI method;
+// entity is identified only when its own verified TrackLine call executes.
+#include "PhaseUpdatePrefixes.h"
+
+typedef void (__cdecl * PhaseOracleUpdated_t)(void* me);
+typedef DWORD (__cdecl * PhaseTrackLine_t)(DWORD line);
+static PhaseOracleUpdated_t PhaseOracleUpdated_r = NULL;
+static PhaseTrackLine_t PhaseTrackLine_r = NULL;
+static DWORD g_phaseOracleBody = 0;
+static volatile LONG g_phaseEntityBody = 0;
+static volatile LONG g_phaseUpdateEvents = 0;
+static volatile LONG g_phaseOracleCalls = 0;
+static bool g_tracePhaseUpdate = false;
+static __declspec(thread) LONG g_phaseCrtDepth = 0;
+
+static void InspectPhaseCheckpoint(DWORD caller, DWORD line, BYTE* workspace)
+{
+    __try
+    {
+        // Script notifications may be deferred beyond the packet apply call.
+        // Match the executing method, not CRT depth; retain depth as context.
+        DWORD entity = (DWORD)g_phaseEntityBody;
+        if (!entity && line == 2 && caller >= 0x13)
+        {
+            DWORD candidate = caller - 0x13;
+            if (MatchesLifecyclePattern((BYTE*)candidate, phaseEntityPrefix,
+                    sizeof(phaseEntityPrefix)) &&
+                memcmp((BYTE*)candidate + 0x5B,
+                    "\x81\xF2\x02\x00\x00\x40\x81\xF0\xCC\x28\x1F\x64\x89\xC5\x09\xD5", 16) == 0 &&
+                memcmp((BYTE*)candidate + 0x2C5,
+                    "\x83\xC4\x4C\x5E\x5F\x5B\x5D\xC3", 8) == 0)
+            {
+                InterlockedCompareExchange(&g_phaseEntityBody, (LONG)candidate, 0);
+                entity = (DWORD)g_phaseEntityBody;
+                Log::Write("PhaseUpdateHook", "entity identified from executing call body=%p", (void*)entity);
+            }
+        }
+
+        const char* checkpoint = NULL;
+        DWORD offset = entity ? caller - entity : 0;
+        if (entity)
+        {
+            if (offset == 0x13 && line == 2) checkpoint = "entity-update-entry";
+            if (offset == 0x84 && line == 5) checkpoint = "phase-field-matched";
+            if (offset == 0xCB && line == 7) checkpoint = "local-player-comparison-passed";
+            if (offset == 0x19B && line == 14) checkpoint = "player-phase-info-invalid";
+            if (offset == 0x2D9 && line == 12) checkpoint = "player-phase-info-valid";
+            if (checkpoint && InterlockedIncrement(&g_phaseUpdateEvents) <= 128)
+            {
+                void* me = *(void**)(workspace + 0x60);
+                Log::Write("PhaseUpdateHook", "checkpoint=%s callerOffset=0x%X line=%u crtDepth=%ld me=%p replicationArgument=%08X%08X list=%p field=0x40000002641F28CC",
+                    checkpoint, offset, line, g_phaseCrtDepth, me,
+                    *(DWORD*)(workspace + 0x68), *(DWORD*)(workspace + 0x64),
+                    *(void**)(workspace + 0x6C));
+            }
+        }
+
+        if (!g_phaseOracleBody || caller < g_phaseOracleBody) return;
+        // The oracle body covers section offsets1940..2640. Only verified
+        // TrackLine return sites are interpreted, never adjacent functions.
+        offset = caller - g_phaseOracleBody + 0x1940;
+        checkpoint = NULL;
+        if (offset == 0x1C59 && line == 253) checkpoint = "new-instance-resolved";
+        if (offset == 0x1C8E && line == 257) checkpoint = "instance-changed";
+        if (offset == 0x1CE3 && line == 258) checkpoint = "player-instance-change-returned";
+        if (offset == 0x1CFF && line == 259) checkpoint = "old-instance-exit-call-follows";
+        if (offset == 0x1D3E && line == 262) checkpoint = "old-instance-exit-branch-complete";
+        if (offset == 0x244C && line == 315) checkpoint = "exit-branch-new-instance-invalid";
+        if (offset == 0x2563 && line == 322) checkpoint = "exit-gateway-gui-branch-complete";
+        if (offset == 0x260F && line == 254) checkpoint = "instance-unchanged-early-return";
+        if (checkpoint && InterlockedIncrement(&g_phaseUpdateEvents) <= 128)
+            Log::Write("PhaseUpdateHook", "checkpoint=%s sectionOffset=0x%X line=%u crtDepth=%ld newInstanceNameID=%08X%08X",
+                checkpoint, offset, line, g_phaseCrtDepth,
+                *(DWORD*)(workspace + 0x7C), *(DWORD*)(workspace + 0x78));
+    }
+    __except (EXCEPTION_EXECUTE_HANDLER)
+    {
+        if (InterlockedIncrement(&g_phaseUpdateEvents) <= 128)
+            Log::Write("PhaseUpdateHook", "checkpoint-inspection-failed caller=%p line=%u", (void*)caller, line);
+    }
+}
+
+DWORD __cdecl PhaseTrackLine_Hook(DWORD line)
+{
+    // AddressOfReturnAddress +4 is the generated caller's unchanged outgoing
+    // argument workspace. April bodies use fixed ESP frames, validated offline.
+    InspectPhaseCheckpoint((DWORD)_ReturnAddress(), line,
+        (BYTE*)_AddressOfReturnAddress() + sizeof(DWORD));
+    return PhaseTrackLine_r(line);
+}
+
+void __cdecl PhaseOracleUpdated_Hook(void* me)
+{
+    LONG count = InterlockedIncrement(&g_phaseOracleCalls);
+    if (count <= 32)
+        Log::Write("PhaseUpdateHook", "method=PHASE.OnPhasedInstanceUpdated phase=enter count=%ld crtDepth=%ld me=%p", count, g_phaseCrtDepth, me);
+    PhaseOracleUpdated_r(me);
+    if (count <= 32)
+        Log::Write("PhaseUpdateHook", "method=PHASE.OnPhasedInstanceUpdated phase=return count=%ld crtDepth=%ld me=%p", count, g_phaseCrtDepth, me);
+}
+
+static bool PreparePhaseUpdateTrace(DWORD guiAnchor)
+{
+    char enabled[8] = { 0 };
+    g_tracePhaseUpdate = GetEnvironmentVariableA("SWTOR_TRACE_PHASE_UPDATE", enabled, sizeof(enabled)) > 0 && enabled[0] == '1';
+    if (!g_tracePhaseUpdate) return true;
+    __try
+    {
+        DWORD oracle = guiAnchor - phaseOracleGuiDelta;
+        DWORD track = g_clientImageBase + phaseTrackLineRva;
+        // Confirm two loaded script relocations resolve to the pinned native
+        // helper; do not trust a name or historical load address alone.
+        DWORD guiTrack = guiAnchor + 19 + *(DWORD*)(guiAnchor + 15);
+        DWORD oracleTrack = oracle + 0x16 + *(DWORD*)(oracle + 0x12);
+        bool oraclePrefixOk = MatchesLifecyclePattern((BYTE*)oracle,
+            phaseOraclePrefix, sizeof(phaseOraclePrefix));
+        bool oracleEndOk = memcmp((BYTE*)oracle + (0x25E7 - 0x1940),
+            "\x81\xC4\xBC\x00\x00\x00\x5E\x5F\x5B\x5D\xC3", 11) == 0;
+        bool nativePrefixOk = memcmp((BYTE*)track, phaseTrackLinePrefix,
+            sizeof(phaseTrackLinePrefix)) == 0;
+        Log::Write("PhaseUpdateHook", "validation gui=%p oracle=%p delta=0x%X oraclePrefix=%u oracleEnd=%u guiTrack=%p oracleTrack=%p expectedTrack=%p nativePrefix=%u",
+            (void*)guiAnchor, (void*)oracle, phaseOracleGuiDelta,
+            oraclePrefixOk, oracleEndOk, (void*)guiTrack, (void*)oracleTrack,
+            (void*)track, nativePrefixOk);
+        if (!oraclePrefixOk || !oracleEndOk || guiTrack != track ||
+            oracleTrack != track || !nativePrefixOk)
+        {
+            g_tracePhaseUpdate = false;
+            Log::Write("PhaseUpdateHook", "ERROR callback validation failed; phase-update observers disabled; existing lifecycle observers remain eligible");
+            return false;
+        }
+        g_phaseOracleBody = oracle;
+        PhaseOracleUpdated_r = (PhaseOracleUpdated_t)oracle;
+        PhaseTrackLine_r = (PhaseTrackLine_t)track;
+        return true;
+    }
+    __except (EXCEPTION_EXECUTE_HANDLER)
+    {
+        g_tracePhaseUpdate = false;
+        Log::Write("PhaseUpdateHook", "ERROR bounded callback preparation failed gui=%p delta=0x%X; phase-update observers disabled", (void*)guiAnchor, phaseOracleGuiDelta);
+        return false;
+    }
+}

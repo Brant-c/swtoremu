@@ -1,0 +1,10 @@
+[VISIBLE]
+  gnarls_knight_cave_instance
+  gnarls_retreat_int_a
+  gnarls_retreat_int_b
+  gnarls_retreat_int_c
+  gnarls_retreat_int_d
+[SETTINGS]
+  BoundingBox=(0.,0.,0.) (0.,0.,0.)
+  EnviroScheme=Area
+  RoomGUID=4611686024647056040

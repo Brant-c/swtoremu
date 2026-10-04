@@ -1,0 +1,76 @@
+  007FD99C: 74 2B              je          007FD9C9
+  007FD99E: 8B 45 0C           mov         eax,dword ptr [ebp+0Ch]
+  007FD9A1: 8B 3E              mov         edi,dword ptr [esi]
+  007FD9A3: 50                 push        eax
+  007FD9A4: 81 C7 B0 00 00 00  add         edi,0B0h
+  007FD9AA: E8 41 D6 FF FF     call        007FAFF0
+  007FD9AF: 8B 17              mov         edx,dword ptr [edi]
+  007FD9B1: 83 C4 04           add         esp,4
+  007FD9B4: 50                 push        eax
+  007FD9B5: 68 1A 3C AF 80     push        80AF3C1Ah
+  007FD9BA: 8B CE              mov         ecx,esi
+  007FD9BC: FF D2              call        edx
+  007FD9BE: B0 01              mov         al,1
+  007FD9C0: 5F                 pop         edi
+  007FD9C1: 5E                 pop         esi
+  007FD9C2: 5B                 pop         ebx
+  007FD9C3: 8B E5              mov         esp,ebp
+  007FD9C5: 5D                 pop         ebp
+  007FD9C6: C2 08 00           ret         8
+  007FD9C9: 68 54 0E 16 01     push        1160E54h
+  007FD9CE: 57                 push        edi
+  007FD9CF: E8 1C 52 EC FF     call        006C2BF0
+  007FD9D4: 83 C4 08           add         esp,8
+  007FD9D7: 84 C0              test        al,al
+  007FD9D9: 74 20              je          007FD9FB
+  007FD9DB: 8B 4D 0C           mov         ecx,dword ptr [ebp+0Ch]
+  007FD9DE: 8B 06              mov         eax,dword ptr [esi]
+  007FD9E0: 8B 90 94 00 00 00  mov         edx,dword ptr [eax+00000094h]
+  007FD9E6: 51                 push        ecx
+  007FD9E7: 68 95 B3 4F D8     push        0D84FB395h
+  007FD9EC: 8B CE              mov         ecx,esi
+  007FD9EE: FF D2              call        edx
+  007FD9F0: B0 01              mov         al,1
+  007FD9F2: 5F                 pop         edi
+  007FD9F3: 5E                 pop         esi
+  007FD9F4: 5B                 pop         ebx
+  007FD9F5: 8B E5              mov         esp,ebp
+  007FD9F7: 5D                 pop         ebp
+  007FD9F8: C2 08 00           ret         8
+  007FD9FB: 68 AC 7B 14 01     push        1147BACh
+  007FDA00: 57                 push        edi
+  007FDA01: E8 EA 51 EC FF     call        006C2BF0
+  007FDA06: 83 C4 08           add         esp,8
+  007FDA09: 84 C0              test        al,al
+  007FDA0B: 74 2E              je          007FDA3B
+  007FDA0D: 8B 45 0C           mov         eax,dword ptr [ebp+0Ch]
+  007FDA10: 8B 3E              mov         edi,dword ptr [esi]
+  007FDA12: 50                 push        eax
+  007FDA13: 81 C7 B4 00 00 00  add         edi,0B4h
+  007FDA19: E8 62 A6 EC FF     call        006C8080
+  007FDA1E: 8B 17              mov         edx,dword ptr [edi]
+  007FDA20: 0F B6 C8           movzx       ecx,al
+  007FDA23: 83 C4 04           add         esp,4
+  007FDA26: 51                 push        ecx
+  007FDA27: 68 C1 3D 96 B4     push        0B4963DC1h
+  007FDA2C: 8B CE              mov         ecx,esi
+  007FDA2E: FF D2              call        edx
+  007FDA30: B0 01              mov         al,1
+  007FDA32: 5F                 pop         edi
+  007FDA33: 5E                 pop         esi
+  007FDA34: 5B                 pop         ebx
+  007FDA35: 8B E5              mov         esp,ebp
+  007FDA37: 5D                 pop         ebp
+  007FDA38: C2 08 00           ret         8
+  007FDA3B: 68 C0 0E 16 01     push        1160EC0h
+  007FDA40: 57                 push        edi
+  007FDA41: E8 AA 51 EC FF     call        006C2BF0
+  007FDA46: 83 C4 08           add         esp,8
+  007FDA49: 84 C0              test        al,al
+  007FDA4B: 74 2B              je          007FDA78
+  007FDA4D: 8B 45 0C           mov         eax,dword ptr [ebp+0Ch]
+  007FDA50: 8B 3E              mov         edi,dword ptr [esi]
+  007FDA52: 50                 push        eax
+  007FDA53: 81 C7 B0 00 00 00  add         edi,0B0h
+  007FDA59: E8 B2 D6 FF FF     call        007FB110
+  007FDA5E: 8B 17              mov         edx,dword ptr [edi]

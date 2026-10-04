@@ -60,6 +60,10 @@
     <Compile Include="AreaServer\CRT.cs" />
     <Compile Include="AreaServer\EffectEvents.cs" />
     <Compile Include="AreaServer\HackPacks.cs" />
+    <Compile Include="AreaServer\PhaseExit.cs" />
+    <Compile Include="AreaServer\PlayerMovementState.cs" />
+    <Compile Include="AreaServer\RetreatGatewayState.cs" />
+    <Compile Include="AreaServer\PhaseInstanceRetry.cs" />
     <Compile Include="Base\Crypto\AsnKeyBuilder.cs" />
     <Compile Include="Base\Crypto\AsnKeyParser.cs" />
     <Compile Include="Base\Crypto\BerDecodeError.cs" />
@@ -411,7 +415,20 @@
     <Compile Include="NET\Packets\Server\AreaAwarenessEntered.cs" />
     <Compile Include="NET\Packets\Server\AreaClientReplicationTransaction.cs" />
     <Compile Include="NET\Packets\Server\AreaReplicationDestroy.cs" />
+    <Compile Include="NET\Packets\Server\AreaPlayerMovementUpdate.cs" />
+    <Compile Include="NET\Packets\Server\AreaWellerConversation.cs" />
+    <Compile Include="AreaServer\WellerConversation.cs" />
+    <Compile Include="AreaServer\TythonTaxi.cs" />
+    <Compile Include="NET\Packets\Server\AreaTaxiAwareness.cs" />
+    <Compile Include="NET\Packets\Server\AreaTaxiCloneAwareness.cs" />
+    <Compile Include="NET\Packets\Server\AreaMergedAwareness.cs" />
+    <Compile Include="NET\Packets\Server\AreaTaxiInteraction.cs" />
+    <EmbeddedResource Include="AreaServer\TaxiRecord1.bin"><LogicalName>taxi.record1</LogicalName></EmbeddedResource>
+    <EmbeddedResource Include="AreaServer\TaxiNpc.bin"><LogicalName>taxi.awareness</LogicalName></EmbeddedResource>
+    
+    <EmbeddedResource Include="AreaServer\TaxiClone.bin"><LogicalName>taxi.clone</LogicalName></EmbeddedResource>
     <Compile Include="NET\Packets\Server\AreaSafeLoginRemoval.cs" />
+    <Compile Include="NET\Packets\Server\AreaAbilityEffectReplication.cs" />
     <Compile Include="NET\Packets\Server\AreaEffEventMessage.cs" />
     <Compile Include="NET\Packets\Server\AreaHackPack.cs" />
     <Compile Include="NET\Packets\Server\AreaRequestRPC.cs" />
@@ -464,6 +481,7 @@
     <Compile Include="LoginServer\Handler.cs" />
     <Compile Include="LoginServer\Router.cs" />
     <Compile Include="NET\TORGameClientPacket.cs" />
+    <Compile Include="NET\Protocol\PacketCursor.cs" />
     <Compile Include="NET\TORGamePacketHandler.cs" />
     <Compile Include="NET\TORGameServerPacket.cs" />
     <Compile Include="NET\TORAreaServerPacket.cs" />

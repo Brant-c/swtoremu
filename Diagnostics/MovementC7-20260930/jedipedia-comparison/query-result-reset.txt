@@ -1,0 +1,19 @@
+  00D022E0: F3 0F 10 05 D4 ED  movss       xmm0,dword ptr ds:[0117EDD4h]
+  00D022E8: 56                 push        esi
+  00D022E9: 8B F1              mov         esi,ecx
+  00D022EB: 8B 06              mov         eax,dword ptr [esi]
+  00D022ED: C7 46 04 00 00 00  mov         dword ptr [esi+4],0
+  00D022F4: F3 0F 11 86 D0 00  movss       dword ptr [esi+000000D0h],xmm0
+  00D022FC: 85 C0              test        eax,eax
+  00D022FE: 74 18              je          00D02318
+  00D02300: 8B 48 04           mov         ecx,dword ptr [eax+4]
+  00D02303: 8B 51 04           mov         edx,dword ptr [ecx+4]
+  00D02306: 83 44 02 08 FF     add         dword ptr [edx+eax+8],0FFFFFFFFh
+  00D0230B: 8D 4C 02 04        lea         ecx,[edx+eax+4]
+  00D0230F: 75 07              jne         00D02318
+  00D02311: 8B 01              mov         eax,dword ptr [ecx]
+  00D02313: 8B 50 04           mov         edx,dword ptr [eax+4]
+  00D02316: FF D2              call        edx
+  00D02318: C7 06 00 00 00 00  mov         dword ptr [esi],0
+  00D0231E: 5E                 pop         esi
+  00D0231F: C3                 ret

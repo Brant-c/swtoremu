@@ -1,0 +1,66 @@
+  007FE1F0: 55                 push        ebp
+  007FE1F1: 8B EC              mov         ebp,esp
+  007FE1F3: 83 E4 F0           and         esp,0FFFFFFF0h
+  007FE1F6: 8B 45 08           mov         eax,dword ptr [ebp+8]
+  007FE1F9: 83 EC 28           sub         esp,28h
+  007FE1FC: 56                 push        esi
+  007FE1FD: 57                 push        edi
+  007FE1FE: 8B F9              mov         edi,ecx
+  007FE200: 3D 95 B3 4F D8     cmp         eax,0D84FB395h
+  007FE205: 0F 85 B0 00 00 00  jne         007FE2BB
+  007FE20B: 8B 87 48 01 00 00  mov         eax,dword ptr [edi+00000148h]
+  007FE211: 8B 8F 4C 01 00 00  mov         ecx,dword ptr [edi+0000014Ch]
+  007FE217: 89 44 24 08        mov         dword ptr [esp+8],eax
+  007FE21B: 0B C1              or          eax,ecx
+  007FE21D: 89 4C 24 0C        mov         dword ptr [esp+0Ch],ecx
+  007FE221: 74 2B              je          007FE24E
+  007FE223: 8B 35 F0 28 49 01  mov         esi,dword ptr ds:[014928F0h]
+  007FE229: 81 C6 A8 09 00 00  add         esi,9A8h
+  007FE22F: 8D 44 24 08        lea         eax,[esp+8]
+  007FE233: E8 E8 11 F2 FF     call        0071F420
+  007FE238: 85 C0              test        eax,eax
+  007FE23A: 74 12              je          007FE24E
+  007FE23C: 8D 4C 24 08        lea         ecx,[esp+8]
+  007FE240: 8B D6              mov         edx,esi
+  007FE242: E8 39 0F F2 FF     call        0071F180
+  007FE247: 8B D7              mov         edx,edi
+  007FE249: E8 52 A7 ED FF     call        006D89A0
+  007FE24E: 8B 4D 0C           mov         ecx,dword ptr [ebp+0Ch]
+  007FE251: 66 83 39 00        cmp         word ptr [ecx],0
+  007FE255: 8B C1              mov         eax,ecx
+  007FE257: 74 10              je          007FE269
+  007FE259: 8D A4 24 00 00 00  lea         esp,[esp+00000000h]
+            00
+  007FE260: 83 C0 02           add         eax,2
+  007FE263: 66 83 38 00        cmp         word ptr [eax],0
+  007FE267: 75 F7              jne         007FE260
+  007FE269: 2B C1              sub         eax,ecx
+  007FE26B: D1 F8              sar         eax,1
+  007FE26D: 8D 04 41           lea         eax,[ecx+eax*2]
+  007FE270: 50                 push        eax
+  007FE271: 8D B7 38 01 00 00  lea         esi,[edi+00000138h]
+  007FE277: 51                 push        ecx
+  007FE278: 8B CE              mov         ecx,esi
+  007FE27A: E8 41 D2 C4 FF     call        0044B4C0
+  007FE27F: 8B 36              mov         esi,dword ptr [esi]
+  007FE281: 33 C0              xor         eax,eax
+  007FE283: 33 D2              xor         edx,edx
+  007FE285: 85 F6              test        esi,esi
+  007FE287: 74 13              je          007FE29C
+  007FE289: 68 E4 9C F2 CB     push        0CBF29CE4h
+  007FE28E: 68 25 23 22 84     push        84222325h
+  007FE293: 56                 push        esi
+  007FE294: E8 B7 31 CC FF     call        004C1450
+  007FE299: 83 C4 0C           add         esp,0Ch
+  007FE29C: 52                 push        edx
+  007FE29D: 50                 push        eax
+  007FE29E: 8B F7              mov         esi,edi
+  007FE2A0: 89 87 48 01 00 00  mov         dword ptr [edi+00000148h],eax
+  007FE2A6: 89 97 4C 01 00 00  mov         dword ptr [edi+0000014Ch],edx
+  007FE2AC: E8 8F 0B F2 FF     call        0071EE40
+  007FE2B1: B0 01              mov         al,1
+  007FE2B3: 5F                 pop         edi
+  007FE2B4: 5E                 pop         esi
+  007FE2B5: 8B E5              mov         esp,ebp
+  007FE2B7: 5D                 pop         ebp
+  007FE2B8: C2 08 00           ret         8

@@ -1,0 +1,86 @@
+  00AA6920: 55                 push        ebp
+  00AA6921: 8B EC              mov         ebp,esp
+  00AA6923: 56                 push        esi
+  00AA6924: 8B 75 0C           mov         esi,dword ptr [ebp+0Ch]
+  00AA6927: 8B 46 1C           mov         eax,dword ptr [esi+1Ch]
+  00AA692A: 57                 push        edi
+  00AA692B: 8B 7D 08           mov         edi,dword ptr [ebp+8]
+  00AA692E: 50                 push        eax
+  00AA692F: 8B CF              mov         ecx,edi
+  00AA6931: E8 BA 5E ED FF     call        0097C7F0
+  00AA6936: F6 46 1C 01        test        byte ptr [esi+1Ch],1
+  00AA693A: 74 0D              je          00AA6949
+  00AA693C: D9 06              fld         dword ptr [esi]
+  00AA693E: 51                 push        ecx
+  00AA693F: 8B CF              mov         ecx,edi
+  00AA6941: D9 1C 24           fstp        dword ptr [esp]
+  00AA6944: E8 C7 5F ED FF     call        0097C910
+  00AA6949: F6 46 1C 02        test        byte ptr [esi+1Ch],2
+  00AA694D: 74 0D              je          00AA695C
+  00AA694F: 6A 0C              push        0Ch
+  00AA6951: 8D 4E 04           lea         ecx,[esi+4]
+  00AA6954: 51                 push        ecx
+  00AA6955: 8B CF              mov         ecx,edi
+  00AA6957: E8 74 5A ED FF     call        0097C3D0
+  00AA695C: F6 46 1C 20        test        byte ptr [esi+1Ch],20h
+  00AA6960: 74 0E              je          00AA6970
+  00AA6962: D9 46 24           fld         dword ptr [esi+24h]
+  00AA6965: 51                 push        ecx
+  00AA6966: 8B CF              mov         ecx,edi
+  00AA6968: D9 1C 24           fstp        dword ptr [esp]
+  00AA696B: E8 A0 5F ED FF     call        0097C910
+  00AA6970: F6 46 1C 04        test        byte ptr [esi+1Ch],4
+  00AA6974: 74 0D              je          00AA6983
+  00AA6976: 6A 0C              push        0Ch
+  00AA6978: 8D 56 10           lea         edx,[esi+10h]
+  00AA697B: 52                 push        edx
+  00AA697C: 8B CF              mov         ecx,edi
+  00AA697E: E8 4D 5A ED FF     call        0097C3D0
+  00AA6983: F6 46 1C 08        test        byte ptr [esi+1Ch],8
+  00AA6987: 74 0C              je          00AA6995
+  00AA6989: 0F B6 46 20        movzx       eax,byte ptr [esi+20h]
+  00AA698D: 50                 push        eax
+  00AA698E: 8B CF              mov         ecx,edi
+  00AA6990: E8 3B 5F ED FF     call        0097C8D0
+  00AA6995: F6 46 1C 10        test        byte ptr [esi+1Ch],10h
+  00AA6999: 74 0C              je          00AA69A7
+  00AA699B: 0F B6 4E 21        movzx       ecx,byte ptr [esi+21h]
+  00AA699F: 51                 push        ecx
+  00AA69A0: 8B CF              mov         ecx,edi
+  00AA69A2: E8 29 5F ED FF     call        0097C8D0
+  00AA69A7: F6 46 1C 40        test        byte ptr [esi+1Ch],40h
+  00AA69AB: 74 0F              je          00AA69BC
+  00AA69AD: 8B 56 2C           mov         edx,dword ptr [esi+2Ch]
+  00AA69B0: 8B 46 28           mov         eax,dword ptr [esi+28h]
+  00AA69B3: 52                 push        edx
+  00AA69B4: 50                 push        eax
+  00AA69B5: 8B CF              mov         ecx,edi
+  00AA69B7: E8 74 5E ED FF     call        0097C830
+  00AA69BC: F6 46 1C 80        test        byte ptr [esi+1Ch],80h
+  00AA69C0: 74 0F              je          00AA69D1
+  00AA69C2: 8B 4E 34           mov         ecx,dword ptr [esi+34h]
+  00AA69C5: 8B 56 30           mov         edx,dword ptr [esi+30h]
+  00AA69C8: 51                 push        ecx
+  00AA69C9: 52                 push        edx
+  00AA69CA: 8B CF              mov         ecx,edi
+  00AA69CC: E8 5F 5E ED FF     call        0097C830
+  00AA69D1: F6 46 1D 01        test        byte ptr [esi+1Dh],1
+  00AA69D5: 74 0F              je          00AA69E6
+  00AA69D7: 8B 46 3C           mov         eax,dword ptr [esi+3Ch]
+  00AA69DA: 8B 4E 38           mov         ecx,dword ptr [esi+38h]
+  00AA69DD: 50                 push        eax
+  00AA69DE: 51                 push        ecx
+  00AA69DF: 8B CF              mov         ecx,edi
+  00AA69E1: E8 4A 5E ED FF     call        0097C830
+  00AA69E6: F6 46 1D 02        test        byte ptr [esi+1Dh],2
+  00AA69EA: 74 0D              je          00AA69F9
+  00AA69EC: 6A 0C              push        0Ch
+  00AA69EE: 83 C6 40           add         esi,40h
+  00AA69F1: 56                 push        esi
+  00AA69F2: 8B CF              mov         ecx,edi
+  00AA69F4: E8 D7 59 ED FF     call        0097C3D0
+  00AA69F9: 8B C7              mov         eax,edi
+  00AA69FB: 5F                 pop         edi
+  00AA69FC: 5E                 pop         esi
+  00AA69FD: 5D                 pop         ebp
+  00AA69FE: C3                 ret

@@ -1,0 +1,1 @@
+PASS: packet hex, routed envelope, registry integrity, Hero packed unsigned/signed bounds, and byte comparison.

@@ -1,0 +1,9 @@
+Source: <hex>
+Length: 44
+Opcode: 0x61116AD5 CMsg61116AD5
+Registry: C2S / Area / Captured
+Component: 0x65B30008 source=0x65B3 destination=0x0008
+Evidence: SharpServer/NET/Packets/Client/CMsg61116AD5.cs; phase-exit logs
+Body schema: Variant 0xC5 observed with heading and XYZ; exact complete schema unresolved
+Body: offset=8 length=36
+Body hex: C5 00 00 00 1A 00 B4 C2 8A BF 81 C2 C3 FF DC C0 8D 57 FF C2 2D 50 1B 00 00 00 00 00 0E 78 F8 1F 38 0C 00 00

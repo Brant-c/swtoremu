@@ -1,0 +1,61 @@
+  0074F2B0: 55                 push        ebp
+  0074F2B1: 8B EC              mov         ebp,esp
+  0074F2B3: 51                 push        ecx
+  0074F2B4: 53                 push        ebx
+  0074F2B5: 8B 5D 08           mov         ebx,dword ptr [ebp+8]
+  0074F2B8: 56                 push        esi
+  0074F2B9: 8B 35 08 2B 49 01  mov         esi,dword ptr ds:[01492B08h]
+  0074F2BF: 68 6C 3A 15 01     push        1153A6Ch
+  0074F2C4: 56                 push        esi
+  0074F2C5: E8 F6 A8 05 00     call        007A9BC0
+  0074F2CA: 68 94 3A 15 01     push        1153A94h
+  0074F2CF: 56                 push        esi
+  0074F2D0: E8 EB A8 05 00     call        007A9BC0
+  0074F2D5: 68 DC 3B 15 01     push        1153BDCh
+  0074F2DA: 56                 push        esi
+  0074F2DB: E8 E0 A8 05 00     call        007A9BC0
+  0074F2E0: 8B 43 28           mov         eax,dword ptr [ebx+28h]
+  0074F2E3: 85 C0              test        eax,eax
+  0074F2E5: 74 3D              je          0074F324
+  0074F2E7: 83 B8 8C 00 00 00  cmp         dword ptr [eax+0000008Ch],3
+            03
+  0074F2EE: 75 34              jne         0074F324
+  0074F2F0: A1 00 B0 38 01     mov         eax,dword ptr ds:[0138B000h]
+  0074F2F5: 8B 40 14           mov         eax,dword ptr [eax+14h]
+  0074F2F8: 85 C0              test        eax,eax
+  0074F2FA: 74 0E              je          0074F30A
+  0074F2FC: 8D 48 2C           lea         ecx,[eax+2Ch]
+  0074F2FF: 85 C9              test        ecx,ecx
+  0074F301: 74 07              je          0074F30A
+  0074F303: 8B 11              mov         edx,dword ptr [ecx]
+  0074F305: 8B 02              mov         eax,dword ptr [edx]
+  0074F307: 57                 push        edi
+  0074F308: FF D0              call        eax
+  0074F30A: 68 F8 3B 15 01     push        1153BF8h
+  0074F30F: 56                 push        esi
+  0074F310: E8 EB A7 05 00     call        007A9B00
+  0074F315: 8D 4B 74           lea         ecx,[ebx+74h]
+  0074F318: E8 33 29 D1 FF     call        00461C50
+  0074F31D: 5E                 pop         esi
+  0074F31E: 5B                 pop         ebx
+  0074F31F: 59                 pop         ecx
+  0074F320: 5D                 pop         ebp
+  0074F321: C2 04 00           ret         4
+  0074F324: 8B C7              mov         eax,edi
+  0074F326: 8D 50 01           lea         edx,[eax+1]
+  0074F329: 8D A4 24 00 00 00  lea         esp,[esp+00000000h]
+            00
+  0074F330: 8A 08              mov         cl,byte ptr [eax]
+  0074F332: 40                 inc         eax
+  0074F333: 84 C9              test        cl,cl
+  0074F335: 75 F9              jne         0074F330
+  0074F337: 2B C2              sub         eax,edx
+  0074F339: 03 C7              add         eax,edi
+  0074F33B: 50                 push        eax
+  0074F33C: 57                 push        edi
+  0074F33D: 8D 4B 74           lea         ecx,[ebx+74h]
+  0074F340: E8 DB 12 D2 FF     call        00470620
+  0074F345: 5E                 pop         esi
+  0074F346: 5B                 pop         ebx
+  0074F347: 59                 pop         ecx
+  0074F348: 5D                 pop         ebp

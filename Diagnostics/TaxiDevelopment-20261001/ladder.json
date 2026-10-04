@@ -1,0 +1,93 @@
+[
+  {
+    "rung": 0,
+    "label": "baseline: captured record, node + 5 m X offset only",
+    "file": "TaxiLadder0.bin",
+    "bytes": 478,
+    "record_bytes": 472,
+    "structure_id": 64,
+    "template": "0xe0005cb11264f32d",
+    "parent": "0x1ac688be1e",
+    "introduced": [],
+    "position": [
+      -54.787200927734375,
+      -6.899799823760986,
+      -128.3347930908203
+    ],
+    "captured_position": [
+      -59.787200927734375,
+      -6.899799823760986,
+      -128.3347930908203
+    ]
+  },
+  {
+    "rung": 1,
+    "label": "+_characterSpecification = taxi self-reference",
+    "file": "TaxiLadder1.bin",
+    "bytes": 478,
+    "record_bytes": 472,
+    "structure_id": 64,
+    "template": "0xe0005cb11264f32d",
+    "parent": "0x1ac688be1e",
+    "introduced": [
+      "_characterSpecification"
+    ],
+    "position": [
+      -54.787200927734375,
+      -6.899799823760986,
+      -128.3347930908203
+    ],
+    "captured_position": [
+      -59.787200927734375,
+      -6.899799823760986,
+      -128.3347930908203
+    ]
+  },
+  {
+    "rung": 2,
+    "label": "+brkResourceName = taxi model identity",
+    "file": "TaxiLadder2.bin",
+    "bytes": 478,
+    "record_bytes": 472,
+    "structure_id": 64,
+    "template": "0xe0005cb11264f32d",
+    "parent": "0x1ac688be1e",
+    "introduced": [
+      "brkResourceName"
+    ],
+    "position": [
+      -54.787200927734375,
+      -6.899799823760986,
+      -128.3347930908203
+    ],
+    "captured_position": [
+      -59.787200927734375,
+      -6.899799823760986,
+      -128.3347930908203
+    ]
+  },
+  {
+    "rung": 3,
+    "label": "both together",
+    "file": "TaxiLadder3.bin",
+    "bytes": 478,
+    "record_bytes": 472,
+    "structure_id": 64,
+    "template": "0xe0005cb11264f32d",
+    "parent": "0x1ac688be1e",
+    "introduced": [
+      "_characterSpecification",
+      "brkResourceName"
+    ],
+    "position": [
+      -54.787200927734375,
+      -6.899799823760986,
+      -128.3347930908203
+    ],
+    "captured_position": [
+      -59.787200927734375,
+      -6.899799823760986,
+      -128.3347930908203
+    ]
+  }
+]

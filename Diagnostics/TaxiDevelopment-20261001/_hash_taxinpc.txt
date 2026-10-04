@@ -1,0 +1,5 @@
+SHA256 hash of SharpServer\AreaServer\TaxiNpc.bin:
+78ce8d7a66552c5631de89489cc753cb2ddf3060f8c4572a8f28bf72dc95023d
+CertUtil: -hashfile command completed successfully.
+CertUtil: -hashfile command FAILED: 0x80070002 (WIN32: 2 ERROR_FILE_NOT_FOUND)
+CertUtil: The system cannot find the file specified.

@@ -1,0 +1,57 @@
+  0072E379: 68 4C 81 14 01     push        114814Ch
+  0072E37E: 8D 85 34 FF FF FF  lea         eax,[ebp+FFFFFF34h]
+  0072E384: 68 94 72 12 01     push        1127294h
+  0072E389: 50                 push        eax
+  0072E38A: E8 B1 08 D5 FF     call        0047EC40
+  0072E38F: 83 C4 08           add         esp,8
+  0072E392: 50                 push        eax
+  0072E393: E8 A8 08 D5 FF     call        0047EC40
+  0072E398: 83 C4 08           add         esp,8
+  0072E39B: 50                 push        eax
+  0072E39C: E8 9F 08 D5 FF     call        0047EC40
+  0072E3A1: 83 C4 08           add         esp,8
+  0072E3A4: 8B 8E E0 00 00 00  mov         ecx,dword ptr [esi+000000E0h]
+  0072E3AA: C1 E9 0C           shr         ecx,0Ch
+  0072E3AD: 80 E1 01           and         cl,1
+  0072E3B0: 0F B6 D1           movzx       edx,cl
+  0072E3B3: 52                 push        edx
+  0072E3B4: 8D 45 E0           lea         eax,[ebp-20h]
+  0072E3B7: 50                 push        eax
+  0072E3B8: E8 63 9C F9 FF     call        006C8020
+  0072E3BD: 83 C4 08           add         esp,8
+  0072E3C0: C6 45 FC 14        mov         byte ptr [ebp-4],14h
+  0072E3C4: 8B 0D EC 15 06 01  mov         ecx,dword ptr ds:[010615ECh]
+  0072E3CA: 51                 push        ecx
+  0072E3CB: 50                 push        eax
+  0072E3CC: 68 34 C9 13 01     push        113C934h
+  0072E3D1: 8D 95 34 FF FF FF  lea         edx,[ebp+FFFFFF34h]
+  0072E3D7: 68 AC 7B 14 01     push        1147BACh
+  0072E3DC: 52                 push        edx
+  0072E3DD: E8 5E 08 D5 FF     call        0047EC40
+  0072E3E2: 83 C4 08           add         esp,8
+  0072E3E5: 50                 push        eax
+  0072E3E6: E8 55 08 D5 FF     call        0047EC40
+  0072E3EB: 83 C4 08           add         esp,8
+  0072E3EE: 50                 push        eax
+  0072E3EF: E8 AC 2A D7 FF     call        004A0EA0
+  0072E3F4: 83 C4 08           add         esp,8
+  0072E3F7: 8B C8              mov         ecx,eax
+  0072E3F9: FF 15 1C 16 06 01  call        dword ptr ds:[0106161Ch]
+  0072E3FF: C6 45 FC 02        mov         byte ptr [ebp-4],2
+  0072E403: 8D 4D E0           lea         ecx,[ebp-20h]
+  0072E406: E8 C5 A5 CE FF     call        004189D0
+  0072E40B: 8B 45 C4           mov         eax,dword ptr [ebp-3Ch]
+  0072E40E: 57                 push        edi
+  0072E40F: 50                 push        eax
+  0072E410: 8D 8D 34 FF FF FF  lea         ecx,[ebp+FFFFFF34h]
+  0072E416: 51                 push        ecx
+  0072E417: E8 24 08 D5 FF     call        0047EC40
+  0072E41C: 83 C4 08           add         esp,8
+  0072E41F: 50                 push        eax
+  0072E420: E8 7B 2A D7 FF     call        004A0EA0
+  0072E425: 83 C4 08           add         esp,8
+  0072E428: F6 45 14 01        test        byte ptr [ebp+14h],1
+  0072E42C: 74 30              je          0072E45E
+  0072E42E: 68 D0 77 13 01     push        11377D0h
+  0072E433: 68 30 81 14 01     push        1148130h
+  0072E438: 8D 95 34 FF FF FF  lea         edx,[ebp+FFFFFF34h]

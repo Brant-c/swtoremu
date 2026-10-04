@@ -1,0 +1,270 @@
+  00D1E800: 53                 push        ebx
+  00D1E801: 8B DC              mov         ebx,esp
+  00D1E803: 83 EC 08           sub         esp,8
+  00D1E806: 83 E4 F0           and         esp,0FFFFFFF0h
+  00D1E809: 83 C4 04           add         esp,4
+  00D1E80C: 55                 push        ebp
+  00D1E80D: 8B 6B 04           mov         ebp,dword ptr [ebx+4]
+  00D1E810: 89 6C 24 04        mov         dword ptr [esp+4],ebp
+  00D1E814: 8B EC              mov         ebp,esp
+  00D1E816: 8B 43 0C           mov         eax,dword ptr [ebx+0Ch]
+  00D1E819: D9 EE              fldz
+  00D1E81B: 0F 28 00           movaps      xmm0,xmmword ptr [eax]
+  00D1E81E: F3 0F 10 0D B4 E6  movss       xmm1,dword ptr ds:[010CE6B4h]
+  00D1E826: 8B 53 14           mov         edx,dword ptr [ebx+14h]
+  00D1E829: 0F 28 D0           movaps      xmm2,xmm0
+  00D1E82C: 0F C6 D0 00        shufps      xmm2,xmm0,0
+  00D1E830: 0F C6 C9 00        shufps      xmm1,xmm1,0
+  00D1E834: 0F 2F D1           comiss      xmm2,xmm1
+  00D1E837: 52                 push        edx
+  00D1E838: 0F 86 C3 00 00 00  jbe         00D1E901
+  00D1E83E: 83 EC 08           sub         esp,8
+  00D1E841: D9 5C 24 04        fstp        dword ptr [esp+4]
+  00D1E845: 0F 28 D0           movaps      xmm2,xmm0
+  00D1E848: D9 43 10           fld         dword ptr [ebx+10h]
+  00D1E84B: 0F C6 D0 55        shufps      xmm2,xmm0,55h
+  00D1E84F: 0F 2F D1           comiss      xmm2,xmm1
+  00D1E852: D9 1C 24           fstp        dword ptr [esp]
+  00D1E855: 50                 push        eax
+  00D1E856: 8B 43 08           mov         eax,dword ptr [ebx+8]
+  00D1E859: 0F C6 C0 AA        shufps      xmm0,xmm0,0AAh
+  00D1E85D: 50                 push        eax
+  00D1E85E: 76 34              jbe         00D1E894
+  00D1E860: 0F 2F C1           comiss      xmm0,xmm1
+  00D1E863: 76 0E              jbe         00D1E873
+  00D1E865: E8 46 6B FF FF     call        00D153B0
+  00D1E86A: 8B E5              mov         esp,ebp
+  00D1E86C: 5D                 pop         ebp
+  00D1E86D: 8B E3              mov         esp,ebx
+  00D1E86F: 5B                 pop         ebx
+  00D1E870: C2 10 00           ret         10h
+  00D1E873: 0F 2F C8           comiss      xmm1,xmm0
+  00D1E876: 76 0E              jbe         00D1E886
+  00D1E878: E8 C3 70 FF FF     call        00D15940
+  00D1E87D: 8B E5              mov         esp,ebp
+  00D1E87F: 5D                 pop         ebp
+  00D1E880: 8B E3              mov         esp,ebx
+  00D1E882: 5B                 pop         ebx
+  00D1E883: C2 10 00           ret         10h
+  00D1E886: E8 45 76 FF FF     call        00D15ED0
+  00D1E88B: 8B E5              mov         esp,ebp
+  00D1E88D: 5D                 pop         ebp
+  00D1E88E: 8B E3              mov         esp,ebx
+  00D1E890: 5B                 pop         ebx
+  00D1E891: C2 10 00           ret         10h
+  00D1E894: 0F 2F CA           comiss      xmm1,xmm2
+  00D1E897: 76 34              jbe         00D1E8CD
+  00D1E899: 0F 2F C1           comiss      xmm0,xmm1
+  00D1E89C: 76 0E              jbe         00D1E8AC
+  00D1E89E: E8 BD 7B FF FF     call        00D16460
+  00D1E8A3: 8B E5              mov         esp,ebp
+  00D1E8A5: 5D                 pop         ebp
+  00D1E8A6: 8B E3              mov         esp,ebx
+  00D1E8A8: 5B                 pop         ebx
+  00D1E8A9: C2 10 00           ret         10h
+  00D1E8AC: 0F 2F C8           comiss      xmm1,xmm0
+  00D1E8AF: 76 0E              jbe         00D1E8BF
+  00D1E8B1: E8 3A 81 FF FF     call        00D169F0
+  00D1E8B6: 8B E5              mov         esp,ebp
+  00D1E8B8: 5D                 pop         ebp
+  00D1E8B9: 8B E3              mov         esp,ebx
+  00D1E8BB: 5B                 pop         ebx
+  00D1E8BC: C2 10 00           ret         10h
+  00D1E8BF: E8 BC 86 FF FF     call        00D16F80
+  00D1E8C4: 8B E5              mov         esp,ebp
+  00D1E8C6: 5D                 pop         ebp
+  00D1E8C7: 8B E3              mov         esp,ebx
+  00D1E8C9: 5B                 pop         ebx
+  00D1E8CA: C2 10 00           ret         10h
+  00D1E8CD: 0F 2F C1           comiss      xmm0,xmm1
+  00D1E8D0: 76 0E              jbe         00D1E8E0
+  00D1E8D2: E8 49 8C FF FF     call        00D17520
+  00D1E8D7: 8B E5              mov         esp,ebp
+  00D1E8D9: 5D                 pop         ebp
+  00D1E8DA: 8B E3              mov         esp,ebx
+  00D1E8DC: 5B                 pop         ebx
+  00D1E8DD: C2 10 00           ret         10h
+  00D1E8E0: 0F 2F C8           comiss      xmm1,xmm0
+  00D1E8E3: 76 0E              jbe         00D1E8F3
+  00D1E8E5: E8 B6 91 FF FF     call        00D17AA0
+  00D1E8EA: 8B E5              mov         esp,ebp
+  00D1E8EC: 5D                 pop         ebp
+  00D1E8ED: 8B E3              mov         esp,ebx
+  00D1E8EF: 5B                 pop         ebx
+  00D1E8F0: C2 10 00           ret         10h
+  00D1E8F3: E8 38 97 FF FF     call        00D18030
+  00D1E8F8: 8B E5              mov         esp,ebp
+  00D1E8FA: 5D                 pop         ebp
+  00D1E8FB: 8B E3              mov         esp,ebx
+  00D1E8FD: 5B                 pop         ebx
+  00D1E8FE: C2 10 00           ret         10h
+  00D1E901: 0F 2F CA           comiss      xmm1,xmm2
+  00D1E904: 0F 28 D0           movaps      xmm2,xmm0
+  00D1E907: 0F C6 D0 55        shufps      xmm2,xmm0,55h
+  00D1E90B: 0F C6 C0 AA        shufps      xmm0,xmm0,0AAh
+  00D1E90F: 0F 86 B8 00 00 00  jbe         00D1E9CD
+  00D1E915: 83 EC 08           sub         esp,8
+  00D1E918: 0F 2F D1           comiss      xmm2,xmm1
+  00D1E91B: D9 5C 24 04        fstp        dword ptr [esp+4]
+  00D1E91F: D9 43 10           fld         dword ptr [ebx+10h]
+  00D1E922: D9 1C 24           fstp        dword ptr [esp]
+  00D1E925: 50                 push        eax
+  00D1E926: 8B 43 08           mov         eax,dword ptr [ebx+8]
+  00D1E929: 50                 push        eax
+  00D1E92A: 76 34              jbe         00D1E960
+  00D1E92C: 0F 2F C1           comiss      xmm0,xmm1
+  00D1E92F: 76 0E              jbe         00D1E93F
+  00D1E931: E8 0A 9C FF FF     call        00D18540
+  00D1E936: 8B E5              mov         esp,ebp
+  00D1E938: 5D                 pop         ebp
+  00D1E939: 8B E3              mov         esp,ebx
+  00D1E93B: 5B                 pop         ebx
+  00D1E93C: C2 10 00           ret         10h
+  00D1E93F: 0F 2F C8           comiss      xmm1,xmm0
+  00D1E942: 76 0E              jbe         00D1E952
+  00D1E944: E8 87 A1 FF FF     call        00D18AD0
+  00D1E949: 8B E5              mov         esp,ebp
+  00D1E94B: 5D                 pop         ebp
+  00D1E94C: 8B E3              mov         esp,ebx
+  00D1E94E: 5B                 pop         ebx
+  00D1E94F: C2 10 00           ret         10h
+  00D1E952: E8 09 A7 FF FF     call        00D19060
+  00D1E957: 8B E5              mov         esp,ebp
+  00D1E959: 5D                 pop         ebp
+  00D1E95A: 8B E3              mov         esp,ebx
+  00D1E95C: 5B                 pop         ebx
+  00D1E95D: C2 10 00           ret         10h
+  00D1E960: 0F 2F CA           comiss      xmm1,xmm2
+  00D1E963: 76 34              jbe         00D1E999
+  00D1E965: 0F 2F C1           comiss      xmm0,xmm1
+  00D1E968: 76 0E              jbe         00D1E978
+  00D1E96A: E8 81 AC FF FF     call        00D195F0
+  00D1E96F: 8B E5              mov         esp,ebp
+  00D1E971: 5D                 pop         ebp
+  00D1E972: 8B E3              mov         esp,ebx
+  00D1E974: 5B                 pop         ebx
+  00D1E975: C2 10 00           ret         10h
+  00D1E978: 0F 2F C8           comiss      xmm1,xmm0
+  00D1E97B: 76 0E              jbe         00D1E98B
+  00D1E97D: E8 FE B1 FF FF     call        00D19B80
+  00D1E982: 8B E5              mov         esp,ebp
+  00D1E984: 5D                 pop         ebp
+  00D1E985: 8B E3              mov         esp,ebx
+  00D1E987: 5B                 pop         ebx
+  00D1E988: C2 10 00           ret         10h
+  00D1E98B: E8 80 B7 FF FF     call        00D1A110
+  00D1E990: 8B E5              mov         esp,ebp
+  00D1E992: 5D                 pop         ebp
+  00D1E993: 8B E3              mov         esp,ebx
+  00D1E995: 5B                 pop         ebx
+  00D1E996: C2 10 00           ret         10h
+  00D1E999: 0F 2F C1           comiss      xmm0,xmm1
+  00D1E99C: 76 0E              jbe         00D1E9AC
+  00D1E99E: E8 FD BC FF FF     call        00D1A6A0
+  00D1E9A3: 8B E5              mov         esp,ebp
+  00D1E9A5: 5D                 pop         ebp
+  00D1E9A6: 8B E3              mov         esp,ebx
+  00D1E9A8: 5B                 pop         ebx
+  00D1E9A9: C2 10 00           ret         10h
+  00D1E9AC: 0F 2F C8           comiss      xmm1,xmm0
+  00D1E9AF: 76 0E              jbe         00D1E9BF
+  00D1E9B1: E8 7A C2 FF FF     call        00D1AC30
+  00D1E9B6: 8B E5              mov         esp,ebp
+  00D1E9B8: 5D                 pop         ebp
+  00D1E9B9: 8B E3              mov         esp,ebx
+  00D1E9BB: 5B                 pop         ebx
+  00D1E9BC: C2 10 00           ret         10h
+  00D1E9BF: E8 FC C7 FF FF     call        00D1B1C0
+  00D1E9C4: 8B E5              mov         esp,ebp
+  00D1E9C6: 5D                 pop         ebp
+  00D1E9C7: 8B E3              mov         esp,ebx
+  00D1E9C9: 5B                 pop         ebx
+  00D1E9CA: C2 10 00           ret         10h
+  00D1E9CD: 83 EC 08           sub         esp,8
+  00D1E9D0: 0F 2F D1           comiss      xmm2,xmm1
+  00D1E9D3: D9 5C 24 04        fstp        dword ptr [esp+4]
+  00D1E9D7: D9 43 10           fld         dword ptr [ebx+10h]
+  00D1E9DA: D9 1C 24           fstp        dword ptr [esp]
+  00D1E9DD: 50                 push        eax
+  00D1E9DE: 8B 43 08           mov         eax,dword ptr [ebx+8]
+  00D1E9E1: 50                 push        eax
+  00D1E9E2: 76 34              jbe         00D1EA18
+  00D1E9E4: 0F 2F C1           comiss      xmm0,xmm1
+  00D1E9E7: 76 0E              jbe         00D1E9F7
+  00D1E9E9: E8 F2 CC FF FF     call        00D1B6E0
+  00D1E9EE: 8B E5              mov         esp,ebp
+  00D1E9F0: 5D                 pop         ebp
+  00D1E9F1: 8B E3              mov         esp,ebx
+  00D1E9F3: 5B                 pop         ebx
+  00D1E9F4: C2 10 00           ret         10h
+  00D1E9F7: 0F 2F C8           comiss      xmm1,xmm0
+  00D1E9FA: 76 0E              jbe         00D1EA0A
+  00D1E9FC: E8 5F D2 FF FF     call        00D1BC60
+  00D1EA01: 8B E5              mov         esp,ebp
+  00D1EA03: 5D                 pop         ebp
+  00D1EA04: 8B E3              mov         esp,ebx
+  00D1EA06: 5B                 pop         ebx
+  00D1EA07: C2 10 00           ret         10h
+  00D1EA0A: E8 D1 D7 FF FF     call        00D1C1E0
+  00D1EA0F: 8B E5              mov         esp,ebp
+  00D1EA11: 5D                 pop         ebp
+  00D1EA12: 8B E3              mov         esp,ebx
+  00D1EA14: 5B                 pop         ebx
+  00D1EA15: C2 10 00           ret         10h
+  00D1EA18: 0F 2F CA           comiss      xmm1,xmm2
+  00D1EA1B: 76 34              jbe         00D1EA51
+  00D1EA1D: 0F 2F C1           comiss      xmm0,xmm1
+  00D1EA20: 76 0E              jbe         00D1EA30
+  00D1EA22: E8 E9 DC FF FF     call        00D1C710
+  00D1EA27: 8B E5              mov         esp,ebp
+  00D1EA29: 5D                 pop         ebp
+  00D1EA2A: 8B E3              mov         esp,ebx
+  00D1EA2C: 5B                 pop         ebx
+  00D1EA2D: C2 10 00           ret         10h
+  00D1EA30: 0F 2F C8           comiss      xmm1,xmm0
+  00D1EA33: 76 0E              jbe         00D1EA43
+  00D1EA35: E8 56 E2 FF FF     call        00D1CC90
+  00D1EA3A: 8B E5              mov         esp,ebp
+  00D1EA3C: 5D                 pop         ebp
+  00D1EA3D: 8B E3              mov         esp,ebx
+  00D1EA3F: 5B                 pop         ebx
+  00D1EA40: C2 10 00           ret         10h
+  00D1EA43: E8 C8 E7 FF FF     call        00D1D210
+  00D1EA48: 8B E5              mov         esp,ebp
+  00D1EA4A: 5D                 pop         ebp
+  00D1EA4B: 8B E3              mov         esp,ebx
+  00D1EA4D: 5B                 pop         ebx
+  00D1EA4E: C2 10 00           ret         10h
+  00D1EA51: 0F 2F C1           comiss      xmm0,xmm1
+  00D1EA54: 76 0E              jbe         00D1EA64
+  00D1EA56: E8 E5 EC FF FF     call        00D1D740
+  00D1EA5B: 8B E5              mov         esp,ebp
+  00D1EA5D: 5D                 pop         ebp
+  00D1EA5E: 8B E3              mov         esp,ebx
+  00D1EA60: 5B                 pop         ebx
+  00D1EA61: C2 10 00           ret         10h
+  00D1EA64: 0F 2F C8           comiss      xmm1,xmm0
+  00D1EA67: 76 0E              jbe         00D1EA77
+  00D1EA69: E8 02 F2 FF FF     call        00D1DC70
+  00D1EA6E: 8B E5              mov         esp,ebp
+  00D1EA70: 5D                 pop         ebp
+  00D1EA71: 8B E3              mov         esp,ebx
+  00D1EA73: 5B                 pop         ebx
+  00D1EA74: C2 10 00           ret         10h
+  00D1EA77: E8 34 F7 FF FF     call        00D1E1B0
+  00D1EA7C: 8B E5              mov         esp,ebp
+  00D1EA7E: 5D                 pop         ebp
+  00D1EA7F: 8B E3              mov         esp,ebx
+  00D1EA81: 5B                 pop         ebx
+  00D1EA82: C2 10 00           ret         10h
+  00D1EA85: CC                 int         3
+  00D1EA86: CC                 int         3
+  00D1EA87: CC                 int         3
+  00D1EA88: CC                 int         3
+  00D1EA89: CC                 int         3
+  00D1EA8A: CC                 int         3
+  00D1EA8B: CC                 int         3
+  00D1EA8C: CC                 int         3
+  00D1EA8D: CC                 int         3
+  00D1EA8E: CC                 int         3
+  00D1EA8F: CC                 int         3

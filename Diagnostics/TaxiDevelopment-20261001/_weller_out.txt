@@ -1,0 +1,33 @@
+weller: flags=0x01 objects=9 bytes=1247
+Weller struct62 inner=429 style=8 present=30
+  s62[ 0] character_position               = (-64.30229949951172, -6.907899856567383, -128.05320739746094)   bytes=c79a80c2840dddc09f0d00c3
+  s62[ 1] character_rotation               = (-0.0, -15.0, 0.0)   bytes=00000080000070c100000000
+  s62[ 9] chrScale                         = 1.0   bytes=0000803f
+  s62[10] chrMeleeDistance                 = 0.10000000149011612   bytes=cdcccc3d
+  s62[13] staWeaponState                   = 2   bytes=02
+  s62[23] phsPhase                         = 115007216671   bytes=cc1ac6f6dc1f
+  s62[24] eqpEquipment                     = 115007216751   bytes=cc1ac6f6dc6f
+  s62[25] effContainerPositive             = 115007216753   bytes=cc1ac6f6dc71
+  s62[26] effContainerNegative             = 115007216754   bytes=cc1ac6f6dc72
+  s62[27] effContainerOther                = 115007216755   bytes=cc1ac6f6dc73
+  s62[28] spnParentAnchorId                = 4611686037462170451   bytes=cf400000046e8fbb53
+  s62[33] tmrContainer                     = 115007216750   bytes=cc1ac6f6dc6e
+  s62[35] modStatComputed                  = None   bytes=42020000000003000000000400000000050000000007000000000800009b4309000000000a00000000273333333f289a99193e3000003a433a9a99193e3b0000b44373cdcc4c3d750000003f779a99993e79cdcc4c3d7b0000003f7d9a99993e860000003f880000003f8f00009b4398000000009a000000009b000000009c000000009e00000000a100000000a300000000c8e80000803fc8e90000803fc8fe00000000c8ff
+  s62[36] modStatBase                      = None   bytes=00
+  s62[37] statHealth                       = 1.734723475976807e-18   bytes=00000022
+  s62[38] staEnterIdle                     = 1   bytes=-
+  s62[39] cbtToughnessEnum                 = 8   bytes=08
+  s62[40] effTargetActiveSnare             = 310.0   bytes=00009b43
+  s62[44] effContainerEffectlessTags       = None   bytes=273333333f289a99193e3000003a433a9a99193e
+  desync at field 53 (cnvAlienConversationsRequiredLookup): ran out of value bytes (pos 667/818)
+
+walk ended 667/818  (clean=NO)
+
+--- spec-bearing fields ---
+  _characterSpecification      ABSENT from Weller
+  chrClass                     ABSENT from Weller
+  chrTemplateVisualIndex       ABSENT from Weller
+  brkResourceName              ABSENT from Weller
+  taxTerminalSpec              ABSENT from Weller
+  chrGender                    ABSENT from Weller
+  pvpFlagged                   ABSENT from Weller

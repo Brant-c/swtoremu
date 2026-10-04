@@ -1,0 +1,247 @@
+  00D20020: 53                 push        ebx
+  00D20021: 8B DC              mov         ebx,esp
+  00D20023: 83 EC 08           sub         esp,8
+  00D20026: 83 E4 F0           and         esp,0FFFFFFF0h
+  00D20029: 83 C4 04           add         esp,4
+  00D2002C: 55                 push        ebp
+  00D2002D: 8B 6B 04           mov         ebp,dword ptr [ebx+4]
+  00D20030: 89 6C 24 04        mov         dword ptr [esp+4],ebp
+  00D20034: 8B EC              mov         ebp,esp
+  00D20036: 83 EC 1C           sub         esp,1Ch
+  00D20039: 56                 push        esi
+  00D2003A: 8B 73 08           mov         esi,dword ptr [ebx+8]
+  00D2003D: 8A 46 2C           mov         al,byte ptr [esi+2Ch]
+  00D20040: A8 02              test        al,2
+  00D20042: 74 0A              je          00D2004E
+  00D20044: 32 C0              xor         al,al
+  00D20046: 5E                 pop         esi
+  00D20047: 8B E5              mov         esp,ebp
+  00D20049: 5D                 pop         ebp
+  00D2004A: 8B E3              mov         esp,ebx
+  00D2004C: 5B                 pop         ebx
+  00D2004D: C3                 ret
+  00D2004E: 80 7B 0C 00        cmp         byte ptr [ebx+0Ch],0
+  00D20052: 75 09              jne         00D2005D
+  00D20054: 80 3D 9D 39 37 01  cmp         byte ptr ds:[0137399Dh],0
+  00D2005B: 74 0F              je          00D2006C
+  00D2005D: A8 04              test        al,4
+  00D2005F: 75 E3              jne         00D20044
+  00D20061: 8B CE              mov         ecx,esi
+  00D20063: E8 38 EF FF FF     call        00D1EFA0
+  00D20068: 84 C0              test        al,al
+  00D2006A: 75 D8              jne         00D20044
+  00D2006C: 8A 46 2C           mov         al,byte ptr [esi+2Ch]
+  00D2006F: A8 08              test        al,8
+  00D20071: 75 D1              jne         00D20044
+  00D20073: 80 3D 9E 39 37 01  cmp         byte ptr ds:[0137399Eh],0
+  00D2007A: 74 04              je          00D20080
+  00D2007C: A8 10              test        al,10h
+  00D2007E: 75 C4              jne         00D20044
+  00D20080: 80 3D 9F 39 37 01  cmp         byte ptr ds:[0137399Fh],0
+  00D20087: 74 04              je          00D2008D
+  00D20089: A8 20              test        al,20h
+  00D2008B: 75 B7              jne         00D20044
+  00D2008D: 8B 43 14           mov         eax,dword ptr [ebx+14h]
+  00D20090: D9 43 18           fld         dword ptr [ebx+18h]
+  00D20093: 0F 28 20           movaps      xmm4,xmmword ptr [eax]
+  00D20096: 8B 4B 20           mov         ecx,dword ptr [ebx+20h]
+  00D20099: 8B 53 1C           mov         edx,dword ptr [ebx+1Ch]
+  00D2009C: 0F 28 CC           movaps      xmm1,xmm4
+  00D2009F: 0F 59 CC           mulps       xmm1,xmm4
+  00D200A2: 0F 28 C1           movaps      xmm0,xmm1
+  00D200A5: 0F C6 C1 02        shufps      xmm0,xmm1,2
+  00D200A9: 0F 28 D1           movaps      xmm2,xmm1
+  00D200AC: 0F C6 D1 01        shufps      xmm2,xmm1,1
+  00D200B0: 0F 58 C2           addps       xmm0,xmm2
+  00D200B3: F3 0F 10 15 E8 11  movss       xmm2,dword ptr ds:[010B11E8h]
+  00D200BB: 0F 58 C1           addps       xmm0,xmm1
+  00D200BE: 0F C6 C0 00        shufps      xmm0,xmm0,0
+  00D200C2: 0F 28 E8           movaps      xmm5,xmm0
+  00D200C5: F3 0F 10 05 D4 D2  movss       xmm0,dword ptr ds:[0106D2D4h]
+  00D200CD: 0F 52 DD           rsqrtps     xmm3,xmm5
+  00D200D0: 0F C6 C0 00        shufps      xmm0,xmm0,0
+  00D200D4: 0F 28 F3           movaps      xmm6,xmm3
+  00D200D7: 0F 59 F3           mulps       xmm6,xmm3
+  00D200DA: 0F 28 C8           movaps      xmm1,xmm0
+  00D200DD: 51                 push        ecx
+  00D200DE: 0F 59 F5           mulps       xmm6,xmm5
+  00D200E1: 0F 5C CE           subps       xmm1,xmm6
+  00D200E4: 0F C6 D2 00        shufps      xmm2,xmm2,0
+  00D200E8: 0F 28 F2           movaps      xmm6,xmm2
+  00D200EB: 0F 59 F3           mulps       xmm6,xmm3
+  00D200EE: 52                 push        edx
+  00D200EF: 51                 push        ecx
+  00D200F0: 8B 4B 10           mov         ecx,dword ptr [ebx+10h]
+  00D200F3: D9 1C 24           fstp        dword ptr [esp]
+  00D200F6: 0F 59 CE           mulps       xmm1,xmm6
+  00D200F9: 0F 58 CB           addps       xmm1,xmm3
+  00D200FC: 0F 28 D9           movaps      xmm3,xmm1
+  00D200FF: 0F 59 D9           mulps       xmm3,xmm1
+  00D20102: 8D 45 F0           lea         eax,[ebp-10h]
+  00D20105: 0F 59 DD           mulps       xmm3,xmm5
+  00D20108: 0F 5C C3           subps       xmm0,xmm3
+  00D2010B: 0F 59 D1           mulps       xmm2,xmm1
+  00D2010E: 0F 59 C2           mulps       xmm0,xmm2
+  00D20111: 50                 push        eax
+  00D20112: 0F 58 C1           addps       xmm0,xmm1
+  00D20115: 51                 push        ecx
+  00D20116: 0F 59 C4           mulps       xmm0,xmm4
+  00D20119: 8B CE              mov         ecx,esi
+  00D2011B: 0F 29 45 F0        movaps      xmmword ptr [ebp-10h],xmm0
+  00D2011F: E8 3C EE FF FF     call        00D1EF60
+  00D20124: 5E                 pop         esi
+  00D20125: 8B E5              mov         esp,ebp
+  00D20127: 5D                 pop         ebp
+  00D20128: 8B E3              mov         esp,ebx
+  00D2012A: 5B                 pop         ebx
+  00D2012B: C3                 ret
+  00D2012C: CC                 int         3
+  00D2012D: CC                 int         3
+  00D2012E: CC                 int         3
+  00D2012F: CC                 int         3
+  00D20130: 53                 push        ebx
+  00D20131: 8B DC              mov         ebx,esp
+  00D20133: 83 EC 08           sub         esp,8
+  00D20136: 83 E4 F0           and         esp,0FFFFFFF0h
+  00D20139: 83 C4 04           add         esp,4
+  00D2013C: 55                 push        ebp
+  00D2013D: 8B 6B 04           mov         ebp,dword ptr [ebx+4]
+  00D20140: 89 6C 24 04        mov         dword ptr [esp+4],ebp
+  00D20144: 8B EC              mov         ebp,esp
+  00D20146: 83 EC 10           sub         esp,10h
+  00D20149: 8B 53 0C           mov         edx,dword ptr [ebx+0Ch]
+  00D2014C: 8B C1              mov         eax,ecx
+  00D2014E: 8B 4B 08           mov         ecx,dword ptr [ebx+8]
+  00D20151: 0F 28 01           movaps      xmm0,xmmword ptr [ecx]
+  00D20154: 8B 4B 10           mov         ecx,dword ptr [ebx+10h]
+  00D20157: 0F 28 11           movaps      xmm2,xmmword ptr [ecx]
+  00D2015A: 0F 28 59 10        movaps      xmm3,xmmword ptr [ecx+10h]
+  00D2015E: 0F 28 C8           movaps      xmm1,xmm0
+  00D20161: 0F C6 C8 00        shufps      xmm1,xmm0,0
+  00D20165: 0F 59 CA           mulps       xmm1,xmm2
+  00D20168: 0F 28 51 30        movaps      xmm2,xmmword ptr [ecx+30h]
+  00D2016C: 0F 58 CA           addps       xmm1,xmm2
+  00D2016F: 0F 28 D0           movaps      xmm2,xmm0
+  00D20172: 0F C6 D0 55        shufps      xmm2,xmm0,55h
+  00D20176: 0F 59 D3           mulps       xmm2,xmm3
+  00D20179: 0F 58 CA           addps       xmm1,xmm2
+  00D2017C: 0F 28 D0           movaps      xmm2,xmm0
+  00D2017F: 0F C6 D0 AA        shufps      xmm2,xmm0,0AAh
+  00D20183: 0F 28 41 20        movaps      xmm0,xmmword ptr [ecx+20h]
+  00D20187: 0F 59 D0           mulps       xmm2,xmm0
+  00D2018A: 0F 58 CA           addps       xmm1,xmm2
+  00D2018D: 0F 29 08           movaps      xmmword ptr [eax],xmm1
+  00D20190: 0F 28 02           movaps      xmm0,xmmword ptr [edx]
+  00D20193: 0F 28 11           movaps      xmm2,xmmword ptr [ecx]
+  00D20196: 0F 28 59 10        movaps      xmm3,xmmword ptr [ecx+10h]
+  00D2019A: 0F 28 C8           movaps      xmm1,xmm0
+  00D2019D: 0F C6 C8 00        shufps      xmm1,xmm0,0
+  00D201A1: 0F 59 CA           mulps       xmm1,xmm2
+  00D201A4: 0F 28 51 30        movaps      xmm2,xmmword ptr [ecx+30h]
+  00D201A8: 0F 58 CA           addps       xmm1,xmm2
+  00D201AB: 0F 28 D0           movaps      xmm2,xmm0
+  00D201AE: 0F C6 D0 55        shufps      xmm2,xmm0,55h
+  00D201B2: 0F 59 D3           mulps       xmm2,xmm3
+  00D201B5: 0F 58 CA           addps       xmm1,xmm2
+  00D201B8: 0F 28 D0           movaps      xmm2,xmm0
+  00D201BB: 0F C6 D0 AA        shufps      xmm2,xmm0,0AAh
+  00D201BF: 0F 28 41 20        movaps      xmm0,xmmword ptr [ecx+20h]
+  00D201C3: 0F 59 D0           mulps       xmm2,xmm0
+  00D201C6: 0F 58 CA           addps       xmm1,xmm2
+  00D201C9: 0F 29 48 10        movaps      xmmword ptr [eax+10h],xmm1
+  00D201CD: 0F 28 00           movaps      xmm0,xmmword ptr [eax]
+  00D201D0: 0F 28 50 10        movaps      xmm2,xmmword ptr [eax+10h]
+  00D201D4: 0F 5C D0           subps       xmm2,xmm0
+  00D201D7: 0F 28 CA           movaps      xmm1,xmm2
+  00D201DA: 0F 59 CA           mulps       xmm1,xmm2
+  00D201DD: 0F 28 C1           movaps      xmm0,xmm1
+  00D201E0: 0F C6 C1 02        shufps      xmm0,xmm1,2
+  00D201E4: 0F 28 D9           movaps      xmm3,xmm1
+  00D201E7: 0F C6 D9 01        shufps      xmm3,xmm1,1
+  00D201EB: 0F 58 C3           addps       xmm0,xmm3
+  00D201EE: 0F 58 C1           addps       xmm0,xmm1
+  00D201F1: 0F C6 C0 00        shufps      xmm0,xmm0,0
+  00D201F5: 0F 51 C0           sqrtps      xmm0,xmm0
+  00D201F8: 0F 29 45 F0        movaps      xmmword ptr [ebp-10h],xmm0
+  00D201FC: F3 0F 10 45 F0     movss       xmm0,dword ptr [ebp-10h]
+  00D20201: F3 0F 11 40 30     movss       dword ptr [eax+30h],xmm0
+  00D20206: 0F 29 50 20        movaps      xmmword ptr [eax+20h],xmm2
+  00D2020A: 0F 28 60 20        movaps      xmm4,xmmword ptr [eax+20h]
+  00D2020E: 0F 28 CC           movaps      xmm1,xmm4
+  00D20211: 0F 59 CC           mulps       xmm1,xmm4
+  00D20214: 0F 28 C1           movaps      xmm0,xmm1
+  00D20217: 0F C6 C1 02        shufps      xmm0,xmm1,2
+  00D2021B: 0F 28 D1           movaps      xmm2,xmm1
+  00D2021E: 0F C6 D1 01        shufps      xmm2,xmm1,1
+  00D20222: 0F 58 C2           addps       xmm0,xmm2
+  00D20225: F3 0F 10 15 E8 11  movss       xmm2,dword ptr ds:[010B11E8h]
+  00D2022D: 0F 58 C1           addps       xmm0,xmm1
+  00D20230: 0F C6 C0 00        shufps      xmm0,xmm0,0
+  00D20234: 0F 28 E8           movaps      xmm5,xmm0
+  00D20237: F3 0F 10 05 D4 D2  movss       xmm0,dword ptr ds:[0106D2D4h]
+  00D2023F: 0F 52 DD           rsqrtps     xmm3,xmm5
+  00D20242: 0F 28 F3           movaps      xmm6,xmm3
+  00D20245: 0F 59 F3           mulps       xmm6,xmm3
+  00D20248: 0F 59 F5           mulps       xmm6,xmm5
+  00D2024B: 0F C6 C0 00        shufps      xmm0,xmm0,0
+  00D2024F: 0F 28 C8           movaps      xmm1,xmm0
+  00D20252: 0F 5C CE           subps       xmm1,xmm6
+  00D20255: 0F C6 D2 00        shufps      xmm2,xmm2,0
+  00D20259: 0F 28 F2           movaps      xmm6,xmm2
+  00D2025C: 0F 59 F3           mulps       xmm6,xmm3
+  00D2025F: 0F 59 CE           mulps       xmm1,xmm6
+  00D20262: 0F 58 CB           addps       xmm1,xmm3
+  00D20265: 0F 28 D9           movaps      xmm3,xmm1
+  00D20268: 0F 59 D9           mulps       xmm3,xmm1
+  00D2026B: 0F 59 DD           mulps       xmm3,xmm5
+  00D2026E: 0F 5C C3           subps       xmm0,xmm3
+  00D20271: 0F 59 D1           mulps       xmm2,xmm1
+  00D20274: 0F 59 C2           mulps       xmm0,xmm2
+  00D20277: 0F 58 C1           addps       xmm0,xmm1
+  00D2027A: 0F 59 C4           mulps       xmm0,xmm4
+  00D2027D: 0F 29 40 20        movaps      xmmword ptr [eax+20h],xmm0
+  00D20281: 8B E5              mov         esp,ebp
+  00D20283: 5D                 pop         ebp
+  00D20284: 8B E3              mov         esp,ebx
+  00D20286: 5B                 pop         ebx
+  00D20287: C2 0C 00           ret         0Ch
+  00D2028A: CC                 int         3
+  00D2028B: CC                 int         3
+  00D2028C: CC                 int         3
+  00D2028D: CC                 int         3
+  00D2028E: CC                 int         3
+  00D2028F: CC                 int         3
+  00D20290: 53                 push        ebx
+  00D20291: 8B DC              mov         ebx,esp
+  00D20293: 83 EC 08           sub         esp,8
+  00D20296: 83 E4 F0           and         esp,0FFFFFFF0h
+  00D20299: 83 C4 04           add         esp,4
+  00D2029C: 55                 push        ebp
+  00D2029D: 8B 6B 04           mov         ebp,dword ptr [ebx+4]
+  00D202A0: 89 6C 24 04        mov         dword ptr [esp+4],ebp
+  00D202A4: 8B EC              mov         ebp,esp
+  00D202A6: 8B 53 0C           mov         edx,dword ptr [ebx+0Ch]
+  00D202A9: 8B C1              mov         eax,ecx
+  00D202AB: 8B 4B 08           mov         ecx,dword ptr [ebx+8]
+  00D202AE: 0F 28 01           movaps      xmm0,xmmword ptr [ecx]
+  00D202B1: 0F 29 00           movaps      xmmword ptr [eax],xmm0
+  00D202B4: F3 0F 10 43 10     movss       xmm0,dword ptr [ebx+10h]
+  00D202B9: F3 0F 11 40 30     movss       dword ptr [eax+30h],xmm0
+  00D202BE: 0F 28 22           movaps      xmm4,xmmword ptr [edx]
+  00D202C1: 0F 28 CC           movaps      xmm1,xmm4
+  00D202C4: 0F 59 CC           mulps       xmm1,xmm4
+  00D202C7: 0F 28 C1           movaps      xmm0,xmm1
+  00D202CA: 0F C6 C1 02        shufps      xmm0,xmm1,2
+  00D202CE: 0F 28 D1           movaps      xmm2,xmm1
+  00D202D1: 0F C6 D1 01        shufps      xmm2,xmm1,1
+  00D202D5: 0F 58 C2           addps       xmm0,xmm2
+  00D202D8: F3 0F 10 15 E8 11  movss       xmm2,dword ptr ds:[010B11E8h]
+  00D202E0: 0F 58 C1           addps       xmm0,xmm1
+  00D202E3: 0F C6 C0 00        shufps      xmm0,xmm0,0
+  00D202E7: 0F 28 E8           movaps      xmm5,xmm0
+  00D202EA: F3 0F 10 05 D4 D2  movss       xmm0,dword ptr ds:[0106D2D4h]
+  00D202F2: 0F C6 C0 00        shufps      xmm0,xmm0,0
+  00D202F6: 0F 28 C8           movaps      xmm1,xmm0
+  00D202F9: 0F 52 DD           rsqrtps     xmm3,xmm5
+  00D202FC: 0F 28 F3           movaps      xmm6,xmm3
+  00D202FF: 0F 59 F3           mulps       xmm6,xmm3

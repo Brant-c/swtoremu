@@ -1,0 +1,22 @@
+======================================================================
+DIR prelaunch-20261002-191757-283
+--- launcher-console.log (15 lines)
+   World-entry C++ exception firstChance=1 type=.?AVConversionException@G@@
+   World-entry C++ exception firstChance=1 type=.?AVHeroScriptError@@
+   World-entry C++ exception firstChance=1 type=.?AVHeroScriptError@@
+   World-entry C++ exception firstChance=1 type=.?AVHeroScriptError@@
+   World-entry C++ exception firstChance=1 type=.?AVHeroScriptError@@
+   World-entry C++ exception firstChance=1 type=.?AVHeroScriptError@@
+   World-entry C++ exception firstChance=1 type=.?AVHeroScriptError@@
+   World-entry C++ exception firstChance=1 type=.?AVConversionException@G@@
+   World-entry C++ exception firstChance=1 type=.?AVInternalException@G@@
+   World-entry C++ exception firstChance=1 type=.?AVInternalException@G@@
+   World-entry C++ exception firstChance=1 type=.?AVInternalException@G@@
+   World-entry C++ exception firstChance=1 type=.?AVInternalException@G@@
+   World-entry C++ exception firstChance=1 type=.?AVInternalException@G@@
+   World-entry C++ exception firstChance=1 type=.?AVInternalException@G@@
+   Client stopped with exception 0xC0000005 at 0x779E69E2 (rva 0xFFFFFFFF).
+--- NexusToR.log (2 lines)
+   [2026-10-02 13:06:00] AreaMergedAwareness: AreaMergedAwareness: MERGED taxi rung=1 sha256=5A45CEEB6D2124F177EF5B0CEE569A1EBA9E06127161A5E96503FDB85BB6C960 bytes=14159 captured=13488 count=77->82 npc=0x0000001AC7000001; c
+   [2026-10-02 13:06:00] TythonTaxi: TythonTaxi: CONTROL ladder rung 1 merged into awareness set 1 as one object list; npc=0x0000001AC7000001. Taxi interaction is disabled in this mode.
+

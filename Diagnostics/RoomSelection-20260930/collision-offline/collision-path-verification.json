@@ -1,0 +1,10 @@
+{
+  "PE_SHA256": "2B47C25D2937A3DF2BE727A3224A93D748A5CDFA0F629B1A1C4FDCC163FB8494",
+  "TriggerNodeVtable": "0x116116c",
+  "CompleteObjectLocator": "0x11b7010",
+  "TypeDescriptor": "0x133723c",
+  "RTTIName": ".?AVTriggerNode@@",
+  "VirtualB4": "0x7fde70",
+  "VerifiedPrintedInstructionPrefixes": 600,
+  "Limit": "Existing listing prefixes verified; not fresh instruction boundary decoding"
+}

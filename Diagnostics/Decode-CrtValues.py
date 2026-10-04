@@ -113,6 +113,49 @@ class ValueWalker:
         count = token - 0xC7
         return int.from_bytes(self.raw(count), "big")
 
+    def packed_signed(self):
+        """Read the signed packed integer form used by HeroTypes.Integer."""
+        start = self.pos
+        token = self.byte()
+        if token < 0xC0:
+            return token
+        if token == 0xD0:
+            return -(1 << 63)
+        if 0xC0 <= token <= 0xC7:
+            count = token - 0xBF
+            return -int.from_bytes(self.raw(count), "big")
+        if 0xC8 <= token <= 0xCF:
+            count = token - 0xC7
+            return int.from_bytes(self.raw(count), "big")
+        raise WalkError(f"invalid signed packed token 0x{token:02X} at {start}")
+
+    def part_end(self, part, names, depth=0):
+        """Consume one part value and return the position AFTER it.
+
+        Same traversal as part(), but returns the end offset instead of a display
+        string, so callers can chain a walk without building text.
+        """
+        if depth > 8:
+            raise WalkError("container nested too deeply")
+        kind = part.kind
+        start = self.pos
+        if kind in (1, 2, 3, 4, 5, 6, 15, 17, 18):
+            self.part(part, names, depth)
+            return self.pos
+        if kind == 7:
+            _sequence(self, part, 1, names, depth)
+            return self.pos
+        if kind == 8:
+            _sequence(self, part, 2, names, depth, pairs=True)
+            return self.pos
+        raise WalkError(f"unhandled kind {kind}")
+
+    def sequence_end(self, part, first_element, names, depth=0, pairs=False):
+        """Consume a List/Map value and return the position after it."""
+        start = self.pos
+        _sequence(self, part, first_element, names, depth, pairs=pairs)
+        return self.pos
+
     def part(self, part, names, depth=0):
         if depth > 8:
             raise WalkError("container nested too deeply")
@@ -120,7 +163,7 @@ class ValueWalker:
         if kind in (1, 2):            # UInt64 / Int64
             if ValueWalker.INT64_MODE == "fixed8":
                 return "0x%016X" % int.from_bytes(self.raw(8), "little")
-            return str(self.packed())
+            return str(self.packed() if kind == 1 else self.packed_signed())
         if kind == 3:                 # Boolean
             return str(self.byte())
         if kind == 4:                 # Float

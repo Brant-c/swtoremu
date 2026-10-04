@@ -69,8 +69,10 @@ namespace NexusToRServer.NET
 
             // Opt-in diagnostics at the plaintext serialization boundary.
             // Do not include login/repository traffic or unbounded payloads.
-            if (this is TORAreaServerPacket &&
-                Environment.GetEnvironmentVariable("SWTOR_TRACE_AREA_PAYLOADS") == "1")
+            if ((this is TORAreaServerPacket &&
+                Environment.GetEnvironmentVariable("SWTOR_TRACE_AREA_PAYLOADS") == "1") ||
+                (this is Packets.Server.AreaReplicationDestroy &&
+                Environment.GetEnvironmentVariable("SWTOR_PHASE_LIFECYCLE_LOG_ONLY") == "1"))
             {
                 int prefixLength = Math.Min(cData.Length, 256);
                 Log.Write(LogLevel.Client,

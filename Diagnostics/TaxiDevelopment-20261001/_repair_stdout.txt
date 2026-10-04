@@ -1,0 +1,5 @@
+restored title : # Taxi record: definitive finding — the payload was never the problem
+restored line 2: ''
+restored line 3: Date: 2026-10-02. Confidence: **Client-derived** (read from 
+total lines    : 574
+new experiment : 2026-10-02-06-taxi-merged-list-acceptance.md 97 lines

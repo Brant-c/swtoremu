@@ -1,0 +1,184 @@
+taxi value-walk gate
+  python : C:\Users\brant\AppData\Local\Microsoft\WindowsApps\python.exe
+  script : D:\SWTORClassic\swtoremu\Diagnostics\TaxiDevelopment-20261001\Verify-TaxiFixtures.py
+awareness: flags=0x01 objects=77 bytes=13488
+Value-grammar verification of generated taxi fixtures
+grammar: Solve-TailWidths.py ref_walk / ref_part (LIST_MODE=B)
+TaxiNpc.bin: flags=0x01 objects=5 bytes=675
+
+========================================================================
+TaxiNpc.bin  (675 bytes, 5 objects)
+========================================================================
+
+   0 node=0x1ac7001000 struct=66 (chrNonPlayerCharacter) style=8 inner=386 body=74 value_end=484 states=24B present=29/95
+       template=0XE0008B8CC0FAEA1D  == taxi template
+       parent  =0X0000001AC688BE1E  == captured parent
+         0 @+0    len=12   character_position             | 00 00 56 c2 66 66 f6 c0 00 00 fb c2
+         1 @+12   len=12   character_rotation             | 00 00 00 80 fe 14 e0 c2 00 00 00 00
+         9 @+24   len=4    chrScale                       | 00 00 80 3f
+        10 @+28   len=4    chrMeleeDistance               | cd cc cc 3d
+        13 @+32   len=1    staWeaponState                 | 02
+        22 @+33   len=1    phsPhase                       | 01
+        23 @+34   len=6    eqpEquipment                   | cc 1a c7 00 10 01
+        24 @+40   len=6    effContainerPositive           | cc 1a c7 00 10 02
+        25 @+46   len=6    effContainerNegative           | cc 1a c7 00 10 03
+        26 @+52   len=6    effContainerOther              | cc 1a c7 00 10 04
+        32 @+58   len=9    taxTerminalSpec                | cf e0 00 dc 42 a2 43 6f 58
+        33 @+67   len=6    tmrContainer                   | cc 1a c6 89 57 ec
+        34 @+73   len=160  modStatComputed                | 3e 02 00 00 00 00 03 00 00 00 00 04 00 00 00 00 05 00 00 00 00 07 00 00 00 00 08 00 00 e6 43 09 00 00 00 00 0a 00 00 00 00 27 33 33 33 3f 28 9a 99 19 3e 30 00 80 9d 43 3a 9a 99 19 3e 3b 00 00 b4 43 75 00 00 00 3f 77 9a 99 99 3e 7b 00 00 00 3f 7d 9a 99 99 3e 86 00 00 00 3f 88 00 00 00 3f 8f 00 00 e6 43 98 00 00 00 00 9a 00 00 00 00 9b 00 00 00 00 9c 00 00 00 00 9e 00 00 00 00 a1 00 00 00 00 a3 00 00 00 00 c8 e8 00 00 80 3f c8 e9 00 00 80 3f c8 fe 00 00 00 00 c8 ff 00 00 00 00
+        35 @+233  len=78   modStatBase                    | 1e 08 00 00 e6 43 27 33 33 33 3f 28 9a 99 19 3e 30 00 80 9d 43 3a 9a 99 19 3e 3b 00 00 b4 43 75 00 00 00 3f 77 9a 99 99 3e 7b 00 00 00 3f 7d 9a 99 99 3e 86 00 00 00 3f 88 00 00 00 3f 8f 00 00 e6 43 c8 e8 00 00 80 3f c8 e9 00 00 80 3f
+        36 @+311  len=4    statHealth                     | 00 00 e6 43
+        37 @+315  len=0    staEnterIdle                   | 
+        38 @+315  len=1    cbtToughnessEnum               | 03
+        39 @+316  len=4    effTargetActiveSnare           | 00 00 80 bf
+        57 @+320  len=9    spnSpawnedSpec                 | cf e0 00 8b 8c c0 fa ea 1d
+        61 @+329  len=0    tgtTargetIsTargetable          | 
+        62 @+329  len=12   chrCreatureTypeList            | cf e0 00 5c b1 12 64 f3 2d 02 01 01
+        63 @+341  len=9    cbtFaction                     | c7 0c 31 7c c4 ba 08 f4 de
+        66 @+350  len=1    chrTemplateVisualIndex         | 01
+        68 @+351  len=1    cbtCreatureType                | 03
+        69 @+352  len=9    brkResourceName                | cf e0 00 ac 91 8e 7e a8 83
+        76 @+361  len=9    chrClass                       | cf e0 00 12 e5 58 c8 35 98
+        77 @+370  len=9    _characterSpecification        | cf e0 00 8b 8c c0 fa ea 1d
+        79 @+379  len=6    ablContainer                   | cc 1a c6 89 57 ee
+        85 @+385  len=1    chrLevel                       | 0a
+       -> RECONCILES 386/386
+
+   1 node=0x1ac7001001 struct=14 (eqpContainer) style=7 inner=24 body=511 value_end=536 states=1B present=3/5
+       parent  =0X0000001AC7001000
+         1 @+0    len=9    conSharedData                  | cf e0 00 82 25 28 af 0d fb
+         2 @+9    len=9    conContainerSpecName           | cf e0 00 82 25 28 af 0d fb
+         3 @+18   len=6    conOwnerNode                   | cc 1a c7 00 10 00
+       -> RECONCILES 24/24
+
+   2 node=0x1ac7001002 struct=13 (effContainer) style=7 inner=18 body=563 value_end=582 states=1B present=2/5
+       parent  =0X0000001AC7001000
+         1 @+0    len=9    conSharedData                  | cf e0 00 ec ad a3 f0 d0 e8
+         2 @+9    len=9    conContainerSpecName           | cf e0 00 ec ad a3 f0 d0 e8
+       -> RECONCILES 18/18
+
+   3 node=0x1ac7001003 struct=13 (effContainer) style=7 inner=18 body=609 value_end=628 states=1B present=2/5
+       parent  =0X0000001AC7001000
+         1 @+0    len=9    conSharedData                  | cf e0 00 cc 0d 3c ed 40 59
+         2 @+9    len=9    conContainerSpecName           | cf e0 00 cc 0d 3c ed 40 59
+       -> RECONCILES 18/18
+
+   4 node=0x1ac7001004 struct=13 (effContainer) style=7 inner=19 body=655 value_end=675 states=1B present=3/5
+       parent  =0X0000001AC7001000
+         0 @+0    len=1    conContents                    | 00
+         1 @+1    len=9    conSharedData                  | cf e0 00 d1 1d ef 61 e9 4c
+         2 @+10   len=9    conContainerSpecName           | cf e0 00 d1 1d ef 61 e9 4c
+       -> RECONCILES 19/19
+TaxiRecord1.bin: flags=0x01 objects=5 bytes=677
+
+========================================================================
+TaxiRecord1.bin  (677 bytes, 5 objects)
+========================================================================
+
+   0 node=0x1ac7001000 struct=66 (chrNonPlayerCharacter) style=8 inner=388 body=74 value_end=486 states=24B present=31/95
+       template=0XE0008B8CC0FAEA1D  == taxi template
+       parent  =0X0000001AC688BE1E  == captured parent
+         0 @+0    len=12   character_position             | 00 00 56 c2 66 66 f6 c0 00 00 fb c2
+         1 @+12   len=12   character_rotation             | 00 00 00 80 fe 14 e0 c2 00 00 00 00
+         8 @+24   len=1    chrGender                      | 05
+         9 @+25   len=4    chrScale                       | 00 00 80 3f
+        10 @+29   len=4    chrMeleeDistance               | cd cc cc 3d
+        13 @+33   len=1    staWeaponState                 | 02
+        22 @+34   len=1    phsPhase                       | 01
+        23 @+35   len=6    eqpEquipment                   | cc 1a c7 00 10 01
+        24 @+41   len=6    effContainerPositive           | cc 1a c7 00 10 02
+        25 @+47   len=6    effContainerNegative           | cc 1a c7 00 10 03
+        26 @+53   len=6    effContainerOther              | cc 1a c7 00 10 04
+        32 @+59   len=9    taxTerminalSpec                | cf e0 00 dc 42 a2 43 6f 58
+        33 @+68   len=6    tmrContainer                   | cc 1a c6 89 57 ec
+        34 @+74   len=160  modStatComputed                | 3e 02 00 00 00 00 03 00 00 00 00 04 00 00 00 00 05 00 00 00 00 07 00 00 00 00 08 00 00 e6 43 09 00 00 00 00 0a 00 00 00 00 27 33 33 33 3f 28 9a 99 19 3e 30 00 80 9d 43 3a 9a 99 19 3e 3b 00 00 b4 43 75 00 00 00 3f 77 9a 99 99 3e 7b 00 00 00 3f 7d 9a 99 99 3e 86 00 00 00 3f 88 00 00 00 3f 8f 00 00 e6 43 98 00 00 00 00 9a 00 00 00 00 9b 00 00 00 00 9c 00 00 00 00 9e 00 00 00 00 a1 00 00 00 00 a3 00 00 00 00 c8 e8 00 00 80 3f c8 e9 00 00 80 3f c8 fe 00 00 00 00 c8 ff 00 00 00 00
+        35 @+234  len=78   modStatBase                    | 1e 08 00 00 e6 43 27 33 33 33 3f 28 9a 99 19 3e 30 00 80 9d 43 3a 9a 99 19 3e 3b 00 00 b4 43 75 00 00 00 3f 77 9a 99 99 3e 7b 00 00 00 3f 7d 9a 99 99 3e 86 00 00 00 3f 88 00 00 00 3f 8f 00 00 e6 43 c8 e8 00 00 80 3f c8 e9 00 00 80 3f
+        36 @+312  len=4    statHealth                     | 00 00 e6 43
+        37 @+316  len=0    staEnterIdle                   | 
+        38 @+316  len=1    cbtToughnessEnum               | 03
+        39 @+317  len=4    effTargetActiveSnare           | 00 00 80 bf
+        57 @+321  len=9    spnSpawnedSpec                 | cf e0 00 8b 8c c0 fa ea 1d
+        59 @+330  len=1    chrAppearanceNppOverride       | 03
+        61 @+331  len=0    tgtTargetIsTargetable          | 
+        62 @+331  len=12   chrCreatureTypeList            | cf e0 00 5c b1 12 64 f3 2d 02 01 01
+        63 @+343  len=9    cbtFaction                     | c7 0c 31 7c c4 ba 08 f4 de
+        66 @+352  len=1    chrTemplateVisualIndex         | 01
+        68 @+353  len=1    cbtCreatureType                | 03
+        69 @+354  len=9    brkResourceName                | cf e0 00 ac 91 8e 7e a8 83
+        76 @+363  len=9    chrClass                       | cf e0 00 12 e5 58 c8 35 98
+        77 @+372  len=9    _characterSpecification        | cf 55 41 e5 69 31 b5 83 35
+        79 @+381  len=6    ablContainer                   | cc 1a c6 89 57 ee
+        85 @+387  len=1    chrLevel                       | 0a
+       -> RECONCILES 388/388
+
+   1 node=0x1ac7001001 struct=14 (eqpContainer) style=7 inner=24 body=513 value_end=538 states=1B present=3/5
+       parent  =0X0000001AC7001000
+         1 @+0    len=9    conSharedData                  | cf e0 00 82 25 28 af 0d fb
+         2 @+9    len=9    conContainerSpecName           | cf e0 00 82 25 28 af 0d fb
+         3 @+18   len=6    conOwnerNode                   | cc 1a c7 00 10 00
+       -> RECONCILES 24/24
+
+   2 node=0x1ac7001002 struct=13 (effContainer) style=7 inner=18 body=565 value_end=584 states=1B present=2/5
+       parent  =0X0000001AC7001000
+         1 @+0    len=9    conSharedData                  | cf e0 00 ec ad a3 f0 d0 e8
+         2 @+9    len=9    conContainerSpecName           | cf e0 00 ec ad a3 f0 d0 e8
+       -> RECONCILES 18/18
+
+   3 node=0x1ac7001003 struct=13 (effContainer) style=7 inner=18 body=611 value_end=630 states=1B present=2/5
+       parent  =0X0000001AC7001000
+         1 @+0    len=9    conSharedData                  | cf e0 00 cc 0d 3c ed 40 59
+         2 @+9    len=9    conContainerSpecName           | cf e0 00 cc 0d 3c ed 40 59
+       -> RECONCILES 18/18
+
+   4 node=0x1ac7001004 struct=13 (effContainer) style=7 inner=19 body=657 value_end=677 states=1B present=3/5
+       parent  =0X0000001AC7001000
+         0 @+0    len=1    conContents                    | 00
+         1 @+1    len=9    conSharedData                  | cf e0 00 d1 1d ef 61 e9 4c
+         2 @+10   len=9    conContainerSpecName           | cf e0 00 d1 1d ef 61 e9 4c
+       -> RECONCILES 19/19
+TaxiClone.bin: flags=0x01 objects=1 bytes=478
+
+========================================================================
+TaxiClone.bin  (478 bytes, 1 objects)
+========================================================================
+
+   0 node=0x1ac7001000 struct=64 (chrNonPlayerCharacter) style=8 inner=380 body=74 value_end=478 states=24B present=30/96
+       template=0XE0005CB11264F32D  == vendor template
+       parent  =0X0000001AC688BE1E  == captured parent
+         0 @+0    len=12   character_position             | 18 26 6f c2 29 cb dc c0 b5 55 00 c3
+         1 @+12   len=12   character_rotation             | 00 00 00 80 fe 14 e0 c2 00 00 00 00
+         9 @+24   len=4    chrScale                       | 00 00 80 3f
+        10 @+28   len=4    chrMeleeDistance               | cd cc cc 3d
+        13 @+32   len=1    staWeaponState                 | 02
+        22 @+33   len=1    phsPhase                       | 01
+        23 @+34   len=6    eqpEquipment                   | cc 1a c6 89 57 ed
+        24 @+40   len=6    effContainerPositive           | cc 1a c6 89 57 ef
+        25 @+46   len=6    effContainerNegative           | cc 1a c6 89 57 f0
+        26 @+52   len=6    effContainerOther              | cc 1a c6 89 57 f1
+        27 @+58   len=9    spnParentAnchorId              | cf 40 00 00 13 63 30 35 5e
+        30 @+67   len=0    vndVendorCanRepair             | 
+        33 @+67   len=6    tmrContainer                   | cc 1a c6 89 57 ec
+        34 @+73   len=160  modStatComputed                | 3e 02 00 00 00 00 03 00 00 00 00 04 00 00 00 00 05 00 00 00 00 07 00 00 00 00 08 00 00 e6 43 09 00 00 00 00 0a 00 00 00 00 27 33 33 33 3f 28 9a 99 19 3e 30 00 80 9d 43 3a 9a 99 19 3e 3b 00 00 b4 43 75 00 00 00 3f 77 9a 99 99 3e 7b 00 00 00 3f 7d 9a 99 99 3e 86 00 00 00 3f 88 00 00 00 3f 8f 00 00 e6 43 98 00 00 00 00 9a 00 00 00 00 9b 00 00 00 00 9c 00 00 00 00 9e 00 00 00 00 a1 00 00 00 00 a3 00 00 00 00 c8 e8 00 00 80 3f c8 e9 00 00 80 3f c8 fe 00 00 00 00 c8 ff 00 00 00 00
+        35 @+233  len=78   modStatBase                    | 1e 08 00 00 e6 43 27 33 33 33 3f 28 9a 99 19 3e 30 00 80 9d 43 3a 9a 99 19 3e 3b 00 00 b4 43 75 00 00 00 3f 77 9a 99 99 3e 7b 00 00 00 3f 7d 9a 99 99 3e 86 00 00 00 3f 88 00 00 00 3f 8f 00 00 e6 43 c8 e8 00 00 80 3f c8 e9 00 00 80 3f
+        36 @+311  len=4    statHealth                     | 00 00 e6 43
+        38 @+315  len=1    cbtToughnessEnum               | 03
+        39 @+316  len=4    effTargetActiveSnare           | 00 00 80 bf
+        44 @+320  len=2    effContainerEffectlessTags     | 02 00
+        57 @+322  len=1    spnSpawnedSpec                 | 01
+        61 @+323  len=0    tgtTargetIsTargetable          | 
+        62 @+323  len=12   chrCreatureTypeList            | cf e0 00 5c b1 12 64 f3 2d 02 01 01
+        63 @+335  len=9    cbtFaction                     | c7 0c 31 7c c4 ba 08 f4 de
+        66 @+344  len=1    chrTemplateVisualIndex         | 01
+        68 @+345  len=1    cbtCreatureType                | 03
+        70 @+346  len=9    brkResourceName                | cf e0 00 c9 70 f1 86 ee c0
+        77 @+355  len=9    chrClass                       | cf e0 00 12 e5 58 c8 35 98
+        78 @+364  len=9    _characterSpecification        | cf 55 41 e5 69 31 b5 83 35
+        80 @+373  len=6    ablContainer                   | cc 1a c6 89 57 ee
+        86 @+379  len=1    chrLevel                       | 0a
+       -> RECONCILES 380/380
+
+========================================================================
+all records reconcile exactly: True
+
+wrote taxi-fixture-verification.txt
+PASS: every taxi fixture record walks to exactly inner_size

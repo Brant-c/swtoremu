@@ -1,0 +1,6 @@
+SharpServer\AreaServer\TythonTaxi.cs:73: internal static uint64[] mergenodes()
+SharpServer\NET\Packets\Server\AreaStartupBundle.cs:139: uint64[] mergenodes = areaserver.tythontaxi.mergenodes();
+SharpServer\NET\Packets\Server\AreaStartupBundle.cs:140: if (mergenodes != null)
+SharpServer\NET\Packets\Server\AreaStartupBundle.cs:149: mergenodes, rung); }
+SharpServer\NET\Packets\Server\AreaStartupBundle.cs:159: areaserver.tythontaxi.logclonemerged(mergenodes[0], (int)rung);
+TOTAL 5 hits for 'mergenodes'

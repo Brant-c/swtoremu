@@ -42,8 +42,11 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>..\..\SharpZipLib\net-20\ICSharpCode.SharpZipLib.dll</HintPath>
+    <!-- The historical external SharpZipLib binary is not in this checkout.
+         Tools/Hero builds the same ICSharpCode.SharpZipLib sources into
+         Hero.dll, so use that local assembly for the archive inflater. -->
+    <Reference Include="Hero">
+      <HintPath>..\..\Hero\bin\Debug\Hero.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />

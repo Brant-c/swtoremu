@@ -1,0 +1,189 @@
+{
+  "source_sha256": "c9a50ab8d7b60d7a1c1c3d47489de63aa99c54e9a5f87fa6d56bb13dcecce374",
+  "fixture_sha256": "7f98aa2f0cd596d26ac2fc0d45e088d54b57783d62e1f12bd870b9c621405f39",
+  "bytes": 675,
+  "patches": [
+    {
+      "offset": 6,
+      "slot": 0
+    },
+    {
+      "offset": 108,
+      "slot": 1
+    },
+    {
+      "offset": 114,
+      "slot": 2
+    },
+    {
+      "offset": 120,
+      "slot": 3
+    },
+    {
+      "offset": 126,
+      "slot": 4
+    },
+    {
+      "offset": 484,
+      "slot": 1
+    },
+    {
+      "offset": 500,
+      "slot": 0
+    },
+    {
+      "offset": 529,
+      "slot": 0
+    },
+    {
+      "offset": 536,
+      "slot": 2
+    },
+    {
+      "offset": 552,
+      "slot": 0
+    },
+    {
+      "offset": 582,
+      "slot": 3
+    },
+    {
+      "offset": 598,
+      "slot": 0
+    },
+    {
+      "offset": 628,
+      "slot": 4
+    },
+    {
+      "offset": 644,
+      "slot": 0
+    }
+  ],
+  "placement": [
+    -53.5,
+    -7.7,
+    -125.5
+  ],
+  "placement_source": "authored taxi_poi01_jediretreat_pad1.spn_c instance row (-535,-1255,-77); X=col1/10 Z=col2/10 Y=col3/10 calibrated against the captured vendor",
+  "taxi_template": "0xe0008b8cc0faea1d",
+  "terminal": "0xe000dc42a2436f58",
+  "appearance_fields": [
+    62,
+    63,
+    66,
+    68,
+    69,
+    76,
+    77,
+    79,
+    85
+  ],
+  "donor_tail_bytes": 57,
+  "donor_tail_fields": [
+    62,
+    63,
+    66,
+    68,
+    70,
+    77,
+    78,
+    80,
+    86
+  ],
+  "confidence": "Hypothesis",
+  "records": [
+    {
+      "start": 6,
+      "node": 115007819776,
+      "flags": 122,
+      "class_id": 0,
+      "template_id": 16141054501145209373,
+      "parent_id": 115000000030,
+      "metadata_counts": [
+        4
+      ],
+      "field_version": 5,
+      "style": 8,
+      "structure_id": 66,
+      "inner_size": 386,
+      "body_start": 74,
+      "value_end": 484,
+      "outer_start": 70
+    },
+    {
+      "start": 484,
+      "node": 115007819777,
+      "flags": 170,
+      "class_id": 4611686032472970034,
+      "template_id": 0,
+      "parent_id": 115007819776,
+      "metadata_counts": [],
+      "field_version": 5,
+      "style": 7,
+      "structure_id": 14,
+      "inner_size": 24,
+      "body_start": 511,
+      "value_end": 536,
+      "outer_start": 509
+    },
+    {
+      "start": 536,
+      "node": 115007819778,
+      "flags": 170,
+      "class_id": 4611686031293970014,
+      "template_id": 0,
+      "parent_id": 115007819776,
+      "metadata_counts": [],
+      "field_version": 5,
+      "style": 7,
+      "structure_id": 13,
+      "inner_size": 18,
+      "body_start": 563,
+      "value_end": 582,
+      "outer_start": 561
+    },
+    {
+      "start": 582,
+      "node": 115007819779,
+      "flags": 170,
+      "class_id": 4611686031293970014,
+      "template_id": 0,
+      "parent_id": 115007819776,
+      "metadata_counts": [],
+      "field_version": 5,
+      "style": 7,
+      "structure_id": 13,
+      "inner_size": 18,
+      "body_start": 609,
+      "value_end": 628,
+      "outer_start": 607
+    },
+    {
+      "start": 628,
+      "node": 115007819780,
+      "flags": 170,
+      "class_id": 4611686031293970014,
+      "template_id": 0,
+      "parent_id": 115007819776,
+      "metadata_counts": [],
+      "field_version": 5,
+      "style": 7,
+      "structure_id": 13,
+      "inner_size": 19,
+      "body_start": 655,
+      "value_end": 675,
+      "outer_start": 653
+    }
+  ],
+  "clone_control": {
+    "file": "SharpServer/AreaServer/TaxiClone.bin",
+    "bytes": 478,
+    "sha256": "50ec661e1854158405ac7fb791312bea60a84d86cb6a2687fe6c7270cf403a1a",
+    "node_offset": 6,
+    "source_node": "0x1ac68957eb",
+    "source_template": "0xe0005cb11264f32d",
+    "structure_id": 64,
+    "confidence": "Behavior-verified pending"
+  }
+}

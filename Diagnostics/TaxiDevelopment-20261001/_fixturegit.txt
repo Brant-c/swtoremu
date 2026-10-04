@@ -1,0 +1,2 @@
+?? SharpServer/AreaServer/TaxiNpc.bin
+?? SharpServer/NET/Packets/Server/AreaTaxiAwareness.cs

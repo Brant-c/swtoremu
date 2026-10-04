@@ -1,0 +1,58 @@
+[
+  {
+    "node": "4000010E218A839B",
+    "handle": 8,
+    "changed_byte_offset": 29,
+    "old_style7_fields": [
+      51
+    ],
+    "old_field51_name": "chrCurrentInteraction",
+    "new_style8_fields": [
+      25
+    ],
+    "new_field25_id": "0x40000002641f28cc",
+    "new_sha256": "E87FD3E57125087E3FE40AEE552C28E5F49EDE34DDFD9F18FA741D5BA9CDFFAF"
+  },
+  {
+    "node": "4000010E218A839B",
+    "handle": 19,
+    "changed_byte_offset": 29,
+    "old_style7_fields": [
+      51
+    ],
+    "old_field51_name": "chrCurrentInteraction",
+    "new_style8_fields": [
+      25
+    ],
+    "new_field25_id": "0x40000002641f28cc",
+    "new_sha256": "4FF1D8E54709DE2FA8D72F5A311E94851A9F1A4B0A3B0DD51C31751B0F97F61F"
+  },
+  {
+    "node": "4000010E218A1234",
+    "handle": 8,
+    "changed_byte_offset": 29,
+    "old_style7_fields": [
+      51
+    ],
+    "old_field51_name": "chrCurrentInteraction",
+    "new_style8_fields": [
+      25
+    ],
+    "new_field25_id": "0x40000002641f28cc",
+    "new_sha256": "1AC38020C331932005FCCE8907DF5B1D1F6FAE9EF951F946B74F48BFE6F06FB1"
+  },
+  {
+    "node": "4000010E218A1234",
+    "handle": 19,
+    "changed_byte_offset": 29,
+    "old_style7_fields": [
+      51
+    ],
+    "old_field51_name": "chrCurrentInteraction",
+    "new_style8_fields": [
+      25
+    ],
+    "new_field25_id": "0x40000002641f28cc",
+    "new_sha256": "BA682A81B2EE45B7BD476A5AB0B881C9FB49C0EE9E509EACF2A17669B94CB763"
+  }
+]

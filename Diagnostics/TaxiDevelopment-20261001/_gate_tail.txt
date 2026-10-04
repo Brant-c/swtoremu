@@ -1,0 +1,2 @@
+FINDSTR: Cannot open records
+FINDSTR: Cannot open reconcile"

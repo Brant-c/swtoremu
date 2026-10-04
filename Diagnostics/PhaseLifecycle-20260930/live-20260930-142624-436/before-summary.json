@@ -1,0 +1,9 @@
+﻿{
+    "Label":  "before",
+    "StartedAt":  "2026-09-30T14:26:24.9359807-04:00",
+    "CompletedAt":  "2026-09-30T14:26:35.0400263-04:00",
+    "Timing":  "Sequential full-memory scans, not an atomic snapshot; after labels specify minimum delay before scan start.",
+    "IdMatches":  24,
+    "HeroNodes":  3,
+    "PointerMatches":  10
+}

@@ -1,0 +1,36 @@
+  00650405: C6 45 FC 24        mov         byte ptr [ebp-4],24h
+  00650409: 9B                 wait
+  0065040A: 8D 4D E8           lea         ecx,[ebp-18h]
+  0065040D: 51                 push        ecx
+  0065040E: 8B 7D 14           mov         edi,dword ptr [ebp+14h]
+  00650411: 8B CF              mov         ecx,edi
+  00650413: E8 F8 C0 32 00     call        0097C510
+  00650418: 8B CF              mov         ecx,edi
+  0065041A: E8 01 CC 32 00     call        0097D020
+  0065041F: 9B                 wait
+  00650420: 89 5D FC           mov         dword ptr [ebp-4],ebx
+  00650423: 51                 push        ecx
+  00650424: 8B CC              mov         ecx,esp
+  00650426: 89 65 14           mov         dword ptr [ebp+14h],esp
+  00650429: 8D 55 08           lea         edx,[ebp+8]
+  0065042C: 52                 push        edx
+  0065042D: E8 BE FC FE FF     call        006400F0
+  00650432: C6 45 FC 28        mov         byte ptr [ebp-4],28h
+  00650436: 88 5D FC           mov         byte ptr [ebp-4],bl
+  00650439: 8D 4D D0           lea         ecx,[ebp-30h]
+  0065043C: E8 2F F9 42 00     call        00A7FD70
+  00650441: C6 45 FC 29        mov         byte ptr [ebp-4],29h
+  00650445: 8D 4E 0C           lea         ecx,[esi+0Ch]
+  00650448: 8B 01              mov         eax,dword ptr [ecx]
+  0065044A: 8B 55 EC           mov         edx,dword ptr [ebp-14h]
+  0065044D: 52                 push        edx
+  0065044E: 8B 55 E8           mov         edx,dword ptr [ebp-18h]
+  00650451: 52                 push        edx
+  00650452: 8D 55 D0           lea         edx,[ebp-30h]
+  00650455: 52                 push        edx
+  00650456: 8B 40 14           mov         eax,dword ptr [eax+14h]
+  00650459: FF D0              call        eax
+  0065045B: 88 5D FC           mov         byte ptr [ebp-4],bl
+  0065045E: 8D 4D D0           lea         ecx,[ebp-30h]
+  00650461: E8 DA C2 64 00     call        00C9C740
+  00650466: E9 40 05 00 00     jmp         006509AB

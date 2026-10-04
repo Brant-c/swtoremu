@@ -1,0 +1,60 @@
+   1  param([switch]$VerifyOnly, [switch]$CloneControl, [int]$TaxiRung = 0)
+   2  $ErrorActionPreference = 'Stop'
+   3  if ($TaxiRung -lt 0 -or $TaxiRung -gt 1) { throw "TaxiRung must be 0 or 1, got $TaxiRung" }
+   4  # The launcher must leave the calling shell exactly as it found it. It sets ~25
+   5  # SWTOR_* variables so the child .cmd and the server inherit them, and in verify mode
+   6  # those settings are never consumed by anything. Without the restore below, a second
+   7  # invocation in the same window trips the inherited-switch guard below and the user
+   8  # is forced to open a fresh terminal for every run.
+   9  # Snapshot first, restore in `finally` so every exit path -- including `exit 0` in
+  10  # verify mode and any throw -- puts the environment back.
+  11  $priorSwtor = @{}
+  12  foreach ($e in @(Get-ChildItem Env: | Where-Object Name -Like 'SWTOR_*')) {
+  13      $priorSwtor[$e.Name] = $e.Value
+  14  }
+  15  try {
+  16  $root = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
+  17  $active = @(Get-Process swtor,swtor-emu,NexusToRServer,ShardListServer -ErrorAction SilentlyContinue)
+  18  if ($active.Count) { throw 'Close the old client and servers first; fresh processes are required.' }
+  19  $inherited = @(Get-ChildItem Env: | Where-Object Name -Like 'SWTOR_*')
+  20  if ($inherited.Count) { throw ('Use a fresh terminal without inherited SWTOR switches: ' + ($inherited.Name -join ', ')) }
+  21  $identity = @(Import-Csv -LiteralPath (Join-Path $PSScriptRoot 'identity.csv'))
+  22  if ($identity.Count -lt 10) { throw 'Taxi identity manifest is incomplete.' }
+  23  foreach ($row in $identity) {
+  24      if (!(Test-Path -LiteralPath $row.Path)) { throw "Pinned input is missing: $($row.Path)" }
+  25      if ((Get-FileHash -LiteralPath $row.Path -Algorithm SHA256).Hash -ne $row.SHA256) {
+  26          throw "Pinned input changed: $($row.Path)"
+  27      }
+  28  }
+  29  $env:SWTOR_PHASE_EXIT_CLEAR_FIELD = '1'
+  30  $env:SWTOR_TRACE_PHASE_UPDATE = '1'
+  31  $env:SWTOR_ENABLE_UNVERIFIED_CRT3 = '0'
+  32  $env:SWTOR_PHASE_INSTANCE_RETRY = ''
+  33  $env:SWTOR_PHASE_LIFECYCLE_LOG_ONLY = '1'
+  34  $env:SWTOR_TRACE_ROOM_SELECTION = '1'
+  35  $env:SWTOR_TRACE_TRIGGER_COLLISION = '1'
+  36  $env:SWTOR_TRACE_MOVEMENT_COLLISION = '0'
+  37  $env:SWTOR_MOVEMENT_TETHER_REFRESH = '1'
+  38  $env:SWTOR_PHASE_REENTRY = '1'
+  39  $env:SWTOR_RETREAT_GATEWAY_TIMING = '1'
+  40  $env:SWTOR_WELLER_CONVERSATION = '1'
+  41  $env:SWTOR_WELLER_END = '1'
+  42  $env:SWTOR_TYTHON_TAXI = '1'
+  43  # Control run: send a byte-for-byte copy of the captured medcenter droid record
+  44  # (only the identity differs) instead of the generated taxi, from the same position
+  45  # in the startup bundle. Isolates our synthesis/delivery from taxi content. Off by
+  46  # default; modifies no captured .aaw/.acrt fixture.
+  47  $env:SWTOR_TAXI_CLONE_CONTROL = if ($CloneControl) { '1' } else { '0' }
+  48  $env:SWTOR_TAXI_RUNG = "$TaxiRung"
+  49  $launcher = Join-Path $root 'Run-SWTORClassic-Trace-Tython.cmd'
+  50  if ($VerifyOnly) {
+  51      if ($env:SWTOR_TYTHON_TAXI -ne '1') { throw 'Taxi experiment is not enabled.' }
+  52      if ($env:SWTOR_WELLER_CONVERSATION -ne '1') { throw 'Weller conversation response is not enabled.' }
+  53      if ($env:SWTOR_WELLER_END -ne '1') { throw 'Weller conversation cleanup is not enabled.' }
+  54      & $env:ComSpec /d /c ('""{0}" --verify-config 0"' -f $launcher)
+  55      if ($LASTEXITCODE -ne 0) { throw 'Effective configuration verification failed.' }
+  56      if ($env:SWTOR_PHASE_EXIT_CLEAR_FIELD -ne '1' -or $env:SWTOR_TRACE_PHASE_UPDATE -ne '1' -or $env:SWTOR_MOVEMENT_TETHER_REFRESH -ne '1' -or $env:SWTOR_PHASE_REENTRY -ne '1' -or $env:SWTOR_RETREAT_GATEWAY_TIMING -ne '1') {
+  57          throw 'Required phase baseline or tether-only configuration is wrong.'
+  58      }
+  59      $mode = if ($env:SWTOR_TAXI_CLONE_CONTROL -eq '1') { "MERGED TAXI rung $env:SWTOR_TAXI_RUNG (real taxi payload appended to awareness set 1)" } else { 'taxi NPC/map' }
+  60      Write-Output "VERIFIED: mode=$mode; Weller response=1; cleanup=1; movement tether refresh=1; phase reentry=1; authored-gateway timing=1; all runtime inputs pinned; CRT3=0; retry disabled. No processes launched."

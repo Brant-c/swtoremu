@@ -1,0 +1,16 @@
+distinct requested paths: 100
+  /art/dynamic/spec/ requests: 1
+    /art/dynamic/spec/all_item_construction_forklift_animated.mag
+
+reference probe: /art/dynamic/spec/bmanew_skeleton.gr2
+  tor_hash      = 0x0ADB0A456D74C374
+  archive       = swtor_main_art_dynamic_mags_1.tor (39 MB)
+
+scanning swtor_main_art_dynamic_mags_1.tor ...
+  entries whose hash equals the probe: 0
+
+Interpretation:
+  The hash does NOT occur, so the earlier "FOUND" was a false positive and
+  /art/dynamic/spec/ content is genuinely not present in the local archives.
+
+wrote D:\SWTORClassic\swtoremu\Diagnostics\TaxiDevelopment-20261001\probe-repository.txt

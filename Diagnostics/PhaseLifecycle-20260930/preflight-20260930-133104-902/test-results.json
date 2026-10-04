@@ -1,0 +1,112 @@
+[
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "PhaseLifecycleReadiness",
+      "chunk_id": "9d464a",
+      "wall_time_seconds": 0.3061981,
+      "exit_code": 0,
+      "original_token_count": 40,
+      "output": "PASS lifecycle readiness: valid four-identity baseline accepted; all 12 missing, duplicate and non-HeroNode cases rejected; observer parses without execution.\r\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "PhaseLifecycleSignatures",
+      "chunk_id": "6627d3",
+      "wall_time_seconds": 0.3935978,
+      "exit_code": 0,
+      "original_token_count": 103,
+      "output": "PASS phsPhaseInfo.OnReplicationNodeDestroy: 65A4399D0102A007.scpt +0x0B78\r\nPASS phsOracle.UpdateGatewayForInstance: C10C1F8290BE3551.scpt +0x32E3\r\nPASS phsPlayerPhaseData.OnReplicationNodeCreate: 9308DE76F6AAF774.scpt +0x00B1\r\nPASS phsPlayerPhaseData.OnReplicationNodeDestroy: 9308DE76F6AAF774.scpt +0x03A1\r\nPASS phase lifecycle signatures: pinned April resources, decrypted offsets, and hook patterns agree.\r\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "AreaRouting",
+      "chunk_id": "b9d2a3",
+      "wall_time_seconds": 0.0000215,
+      "exit_code": 0,
+      "original_token_count": 37,
+      "output": "PASS: area source 65B3, dynamic destinations 8/19, intact character payload, unattached rejection, all 11 legacy area packets use shared routing.\r\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "AreaBlobFraming",
+      "chunk_id": "8231fd",
+      "wall_time_seconds": 0.4466505,
+      "exit_code": 0,
+      "original_token_count": 73,
+      "output": "PASS: 38 packet bodies; all 17 CRTs and 2 awareness blobs preserved byte-for-byte after the 8-byte opcode/component header, with dynamic handles 8/19.\r\nScope: serializer regression only; fixture compatibility with the client and successful world loading are not established by this test.\r\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "AreaWireRoundTrip",
+      "chunk_id": "5698e5",
+      "wall_time_seconds": 0.8563401,
+      "exit_code": 0,
+      "original_token_count": 62,
+      "output": "PASS: 54 fixture packets, dynamic handles 8/19, byte-exact raw-deflate round trips and transport headers.\r\nScope: fixture preservation and compression only; not native style-7 decoding, encryption, full startup ordering, or world-entry success.\r\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "PacketDecoder",
+      "chunk_id": "298ecb",
+      "wall_time_seconds": 0.4672472,
+      "exit_code": 0,
+      "original_token_count": 69,
+      "output": "PASS: captured C5 decode and field preservation; all 44 truncations; wrong variant/opcode; trailing byte; actual dispatcher rejection logs and no gameplay entry; Read/Run gate; Hero v5 unsigned/signed token bounds.\r\nNo native-client acceptance or room-loading claim is made.\r\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "CapturedCharacterRemap",
+      "chunk_id": "35721b",
+      "wall_time_seconds": 0.5810659,
+      "exit_code": 0,
+      "original_token_count": 29,
+      "output": "PASS: CRT2 (25), effect1 (2), and On Enter (3) captured-character references remapped to the selected character.\r\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "AreaEnterSignals",
+      "chunk_id": "795808",
+      "wall_time_seconds": 0.8777512,
+      "exit_code": 0,
+      "original_token_count": 67,
+      "output": "PASS: CharacterSetRendezvousPoint body = u64 + u32 + vec3 + vec3 + u8 (37 bytes), area routing ok.\r\nPASS: CharacterChangeState body = u64 + empty string (13 bytes), area routing ok.\r\nPASS: AreaEnterSignals.Fire entry point is present; packet shapes verified above.\r\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "PacketWorkbench",
+      "chunk_id": "8d6a52",
+      "wall_time_seconds": 1.3183665,
+      "exit_code": 0,
+      "original_token_count": 29,
+      "output": "PASS: packet hex, routed envelope, registry integrity, Hero packed unsigned/signed bounds, and byte comparison.\r\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "WorldEntryOffline",
+      "chunk_id": "a1bb81",
+      "wall_time_seconds": 1.1677786,
+      "exit_code": 1,
+      "original_token_count": 116,
+      "output": "Opt-in RequestWorldFadeIn gate observer is missing.\r\nAt D:\\SWTORClassic\\swtoremu\\Diagnostics\\Test-WorldEntryOffline.ps1:39 char:5\r\n+     throw 'Opt-in RequestWorldFadeIn gate observer is missing.'\r\n+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : OperationStopped: (Opt-in RequestW...ver is missing.:String) [], RuntimeException\r\n    + FullyQualifiedErrorId : Opt-in RequestWorldFadeIn gate observer is missing.\r\n \r\n"
+    }
+  }
+]

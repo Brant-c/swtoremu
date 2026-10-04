@@ -1,0 +1,6 @@
+
+Name                 Value
+----                 -----
+SWTOR_AREA_POLL_MODE CMsgF96DCDB0=Swallow;CMsg61116AD5=Ack
+
+

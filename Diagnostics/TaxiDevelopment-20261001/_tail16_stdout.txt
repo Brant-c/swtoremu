@@ -1,0 +1,36 @@
+awareness: flags=0x01 objects=77 bytes=13488
+
+=== requested  node=0x1ac68957eb struct=64 style=8 inner=380 present=30
+      0 @+0    len=12   character_position             vec12              | 18 26 6f c2 29 cb dc c0 b5 55 00 c3
+      1 @+12   len=12   character_rotation             vec12              | 00 00 00 80 fe 14 e0 c2 00 00 00 00
+      9 @+24   len=4    chrScale                       float4             | 00 00 80 3f
+     10 @+28   len=4    chrMeleeDistance               float4             | cd cc cc 3d
+     13 @+32   len=1    staWeaponState                 byte               | 02
+     22 @+33   len=1    phsPhase                       packed             | 01
+     23 @+34   len=6    eqpEquipment                   packed             | cc 1a c6 89 57 ed
+     24 @+40   len=6    effContainerPositive           packed             | cc 1a c6 89 57 ef
+     25 @+46   len=6    effContainerNegative           packed             | cc 1a c6 89 57 f0
+     26 @+52   len=6    effContainerOther              packed             | cc 1a c6 89 57 f1
+     27 @+58   len=8    spnParentAnchorId              fixed8             | cf 40 00 00 13 63 30 35
+     30 @+66   len=1    vndVendorCanRepair             byte               | 5e
+     33 @+67   len=6    tmrContainer                   packed             | cc 1a c6 89 57 ec
+     34 @+73   len=160  modStatComputed                False/half/c31     | 3e 02 00 00 00 00 03 00 00 00 00 04 00 00 00 00 05 00 00 00 00 07 00 00 00 00 08 00 00 e6 43 09 00 00 00 00 0a 00 00 00 00 27 33 33 33 3f 28 9a 99 19 3e 30 00 80 9d 43 3a 9a 99 19 3e 3b 00 00 b4 43 75 00 00 00 3f 77 9a 99 99 3e 7b 00 00 00 3f 7d 9a 99 99 3e 86 00 00 00 3f 88 00 00 00 3f 8f 00 00 e6 43 98 00 00 00 00 9a 00 00 00 00 9b 00 00 00 00 9c 00 00 00 00 9e 00 00 00 00 a1 00 00 00 00 a3 00 00 00 00 c8 e8 00 00 80 3f c8 e9 00 00 80 3f c8 fe 00 00 00 00 c8 ff 00 00 00 00
+     35 @+233  len=78   modStatBase                    False/half/c15     | 1e 08 00 00 e6 43 27 33 33 33 3f 28 9a 99 19 3e 30 00 80 9d 43 3a 9a 99 19 3e 3b 00 00 b4 43 75 00 00 00 3f 77 9a 99 99 3e 7b 00 00 00 3f 7d 9a 99 99 3e 86 00 00 00 3f 88 00 00 00 3f 8f 00 00 e6 43 c8 e8 00 00 80 3f c8 e9 00 00 80 3f
+     36 @+311  len=4    statHealth                     float4             | 00 00 e6 43
+     38 @+315  len=1    cbtToughnessEnum               byte               | 03
+     39 @+316  len=4    effTargetActiveSnare           float4             | 00 00 80 bf
+     44 @+320  len=2    effContainerEffectlessTags     False/half/c1      | 02 00
+     57 @+322  len=8    spnSpawnedSpec                 fixed8             | 01 cf e0 00 5c b1 12 64
+     61 @+330  len=1    tgtTargetIsTargetable          byte               | f3
+     62 @+331  len=4    chrCreatureTypeList            True/half/c1       | 2d 02 01 01
+     63 @+335  len=9    cbtFaction                     signed             | c7 0c 31 7c c4 ba 08 f4 de
+     66 @+344  len=1    chrTemplateVisualIndex         signed             | 01
+     68 @+345  len=1    cbtCreatureType                byte               | 03
+     70 @+346  len=9    brkResourceName                packed             | cf e0 00 c9 70 f1 86 ee c0
+     77 @+355  len=8    chrClass                       fixed8             | cf e0 00 12 e5 58 c8 35
+     78 @+363  len=8    _characterSpecification        fixed8             | 98 cf 55 41 e5 69 31 b5
+     80 @+371  len=1    ablContainer                   packed             | 83
+     86 @+372  len=8    chrLevel                       fixed8             | 35 cc 1a c6 89 57 ee 0a
+    -> reconciled exactly to 380 bytes
+
+wrote D:\SWTORClassic\swtoremu\Diagnostics\TaxiDevelopment-20261001\tailwidth-solutions.txt

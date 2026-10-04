@@ -1,0 +1,1585 @@
+=== NexusToR Hook started ===
+[20:39:51] NexusToR: Initializing NexusToR Client
+[20:39:51] AreaRpcHook: client image base=00230000 size=0x0126B000
+[20:39:51] PhaseLifecycleHook: enabled; discovery will begin after each applied CRT
+[20:39:51] NexusToR: Network and SSL hooks installed; RPC trace=disabled event trace=enabled loading-screen trace=disabled player-field read=disabled write=disabled CRT-apply=enabled
+[20:39:51] NativeRoomHook: INSTALLED pid=18384 register=B90CF0 select=B91AE0 activate=B7C390; caps=512/256/256; select changes only; read failure=FFFFFFFF; no scans or game-state writes
+[20:39:51] TriggerCollisionHook: INSTALLED pid=18384 string=7FE1F0 boolean=7FDE70; knight-retreat only; caps=256/256 plus 8 identity controls; read failure=FFFFFFFF; no game-state writes
+[20:39:53] WS2_32: GetAddrInfo (Brant-PC)
+[20:39:53] WS2_32: GetAddrInfo (localhost)
+[20:39:54] WS2_32: GetAddrInfo (127.0.0.1)
+[20:39:54] MainHook: WSARecv Called [127.0.0.1:7979]
+[20:39:54] MainHook: WSARecv Called [127.0.0.1:7979]
+[20:39:55] MainHook: WSASend Called [127.0.0.1:7979]
+[20:39:55] MainHook: WSASend Called [127.0.0.1:7979]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:7979]
+[20:39:55] MainHook: WSASend Called [127.0.0.1:7979]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:7979]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:7979]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSASend Called [127.0.0.1:7979]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSASend Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSASend Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSASend Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSASend Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSASend Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSASend Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20066]
+[20:39:55] MainHook: WSASend Called [127.0.0.1:20066]
+[20:39:55] MainHook: WSASend Called [127.0.0.1:20066]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20066]
+[20:39:55] MainHook: WSASend Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSASend Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSASend Called [127.0.0.1:20060]
+[20:39:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:40:00] MainHook: WSASend Called [127.0.0.1:20060]
+[20:40:00] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:40:02] MainHook: WSASend Called [127.0.0.1:20060]
+[20:40:02] MainHook: WSASend Called [127.0.0.1:20066]
+[20:40:02] MainHook: WSARecv Called [127.0.0.1:20066]
+[20:40:02] MainHook: WSASend Called [127.0.0.1:20060]
+[20:40:03] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:40:03] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:40:03] MainHook: WSASend Called [127.0.0.1:20060]
+[20:40:03] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:40:03] MainHook: WSASend Called [127.0.0.1:20060]
+[20:40:03] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:40:03] MainHook: WSASend Called [127.0.0.1:20060]
+[20:40:03] MainHook: WSASend Called [127.0.0.1:20060]
+[20:40:05] MainHook: WSASend Called [127.0.0.1:20060]
+[20:40:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:40:10] MainHook: WSASend Called [127.0.0.1:20060]
+[20:40:11] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:40:14] MainHook: WSASend Called [127.0.0.1:20060]
+[20:40:16] MainHook: WSASend Called [127.0.0.1:20060]
+[20:40:16] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:40:16] MainHook: WSASend Called [127.0.0.1:20060]
+[20:40:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:40:21] MainHook: WSASend Called [127.0.0.1:20060]
+[20:40:21] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:40:24] MainHook: WSASend Called [127.0.0.1:20060]
+[20:40:26] MainHook: WSASend Called [127.0.0.1:20060]
+[20:40:26] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:40:29] MainHook: WSASend Called [127.0.0.1:20060]
+[20:40:29] MainHook: WSASend Called [127.0.0.1:20060]
+[20:40:31] MainHook: WSASend Called [127.0.0.1:20060]
+[20:40:31] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:40:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:40:37] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:40:42] MainHook: WSASend Called [127.0.0.1:20060]
+[20:40:42] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:40:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:40:47] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:40:52] MainHook: WSASend Called [127.0.0.1:20060]
+[20:40:52] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:40:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:40:57] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:41:02] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:02] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:41:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:07] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:41:10] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:10] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:10] MainHook: WSASend Called [127.0.0.1:20066]
+[20:41:10] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:10] MainHook: WSARecv Called [127.0.0.1:20066]
+[20:41:12] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:12] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:41:18] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:18] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:41:21] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:22] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:23] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:23] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:41:23] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:28] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:28] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:41:32] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:33] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:33] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:41:35] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:36] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:38] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:38] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:41:43] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:43] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:43] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:41:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:48] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:48] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:41:49] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:51] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:51] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:41:51] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:51] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:41:51] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:41:51] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:51] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:51] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:52] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:52] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:52] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:52] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:52] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:52] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:52] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:52] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:52] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:41:52] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:52] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:41:52] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:41:52] ScriptDispatchHook: phase=enter count=1 this=F49E1BE4 callerRva=0x007D810C args=00000000,00000000,D4B84082,D000BEB8,01176DD4,FCA9B0C0,0E4BF9FC,00000000
+[20:41:54] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:54] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:41:54] ScriptDispatchHook: phase=return count=1 callerRva=0x007D810C result=0x00000000
+[20:41:54] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:54] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:54] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:59] MainHook: WSASend Called [127.0.0.1:20060]
+[20:41:59] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:00] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:02] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:04] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:04] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:05] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:09] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:09] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:10] MainHook: WSASend Called [127.0.0.1:20066]
+[20:42:10] MainHook: WSARecv Called [127.0.0.1:20066]
+[20:42:12] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:14] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:14] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:16] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:19] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:24] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:24] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:24] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:29] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:29] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:29] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:29] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:29] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:29] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:29] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:29] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:29] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:29] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:29] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:29] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:29] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:29] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:29] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:29] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:29] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:30] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:30] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:30] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:31] WS2_32: GetAddrInfo (Brant-PC)
+[20:42:31] WS2_32: GetAddrInfo (Brant-PC)
+[20:42:31] WS2_32: GetAddrInfo (127.0.0.1)
+[20:42:31] WS2_32: GetAddrInfo (127.0.0.1)
+[20:42:31] MainHook: WSASend Called [127.0.0.1:51196]
+[20:42:31] MainHook: WSASend Called [127.0.0.1:51198]
+[20:42:31] MainHook: WSARecv Called [127.0.0.1:51199]
+[20:42:31] MainHook: WSARecv Called [127.0.0.1:51197]
+[20:42:32] MainHook: WSASend Called [127.0.0.1:443]
+[20:42:32] MainHook: WSARecv Called [127.0.0.1:443]
+[20:42:32] MainHook: WSASend Called [127.0.0.1:443]
+[20:42:32] MainHook: WSARecv Called [127.0.0.1:443]
+[20:42:32] MainHook: WSASend Called [127.0.0.1:443]
+[20:42:32] MainHook: WSASend Called [127.0.0.1:443]
+[20:42:32] MainHook: WSARecv Called [127.0.0.1:443]
+[20:42:32] MainHook: WSARecv Called [127.0.0.1:443]
+[20:42:32] MainHook: WSASend Called [127.0.0.1:443]
+[20:42:32] MainHook: WSARecv Called [127.0.0.1:443]
+[20:42:32] MainHook: WSARecv Called [127.0.0.1:443]
+[20:42:32] MainHook: WSASend Called [127.0.0.1:443]
+[20:42:32] MainHook: WSASend Called [127.0.0.1:51196]
+[20:42:32] MainHook: WSARecv Called [127.0.0.1:443]
+[20:42:32] MainHook: WSARecv Called [127.0.0.1:51197]
+[20:42:32] MainHook: WSARecv Called [127.0.0.1:443]
+[20:42:32] MainHook: WSASend Called [127.0.0.1:51198]
+[20:42:32] MainHook: WSARecv Called [127.0.0.1:51199]
+[20:42:32] ScriptDispatchHook: phase=enter count=2 this=F49E1BE4 callerRva=0x001BE4C7 args=00000000,00000000,6E3EA1B3,D000ACF8,011B3F94,FCE3FB20,0E4BFD57,00000000
+[20:42:32] ScriptDispatchHook: phase=return count=2 callerRva=0x001BE4C7 result=0x00000000
+[20:42:32] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F21500 name=_everywhere_ state8c=00000000 state90=00000000
+[20:42:32] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F21280 name=Default state8c=00000000 state90=00000000
+[20:42:32] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F21000 name=old_area state8c=00000000 state90=00000000
+[20:42:32] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F22C80 name=Imperial_Agent state8c=00000000 state90=00000000
+[20:42:32] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F22A00 name=Char_Select_BountyHunter state8c=00000000 state90=00000000
+[20:42:32] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F22780 name=Smuggler state8c=00000000 state90=00000000
+[20:42:32] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F22500 name=Char_Select_Trooper state8c=00000000 state90=00000000
+[20:42:32] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F22280 name=Smuggler_room_02 state8c=00000000 state90=00000000
+[20:42:32] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F22000 name=smuggler_room_03 state8c=00000000 state90=00000000
+[20:42:32] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F23C80 name=imperial_char_create state8c=00000000 state90=00000000
+[20:42:32] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F23A00 name=skyscene_space state8c=00000000 state90=00000000
+[20:42:32] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F23780 name=imperial_char_create_background state8c=00000000 state90=00000000
+[20:42:32] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F23500 name=Char_Select_Knight state8c=00000000 state90=00000000
+[20:42:32] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F23280 name=Char_Select_Consular state8c=00000000 state90=00000000
+[20:42:32] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F23000 name=Char_Select_Warrior state8c=00000000 state90=00000000
+[20:42:32] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F24C80 name=Char_Select_Inquisitor state8c=00000000 state90=00000000
+[20:42:32] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F24A00 name=Char_Select_Smuggler state8c=00000000 state90=00000000
+[20:42:32] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F24780 name=Char_Select_Agent state8c=00000000 state90=00000000
+[20:42:32] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F24500 name=faction_select state8c=00000000 state90=00000000
+[20:42:32] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F24280 name=republic_char_create state8c=00000000 state90=00000000
+[20:42:32] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F24000 name=rep_char_create_background state8c=00000000 state90=00000000
+[20:42:32] NativeRoomHook: pid=18384 activate enter room=F4F23A00 args=00000001,00000000,00000001 state8c=00000000 state90=00000006
+[20:42:32] NativeRoomHook: pid=18384 activate enter room=F4F21500 args=00000000,00000000,00000000 state8c=00000000 state90=00000006
+[20:42:32] NativeRoomHook: pid=18384 activate return room=F4F21500 state8c=00000003 state90=00000006
+[20:42:32] NativeRoomHook: pid=18384 activate return room=F4F23A00 state8c=00000003 state90=00000006
+[20:42:32] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:32] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:32] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:32] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:33] ScriptDispatchHook: phase=enter count=3 this=F49E1BE4 callerRva=0x001C173B args=3B9ACA01,00000000,FA4FB377,D0008803,0E4BF6E4,FCE6EEE0,0E4BF698,00000000
+[20:42:33] ScriptDispatchHook: phase=return count=3 callerRva=0x001C173B result=0x00000000
+[20:42:33] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:33] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:33] ScriptDispatchHook: phase=enter count=4 this=F49E1BE4 callerRva=0x007D810C args=00000000,00000000,04F75399,D000A78B,01176DD4,FCA9B0C0,0E4BF9FC,00000000
+[20:42:33] ScriptDispatchHook: phase=return count=4 callerRva=0x007D810C result=0x00000000
+[20:42:33] ScriptDispatchHook: phase=enter count=5 this=F49E1BE4 callerRva=0x007D810C args=00000000,00000000,57F033CA,D0002802,01176DD4,FCA9B0C0,0E4BF9FC,00000000
+[20:42:33] ScriptDispatchHook: phase=return count=5 callerRva=0x007D810C result=0x00000000
+[20:42:33] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:33] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:33] ScriptDispatchHook: phase=enter count=6 this=F49E1BE4 callerRva=0x007D810C args=00000000,00000000,5E8BD84B,D0001609,01176DD4,FCA9B0C0,0E4BF9E4,00000000
+[20:42:33] ScriptDispatchHook: phase=return count=6 callerRva=0x007D810C result=0x00000000
+[20:42:33] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:33] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:33] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:33] NativeRoomHook: pid=18384 select enter area=F43D39A0 old=00000000 requested=F4F22A00 state8c=00000002 state90=00000006
+[20:42:33] TriggerCollisionHook: pid=18384 room-select before area=F43D39A0 requested=F4F22A00 knownValidTargets=0; fixed event-derived table only
+[20:42:33] NativeRoomHook: pid=18384 activate enter room=F4F22A00 args=00000001,00000001,00000000 state8c=00000002 state90=00000006
+[20:42:33] NativeRoomHook: pid=18384 activate enter room=F4F21500 args=00000000,00000000,00000000 state8c=00000002 state90=00000006
+[20:42:33] NativeRoomHook: pid=18384 activate return room=F4F21500 state8c=00000003 state90=00000006
+[20:42:33] NativeRoomHook: pid=18384 activate return room=F4F22A00 state8c=00000003 state90=00000006
+[20:42:33] NativeRoomHook: pid=18384 activate enter room=F4F21500 args=00000000,00000001,00000000 state8c=00000003 state90=00000006
+[20:42:33] NativeRoomHook: pid=18384 activate return room=F4F21500 state8c=00000003 state90=00000006
+[20:42:33] NativeRoomHook: pid=18384 activate enter room=F4F23A00 args=00000001,00000000,00000001 state8c=00000002 state90=00000006
+[20:42:33] NativeRoomHook: pid=18384 activate enter room=F4F21500 args=00000000,00000000,00000000 state8c=00000003 state90=00000006
+[20:42:33] NativeRoomHook: pid=18384 activate return room=F4F21500 state8c=00000003 state90=00000006
+[20:42:33] NativeRoomHook: pid=18384 activate return room=F4F23A00 state8c=00000003 state90=00000006
+[20:42:33] NativeRoomHook: pid=18384 select return area=F43D39A0 selected=F4F22A00 requested=F4F22A00 state8c=00000003 state90=00000006
+[20:42:33] TriggerCollisionHook: pid=18384 room-select return area=F43D39A0 requested=F4F22A00 knownValidTargets=0; fixed event-derived table only
+[20:42:33] WS2_32: GetAddrInfo (server.emulatornexus.com)
+[20:42:33] ScriptDispatchHook: phase=enter count=7 this=F49E1BE4 callerRva=0x00806B9C args=00000000,00000000,57F033CA,D0002802,0117712C,FC8D7720,0E4BF824,00000000
+[20:42:33] ScriptDispatchHook: phase=return count=7 callerRva=0x00806B9C result=0x00000000
+[20:42:33] ScriptDispatchHook: phase=enter count=8 this=F49E1BE4 callerRva=0x001C173B args=3B9ACA22,00000000,24F9B4C8,D0004688,0E4BFCE4,FCE6EEE0,0E4BFC98,00000000
+[20:42:33] ScriptDispatchHook: phase=return count=8 callerRva=0x001C173B result=0x00000000
+[20:42:33] ScriptDispatchHook: phase=enter count=9 this=F49E1BE4 callerRva=0x007D810C args=00000000,00000000,8D620C52,D0005B85,01176DD4,FCA9B0C0,0E4BF9FC,00000000
+[20:42:33] ScriptDispatchHook: phase=return count=9 callerRva=0x007D810C result=0x00000000
+[20:42:33] ScriptDispatchHook: phase=enter count=10 this=F49E1BE4 callerRva=0x007D810C args=00000000,00000000,8D620C52,D0005B85,01176DD4,FCA9B0C0,0E4BF9FC,00000000
+[20:42:33] ScriptDispatchHook: phase=return count=10 callerRva=0x007D810C result=0x00000000
+[20:42:33] ScriptDispatchHook: phase=enter count=11 this=F49E1BE4 callerRva=0x001C173B args=3B9ACA22,00000000,24F9B4C8,D0004688,0E4BFCE4,FCE6EEE0,0E4BFC98,00000000
+[20:42:33] ScriptDispatchHook: phase=return count=11 callerRva=0x001C173B result=0x00000000
+[20:42:33] ScriptDispatchHook: phase=enter count=12 this=F49E1BE4 callerRva=0x007D810C args=00000000,00000000,8D620C52,D0005B85,01176DD4,FCA9B0C0,0E4BF9FC,00000000
+[20:42:33] ScriptDispatchHook: phase=return count=12 callerRva=0x007D810C result=0x00000000
+[20:42:33] ScriptDispatchHook: phase=enter count=13 this=F49E1BE4 callerRva=0x007D810C args=00000000,00000000,8D620C52,D0005B85,01176DD4,FCA9B0C0,0E4BF9FC,00000000
+[20:42:33] ScriptDispatchHook: phase=return count=13 callerRva=0x007D810C result=0x00000000
+[20:42:33] ScriptDispatchHook: phase=enter count=14 this=F49E1BE4 callerRva=0x007D810C args=00000000,00000000,8D620C52,D0005B85,01176DD4,FCA9B0C0,0E4BF9FC,00000000
+[20:42:33] ScriptDispatchHook: phase=return count=14 callerRva=0x007D810C result=0x00000000
+[20:42:33] ScriptDispatchHook: phase=enter count=15 this=F49E1BE4 callerRva=0x007D810C args=00000000,00000000,8D620C52,D0005B85,01176DD4,FCA9B0C0,0E4BF9FC,00000000
+[20:42:33] ScriptDispatchHook: phase=return count=15 callerRva=0x007D810C result=0x00000000
+[20:42:33] ScriptDispatchHook: phase=enter count=16 this=F49E1BE4 callerRva=0x007D810C args=00000000,00000000,8D620C52,D0005B85,01176DD4,FCA9B0C0,0E4BF9FC,00000000
+[20:42:33] ScriptDispatchHook: phase=return count=16 callerRva=0x007D810C result=0x00000000
+[20:42:33] ScriptDispatchHook: phase=enter count=17 this=F49E1BE4 callerRva=0x007D810C args=00000000,00000000,8D620C52,D0005B85,01176DD4,FCA9B0C0,0E4BF9FC,00000000
+[20:42:33] ScriptDispatchHook: phase=return count=17 callerRva=0x007D810C result=0x00000000
+[20:42:33] ScriptDispatchHook: phase=enter count=18 this=F49E1BE4 callerRva=0x007D810C args=00000000,00000000,8D620C52,D0005B85,01176DD4,FCA9B0C0,0E4BF9FC,00000000
+[20:42:33] ScriptDispatchHook: phase=return count=18 callerRva=0x007D810C result=0x00000000
+[20:42:33] ScriptDispatchHook: phase=enter count=19 this=F49E1BE4 callerRva=0x007D810C args=00000000,00000000,8D620C52,D0005B85,01176DD4,FCA9B0C0,0E4BF9FC,00000000
+[20:42:33] ScriptDispatchHook: phase=return count=19 callerRva=0x007D810C result=0x00000000
+[20:42:33] ScriptDispatchHook: phase=enter count=20 this=F49E1BE4 callerRva=0x001C173B args=3B9ACA22,00000000,24F9B4C8,D0004688,0E4BFCE4,FCE6EEE0,0E4BFC98,00000000
+[20:42:33] ScriptDispatchHook: phase=return count=20 callerRva=0x001C173B result=0x00000000
+[20:42:34] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:34] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:36] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:36] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:37] EventDispatchHook: class=1 count=1 caller=ECF81B20 callerRva=0x00000000 envelope=EC2BFA20 payload=EC2BFA34 logicalLen=11 hash=0x39523C00 changed=1 manager=F49E1CBC vtable=00EF5AD4 handler=00A06550 handlerRva=0x007D6550 bytes=B8 E0 E9 00 00 04 00 00 00 00 00 00 0B 00 00 00 50 FA 2B EC 05 00 00 00 00 00 00 00 CF 14 63 F5 32 F5 5F 35 EB 02 96 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7ADD4D8A>7ADD475F
+[20:42:37] Class1BridgeHook: phase=enter recipient=0A540D50 vtable=00F6F108 method=00472A20 methodRva=0x00242A20 unused=00000001 payload=EC2BFA34
+[20:42:37] Class1BridgeHook: phase=return recipient=0A540D50 payload=EC2BFA34
+[20:42:37] NativeRoomHook: pid=18384 select enter area=F43D39A0 old=F4F22A00 requested=F4F24500 state8c=00000002 state90=00000006
+[20:42:37] TriggerCollisionHook: pid=18384 room-select before area=F43D39A0 requested=F4F24500 knownValidTargets=0; fixed event-derived table only
+[20:42:37] NativeRoomHook: pid=18384 activate enter room=F4F24500 args=00000001,00000001,00000000 state8c=00000002 state90=00000006
+[20:42:37] NativeRoomHook: pid=18384 activate enter room=F4F21500 args=00000000,00000000,00000000 state8c=00000003 state90=00000006
+[20:42:37] NativeRoomHook: pid=18384 activate return room=F4F21500 state8c=00000003 state90=00000006
+[20:42:37] NativeRoomHook: pid=18384 activate return room=F4F24500 state8c=00000003 state90=00000006
+[20:42:37] NativeRoomHook: pid=18384 activate enter room=F4F21500 args=00000000,00000001,00000000 state8c=00000003 state90=00000006
+[20:42:37] NativeRoomHook: pid=18384 activate return room=F4F21500 state8c=00000003 state90=00000006
+[20:42:37] NativeRoomHook: pid=18384 activate enter room=F4F23A00 args=00000001,00000000,00000001 state8c=00000003 state90=00000006
+[20:42:37] NativeRoomHook: pid=18384 activate return room=F4F23A00 state8c=00000003 state90=00000006
+[20:42:37] NativeRoomHook: pid=18384 select return area=F43D39A0 selected=F4F24500 requested=F4F24500 state8c=00000003 state90=00000006
+[20:42:37] TriggerCollisionHook: pid=18384 room-select return area=F43D39A0 requested=F4F24500 knownValidTargets=0; fixed event-derived table only
+[20:42:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:37] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:37] WS2_32: GetAddrInfo (server.emulatornexus.com)
+[20:42:37] NativeRoomHook: pid=18384 select enter area=F43D39A0 old=F4F24500 requested=F4F23500 state8c=00000002 state90=00000006
+[20:42:37] TriggerCollisionHook: pid=18384 room-select before area=F43D39A0 requested=F4F23500 knownValidTargets=0; fixed event-derived table only
+[20:42:37] NativeRoomHook: pid=18384 activate enter room=F4F23500 args=00000001,00000001,00000000 state8c=00000002 state90=00000006
+[20:42:37] NativeRoomHook: pid=18384 activate enter room=F4F21500 args=00000000,00000000,00000000 state8c=00000003 state90=00000006
+[20:42:37] NativeRoomHook: pid=18384 activate return room=F4F21500 state8c=00000003 state90=00000006
+[20:42:37] NativeRoomHook: pid=18384 activate return room=F4F23500 state8c=00000003 state90=00000006
+[20:42:37] NativeRoomHook: pid=18384 activate enter room=F4F21500 args=00000000,00000001,00000000 state8c=00000003 state90=00000006
+[20:42:37] NativeRoomHook: pid=18384 activate return room=F4F21500 state8c=00000003 state90=00000006
+[20:42:37] NativeRoomHook: pid=18384 activate enter room=F4F23A00 args=00000001,00000000,00000001 state8c=00000003 state90=00000006
+[20:42:37] NativeRoomHook: pid=18384 activate return room=F4F23A00 state8c=00000003 state90=00000006
+[20:42:37] NativeRoomHook: pid=18384 select return area=F43D39A0 selected=F4F23500 requested=F4F23500 state8c=00000003 state90=00000006
+[20:42:37] TriggerCollisionHook: pid=18384 room-select return area=F43D39A0 requested=F4F23500 knownValidTargets=0; fixed event-derived table only
+[20:42:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:37] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:39] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:39] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:42] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:44] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:44] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:48] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:49] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:49] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:54] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:54] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:42:55] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:59] MainHook: WSASend Called [127.0.0.1:20060]
+[20:42:59] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:43:00] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:04] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:04] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:43:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:08] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:09] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:09] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:43:10] MainHook: WSASend Called [127.0.0.1:20066]
+[20:43:10] MainHook: WSARecv Called [127.0.0.1:20066]
+[20:43:12] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:14] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:14] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:43:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:19] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:43:21] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:24] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:24] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:24] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:43:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:29] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:29] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:43:34] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:34] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:34] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:43:36] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:39] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:39] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:43:44] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:44] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:43:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:48] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:49] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:49] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:43:54] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:54] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:43:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:43:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:00] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:00] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:44:00] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:00] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:05] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:44:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:10] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:10] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:44:10] MainHook: WSASend Called [127.0.0.1:20066]
+[20:44:10] MainHook: WSARecv Called [127.0.0.1:20066]
+[20:44:12] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:13] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:15] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:15] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:44:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:20] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:20] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:44:24] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:25] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:25] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:44:26] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:30] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:30] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:44:35] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:35] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:44:36] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:39] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:40] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:40] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:44:45] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:45] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:44:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:48] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:50] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:50] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:44:52] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:55] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:44:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:44:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:00] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:00] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:00] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:45:05] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:05] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:45:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:10] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:10] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:45:11] MainHook: WSASend Called [127.0.0.1:20066]
+[20:45:11] MainHook: WSARecv Called [127.0.0.1:20066]
+[20:45:12] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:15] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:15] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:45:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:18] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:20] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:20] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:45:24] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:25] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:25] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:45:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:30] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:30] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:45:31] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:35] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:35] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:45:36] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:40] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:40] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:45:44] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:45] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:45] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:45:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:48] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:50] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:50] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:45:55] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:45:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:45:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:00] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:00] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:00] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:46:05] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:46:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:10] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:10] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:10] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:46:11] MainHook: WSASend Called [127.0.0.1:20066]
+[20:46:11] MainHook: WSARecv Called [127.0.0.1:20066]
+[20:46:12] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:15] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:15] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:46:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:20] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:20] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:46:23] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:24] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:25] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:25] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:46:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:30] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:30] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:46:35] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:35] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:46:36] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:40] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:40] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:46:45] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:45] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:46:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:48] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:49] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:50] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:50] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:46:55] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:46:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:46:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:00] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:00] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:00] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:47:02] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:05] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:47:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:10] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:10] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:47:11] MainHook: WSASend Called [127.0.0.1:20066]
+[20:47:11] MainHook: WSARecv Called [127.0.0.1:20066]
+[20:47:12] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:15] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:15] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:15] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:47:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:20] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:20] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:47:24] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:25] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:25] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:47:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:28] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:30] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:30] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:47:35] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:35] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:47:36] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:40] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:40] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:47:41] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:45] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:45] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:47:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:48] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:50] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:50] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:47:54] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:55] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:47:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:47:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:00] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:00] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:00] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:48:05] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:48:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:10] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:10] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:48:11] MainHook: WSASend Called [127.0.0.1:20066]
+[20:48:11] MainHook: WSARecv Called [127.0.0.1:20066]
+[20:48:12] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:15] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:15] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:48:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:20] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:20] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:20] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:48:24] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:25] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:25] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:48:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:30] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:30] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:48:33] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:35] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:35] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:48:36] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:40] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:40] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:48:45] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:45] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:48:46] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:48] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:50] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:50] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:48:55] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:48:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:48:59] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:00] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:00] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:00] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:49:05] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:49:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:10] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:10] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:49:11] MainHook: WSASend Called [127.0.0.1:20066]
+[20:49:11] MainHook: WSARecv Called [127.0.0.1:20066]
+[20:49:12] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:15] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:15] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:49:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:20] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:20] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:49:24] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:25] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:25] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:25] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:49:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:30] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:30] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:49:35] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:35] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:49:36] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:38] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:40] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:40] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:49:45] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:45] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:49:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:48] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:50] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:50] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:49:51] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:55] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:55] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:49:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:49:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:00] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:00] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:00] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:50:04] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:05] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:50:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:10] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:10] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:50:11] MainHook: WSASend Called [127.0.0.1:20066]
+[20:50:11] MainHook: WSARecv Called [127.0.0.1:20066]
+[20:50:12] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:15] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:15] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:50:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:20] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:20] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:50:24] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:25] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:25] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:50:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:30] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:30] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:30] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:50:35] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:35] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:50:36] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:40] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:40] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:50:43] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:46] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:46] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:50:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:48] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:51] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:51] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:50:56] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:56] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:50:56] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:50:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:00] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:01] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:01] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:51:06] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:06] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:51:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:09] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:11] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:11] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:51:11] MainHook: WSASend Called [127.0.0.1:20066]
+[20:51:11] MainHook: WSARecv Called [127.0.0.1:20066]
+[20:51:12] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:16] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:16] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:51:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:21] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:21] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:51:22] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:24] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:26] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:26] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:51:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:31] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:31] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:51:35] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:36] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:36] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:36] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:51:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:41] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:41] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:51:46] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:46] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:51:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:48] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:51] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:51] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:51:56] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:56] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:51:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:51:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:00] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:01] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:01] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:01] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:52:06] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:06] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:52:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:11] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:11] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:52:11] MainHook: WSASend Called [127.0.0.1:20066]
+[20:52:11] MainHook: WSARecv Called [127.0.0.1:20066]
+[20:52:12] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:14] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:16] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:16] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:52:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:21] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:21] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:52:24] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:26] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:26] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:52:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:31] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:31] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:52:36] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:36] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:36] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:52:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:40] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:41] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:41] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:52:46] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:46] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:52:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:48] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:51] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:51] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:52:53] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:56] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:56] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:52:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:52:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:00] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:00] NativeRoomHook: pid=18384 select enter area=F43D39A0 old=F4F23500 requested=F4F22A00 state8c=00000002 state90=00000006
+[20:53:00] TriggerCollisionHook: pid=18384 room-select before area=F43D39A0 requested=F4F22A00 knownValidTargets=0; fixed event-derived table only
+[20:53:00] NativeRoomHook: pid=18384 activate enter room=F4F22A00 args=00000001,00000001,00000000 state8c=00000002 state90=00000006
+[20:53:00] NativeRoomHook: pid=18384 activate enter room=F4F21500 args=00000000,00000000,00000000 state8c=00000003 state90=00000006
+[20:53:00] NativeRoomHook: pid=18384 activate return room=F4F21500 state8c=00000003 state90=00000006
+[20:53:00] NativeRoomHook: pid=18384 activate return room=F4F22A00 state8c=00000003 state90=00000006
+[20:53:00] NativeRoomHook: pid=18384 activate enter room=F4F21500 args=00000000,00000001,00000000 state8c=00000003 state90=00000006
+[20:53:00] NativeRoomHook: pid=18384 activate return room=F4F21500 state8c=00000003 state90=00000006
+[20:53:00] NativeRoomHook: pid=18384 activate enter room=F4F23A00 args=00000001,00000000,00000001 state8c=00000003 state90=00000006
+[20:53:00] NativeRoomHook: pid=18384 activate return room=F4F23A00 state8c=00000003 state90=00000006
+[20:53:00] NativeRoomHook: pid=18384 select return area=F43D39A0 selected=F4F22A00 requested=F4F22A00 state8c=00000003 state90=00000006
+[20:53:00] TriggerCollisionHook: pid=18384 room-select return area=F43D39A0 requested=F4F22A00 knownValidTargets=0; fixed event-derived table only
+[20:53:00] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:00] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:00] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:00] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:00] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F5C80 name=forge_underground_ruins_stairs_transition_room state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F4000 name=_everywhere_ state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F4280 name=Default state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F4500 name=academy_main state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F4780 name=ongree_high state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F4A00 name=fleshraider_caves_main state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F4C80 name=fleshraider_caves_high state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F3000 name=fleshraider_camp_main state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F3280 name=fleshraider_camp_high state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F3500 name=ruins_main state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F3780 name=ruins_high state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F3A00 name=waterfall_main state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F3C80 name=waterfall_high state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F2000 name=tunnel_valley state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F2280 name=ongree_entrance state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F2500 name=thousand_high state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F2780 name=caves_cave_1 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F2A00 name=caves_cave_2 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F2C80 name=tunnel_waterfall_forge state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F1000 name=forge_main state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F1280 name=forge_high state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F1500 name=academy_interior state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F1780 name=academy_interior_transition_hall state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F1A00 name=kaleth_knight_instance_entrance state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F1C80 name=kaleth_knight_instance state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F0000 name=kaleth_wizard_instance_cave state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F0280 name=kaleth_cave_1 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F0500 name=ongree_interiors state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F0780 name=flesh_raider_camp_cavern_entrance state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F0A00 name=flesh_raider_camp_cavern state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F0C80 name=thousand_high_interior state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2F000 name=forge_instance state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2F280 name=academy_interior_hall_a state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2F500 name=academy_interior_hall_b state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2F780 name=academy_interior_hall_c state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2FA00 name=academy_interior_hall_d state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2FC80 name=academy_interior_hall_a_corner state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2E000 name=academy_interior_hall_b_corner state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2E280 name=academy_interior_hall_c_corner state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2E500 name=academy_interior_hall_d_corner state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2D000 name=academy_interior_hall_ab state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2EC80 name=academy_interior_room03 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2EA00 name=academy_interior_room09 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2E780 name=academy_interior_room14 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2D280 name=academy_interior_room13 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2D500 name=academy_interior_hall_cd state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2D780 name=academy_interior_room07 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2DA00 name=academy_interior_room05 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2DC80 name=academy_interior_room20_hall state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2C000 name=academy_interior_room20 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2C280 name=academy_interior_room19_hall state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2C500 name=academy_interior_room19 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2C780 name=academy_interior_room21_hall state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2CA00 name=academy_interior_room21 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2CC80 name=academy_balcony_b state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2B000 name=academy_balcony_b_hall state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2B280 name=academy_balcony_a state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2B500 name=academy_balcony_a_hall state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2B780 name=forge_underground_ruins_room04 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2BA00 name=academy_interior_room18 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2BC80 name=academy_interior_room17 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2A000 name=academy_interior_room16 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2A280 name=academy_interior_room15 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2A500 name=forge_underground_ruins_hallway01 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2A780 name=forge_underground_ruins_room02 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2AA00 name=forge_underground_ruins_room01 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F2AC80 name=forge_underground_ruins_room03 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F29000 name=forge_underground_ruins_room00 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F29280 name=forge_underground_ruins_hallway02 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F29500 name=gnarls_new state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F29780 name=waterfall_shortcut state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F29A00 name=forge_knight_tunnel state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F29C80 name=forge_sorcerer_tunnel state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F28000 name=mtns_academy_main_temple state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F28280 name=academy_interior_room06 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F28500 name=academy_interior_room08 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F28780 name=academy_interior_room04 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F28C80 name=academy_interior_room10 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F27000 name=number_blocks_room state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=F4F28A00 name=gnarls_knight_cave_instance state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FE780 name=kaleth_meditation_circle state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FE500 name=forge_instance_unmapped state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FE280 name=caves_cave2_room state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FE000 name=caves_cave_1_curve state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FFC80 name=caves_cave_1_room state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FEA00 name=gnarls_knight_cave_instance_room state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FEC80 name=waterfall_shortcut_middle state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FD000 name=waterfall_shortcut_end state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FD280 name=tunnel_waterfall_forge_room2 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FD500 name=tunnel_waterfall_forge_hall_4way state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FD780 name=tunnel_waterfall_forge_hall_straight state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FDA00 name=tunnel_waterfall_forge_exit state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FDC80 name=kaleth_cave_1_room2 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FC000 name=kaleth_cave_1_room1 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FC280 name=kaleth_wizard_instance_cave_exit state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FC500 name=flesh_raider_camp_cavern_room1 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FC780 name=flesh_raider_camp_cavern_room2 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FCA00 name=forge_knight_tunnel_curve state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FCC80 name=forge_knight_tunnel_exit state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FB000 name=forge_sorcerer_tunnel_hall1 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FB280 name=forge_sorcerer_tunnel_room2 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FB500 name=forge_sorcerer_tunnel_exittoforge state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FB780 name=ongree_interiors_small_2 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FBA00 name=ongree_interiors_small_3 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FBC80 name=gnarls_retreat_int_a state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FA000 name=gnarls_retreat_int_b state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FA280 name=gnarls_retreat_int_c state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FA500 name=gnarls_retreat_int_d state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FA780 name=caves_cave_1_curve_1 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FAA00 name=caves_cave_1_room_1 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30FAC80 name=_todds_audio_temp state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F9000 name=mtns_gnarls_new state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F9280 name=mtns_ongree_border_fleshraider state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F9500 name=fleshraider_waterfall_transition state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F9780 name=mtns_waterfall_transition state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F9A00 name=mtns_waterfall_forge_transition state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F9C80 name=mtns_ruins_border state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F8000 name=mtns_forge_forge_instance_border state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F8280 name=ongree_transition state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F8500 name=mtns_thousand_high state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F8780 name=forge_underground_ruins_hallway04 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F8A00 name=forge_underground_ruins_hallway03 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F8C80 name=a_spc_garage_rep_lobby state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F7000 name=a_skydome_spc_garage_rep state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F7280 name=a_spc_garage_rep_hub_01 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F7500 name=a_spc_garage_rep_hub_02 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F7780 name=a_spc_garage_rep_hub_03 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F7A00 name=a_spc_garage_rep_hub_04 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F7C80 name=a_spc_garage_rep_hub_trans_02 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F6000 name=a_spc_garage_rep_hub_planet state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F6280 name=a_spc_garage_rep_hub_trans_01 state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F6500 name=a_spc_garage_rep_hub_01_jump state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F6780 name=a_spc_garage_rep_hub_02_jump state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F6A00 name=a_spc_garage_rep_hub_03_jump state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F6C80 name=a_spc_garage_rep_hub_04_jump state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F5000 name=skyscene state8c=00000000 state90=00000000
+[20:53:00] NativeRoomHook: pid=18384 register area=F43D39A0 room=D30F5280 name=forge_interior_towers state8c=00000000 state90=00000000
+[20:53:01] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:01] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:01] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:01] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:01] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:01] TriggerCollisionHook: pid=18384 identity control object=D3FE2960 param=tython_trooper_hangar result=1 flagsE0=05000481
+[20:53:01] TriggerCollisionHook: pid=18384 identity control object=D3FE2780 param=tython_trooper_hangar result=1 flagsE0=05000481
+[20:53:01] TriggerCollisionHook: pid=18384 identity control object=D3FE25A0 param=tython_trooper_hangar result=1 flagsE0=05000481
+[20:53:01] TriggerCollisionHook: pid=18384 identity control object=D3FE23C0 param=tython_consular_hangar result=1 flagsE0=05000481
+[20:53:01] TriggerCollisionHook: pid=18384 identity control object=D3FE21E0 param=tython_consular_hangar result=1 flagsE0=05000481
+[20:53:01] TriggerCollisionHook: pid=18384 identity control object=D3FE2000 param=hyd.location.tython.hearth_stone.suppress_travel_trigger result=1 flagsE0=05000481
+[20:53:01] TriggerCollisionHook: pid=18384 identity control object=D3FE3D20 param=tython_consular_hangar result=1 flagsE0=05000481
+[20:53:01] TriggerCollisionHook: pid=18384 identity control object=D3FE3B40 param=tython_knight_hangar result=1 flagsE0=05000481
+[20:53:01] TriggerCollisionHook: pid=18384 identity return object=D4133000 result=1 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=00000000 collider=EB77BBD0
+[20:53:01] TriggerCollisionHook: pid=18384 identity return object=D4133000 transform24=00000007 local2cBits=C27E779A,C0D77F63,C2FDC4F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:53:01] TriggerCollisionHook: pid=18384 Collidable enter object=D4133000 requested=0
+[20:53:01] TriggerCollisionHook: pid=18384 collision before object=D4133000 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=00000000 collider=EB77BBD0
+[20:53:01] TriggerCollisionHook: pid=18384 collision before object=D4133000 transform24=00000007 local2cBits=C27E779A,C0D77F63,C2FDC4F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:53:01] TriggerCollisionHook: pid=18384 collision return object=D4133000 result=1 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=00000000 collider=EB77BBD0
+[20:53:01] TriggerCollisionHook: pid=18384 collision return object=D4133000 transform24=00000007 local2cBits=C27E779A,C0D77F63,C2FDC4F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:53:01] TriggerCollisionHook: pid=18384 identity return object=D4134D20 result=1 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=00000000 collider=EB77BCC0
+[20:53:01] TriggerCollisionHook: pid=18384 identity return object=D4134D20 transform24=00000007 local2cBits=C280D03B,C0D1999A,C2FF77E9 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:53:01] TriggerCollisionHook: pid=18384 Collidable enter object=D4134D20 requested=0
+[20:53:01] TriggerCollisionHook: pid=18384 collision before object=D4134D20 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=00000000 collider=EB77BCC0
+[20:53:01] TriggerCollisionHook: pid=18384 collision before object=D4134D20 transform24=00000007 local2cBits=C280D03B,C0D1999A,C2FF77E9 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:53:01] TriggerCollisionHook: pid=18384 collision return object=D4134D20 result=1 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=00000000 collider=EB77BCC0
+[20:53:01] TriggerCollisionHook: pid=18384 collision return object=D4134D20 transform24=00000007 local2cBits=C280D03B,C0D1999A,C2FF77E9 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:53:01] TriggerCollisionHook: pid=18384 identity return object=D41343C0 result=1 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=00000000 collider=EB777FC0
+[20:53:01] TriggerCollisionHook: pid=18384 identity return object=D41343C0 transform24=00000007 local2cBits=C2632944,C10700D2,C2F42ACE collider2c=01010101 paramHash=FF5F184AAA9ECE77
+[20:53:01] TriggerCollisionHook: pid=18384 Collidable enter object=D41343C0 requested=0
+[20:53:01] TriggerCollisionHook: pid=18384 collision before object=D41343C0 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=00000000 collider=EB777FC0
+[20:53:01] TriggerCollisionHook: pid=18384 collision before object=D41343C0 transform24=00000007 local2cBits=C2632944,C10700D2,C2F42ACE collider2c=01010101 paramHash=FF5F184AAA9ECE77
+[20:53:01] TriggerCollisionHook: pid=18384 collision return object=D41343C0 result=1 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=00000000 collider=EB777FC0
+[20:53:01] TriggerCollisionHook: pid=18384 collision return object=D41343C0 transform24=00000007 local2cBits=C2632944,C10700D2,C2F42ACE collider2c=01010101 paramHash=FF5F184AAA9ECE77
+[20:53:01] TriggerCollisionHook: pid=18384 identity return object=D4135D20 result=1 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=00000000 collider=EB775150
+[20:53:01] TriggerCollisionHook: pid=18384 identity return object=D4135D20 transform24=00000007 local2cBits=C27F0034,C0D4C3CA,C2FE15F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:53:01] TriggerCollisionHook: pid=18384 Collidable enter object=D4135D20 requested=0
+[20:53:01] TriggerCollisionHook: pid=18384 collision before object=D4135D20 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=00000000 collider=EB775150
+[20:53:01] TriggerCollisionHook: pid=18384 collision before object=D4135D20 transform24=00000007 local2cBits=C27F0034,C0D4C3CA,C2FE15F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:53:01] TriggerCollisionHook: pid=18384 collision return object=D4135D20 result=1 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=00000000 collider=EB775150
+[20:53:01] TriggerCollisionHook: pid=18384 collision return object=D4135D20 transform24=00000007 local2cBits=C27F0034,C0D4C3CA,C2FE15F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:53:02] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:02] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:02] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:03] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:03] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:03] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:03] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:04] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:04] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:05] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:05] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:05] EventDispatchHook: class=1 count=2 caller=F11764C4 callerRva=0x00000000 envelope=EC2BFA20 payload=EC2BFA34 logicalLen=15 hash=0x2706BD54 changed=1 manager=F49E1CBC vtable=00EF5AD4 handler=00A06550 handlerRva=0x007D6550 bytes=B8 E0 E9 00 00 04 00 00 00 00 00 00 0F 00 00 00 50 FA 2B EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 5B 66 8E A0 06 04 74 72 75 65 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7ADD4D8A>7ADD475F
+[20:53:05] Class1BridgeHook: phase=enter recipient=0A540D50 vtable=00F6F108 method=00472A20 methodRva=0x00242A20 unused=00000001 payload=EC2BFA34
+[20:53:05] Class1BridgeHook: phase=return recipient=0A540D50 payload=EC2BFA34
+[20:53:05] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:06] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:06] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:06] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:06] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:11] MainHook: WSASend Called [127.0.0.1:20066]
+[20:53:11] MainHook: WSARecv Called [127.0.0.1:20066]
+[20:53:11] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:11] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:12] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:16] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:16] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0E71623B first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x1CA72F2D first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0ADFF9BF first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0D446E80 first=0x65B3 second=0x0008
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0ADFF9BF first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0ADFF9BF first=0x65B3 second=0x0008
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0ADFF9BF first=0x65B3 second=0x0008
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0ADFF9BF first=0x65B3 second=0x0008
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0ADFF9BF first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0D446E80 first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0ADFF9BF first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0ADFF9BF first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0ADFF9BF first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0ADFF9BF first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0xA1D9E226 first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] CrtApplyHook: crt count=1 pThis=0A540D20 opcode=0x0D446E80 reader=0A5B09DC consumer=0x00473230 consumerRva=0x00243230 gate=0x012CAEA8 apply=0x005482C0 applyRva=0x003182C0
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0D446E80 first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0D446E80 first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0D446E80 first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0D446E80 first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0D446E80 first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0D446E80 first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0D446E80 first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0xA1D9E226 first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0D446E80 first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0D446E80 first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0D446E80 first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0D446E80 first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0D446E80 first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] TriggerCollisionHook: pid=18384 identity return object=D41363C0 result=1 param=tyt_jedi_knight_masters_retreat name=tyt_jedi_knight_masters_retreat flagsE0=0D000481 room=00000000 collider=EB59F5D0
+[20:53:19] TriggerCollisionHook: pid=18384 identity return object=D41363C0 transform24=0000000F local2cBits=00000000,00000000,00000000 collider2c=01010101 paramHash=FF5F184AAA9ECE77
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0D446E80 first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0D446E80 first=0x65B3 second=0x0008
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] TriggerCollisionHook: pid=18384 Collidable enter object=D4134D20 requested=1
+[20:53:19] TriggerCollisionHook: pid=18384 collision before object=D4134D20 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=F4F29500 collider=EB77BCC0
+[20:53:19] TriggerCollisionHook: pid=18384 collision before object=D4134D20 transform24=00000007 local2cBits=C280D03B,C0D1999A,C2FF77E9 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:53:19] TriggerCollisionHook: pid=18384 collision return object=D4134D20 result=1 param=tyt_jedi_knight_masters_retreat name= flagsE0=05001481 room=F4F29500 collider=EB77BCC0
+[20:53:19] TriggerCollisionHook: pid=18384 collision return object=D4134D20 transform24=00000007 local2cBits=C280D03B,C0D1999A,C2FF77E9 collider2c=00000041 paramHash=FF5F184AAA9ECE77
+[20:53:19] TriggerCollisionHook: pid=18384 Collidable enter object=D4135D20 requested=1
+[20:53:19] TriggerCollisionHook: pid=18384 collision before object=D4135D20 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=F4F29500 collider=EB775150
+[20:53:19] TriggerCollisionHook: pid=18384 collision before object=D4135D20 transform24=00000007 local2cBits=C27F0034,C0D4C3CA,C2FE15F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:53:19] TriggerCollisionHook: pid=18384 collision return object=D4135D20 result=1 param=tyt_jedi_knight_masters_retreat name= flagsE0=05001481 room=F4F29500 collider=EB775150
+[20:53:19] TriggerCollisionHook: pid=18384 collision return object=D4135D20 transform24=00000007 local2cBits=C27F0034,C0D4C3CA,C2FE15F7 collider2c=00000041 paramHash=FF5F184AAA9ECE77
+[20:53:19] TriggerCollisionHook: pid=18384 Collidable enter object=D41343C0 requested=1
+[20:53:19] TriggerCollisionHook: pid=18384 collision before object=D41343C0 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=F4F29500 collider=EB777FC0
+[20:53:19] TriggerCollisionHook: pid=18384 collision before object=D41343C0 transform24=00000007 local2cBits=C2632944,C10700D2,C2F42ACE collider2c=01010101 paramHash=FF5F184AAA9ECE77
+[20:53:19] TriggerCollisionHook: pid=18384 collision return object=D41343C0 result=1 param=tyt_jedi_knight_masters_retreat name= flagsE0=05001481 room=F4F29500 collider=EB777FC0
+[20:53:19] TriggerCollisionHook: pid=18384 collision return object=D41343C0 transform24=00000007 local2cBits=C2632944,C10700D2,C2F42ACE collider2c=01010141 paramHash=FF5F184AAA9ECE77
+[20:53:19] CrtApplyHook: crt count=1 applied pThis=0A540D20
+[20:53:19] PhaseLifecycleHook: installed discovery=private-full32-relocated-prefix-v2 phaseInfoDestroy=ECEDD6B0 updateGateway=ECCC2670 playerPhaseCreate=ECB2C810 playerPhaseDestroy=ECB2CB00
+[20:53:19] EventDispatchHook: class=1 count=3 caller=ECDF1035 callerRva=0x00000000 envelope=EC2BFA20 payload=EC2BFA34 logicalLen=9 hash=0x3F9A250C changed=1 manager=F49E1CBC vtable=00EF5AD4 handler=00A06550 handlerRva=0x007D6550 bytes=B8 E0 E9 00 00 04 00 00 00 00 00 00 09 00 00 00 50 FA 2B EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 2C EF 39 EF 06 04 74 72 75 65 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7ADD4D8A>7ADD475F
+[20:53:19] Class1BridgeHook: phase=enter recipient=0A540D50 vtable=00F6F108 method=00472A20 methodRva=0x00242A20 unused=00000001 payload=EC2BFA34
+[20:53:19] Class1BridgeHook: phase=return recipient=0A540D50 payload=EC2BFA34
+[20:53:19] CrtApplyHook: crt count=2 pThis=0A540D20 opcode=0x0D446E80 reader=0A5B08DC consumer=0x00473230 consumerRva=0x00243230 gate=0x012CAEA8 apply=0x005482C0 applyRva=0x003182C0
+[20:53:19] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:19] EventDispatchHook: class=1 count=4 caller=F11F6A43 callerRva=0x00000000 envelope=EC2BFA20 payload=EC2BFA34 logicalLen=9 hash=0x962556B7 changed=1 manager=F49E1CBC vtable=00EF5AD4 handler=00A06550 handlerRva=0x007D6550 bytes=B8 E0 E9 00 00 04 00 00 00 00 00 00 09 00 00 00 50 FA 2B EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 6B ED 20 CE 06 04 74 72 75 65 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7ADD4D8A>7ADD475F
+[20:53:19] Class1BridgeHook: phase=enter recipient=0A540D50 vtable=00F6F108 method=00472A20 methodRva=0x00242A20 unused=00000001 payload=EC2BFA34
+[20:53:19] Class1BridgeHook: phase=return recipient=0A540D50 payload=EC2BFA34
+[20:53:19] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:19] EventDispatchHook: class=1 count=5 caller=ECFD1CC3 callerRva=0x00000000 envelope=EC2BFA20 payload=EC2BFA34 logicalLen=9 hash=0x33C87505 changed=1 manager=F49E1CBC vtable=00EF5AD4 handler=00A06550 handlerRva=0x007D6550 bytes=B8 E0 E9 00 00 04 00 00 00 00 00 00 09 00 00 00 50 FA 2B EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 F2 40 F5 F5 06 04 74 72 75 65 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7ADD4D8A>7ADD475F
+[20:53:19] Class1BridgeHook: phase=enter recipient=0A540D50 vtable=00F6F108 method=00472A20 methodRva=0x00242A20 unused=00000001 payload=EC2BFA34
+[20:53:19] Class1BridgeHook: phase=return recipient=0A540D50 payload=EC2BFA34
+[20:53:19] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:19] EventDispatchHook: class=1 count=6 caller=ECF76437 callerRva=0x00000000 envelope=EC2BFA20 payload=EC2BFA34 logicalLen=21 hash=0xB93A7A52 changed=1 manager=F49E1CBC vtable=00EF5AD4 handler=00A06550 handlerRva=0x007D6550 bytes=B8 E0 E9 00 00 04 00 00 00 00 00 00 15 00 00 00 50 FA 2B EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 CC 27 D5 17 02 C7 1C 1C E7 85 B2 80 36 8E 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7ADD4D8A>7ADD475F
+[20:53:19] Class1BridgeHook: phase=enter recipient=0A540D50 vtable=00F6F108 method=00472A20 methodRva=0x00242A20 unused=00000001 payload=EC2BFA34
+[20:53:19] Class1BridgeHook: phase=return recipient=0A540D50 payload=EC2BFA34
+[20:53:19] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:19] EventDispatchHook: class=1 count=7 caller=ECF76437 callerRva=0x00000000 envelope=EC2BFA20 payload=EC2BFA34 logicalLen=21 hash=0x0F3A6ED5 changed=1 manager=F49E1CBC vtable=00EF5AD4 handler=00A06550 handlerRva=0x007D6550 bytes=B8 E0 E9 00 00 04 00 00 00 00 00 00 15 00 00 00 50 FA 2B EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 CC 27 D5 17 02 C7 53 67 7E EB A7 AD 4C 60 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7ADD4D8A>7ADD475F
+[20:53:19] Class1BridgeHook: phase=enter recipient=0A540D50 vtable=00F6F108 method=00472A20 methodRva=0x00242A20 unused=00000001 payload=EC2BFA34
+[20:53:19] Class1BridgeHook: phase=return recipient=0A540D50 payload=EC2BFA34
+[20:53:19] EventDispatchHook: class=1 count=8 caller=ECF76437 callerRva=0x00000000 envelope=EC2BFA20 payload=EC2BFA34 logicalLen=21 hash=0x5D8A190C changed=1 manager=F49E1CBC vtable=00EF5AD4 handler=00A06550 handlerRva=0x007D6550 bytes=B8 E0 E9 00 00 04 00 00 00 00 00 00 15 00 00 00 50 FA 2B EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 CC 27 D5 17 02 CF 4B 8B 68 67 5C 82 05 D4 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7ADD4D8A>7ADD475F
+[20:53:19] Class1BridgeHook: phase=enter recipient=0A540D50 vtable=00F6F108 method=00472A20 methodRva=0x00242A20 unused=00000001 payload=EC2BFA34
+[20:53:19] Class1BridgeHook: phase=return recipient=0A540D50 payload=EC2BFA34
+[20:53:19] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:19] EventDispatchHook: class=1 count=9 caller=ECF81B20 callerRva=0x00000000 envelope=EC2BFA20 payload=EC2BFA34 logicalLen=11 hash=0x39523C00 changed=1 manager=F49E1CBC vtable=00EF5AD4 handler=00A06550 handlerRva=0x007D6550 bytes=B8 E0 E9 00 00 04 00 00 00 00 00 00 0B 00 00 00 50 FA 2B EC 05 00 00 00 00 00 00 00 CF 14 63 F5 32 F5 5F 35 EB 02 96 4B 8B 68 67 5C 82 05 D4 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7ADD4D8A>7ADD475F
+[20:53:19] Class1BridgeHook: phase=enter recipient=0A540D50 vtable=00F6F108 method=00472A20 methodRva=0x00242A20 unused=00000001 payload=EC2BFA34
+[20:53:19] Class1BridgeHook: phase=return recipient=0A540D50 payload=EC2BFA34
+[20:53:19] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:19] CrtApplyHook: crt count=2 applied pThis=0A540D20
+[20:53:19] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:19] CrtApplyHook: crt count=3 pThis=0A540D20 opcode=0x0D446E80 reader=0A5B04DC consumer=0x00473230 consumerRva=0x00243230 gate=0x012CAEA8 apply=0x005482C0 applyRva=0x003182C0
+[20:53:19] TriggerCollisionHook: pid=18384 Collidable enter object=D4134D20 requested=0
+[20:53:19] TriggerCollisionHook: pid=18384 collision before object=D4134D20 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05001481 room=F4F29500 collider=EB77BCC0
+[20:53:19] TriggerCollisionHook: pid=18384 collision before object=D4134D20 transform24=00000007 local2cBits=C280D03B,C0D1999A,C2FF77E9 collider2c=00000041 paramHash=FF5F184AAA9ECE77
+[20:53:19] TriggerCollisionHook: pid=18384 collision return object=D4134D20 result=1 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=F4F29500 collider=EB77BCC0
+[20:53:19] TriggerCollisionHook: pid=18384 collision return object=D4134D20 transform24=00000007 local2cBits=C280D03B,C0D1999A,C2FF77E9 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:53:19] TriggerCollisionHook: pid=18384 Collidable enter object=D4135D20 requested=0
+[20:53:19] TriggerCollisionHook: pid=18384 collision before object=D4135D20 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05001481 room=F4F29500 collider=EB775150
+[20:53:19] TriggerCollisionHook: pid=18384 collision before object=D4135D20 transform24=00000007 local2cBits=C27F0034,C0D4C3CA,C2FE15F7 collider2c=00000041 paramHash=FF5F184AAA9ECE77
+[20:53:19] TriggerCollisionHook: pid=18384 collision return object=D4135D20 result=1 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=F4F29500 collider=EB775150
+[20:53:19] TriggerCollisionHook: pid=18384 collision return object=D4135D20 transform24=00000007 local2cBits=C27F0034,C0D4C3CA,C2FE15F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:53:19] TriggerCollisionHook: pid=18384 Collidable enter object=D41343C0 requested=0
+[20:53:19] TriggerCollisionHook: pid=18384 collision before object=D41343C0 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05001481 room=F4F29500 collider=EB777FC0
+[20:53:19] TriggerCollisionHook: pid=18384 collision before object=D41343C0 transform24=00000007 local2cBits=C2632944,C10700D2,C2F42ACE collider2c=01010141 paramHash=FF5F184AAA9ECE77
+[20:53:19] TriggerCollisionHook: pid=18384 collision return object=D41343C0 result=1 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=F4F29500 collider=EB777FC0
+[20:53:19] TriggerCollisionHook: pid=18384 collision return object=D41343C0 transform24=00000007 local2cBits=C2632944,C10700D2,C2F42ACE collider2c=01010101 paramHash=FF5F184AAA9ECE77
+[20:53:19] CrtApplyHook: crt count=3 applied pThis=0A540D20
+[20:53:19] CrtApplyHook: crt count=4 pThis=0A540D20 opcode=0x0D446E80 reader=0A5B0DDC consumer=0x00473230 consumerRva=0x00243230 gate=0x012CAEA8 apply=0x005482C0 applyRva=0x003182C0
+[20:53:19] CrtApplyHook: crt count=4 applied pThis=0A540D20
+[20:53:19] CrtApplyHook: crt count=5 pThis=0A540D20 opcode=0x0D446E80 reader=0A5B035C consumer=0x00473230 consumerRva=0x00243230 gate=0x012CAEA8 apply=0x005482C0 applyRva=0x003182C0
+[20:53:19] CrtApplyHook: crt count=5 applied pThis=0A540D20
+[20:53:19] CrtApplyHook: crt count=6 pThis=0A540D20 opcode=0x0D446E80 reader=0A5B0E9C consumer=0x00473230 consumerRva=0x00243230 gate=0x012CAEA8 apply=0x005482C0 applyRva=0x003182C0
+[20:53:19] CrtApplyHook: crt count=6 applied pThis=0A540D20
+[20:53:19] CrtApplyHook: crt count=7 pThis=0A540D20 opcode=0x0D446E80 reader=0A5B039C consumer=0x00473230 consumerRva=0x00243230 gate=0x012CAEA8 apply=0x005482C0 applyRva=0x003182C0
+[20:53:19] CrtApplyHook: crt count=7 applied pThis=0A540D20
+[20:53:19] CrtApplyHook: crt count=8 pThis=0A540D20 opcode=0x0D446E80 reader=0A5B041C consumer=0x00473230 consumerRva=0x00243230 gate=0x012CAEA8 apply=0x005482C0 applyRva=0x003182C0
+[20:53:19] CrtApplyHook: crt count=8 applied pThis=0A540D20
+[20:53:19] CrtApplyHook: crt count=9 pThis=0A540D20 opcode=0x0D446E80 reader=0A5B03DC consumer=0x00473230 consumerRva=0x00243230 gate=0x012CAEA8 apply=0x005482C0 applyRva=0x003182C0
+[20:53:19] CrtApplyHook: crt count=9 applied pThis=0A540D20
+[20:53:19] CrtApplyHook: crt count=10 pThis=0A540D20 opcode=0x0D446E80 reader=0A5B049C consumer=0x00473230 consumerRva=0x00243230 gate=0x012CAEA8 apply=0x005482C0 applyRva=0x003182C0
+[20:53:19] CrtApplyHook: crt count=10 applied pThis=0A540D20
+[20:53:19] CrtApplyHook: crt count=11 pThis=0A540D20 opcode=0x0D446E80 reader=0A5B0A9C consumer=0x00473230 consumerRva=0x00243230 gate=0x012CAEA8 apply=0x005482C0 applyRva=0x003182C0
+[20:53:19] CrtApplyHook: crt count=11 applied pThis=0A540D20
+[20:53:19] CrtApplyHook: crt count=12 pThis=0A540D20 opcode=0x0D446E80 reader=0A5B0ADC consumer=0x00473230 consumerRva=0x00243230 gate=0x012CAEA8 apply=0x005482C0 applyRva=0x003182C0
+[20:53:19] CrtApplyHook: crt count=12 applied pThis=0A540D20
+[20:53:19] CrtApplyHook: crt count=13 pThis=0A540D20 opcode=0x0D446E80 reader=0A5B0B9C consumer=0x00473230 consumerRva=0x00243230 gate=0x012CAEA8 apply=0x005482C0 applyRva=0x003182C0
+[20:53:19] CrtApplyHook: crt count=13 applied pThis=0A540D20
+[20:53:19] CrtApplyHook: crt count=14 pThis=0A540D20 opcode=0x0D446E80 reader=0A5B0B1C consumer=0x00473230 consumerRva=0x00243230 gate=0x012CAEA8 apply=0x005482C0 applyRva=0x003182C0
+[20:53:19] CrtApplyHook: crt count=14 applied pThis=0A540D20
+[20:53:19] CrtApplyHook: crt count=15 pThis=0A540D20 opcode=0x0D446E80 reader=0A5B0B5C consumer=0x00473230 consumerRva=0x00243230 gate=0x012CAEA8 apply=0x005482C0 applyRva=0x003182C0
+[20:53:19] CrtApplyHook: crt count=15 applied pThis=0A540D20
+[20:53:19] CrtApplyHook: crt count=16 pThis=0A540D20 opcode=0x0D446E80 reader=0A5B0E5C consumer=0x00473230 consumerRva=0x00243230 gate=0x012CAEA8 apply=0x005482C0 applyRva=0x003182C0
+[20:53:19] CrtApplyHook: crt count=16 applied pThis=0A540D20
+[20:53:19] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:19] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:20] NativeRoomHook: pid=18384 select enter area=F43D39A0 old=00000000 requested=D30FA500 state8c=00000002 state90=00000006
+[20:53:20] TriggerCollisionHook: pid=18384 room-select before object=D4133000 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=F4F29500 collider=EB77BBD0
+[20:53:20] TriggerCollisionHook: pid=18384 room-select before object=D4133000 transform24=00000007 local2cBits=C27E779A,C0D77F63,C2FDC4F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:53:20] TriggerCollisionHook: pid=18384 room-select before object=D4134D20 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=F4F29500 collider=EB77BCC0
+[20:53:20] TriggerCollisionHook: pid=18384 room-select before object=D4134D20 transform24=00000007 local2cBits=C280D03B,C0D1999A,C2FF77E9 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:53:20] TriggerCollisionHook: pid=18384 room-select before object=D41343C0 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=F4F29500 collider=EB777FC0
+[20:53:20] TriggerCollisionHook: pid=18384 room-select before object=D41343C0 transform24=00000007 local2cBits=C2632944,C10700D2,C2F42ACE collider2c=01010101 paramHash=FF5F184AAA9ECE77
+[20:53:20] TriggerCollisionHook: pid=18384 room-select before object=D4135D20 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000481 room=F4F29500 collider=EB775150
+[20:53:20] TriggerCollisionHook: pid=18384 room-select before object=D4135D20 transform24=00000007 local2cBits=C27F0034,C0D4C3CA,C2FE15F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:53:20] TriggerCollisionHook: pid=18384 room-select before object=D41363C0 result=0 param=tyt_jedi_knight_masters_retreat name=tyt_jedi_knight_masters_retreat flagsE0=0D800C81 room=00000000 collider=EB59F5D0
+[20:53:20] TriggerCollisionHook: pid=18384 room-select before object=D41363C0 transform24=0000000F local2cBits=C27E779A,C0D77F63,C2FDC4F7 collider2c=01010101 paramHash=FF5F184AAA9ECE77
+[20:53:20] TriggerCollisionHook: pid=18384 room-select before area=F43D39A0 requested=D30FA500 knownValidTargets=5; fixed event-derived table only
+[20:53:20] NativeRoomHook: pid=18384 activate enter room=D30FA500 args=00000001,00000001,00000000 state8c=00000002 state90=00000006
+[20:53:20] NativeRoomHook: pid=18384 activate enter room=D30FA280 args=00000000,00000001,00000000 state8c=00000002 state90=00000006
+[20:53:20] NativeRoomHook: pid=18384 activate enter room=D30F4000 args=00000000,00000000,00000000 state8c=00000002 state90=00000006
+[20:53:20] NativeRoomHook: pid=18384 activate return room=D30F4000 state8c=00000003 state90=00000006
+[20:53:20] NativeRoomHook: pid=18384 activate return room=D30FA280 state8c=00000003 state90=00000006
+[20:53:20] NativeRoomHook: pid=18384 activate enter room=F4F29500 args=00000000,00000001,00000000 state8c=00000002 state90=00000006
+[20:53:20] NativeRoomHook: pid=18384 activate enter room=D30F4000 args=00000000,00000000,00000000 state8c=00000003 state90=00000006
+[20:53:20] NativeRoomHook: pid=18384 activate return room=D30F4000 state8c=00000003 state90=00000006
+[20:53:20] NativeRoomHook: pid=18384 activate return room=F4F29500 state8c=00000003 state90=00000006
+[20:53:20] NativeRoomHook: pid=18384 activate enter room=D30F4000 args=00000000,00000000,00000000 state8c=00000003 state90=00000006
+[20:53:20] NativeRoomHook: pid=18384 activate return room=D30F4000 state8c=00000003 state90=00000006
+[20:53:20] NativeRoomHook: pid=18384 activate return room=D30FA500 state8c=00000003 state90=00000006
+[20:53:20] NativeRoomHook: pid=18384 activate enter room=D30F4000 args=00000000,00000001,00000000 state8c=00000003 state90=00000006
+[20:53:20] NativeRoomHook: pid=18384 activate return room=D30F4000 state8c=00000003 state90=00000006
+[20:53:20] NativeRoomHook: pid=18384 activate enter room=D30F5000 args=00000001,00000000,00000001 state8c=00000002 state90=00000006
+[20:53:20] NativeRoomHook: pid=18384 activate enter room=D30F4000 args=00000000,00000000,00000000 state8c=00000003 state90=00000006
+[20:53:20] NativeRoomHook: pid=18384 activate return room=D30F4000 state8c=00000003 state90=00000006
+[20:53:20] NativeRoomHook: pid=18384 activate return room=D30F5000 state8c=00000003 state90=00000006
+[20:53:20] NativeRoomHook: pid=18384 select return area=F43D39A0 selected=D30FA500 requested=D30FA500 state8c=00000003 state90=00000006
+[20:53:20] TriggerCollisionHook: pid=18384 room-select return object=D4133000 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000C81 room=F4F29500 collider=EB77BBD0
+[20:53:20] TriggerCollisionHook: pid=18384 room-select return object=D4133000 transform24=00000007 local2cBits=C27E779A,C0D77F63,C2FDC4F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:53:20] TriggerCollisionHook: pid=18384 room-select return object=D4134D20 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000C81 room=F4F29500 collider=EB77BCC0
+[20:53:20] TriggerCollisionHook: pid=18384 room-select return object=D4134D20 transform24=00000007 local2cBits=C280D03B,C0D1999A,C2FF77E9 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:53:20] TriggerCollisionHook: pid=18384 room-select return object=D41343C0 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000C81 room=F4F29500 collider=EB777FC0
+[20:53:20] TriggerCollisionHook: pid=18384 room-select return object=D41343C0 transform24=00000007 local2cBits=C2632944,C10700D2,C2F42ACE collider2c=01010101 paramHash=FF5F184AAA9ECE77
+[20:53:20] TriggerCollisionHook: pid=18384 room-select return object=D4135D20 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05000C81 room=F4F29500 collider=EB775150
+[20:53:20] TriggerCollisionHook: pid=18384 room-select return object=D4135D20 transform24=00000007 local2cBits=C27F0034,C0D4C3CA,C2FE15F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:53:20] TriggerCollisionHook: pid=18384 room-select return object=D41363C0 result=0 param=tyt_jedi_knight_masters_retreat name=tyt_jedi_knight_masters_retreat flagsE0=0D800C81 room=00000000 collider=EB59F5D0
+[20:53:20] TriggerCollisionHook: pid=18384 room-select return object=D41363C0 transform24=0000000F local2cBits=C27E779A,C0D77F63,C2FDC4F7 collider2c=01010101 paramHash=FF5F184AAA9ECE77
+[20:53:20] TriggerCollisionHook: pid=18384 room-select return area=F43D39A0 requested=D30FA500 knownValidTargets=5; fixed event-derived table only
+[20:53:21] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:21] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:21] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:21] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:21] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:21] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:21] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:21] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:21] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:22] EventDispatchHook: class=1 count=10 caller=F112BFC3 callerRva=0x00000000 envelope=EC2BFA20 payload=EC2BFA34 logicalLen=9 hash=0xC7C5BBF5 changed=1 manager=F49E1CBC vtable=00EF5AD4 handler=00A06550 handlerRva=0x007D6550 bytes=B8 E0 E9 00 00 04 00 00 00 00 00 00 09 00 00 00 50 FA 2B EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 E5 44 26 85 02 96 4B 8B 68 67 5C 82 05 D4 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7ADD4D8A>7ADD475F
+[20:53:22] Class1BridgeHook: phase=enter recipient=0A540D50 vtable=00F6F108 method=00472A20 methodRva=0x00242A20 unused=00000001 payload=EC2BFA34
+[20:53:22] Class1BridgeHook: phase=return recipient=0A540D50 payload=EC2BFA34
+[20:53:22] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:24] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:26] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:26] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:29] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:31] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:31] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:32] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:34] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:34] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:36] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:36] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:36] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:38] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:39] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:41] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:41] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:45] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:46] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:46] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:48] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:49] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:49] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:49] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:49] ReadinessVmHook: phase=enter this=F49E1BE4 callerRva=0x001C173B character=4000010E218A839B method=D000199A7D03034B contexts=0E4BFCE4,FCE6EEE0,0E4BFC98,00000000
+[20:53:49] ReadinessVmHook: this=F49E1BE4 bytes=03 00 00 00 00 00 00 00 EC 1B 9E F4 EC 1B 9E F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 1C 9E F4 08 1C 9E F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2C CB 16 01 ascii=............................................................,...
+[20:53:49] ReadinessVmHook: context5=0E4BFCE4 bytes=E0 DD F5 F4 00 00 00 00 9A 19 00 D0 02 76 7F B6 E2 82 11 41 AA 92 E3 50 A2 C2 BF 00 9A C1 56 00 C1 91 00 00 00 00 00 00 00 00 00 00 A0 B5 3D 0A CC 08 35 0A 42 01 00 00 C3 58 40 77 F7 D2 D1 73 ascii=.............v.....A...P......V...............=...5.B....X@w...s
+[20:53:49] ReadinessVmHook: context6=FCE6EEE0 bytes=64 30 E6 FB B0 8D 41 0A B8 8D 41 0A B8 8D 41 0A 00 00 00 00 08 00 00 00 E0 EE E6 FC E0 EE E6 FC 40 EA E6 FC 00 D3 E6 FC C0 E5 E6 FC 01 00 00 00 FC BC 62 0B D0 E6 00 E0 01 00 00 00 C0 09 E3 00 ascii=d0....A...A...A.................@.................b.............
+[20:53:49] ReadinessVmHook: context7=0E4BFC98 bytes=70 5C 5F 3A 36 00 00 40 6C FD 4B 0E 96 F0 3E 00 9B 83 8A 21 0E 01 00 40 4B 03 03 7D 9A 19 00 D0 70 5C 5F 3A 36 00 00 40 A0 B5 3D 0A BC 1C 9E F4 80 D3 CF ED 44 FD 4B 0E 00 2F 86 77 80 08 35 0A ascii=p\_:6..@l.K...>....!...@K..}....p\_:6..@..=.........D.K../.w..5.
+[20:53:49] ReadinessVmHook: context8=null
+[20:53:49] ReadinessVmHook: phase=deep-dump begin
+[20:53:49] ReadinessVmHook: this.ptr[08]=F49E1BEC bytes=EC 1B 9E F4 EC 1B 9E F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 1C 9E F4 08 1C 9E F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2C CB 16 01 2C CB 16 01 2E CB 16 01 ascii=....................................................,...,.......
+[20:53:49] ReadinessVmHook: this.ptr[0C]=F49E1BEC bytes=EC 1B 9E F4 EC 1B 9E F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 1C 9E F4 08 1C 9E F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2C CB 16 01 2C CB 16 01 2E CB 16 01 ascii=....................................................,...,.......
+[20:53:49] ReadinessVmHook: this.ptr[24]=F49E1C08 bytes=08 1C 9E F4 08 1C 9E F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2C CB 16 01 2C CB 16 01 2E CB 16 01 00 00 00 00 00 00 00 00 C0 0F 46 07 C0 0F 46 07 C0 4F 46 07 00 00 00 00 00 00 00 00 ascii=........................,...,.................F...F..OF.........
+[20:53:49] ReadinessVmHook: this.ptr[28]=F49E1C08 bytes=08 1C 9E F4 08 1C 9E F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2C CB 16 01 2C CB 16 01 2E CB 16 01 00 00 00 00 00 00 00 00 C0 0F 46 07 C0 0F 46 07 C0 4F 46 07 00 00 00 00 00 00 00 00 ascii=........................,...,.................F...F..OF.........
+[20:53:49] ReadinessVmHook: this.ptr[3C]=0116CB2C bytes=00 00 00 00 64 0F DC 09 00 00 00 00 00 00 00 00 80 0B 21 0A E8 0D 21 0A 58 0E 21 0A 01 00 00 00 00 00 00 00 6E 6F 74 5F 66 6F 75 6E 64 00 00 00 00 00 00 00 09 00 00 00 0F 00 00 00 00 00 00 00 ascii=....d.............!...!.X.!.........not_found...................
+[20:53:49] ReadinessVmHook: context5.ptr[00]=F4F5DDE0 bytes=7F 07 00 00 40 4D 04 F5 5A 4D 04 F5 5C 4D 04 F5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 7E 07 00 00 60 4D 04 F5 78 4D 04 F5 7A 4D 04 F5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ascii=....@M..ZM..\M..................~...`M..xM..zM..................
+[20:53:49] ReadinessVmHook: context5.ptr[18]=00BFC2A2 bytes=F3 0F 10 05 D4 D2 E9 00 F3 0F 11 40 08 F3 0F 11 40 0C 5D C2 04 00 CC CC CC CC CC CC CC CC 55 8B EC 6A FF 68 66 E9 DE 00 64 A1 00 00 00 00 50 64 89 25 00 00 00 00 83 EC 08 56 8B F1 57 89 75 F0 ascii=...........@....@.]...........U..j.hf...d.....Pd.%.......V..W.u.
+[20:53:49] ReadinessVmHook: context5.ptr[1C]=0056C19A bytes=83 C4 10 FF 43 14 5F 89 30 5E 5B 5D C2 0C 00 CC CC CC CC CC CC CC 55 8B EC 64 A1 00 00 00 00 6A FF 68 84 35 E3 00 50 64 89 25 00 00 00 00 A1 44 1D E9 00 8B 08 83 EC 08 56 6A 24 FF D1 8B F0 85 ascii=....C._.0^[]..........U..d.....j.h.5..Pd.%.....D........Vj$.....
+[20:53:49] ReadinessVmHook: context5.ptr[2C]=0A3DB5A0 bytes=D4 94 F5 00 38 2E C2 D6 00 00 00 00 03 0A 00 00 3A 02 00 00 63 00 5C 00 65 73 AA 25 38 0C 00 00 02 00 00 00 00 00 6C 00 33 FE A9 25 38 0C 00 00 00 DB 01 E0 94 08 00 00 00 DB 01 E0 94 08 00 00 ascii=....8...........:...c.\.es.%8.........l.3..%8...................
+[20:53:49] ReadinessVmHook: context5.ptr[30]=0A3508CC bytes=10 53 45 CD 01 03 00 00 DA EC 19 0D 00 EC 19 0D 68 02 00 00 00 00 80 3F 10 53 45 CD 01 03 00 00 80 D3 CF ED 98 D3 CF ED C0 D3 CF ED 6F 00 72 00 D0 06 CF 0D C0 0D 3E 0A 01 00 00 00 00 00 00 00 ascii=.SE.............h......?.SE.................o.r.......>.........
+[20:53:49] ReadinessVmHook: context5.ptr[38]=774058C3 bytes=79 70 74 44 65 63 72 79 70 74 00 00 00 4E 43 72 79 70 74 44 65 6C 65 74 65 4B 65 79 00 4E 43 72 79 70 74 44 65 72 69 76 65 4B 65 79 00 4E 43 72 79 70 74 45 6E 63 61 70 73 75 6C 61 74 65 00 00 ascii=yptDecrypt...NCryptDeleteKey.NCryptDeriveKey.NCryptEncapsulate..
+[20:53:49] ReadinessVmHook: context6.ptr[00]=FBE63064 bytes=D0 BF 43 FC E0 BF 43 FC E0 BF 43 FC 6C FB 4B 0E E0 EE E6 FC 00 00 00 00 00 00 00 00 B8 5E 83 28 62 76 57 43 01 00 23 00 03 2F 31 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 98 29 00 00 ascii=..C...C...C.l.K..............^.(bvWC..#../1..................)..
+[20:53:49] ReadinessVmHook: context6.ptr[04]=0A418DB0 bytes=00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 8C 59 FB 00 00 00 00 00 00 00 00 ascii=......................................................Y.........
+[20:53:49] ReadinessVmHook: context6.ptr[08]=0A418DB8 bytes=00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 8C 59 FB 00 00 00 00 00 00 00 00 01 00 00 00 A0 8C 59 FB ascii=..............................................Y...............Y.
+[20:53:49] ReadinessVmHook: context6.ptr[0C]=0A418DB8 bytes=00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 8C 59 FB 00 00 00 00 00 00 00 00 01 00 00 00 A0 8C 59 FB ascii=..............................................Y...............Y.
+[20:53:49] ReadinessVmHook: context6.ptr[18]=FCE6EEE0 bytes=64 30 E6 FB B0 8D 41 0A B8 8D 41 0A B8 8D 41 0A 00 00 00 00 08 00 00 00 E0 EE E6 FC E0 EE E6 FC 40 EA E6 FC 00 D3 E6 FC C0 E5 E6 FC 01 00 00 00 FC BC 62 0B D0 E6 00 E0 01 00 00 00 C0 09 E3 00 ascii=d0....A...A...A.................@.................b.............
+[20:53:49] ReadinessVmHook: context6.ptr[1C]=FCE6EEE0 bytes=64 30 E6 FB B0 8D 41 0A B8 8D 41 0A B8 8D 41 0A 00 00 00 00 08 00 00 00 E0 EE E6 FC E0 EE E6 FC 40 EA E6 FC 00 D3 E6 FC C0 E5 E6 FC 01 00 00 00 FC BC 62 0B D0 E6 00 E0 01 00 00 00 C0 09 E3 00 ascii=d0....A...A...A.................@.................b.............
+[20:53:49] ReadinessVmHook: context6.ptr[20]=FCE6EA40 bytes=40 E8 E6 FC C0 EC E6 FC 00 EF E6 FC 01 00 00 00 27 31 A8 A8 D6 E6 00 E0 03 00 00 00 C0 09 E3 00 00 00 00 00 00 00 00 00 80 EA E6 FC 01 00 00 00 DF 33 3C 44 D6 E6 00 E0 03 00 00 00 C0 09 E3 00 ascii=@...............'1...............................3<D............
+[20:53:49] ReadinessVmHook: context6.ptr[24]=FCE6D300 bytes=00 D1 E6 FC 40 D5 E6 FC 00 EF E6 FC 01 00 00 00 98 E4 E4 3B CC E6 00 E0 03 00 00 00 C0 09 E3 00 00 00 00 00 00 00 00 00 40 D3 E6 FC 01 00 00 00 0C 89 D6 39 CC E6 00 E0 03 00 00 00 C0 09 E3 00 ascii=....@..............;....................@..........9............
+[20:53:49] ReadinessVmHook: context6.ptr[28]=FCE6E5C0 bytes=80 FD E6 FC 00 EF E6 FC 40 D7 E6 FC 01 00 00 00 9D 0B B5 DF DB E6 00 E0 03 00 00 00 C0 09 E3 00 00 00 00 00 00 00 00 00 00 E6 E6 FC 01 00 00 00 B6 49 85 4F DB E6 00 E0 03 00 00 00 C0 09 E3 00 ascii=........@........................................I.O............
+[20:53:49] ReadinessVmHook: context6.ptr[30]=0B62BCFC bytes=00 00 00 00 00 00 00 00 B8 02 70 11 60 57 22 F5 00 00 00 00 00 00 00 00 92 D4 99 9B 80 57 22 F5 00 00 00 00 00 00 00 00 F0 E9 45 A8 A0 57 22 F5 00 00 00 00 00 00 00 00 84 A5 35 ED C0 57 22 F5 ascii=..........p.`W"..............W"...........E..W"...........5..W".
+[20:53:49] ReadinessVmHook: context6.ptr[34]=E000E6D0 bytes=97 B2 B5 2C C7 8A 84 B7 CA 72 CC 1F 02 63 00 03 93 FF CF F5 EF 22 17 29 20 38 88 19 36 AB 02 00 00 00 00 98 DE EF EE DE 7E FB ED B7 DF 7E FB ED BB 56 17 59 6B AD B5 D6 68 00 E6 E7 AB AB 61 FD ascii=...,.....r...c.......".) 8..6...........~....~...V.Yk...h.....a.
+[20:53:49] ReadinessVmHook: context6.ptr[3C]=00E309C0 bytes=B8 1C CA 09 01 E9 02 DE C2 FF CC CC CC CC CC CC 8B 45 08 83 C0 08 50 E8 34 41 8D FF C3 8B 45 08 83 C0 24 50 E8 57 6B 6B FF C3 8B 4D 08 83 C1 40 E9 8B 6B 65 FF 8B 4D 08 83 C1 60 E9 80 6B 65 FF ascii=.................E....P.4A....E...$P.Wkk...M...@..ke..M...`..ke.
+[20:53:49] ReadinessVmHook: context7.ptr[08]=0E4BFD6C bytes=E4 FD 4B 0E A7 EE 3E 00 A0 B5 3D 0A 63 73 AA 25 38 0C 00 00 FF FF FF FF 00 00 00 00 00 00 00 00 FF FF FF FF 48 2E 17 01 80 08 35 0A CC 08 35 0A E4 1B 9E F4 48 5B 45 CD 1E E7 4F 00 0E 02 00 00 ascii=..K...>...=.cs.%8...................H.....5...5.....H[E...O.....
+[20:53:49] ReadinessVmHook: context7.ptr[0C]=003EF096 bytes=DD 44 24 30 83 EC 08 DD 1C 24 8B F8 E8 69 8D 3B 00 DD D8 8B 44 24 24 8B 4C 24 20 8B 54 24 1C 83 C4 08 50 51 52 E8 70 9E F1 FF 84 C0 74 0D 8B 45 10 8B 4D 0C 50 51 E8 7F 0E F4 FF 8B C7 8B 4C 24 ascii=.D$0.....$...i.;....D$$.L$ .T$....PQR.p.....t..E..M.PQ........L$
+[20:53:49] ReadinessVmHook: context7.ptr[28]=0A3DB5A0 bytes=D4 94 F5 00 38 2E C2 D6 00 00 00 00 03 0A 00 00 3A 02 00 00 63 00 5C 00 65 73 AA 25 38 0C 00 00 02 00 00 00 00 00 6C 00 33 FE A9 25 38 0C 00 00 00 DB 01 E0 94 08 00 00 00 DB 01 E0 94 08 00 00 ascii=....8...........:...c.\.es.%8.........l.3..%8...................
+[20:53:49] ReadinessVmHook: context7.ptr[2C]=F49E1CBC bytes=D4 5A EF 00 30 03 00 00 00 00 00 00 F2 80 F0 27 D2 64 00 E0 0F 00 50 00 32 00 4F 00 D2 F4 83 02 00 00 00 40 00 00 00 00 00 00 50 00 D8 06 00 00 50 00 05 00 01 03 61 62 6C 2E 6A 65 64 69 5F 63 ascii=.Z..0..........'.d....P.2.O........@......P.....P.....abl.jedi_c
+[20:53:49] ReadinessVmHook: context7.ptr[30]=EDCFD380 bytes=0E 02 00 00 00 00 00 00 22 00 00 00 00 00 00 00 01 02 00 00 00 00 00 00 2A 00 00 00 00 00 00 00 51 00 00 00 00 00 00 00 04 00 00 00 00 00 00 00 5F 00 30 00 31 00 2E 00 64 00 64 00 73 00 00 00 ascii=........"...............*.......Q..............._.0.1...d.d.s...
+[20:53:49] ReadinessVmHook: context7.ptr[34]=0E4BFD44 bytes=70 FD 4B 0E 40 7E 7A 00 58 FD 4B 0E 48 AF BC 9A F2 D7 7A 3E 74 FD 4B 0E A0 8F 2E 00 0E 02 00 00 A0 B5 3D 0A BC 1C 9E F4 E4 FD 4B 0E A7 EE 3E 00 A0 B5 3D 0A 63 73 AA 25 38 0C 00 00 FF FF FF FF ascii=p.K.@~z.X.K.H.....z>t.K...........=.......K...>...=.cs.%8.......
+[20:53:49] ReadinessVmHook: context7.ptr[38]=77862F00 bytes=66 39 74 24 10 74 25 84 DB 79 09 0F 01 F9 89 4C 24 2C EB 5A F6 C3 20 74 07 0F AE E8 0F 31 EB 4E F6 C3 10 74 03 0F AE F0 0F 31 EB 42 8D 44 24 40 89 44 24 18 8B 4C 24 18 CD 81 89 01 89 51 04 F6 ascii=f9t$.t%..y.....L$,.Z.. t.....1.N...t.....1.B.D$@.D$..L$......Q..
+[20:53:49] ReadinessVmHook: context7.ptr[3C]=0A350880 bytes=40 71 F5 00 04 00 00 00 80 C7 3D 0A C0 C8 3D 0A C0 C8 3D 0A C0 C8 3D 0A 00 00 00 00 63 00 5C 00 E8 0D 41 0A EC 0D 41 0A EE 0D 41 0A 6D 00 75 00 E0 EC 19 0D E8 EC 19 0D EA EC 19 0D 73 00 32 00 ascii=@q........=...=...=...=.....c.\...A...A...A.m.u.............s.2.
+[20:53:49] ReadinessVmHook: phase=deep-dump end
+[20:53:49] ReadinessVmHook: phase=enter stack=7ADD4D8A>7ADD4B8D>003F173B(+001C173B)>003EF096(+001BF096)>003EEEA7(+001BEEA7)>0054078E(+0031078E)>005346FD(+003046FD)>002A5897(+00075897)>002A595E(+0007595E)>002AF1EA(+0007F1EA)>004877A0(+002577A0)>76005D49>7786E1FB>7786E181
+[20:53:49] EventDispatchHook: class=1 count=11 caller=ECFD1CC3 callerRva=0x00000000 envelope=EC2BFA20 payload=EC2BFA34 logicalLen=9 hash=0x33C87505 changed=1 manager=F49E1CBC vtable=00EF5AD4 handler=00A06550 handlerRva=0x007D6550 bytes=B8 E0 E9 00 00 04 00 00 00 00 00 00 09 00 00 00 50 FA 2B EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 F2 40 F5 F5 02 96 4B 8B 68 67 5C 82 05 D4 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7ADD4D8A>7ADD475F
+[20:53:49] Class1BridgeHook: phase=enter recipient=0A540D50 vtable=00F6F108 method=00472A20 methodRva=0x00242A20 unused=00000001 payload=EC2BFA34
+[20:53:49] Class1BridgeHook: phase=return recipient=0A540D50 payload=EC2BFA34
+[20:53:49] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:51] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:51] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:55] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:56] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:56] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:53:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:58] MainHook: WSASend Called [127.0.0.1:20060]
+[20:53:59] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:00] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:01] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:01] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:54:04] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:04] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:54:06] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:06] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:54:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:09] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:11] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:11] MainHook: WSASend Called [127.0.0.1:20066]
+[20:54:11] MainHook: WSARecv Called [127.0.0.1:20066]
+[20:54:11] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:11] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:54:12] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:12] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:16] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:16] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:54:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:19] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:54:19] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:19] ReadinessVmHook: phase=enter this=F49E1BE4 callerRva=0x001C173B character=4000010E218A839B method=D000199A7D03034B contexts=0E4BFCE4,FCE6EEE0,0E4BFC98,00000000
+[20:54:19] ReadinessVmHook: this=F49E1BE4 bytes=03 00 00 00 00 00 00 00 EC 1B 9E F4 EC 1B 9E F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 1C 9E F4 08 1C 9E F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2C CB 16 01 ascii=............................................................,...
+[20:54:19] ReadinessVmHook: context5=0E4BFCE4 bytes=E0 DD F5 F4 00 00 00 00 9A 19 00 D0 D2 EE A1 BE 5A 83 11 41 AA 92 E3 50 A2 C2 BF 00 B2 5B 3F 00 C8 91 00 00 00 00 00 00 00 00 00 00 A0 B5 3D 0A CC 08 35 0A 42 01 00 00 C3 58 40 77 04 4C 95 54 ascii=................Z..A...P.....[?...............=...5.B....X@w.L.T
+[20:54:19] ReadinessVmHook: context6=FCE6EEE0 bytes=64 30 E6 FB B0 8D 41 0A B8 8D 41 0A B8 8D 41 0A 00 00 00 00 08 00 00 00 E0 EE E6 FC E0 EE E6 FC 40 EA E6 FC 00 D3 E6 FC C0 E5 E6 FC 01 00 00 00 FC BC 62 0B D0 E6 00 E0 01 00 00 00 C0 09 E3 00 ascii=d0....A...A...A.................@.................b.............
+[20:54:19] ReadinessVmHook: context7=0E4BFC98 bytes=70 5C 5F 3A 36 00 00 40 6C FD 4B 0E 96 F0 3E 00 9B 83 8A 21 0E 01 00 40 4B 03 03 7D 9A 19 00 D0 70 5C 5F 3A 36 00 00 40 A0 B5 3D 0A BC 1C 9E F4 80 D3 CF ED 44 FD 4B 0E 00 2F 86 77 80 08 35 0A ascii=p\_:6..@l.K...>....!...@K..}....p\_:6..@..=.........D.K../.w..5.
+[20:54:19] ReadinessVmHook: context8=null
+[20:54:19] ReadinessVmHook: phase=enter stack=7ADD4D8A>7ADD4B8D>003F173B(+001C173B)>003EF096(+001BF096)>003EEEA7(+001BEEA7)>0054078E(+0031078E)>005346FD(+003046FD)>002A5897(+00075897)>002A595E(+0007595E)>002AF1EA(+0007F1EA)>004877A0(+002577A0)>76005D49>7786E1FB>7786E181
+[20:54:19] EventDispatchHook: class=1 count=12 caller=ECFD1CC3 callerRva=0x00000000 envelope=EC2BFA20 payload=EC2BFA34 logicalLen=9 hash=0x33C87505 changed=0 manager=F49E1CBC vtable=00EF5AD4 handler=00A06550 handlerRva=0x007D6550 bytes=B8 E0 E9 00 00 04 00 00 00 00 00 00 09 00 00 00 50 FA 2B EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 F2 40 F5 F5 02 96 4B 8B 68 67 5C 82 05 D4 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7ADD4D8A>7ADD475F
+[20:54:19] Class1BridgeHook: phase=enter recipient=0A540D50 vtable=00F6F108 method=00472A20 methodRva=0x00242A20 unused=00000001 payload=EC2BFA34
+[20:54:19] Class1BridgeHook: phase=return recipient=0A540D50 payload=EC2BFA34
+[20:54:19] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:21] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:21] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:54:24] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:26] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:26] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:54:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:27] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:29] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:29] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:31] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:31] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:54:34] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:34] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:54:36] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:36] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:36] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:54:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:37] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:39] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:41] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:41] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:54:46] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:46] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:46] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:46] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:54:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:47] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:48] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:48] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:48] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:48] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:49] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:49] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:54:49] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:49] ReadinessVmHook: phase=enter this=F49E1BE4 callerRva=0x001C173B character=4000010E218A839B method=D000199A7D03034B contexts=0E4BFCE4,FCE6EEE0,0E4BFC98,00000000
+[20:54:49] ReadinessVmHook: this=F49E1BE4 bytes=03 00 00 00 00 00 00 00 EC 1B 9E F4 EC 1B 9E F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 1C 9E F4 08 1C 9E F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2C CB 16 01 ascii=............................................................,...
+[20:54:49] ReadinessVmHook: context5=0E4BFCE4 bytes=E0 DD F5 F4 00 00 00 00 9A 19 00 D0 60 16 24 B7 D2 83 11 41 AA 92 E3 50 A2 C2 BF 00 B5 A1 25 00 D0 91 00 00 00 00 00 00 00 00 00 00 A0 B5 3D 0A CC 08 35 0A 42 01 00 00 C3 58 40 77 14 00 3D 32 ascii=............`.$....A...P......%...............=...5.B....X@w..=2
+[20:54:49] ReadinessVmHook: context6=FCE6EEE0 bytes=64 30 E6 FB B0 8D 41 0A B8 8D 41 0A B8 8D 41 0A 00 00 00 00 08 00 00 00 E0 EE E6 FC E0 EE E6 FC 40 EA E6 FC 00 D3 E6 FC C0 E5 E6 FC 01 00 00 00 FC BC 62 0B D0 E6 00 E0 01 00 00 00 C0 09 E3 00 ascii=d0....A...A...A.................@.................b.............
+[20:54:49] ReadinessVmHook: context7=0E4BFC98 bytes=70 5C 5F 3A 36 00 00 40 6C FD 4B 0E 96 F0 3E 00 9B 83 8A 21 0E 01 00 40 4B 03 03 7D 9A 19 00 D0 70 5C 5F 3A 36 00 00 40 A0 B5 3D 0A BC 1C 9E F4 80 D3 CF ED 44 FD 4B 0E 00 2F 86 77 80 08 35 0A ascii=p\_:6..@l.K...>....!...@K..}....p\_:6..@..=.........D.K../.w..5.
+[20:54:49] ReadinessVmHook: context8=null
+[20:54:49] ReadinessVmHook: phase=enter stack=7ADD4D8A>7ADD4B8D>003F173B(+001C173B)>003EF096(+001BF096)>003EEEA7(+001BEEA7)>0054078E(+0031078E)>005346FD(+003046FD)>002A5897(+00075897)>002A595E(+0007595E)>002AF1EA(+0007F1EA)>004877A0(+002577A0)>76005D49>7786E1FB>7786E181
+[20:54:49] EventDispatchHook: class=1 count=13 caller=ECFD1CC3 callerRva=0x00000000 envelope=EC2BFA20 payload=EC2BFA34 logicalLen=9 hash=0x33C87505 changed=0 manager=F49E1CBC vtable=00EF5AD4 handler=00A06550 handlerRva=0x007D6550 bytes=B8 E0 E9 00 00 04 00 00 00 00 00 00 09 00 00 00 50 FA 2B EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 F2 40 F5 F5 02 96 4B 8B 68 67 5C 82 05 D4 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7ADD4D8A>7ADD475F
+[20:54:49] Class1BridgeHook: phase=enter recipient=0A540D50 vtable=00F6F108 method=00472A20 methodRva=0x00242A20 unused=00000001 payload=EC2BFA34
+[20:54:49] Class1BridgeHook: phase=return recipient=0A540D50 payload=EC2BFA34
+[20:54:49] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:49] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:50] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:50] NativeRoomHook: pid=18384 select enter area=F43D39A0 old=D30FA500 requested=F4F29500 state8c=00000003 state90=00000006
+[20:54:50] TriggerCollisionHook: pid=18384 room-select before object=D4133000 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05800C81 room=F4F29500 collider=EB77BBD0
+[20:54:50] TriggerCollisionHook: pid=18384 room-select before object=D4133000 transform24=00000007 local2cBits=C27E779A,C0D77F63,C2FDC4F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:54:50] TriggerCollisionHook: pid=18384 room-select before object=D4134D20 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05800C81 room=F4F29500 collider=EB77BCC0
+[20:54:50] TriggerCollisionHook: pid=18384 room-select before object=D4134D20 transform24=00000007 local2cBits=C280D03B,C0D1999A,C2FF77E9 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:54:50] TriggerCollisionHook: pid=18384 room-select before object=D41343C0 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05800C81 room=F4F29500 collider=EB777FC0
+[20:54:50] TriggerCollisionHook: pid=18384 room-select before object=D41343C0 transform24=00000007 local2cBits=C2632944,C10700D2,C2F42ACE collider2c=01010101 paramHash=FF5F184AAA9ECE77
+[20:54:50] TriggerCollisionHook: pid=18384 room-select before object=D4135D20 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05800C81 room=F4F29500 collider=EB775150
+[20:54:50] TriggerCollisionHook: pid=18384 room-select before object=D4135D20 transform24=00000007 local2cBits=C27F0034,C0D4C3CA,C2FE15F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:54:50] TriggerCollisionHook: pid=18384 room-select before object=D41363C0 result=0 param=tyt_jedi_knight_masters_retreat name=tyt_jedi_knight_masters_retreat flagsE0=0D800C81 room=00000000 collider=EB59F5D0
+[20:54:50] TriggerCollisionHook: pid=18384 room-select before object=D41363C0 transform24=0000000F local2cBits=C27E779A,C0D77F63,C2FDC4F7 collider2c=01010101 paramHash=FF5F184AAA9ECE77
+[20:54:50] TriggerCollisionHook: pid=18384 room-select before area=F43D39A0 requested=F4F29500 knownValidTargets=5; fixed event-derived table only
+[20:54:50] NativeRoomHook: pid=18384 activate enter room=F4F29500 args=00000001,00000001,00000000 state8c=00000003 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate enter room=D30F4500 args=00000000,00000001,00000000 state8c=00000002 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate enter room=D30F4000 args=00000000,00000000,00000000 state8c=00000003 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate return room=D30F4000 state8c=00000003 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate return room=D30F4500 state8c=00000003 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate enter room=D30F9000 args=00000000,00000001,00000000 state8c=00000002 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate enter room=D30F4000 args=00000000,00000000,00000000 state8c=00000003 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate return room=D30F4000 state8c=00000003 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate return room=D30F9000 state8c=00000003 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate enter room=D30FA000 args=00000000,00000001,00000000 state8c=00000002 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate enter room=D30F4000 args=00000000,00000000,00000000 state8c=00000003 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate return room=D30F4000 state8c=00000003 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate return room=D30FA000 state8c=00000003 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate enter room=D30FBC80 args=00000000,00000001,00000000 state8c=00000002 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate enter room=D30F4000 args=00000000,00000000,00000000 state8c=00000003 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate return room=D30F4000 state8c=00000003 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate return room=D30FBC80 state8c=00000003 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate enter room=F4F28000 args=00000000,00000001,00000000 state8c=00000002 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate enter room=D30F4000 args=00000000,00000000,00000000 state8c=00000003 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate return room=D30F4000 state8c=00000003 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate return room=F4F28000 state8c=00000003 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate enter room=F4F28A00 args=00000000,00000001,00000000 state8c=00000002 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate enter room=D30F4000 args=00000000,00000000,00000000 state8c=00000003 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate return room=D30F4000 state8c=00000003 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate return room=F4F28A00 state8c=00000003 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate return room=F4F29500 state8c=00000003 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate enter room=D30F4000 args=00000000,00000001,00000000 state8c=00000003 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate return room=D30F4000 state8c=00000003 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate enter room=D30F5000 args=00000001,00000000,00000001 state8c=00000003 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 activate return room=D30F5000 state8c=00000003 state90=00000006
+[20:54:50] NativeRoomHook: pid=18384 select return area=F43D39A0 selected=F4F29500 requested=F4F29500 state8c=00000003 state90=00000006
+[20:54:50] TriggerCollisionHook: pid=18384 room-select return object=D4133000 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05800C81 room=F4F29500 collider=EB77BBD0
+[20:54:50] TriggerCollisionHook: pid=18384 room-select return object=D4133000 transform24=00000007 local2cBits=C27E779A,C0D77F63,C2FDC4F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:54:50] TriggerCollisionHook: pid=18384 room-select return object=D4134D20 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05800C81 room=F4F29500 collider=EB77BCC0
+[20:54:50] TriggerCollisionHook: pid=18384 room-select return object=D4134D20 transform24=00000007 local2cBits=C280D03B,C0D1999A,C2FF77E9 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:54:50] TriggerCollisionHook: pid=18384 room-select return object=D41343C0 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05800C81 room=F4F29500 collider=EB777FC0
+[20:54:50] TriggerCollisionHook: pid=18384 room-select return object=D41343C0 transform24=00000007 local2cBits=C2632944,C10700D2,C2F42ACE collider2c=01010101 paramHash=FF5F184AAA9ECE77
+[20:54:50] TriggerCollisionHook: pid=18384 room-select return object=D4135D20 result=0 param=tyt_jedi_knight_masters_retreat name= flagsE0=05800C81 room=F4F29500 collider=EB775150
+[20:54:50] TriggerCollisionHook: pid=18384 room-select return object=D4135D20 transform24=00000007 local2cBits=C27F0034,C0D4C3CA,C2FE15F7 collider2c=00000001 paramHash=FF5F184AAA9ECE77
+[20:54:50] TriggerCollisionHook: pid=18384 room-select return object=D41363C0 result=0 param=tyt_jedi_knight_masters_retreat name=tyt_jedi_knight_masters_retreat flagsE0=0D800C81 room=00000000 collider=EB59F5D0
+[20:54:50] TriggerCollisionHook: pid=18384 room-select return object=D41363C0 transform24=0000000F local2cBits=C27E779A,C0D77F63,C2FDC4F7 collider2c=01010101 paramHash=FF5F184AAA9ECE77
+[20:54:50] TriggerCollisionHook: pid=18384 room-select return area=F43D39A0 requested=F4F29500 knownValidTargets=5; fixed event-derived table only
+[20:54:50] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:50] InboundRouteHook: phase=parsed frame=0EE0EFA0 opcode=0x0D446E80 first=0x65B3 second=0x0008
+[20:54:50] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:54:50] CrtApplyHook: crt count=17 pThis=0A540D20 opcode=0x0D446E80 reader=0A5B0E5C consumer=0x00473230 consumerRva=0x00243230 gate=0x012CAEA8 apply=0x005482C0 applyRva=0x003182C0
+[20:54:50] PhaseLifecycleHook: method=phsPhaseInfo.OnReplicationNodeDestroy phase=enter me=FAAF645C argument=0x001B502E words=FB5992C0,E77E9200,01116A50,F5081924,00000000,0000003C destroyDepth=1
+[20:54:50] PhaseLifecycleHook: method=phsPhaseInfo.OnReplicationNodeDestroy phase=return me=FAAF645C argument=0x001B502E words=FB5992C0,E77E9200,01116A50,F5081924,00000000,0000004E destroyDepth=1
+[20:54:50] CrtApplyHook: crt count=17 applied pThis=0A540D20
+[20:54:50] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:51] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:51] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:54:56] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:56] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:54:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:57] MainHook: WSASend Called [127.0.0.1:20060]
+[20:54:59] MainHook: WSASend Called [127.0.0.1:20060]
+[20:55:00] MainHook: WSASend Called [127.0.0.1:20060]
+[20:55:01] MainHook: WSASend Called [127.0.0.1:20060]
+[20:55:01] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:55:03] MainHook: WSASend Called [127.0.0.1:20060]
+[20:55:03] MainHook: WSASend Called [127.0.0.1:20060]
+[20:55:04] MainHook: WSASend Called [127.0.0.1:20060]
+[20:55:04] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:55:06] MainHook: WSASend Called [127.0.0.1:20060]
+[20:55:06] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:55:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:55:07] MainHook: WSASend Called [127.0.0.1:20060]
+[20:55:09] MainHook: WSASend Called [127.0.0.1:20060]
+[20:55:11] MainHook: WSASend Called [127.0.0.1:20066]
+[20:55:11] MainHook: WSARecv Called [127.0.0.1:20066]
+[20:55:11] MainHook: WSASend Called [127.0.0.1:20060]
+[20:55:11] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:55:12] MainHook: WSASend Called [127.0.0.1:20060]
+[20:55:16] MainHook: WSASend Called [127.0.0.1:20060]
+[20:55:16] MainHook: WSASend Called [127.0.0.1:20060]
+[20:55:16] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:55:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:55:17] MainHook: WSASend Called [127.0.0.1:20060]
+[20:55:19] MainHook: WSASend Called [127.0.0.1:20060]
+[20:55:19] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:55:19] MainHook: WSASend Called [127.0.0.1:20060]
+[20:55:19] ReadinessVmHook: phase=enter this=F49E1BE4 callerRva=0x001C173B character=4000010E218A839B method=D000199A7D03034B contexts=0E4BFCE4,FCE6EEE0,0E4BFC98,00000000
+[20:55:19] ReadinessVmHook: this=F49E1BE4 bytes=03 00 00 00 00 00 00 00 EC 1B 9E F4 EC 1B 9E F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 1C 9E F4 08 1C 9E F4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2C CB 16 01 ascii=............................................................,...
+[20:55:19] ReadinessVmHook: context5=0E4BFCE4 bytes=E0 DD F5 F4 00 00 00 00 9A 19 00 D0 45 11 52 B7 4A 84 11 41 AA 92 E3 50 A2 C2 BF 00 4E 0C 0D 00 D7 91 00 00 00 00 00 00 00 00 00 00 A0 B5 3D 0A CC 08 35 0A 42 01 00 00 C3 58 40 77 B3 4E 6B 11 ascii=............E.R.J..A...P....N.................=...5.B....X@w.Nk.
+[20:55:19] ReadinessVmHook: context6=FCE6EEE0 bytes=64 30 E6 FB B0 8D 41 0A B8 8D 41 0A B8 8D 41 0A 00 00 00 00 08 00 00 00 E0 EE E6 FC E0 EE E6 FC 40 EA E6 FC 00 D3 E6 FC C0 E5 E6 FC 01 00 00 00 FC BC 62 0B D0 E6 00 E0 01 00 00 00 C0 09 E3 00 ascii=d0....A...A...A.................@.................b.............
+[20:55:19] ReadinessVmHook: context7=0E4BFC98 bytes=70 5C 5F 3A 36 00 00 40 6C FD 4B 0E 96 F0 3E 00 9B 83 8A 21 0E 01 00 40 4B 03 03 7D 9A 19 00 D0 70 5C 5F 3A 36 00 00 40 A0 B5 3D 0A BC 1C 9E F4 80 D3 CF ED 44 FD 4B 0E 00 2F 86 77 80 08 35 0A ascii=p\_:6..@l.K...>....!...@K..}....p\_:6..@..=.........D.K../.w..5.
+[20:55:19] ReadinessVmHook: context8=null
+[20:55:19] ReadinessVmHook: phase=enter stack=7ADD4D8A>7ADD4B8D>003F173B(+001C173B)>003EF096(+001BF096)>003EEEA7(+001BEEA7)>0054078E(+0031078E)>005346FD(+003046FD)>002A5897(+00075897)>002A595E(+0007595E)>002AF1EA(+0007F1EA)>004877A0(+002577A0)>76005D49>7786E1FB>7786E181
+[20:55:19] EventDispatchHook: class=1 count=14 caller=ECFD1CC3 callerRva=0x00000000 envelope=EC2BFA20 payload=EC2BFA34 logicalLen=9 hash=0x33C87505 changed=0 manager=F49E1CBC vtable=00EF5AD4 handler=00A06550 handlerRva=0x007D6550 bytes=B8 E0 E9 00 00 04 00 00 00 00 00 00 09 00 00 00 50 FA 2B EC 05 00 00 00 00 00 00 00 C7 71 C3 79 12 F2 40 F5 F5 02 96 4B 8B 68 67 5C 82 05 D4 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 stack=7ADD4D8A>7ADD475F
+[20:55:19] Class1BridgeHook: phase=enter recipient=0A540D50 vtable=00F6F108 method=00472A20 methodRva=0x00242A20 unused=00000001 payload=EC2BFA34
+[20:55:19] Class1BridgeHook: phase=return recipient=0A540D50 payload=EC2BFA34
+[20:55:19] MainHook: WSASend Called [127.0.0.1:20060]
+[20:55:20] MainHook: WSASend Called [127.0.0.1:20060]
+[20:55:21] MainHook: WSASend Called [127.0.0.1:20060]
+[20:55:21] MainHook: WSARecv Called [127.0.0.1:20060]
+[20:55:24] MainHook: WSASend Called [127.0.0.1:20060]

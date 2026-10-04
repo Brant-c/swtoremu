@@ -1,0 +1,45 @@
+  56          /// <summary>
+  57          /// CONTROL mode: the clone is not sent here as its own packet. It is merged
+  58          /// INTO awareness set 1 by AreaStartupBundle, because the run log shows set 1
+  59          /// arrives after any separate packet and the client never references our
+  60          /// node afterwards -- the replacement-semantics signature. Returns the node
+  61          /// id to merge, or 0 when the taxi path (separate packet) is in use.
+  62          /// </summary>
+  63          internal static UInt64 CloneNodeForMerge()
+  64          {
+  65              return CloneControl ? AreaAbilityEffectReplication.NextNodeID() : 0;
+  66          }
+  67  
+  68          /// <summary>
+  69          /// The merged taxi payload needs all five identities (the NPC record plus its
+  70          /// four attached effect containers), so control mode allocates a full set here
+  71          /// rather than a single node.
+  72          /// </summary>
+  73          internal static UInt64[] MergeNodes()
+  74          {
+  75              if (!CloneControl) return null;
+  76              UInt64[] n = new UInt64[5];
+  77              for (int i = 0; i < n.Length; i++) n[i] = AreaAbilityEffectReplication.NextNodeID();
+  78              return n;
+  79          }
+  80  
+  81          /// <summary>
+  82          /// Selected ladder rung (0-3), defaulting to 0 when unset or malformed.
+  83          /// </summary>
+  84          internal static int LadderRung
+  85          {
+  86              get
+  87              {
+  88                  Int32 r;
+  89                  return Int32.TryParse(Environment.GetEnvironmentVariable("SWTOR_TAXI_LADDER_RUNG"),
+  90                                        out r) && r >= 0 && r <= 3 ? r : 0;
+  91              }
+  92          }
+  93  
+  94          internal static void LogCloneMerged(UInt64 node, int rung)
+  95          {
+  96              Log.Write(LogLevel.Warning,
+  97                  "TythonTaxi: CONTROL ladder rung {0} merged into awareness set 1 as one object list; npc=0x{1:X16}. Taxi interaction is disabled in this mode.", rung, node);
+  98          }
+  99  
+ 100          /// <summary>

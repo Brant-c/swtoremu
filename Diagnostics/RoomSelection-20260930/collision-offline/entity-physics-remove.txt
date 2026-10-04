@@ -1,0 +1,22 @@
+  006D4F60: 8B C1              mov         eax,ecx
+  006D4F62: 8B 90 98 00 00 00  mov         edx,dword ptr [eax+00000098h]
+  006D4F68: 85 D2              test        edx,edx
+  006D4F6A: 74 39              je          006D4FA5
+  006D4F6C: 8B 88 F0 00 00 00  mov         ecx,dword ptr [eax+000000F0h]
+  006D4F72: 85 C9              test        ecx,ecx
+  006D4F74: 74 2F              je          006D4FA5
+  006D4F76: F6 41 2C 40        test        byte ptr [ecx+2Ch],40h
+  006D4F7A: 74 29              je          006D4FA5
+  006D4F7C: 8B 8A 20 01 00 00  mov         ecx,dword ptr [edx+00000120h]
+  006D4F82: 8B 89 B0 04 00 00  mov         ecx,dword ptr [ecx+000004B0h]
+  006D4F88: 85 C9              test        ecx,ecx
+  006D4F8A: 74 19              je          006D4FA5
+  006D4F8C: 8B 90 F0 00 00 00  mov         edx,dword ptr [eax+000000F0h]
+  006D4F92: 80 62 2C BF        and         byte ptr [edx+2Ch],0BFh
+  006D4F96: 8B 90 F0 00 00 00  mov         edx,dword ptr [eax+000000F0h]
+  006D4F9C: 52                 push        edx
+  006D4F9D: E8 DE E4 63 00     call        00D13480
+  006D4FA2: B0 01              mov         al,1
+  006D4FA4: C3                 ret
+  006D4FA5: 32 C0              xor         al,al
+  006D4FA7: C3                 ret

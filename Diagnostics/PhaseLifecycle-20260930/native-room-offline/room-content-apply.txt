@@ -1,0 +1,401 @@
+  00B79C30: 55                 push        ebp
+  00B79C31: 8B EC              mov         ebp,esp
+  00B79C33: 51                 push        ecx
+  00B79C34: 80 3D 6A 27 49 01  cmp         byte ptr ds:[0149276Ah],0
+            00
+  00B79C3B: 53                 push        ebx
+  00B79C3C: 56                 push        esi
+  00B79C3D: 57                 push        edi
+  00B79C3E: 89 4D FC           mov         dword ptr [ebp-4],ecx
+  00B79C41: 74 70              je          00B79CB3
+  00B79C43: E8 E8 7D B7 FF     call        006F1A30
+  00B79C48: 8B B0 E0 03 00 00  mov         esi,dword ptr [eax+000003E0h]
+  00B79C4E: 05 D8 03 00 00     add         eax,3D8h
+  00B79C53: 8D 78 04           lea         edi,[eax+4]
+  00B79C56: 3B F7              cmp         esi,edi
+  00B79C58: 0F 84 B8 00 00 00  je          00B79D16
+  00B79C5E: 8A 5D 08           mov         bl,byte ptr [ebp+8]
+  00B79C61: 8B 46 20           mov         eax,dword ptr [esi+20h]
+  00B79C64: 80 FB 01           cmp         bl,1
+  00B79C67: 75 11              jne         00B79C7A
+  00B79C69: 8B 4D 0C           mov         ecx,dword ptr [ebp+0Ch]
+  00B79C6C: 51                 push        ecx
+  00B79C6D: 6A 00              push        0
+  00B79C6F: 50                 push        eax
+  00B79C70: E8 9B 1B 01 00     call        00B8B810
+  00B79C75: 83 C4 0C           add         esp,0Ch
+  00B79C78: EB 21              jmp         00B79C9B
+  00B79C7A: 83 B8 90 00 00 00  cmp         dword ptr [eax+00000090h],2
+            02
+  00B79C81: 75 18              jne         00B79C9B
+  00B79C83: 83 B8 8C 00 00 00  cmp         dword ptr [eax+0000008Ch],1
+            01
+  00B79C8A: 74 0F              je          00B79C9B
+  00B79C8C: 8B 55 FC           mov         edx,dword ptr [ebp-4]
+  00B79C8F: 8B 8A 20 01 00 00  mov         ecx,dword ptr [edx+00000120h]
+  00B79C95: 50                 push        eax
+  00B79C96: E8 45 46 01 00     call        00B8E2E0
+  00B79C9B: 56                 push        esi
+  00B79C9C: E8 EF 93 DF FF     call        00973090
+  00B79CA1: 8B F0              mov         esi,eax
+  00B79CA3: 83 C4 04           add         esp,4
+  00B79CA6: 3B F7              cmp         esi,edi
+  00B79CA8: 75 B7              jne         00B79C61
+  00B79CAA: 5F                 pop         edi
+  00B79CAB: 5E                 pop         esi
+  00B79CAC: 5B                 pop         ebx
+  00B79CAD: 8B E5              mov         esp,ebp
+  00B79CAF: 5D                 pop         ebp
+  00B79CB0: C2 08 00           ret         8
+  00B79CB3: 8B B1 9C 01 00 00  mov         esi,dword ptr [ecx+0000019Ch]
+  00B79CB9: 8D B9 98 01 00 00  lea         edi,[ecx+00000198h]
+  00B79CBF: 3B F7              cmp         esi,edi
+  00B79CC1: 74 53              je          00B79D16
+  00B79CC3: 8A 5D 08           mov         bl,byte ptr [ebp+8]
+  00B79CC6: 8B 4E 10           mov         ecx,dword ptr [esi+10h]
+  00B79CC9: 80 FB 01           cmp         bl,1
+  00B79CCC: 75 18              jne         00B79CE6
+  00B79CCE: 83 B9 8C 00 00 00  cmp         dword ptr [ecx+0000008Ch],3
+            03
+  00B79CD5: 74 30              je          00B79D07
+  00B79CD7: 8B 45 0C           mov         eax,dword ptr [ebp+0Ch]
+  00B79CDA: 6A 00              push        0
+  00B79CDC: 50                 push        eax
+  00B79CDD: 6A 00              push        0
+  00B79CDF: E8 AC 26 00 00     call        00B7C390
+  00B79CE4: EB 21              jmp         00B79D07
+  00B79CE6: 83 B9 90 00 00 00  cmp         dword ptr [ecx+00000090h],2
+            02
+  00B79CED: 75 18              jne         00B79D07
+  00B79CEF: 83 B9 8C 00 00 00  cmp         dword ptr [ecx+0000008Ch],1
+            01
+  00B79CF6: 74 0F              je          00B79D07
+  00B79CF8: 51                 push        ecx
+  00B79CF9: 8B 4D FC           mov         ecx,dword ptr [ebp-4]
+  00B79CFC: 8B 89 20 01 00 00  mov         ecx,dword ptr [ecx+00000120h]
+  00B79D02: E8 D9 45 01 00     call        00B8E2E0
+  00B79D07: 56                 push        esi
+  00B79D08: E8 83 93 DF FF     call        00973090
+  00B79D0D: 8B F0              mov         esi,eax
+  00B79D0F: 83 C4 04           add         esp,4
+  00B79D12: 3B F7              cmp         esi,edi
+  00B79D14: 75 B0              jne         00B79CC6
+  00B79D16: 5F                 pop         edi
+  00B79D17: 5E                 pop         esi
+  00B79D18: 5B                 pop         ebx
+  00B79D19: 8B E5              mov         esp,ebp
+  00B79D1B: 5D                 pop         ebp
+  00B79D1C: C2 08 00           ret         8
+  00B79D1F: CC                 int         3
+  00B79D20: 55                 push        ebp
+  00B79D21: 8B EC              mov         ebp,esp
+  00B79D23: 51                 push        ecx
+  00B79D24: 8B 45 08           mov         eax,dword ptr [ebp+8]
+  00B79D27: 56                 push        esi
+  00B79D28: 8D B1 3C 02 00 00  lea         esi,[ecx+0000023Ch]
+  00B79D2E: 89 45 08           mov         dword ptr [ebp+8],eax
+  00B79D31: 85 C0              test        eax,eax
+  00B79D33: 74 32              je          00B79D67
+  00B79D35: 8D 45 08           lea         eax,[ebp+8]
+  00B79D38: 50                 push        eax
+  00B79D39: 8D 4D FC           lea         ecx,[ebp-4]
+  00B79D3C: 51                 push        ecx
+  00B79D3D: 8B CE              mov         ecx,esi
+  00B79D3F: E8 9C E9 E6 FF     call        009E86E0
+  00B79D44: 8B 45 FC           mov         eax,dword ptr [ebp-4]
+  00B79D47: 8D 56 04           lea         edx,[esi+4]
+  00B79D4A: 3B C2              cmp         eax,edx
+  00B79D4C: 74 19              je          00B79D67
+  00B79D4E: FF 48 14           dec         dword ptr [eax+14h]
+  00B79D51: 83 78 14 00        cmp         dword ptr [eax+14h],0
+  00B79D55: 75 10              jne         00B79D67
+  00B79D57: 51                 push        ecx
+  00B79D58: 8B CC              mov         ecx,esp
+  00B79D5A: 89 01              mov         dword ptr [ecx],eax
+  00B79D5C: 8D 45 08           lea         eax,[ebp+8]
+  00B79D5F: 50                 push        eax
+  00B79D60: 8B CE              mov         ecx,esi
+  00B79D62: E8 89 FD FF FF     call        00B79AF0
+  00B79D67: 5E                 pop         esi
+  00B79D68: 8B E5              mov         esp,ebp
+  00B79D6A: 5D                 pop         ebp
+  00B79D6B: C2 04 00           ret         4
+  00B79D6E: CC                 int         3
+  00B79D6F: CC                 int         3
+  00B79D70: 56                 push        esi
+  00B79D71: 8B F1              mov         esi,ecx
+  00B79D73: 8B 4E 10           mov         ecx,dword ptr [esi+10h]
+  00B79D76: 85 C9              test        ecx,ecx
+  00B79D78: 74 17              je          00B79D91
+  00B79D7A: 8B 01              mov         eax,dword ptr [ecx]
+  00B79D7C: 8B 40 0C           mov         eax,dword ptr [eax+0Ch]
+  00B79D7F: 3B CE              cmp         ecx,esi
+  00B79D81: 0F 95 C2           setne       dl
+  00B79D84: 0F B6 D2           movzx       edx,dl
+  00B79D87: 52                 push        edx
+  00B79D88: FF D0              call        eax
+  00B79D8A: C7 46 10 00 00 00  mov         dword ptr [esi+10h],0
+            00
+  00B79D91: 5E                 pop         esi
+  00B79D92: C3                 ret
+  00B79D93: CC                 int         3
+  00B79D94: CC                 int         3
+  00B79D95: CC                 int         3
+  00B79D96: CC                 int         3
+  00B79D97: CC                 int         3
+  00B79D98: CC                 int         3
+  00B79D99: CC                 int         3
+  00B79D9A: CC                 int         3
+  00B79D9B: CC                 int         3
+  00B79D9C: CC                 int         3
+  00B79D9D: CC                 int         3
+  00B79D9E: CC                 int         3
+  00B79D9F: CC                 int         3
+  00B79DA0: 55                 push        ebp
+  00B79DA1: 8B EC              mov         ebp,esp
+  00B79DA3: 6A FF              push        0FFFFFFFFh
+  00B79DA5: 68 28 D8 F9 00     push        0F9D828h
+  00B79DAA: 64 A1 00 00 00 00  mov         eax,dword ptr fs:[00000000h]
+  00B79DB0: 50                 push        eax
+  00B79DB1: 64 89 25 00 00 00  mov         dword ptr fs:[00000000h],esp
+            00
+  00B79DB8: 51                 push        ecx
+  00B79DB9: 8B C1              mov         eax,ecx
+  00B79DBB: 89 45 F0           mov         dword ptr [ebp-10h],eax
+  00B79DBE: C7 00 58 DC 0B 01  mov         dword ptr [eax],10BDC58h
+  00B79DC4: C7 45 FC 00 00 00  mov         dword ptr [ebp-4],0
+            00
+  00B79DCB: 8B 4D 08           mov         ecx,dword ptr [ebp+8]
+  00B79DCE: C7 00 A0 DC 0B 01  mov         dword ptr [eax],10BDCA0h
+  00B79DD4: F3 0F 7E 01        movq        xmm0,mmword ptr [ecx]
+  00B79DD8: 66 0F D6 40 08     movq        mmword ptr [eax+8],xmm0
+  00B79DDD: F3 0F 7E 41 08     movq        xmm0,mmword ptr [ecx+8]
+  00B79DE2: 66 0F D6 40 10     movq        mmword ptr [eax+10h],xmm0
+  00B79DE7: F3 0F 7E 41 10     movq        xmm0,mmword ptr [ecx+10h]
+  00B79DEC: 66 0F D6 40 18     movq        mmword ptr [eax+18h],xmm0
+  00B79DF1: F3 0F 7E 41 18     movq        xmm0,mmword ptr [ecx+18h]
+  00B79DF6: 66 0F D6 40 20     movq        mmword ptr [eax+20h],xmm0
+  00B79DFB: C7 45 FC FF FF FF  mov         dword ptr [ebp-4],0FFFFFFFFh
+            FF
+  00B79E02: 8B 4D F4           mov         ecx,dword ptr [ebp-0Ch]
+  00B79E05: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+            00
+  00B79E0C: 8B E5              mov         esp,ebp
+  00B79E0E: 5D                 pop         ebp
+  00B79E0F: C2 08 00           ret         8
+  00B79E12: CC                 int         3
+  00B79E13: CC                 int         3
+  00B79E14: CC                 int         3
+  00B79E15: CC                 int         3
+  00B79E16: CC                 int         3
+  00B79E17: CC                 int         3
+  00B79E18: CC                 int         3
+  00B79E19: CC                 int         3
+  00B79E1A: CC                 int         3
+  00B79E1B: CC                 int         3
+  00B79E1C: CC                 int         3
+  00B79E1D: CC                 int         3
+  00B79E1E: CC                 int         3
+  00B79E1F: CC                 int         3
+  00B79E20: B8 68 9C 2C 01     mov         eax,12C9C68h
+  00B79E25: C3                 ret
+  00B79E26: CC                 int         3
+  00B79E27: CC                 int         3
+  00B79E28: CC                 int         3
+  00B79E29: CC                 int         3
+  00B79E2A: CC                 int         3
+  00B79E2B: CC                 int         3
+  00B79E2C: CC                 int         3
+  00B79E2D: CC                 int         3
+  00B79E2E: CC                 int         3
+  00B79E2F: CC                 int         3
+  00B79E30: 55                 push        ebp
+  00B79E31: 8B EC              mov         ebp,esp
+  00B79E33: 6A FF              push        0FFFFFFFFh
+  00B79E35: 68 28 D8 F9 00     push        0F9D828h
+  00B79E3A: 64 A1 00 00 00 00  mov         eax,dword ptr fs:[00000000h]
+  00B79E40: 50                 push        eax
+  00B79E41: 64 89 25 00 00 00  mov         dword ptr fs:[00000000h],esp
+            00
+  00B79E48: 51                 push        ecx
+  00B79E49: 56                 push        esi
+  00B79E4A: 8B F1              mov         esi,ecx
+  00B79E4C: 89 75 F0           mov         dword ptr [ebp-10h],esi
+  00B79E4F: C7 06 A0 DC 0B 01  mov         dword ptr [esi],10BDCA0h
+  00B79E55: C7 45 FC FF FF FF  mov         dword ptr [ebp-4],0FFFFFFFFh
+            FF
+  00B79E5C: F6 45 08 01        test        byte ptr [ebp+8],1
+  00B79E60: C7 06 58 DC 0B 01  mov         dword ptr [esi],10BDC58h
+  00B79E66: 74 09              je          00B79E71
+  00B79E68: 56                 push        esi
+  00B79E69: E8 F2 73 88 FF     call        00401260
+  00B79E6E: 83 C4 04           add         esp,4
+  00B79E71: 8B 4D F4           mov         ecx,dword ptr [ebp-0Ch]
+  00B79E74: 8B C6              mov         eax,esi
+  00B79E76: 5E                 pop         esi
+  00B79E77: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+            00
+  00B79E7E: 8B E5              mov         esp,ebp
+  00B79E80: 5D                 pop         ebp
+  00B79E81: C2 04 00           ret         4
+  00B79E84: CC                 int         3
+  00B79E85: CC                 int         3
+  00B79E86: CC                 int         3
+  00B79E87: CC                 int         3
+  00B79E88: CC                 int         3
+  00B79E89: CC                 int         3
+  00B79E8A: CC                 int         3
+  00B79E8B: CC                 int         3
+  00B79E8C: CC                 int         3
+  00B79E8D: CC                 int         3
+  00B79E8E: CC                 int         3
+  00B79E8F: CC                 int         3
+  00B79E90: 55                 push        ebp
+  00B79E91: 8B EC              mov         ebp,esp
+  00B79E93: 6A FF              push        0FFFFFFFFh
+  00B79E95: 68 28 D8 F9 00     push        0F9D828h
+  00B79E9A: 64 A1 00 00 00 00  mov         eax,dword ptr fs:[00000000h]
+  00B79EA0: 50                 push        eax
+  00B79EA1: 64 89 25 00 00 00  mov         dword ptr fs:[00000000h],esp
+            00
+  00B79EA8: 51                 push        ecx
+  00B79EA9: 8B C1              mov         eax,ecx
+  00B79EAB: 89 45 F0           mov         dword ptr [ebp-10h],eax
+  00B79EAE: C7 00 58 DC 0B 01  mov         dword ptr [eax],10BDC58h
+  00B79EB4: C7 45 FC 00 00 00  mov         dword ptr [ebp-4],0
+            00
+  00B79EBB: 8B 4D 08           mov         ecx,dword ptr [ebp+8]
+  00B79EBE: C7 00 A0 DC 0B 01  mov         dword ptr [eax],10BDCA0h
+  00B79EC4: F3 0F 7E 41 08     movq        xmm0,mmword ptr [ecx+8]
+  00B79EC9: 83 C1 08           add         ecx,8
+  00B79ECC: 66 0F D6 40 08     movq        mmword ptr [eax+8],xmm0
+  00B79ED1: F3 0F 7E 41 08     movq        xmm0,mmword ptr [ecx+8]
+  00B79ED6: 66 0F D6 40 10     movq        mmword ptr [eax+10h],xmm0
+  00B79EDB: F3 0F 7E 41 10     movq        xmm0,mmword ptr [ecx+10h]
+  00B79EE0: 66 0F D6 40 18     movq        mmword ptr [eax+18h],xmm0
+  00B79EE5: F3 0F 7E 41 18     movq        xmm0,mmword ptr [ecx+18h]
+  00B79EEA: 66 0F D6 40 20     movq        mmword ptr [eax+20h],xmm0
+  00B79EEF: C7 45 FC FF FF FF  mov         dword ptr [ebp-4],0FFFFFFFFh
+            FF
+  00B79EF6: 8B 4D F4           mov         ecx,dword ptr [ebp-0Ch]
+  00B79EF9: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+            00
+  00B79F00: 8B E5              mov         esp,ebp
+  00B79F02: 5D                 pop         ebp
+  00B79F03: C2 04 00           ret         4
+  00B79F06: CC                 int         3
+  00B79F07: CC                 int         3
+  00B79F08: CC                 int         3
+  00B79F09: CC                 int         3
+  00B79F0A: CC                 int         3
+  00B79F0B: CC                 int         3
+  00B79F0C: CC                 int         3
+  00B79F0D: CC                 int         3
+  00B79F0E: CC                 int         3
+  00B79F0F: CC                 int         3
+  00B79F10: 55                 push        ebp
+  00B79F11: 8B EC              mov         ebp,esp
+  00B79F13: 56                 push        esi
+  00B79F14: 8B 75 08           mov         esi,dword ptr [ebp+8]
+  00B79F17: 57                 push        edi
+  00B79F18: 8B F9              mov         edi,ecx
+  00B79F1A: 85 F6              test        esi,esi
+  00B79F1C: 75 10              jne         00B79F2E
+  00B79F1E: 6A 30              push        30h
+  00B79F20: E8 6B 73 88 FF     call        00401290
+  00B79F25: 8B F0              mov         esi,eax
+  00B79F27: 83 C4 04           add         esp,4
+  00B79F2A: 85 F6              test        esi,esi
+  00B79F2C: 74 0A              je          00B79F38
+  00B79F2E: 57                 push        edi
+  00B79F2F: 8B CE              mov         ecx,esi
+  00B79F31: E8 5A FF FF FF     call        00B79E90
+  00B79F36: 8B C6              mov         eax,esi
+  00B79F38: 5F                 pop         edi
+  00B79F39: 5E                 pop         esi
+  00B79F3A: 5D                 pop         ebp
+  00B79F3B: C2 04 00           ret         4
+  00B79F3E: CC                 int         3
+  00B79F3F: CC                 int         3
+  00B79F40: 55                 push        ebp
+  00B79F41: 8B EC              mov         ebp,esp
+  00B79F43: 56                 push        esi
+  00B79F44: 8B F1              mov         esi,ecx
+  00B79F46: 8B 06              mov         eax,dword ptr [esi]
+  00B79F48: 8B 50 10           mov         edx,dword ptr [eax+10h]
+  00B79F4B: 6A 00              push        0
+  00B79F4D: FF D2              call        edx
+  00B79F4F: 80 7D 08 00        cmp         byte ptr [ebp+8],0
+  00B79F53: 74 09              je          00B79F5E
+  00B79F55: 56                 push        esi
+  00B79F56: E8 05 73 88 FF     call        00401260
+  00B79F5B: 83 C4 04           add         esp,4
+  00B79F5E: 5E                 pop         esi
+  00B79F5F: 5D                 pop         ebp
+  00B79F60: C2 04 00           ret         4
+  00B79F63: CC                 int         3
+  00B79F64: CC                 int         3
+  00B79F65: CC                 int         3
+  00B79F66: CC                 int         3
+  00B79F67: CC                 int         3
+  00B79F68: CC                 int         3
+  00B79F69: CC                 int         3
+  00B79F6A: CC                 int         3
+  00B79F6B: CC                 int         3
+  00B79F6C: CC                 int         3
+  00B79F6D: CC                 int         3
+  00B79F6E: CC                 int         3
+  00B79F6F: CC                 int         3
+  00B79F70: 55                 push        ebp
+  00B79F71: 8B EC              mov         ebp,esp
+  00B79F73: 6A FF              push        0FFFFFFFFh
+  00B79F75: 68 C8 29 F8 00     push        0F829C8h
+  00B79F7A: 64 A1 00 00 00 00  mov         eax,dword ptr fs:[00000000h]
+  00B79F80: 50                 push        eax
+  00B79F81: 64 89 25 00 00 00  mov         dword ptr fs:[00000000h],esp
+            00
+  00B79F88: 83 EC 08           sub         esp,8
+  00B79F8B: 53                 push        ebx
+  00B79F8C: 56                 push        esi
+  00B79F8D: 57                 push        edi
+  00B79F8E: 8B F9              mov         edi,ecx
+  00B79F90: 33 DB              xor         ebx,ebx
+  00B79F92: 89 5D FC           mov         dword ptr [ebp-4],ebx
+  00B79F95: 8B 87 BC 01 00 00  mov         eax,dword ptr [edi+000001BCh]
+  00B79F9B: 8D B7 BC 01 00 00  lea         esi,[edi+000001BCh]
+  00B79FA1: 88 5D F3           mov         byte ptr [ebp-0Dh],bl
+  00B79FA4: 3B C3              cmp         eax,ebx
+  00B79FA6: 74 2B              je          00B79FD3
+  00B79FA8: 8B 40 08           mov         eax,dword ptr [eax+8]
+  00B79FAB: 8B 10              mov         edx,dword ptr [eax]
+  00B79FAD: 8B C8              mov         ecx,eax
+  00B79FAF: 8B 42 2C           mov         eax,dword ptr [edx+2Ch]
+  00B79FB2: FF D0              call        eax
+  00B79FB4: 84 C0              test        al,al
+  00B79FB6: 74 04              je          00B79FBC
+  00B79FB8: C6 45 F3 01        mov         byte ptr [ebp-0Dh],1
+  00B79FBC: 8B 45 08           mov         eax,dword ptr [ebp+8]
+  00B79FBF: 85 C0              test        eax,eax
+  00B79FC1: 74 10              je          00B79FD3
+  00B79FC3: 8B 48 08           mov         ecx,dword ptr [eax+8]
+  00B79FC6: 8B 11              mov         edx,dword ptr [ecx]
+  00B79FC8: 8B 42 2C           mov         eax,dword ptr [edx+2Ch]
+  00B79FCB: FF D0              call        eax
+  00B79FCD: 84 C0              test        al,al
+  00B79FCF: 74 02              je          00B79FD3
+  00B79FD1: B3 01              mov         bl,1
+  00B79FD3: 8D 4D 08           lea         ecx,[ebp+8]
+  00B79FD6: 51                 push        ecx
+  00B79FD7: 8B CE              mov         ecx,esi
+  00B79FD9: E8 C2 04 AC FF     call        0063A4A0
+  00B79FDE: 38 5D F3           cmp         byte ptr [ebp-0Dh],bl
+  00B79FE1: 74 21              je          00B7A004
+  00B79FE3: E8 48 7A B7 FF     call        006F1A30
+  00B79FE8: 8A 90 D0 03 00 00  mov         dl,byte ptr [eax+000003D0h]
+  00B79FEE: 80 E2 01           and         dl,1
+  00B79FF1: 88 55 EF           mov         byte ptr [ebp-11h],dl
+  00B79FF4: 8B 45 EF           mov         eax,dword ptr [ebp-11h]
+  00B79FF7: 50                 push        eax
+  00B79FF8: E8 33 7A B7 FF     call        006F1A30
+  00B79FFD: 8B C8              mov         ecx,eax
+  00B79FFF: E8 7C 86 01 00     call        00B92680

@@ -1,0 +1,23 @@
+{
+  "source": "C:\\Program Files (x86)\\Electronic Arts\\BioWare\\Star Wars - The Old Republic\\Assets\\swtor_main_global_1.tor",
+  "test_archive": "D:\\SWTORClassic\\swtoremu\\Diagnostics\\GomCompatibility\\RuntimeAssets\\swtor_main_global_1.tor",
+  "original_entry": [
+    197040264,
+    36,
+    275256,
+    921724,
+    6991564220978892120,
+    2133497573,
+    1
+  ],
+  "test_entry": [
+    258691179,
+    36,
+    315716,
+    921724,
+    6991564220978892120,
+    2133497573,
+    1
+  ],
+  "note": "Partial archive set. Only client.gom compression changed; runtime compatibility remains under test."
+}

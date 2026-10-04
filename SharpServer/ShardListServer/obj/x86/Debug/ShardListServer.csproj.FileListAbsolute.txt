@@ -1,7 +1,0 @@
-D:\SWTORClassic\swtoremu\SharpServer\ShardListServer\bin\Debug\Shards.xml
-D:\SWTORClassic\swtoremu\SharpServer\ShardListServer\bin\Debug\ShardListServer.exe
-D:\SWTORClassic\swtoremu\SharpServer\ShardListServer\bin\Debug\ShardListServer.pdb
-D:\SWTORClassic\swtoremu\SharpServer\ShardListServer\obj\x86\Debug\ShardListServer.csproj.AssemblyReference.cache
-D:\SWTORClassic\swtoremu\SharpServer\ShardListServer\obj\x86\Debug\ShardListServer.csproj.CoreCompileInputs.cache
-D:\SWTORClassic\swtoremu\SharpServer\ShardListServer\obj\x86\Debug\ShardListServer.exe
-D:\SWTORClassic\swtoremu\SharpServer\ShardListServer\obj\x86\Debug\ShardListServer.pdb

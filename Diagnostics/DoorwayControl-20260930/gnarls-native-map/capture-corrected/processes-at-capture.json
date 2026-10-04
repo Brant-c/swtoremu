@@ -1,0 +1,26 @@
+[
+  {
+    "ProcessName": "NexusToRServer",
+    "Id": 21044,
+    "StartTime": "2026-09-30T00:36:19.252138-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "ShardListServer",
+    "Id": 29200,
+    "StartTime": "2026-09-30T00:36:19.0791465-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "swtor-emu",
+    "Id": 336,
+    "StartTime": "2026-09-30T00:36:25.7368299-04:00",
+    "MainWindowTitle": ""
+  },
+  {
+    "ProcessName": "swtor-emu",
+    "Id": 2860,
+    "StartTime": "2026-09-30T00:36:21.4129862-04:00",
+    "MainWindowTitle": ""
+  }
+]

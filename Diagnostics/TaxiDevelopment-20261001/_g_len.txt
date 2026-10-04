@@ -1,0 +1,4 @@
+SharpServer\NET\Packets\Server\AreaMergedAwareness.cs:61: private static readonly int[] rungbytes = { 677, 677 };
+SharpServer\NET\Packets\Server\AreaMergedAwareness.cs:72: /// -- an 8-byte change out of 677 that keeps the taxi template,
+SharpServer\NET\Packets\Server\AreaTaxiAwareness.cs:19: private const int fixturebytes = 677;
+TOTAL 3 hits for '677'

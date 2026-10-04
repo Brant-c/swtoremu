@@ -1,0 +1,9 @@
+
+Id                         : Eastern Standard Time
+HasIanaId                  : False
+DisplayName                : (UTC-05:00) Eastern Time (US & Canada)
+StandardName               : Eastern Standard Time
+DaylightName               : Eastern Daylight Time
+BaseUtcOffset              : -05:00:00
+SupportsDaylightSavingTime : True
+

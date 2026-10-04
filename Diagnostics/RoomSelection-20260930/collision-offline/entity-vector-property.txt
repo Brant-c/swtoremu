@@ -1,0 +1,59 @@
+  006D3FF0: 55                 push        ebp
+  006D3FF1: 8B EC              mov         ebp,esp
+  006D3FF3: 83 EC 0C           sub         esp,0Ch
+  006D3FF6: 8B 45 0C           mov         eax,dword ptr [ebp+0Ch]
+  006D3FF9: F3 0F 10 00        movss       xmm0,dword ptr [eax]
+  006D3FFD: F3 0F 11 45 F4     movss       dword ptr [ebp-0Ch],xmm0
+  006D4002: F3 0F 10 40 04     movss       xmm0,dword ptr [eax+4]
+  006D4007: 8D 55 F4           lea         edx,[ebp-0Ch]
+  006D400A: F3 0F 11 45 F8     movss       dword ptr [ebp-8],xmm0
+  006D400F: F3 0F 10 40 08     movss       xmm0,dword ptr [eax+8]
+  006D4014: 8B 01              mov         eax,dword ptr [ecx]
+  006D4016: 8B 80 A8 00 00 00  mov         eax,dword ptr [eax+000000A8h]
+  006D401C: 52                 push        edx
+  006D401D: 8B 55 08           mov         edx,dword ptr [ebp+8]
+  006D4020: 52                 push        edx
+  006D4021: F3 0F 11 45 FC     movss       dword ptr [ebp-4],xmm0
+  006D4026: FF D0              call        eax
+  006D4028: 8B E5              mov         esp,ebp
+  006D402A: 5D                 pop         ebp
+  006D402B: C2 08 00           ret         8
+  006D402E: CC                 int         3
+  006D402F: CC                 int         3
+  006D4030: 55                 push        ebp
+  006D4031: 8B EC              mov         ebp,esp
+  006D4033: 51                 push        ecx
+  006D4034: 8B 45 08           mov         eax,dword ptr [ebp+8]
+  006D4037: 56                 push        esi
+  006D4038: 8B F1              mov         esi,ecx
+  006D403A: 3D 69 E2 77 4F     cmp         eax,4F77E269h
+  006D403F: 75 5C              jne         006D409D
+  006D4041: 8B 45 0C           mov         eax,dword ptr [ebp+0Ch]
+  006D4044: D9 40 08           fld         dword ptr [eax+8]
+  006D4047: 83 EC 0C           sub         esp,0Ch
+  006D404A: D9 5C 24 08        fstp        dword ptr [esp+8]
+  006D404E: D9 40 04           fld         dword ptr [eax+4]
+  006D4051: D9 5C 24 04        fstp        dword ptr [esp+4]
+  006D4055: D9 00              fld         dword ptr [eax]
+  006D4057: D9 1C 24           fstp        dword ptr [esp]
+  006D405A: E8 01 1D 00 00     call        006D5D60
+  006D405F: 8B 86 E0 00 00 00  mov         eax,dword ptr [esi+000000E0h]
+  006D4065: C1 E8 06           shr         eax,6
+  006D4068: A8 01              test        al,1
+  006D406A: 0F 84 97 00 00 00  je          006D4107
+  006D4070: E8 DB E8 00 00     call        006E2950
+  006D4075: 85 C0              test        eax,eax
+  006D4077: 0F 84 8A 00 00 00  je          006D4107
+  006D407D: 8B 10              mov         edx,dword ptr [eax]
+  006D407F: 8B C8              mov         ecx,eax
+  006D4081: 8B 82 34 02 00 00  mov         eax,dword ptr [edx+00000234h]
+  006D4087: FF D0              call        eax
+  006D4089: 6A 00              push        0
+  006D408B: 6A 00              push        0
+  006D408D: E8 3E 03 01 00     call        006E43D0
+  006D4092: 83 C4 08           add         esp,8
+  006D4095: B0 01              mov         al,1
+  006D4097: 5E                 pop         esi
+  006D4098: 59                 pop         ecx
+  006D4099: 5D                 pop         ebp
+  006D409A: C2 08 00           ret         8

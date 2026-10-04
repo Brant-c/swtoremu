@@ -1,0 +1,13 @@
+launcher-console.log                              108937 bytes  mtime 19:22:48
+    Unknown spec                 1
+
+nexus_hook.log                                 MISSING
+NexusToR.log                                      269780 bytes  mtime 19:22:17
+    Char spec missing            2
+    not a MAG node               6
+    Mag node                     10
+    valid animation agent        6
+    Unknown spec                 2
+    > [2026-10-02 19:21:26] AreaMergedAwareness: AreaMergedAwareness: MERGED taxi rung=0 sha256=5D3E2E381960277F14AE92FF3CF41C971F1E8BB00B315D2C2390E93B3BDCDD20 bytes=14159 captured=13488 count=77->82 npc=0x0000001AC
+    > [2026-10-02 19:21:26] TythonTaxi: TythonTaxi: CONTROL ladder rung 0 merged into awareness set 1 as one object list; npc=0x0000001AC7000001. Taxi interaction is disabled in this mode.
+

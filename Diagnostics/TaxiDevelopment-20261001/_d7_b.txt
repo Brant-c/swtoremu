@@ -1,0 +1,161 @@
+    schema_class = names.get(structures[structure_id].base_class, "<unnamed>")
+    print(f"    CRT1 structure {structure_id} names {schema_class}, not "
+          "phsPlayerPhaseData; phase field names are therefore not assigned")
+    print("    values=" + data[body_start:state_start].hex(" "))
+    print("    state bytes=" + data[state_start:value_end].hex(" "))
+
+    # Schema-dependent interpretation only: this body is structurally exact
+    # for the sorted five-field phsPlayerPhaseData schema reconstructed from
+    # client.gom, but CRT1 does not contain that schema under structure 1.
+    candidate = Reader(data, body_start, state_start)
+    outer_count = candidate.packed()
+    phase_type = candidate.packed()
+    inner_count = candidate.packed()
+    phase_id = candidate.packed()
+    active_info_value_size = candidate.packed()
+    authority_id = candidate.packed()
+    if (outer_count, inner_count, active_info_value_size, candidate.pos) == (
+            1, 1, 0, state_start):
+        print("    schema-dependent phase candidate (not wire-authoritative):")
+        print(f"      phsActivePhases[{phase_type}][{phase_id:#018x}] = "
+              "phsActivePhaseInfo(empty)")
+        print(f"      phsAuthorityID={authority_id:#018x}")
+        print("      remaining three fields have no value bytes; exact state "
+              "meaning awaits the matching schema/session")
+
+
+PLAYER_NODE = 0x4000010E218A839C
+PLAYER_STRUCTURE = 26
+
+# The captured CRT fixtures begin with the packet's little-endian stream id,
+# then the GOM update itself.  The awareness fixtures are payload-only and
+# begin directly at the update.
+CRT_UPDATE_OFFSET = 4
+AWARENESS_UPDATE_OFFSET = 0
+
+
+def read_gom_update(data, update_offset, label):
+    """Read a GOM update header and return its reader, flags, and object count.
+
+    The layout is the one declared by ``Packets/MessageHeaders/
+    base_gom_update.h``: ``uint32_t`` contract count, then a ``uint8_t``
+    switched value where ``0x01`` selects the object list and ``0x02`` the
+    trailing removal list.
+    """
+    reader = Reader(data, update_offset)
+    contract_count = int.from_bytes(data[reader.pos:reader.pos + 4], "little")
+    reader.pos += 4
+    if contract_count != 0:
+        # No captured fixture carries contract updates, so their framing is
+        # deliberately not guessed at here.
+        print(f"{label}: contractCount={contract_count} (contracts are not "
+              "decoded by this tool)")
+        return None, 0, 0
+    flags = reader.byte()
+    object_count = reader.packed() if flags & 0x01 else 0
+    print(f"{label}: flags=0x{flags:02X} objects={object_count} bytes={len(data)}")
+    return reader, flags, object_count
+
+
+def read_object_record(data, reader):
+    """Parse one GomUpdateObject using the documented framing.
+
+    ``base_gom_update.h`` declares the record as ``Packed<NodeID>`` followed by
+    a switched ``uint8_t``: ``0x80`` ClassID, ``0x40`` TemplateID, ``0x20``
+    ParentNodeID, ``0x10`` a metadata byte whose ``0x01`` and ``0x02`` bits each
+    select an independent ``BasicVector<uint32_t, uint64_t>`` (so both lists may
+    be present, each with its own ``uint32_t`` element count), and ``0x08`` the
+    value: ``Packed<FieldVersion>``, ``Packed<FieldFormat>``, then
+    ``BasicVector<Packed<uint64_t>, uint8_t>``.  Every captured fixture walks
+    exactly to its own end under this rule.
+    """
+    record = {"start": reader.pos, "node": reader.packed()}
+    flags = reader.byte()
+    record["flags"] = flags
+    record["class_id"] = reader.packed() if flags & 0x80 else 0
+    record["template_id"] = reader.packed() if flags & 0x40 else 0
+    record["parent_id"] = reader.packed() if flags & 0x20 else 0
+    metadata_counts = []
+    if flags & 0x10:
+        metadata_flags = reader.byte()
+        for bit in (0x01, 0x02):
+            if metadata_flags & bit:
+                count = int.from_bytes(data[reader.pos:reader.pos + 4], "little")
+                reader.pos += 4
+                metadata_counts.append(count)
+                reader.pos += 8 * count
+    record["metadata_counts"] = metadata_counts
+    record["field_version"] = None
+    record["style"] = None
+    record["structure_id"] = None
+    record["inner_size"] = None
+    record["body_start"] = None
+    record["value_end"] = None
+    if flags & 0x08:
+        record["field_version"] = reader.packed()
+        record["style"] = reader.packed()
+        field_size = reader.packed()
+        # value_end bounds the whole outer value, so it is measured from the
+        # outer start, before the style-7/8 structure header is consumed.
+        record["outer_start"] = reader.pos
+        record["value_end"] = reader.pos + field_size
+        if record["style"] in (7, 8):
+            record["structure_id"] = reader.packed()
+            record["inner_size"] = reader.packed()
+        # body_start is the first *value* byte, i.e. after the style-7/8
+        # structure header.  main() already advanced past it that way; taking
+        # it before the header made every dump_field_states()/Locate-CrtValue
+        # state_start four bytes early and mis-reported the transmitted fields.
+        record["body_start"] = reader.pos
+        reader.pos = record["value_end"]
+    return record
+
+
+def dump_field_states(crt_numbers, names, structures):
+    """Print every field the captured stream transmits for the replicated player.
+
+    The walk uses the documented GomUpdateObject framing and stops as soon as
+    the player record is decoded.
+    """
+    structure = structures[PLAYER_STRUCTURE]
+    for crt_number in crt_numbers:
+        data = fixture(crt_number)
+        reader, _, object_count = read_gom_update(
+            data, CRT_UPDATE_OFFSET, f"CRT{crt_number}")
+        if reader is None:
+            continue
+        found = False
+        for _ in range(object_count):
+            record = read_object_record(data, reader)
+            if record["node"] != PLAYER_NODE:
+                continue
+            found = True
+            print(f"\nCRT{crt_number} player {record['node']:#018x} "
+                  f"flags=0x{record['flags']:02X} "
+                  f"class={names.get(record['class_id'], '<unknown>')} "
+                  f"structure={record['structure_id']}")
+            if record["structure_id"] == PLAYER_STRUCTURE:
+                # Same boundary rule as main: the compact field-state stream is
+                # the outer value's tail, not a prefix of the values.
+                state_start = record["body_start"] + record["inner_size"]
+                states, bits = field_states(data, state_start,
+                                            record["value_end"] - state_start,
+                                            len(structure.fields), style=record["style"])
+                present = [index for index in range(len(states)) if states[index] != 2]
+                print(f"    transmitted={len(present)}/{len(states)}; "
+                      f"state bits end at byte={bits.pos} bit={8 - bits.in_byte}")
+                for index in present:
+                    field = structure.fields[index]
+                    types = " -> ".join(describe_part(part, names)
+                                        for part in field.parts)
+                    print(f"      {index:3} state={states[index]} "
+                          f"{names.get(field.definition, '<unnamed>')} [{types}]")
+            else:
+                print("    not the player structure; field states not decoded")
+            break
+        if not found:
+            print(f"\nCRT{crt_number}: no record for the replicated player node")
+
+
+def dump_objects(crt_numbers, names, structures):
+    """Print every record of each transaction with its resolved class name.

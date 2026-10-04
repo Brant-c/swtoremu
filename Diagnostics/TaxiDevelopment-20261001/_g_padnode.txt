@@ -1,0 +1,57 @@
+_JPEXTRACT\DAT\instances.txt:3748: asset name: \spn\location\tython\taxi\taxi_poi01_jediretreat_pad1.spn_c"><span style="color:orange"><mark>spn<span style="color:white">.</span><wbr>lo
+_JPEXTRACT\DAT\instances.txt:3749: asset name: \server\mpn\location\tython\taxi\jediretreat_pad1.mpn"><span style="color:#2aa588"><mark>mpn<span style="color:white">.</span><wbr>locatio
+_JPEXTRACT\mpn.location.tython.taxi.jediretreat_pad1 (hex).json:1: {"_metadata":{"id":"16141073399582751027","fqn":"mpn.location.tython.taxi.jediretreat_pad1","baseclass":"4611686026914850759"},"_count":24,"4611686041
+_JPEXTRACT\mpn.location.tython.taxi.jediretreat_pad1.json:1: {"_metadata":{"id":"16141073399582751027","fqn":"mpn.location.tython.taxi.jediretreat_pad1","baseclass":"4611686026914850759"},"_count":24,"4611686041
+_JPEXTRACT\mpn.location.tython.taxi.jediretreat_pad2 (hex).json:1: {"_metadata":{"id":"16141074499094380518","fqn":"mpn.location.tython.taxi.jediretreat_pad2","baseclass":"4611686026914850759"},"_count":24,"4611686041
+_JPEXTRACT\mpn.location.tython.taxi.jediretreat_pad2.json:1: {"_metadata":{"id":"16141074499094380518","fqn":"mpn.location.tython.taxi.jediretreat_pad2","baseclass":"4611686026914850759"},"_count":24,"4611686041
+_JPEXTRACT\NPC\Map-NpcFields.py:3: the extracted `npc.location.tython.taxi.jediretreat_pad1` node has baseclass
+_JPEXTRACT\NPC\mpn.location.tython.taxi.jediretreat_pad1 (1).json:1: {"_metadata":{"id":"16141073399582751027","fqn":"mpn.location.tython.taxi.jediretreat_pad1","baseclass":"4611686026914850759"},"_count":24,"4611686041
+_JPEXTRACT\NPC\mpn.location.tython.taxi.jediretreat_pad1 (hex).json:1: {"_metadata":{"id":"16141073399582751027","fqn":"mpn.location.tython.taxi.jediretreat_pad1","baseclass":"4611686026914850759"},"_count":24,"4611686041
+_JPEXTRACT\NPC\mpn.location.tython.taxi.jediretreat_pad1.json:1: {"_metadata":{"id":"16141073399582751027","fqn":"mpn.location.tython.taxi.jediretreat_pad1","baseclass":"4611686026914850759"},"_count":24,"4611686041
+_JPEXTRACT\NPC\mpn.location.tython.taxi.jediretreat_pad2.json:1: {"_metadata":{"id":"16141074499094380518","fqn":"mpn.location.tython.taxi.jediretreat_pad2","baseclass":"4611686026914850759"},"_count":24,"4611686041
+_JPEXTRACT\NPC\npc.location.tython.taxi.jediretreat_pad1 (hex).json:1: {"_metadata":{"id":"16141054501145209373","fqn":"npc.location.tython.taxi.jediretreat_pad1","baseclass":"4611686018435310013","glommed":["461168601963
+_JPEXTRACT\NPC\npc.location.tython.taxi.jediretreat_pad1.json:1: {"_metadata":{"id":"16141054501145209373","fqn":"npc.location.tython.taxi.jediretreat_pad1","baseclass":"4611686018435310013","glommed":["461168601963
+_JPEXTRACT\NPC\npc.location.tython.taxi.jediretreat_pad2 (hex).json:1: {"_metadata":{"id":"16141051202610327860","fqn":"npc.location.tython.taxi.jediretreat_pad2","baseclass":"4611686018435310013","glommed":["461168601963
+_JPEXTRACT\NPC\npc.location.tython.taxi.jediretreat_pad2.json:1: {"_metadata":{"id":"16141051202610327860","fqn":"npc.location.tython.taxi.jediretreat_pad2","baseclass":"4611686018435310013","glommed":["461168601963
+_JPEXTRACT\npc.location.tython.taxi.jediretreat_pad1 (hex).json:1: {"_metadata":{"id":"16141054501145209373","fqn":"npc.location.tython.taxi.jediretreat_pad1","baseclass":"4611686018435310013","glommed":["461168601963
+_JPEXTRACT\npc.location.tython.taxi.jediretreat_pad1.json:1: {"_metadata":{"id":"16141054501145209373","fqn":"npc.location.tython.taxi.jediretreat_pad1","baseclass":"4611686018435310013","glommed":["461168601963
+_JPEXTRACT\npc.location.tython.taxi.jediretreat_pad2 (hex).json:1: {"_metadata":{"id":"16141051202610327860","fqn":"npc.location.tython.taxi.jediretreat_pad2","baseclass":"4611686018435310013","glommed":["461168601963
+_JPEXTRACT\npc.location.tython.taxi.jediretreat_pad2.json:1: {"_metadata":{"id":"16141051202610327860","fqn":"npc.location.tython.taxi.jediretreat_pad2","baseclass":"4611686018435310013","glommed":["461168601963
+Diagnostics\Experiments\2026-10-01-04-tython-taxi-npc-and-travel-map.md:37: diagnosis after run 2: placement was the real defect. jedipedia node extraction for `npc.location.tython.taxi.jediretreat_pad1` confirmed the template
+Diagnostics\Experiments\2026-10-02-05-taxi-wire-surface-and-precreate-spec.md:9: `_jpextract/npc.location.tython.taxi.jediretreat_pad1 (hex).json` sets against
+Diagnostics\GomCompatibility\all-defs.txt:136519: node	0xe0005855213ca214	spn.location.tython.taxi.taxi_poi01_jediretreat_pad2
+Diagnostics\GomCompatibility\all-defs.txt:203728: node	0xe000888cc0faf134	npc.location.tython.taxi.jediretreat_pad2
+Diagnostics\GomCompatibility\all-defs.txt:207899: node	0xe0008b8cc0faea1d	npc.location.tython.taxi.jediretreat_pad1
+Diagnostics\GomCompatibility\all-defs.txt:232082: node	0xe0009cbce3a2f933	mpn.location.tython.taxi.jediretreat_pad1
+Diagnostics\GomCompatibility\all-defs.txt:233499: node	0xe0009dbce3a2ffe6	mpn.location.tython.taxi.jediretreat_pad2
+Diagnostics\TaxiDevelopment-20261001\_g_pad.txt:1: _jpextract\dat\instances.txt:3748: asset name: \spn\location\tython\taxi\taxi_poi01_jediretreat_pad1.spn_c"><span style="color:orange"><mark>spn<span 
+Diagnostics\TaxiDevelopment-20261001\_g_pad.txt:17: diagnostics\gomcompatibility\all-defs.txt:136519: node	0xe0005855213ca214	spn.location.tython.taxi.taxi_poi01_jediretreat_pad2
+Diagnostics\TaxiDevelopment-20261001\_g_pad.txt:40: diagnostics\taxidevelopment-20261001\audit.md:17: area instance row `spn.location.tython.taxi.taxi_poi01_jediretreat_pad1.spn_c`
+Diagnostics\TaxiDevelopment-20261001\_g_pad.txt:41: diagnostics\taxidevelopment-20261001\fixture.json:68: "placement_source": "authored taxi_poi01_jediretreat_pad1.spn_c instance row (-535,-1255,-77); x
+Diagnostics\TaxiDevelopment-20261001\_g_pad.txt:42: diagnostics\taxidevelopment-20261001\generate-taxi.py:252: 'placement':list(placement),'placement_source':'authored taxi_poi01_jediretreat_pad1.spn_c 
+Diagnostics\TaxiDevelopment-20261001\_g_pad.txt:43: diagnostics\taxidevelopment-20261001\handoff-next-session.md:22: `spn.location.tython.taxi.taxi_poi01_jediretreat_pad1.spn_c` = (-535,-1255,-77).
+Diagnostics\TaxiDevelopment-20261001\_g_pad.txt:44: sharpserver\net\packets\server\areataxiawareness.cs:9: // spn.location.tython.taxi.taxi_poi01_jediretreat_pad1.spn_c (-535,-1255,-77),
+Diagnostics\TaxiDevelopment-20261001\_handoff_mid.txt:72: e0008b8cc0faea1d (`npc.location.tython.taxi.jediretreat_pad1`). gloms from
+Diagnostics\TaxiDevelopment-20261001\_slice_3744.txt:5: 3748  asset name: \spn\location\tython\taxi\taxi_poi01_jediretreat_pad1.spn_c"><span style="color:orange"><mark>spn<span style="color:white">.</span><
+Diagnostics\TaxiDevelopment-20261001\_slice_3744.txt:6: 3749  asset name: \server\mpn\location\tython\taxi\jediretreat_pad1.mpn"><span style="color:#2aa588"><mark>mpn<span style="color:white">.</span><wbr>l
+Diagnostics\TaxiDevelopment-20261001\_slice_61.txt:15: 75  # taxi-authored identity, from _jpextract/npc/npc.location.tython.taxi.jediretreat_pad1.json
+Diagnostics\TaxiDevelopment-20261001\AUDIT.md:13: prototype `npc.location.tython.taxi.jediretreat_pad1`, and terminal
+Diagnostics\TaxiDevelopment-20261001\AUDIT.md:17: area instance row `spn.location.tython.taxi.taxi_poi01_jediretreat_pad1.spn_c`
+Diagnostics\TaxiDevelopment-20261001\Decode-AppearanceTail.py:10: npcfaction (taxi-content.txt / npc.location.tython.taxi.jediretreat_pad1).
+Diagnostics\TaxiDevelopment-20261001\Decode-ScriptErrorNode.py:32: print("\ntaxi prototype glommed (from _jpextract/npc/npc.location.tython.taxi.jediretreat_pad1.json):")
+Diagnostics\TaxiDevelopment-20261001\Dump-PrototypeFields.py:1: """name the jediretreat_pad1 prototype field ids from taxi-content.txt."""
+Diagnostics\TaxiDevelopment-20261001\fixture.json:68: "placement_source": "authored taxi_poi01_jediretreat_pad1.spn_c instance row (-535,-1255,-77); x=col1/10 z=col2/10 y=col3/10 calibrated against the ca
+Diagnostics\TaxiDevelopment-20261001\Generate-Taxi.py:75: # taxi-authored identity, from _jpextract/npc/npc.location.tython.taxi.jediretreat_pad1.json
+Diagnostics\TaxiDevelopment-20261001\Generate-Taxi.py:252: 'placement':list(placement),'placement_source':'authored taxi_poi01_jediretreat_pad1.spn_c instance row (-535,-1255,-77); x=col1/10 z=col2/10 y=col3/1
+Diagnostics\TaxiDevelopment-20261001\Generate-TaxiRecord2.py:4: `_jpextract/npc.location.tython.taxi.jediretreat_pad1 (hex).json` sets 23 fields.
+Diagnostics\TaxiDevelopment-20261001\HANDOFF-NEXT-SESSION.md:22: `spn.location.tython.taxi.taxi_poi01_jediretreat_pad1.spn_c` = (-535,-1255,-77).
+Diagnostics\TaxiDevelopment-20261001\HANDOFF-NEXT-SESSION.md:30: `npc.location.tython.taxi.jediretreat_pad1` is 0xe000dc42a2436f58 and the node's
+Diagnostics\TaxiDevelopment-20261001\HANDOFF-NEXT-SESSION.md:130: e0008b8cc0faea1d (`npc.location.tython.taxi.jediretreat_pad1`). gloms from
+Diagnostics\TaxiDevelopment-20261001\taxi-content.txt:392: def node 0xe0009cbce3a2f933 mpn.location.tython.taxi.jediretreat_pad1
+Diagnostics\TaxiDevelopment-20261001\taxi-content.txt:406: def node 0xe0009dbce3a2ffe6 mpn.location.tython.taxi.jediretreat_pad2
+Diagnostics\TaxiDevelopment-20261001\taxi-content.txt:504: def node 0xe0008b8cc0faea1d npc.location.tython.taxi.jediretreat_pad1
+Diagnostics\TaxiDevelopment-20261001\taxi-content.txt:547: def node 0xe000888cc0faf134 npc.location.tython.taxi.jediretreat_pad2
+Diagnostics\TaxiDevelopment-20261001\Verify-TaxiFixtures.py:35: taxi_template = 0xe0008b8cc0faea1d         # npc.location.tython.taxi.jediretreat_pad1
+SharpServer\AreaServer\TythonTaxi.cs:50: log.write(loglevel.warning,"tythontaxi: experiment taxi npc=0x{0:x16}; template=npc.location.tython.taxi.jediretreat_pad1; placement={1} (fixture hash
+SharpServer\NET\Packets\Server\AreaTaxiAwareness.cs:9: // spn.location.tython.taxi.taxi_poi01_jediretreat_pad1.spn_c (-535,-1255,-77),
+TOTAL 56 hits for 'jediretreat_pad'

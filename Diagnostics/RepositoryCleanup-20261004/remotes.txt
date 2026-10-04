@@ -1,0 +1,4 @@
+origin	https://github.com/Brant-c/swtoremu.git (fetch)
+origin	https://github.com/Brant-c/swtoremu.git (push)
+upstream	https://github.com/g91/swtoremu.git (fetch)
+upstream	https://github.com/g91/swtoremu.git (push)

@@ -1,0 +1,38 @@
+  00D1F670: 55                 push        ebp
+  00D1F671: 8B EC              mov         ebp,esp
+  00D1F673: 6A FF              push        0FFFFFFFFh
+  00D1F675: 68 CB 8F FD 00     push        0FD8FCBh
+  00D1F67A: 64 A1 00 00 00 00  mov         eax,dword ptr fs:[00000000h]
+  00D1F680: 50                 push        eax
+  00D1F681: 64 89 25 00 00 00  mov         dword ptr fs:[00000000h],esp
+  00D1F688: 51                 push        ecx
+  00D1F689: 6A 18              push        18h
+  00D1F68B: E8 00 1C 6E FF     call        00401290
+  00D1F690: 83 C4 04           add         esp,4
+  00D1F693: 89 45 F0           mov         dword ptr [ebp-10h],eax
+  00D1F696: C7 45 FC 00 00 00  mov         dword ptr [ebp-4],0
+  00D1F69D: 85 C0              test        eax,eax
+  00D1F69F: 74 0D              je          00D1F6AE
+  00D1F6A1: 8B 4D 08           mov         ecx,dword ptr [ebp+8]
+  00D1F6A4: 51                 push        ecx
+  00D1F6A5: 8B C8              mov         ecx,eax
+  00D1F6A7: E8 F4 FD FF FF     call        00D1F4A0
+  00D1F6AC: EB 02              jmp         00D1F6B0
+  00D1F6AE: 33 C0              xor         eax,eax
+  00D1F6B0: C7 45 FC FF FF FF  mov         dword ptr [ebp-4],0FFFFFFFFh
+  00D1F6B7: 8B 4D F4           mov         ecx,dword ptr [ebp-0Ch]
+  00D1F6BA: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+  00D1F6C1: 8B E5              mov         esp,ebp
+  00D1F6C3: 5D                 pop         ebp
+  00D1F6C4: C3                 ret
+  00D1F6C5: CC                 int         3
+  00D1F6C6: CC                 int         3
+  00D1F6C7: CC                 int         3
+  00D1F6C8: CC                 int         3
+  00D1F6C9: CC                 int         3
+  00D1F6CA: CC                 int         3
+  00D1F6CB: CC                 int         3
+  00D1F6CC: CC                 int         3
+  00D1F6CD: CC                 int         3
+  00D1F6CE: CC                 int         3
+  00D1F6CF: CC                 int         3

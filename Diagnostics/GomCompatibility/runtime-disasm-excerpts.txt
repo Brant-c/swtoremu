@@ -1,0 +1,90 @@
+  009739BA: E8 11 F8 B2 FF     call        004A31D0
+  009739BF: 88 5D FC           mov         byte ptr [ebp-4],bl
+  009739C2: 8D 4D B8           lea         ecx,[ebp-48h]
+  009739C5: E8 E6 F9 B2 FF     call        004A33B0
+  009739CA: 8D 55 D8           lea         edx,[ebp-28h]
+  009739CD: 52                 push        edx
+  009739CE: 8B CE              mov         ecx,esi
+  009739D0: E8 EB ED B2 FF     call        004A27C0
+  009739D5: C7 45 FC FF FF FF  mov         dword ptr [ebp-4],0FFFFFFFFh
+            FF
+  009739DC: 8D 4D D8           lea         ecx,[ebp-28h]
+  009739DF: E8 DC 8D 00 00     call        0097C7C0
+  009739E4: 8B 4D F4           mov         ecx,dword ptr [ebp-0Ch]
+  009739E7: 5E                 pop         esi
+  009739E8: 5B                 pop         ebx
+  009739E9: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+            00
+--
+  00B41CA8: CC                 int         3
+  00B41CA9: CC                 int         3
+  00B41CAA: CC                 int         3
+  00B41CAB: CC                 int         3
+  00B41CAC: CC                 int         3
+  00B41CAD: CC                 int         3
+  00B41CAE: CC                 int         3
+  00B41CAF: CC                 int         3
+  00B41CB0: B8 04 00 CE FA     mov         eax,0FACE0004h
+  00B41CB5: C2 10 00           ret         10h
+  00B41CB8: CC                 int         3
+  00B41CB9: CC                 int         3
+  00B41CBA: CC                 int         3
+  00B41CBB: CC                 int         3
+  00B41CBC: CC                 int         3
+  00B41CBD: CC                 int         3
+  00B41CBE: CC                 int         3
+--
+  00B4253C: 8B 46 04           mov         eax,dword ptr [esi+4]
+  00B4253F: 8D 4D EC           lea         ecx,[ebp-14h]
+  00B42542: 51                 push        ecx
+  00B42543: 8B 0D 64 1F 34 01  mov         ecx,dword ptr ds:[01341F64h]
+  00B42549: 8D 95 E8 FD FF FF  lea         edx,[ebp+FFFFFDE8h]
+  00B4254F: 52                 push        edx
+  00B42550: 50                 push        eax
+  00B42551: E8 AA 71 00 00     call        00B49700
+  00B42556: 85 C0              test        eax,eax
+  00B42558: 0F 85 24 01 00 00  jne         00B42682
+  00B4255E: 83 7D 98 10        cmp         dword ptr [ebp-68h],10h
+  00B42562: 0F 82 1A 01 00 00  jb          00B42682
+  00B42568: 53                 push        ebx
+  00B42569: BB 01 00 00 00     mov         ebx,1
+  00B4256E: 8D 8D E8 FD FF FF  lea         ecx,[ebp+FFFFFDE8h]
+  00B42574: 88 5E 24           mov         byte ptr [esi+24h],bl
+  00B42577: E8 44 DF D9 FF     call        008E04C0
+--
+  00B42613: 6A 00              push        0
+  00B42615: 52                 push        edx
+  00B42616: 51                 push        ecx
+  00B42617: 8B 0D 64 1F 34 01  mov         ecx,dword ptr ds:[01341F64h]
+  00B4261D: 8B F8              mov         edi,eax
+  00B4261F: 8B 46 04           mov         eax,dword ptr [esi+4]
+  00B42622: 57                 push        edi
+  00B42623: 50                 push        eax
+  00B42624: E8 47 74 00 00     call        00B49A70
+  00B42629: 85 C0              test        eax,eax
+  00B4262B: 75 4A              jne         00B42677
+  00B4262D: 6A 14              push        14h
+  00B4262F: E8 5C EC 8B FF     call        00401290
+  00B42634: 83 C4 04           add         esp,4
+  00B42637: 89 45 F0           mov         dword ptr [ebp-10h],eax
+  00B4263A: 89 5D FC           mov         dword ptr [ebp-4],ebx
+  00B4263D: 85 C0              test        eax,eax
+  00B4263F: 74 10              je          00B42651
+--
+  00B45189: 8B 4B 08           mov         ecx,dword ptr [ebx+8]
+  00B4518C: 8B 01              mov         eax,dword ptr [ecx]
+  00B4518E: 8B 40 14           mov         eax,dword ptr [eax+14h]
+  00B45191: 57                 push        edi
+  00B45192: 52                 push        edx
+  00B45193: 8B 55 14           mov         edx,dword ptr [ebp+14h]
+  00B45196: 68 40 4A B4 00     push        0B44A40h
+  00B4519B: 52                 push        edx
+  00B4519C: FF D0              call        eax
+  00B4519E: 83 CF FF           or          edi,0FFFFFFFFh
+  00B451A1: 89 45 14           mov         dword ptr [ebp+14h],eax
+  00B451A4: 89 7D FC           mov         dword ptr [ebp-4],edi
+  00B451A7: 8B 45 18           mov         eax,dword ptr [ebp+18h]
+  00B451AA: 3B C7              cmp         eax,edi
+  00B451AC: 74 2B              je          00B451D9
+  00B451AE: 8B 0D E0 AB 31 01  mov         ecx,dword ptr ds:[0131ABE0h]
+  00B451B4: 8B D0              mov         edx,eax

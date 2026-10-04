@@ -1,0 +1,49 @@
+using System;
+using System.Runtime.CompilerServices;
+using NexusToRServer.NET;
+using NexusToRServer.NET.Packets.Server;
+namespace NexusToRServer.AreaServer
+{
+    internal static class PlayerMovementState
+    {
+        private sealed class State { public bool SentAnchor, LoggedAnchor, Exited; public int LastAnchorTick; public float LastX = Single.NaN; }
+        private static readonly ConditionalWeakTable<TORGameClient, State> States = new ConditionalWeakTable<TORGameClient, State>();
+        internal static bool Enabled(string variable) { return Environment.GetEnvironmentVariable(variable) == "1"; }
+        internal static void OnMove(TORGameClient client, float x, float y, float z)
+        {
+            // Decoder has consumed exact C5/C7 shape before this call. These
+            // positions are client-reported; authoritative simulation is future work.
+            if (client == null || !client.AreaStartupPacketsSent || client.ActiveCharacter == null || client.ActiveCharacter._id == 0 || client.AreaServiceID == 0 || client._area != "tython_blockout" || !AreaPlayerMovementUpdate.Finite(x) || !AreaPlayerMovementUpdate.Finite(y) || !AreaPlayerMovementUpdate.Finite(z)) return;
+            State s = States.GetValue(client, delegate(TORGameClient ignored) { return new State(); });
+            if (Enabled("SWTOR_MOVEMENT_TETHER_REFRESH"))
+            {
+                int tick = Environment.TickCount;
+                if (!s.SentAnchor || unchecked((uint)(tick - s.LastAnchorTick)) >= 250U)
+                {
+                    client.SendPacket(new AreaPlayerMovementUpdate(client.ActiveCharacter._id, x, y, z));
+                    s.SentAnchor = true; s.LastAnchorTick = tick;
+                    if (!s.LoggedAnchor) { s.LoggedAnchor = true; Log.Write(LogLevel.Warning, "MovementTether: EXPERIMENT refreshing selected-player anchor from finite decoded movement; field206 only; captured 2.4 leash retained; 250ms throttle."); }
+                }
+            }
+            if (Enabled("SWTOR_PHASE_REENTRY"))
+            {
+                if (!Single.IsNaN(s.LastX) && z > -130f && z < -124f && y > -8f && y < -5f)
+                {
+                    if (!s.Exited && s.LastX < -63.0f && x >= -63.0f)
+                    {
+                        client.SendPacket(new AreaReplicationDestroy(AreaAbilityEffectReplication.NextStreamID(), 0x1AC6F6DC1FUL, true, client.ActiveCharacter._id));
+                        s.Exited = true; Log.Write(LogLevel.Warning, "RetreatMembership: exited; selected-player link cleared and phase-info removed.");
+                    }
+                    else if (s.Exited && s.LastX > -63.65f && x <= -63.65f)
+                    {
+                        // Hysteresis around the captured gateway plane, not a
+                        // substitute for full trigger-volume evaluation.
+                        client.SendPacket(new AreaPlayerMovementUpdate(client.ActiveCharacter._id));
+                        s.Exited = false; Log.Write(LogLevel.Warning, "RetreatMembership: reentered; captured phase-info recreated before selected-player phase link restored.");
+                    }
+                }
+                s.LastX = x;
+            }
+        }
+    }
+}

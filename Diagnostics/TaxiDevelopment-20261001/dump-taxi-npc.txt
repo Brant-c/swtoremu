@@ -1,0 +1,337 @@
+﻿captured awareness: flags=0x01 objects=77 bytes=13488
+captured awareness flags=0x01 objects=77
+  node=0x0000001AC688D53E flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D540 flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D542 flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC68967A3 flags=0x7A struct=42 template=0xE00099CA181601BE class=0x0000000000000000
+  node=0x0000001AC68967A9 flags=0xAA struct=13 template=0x0000000000000000 class=0x40000002FEE8765E
+  node=0x0000001AC68967C4 flags=0x6A struct=11 template=0xE00080F0A6AB32B8 class=0x0000000000000000
+  node=0x0000001AC68967B9 flags=0x6A struct=11 template=0xE0009F4BED250842 class=0x0000000000000000
+  node=0x0000001AC68967A7 flags=0xAA struct=13 template=0x0000000000000000 class=0x40000002FEE8765E
+  node=0x0000001AC68967A5 flags=0xAA struct=14 template=0x0000000000000000 class=0x40000003452E9332
+  node=0x0000001AC68967C6 flags=0x6A struct=15 template=0xE0005794AAA8ED73 class=0x0000000000000000
+  node=0x0000001AC68967A8 flags=0xAA struct=13 template=0x0000000000000000 class=0x40000002FEE8765E
+  node=0x0000001AC688D544 flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D546 flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC68974B1 flags=0x7A struct=48 template=0xE00061703A2A9243 class=0x0000000000000000
+  node=0x0000001AC688D547 flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D548 flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC68957EB flags=0x7A struct=64 template=0xE0005CB11264F32D class=0x0000000000000000
+  node=0x0000001AC68957F0 flags=0xAA struct=13 template=0x0000000000000000 class=0x40000002FEE8765E
+  node=0x0000001AC68957EF flags=0xAA struct=13 template=0x0000000000000000 class=0x40000002FEE8765E
+  node=0x0000001AC68957ED flags=0xAA struct=14 template=0x0000000000000000 class=0x40000003452E9332
+  node=0x0000001AC68957F1 flags=0xAA struct=13 template=0x0000000000000000 class=0x40000002FEE8765E
+  node=0x0000001AC6895802 flags=0x6A struct=11 template=0xE00080F0A6AB32B8 class=0x0000000000000000
+  node=0x0000001AC688D549 flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D54A flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D54C flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D54E flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D54F flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D551 flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D552 flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D553 flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D555 flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC689748C flags=0x7A struct=42 template=0xE0001A7B981EC3F0 class=0x0000000000000000
+  node=0x0000001AC6897490 flags=0xAA struct=13 template=0x0000000000000000 class=0x40000002FEE8765E
+  node=0x0000001AC689748E flags=0xAA struct=14 template=0x0000000000000000 class=0x40000003452E9332
+  node=0x0000001AC68974AF flags=0x6A struct=15 template=0xE00035270E3BA5EB class=0x0000000000000000
+  node=0x0000001AC6897492 flags=0xAA struct=13 template=0x0000000000000000 class=0x40000002FEE8765E
+  node=0x0000001AC68974AD flags=0x6A struct=11 template=0xE00080F0A6AB32B8 class=0x0000000000000000
+  node=0x0000001AC68974A2 flags=0x6A struct=11 template=0xE0009F4BED250842 class=0x0000000000000000
+  node=0x0000001AC6897491 flags=0xAA struct=13 template=0x0000000000000000 class=0x40000002FEE8765E
+  node=0x0000001AC688D557 flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D559 flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D55B flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D55D flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D55F flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D561 flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D563 flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D565 flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D567 flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC68975A6 flags=0x7A struct=42 template=0xE00076056EC36C2C class=0x0000000000000000
+  node=0x0000001AC68975AC flags=0xAA struct=13 template=0x0000000000000000 class=0x40000002FEE8765E
+  node=0x0000001AC68975C7 flags=0x6A struct=11 template=0xE00080F0A6AB32B8 class=0x0000000000000000
+  node=0x0000001AC68975BC flags=0x6A struct=11 template=0xE0009F4BED250842 class=0x0000000000000000
+  node=0x0000001AC68975AA flags=0xAA struct=13 template=0x0000000000000000 class=0x40000002FEE8765E
+  node=0x0000001AC68975A8 flags=0xAA struct=14 template=0x0000000000000000 class=0x40000003452E9332
+  node=0x0000001AC68975C9 flags=0x6A struct=15 template=0xE0001D6B499BCB82 class=0x0000000000000000
+  node=0x0000001AC68975AB flags=0xAA struct=13 template=0x0000000000000000 class=0x40000002FEE8765E
+  node=0x0000001AC689385F flags=0x7A struct=42 template=0xE0003CFE9836B25A class=0x0000000000000000
+  node=0x0000001AC6893865 flags=0xAA struct=13 template=0x0000000000000000 class=0x40000002FEE8765E
+  node=0x0000001AC6893881 flags=0x6A struct=11 template=0xE00080F0A6AB32B8 class=0x0000000000000000
+  node=0x0000001AC6893876 flags=0x6A struct=11 template=0xE0009F4BED250842 class=0x0000000000000000
+  node=0x0000001AC6893864 flags=0xAA struct=13 template=0x0000000000000000 class=0x40000002FEE8765E
+  node=0x0000001AC6893863 flags=0xAA struct=13 template=0x0000000000000000 class=0x40000002FEE8765E
+  node=0x0000001AC6893861 flags=0xAA struct=14 template=0x0000000000000000 class=0x40000003452E9332
+  node=0x0000001AC6893884 flags=0x6A struct=15 template=0xE00095A49AC6CB3C class=0x0000000000000000
+  node=0x0000001AC6893883 flags=0x6A struct=15 template=0xE000F1320E87C180 class=0x0000000000000000
+  node=0x0000001AC688D569 flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D535 flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC6890A01 flags=0xBA struct=65 template=0x0000000000000000 class=0x400000027669D5F2
+  node=0x0000001AC688D56B flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D537 flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688DF92 flags=0x7A struct=48 template=0xE00061703A2A9243 class=0x0000000000000000
+  node=0x0000001AC688D56D flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D538 flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D539 flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D56E flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D53B flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+  node=0x0000001AC688D53C flags=0xAA struct=41 template=0x0000000000000000 class=0x40000003986E8671
+
+=== captured vendor donor node=0x0000001AC68957EB struct=64 flags=0x7A class=0x0000000000000000 template=0xE0005CB11264F32D parent=0x0000001AC688BE1E style=8 inner=380
+  base_class=chrNonPlayerCharacter additional=['0x4000000001a7ec41', '0x4000000001c0560b', '0x4000000047c91ffe', '0x4000000379961a10'] fields=96
+    0 character_position                                      kind=18 value=(-59.787200927734375, -6.899799823760986, -128.3347930908203) children=[]
+    1 character_rotation                                      kind=18 value=(-0.0, -112.04100036621094, 0.0) children=[]
+    9 chrScale                                                kind=4 value=1.0 children=[]
+   10 chrMeleeDistance                                        kind=4 value=0.10000000149011612 children=[]
+   13 staWeaponState                                          kind=5 value=2 children=[]
+   22 phsPhase                                                kind=1 value=1 children=[]
+   23 eqpEquipment                                            kind=15 value=115000039405 children=[]
+   24 effContainerPositive                                    kind=15 value=115000039407 children=[]
+   25 effContainerNegative                                    kind=15 value=115000039408 children=[]
+   26 effContainerOther                                       kind=15 value=115000039409 children=[]
+   27 spnParentAnchorId                                       kind=1 value=4611686101695870302 children=[]
+   30 vndVendorCanRepair                                      BOOLEAN_STATE
+   33 tmrContainer                                            kind=15 value=115000039404 children=[]
+   34 modStatComputed                                         kind=8 value=None children=[(5, 2), (4, 0.0), (5, 3), (4, 0.0), (5, 4), (4, 0.0)]
+   35 modStatBase                                             kind=8 value=None children=[(5, 8), (4, 460.0), (5, 39), (4, 0.699999988079071), (5, 40), (4, 0.15000000596046448)]
+   36 statHealth                                              kind=4 value=460.0 children=[]
+   38 cbtToughnessEnum                                        kind=5 value=3 children=[]
+   39 effTargetActiveSnare                                    kind=4 value=-1.0 children=[]
+   44 effContainerEffectlessTags                              kind=8 value=None children=[(2, 0), (3, 1)]
+   57 spnSpawnedSpec                                          kind=1 value=16141002980083430189 children=[]
+   61 tgtTargetIsTargetable                                   BOOLEAN_STATE
+   62 chrCreatureTypeList                                     kind=7 value=None children=[(5, 1)]
+   63 cbtFaction                                              kind=2 value=1 children=[]
+   66 chrTemplateVisualIndex                                  kind=2 value=-878620586690540766 children=[]
+   68 cbtCreatureType                                         kind=5 value=1 children=[]
+   70 brkResourceName                                         kind=1 value=3 children=[]
+   77 chrClass                                                kind=1 value=16141122551421529792 children=[]
+   78 _characterSpecification                                 kind=2 value=16140921840742184344 children=[]
+   80 ablContainer                                            kind=15 value=6143443606678373173 children=[]
+   86 chrLevel                                                kind=2 value=115000039406 children=[]
+  CONSUMED 5368/5369  states=[1, 1, 2, 2, 0, 0, 0, 0, 0, 1, 1, 0, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 2, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 2, 0, 1, 0, 1, 0, 1, 0, 0, 0, 2, 2, 0, 1, 1, 0, 1, 2, 2, 2, 2, 2, 1, 0, 2, 2, 2, 0, 0, 0, 0, 2]
+generated taxi: flags=0x01 objects=5 bytes=612
+
+=== generated taxi NPC node=0x0000001AC7001000 struct=66 flags=0x7A class=0x0000000000000000 template=0xE0008B8CC0FAEA1D parent=0x0000001AC688BE1E style=8 inner=323
+  base_class=chrNonPlayerCharacter additional=['0x4000000001a7ec41', '0x4000000001c0560b', '0x4000000047c91ffe', '0x40000003de992c08'] fields=95
+    0 character_position                                      kind=18 value=(-59.787200927734375, -6.899799823760986, -125.83479309082031) children=[]
+    1 character_rotation                                      kind=18 value=(-0.0, -112.04100036621094, 0.0) children=[]
+    9 chrScale                                                kind=4 value=1.0 children=[]
+   10 chrMeleeDistance                                        kind=4 value=0.10000000149011612 children=[]
+   13 staWeaponState                                          kind=5 value=2 children=[]
+   22 phsPhase                                                kind=1 value=1 children=[]
+   23 eqpEquipment                                            kind=15 value=115007819777 children=[]
+   24 effContainerPositive                                    kind=15 value=115007819778 children=[]
+   25 effContainerNegative                                    kind=15 value=115007819779 children=[]
+   26 effContainerOther                                       kind=15 value=115007819780 children=[]
+   32 taxTerminalSpec                                         kind=1 value=16141143243244138328 children=[]
+   34 modStatComputed                                         kind=8 value=None children=[(5, 2), (4, 0.0), (5, 3), (4, 0.0), (5, 4), (4, 0.0)]
+   35 modStatBase                                             kind=8 value=None children=[(5, 8), (4, 460.0), (5, 39), (4, 0.699999988079071), (5, 40), (4, 0.15000000596046448)]
+   36 statHealth                                              kind=4 value=460.0 children=[]
+   38 cbtToughnessEnum                                        kind=5 value=3 children=[]
+   39 effTargetActiveSnare                                    kind=4 value=-1.0 children=[]
+   57 spnSpawnedSpec                                          kind=1 value=16141054501145209373 children=[]
+   61 tgtTargetIsTargetable                                   BOOLEAN_STATE
+  CONSUMED 397/397  states=[1, 1, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 1, 2, 1, 1, 1, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+
+=== schema 66 fields (id + name) ===
+    0 0x00000000DFFE8886 character_position                                      kinds=[18]
+    1 0x00000000DFFE8887 character_rotation                                      kinds=[18]
+    2 0x40000000009E1EF2 chrXp                                                   kinds=[2]
+    3 0x4000000000A7BBD7 chrXpNeeded                                             kinds=[2]
+    4 0x4000000003573B73 staCurrentBrain                                         kinds=[5]
+    5 0x40000000036040C5 staFighting                                             kinds=[3]
+    6 0x400000001E4BD126 staAutoAttack                                           kinds=[3]
+    7 0x400000001FD79A97 staMobility                                             kinds=[5]
+    8 0x40000000256AEE1A chrGender                                               kinds=[5]
+    9 0x400000002998132A chrScale                                                kinds=[4]
+   10 0x40000000BA0846D3 chrMeleeDistance                                        kinds=[4]
+   11 0x40000000C33AAABF staCharacterCoverObject                                 kinds=[1]
+   12 0x40000000CCA7451F ablUserTarget                                           kinds=[15]
+   13 0x40000000F4FE4026 staWeaponState                                          kinds=[5]
+   14 0x40000000F671FD39 ablUserClearCasting                                     kinds=[2]
+   15 0x40000000F7337A8D staWeaponMode                                           kinds=[5]
+   16 0x40000000FA77A5EF npcHolocomConvStarter                                   kinds=[1]
+   17 0x40000000FD6FFBC2 staStance                                               kinds=[5]
+   18 0x40000001634E5E8E chrStealthIsStealthed                                   kinds=[3]
+   19 0x4000000165B99200 ablUserTargetPosition                                   kinds=[18]
+   20 0x400000016737FA5C chrNPCStealthSuspicionLastToArouse                      kinds=[1]
+   21 0x400000025F4C8E09 staCharacterOwnedVehicle                                kinds=[1]
+   22 0x40000002641F28CC phsPhase                                                kinds=[1]
+   23 0x40000002BB835998 eqpEquipment                                            kinds=[15]
+   24 0x40000002FEE8765F effContainerPositive                                    kinds=[15]
+   25 0x40000002FEE87660 effContainerNegative                                    kinds=[15]
+   26 0x40000002FEE87661 effContainerOther                                       kinds=[15]
+   27 0x400000030B2B321D spnParentAnchorId                                       kinds=[1]
+   28 0x4000000365D249BE staCharacterUsingPortableCover                          kinds=[3]
+   29 0x40000003755192A0 staKnockedDown                                          kinds=[3]
+   30 0x40000003B09D0417 effReplicationDummy                                     kinds=[2]
+   31 0x40000003D0B8ECFA staCharacterReservedCover                               kinds=[7, 1]
+   32 0x40000003DE992C09 taxTerminalSpec                                         kinds=[1]
+   33 0x400000043552B5BD tmrContainer                                            kinds=[15]
+   34 0x40000004A4FAFFD8 modStatComputed                                         kinds=[8, 5, 4]
+   35 0x40000004A4FAFFD9 modStatBase                                             kinds=[8, 5, 4]
+   36 0x40000004BC0C269C statHealth                                              kinds=[4]
+   37 0x400000053A7FAC13 staEnterIdle                                            kinds=[3]
+   38 0x400000055EC4A513 cbtToughnessEnum                                        kinds=[5]
+   39 0x400000057B5C4947 effTargetActiveSnare                                    kinds=[4]
+   40 0x400000057B5C4969 effTargetActiveHaste                                    kinds=[4]
+   41 0x40000005950224AE staCharacterEnemyCount                                  kinds=[2]
+   42 0x40000005A198CD3F staCharacterHydraLoopingAnim                            kinds=[6]
+   43 0x40000005DFA840A2 brkIsSilenced                                           kinds=[3]
+   44 0x4000000670408C37 effContainerEffectlessTags                              kinds=[8, 2, 3]
+   45 0x400000076BCBC62B kynMsg_EndTime                                          kinds=[4]
+   46 0x400000076BCBC62C kynMsg_StartTime                                        kinds=[4]
+   47 0x400000076BCBC62D kynMsg_EndPos                                           kinds=[18]
+   48 0x400000076BCBC62E kynMsg_EndYaw                                           kinds=[4]
+   49 0x4000000772170844 chrNPCIsShipCompanion                                   kinds=[3]
+   50 0x40000007990F3A6D cbtWarzoneTeam                                          kinds=[5]
+   51 0x40000007B22BC19E kynMsg_StartPos                                         kinds=[18]
+   52 0x40000007B22BC1A4 kynMsg_StartYaw                                         kinds=[4]
+   53 0x40000008623C1AE1 modMetaStatComputed_Shared                              kinds=[8, 2, 8, 5, 4]
+   54 0x40000008F7BC2E23 chrAppearanceItemOverrides                              kinds=[7, 6]
+   55 0x400000096BE48225 cbtTemporaryFactions                                    kinds=[7, 2]
+   56 0x40000009EFFE8FFA pvpFlagged                                              kinds=[3]
+   57 0x40000009F4787F58 spnSpawnedSpec                                          kinds=[1]
+   58 0x4000000A1D6B4920 ablUserAbilitySpecShared                                kinds=[1]
+   59 0x4000000A4E63E82A chrAppearanceNppOverride                                kinds=[1]
+   60 0x4000000A4EE28DFA tgtPrimaryTargetID                                      kinds=[1]
+   61 0x4000000A4EE28DFC tgtTargetIsTargetable                                   kinds=[3]
+   62 0x4000000ABBE55A97 chrCreatureTypeList                                     kinds=[7, 5]
+   63 0x4000000AF1ABD557 cbtFaction                                              kinds=[2]
+   64 0x4000000B15C614F8 cbtEnemiesAttackers                                     kinds=[7, 1]
+   65 0x4000000B733BDCFA ablUserSpellPushbackCount                               kinds=[2]
+   66 0x4000000BEC8F20D8 chrTemplateVisualIndex                                  kinds=[2]
+   67 0x4000000C66E19029 kynMsg_MoveSpeed                                        kinds=[4]
+   68 0x4000000CEC9EB587 cbtCreatureType                                         kinds=[5]
+   69 0x4000000E582939A7 brkResourceName                                         kinds=[1]
+   70 0x4000000ED3CBD391 kynMsg_TurnSpeed                                        kinds=[4]
+   71 0x4000000ED3CBD392 kynMsg_TurnAccel                                        kinds=[4]
+   72 0x4000000ED3CBD393 kynMsg_MoveAccel                                        kinds=[4]
+   73 0x4000000F146E15BF modStat_Fixed                                           kinds=[8, 5, 8, 1, 4]
+   74 0x4000000F146E15C0 modStat_PercentOfCurrent                                kinds=[8, 5, 8, 1, 4]
+   75 0x4000000F9C0C62E7 chrNpcIsHolocom                                         kinds=[3]
+   76 0x4000001036F1A242 chrClass                                                kinds=[1]
+   77 0x40000010520A477F _characterSpecification                                 kinds=[2]
+   78 0x4000001159E2D5A7 staCharacterUsingDynamicCover                           kinds=[3]
+   79 0x400000118A7E6088 ablContainer                                            kinds=[15]
+   80 0x400000118A7E6089 ablContainerAbilityRanks                                kinds=[8, 1, 2]
+   81 0x400000118A7E608A ablContainerAbilityLevels                               kinds=[8, 1, 2]
+   82 0x400000118D870CA7 ablPackageSpecList                                      kinds=[8, 1, 5]
+   83 0x400000118D870CA8 ablContainerGrantedAbilityRanks                         kinds=[8, 1, 2]
+   84 0x400000118D870CA9 ablContainerSkillRanks                                  kinds=[8, 1, 2]
+   85 0x40000013F4E75DA5 chrLevel                                                kinds=[2]
+   86 0x40000018A38A2E51 statResource                                            kinds=[4]
+   87 0x4000001CBCBE3841 chrRestXp                                               kinds=[4]
+   88 0x4000001CE8773A44 ablUserAutoCastActive                                   kinds=[8, 1, 3]
+   89 0x40000020F9D88CE0 ablUserModalActiveSpecs                                 kinds=[7, 1]
+   90 0x4000002787E87173 hydRunScriptProtoId                                     kinds=[1]
+   91 0x40000029D8D6E8D1 spnSpawnedEntryAppearance                               kinds=[1]
+   92 0x4000002A08596290 kynMsg_InfoFlags                                        kinds=[2]
+   93 0x4000003602998F40 npcHolocomStageId                                       kinds=[1]
+   94 0x4000003DE3850AC1 0x4000003de3850ac1                                      kinds=[8, 1, 2]
+
+=== schema 66 additional classes ===
+  0x4000000001A7EC41 aiCharacterAgentOverrideComponent
+  0x4000000001C0560B spnSpawnedComponent
+  0x4000000047C91FFE brkOwnerComponent
+  0x40000003DE992C08 taxTerminalComponent
+
+=== schema 64 fields ===
+    0 character_position                                      kinds=[18]
+    1 character_rotation                                      kinds=[18]
+    2 chrXp                                                   kinds=[2]
+    3 chrXpNeeded                                             kinds=[2]
+    4 staCurrentBrain                                         kinds=[5]
+    5 staFighting                                             kinds=[3]
+    6 staAutoAttack                                           kinds=[3]
+    7 staMobility                                             kinds=[5]
+    8 chrGender                                               kinds=[5]
+    9 chrScale                                                kinds=[4]
+   10 chrMeleeDistance                                        kinds=[4]
+   11 staCharacterCoverObject                                 kinds=[1]
+   12 ablUserTarget                                           kinds=[15]
+   13 staWeaponState                                          kinds=[5]
+   14 ablUserClearCasting                                     kinds=[2]
+   15 staWeaponMode                                           kinds=[5]
+   16 npcHolocomConvStarter                                   kinds=[1]
+   17 staStance                                               kinds=[5]
+   18 chrStealthIsStealthed                                   kinds=[3]
+   19 ablUserTargetPosition                                   kinds=[18]
+   20 chrNPCStealthSuspicionLastToArouse                      kinds=[1]
+   21 staCharacterOwnedVehicle                                kinds=[1]
+   22 phsPhase                                                kinds=[1]
+   23 eqpEquipment                                            kinds=[15]
+   24 effContainerPositive                                    kinds=[15]
+   25 effContainerNegative                                    kinds=[15]
+   26 effContainerOther                                       kinds=[15]
+   27 spnParentAnchorId                                       kinds=[1]
+   28 staCharacterUsingPortableCover                          kinds=[3]
+   29 staKnockedDown                                          kinds=[3]
+   30 vndVendorCanRepair                                      kinds=[3]
+   31 effReplicationDummy                                     kinds=[2]
+   32 staCharacterReservedCover                               kinds=[7, 1]
+   33 tmrContainer                                            kinds=[15]
+   34 modStatComputed                                         kinds=[8, 5, 4]
+   35 modStatBase                                             kinds=[8, 5, 4]
+   36 statHealth                                              kinds=[4]
+   37 staEnterIdle                                            kinds=[3]
+   38 cbtToughnessEnum                                        kinds=[5]
+   39 effTargetActiveSnare                                    kinds=[4]
+   40 effTargetActiveHaste                                    kinds=[4]
+   41 staCharacterEnemyCount                                  kinds=[2]
+   42 staCharacterHydraLoopingAnim                            kinds=[6]
+   43 brkIsSilenced                                           kinds=[3]
+   44 effContainerEffectlessTags                              kinds=[8, 2, 3]
+   45 kynMsg_EndTime                                          kinds=[4]
+   46 kynMsg_StartTime                                        kinds=[4]
+   47 kynMsg_EndPos                                           kinds=[18]
+   48 kynMsg_EndYaw                                           kinds=[4]
+   49 chrNPCIsShipCompanion                                   kinds=[3]
+   50 cbtWarzoneTeam                                          kinds=[5]
+   51 kynMsg_StartPos                                         kinds=[18]
+   52 kynMsg_StartYaw                                         kinds=[4]
+   53 modMetaStatComputed_Shared                              kinds=[8, 2, 8, 5, 4]
+   54 chrAppearanceItemOverrides                              kinds=[7, 6]
+   55 cbtTemporaryFactions                                    kinds=[7, 2]
+   56 pvpFlagged                                              kinds=[3]
+   57 spnSpawnedSpec                                          kinds=[1]
+   58 ablUserAbilitySpecShared                                kinds=[1]
+   59 chrAppearanceNppOverride                                kinds=[1]
+   60 tgtPrimaryTargetID                                      kinds=[1]
+   61 tgtTargetIsTargetable                                   kinds=[3]
+   62 chrCreatureTypeList                                     kinds=[7, 5]
+   63 cbtFaction                                              kinds=[2]
+   64 cbtEnemiesAttackers                                     kinds=[7, 1]
+   65 ablUserSpellPushbackCount                               kinds=[2]
+   66 chrTemplateVisualIndex                                  kinds=[2]
+   67 kynMsg_MoveSpeed                                        kinds=[4]
+   68 cbtCreatureType                                         kinds=[5]
+   69 vndVendorIconOnExtraMaps                                kinds=[3]
+   70 brkResourceName                                         kinds=[1]
+   71 kynMsg_TurnSpeed                                        kinds=[4]
+   72 kynMsg_TurnAccel                                        kinds=[4]
+   73 kynMsg_MoveAccel                                        kinds=[4]
+   74 modStat_Fixed                                           kinds=[8, 5, 8, 1, 4]
+   75 modStat_PercentOfCurrent                                kinds=[8, 5, 8, 1, 4]
+   76 chrNpcIsHolocom                                         kinds=[3]
+   77 chrClass                                                kinds=[1]
+   78 _characterSpecification                                 kinds=[2]
+   79 staCharacterUsingDynamicCover                           kinds=[3]
+   80 ablContainer                                            kinds=[15]
+   81 ablContainerAbilityRanks                                kinds=[8, 1, 2]
+   82 ablContainerAbilityLevels                               kinds=[8, 1, 2]
+   83 ablPackageSpecList                                      kinds=[8, 1, 5]
+   84 ablContainerGrantedAbilityRanks                         kinds=[8, 1, 2]
+   85 ablContainerSkillRanks                                  kinds=[8, 1, 2]
+   86 chrLevel                                                kinds=[2]
+   87 statResource                                            kinds=[4]
+   88 chrRestXp                                               kinds=[4]
+   89 ablUserAutoCastActive                                   kinds=[8, 1, 3]
+   90 ablUserModalActiveSpecs                                 kinds=[7, 1]
+   91 hydRunScriptProtoId                                     kinds=[1]
+   92 spnSpawnedEntryAppearance                               kinds=[1]
+   93 kynMsg_InfoFlags                                        kinds=[2]
+   94 npcHolocomStageId                                       kinds=[1]
+   95 0x4000003de3850ac1                                      kinds=[8, 1, 2]

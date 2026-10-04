@@ -1,0 +1,19 @@
+﻿{
+    "CapturedAt":  "2026-09-30T00:41:45.2359734-04:00",
+    "PID":  2860,
+    "ModuleBase":  "0x006E0000",
+    "GlobalAreaPointer":  "0x01776E20",
+    "Area":  "0xF41D39A0",
+    "Primary":  "0xD2D94000",
+    "PrimaryState":  3,
+    "Secondary":  "0xD2D95000",
+    "SecondaryState":  3,
+    "ProcessAccess":  "0x410 query/read",
+    "Needles":  {
+                    "NodeIdPacked":  "CC 1A C6 F6 DC 94",
+                    "NodeIdLE":  "94 DC F6 C6 1A 00 00 00",
+                    "GnarlsAscii":  "67 6E 61 72 6C 73 5F 6E 65 77"
+                },
+    "MatchCount":  7,
+    "SelectedLinkCount":  0
+}

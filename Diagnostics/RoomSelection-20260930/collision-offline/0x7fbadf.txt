@@ -1,0 +1,57 @@
+  007FBA81: 68 4C 81 14 01     push        114814Ch
+  007FBA86: 8D 8D 18 FF FF FF  lea         ecx,[ebp+FFFFFF18h]
+  007FBA8C: 68 94 72 12 01     push        1127294h
+  007FBA91: 51                 push        ecx
+  007FBA92: E8 A9 31 C8 FF     call        0047EC40
+  007FBA97: 83 C4 08           add         esp,8
+  007FBA9A: 50                 push        eax
+  007FBA9B: E8 A0 31 C8 FF     call        0047EC40
+  007FBAA0: 83 C4 08           add         esp,8
+  007FBAA3: 50                 push        eax
+  007FBAA4: E8 97 31 C8 FF     call        0047EC40
+  007FBAA9: 83 C4 08           add         esp,8
+  007FBAAC: 8B 96 E0 00 00 00  mov         edx,dword ptr [esi+000000E0h]
+  007FBAB2: C1 EA 0C           shr         edx,0Ch
+  007FBAB5: 80 E2 01           and         dl,1
+  007FBAB8: 0F B6 C2           movzx       eax,dl
+  007FBABB: 50                 push        eax
+  007FBABC: 8D 4D D0           lea         ecx,[ebp-30h]
+  007FBABF: 51                 push        ecx
+  007FBAC0: E8 5B C5 EC FF     call        006C8020
+  007FBAC5: 83 C4 08           add         esp,8
+  007FBAC8: C6 45 FC 0A        mov         byte ptr [ebp-4],0Ah
+  007FBACC: 8B 15 EC 15 06 01  mov         edx,dword ptr ds:[010615ECh]
+  007FBAD2: 52                 push        edx
+  007FBAD3: 50                 push        eax
+  007FBAD4: 68 34 C9 13 01     push        113C934h
+  007FBAD9: 8D 85 18 FF FF FF  lea         eax,[ebp+FFFFFF18h]
+  007FBADF: 68 AC 7B 14 01     push        1147BACh
+  007FBAE4: 50                 push        eax
+  007FBAE5: E8 56 31 C8 FF     call        0047EC40
+  007FBAEA: 83 C4 08           add         esp,8
+  007FBAED: 50                 push        eax
+  007FBAEE: E8 4D 31 C8 FF     call        0047EC40
+  007FBAF3: 83 C4 08           add         esp,8
+  007FBAF6: 50                 push        eax
+  007FBAF7: E8 A4 53 CA FF     call        004A0EA0
+  007FBAFC: 83 C4 08           add         esp,8
+  007FBAFF: 8B C8              mov         ecx,eax
+  007FBB01: FF 15 1C 16 06 01  call        dword ptr ds:[0106161Ch]
+  007FBB07: C6 45 FC 02        mov         byte ptr [ebp-4],2
+  007FBB0B: 8D 4D D0           lea         ecx,[ebp-30h]
+  007FBB0E: E8 BD CE C1 FF     call        004189D0
+  007FBB13: 8B 4D E0           mov         ecx,dword ptr [ebp-20h]
+  007FBB16: 53                 push        ebx
+  007FBB17: 51                 push        ecx
+  007FBB18: 8D 95 18 FF FF FF  lea         edx,[ebp+FFFFFF18h]
+  007FBB1E: 52                 push        edx
+  007FBB1F: E8 1C 31 C8 FF     call        0047EC40
+  007FBB24: 83 C4 08           add         esp,8
+  007FBB27: 50                 push        eax
+  007FBB28: E8 73 53 CA FF     call        004A0EA0
+  007FBB2D: 83 C4 08           add         esp,8
+  007FBB30: F6 45 14 01        test        byte ptr [ebp+14h],1
+  007FBB34: 74 30              je          007FBB66
+  007FBB36: 68 D0 77 13 01     push        11377D0h
+  007FBB3B: 68 2C 10 16 01     push        116102Ch
+  007FBB40: 8D 85 18 FF FF FF  lea         eax,[ebp+FFFFFF18h]

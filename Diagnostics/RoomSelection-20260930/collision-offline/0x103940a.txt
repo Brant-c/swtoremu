@@ -1,0 +1,70 @@
+  010393AA: 68 88 7B 14 01     push        1147B88h
+  010393AF: B9 74 54 49 01     mov         ecx,1495474h
+  010393B4: C6 45 FF 00        mov         byte ptr [ebp-1],0
+  010393B8: E8 53 C1 68 FF     call        006C5510
+  010393BD: 68 10 7E 05 01     push        1057E10h
+  010393C2: E8 62 4E BF FF     call        00C2E229
+  010393C7: 83 C4 04           add         esp,4
+  010393CA: 8B E5              mov         esp,ebp
+  010393CC: 5D                 pop         ebp
+  010393CD: C3                 ret
+  010393CE: CC                 int         3
+  010393CF: CC                 int         3
+  010393D0: 55                 push        ebp
+  010393D1: 8B EC              mov         ebp,esp
+  010393D3: 51                 push        ecx
+  010393D4: 6A 00              push        0
+  010393D6: 8D 45 FF           lea         eax,[ebp-1]
+  010393D9: 50                 push        eax
+  010393DA: 68 98 7B 14 01     push        1147B98h
+  010393DF: B9 84 54 49 01     mov         ecx,1495484h
+  010393E4: C6 45 FF 00        mov         byte ptr [ebp-1],0
+  010393E8: E8 23 C1 68 FF     call        006C5510
+  010393ED: 68 30 7E 05 01     push        1057E30h
+  010393F2: E8 32 4E BF FF     call        00C2E229
+  010393F7: 83 C4 04           add         esp,4
+  010393FA: 8B E5              mov         esp,ebp
+  010393FC: 5D                 pop         ebp
+  010393FD: C3                 ret
+  010393FE: CC                 int         3
+  010393FF: CC                 int         3
+  01039400: 55                 push        ebp
+  01039401: 8B EC              mov         ebp,esp
+  01039403: 51                 push        ecx
+  01039404: 6A 01              push        1
+  01039406: 8D 45 FF           lea         eax,[ebp-1]
+  01039409: 50                 push        eax
+  0103940A: 68 AC 7B 14 01     push        1147BACh
+  0103940F: B9 94 54 49 01     mov         ecx,1495494h
+  01039414: C6 45 FF 00        mov         byte ptr [ebp-1],0
+  01039418: E8 F3 C0 68 FF     call        006C5510
+  0103941D: 68 50 7E 05 01     push        1057E50h
+  01039422: E8 02 4E BF FF     call        00C2E229
+  01039427: 83 C4 04           add         esp,4
+  0103942A: 8B E5              mov         esp,ebp
+  0103942C: 5D                 pop         ebp
+  0103942D: C3                 ret
+  0103942E: CC                 int         3
+  0103942F: CC                 int         3
+  01039430: 55                 push        ebp
+  01039431: 8B EC              mov         ebp,esp
+  01039433: 51                 push        ecx
+  01039434: 6A 00              push        0
+  01039436: 8D 45 FF           lea         eax,[ebp-1]
+  01039439: 50                 push        eax
+  0103943A: 68 C4 7B 14 01     push        1147BC4h
+  0103943F: B9 A4 54 49 01     mov         ecx,14954A4h
+  01039444: C6 45 FF 00        mov         byte ptr [ebp-1],0
+  01039448: E8 C3 C0 68 FF     call        006C5510
+  0103944D: 68 70 7E 05 01     push        1057E70h
+  01039452: E8 D2 4D BF FF     call        00C2E229
+  01039457: 83 C4 04           add         esp,4
+  0103945A: 8B E5              mov         esp,ebp
+  0103945C: 5D                 pop         ebp
+  0103945D: C3                 ret
+  0103945E: CC                 int         3
+  0103945F: CC                 int         3
+  01039460: 6A 00              push        0
+  01039462: 68 08 8E 11 01     push        1118E08h
+  01039467: 68 E4 7B 14 01     push        1147BE4h
+  0103946C: B9 B4 54 49 01     mov         ecx,14954B4h

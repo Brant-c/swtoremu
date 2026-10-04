@@ -1,0 +1,13 @@
+[2026-10-01 00:35:14] PlayerMovementState: RetreatMembership: exited; authored-gateway timing; player=0x4000010E218A839B position=(-63.3869,-6.8988,-126.7135).
+[2026-10-01 00:35:19] PlayerMovementState: RetreatMembership: reentered; authored-gateway timing; player=0x4000010E218A839B position=(-63.7998,-6.9021,-127.1403).
+[2026-10-01 00:35:23] PlayerMovementState: RetreatMembership: exited; authored-gateway timing; player=0x4000010E218A839B position=(-63.3870,-6.8988,-126.7189).
+[00:33:46] PhaseUpdateHook: checkpoint=new-instance-resolved sectionOffset=0x1C59 line=253 crtDepth=1 newInstanceNameID=0000000000000000
+[00:33:46] PhaseUpdateHook: method=PHASE.OnPhasedInstanceUpdated phase=return count=1 crtDepth=1 me=F5E60EC8
+[00:33:46] PhaseUpdateHook: checkpoint=new-instance-resolved sectionOffset=0x1C59 line=253 crtDepth=1 newInstanceNameID=FF5F184AAA9ECE77
+[00:33:46] PhaseUpdateHook: method=PHASE.OnPhasedInstanceUpdated phase=return count=2 crtDepth=1 me=073A1128
+[00:35:14] PhaseUpdateHook: checkpoint=new-instance-resolved sectionOffset=0x1C59 line=253 crtDepth=1 newInstanceNameID=0000000000000000
+[00:35:14] PhaseUpdateHook: method=PHASE.OnPhasedInstanceUpdated phase=return count=3 crtDepth=1 me=073A1128
+[00:35:19] PhaseUpdateHook: checkpoint=new-instance-resolved sectionOffset=0x1C59 line=253 crtDepth=1 newInstanceNameID=FF5F184AAA9ECE77
+[00:35:19] PhaseUpdateHook: method=PHASE.OnPhasedInstanceUpdated phase=return count=4 crtDepth=1 me=073A1128
+[00:35:23] PhaseUpdateHook: checkpoint=new-instance-resolved sectionOffset=0x1C59 line=253 crtDepth=1 newInstanceNameID=0000000000000000
+[00:35:23] PhaseUpdateHook: method=PHASE.OnPhasedInstanceUpdated phase=return count=5 crtDepth=1 me=073A1128

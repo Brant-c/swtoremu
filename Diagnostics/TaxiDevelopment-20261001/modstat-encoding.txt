@@ -1,0 +1,6 @@
+VENDOR struct 64: inner_size=380  field 34 modStatComputed starts at body+69
+  raw from there: c6 89 57 ec 3e 02 00 00 00 00 03 00 00 00 00 04 00 00 00 00 05 00 00 00 00 07 00 00 00 00 08 00 00 e6 43 09 00 00 00 00 0a 00 00 00 00 27 33 33
+  parts: [(8, 0), (5, 4611686038375170007), (4, 0)]
+
+no simple (count,entry-size) combination reconciled; the map likely
+carries a per-entry structure the walker must read, not a fixed size.

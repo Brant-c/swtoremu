@@ -1,0 +1,237 @@
+PROCESS 28992
+EXCEPTION pid=28992 code=0xE06D7363 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+CPP TYPE: .?AV?$clone_impl@Ubad_alloc_@exception_detail@boost@@@exception_detail@boost@@
+STACK \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+STACK \\?\C:\Windows\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.9635_none_508ff82ebcbafee0\msvcr90.dll + 0x5DF60
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x991DD
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x96586
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0xC31F0A
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x82E4B3
+STACK \\?\C:\Windows\SysWOW64\kernel32.dll + 0x15D49
+STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E1FB
+STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E181
+EXCEPTION pid=28992 code=0xE06D7363 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+CPP TYPE: 
+STACK \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+STACK \\?\C:\Windows\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.9635_none_508ff82ebcbafee0\msvcr90.dll + 0x5DF60
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x8FC28
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x8FF1C
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x991E6
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x96586
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0xC31F0A
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x82E4B3
+STACK \\?\C:\Windows\SysWOW64\kernel32.dll + 0x15D49
+STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E1FB
+STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E181
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+PROCESS 44688
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+EXCEPTION pid=44688 code=0xE06D7363 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+CPP TYPE: .?AV?$clone_impl@Ubad_alloc_@exception_detail@boost@@@exception_detail@boost@@
+STACK \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+STACK \\?\C:\Windows\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.9635_none_508ff82ebcbafee0\msvcr90.dll + 0x5DF60
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x991DD
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x96586
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0xC31F0A
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x82E4B3
+STACK \\?\C:\Windows\SysWOW64\kernel32.dll + 0x15D49
+STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E1FB
+STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E181
+EXCEPTION pid=44688 code=0xE06D7363 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+CPP TYPE: 
+STACK \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+STACK \\?\C:\Windows\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.9635_none_508ff82ebcbafee0\msvcr90.dll + 0x5DF60
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x8FC28
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x8FF1C
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x991E6
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x96586
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0xC31F0A
+STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x82E4B3
+STACK \\?\C:\Windows\SysWOW64\kernel32.dll + 0x15D49
+STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E1FB
+STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E181
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+EXCEPTION pid=28992 code=0x406D1388 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+EXCEPTION pid=28992 code=0x406D1388 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+EXCEPTION pid=28992 code=0x406D1388 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+EXCEPTION pid=28992 code=0x406D1388 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+EXCEPTION pid=28992 code=0x406D1388 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+EXCEPTION pid=28992 code=0x406D1388 firstChance=1 address=0x7559AED4
+MODULE \\?\C:\Windows\SysWOW64\KernelBase.dll + 0x16AED4
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG STACK C:\WINDOWS\System32\win32u.dll + 0x11AC
+DIALOG STACK C:\WINDOWS\System32\USER32.dll + 0x32661
+DIALOG STACK D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x4A84BF
+DIALOG STACK D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x46A504
+DIALOG STACK D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x76895
+DIALOG STACK D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x75123
+DIALOG STACK D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x76763
+DIALOG STACK D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x7572C
+DIALOG STACK D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x7EFB3
+DIALOG STACK D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x257789
+DIALOG STACK C:\WINDOWS\System32\KERNEL32.DLL + 0x15D49
+DIALOG STACK C:\WINDOWS\SYSTEM32\ntdll.dll + 0x6E1FB
+DIALOG STACK C:\WINDOWS\SYSTEM32\ntdll.dll + 0x6E181
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C1
+
+Client initialization failed.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C1
+
+Client initialization failed.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C1
+
+Client initialization failed.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C1
+
+Client initialization failed.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C1
+
+Client initialization failed.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C1
+
+Client initialization failed.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C1
+
+Client initialization failed.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C1
+
+Client initialization failed.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C1
+
+Client initialization failed.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C1
+
+Client initialization failed.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+DIALOG TEXT: SWTOR
+DIALOG TEXT: This program encountered an internal error and will exit.
+Error code: C1
+
+Client initialization failed.
+DIALOG TEXT: OK
+DIALOG TEXT: Nexus: The Old Republic | 0.1-alpha | Debug Console
+ORIGIN REG EAX=09C95FE0 EBX=00000001 ECX=095D0EE0 EDX=00000002 ESI=FD9A9EB0 EDI=04F550D0 EBP=0EEEFA30 ESP=0EEEF7F8
+REQUEST[00]=010CA4D8
+REQUEST[04]=09C95FE0
+REQUEST[08]=09C95FEB
+REQUEST[0C]=09C95FEC
+REQUEST[10]=09C94CAC
+REQUEST[14]=358D0000
+REQUEST[18]=000F4241
+REQUEST[1C]=00000000
+REQUEST[20]=00000010
+REQUEST[24]=00000001
+REQUEST[28]=00000000
+REQUEST[2C]=0000A187
+REQUEST[30]=4A739B9C
+REQUEST[34]=E47D6C84
+REQUEST[38]=00000000
+REQUEST[3C]=00000004
+REQUEST[40]=00000000
+REQUEST[44]=00010000
+REQUEST[48]=00000000
+REQUEST[4C]=00000000
+FRAME[0]=007C3500
+FRAME[1]=007C3500
+FRAME[2]=FD9D0D20
+FRAME[3]=00000000
+FRAME[4]=00000000
+FRAME[5]=FD9D0FA8
+FRAME[6]=FD9D0E64
+REQUEST PATH: /global.dep
+RESOURCE FAILURE at=00B52624 status=0003B814 EAX=09C95FE0 detail=
+RESOURCE NAME: 
+ARG[0]=09C95FE0
+ARG[1]=04F550D0
+ARG[2]=00792FA4
+ARG[3]=00000002
+ARG[4]=00000000
+ARG[5]=FD9A9EB0
+CLIENT ERROR REPORT pid=28992 code=83185872 caller=09C95FE0 ECX=095D0EE0 EAX=09C95FE0
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x742625
+ERROR STACK \\?\D:\SWTORClassic\swtoremu\nexusclient\nexusclient\swtor-emu.exe + 0x3B3464
+ERROR STACK \\?\C:\Windows\SysWOW64\kernel32.dll + 0x15D49
+ERROR STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E1FB
+ERROR STACK \\?\C:\Windows\SysWOW64\ntdll.dll + 0x6E181
+EXIT pid=44688 code=0x00000000
+EXIT pid=28992 code=0x00000000

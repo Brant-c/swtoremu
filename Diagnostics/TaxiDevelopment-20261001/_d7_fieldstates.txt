@@ -1,0 +1,52 @@
+    """
+    structure = structures[PLAYER_STRUCTURE]
+    for crt_number in crt_numbers:
+        data = fixture(crt_number)
+        reader, _, object_count = read_gom_update(
+            data, CRT_UPDATE_OFFSET, f"CRT{crt_number}")
+        if reader is None:
+            continue
+        found = False
+        for _ in range(object_count):
+            record = read_object_record(data, reader)
+            if record["node"] != PLAYER_NODE:
+                continue
+            found = True
+            print(f"\nCRT{crt_number} player {record['node']:#018x} "
+                  f"flags=0x{record['flags']:02X} "
+                  f"class={names.get(record['class_id'], '<unknown>')} "
+                  f"structure={record['structure_id']}")
+            if record["structure_id"] == PLAYER_STRUCTURE:
+                # Same boundary rule as main: the compact field-state stream is
+                # the outer value's tail, not a prefix of the values.
+                state_start = record["body_start"] + record["inner_size"]
+                states, bits = field_states(data, state_start,
+                                            record["value_end"] - state_start,
+                                            len(structure.fields), style=record["style"])
+                present = [index for index in range(len(states)) if states[index] != 2]
+                print(f"    transmitted={len(present)}/{len(states)}; "
+                      f"state bits end at byte={bits.pos} bit={8 - bits.in_byte}")
+                for index in present:
+                    field = structure.fields[index]
+                    types = " -> ".join(describe_part(part, names)
+                                        for part in field.parts)
+                    print(f"      {index:3} state={states[index]} "
+                          f"{names.get(field.definition, '<unnamed>')} [{types}]")
+            else:
+                print("    not the player structure; field states not decoded")
+            break
+        if not found:
+            print(f"\nCRT{crt_number}: no record for the replicated player node")
+
+
+def dump_objects(crt_numbers, names, structures):
+    """Print every record of each transaction with its resolved class name.
+
+    The walk uses the documented GomUpdateObject framing, so each fixture is
+    consumed to its exact end and the optional trailing removal list is
+    reported as well.
+    """
+    for crt_number in crt_numbers:
+        data = fixture(crt_number)
+        if crt_number == 1:
+            # CRT1 is special: bytes 4..7 are the compact-schema byte count,

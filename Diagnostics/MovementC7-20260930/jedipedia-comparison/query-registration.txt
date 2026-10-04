@@ -1,0 +1,20 @@
+  00C191AC: 56                 push        esi
+  00C191AD: E8 0E F9 99 FF     call        005B8AC0
+  00C191B2: 8B F8              mov         edi,eax
+  00C191B4: 57                 push        edi
+  00C191B5: 56                 push        esi
+  00C191B6: E8 15 EF FF FF     call        00C180D0
+  00C191BB: 6A 00              push        0
+  00C191BD: 68 E8 38 7C EA     push        0EA7C38E8h
+  00C191C2: 8B D8              mov         ebx,eax
+  00C191C4: E8 47 FD 99 FF     call        005B8F10
+  00C191C9: 83 C4 14           add         esp,14h
+  00C191CC: 68 80 53 C1 00     push        0C15380h
+  00C191D1: 53                 push        ebx
+  00C191D2: 8D 4D FC           lea         ecx,[ebp-4]
+  00C191D5: 89 45 FC           mov         dword ptr [ebp-4],eax
+  00C191D8: 8B 07              mov         eax,dword ptr [edi]
+  00C191DA: 51                 push        ecx
+  00C191DB: 8B 50 0C           mov         edx,dword ptr [eax+0Ch]
+  00C191DE: 8B CF              mov         ecx,edi
+  00C191E0: FF D2              call        edx

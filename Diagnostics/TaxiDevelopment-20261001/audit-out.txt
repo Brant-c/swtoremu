@@ -1,0 +1,13 @@
+scanning 91 archives for 100 distinct requested paths
+  10/91 archives, 0 paths resolved
+  20/91 archives, 0 paths resolved
+  30/91 archives, 0 paths resolved
+  40/91 archives, 0 paths resolved
+  50/91 archives, 0 paths resolved
+  60/91 archives, 0 paths resolved
+  70/91 archives, 0 paths resolved
+  80/91 archives, 0 paths resolved
+  90/91 archives, 0 paths resolved
+
+resolved 0/100; wrote D:\SWTORClassic\swtoremu\Diagnostics\TaxiDevelopment-20261001\spec-asset-audit.txt
+of those, /art/dynamic/spec/ requests: 1, resolved: 0

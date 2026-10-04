@@ -1,0 +1,19 @@
+line endings: LF
+  80 indent=0   "# prototype's own value replaces it in place (both encode as one 0xCF token plus"
+  81 indent=0   '# eight bytes, so the patch cannot change the record length).'
+  82 indent=0   'TAXI_RESOURCE_NAME = 16141090805656758403        # 0xE000AC918E7EA883'
+  83 indent=0   'VENDOR_RESOURCE_NAME = 0xE000C970F186EEC0       # the value currently in the tail'
+  84 indent=0   '# chrGender (struct-66 field 8) and chrAppearanceNppOverride (field 59) were'
+  85 indent=0   '# sent as chrNPCGenderComplete=5 and npcAppearanceOverride=3. Both are AUTHORED on'
+  86 indent=0   '# the taxi prototype but NEITHER is in its replicated surface, which is exactly'
+  87 indent=0   '# taxTerminalSpec + brkResourceName, and neither appears in any reference NPC'
+  88 indent=0   '# record. Dropping them makes this record present the same field set the captured'
+  89 indent=0   '# vendor does: the single variable of Experiments/2026-10-02-07. The record gets 2'
+  90 indent=0   '# bytes shorter, so every identity-patch offset downstream must move with it.'
+  91 indent=2   "  values = {0:struct.pack('<3f', *PLACEMENT),"
+  92 indent=12  "            1:data[donor['body_start']+12:donor['body_start']+24],"
+  93 indent=12  "            9:struct.pack('<f',1), 10:struct.pack('<f',.1), 13:pack(2),"
+  94 indent=12  '            22:pack(1),23:pack(EQP),24:pack(POS),25:pack(NEG),26:pack(OTHER),'
+  95 indent=12  '            32:pack(TERMINAL),33:pack(TMR_CONTAINER),'
+  96 indent=12  '            57:pack(TEMPLATE)}'
+  97 indent=0   '# staEnterIdle (struct-66 field 37) is the only field the taxi lacks that Weller'

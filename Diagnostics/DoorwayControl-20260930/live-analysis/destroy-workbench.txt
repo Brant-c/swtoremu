@@ -1,0 +1,9 @@
+Source: <hex>
+Length: 46
+Opcode: 0x0D446E80 ClientReplicationTransaction
+Registry: S2C / Area / Captured
+Component: 0x000865B3 source=0x0008 destination=0x65B3
+Evidence: Server/Framework/Src/Network/Packet.h; Diagnostics/Test-AreaWireRoundTrip.ps1
+Body schema: Captured .acrt fixture payloads
+Body: offset=8 length=38
+Body hex: 2E 50 1B 00 00 00 00 00 03 01 CC 1A C6 F6 DC 0E 09 05 08 0B 0D 08 03 01 CC 1A C6 F6 DC 17 78 01 CC 1A C6 F6 DC 1F

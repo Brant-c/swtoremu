@@ -1,0 +1,18 @@
+image_base=0x00400000 runtime_base=0x006E0000
+type_name=.?AVTriggerNode@@
+type_descriptor=0x0133723C section=.data file=0xF3563C
+  complete_object_locator=0x011B6FE8 section=.rdata hierarchy=0x011B7024
+    vtable=0x011613A4 rva=0x00D613A4 runtime=0x014413A4 section=.rdata
+  complete_object_locator=0x011B6FFC section=.rdata hierarchy=0x011B7024
+    vtable=0x01161384 rva=0x00D61384 runtime=0x01441384 section=.rdata
+  complete_object_locator=0x011B7010 section=.rdata hierarchy=0x011B7024
+    vtable=0x0116116C rva=0x00D6116C runtime=0x0144116C section=.rdata
+  complete_object_locator=0x011B70A4 section=.rdata hierarchy=0x00000009
+  complete_object_locator=0x0131A4E4 section=.data hierarchy=0x00000000
+image_base=0x00400000 runtime_base=0x006E0000
+type_name=.?AVTriggerAssetSpec@@
+type_descriptor=0x012CA88C section=.data file=0xEC8C8C
+  complete_object_locator=0x0118AE18 section=.rdata hierarchy=0x0118AE2C
+    vtable=0x010C48BC rva=0x00CC48BC runtime=0x013A48BC section=.rdata
+  complete_object_locator=0x0118AE7C section=.rdata hierarchy=0x0118AE2C
+    vtable=0x010C489C rva=0x00CC489C runtime=0x013A489C section=.rdata

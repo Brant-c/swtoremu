@@ -1,0 +1,57 @@
+  007FC6F6: 8B 40 04           mov         eax,dword ptr [eax+4]
+  007FC6F9: E9 5B 08 00 00     jmp         007FCF59
+  007FC6FE: 8B 7D 18           mov         edi,dword ptr [ebp+18h]
+  007FC701: 57                 push        edi
+  007FC702: 68 54 0E 16 01     push        1160E54h
+  007FC707: E8 14 65 EC FF     call        006C2C20
+  007FC70C: 83 C4 08           add         esp,8
+  007FC70F: 84 C0              test        al,al
+  007FC711: 74 3F              je          007FC752
+  007FC713: 8B B6 38 01 00 00  mov         esi,dword ptr [esi+00000138h]
+  007FC719: 8D 95 18 FF FF FF  lea         edx,[ebp+FFFFFF18h]
+  007FC71F: 56                 push        esi
+  007FC720: 52                 push        edx
+  007FC721: E8 1A 25 C8 FF     call        0047EC40
+  007FC726: 83 C4 08           add         esp,8
+  007FC729: 8D 45 98           lea         eax,[ebp-68h]
+  007FC72C: 50                 push        eax
+  007FC72D: 8D 8D 18 FF FF FF  lea         ecx,[ebp+FFFFFF18h]
+  007FC733: E8 A8 92 DE FF     call        005E59E0
+  007FC738: C6 45 FC 09        mov         byte ptr [ebp-4],9
+  007FC73C: 83 78 18 08        cmp         dword ptr [eax+18h],8
+  007FC740: 0F 82 07 08 00 00  jb          007FCF4D
+  007FC746: 8B 40 04           mov         eax,dword ptr [eax+4]
+  007FC749: 8D 4D 17           lea         ecx,[ebp+17h]
+  007FC74C: 51                 push        ecx
+  007FC74D: E9 0B 08 00 00     jmp         007FCF5D
+  007FC752: 57                 push        edi
+  007FC753: 68 AC 7B 14 01     push        1147BACh
+  007FC758: E8 C3 64 EC FF     call        006C2C20
+  007FC75D: 83 C4 08           add         esp,8
+  007FC760: 84 C0              test        al,al
+  007FC762: 74 64              je          007FC7C8
+  007FC764: 8B 96 E0 00 00 00  mov         edx,dword ptr [esi+000000E0h]
+  007FC76A: C1 EA 0C           shr         edx,0Ch
+  007FC76D: 80 E2 01           and         dl,1
+  007FC770: 0F B6 C2           movzx       eax,dl
+  007FC773: 50                 push        eax
+  007FC774: 8D 4D C0           lea         ecx,[ebp-40h]
+  007FC777: 51                 push        ecx
+  007FC778: E8 A3 B8 EC FF     call        006C8020
+  007FC77D: C6 45 FC 0B        mov         byte ptr [ebp-4],0Bh
+  007FC781: 8B 00              mov         eax,dword ptr [eax]
+  007FC783: 50                 push        eax
+  007FC784: 8D 95 18 FF FF FF  lea         edx,[ebp+FFFFFF18h]
+  007FC78A: 52                 push        edx
+  007FC78B: E8 B0 24 C8 FF     call        0047EC40
+  007FC790: 83 C4 10           add         esp,10h
+  007FC793: C6 45 FC 02        mov         byte ptr [ebp-4],2
+  007FC797: 8D 4D C0           lea         ecx,[ebp-40h]
+  007FC79A: E8 31 C2 C1 FF     call        004189D0
+  007FC79F: 8D 45 98           lea         eax,[ebp-68h]
+  007FC7A2: 50                 push        eax
+  007FC7A3: 8D 8D 18 FF FF FF  lea         ecx,[ebp+FFFFFF18h]
+  007FC7A9: E8 32 92 DE FF     call        005E59E0
+  007FC7AE: C6 45 FC 0C        mov         byte ptr [ebp-4],0Ch
+  007FC7B2: 83 78 18 08        cmp         dword ptr [eax+18h],8
+  007FC7B6: 0F 82 91 07 00 00  jb          007FCF4D

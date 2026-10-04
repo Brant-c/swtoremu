@@ -1,0 +1,100 @@
+  61  # reader (which publishes only hyd/mpn/npc categories).
+  62  # chrNonPlayerCharacterClassMethods.Replication_Create registers a replicated NPC as
+  63  # $SPAWNER.spnReplicatedNpcs[spnParentAnchorId], so borrowing the vendor's anchor
+  64  # put this NPC under the SAME key as the captured medcenter droid. An NPC with no
+  65  # anchor is instead registered in spnReplicatedAnchorlessNpcs, which is the
+  66  # correct bucket for one with no spawner. So the borrowed anchor is REMOVED, not
+  67  # merely unhelpful: it is a key collision with a working NPC.
+  68  # _characterSpecification (struct-64 field 78, struct-66 field 77) is replaced
+  69  # with the taxi's own spec: the taxi prototype's chrNonPlayerCharacterSpec is a
+  70  # self-reference to 0xE0008B8CC0FAEA1D. The donor's value 0x5541E56931B58335 is a
+  71  # capture-time runtime hash, which is why the client reports "Unknown spec(0)".
+  72  TAXI_CHAR_SPEC = 0xE0008B8CC0FAEA1D
+  73  DONOR_CHAR_SPEC = 0x5541E56931B58335
+  74  TMR_CONTAINER = 0x1AC68957EC
+  75  # Taxi-authored identity, from _JPEXTRACT/NPC/npc.location.tython.taxi.jediretreat_pad1.json
+  76  # (authoritative client content the operator extracted from Jedipedia).
+  77  # brkResourceName matters most: the client reports "Mag node doesn't have a valid
+  78  # asset spec" and "not a valid animation agent" against our node, and the
+  79  # transplanted tail was carrying the medcenter droid's resource name. The taxi
+  80  # prototype's own value replaces it in place (both encode as one 0xCF token plus
+  81  # eight bytes, so the patch cannot change the record length).
+  82  TAXI_RESOURCE_NAME = 16141090805656758403        # 0xE000AC918E7EA883
+  83  VENDOR_RESOURCE_NAME = 0xE000C970F186EEC0       # the value currently in the tail
+  84  TAXI_GENDER = 5                                 # chrNPCGenderComplete
+  85  TAXI_APPEARANCE_OVERRIDE = 3                    # npcAppearanceOverride
+  86  values = {0:struct.pack('<3f', *PLACEMENT),
+  87            1:data[donor['body_start']+12:donor['body_start']+24],
+  88            8:pack(TAXI_GENDER),
+  89            9:struct.pack('<f',1), 10:struct.pack('<f',.1), 13:pack(2),
+  90            22:pack(1),23:pack(EQP),24:pack(POS),25:pack(NEG),26:pack(OTHER),
+  91            32:pack(TERMINAL),33:pack(TMR_CONTAINER),
+  92            57:pack(TEMPLATE),59:pack(TAXI_APPEARANCE_OVERRIDE)}
+  93  # staEnterIdle (struct-66 field 37) is the only field the taxi lacks that Weller
+  94  # -- the single confirmed working NPC -- carries. Weller receives it through
+  95  # CRT12, the one NPC replication contract in the whole capture. We first try the
+  96  # cheaper route and set it directly in the awareness record.
+  97  # It is a Boolean (part kind 3), so it consumes ZERO value bytes: its state bit
+  98  # IS its value. Adding it flips exactly one presence bit in the state run and
+  99  # leaves the record length unchanged. Evidence: Weller struct-62 field 38
+ 100  # decodes to state 1 (present).
+ 101  values[37]=b''
+ 102  # Copy only independently bounded captured NPC health/stat fields. Enum keys
+ 103  # are packed, including 232/233/254/255; the older diagnostic's byte-enum walk
+ 104  # cannot round-trip this NPC. The verified spans end before appearance fields.
+ 105  # The presence-bit run is TWO BITS PER FIELD (style 8) and lives AFTER the value
+ 106  # body, at body_start + inner_size. Weller's captured record proves this: 96
+ 107  # fields x 2 bits = 192 bits = 24 bytes, and the run is exactly 24 bytes. Style 7
+ 108  # would be 12 bytes and leave 12 unexplained. Do not "fix" this to 7.
+ 109  stats_start = donor['body_start']+73
+ 110  w = g.ValueWalker(data,stats_start,donor['body_start']+donor['inner_size'],8)
+ 111  for index in (34,35):
+ 112      start=w.pos; raw=w.packed(); assert raw % 2 == 0
+ 113      for _ in range(raw//2):
+ 114          w.packed(); w.raw(4)
+ 115      values[index] = data[start:w.pos]
+ 116  assert w.raw(4) == struct.pack('<f',460)
+ 117  values[36] = struct.pack('<f',460)
+ 118  values[38] = pack(3); values[39] = struct.pack('<f',-1)
+ 119  # Walk the donor's own body up to the appearance/identity tail (fields 62..86 in
+ 120  # struct-64 order) with the model that reconciles through field 61: presence
+ 121  # carries Booleans, enums are packed, Int64 is signed.
+ 122  donor_structure = s[donor['structure_id']]
+ 123  donor_begin = donor['body_start']; donor_end = donor_begin+donor['inner_size']
+ 124  donor_states = g.dc.field_states(data,donor_end,donor['value_end']-donor_end,
+ 125                                   len(donor_structure.fields),8)
+ 126  _parse_part = g.parse_part
+ 127  def _walk_part(walker,field,index,style):
+ 128      kind=field.parts[index].kind
+ 129      if kind==3: return g.Part(kind,1)
+ 130      if kind==2: return g.Part(kind,walker.packed_signed())
+ 131      if kind==5: return g.Part(kind,walker.packed())
+ 132      return _parse_part(walker,field,index,style)
+ 133  # parse_container calls the module-level parse_part for entries, so patch it for
+ 134  # the donor walk and restore it before the captured-container round-trips.
+ 135  g.parse_part = _walk_part
+ 136  try:
+ 137      donor_walker = g.ValueWalker(data,donor_begin,donor_end,8)
+ 138      for index,state in enumerate(donor_states):
+ 139          if state!=1: continue
+ 140          if index>=62: break
+ 141          field=donor_structure.fields[index]
+ 142          if field.parts[0].kind in (7,8): g.parse_container(donor_walker,field,8)
+ 143          else: g.parse_part(donor_walker,field,0,8)
+ 144  finally:
+ 145      g.parse_part = _parse_part
+ 146  tail_block = data[donor_walker.pos:donor_end]
+ 147  # Replace the donor's brkResourceName inside the opaque tail with the taxi's own.
+ 148  # Both values encode as one 0xCF token plus eight big-endian bytes, so the
+ 149  # substitution is length-preserving and cannot disturb any other field's offset.
+ 150  vendor_rn = b'\xCF' + VENDOR_RESOURCE_NAME.to_bytes(8, 'big')
+ 151  taxi_rn = b'\xCF' + TAXI_RESOURCE_NAME.to_bytes(8, 'big')
+ 152  assert len(vendor_rn) == len(taxi_rn) == 9, (len(vendor_rn), len(taxi_rn))
+ 153  hits = tail_block.count(vendor_rn)
+ 154  assert hits == 1, f'expected exactly one donor resource name in the tail, found {hits}'
+ 155  tail_block = tail_block.replace(vendor_rn, taxi_rn)
+ 156  assert taxi_rn in tail_block and vendor_rn not in tail_block
+ 157  # Replace the donor's _characterSpecification with the taxi's own spec. Both encode
+ 158  # as one 0xCF token plus eight bytes, so this is also length-preserving.
+ 159  donor_spec = b'\xCF' + DONOR_CHAR_SPEC.to_bytes(8, 'big')
+ 160  taxi_spec = b'\xCF' + TAXI_CHAR_SPEC.to_bytes(8, 'big')

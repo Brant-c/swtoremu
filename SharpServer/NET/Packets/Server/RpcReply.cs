@@ -20,6 +20,7 @@ namespace NexusToRServer.NET.Packets.Server
     ///
     /// Environment control (read at send time; restart the server to change):
     ///   SWTOR_RPC_REPLY_MODE   mirror (default) | results | echo | swallow | ack
+    /// Complete is reserved for the independently parsed ability path.
     ///   SWTOR_RPC_RESULT_A     result name  (results mode; default "true")
     ///   SWTOR_RPC_RESULT_B     result value (both modes; default "true")
     /// </summary>
@@ -31,7 +32,7 @@ namespace NexusToRServer.NET.Packets.Server
         private const UInt16 OmegaServerProxyHandle = 0x65A7;
         private const UInt16 OmegaClientHandle = 0x0000;
 
-        public enum Mode { Mirror, Results, Echo, Swallow, Ack }
+        public enum Mode { Mirror, Results, Echo, Swallow, Ack, Complete }
 
         public static Mode GetMode()
         {

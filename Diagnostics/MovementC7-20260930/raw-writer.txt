@@ -1,0 +1,48 @@
+  0097C3D0: 55                 push        ebp
+  0097C3D1: 8B EC              mov         ebp,esp
+  0097C3D3: 56                 push        esi
+  0097C3D4: 57                 push        edi
+  0097C3D5: 8B 7D 0C           mov         edi,dword ptr [ebp+0Ch]
+  0097C3D8: 8B F1              mov         esi,ecx
+  0097C3DA: 8B 46 0C           mov         eax,dword ptr [esi+0Ch]
+  0097C3DD: 03 C7              add         eax,edi
+  0097C3DF: 50                 push        eax
+  0097C3E0: E8 0B FE FF FF     call        0097C1F0
+  0097C3E5: 8B 56 10           mov         edx,dword ptr [esi+10h]
+  0097C3E8: 8B 4D 08           mov         ecx,dword ptr [ebp+8]
+  0097C3EB: 03 56 0C           add         edx,dword ptr [esi+0Ch]
+  0097C3EE: 57                 push        edi
+  0097C3EF: 51                 push        ecx
+  0097C3F0: 52                 push        edx
+  0097C3F1: E8 E2 22 2B 00     call        00C2E6D8
+  0097C3F6: 8B 46 0C           mov         eax,dword ptr [esi+0Ch]
+  0097C3F9: 8B 56 04           mov         edx,dword ptr [esi+4]
+  0097C3FC: 8D 0C 38           lea         ecx,[eax+edi]
+  0097C3FF: 83 C4 0C           add         esp,0Ch
+  0097C402: 3B CA              cmp         ecx,edx
+  0097C404: 76 0B              jbe         0097C411
+  0097C406: 8B C7              mov         eax,edi
+  0097C408: 5F                 pop         edi
+  0097C409: 89 56 0C           mov         dword ptr [esi+0Ch],edx
+  0097C40C: 5E                 pop         esi
+  0097C40D: 5D                 pop         ebp
+  0097C40E: C2 08 00           ret         8
+  0097C411: 53                 push        ebx
+  0097C412: 8B D7              mov         edx,edi
+  0097C414: 33 DB              xor         ebx,ebx
+  0097C416: F7 DA              neg         edx
+  0097C418: 3B D0              cmp         edx,eax
+  0097C41A: 0F 9F C3           setg        bl
+  0097C41D: 8B C7              mov         eax,edi
+  0097C41F: 4B                 dec         ebx
+  0097C420: 23 D9              and         ebx,ecx
+  0097C422: 89 5E 0C           mov         dword ptr [esi+0Ch],ebx
+  0097C425: 5B                 pop         ebx
+  0097C426: 5F                 pop         edi
+  0097C427: 5E                 pop         esi
+  0097C428: 5D                 pop         ebp
+  0097C429: C2 08 00           ret         8
+  0097C42C: CC                 int         3
+  0097C42D: CC                 int         3
+  0097C42E: CC                 int         3
+  0097C42F: CC                 int         3

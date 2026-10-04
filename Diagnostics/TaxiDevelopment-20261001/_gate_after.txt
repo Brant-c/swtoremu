@@ -1,0 +1,77 @@
+CRT2: flags=0x01 objects=85 bytes=6543
+CRT3: flags=0x01 objects=1 bytes=55
+CRT4: flags=0x01 objects=11 bytes=1833
+CRT5: flags=0x01 objects=1 bytes=621
+CRT6: flags=0x01 objects=1 bytes=621
+CRT7: flags=0x01 objects=1 bytes=632
+CRT8: flags=0x01 objects=1 bytes=621
+CRT9: flags=0x01 objects=1 bytes=632
+CRT10: flags=0x01 objects=1 bytes=621
+CRT11: flags=0x01 objects=1 bytes=621
+CRT12: flags=0x01 objects=1 bytes=26
+CRT13: flags=0x01 objects=1 bytes=622
+CRT14: flags=0x01 objects=1 bytes=621
+CRT15: flags=0x01 objects=1 bytes=621
+CRT16: flags=0x01 objects=1 bytes=621
+CRT17: flags=0x03 objects=1 bytes=736
+CRT2   9                    node=0x0000001AC6F6DBD7 flags=0xAA -> 208/208 bytes consumed  PASS
+        f0   conContents            [27]{1:ref=0x1AC6F6DBD8,2:ref=0x1AC6F6DBDA,3:ref=0x1AC6F6DBDC,4:ref=0x1AC6F6DBDE,5:ref=0x1AC6F6DBE0,6:ref=0x1AC6F6DBE2,...}
+        f1   conSharedData          ref=0xE0004EA602373870
+        f2   conContainerSpecName   16140987539404568688
+CRT2   12                   node=0x4000010E56DA93C0 flags=0xAA -> 19/19 bytes consumed  PASS
+        f1   conSharedData          ref=0xE000B6211550B8CC
+        f2   conContainerSpecName   16141101317703645388
+        f4   conExpansionLevel      1
+CRT2   13                   node=0x0000001AC6F6DC0E flags=0xAA -> 33/33 bytes consumed  PASS
+        f0   conContents            [2]{1:ref=0x1AC6F6DC17,2:ref=0x1AC6F6DC1C}
+        f1   conSharedData          ref=0xE000ECADA3F0D0E8
+        f2   conContainerSpecName   16141161295019823336
+CRT2   13                   node=0x0000001AC6F6DC0F flags=0xAA -> 18/18 bytes consumed  PASS
+        f1   conSharedData          ref=0xE000CC0D3CED4059
+        f2   conContainerSpecName   16141125421724680281
+CRT2   13                   node=0x0000001AC6F6DC10 flags=0xAA -> 18/18 bytes consumed  PASS
+        f1   conSharedData          ref=0xE000D11DEF61E94C
+        f2   conContainerSpecName   16141130990996285772
+CRT2   14                   node=0x4000010E56DA93C6 flags=0xAA -> 69/69 bytes consumed  PASS
+        f0   conContents            [4]{1:ref=0x4000010E56DA93DC,3:ref=0x4000010E56DA93DA,4:ref=0x4000010E56DA93D9,6:ref=0x4000010E56DA93DB}
+        f1   conSharedData          ref=0xE000BE26867893FB
+        f2   conContainerSpecName   16141110137169941499
+        f3   conOwnerNode           ref=0x4000010E218A839C
+        f4   conExpansionLevel      1
+CRT2   17                   node=0x4000010E56DA93C1 flags=0xAA -> 29/29 bytes consumed  PASS
+        f0   conContents            [1]{1:ref=0x4000010E56DA93D8}
+        f1   conSharedData          ref=0xE000F31E5E26D61B
+        f2   conContainerSpecName   16141168376250029595
+CRT2   17                   node=0x4000010E56DA93C2 flags=0xAA -> 19/19 bytes consumed  PASS
+        f1   conSharedData          ref=0xE000E74D25C48FEC
+        f2   conContainerSpecName   16141155383027994604
+        f4   conExpansionLevel      1
+CRT2   18                   node=0x4000010E56DA93C3 flags=0xAA -> 19/19 bytes consumed  PASS
+        f1   conSharedData          ref=0xE0003B0BBE53AF3E
+        f2   conContainerSpecName   16140965986119692094
+        f4   conExpansionLevel      1
+CRT2   19                   node=0x4000010E56DA93C4 flags=0xAA -> 18/18 bytes consumed  PASS
+        f1   conSharedData          ref=0xE0002A79CF6648A6
+        f2   conContainerSpecName   16140947767154854054
+CRT2   20                   node=0x0000001AC6F6DC11 flags=0xAA -> 18/18 bytes consumed  PASS
+        f1   conSharedData          ref=0xE000FC17775644E5
+        f4   conContainerSpecName   16141178242212447461
+CRT2   21                   node=0x0000001AC6F6DC12 flags=0xAA -> 18/18 bytes consumed  PASS
+        f1   conSharedData          ref=0xE000A27907E29882
+        f2   conContainerSpecName   16141079705202890882
+CRT2   22                   node=0x0000001AC6F6DC13 flags=0xAA -> 27/27 bytes consumed  PASS
+        f1   conSharedData          ref=0xE000CA2D04999293
+        f2   conContainerSpecName   16141123359195370131
+        f3   conOwnerNode           ref=0x4000010E218A839C
+CRT2   22                   node=0x4000010E56DA93C5 flags=0xAA -> 100/100 bytes consumed  PASS
+        f0   conContents            [8]{1:ref=0x4000010E56DA93CA,2:ref=0x4000010E56DA93CD,3:ref=0x4000010E56DA93C9,9:ref=0x4000005EB1FAAED4,10:ref=0x4000010E56DA93CC,11:ref=0x4000010E56DA93C8,...}
+        f1   conSharedData          ref=0xE000A35164716466
+        f2   conContainerSpecName   16141080634468688998
+        f4   conExpansionLevel      1
+CRT4   13                   node=0x0000001AC6F6DC10 flags=0x09 -> 43/43 bytes consumed  PASS
+        f0   conContents            [6]{1:ref=0x1AC6F6DC2D,2:ref=0x1AC6F6DC36,3:ref=0x1AC6F6DC47,4:ref=0x1AC6F6DC50,5:ref=0x1AC6F6DC59,6:ref=0x1AC6F6DC62}
+CRT4   13                   node=0x0000001AC6F6DC0F flags=0x09 -> 8/8 bytes consumed  PASS
+        f0   conContents            [1]{1:ref=0x1AC6F6DC3F}
+
+containers: 16/16 pass
+containers: 16/16 pass

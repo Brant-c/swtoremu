@@ -1,0 +1,41 @@
+  00B7A040: 55                 push        ebp
+  00B7A041: 8B EC              mov         ebp,esp
+  00B7A043: 6A FF              push        0FFFFFFFFh
+  00B7A045: 68 39 83 FA 00     push        0FA8339h
+  00B7A04A: 64 A1 00 00 00 00  mov         eax,dword ptr fs:[00000000h]
+  00B7A050: 50                 push        eax
+  00B7A051: 64 89 25 00 00 00  mov         dword ptr fs:[00000000h],esp
+            00
+  00B7A058: 51                 push        ecx
+  00B7A059: C7 45 F0 00 00 00  mov         dword ptr [ebp-10h],0
+            00
+  00B7A060: 83 B9 BC 01 00 00  cmp         dword ptr [ecx+000001BCh],0
+            00
+  00B7A067: 8D 81 BC 01 00 00  lea         eax,[ecx+000001BCh]
+  00B7A06D: 56                 push        esi
+  00B7A06E: 8B 75 08           mov         esi,dword ptr [ebp+8]
+  00B7A071: 75 11              jne         00B7A084
+  00B7A073: 6A 01              push        1
+  00B7A075: 56                 push        esi
+  00B7A076: E8 B5 79 B7 FF     call        006F1A30
+  00B7A07B: 8B C8              mov         ecx,eax
+  00B7A07D: E8 6E 30 01 00     call        00B8D0F0
+  00B7A082: EB 08              jmp         00B7A08C
+  00B7A084: 50                 push        eax
+  00B7A085: 8B CE              mov         ecx,esi
+  00B7A087: E8 44 AD E0 FF     call        00984DD0
+  00B7A08C: C7 45 FC 00 00 00  mov         dword ptr [ebp-4],0
+            00
+  00B7A093: 8B 4D F4           mov         ecx,dword ptr [ebp-0Ch]
+  00B7A096: C7 45 F0 01 00 00  mov         dword ptr [ebp-10h],1
+            00
+  00B7A09D: 8B C6              mov         eax,esi
+  00B7A09F: 5E                 pop         esi
+  00B7A0A0: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+            00
+  00B7A0A7: 8B E5              mov         esp,ebp
+  00B7A0A9: 5D                 pop         ebp
+  00B7A0AA: C2 04 00           ret         4
+  00B7A0AD: CC                 int         3
+  00B7A0AE: CC                 int         3
+  00B7A0AF: CC                 int         3

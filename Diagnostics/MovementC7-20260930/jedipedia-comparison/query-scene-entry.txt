@@ -1,0 +1,91 @@
+  00D1EA90: 53                 push        ebx
+  00D1EA91: 8B DC              mov         ebx,esp
+  00D1EA93: 83 EC 08           sub         esp,8
+  00D1EA96: 83 E4 F0           and         esp,0FFFFFFF0h
+  00D1EA99: 83 C4 04           add         esp,4
+  00D1EA9C: 55                 push        ebp
+  00D1EA9D: 8B 6B 04           mov         ebp,dword ptr [ebx+4]
+  00D1EAA0: 89 6C 24 04        mov         dword ptr [esp+4],ebp
+  00D1EAA4: 8B EC              mov         ebp,esp
+  00D1EAA6: 83 EC 48           sub         esp,48h
+  00D1EAA9: 56                 push        esi
+  00D1EAAA: 57                 push        edi
+  00D1EAAB: 8B F1              mov         esi,ecx
+  00D1EAAD: E8 7E 13 00 00     call        00D1FE30
+  00D1EAB2: D9 43 10           fld         dword ptr [ebx+10h]
+  00D1EAB5: 8B 43 18           mov         eax,dword ptr [ebx+18h]
+  00D1EAB8: 8B 7B 0C           mov         edi,dword ptr [ebx+0Ch]
+  00D1EABB: 8B 53 14           mov         edx,dword ptr [ebx+14h]
+  00D1EABE: 50                 push        eax
+  00D1EABF: 0F B6 05 7D 39 37  movzx       eax,byte ptr ds:[0137397Dh]
+  00D1EAC6: 51                 push        ecx
+  00D1EAC7: 8B 4B 08           mov         ecx,dword ptr [ebx+8]
+  00D1EACA: D9 1C 24           fstp        dword ptr [esp]
+  00D1EACD: 57                 push        edi
+  00D1EACE: 51                 push        ecx
+  00D1EACF: 52                 push        edx
+  00D1EAD0: 50                 push        eax
+  00D1EAD1: 8D 4D C0           lea         ecx,[ebp-40h]
+  00D1EAD4: E8 77 3C FE FF     call        00D02750
+  00D1EAD9: D9 43 10           fld         dword ptr [ebx+10h]
+  00D1EADC: 8B 53 08           mov         edx,dword ptr [ebx+8]
+  00D1EADF: 8D 4D C0           lea         ecx,[ebp-40h]
+  00D1EAE2: 51                 push        ecx
+  00D1EAE3: 51                 push        ecx
+  00D1EAE4: D9 1C 24           fstp        dword ptr [esp]
+  00D1EAE7: 57                 push        edi
+  00D1EAE8: 52                 push        edx
+  00D1EAE9: 8D 4E 20           lea         ecx,[esi+20h]
+  00D1EAEC: E8 0F FD FF FF     call        00D1E800
+  00D1EAF1: 8A 45 C0           mov         al,byte ptr [ebp-40h]
+  00D1EAF4: C0 E8 02           shr         al,2
+  00D1EAF7: 5F                 pop         edi
+  00D1EAF8: 24 01              and         al,1
+  00D1EAFA: 5E                 pop         esi
+  00D1EAFB: 8B E5              mov         esp,ebp
+  00D1EAFD: 5D                 pop         ebp
+  00D1EAFE: 8B E3              mov         esp,ebx
+  00D1EB00: 5B                 pop         ebx
+  00D1EB01: C2 14 00           ret         14h
+  00D1EB04: CC                 int         3
+  00D1EB05: CC                 int         3
+  00D1EB06: CC                 int         3
+  00D1EB07: CC                 int         3
+  00D1EB08: CC                 int         3
+  00D1EB09: CC                 int         3
+  00D1EB0A: CC                 int         3
+  00D1EB0B: CC                 int         3
+  00D1EB0C: CC                 int         3
+  00D1EB0D: CC                 int         3
+  00D1EB0E: CC                 int         3
+  00D1EB0F: CC                 int         3
+  00D1EB10: 80 3D 7C 39 37 01  cmp         byte ptr ds:[0137397Ch],0
+  00D1EB17: 75 11              jne         00D1EB2A
+  00D1EB19: E8 F2 F4 C2 FF     call        0094E010
+  00D1EB1E: E8 FD 61 00 00     call        00D24D20
+  00D1EB23: C6 05 7C 39 37 01  mov         byte ptr ds:[0137397Ch],1
+  00D1EB2A: C3                 ret
+  00D1EB2B: CC                 int         3
+  00D1EB2C: CC                 int         3
+  00D1EB2D: CC                 int         3
+  00D1EB2E: CC                 int         3
+  00D1EB2F: CC                 int         3
+  00D1EB30: 33 C0              xor         eax,eax
+  00D1EB32: A3 80 39 37 01     mov         dword ptr ds:[01373980h],eax
+  00D1EB37: A3 84 39 37 01     mov         dword ptr ds:[01373984h],eax
+  00D1EB3C: A3 88 39 37 01     mov         dword ptr ds:[01373988h],eax
+  00D1EB41: A3 8C 39 37 01     mov         dword ptr ds:[0137398Ch],eax
+  00D1EB46: A3 90 39 37 01     mov         dword ptr ds:[01373990h],eax
+  00D1EB4B: E8 70 3A FE FF     call        00D025C0
+  00D1EB50: E9 0B 8E 00 00     jmp         00D27960
+  00D1EB55: CC                 int         3
+  00D1EB56: CC                 int         3
+  00D1EB57: CC                 int         3
+  00D1EB58: CC                 int         3
+  00D1EB59: CC                 int         3
+  00D1EB5A: CC                 int         3
+  00D1EB5B: CC                 int         3
+  00D1EB5C: CC                 int         3
+  00D1EB5D: CC                 int         3
+  00D1EB5E: CC                 int         3
+  00D1EB5F: CC                 int         3

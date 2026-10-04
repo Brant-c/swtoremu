@@ -1,0 +1,165 @@
+ M Client/Hook/Bin/x86/MemoryMan.pdb
+ M Client/Hook/Obj/x86/Release/SWToR-Hook/MemoryMan.iobj
+ M Client/Hook/Obj/x86/Release/SWToR-Hook/MemoryMan.ipdb
+ M Client/Hook/Obj/x86/Release/SWToR-Hook/SWToR-Hook.tlog/CL.read.1.tlog
+ M Client/Hook/Obj/x86/Release/SWToR-Hook/SWToR-Hook.tlog/link.read.1.tlog
+ M Client/Hook/Obj/x86/Release/SWToR-Hook/vc145.pdb
+ M Client/Hook/Src/ToR.cpp
+ M Diagnostics/Decode-CrtValues.py
+ M Diagnostics/Decode-Style7Replication.py
+ M Diagnostics/Generate-MatchedPhaseCrtCandidate.py
+ M Diagnostics/GeneratedPhaseCandidate/README.md
+ M Diagnostics/GeneratedPhaseCandidate/tython_blockout-4611686019869492753-1.1.acrt
+ M Diagnostics/WorldEntry-Style7-Decode-20260924.md
+ D Diagnostics/__pycache__/Analyze-WorldEntryDump.cpython-311.pyc
+ D Diagnostics/__pycache__/extract-tor-paths.cpython-311.pyc
+ D Diagnostics/__pycache__/extract-tor-paths.cpython-312.pyc
+ M Diagnostics/last-compatibility-run.log
+ M Diagnostics/last-nexus-hook.log
+ M Diagnostics/last-server-full.log
+ M Diagnostics/nexus-server.before-latest.log
+ M Diagnostics/nexus_hook.before-latest.log
+ M Diagnostics/startup-summary.log
+ M Run-SWTORClassic-Trace-Tython.cmd
+ M SharpServer/AreaServer/CRT.cs
+ M SharpServer/NET/Packets/Client/AreaPollExperiment.cs
+ M SharpServer/NET/Packets/Client/CMsg61116AD5.cs
+ M SharpServer/NET/Packets/Client/CMsgF96DCDB0.cs
+ M SharpServer/NET/Packets/Server/AreaEffEventMessage.cs
+ M SharpServer/NET/Packets/Server/AreaReplicationDestroy.cs
+ M SharpServer/NET/Packets/Server/AreaStartupBundle.cs
+ M SharpServer/NET/Packets/Server/AreaUpdateTimeSource.cs
+ M SharpServer/NET/Packets/Server/RpcReply.cs
+ M SharpServer/NET/TORGameClientPacket.cs
+ M SharpServer/NET/TORGamePacketHandler.cs
+ M SharpServer/NexusToRServer.csproj
+ M SharpServer/bin/Debug/NexusToR.log
+ M SharpServer/bin/Debug/NexusToRServer.pdb
+ M SharpServer/obj/x86/Debug/NexusToRServer.csproj.CoreCompileInputs.cache
+ M SharpServer/obj/x86/Debug/NexusToRServer.pdb
+ M Tools/Hero/bin/Debug/Hero.pdb
+ M Tools/Hero/obj/Debug/Hero.csproj.CoreCompileInputs.cache
+ M Tools/Hero/obj/Debug/Hero.pdb
+ M Tools/SCPTExtractor/obj/x86/Debug/SCPTExtractor.csproj.AssemblyReference.cache
+ M Tools/tor_tools/GomLib/GomLib.csproj
+ M Tools/tor_tools/GomLib/obj/Debug/GomLib.csproj.AssemblyReference.cache
+ M Tools/tor_tools/GomLib/obj/Debug/GomLib.csproj.CoreCompileInputs.cache
+ M Tools/tor_tools/GomLib/obj/Debug/GomLib.csproj.FileListAbsolute.txt
+ M Tools/tor_tools/TorArchive/TorLib.csproj
+ M Tools/tor_tools/TorArchive/obj/Debug/TorLib.csproj.AssemblyReference.cache
+ M Tools/tor_tools/TorArchive/obj/Debug/TorLib.csproj.CoreCompileInputs.cache
+ M Tools/tor_tools/TorArchive/obj/Debug/TorLib.csproj.FileListAbsolute.txt
+ M Tools/tor_tools/tor_tools/obj/x86/Debug/SwtorTools.csproj.AssemblyReference.cache
+ M nexusclient/nexusclient/nexus_hook.log
+?? AGENTS.md
+?? Dependencies/
+?? Diagnostics/Ability-Result-Contract-20260926.md
+?? Diagnostics/Decode-AwarenessObjects.py
+?? Diagnostics/DecoderBaseline-20260930/
+?? Diagnostics/DoorwayControl-20260930/
+?? Diagnostics/Experiments/
+?? Diagnostics/Find-IdsInWorldDump.py
+?? Diagnostics/Find-PePattern.py
+?? Diagnostics/Find-StringsInWorldDump.py
+?? Diagnostics/Fixtures/
+?? Diagnostics/Generate-CrtValues.py
+?? Diagnostics/Generate-PhaseInstanceDuplicate.py
+?? Diagnostics/GeneratedPhaseCandidate/tython_blockout-4611686019869492753-1.18.acrt
+?? Diagnostics/GeneratedPhaseCandidate/tython_blockout-4611686019869492753-1.4.acrt
+?? Diagnostics/Handover-20260928.md
+?? Diagnostics/Handover-20260929-Notify.md
+?? Diagnostics/New-ProtocolExperiment.ps1
+?? Diagnostics/PacketDecoderRegression.cs
+?? Diagnostics/PacketWorkbench.ps1
+?? Diagnostics/PacketWorkbench.psm1
+?? Diagnostics/Phase-Exit-Development-Plan.md
+?? Diagnostics/Phase-Mechanics-20260928.md
+?? Diagnostics/PhaseExit-Checkpoint-20260928.md
+?? Diagnostics/PhaseExit-Checkpoint-20260928/
+?? Diagnostics/PhaseLifecycle-20260930/
+?? Diagnostics/Protocol-Evidence-Registry.md
+?? Diagnostics/Protocol-Evidence.csv
+?? Diagnostics/RoomStreaming-Plan-20260928.md
+?? Diagnostics/Scan-StatMaps.py
+?? Diagnostics/Test-PacketDecoder.ps1
+?? Diagnostics/Test-PacketWorkbench.ps1
+?? Diagnostics/Test-PhaseLifecycleSignatures.ps1
+?? Diagnostics/Tooling-Map.md
+?? Diagnostics/ability-rpc-listener-20260927.log
+?? Diagnostics/baseline-crt3-off-20260926/
+?? Diagnostics/decode-aaw.py
+?? Diagnostics/decode-acrt.py
+?? Diagnostics/decode-schema.py
+?? Diagnostics/decode-schema2.py
+?? Diagnostics/dump-contract.py
+?? Diagnostics/dump-triggers.py
+?? Diagnostics/extract-context.py
+?? Diagnostics/extract-strings.py
+?? Diagnostics/lookup-classes.py
+?? Diagnostics/parse-dat.py
+?? Diagnostics/pe-map.py
+?? Diagnostics/pe-map2.py
+?? Diagnostics/remove-old-setchar.py
+?? Diagnostics/search-disasm.py
+?? Diagnostics/test-msghash.py
+?? Diagnostics/test-msghash2.py
+?? Diagnostics/test-realpairs.py
+?? Run-SWTORClassic-PhaseExitProbe.cmd
+?? Run-SWTORClassic-PhaseLifecycle-Crt3Off.cmd
+?? SharpServer/AreaServer/PhaseExit.cs
+?? SharpServer/AreaServer/PhaseInstanceRetry.cs
+?? SharpServer/NET/Packets/Server/AreaAbilityEffectReplication.cs
+?? SharpServer/NET/Protocol/
+?? Tools/tor_tools/GomLib/bin/
+?? Tools/tor_tools/GomLib/obj/Debug/GomLib.csproj.Up2Date
+?? Tools/tor_tools/GomLib/obj/Debug/GomLib.pdb
+?? Tools/tor_tools/TorArchive/bin/
+?? Tools/tor_tools/TorArchive/obj/Debug/TorLib.csproj.Up2Date
+?? Tools/tor_tools/TorArchive/obj/Debug/TorLib.pdb
+?? _JPEXTRACT/$BASECLIENT.txt
+?? _JPEXTRACT/Client.gom/
+?? _JPEXTRACT/DAT/
+?? _JPEXTRACT/DefaultHandlerOnPlayerEnteredGateway(ASSEMBLY).txt
+?? _JPEXTRACT/OnPlayerEnteredGatewayASSEMBLY.txt
+?? _JPEXTRACT/RequestAbilityActivate.txt
+?? _JPEXTRACT/RequestAbilityDeactivate.txt
+?? _JPEXTRACT/_BaseClient.txt
+?? _JPEXTRACT/_CharacterSystem.txt
+?? _JPEXTRACT/_CharacterSystemClassMethods.txt
+?? _JPEXTRACT/ablAbility.txt
+?? _JPEXTRACT/ablContainer.txt
+?? _JPEXTRACT/ablContainerClassMethods.txt
+?? _JPEXTRACT/ablContainerComponent.txt
+?? _JPEXTRACT/ablOracle.txt
+?? _JPEXTRACT/ablUserComponent.txt
+?? _JPEXTRACT/cbtOracleClassMethods.txt
+?? _JPEXTRACT/dynAbilityClassMethods.txt
+?? _JPEXTRACT/effEventClassMethods.txt
+?? _JPEXTRACT/effEventOracleClassMethods.txt
+?? _JPEXTRACT/effOracleClassMethods.txt
+?? _JPEXTRACT/effResult.txt
+?? _JPEXTRACT/gldOracleClassMethods.txt
+?? _JPEXTRACT/gmOracleClassMethods.txt
+?? _JPEXTRACT/guiApiGfxUpdateAblClassMethods.txt
+?? _JPEXTRACT/hydObjectComponent.txt.txt
+?? _JPEXTRACT/hydScriptComponent.txt
+?? _JPEXTRACT/modMetaStatComponent.txt
+?? _JPEXTRACT/modMetaStatComponentClassMethods.txt
+?? _JPEXTRACT/modStatComponent.txt
+?? _JPEXTRACT/modStatComponentClassMethods.txt
+?? _JPEXTRACT/onAbilityResult(ASSEMBLY).txt
+?? _JPEXTRACT/onQueuedAbilityResult(ASSEMBLY).txt
+?? _JPEXTRACT/phs.tyt_jedi_knight_masters_retreat.txt
+?? _JPEXTRACT/phsClassPhaseInfoClassMethods.txt
+?? _JPEXTRACT/phsClassPhasedInstance.txt
+?? _JPEXTRACT/phsClassPhasedInstanceClassMethods.txt
+?? _JPEXTRACT/phsGateway.txt
+?? "_JPEXTRACT/phsGatewayClassMethods Assembly.txt"
+?? _JPEXTRACT/phsGatewayClassMethods.txt
+?? _JPEXTRACT/phsPhaseInfoClassMethods.txt
+?? _JPEXTRACT/phsPhasedInstance.txt
+?? _JPEXTRACT/phsPhasedInstanceClassMethods.txt
+?? _JPEXTRACT/phsPlayerPhaseDataClassMethods.txt
+?? _JPEXTRACT/utlOracle.txt
+?? _JPEXTRACT/utlOracleClassMethods(ASSEMBLY).txt
+?? _JPEXTRACT/utlOracleClassMethods.txt

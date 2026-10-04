@@ -1,0 +1,12 @@
+launcher-console.log                              109746 bytes  mtime 15:01:05
+    Unknown spec                 1
+
+nexus_hook.log                                 MISSING
+NexusToR.log                                      243072 bytes  mtime 15:00:34
+    Char spec missing            2
+    not a MAG node               6
+    Mag node                     10
+    valid animation agent        6
+    Unknown spec                 2
+    > [2026-10-04 14:59:41] TythonTaxi: TythonTaxi: EXPERIMENT taxi NPC=0x0000001AC7000001; template=npc.location.tython.taxi.jediretreat_pad1; placement=(-53.5,-7.7,-125.5) (fixture hash logged by AreaTaxiAwareness)
+

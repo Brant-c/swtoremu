@@ -1,0 +1,13 @@
+{
+  "CheckedAt": "2026-09-30T14:55:44.5801215-04:00",
+  "ServerPID": 25608,
+  "ClientPID": 45688,
+  "ServerSHA256": "1931A175025884E2E790363F7EEACEA096FAB3B8C9D41E3C273F426DE706A356",
+  "InstalledHookSHA256": "258C834F1A524F039CF96D74EBDED5650A9AA3FE1166759C808CE961AE1A3D36",
+  "CRT3": "55-byte override emitted at 14:54:31",
+  "PlayerPhaseCreate": "Named entry and return at 14:54:31",
+  "Discovery": "Four unique non-overlapping private-memory relocated-prefix addresses installed at 14:54:31",
+  "Retry": "Disabled in this launch",
+  "CRT18": "Suppressed by pinned server; no doorway attempt yet",
+  "ExternalMemoryObserver": "Not used, per user request"
+}

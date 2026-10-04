@@ -1,0 +1,269 @@
+### d7.field_states
+def field_states(data, offset, size, count, style=8):
+    # Native class reader switch at VA005AC65C: style7 ->005AC358
+    # consumes one presence bit; style8 ->005AC1DE consumes two-bit states.
+    # Existing callers without a style retain the historical style8 behavior.
+    bits = BitReader(data, offset, size)
+    if style == 7:
+        return [1 if bits.bit() else 2 for _ in range(count)], bits
+    if style != 8:
+        raise ValueError(f"unsupported compact class style {style}")
+    states = []
+    missing_run = 0
+    for field_index in range(count):
+        if missing_run:
+            states.append(2)
+            missing_run -= 1
+            continue
+        code = bits.bits(2)
+        if code == 0:
+            states.append(2)
+        elif code == 1:
+            # The native decoder distinguishes state 1/3 using type metadata.
+            # All scalar fields in the player schema use the normal state 1.
+            states.append(1)
+        elif code == 2:
+            states.append(0)
+        elif code == 3:
+            missing_run = bits.code() + 2
+            states.append(2)
+        else:
+            raise ValueError(f"unexpected field-state code {code} at field {field_index}, "
+                             f"byte {bits.pos} bit {8-bits.in_byte}")
+    return states, bits
+
+### d7.BitReader
+  <TypeError("<class 'd7.BitReader'> is a built-in class")>
+### d7.describe_part
+def describe_part(part, names):
+    kinds = {
+        1: "UInt64", 2: "Int64", 3: "Boolean", 4: "Float", 5: "Enum",
+        6: "String", 7: "List", 8: "Map", 9: "EmbeddedClass",
+        11: "Array", 12: "Table", 13: "Cubic", 14: "Script",
+        15: "ClassRef", 17: "Timer", 18: "Vec3", 20: "TimeSpan",
+        21: "Time",
+    }
+    text = kinds.get(part.kind, f"type{part.kind}")
+    if part.definition:
+        text += f"<{names.get(part.definition, f'0x{part.definition:016X}')} >"
+    if part.structure:
+        text += f"[structure {part.structure}]"
+    return text
+
+### d7.read_schema
+def read_schema():
+    data = fixture(1)
+    reader = Reader(data, 8)
+    structures = {}
+    for _ in range(reader.packed()):
+        number = reader.packed()
+        base_class = reader.packed()
+        additional = [reader.packed() for _ in range(reader.packed())]
+        fields = []
+        for _ in range(reader.packed()):
+            definition = reader.packed()
+            parts = []
+            for _ in range(reader.packed()):
+                parts.append(TypePart(reader.packed(), reader.packed(), reader.packed()))
+            fields.append(Field(definition, parts))
+        structures[number] = Structure(number, base_class, additional, fields)
+    return structures, reader.pos, len(data)
+
+### d7.name_table
+def name_table():
+    return {int(node.attrib["id"]): node.attrib.get("name", "")
+            for node in ET.parse(NAMES).getroot()}
+
+### struct 64 base=chrNonPlayerCharacter fields=96
+    0 0x00000000DFFE8886 character_position               kinds=[18]
+    1 0x00000000DFFE8887 character_rotation               kinds=[18]
+    2 0x40000000009E1EF2 chrXp                            kinds=[2]
+    3 0x4000000000A7BBD7 chrXpNeeded                      kinds=[2]
+    4 0x4000000003573B73 staCurrentBrain                  kinds=[5]
+    5 0x40000000036040C5 staFighting                      kinds=[3]
+    6 0x400000001E4BD126 staAutoAttack                    kinds=[3]
+    7 0x400000001FD79A97 staMobility                      kinds=[5]
+    8 0x40000000256AEE1A chrGender                        kinds=[5]
+    9 0x400000002998132A chrScale                         kinds=[4]
+   10 0x40000000BA0846D3 chrMeleeDistance                 kinds=[4]
+   11 0x40000000C33AAABF staCharacterCoverObject          kinds=[1]
+   12 0x40000000CCA7451F ablUserTarget                    kinds=[15]
+   13 0x40000000F4FE4026 staWeaponState                   kinds=[5]
+   14 0x40000000F671FD39 ablUserClearCasting              kinds=[2]
+   15 0x40000000F7337A8D staWeaponMode                    kinds=[5]
+   16 0x40000000FA77A5EF npcHolocomConvStarter            kinds=[1]
+   17 0x40000000FD6FFBC2 staStance                        kinds=[5]
+   18 0x40000001634E5E8E chrStealthIsStealthed            kinds=[3]
+   19 0x4000000165B99200 ablUserTargetPosition            kinds=[18]
+   20 0x400000016737FA5C chrNPCStealthSuspicionLastToArouse kinds=[1]
+   21 0x400000025F4C8E09 staCharacterOwnedVehicle         kinds=[1]
+   22 0x40000002641F28CC phsPhase                         kinds=[1]
+   23 0x40000002BB835998 eqpEquipment                     kinds=[15]
+   24 0x40000002FEE8765F effContainerPositive             kinds=[15]
+   25 0x40000002FEE87660 effContainerNegative             kinds=[15]
+   26 0x40000002FEE87661 effContainerOther                kinds=[15]
+   27 0x400000030B2B321D spnParentAnchorId                kinds=[1]
+   28 0x4000000365D249BE staCharacterUsingPortableCover   kinds=[3]
+   29 0x40000003755192A0 staKnockedDown                   kinds=[3]
+   30 0x4000000379961A15 vndVendorCanRepair               kinds=[3]
+   31 0x40000003B09D0417 effReplicationDummy              kinds=[2]
+   32 0x40000003D0B8ECFA staCharacterReservedCover        kinds=[7, 1]
+   33 0x400000043552B5BD tmrContainer                     kinds=[15]
+   34 0x40000004A4FAFFD8 modStatComputed                  kinds=[8, 5, 4]
+   35 0x40000004A4FAFFD9 modStatBase                      kinds=[8, 5, 4]
+   36 0x40000004BC0C269C statHealth                       kinds=[4]
+   37 0x400000053A7FAC13 staEnterIdle                     kinds=[3]
+   38 0x400000055EC4A513 cbtToughnessEnum                 kinds=[5]
+   39 0x400000057B5C4947 effTargetActiveSnare             kinds=[4]
+   40 0x400000057B5C4969 effTargetActiveHaste             kinds=[4]
+   41 0x40000005950224AE staCharacterEnemyCount           kinds=[2]
+   42 0x40000005A198CD3F staCharacterHydraLoopingAnim     kinds=[6]
+   43 0x40000005DFA840A2 brkIsSilenced                    kinds=[3]
+   44 0x4000000670408C37 effContainerEffectlessTags       kinds=[8, 2, 3]
+   45 0x400000076BCBC62B kynMsg_EndTime                   kinds=[4]
+   46 0x400000076BCBC62C kynMsg_StartTime                 kinds=[4]
+   47 0x400000076BCBC62D kynMsg_EndPos                    kinds=[18]
+   48 0x400000076BCBC62E kynMsg_EndYaw                    kinds=[4]
+   49 0x4000000772170844 chrNPCIsShipCompanion            kinds=[3]
+   50 0x40000007990F3A6D cbtWarzoneTeam                   kinds=[5]
+   51 0x40000007B22BC19E kynMsg_StartPos                  kinds=[18]
+   52 0x40000007B22BC1A4 kynMsg_StartYaw                  kinds=[4]
+   53 0x40000008623C1AE1 modMetaStatComputed_Shared       kinds=[8, 2, 8, 5, 4]
+   54 0x40000008F7BC2E23 chrAppearanceItemOverrides       kinds=[7, 6]
+   55 0x400000096BE48225 cbtTemporaryFactions             kinds=[7, 2]
+   56 0x40000009EFFE8FFA pvpFlagged                       kinds=[3]
+   57 0x40000009F4787F58 spnSpawnedSpec                   kinds=[1]
+   58 0x4000000A1D6B4920 ablUserAbilitySpecShared         kinds=[1]
+   59 0x4000000A4E63E82A chrAppearanceNppOverride         kinds=[1]
+   60 0x4000000A4EE28DFA tgtPrimaryTargetID               kinds=[1]
+   61 0x4000000A4EE28DFC tgtTargetIsTargetable            kinds=[3]
+   62 0x4000000ABBE55A97 chrCreatureTypeList              kinds=[7, 5]
+   63 0x4000000AF1ABD557 cbtFaction                       kinds=[2]
+   64 0x4000000B15C614F8 cbtEnemiesAttackers              kinds=[7, 1]
+   65 0x4000000B733BDCFA ablUserSpellPushbackCount        kinds=[2]
+   66 0x4000000BEC8F20D8 chrTemplateVisualIndex           kinds=[2]
+   67 0x4000000C66E19029 kynMsg_MoveSpeed                 kinds=[4]
+   68 0x4000000CEC9EB587 cbtCreatureType                  kinds=[5]
+   69 0x4000000D23C3F398 vndVendorIconOnExtraMaps         kinds=[3]
+   70 0x4000000E582939A7 brkResourceName                  kinds=[1]
+   71 0x4000000ED3CBD391 kynMsg_TurnSpeed                 kinds=[4]
+   72 0x4000000ED3CBD392 kynMsg_TurnAccel                 kinds=[4]
+   73 0x4000000ED3CBD393 kynMsg_MoveAccel                 kinds=[4]
+   74 0x4000000F146E15BF modStat_Fixed                    kinds=[8, 5, 8, 1, 4]
+   75 0x4000000F146E15C0 modStat_PercentOfCurrent         kinds=[8, 5, 8, 1, 4]
+   76 0x4000000F9C0C62E7 chrNpcIsHolocom                  kinds=[3]
+   77 0x4000001036F1A242 chrClass                         kinds=[1]
+   78 0x40000010520A477F _characterSpecification          kinds=[2]
+   79 0x4000001159E2D5A7 staCharacterUsingDynamicCover    kinds=[3]
+   80 0x400000118A7E6088 ablContainer                     kinds=[15]
+   81 0x400000118A7E6089 ablContainerAbilityRanks         kinds=[8, 1, 2]
+   82 0x400000118A7E608A ablContainerAbilityLevels        kinds=[8, 1, 2]
+   83 0x400000118D870CA7 ablPackageSpecList               kinds=[8, 1, 5]
+   84 0x400000118D870CA8 ablContainerGrantedAbilityRanks  kinds=[8, 1, 2]
+   85 0x400000118D870CA9 ablContainerSkillRanks           kinds=[8, 1, 2]
+   86 0x40000013F4E75DA5 chrLevel                         kinds=[2]
+   87 0x40000018A38A2E51 statResource                     kinds=[4]
+   88 0x4000001CBCBE3841 chrRestXp                        kinds=[4]
+   89 0x4000001CE8773A44 ablUserAutoCastActive            kinds=[8, 1, 3]
+   90 0x40000020F9D88CE0 ablUserModalActiveSpecs          kinds=[7, 1]
+   91 0x4000002787E87173 hydRunScriptProtoId              kinds=[1]
+   92 0x40000029D8D6E8D1 spnSpawnedEntryAppearance        kinds=[1]
+   93 0x4000002A08596290 kynMsg_InfoFlags                 kinds=[2]
+   94 0x4000003602998F40 npcHolocomStageId                kinds=[1]
+   95 0x4000003DE3850AC1 unnamed                          kinds=[8, 1, 2]
+### struct 66 base=chrNonPlayerCharacter fields=95
+    0 0x00000000DFFE8886 character_position               kinds=[18]
+    1 0x00000000DFFE8887 character_rotation               kinds=[18]
+    2 0x40000000009E1EF2 chrXp                            kinds=[2]
+    3 0x4000000000A7BBD7 chrXpNeeded                      kinds=[2]
+    4 0x4000000003573B73 staCurrentBrain                  kinds=[5]
+    5 0x40000000036040C5 staFighting                      kinds=[3]
+    6 0x400000001E4BD126 staAutoAttack                    kinds=[3]
+    7 0x400000001FD79A97 staMobility                      kinds=[5]
+    8 0x40000000256AEE1A chrGender                        kinds=[5]
+    9 0x400000002998132A chrScale                         kinds=[4]
+   10 0x40000000BA0846D3 chrMeleeDistance                 kinds=[4]
+   11 0x40000000C33AAABF staCharacterCoverObject          kinds=[1]
+   12 0x40000000CCA7451F ablUserTarget                    kinds=[15]
+   13 0x40000000F4FE4026 staWeaponState                   kinds=[5]
+   14 0x40000000F671FD39 ablUserClearCasting              kinds=[2]
+   15 0x40000000F7337A8D staWeaponMode                    kinds=[5]
+   16 0x40000000FA77A5EF npcHolocomConvStarter            kinds=[1]
+   17 0x40000000FD6FFBC2 staStance                        kinds=[5]
+   18 0x40000001634E5E8E chrStealthIsStealthed            kinds=[3]
+   19 0x4000000165B99200 ablUserTargetPosition            kinds=[18]
+   20 0x400000016737FA5C chrNPCStealthSuspicionLastToArouse kinds=[1]
+   21 0x400000025F4C8E09 staCharacterOwnedVehicle         kinds=[1]
+   22 0x40000002641F28CC phsPhase                         kinds=[1]
+   23 0x40000002BB835998 eqpEquipment                     kinds=[15]
+   24 0x40000002FEE8765F effContainerPositive             kinds=[15]
+   25 0x40000002FEE87660 effContainerNegative             kinds=[15]
+   26 0x40000002FEE87661 effContainerOther                kinds=[15]
+   27 0x400000030B2B321D spnParentAnchorId                kinds=[1]
+   28 0x4000000365D249BE staCharacterUsingPortableCover   kinds=[3]
+   29 0x40000003755192A0 staKnockedDown                   kinds=[3]
+   30 0x40000003B09D0417 effReplicationDummy              kinds=[2]
+   31 0x40000003D0B8ECFA staCharacterReservedCover        kinds=[7, 1]
+   32 0x40000003DE992C09 taxTerminalSpec                  kinds=[1]
+   33 0x400000043552B5BD tmrContainer                     kinds=[15]
+   34 0x40000004A4FAFFD8 modStatComputed                  kinds=[8, 5, 4]
+   35 0x40000004A4FAFFD9 modStatBase                      kinds=[8, 5, 4]
+   36 0x40000004BC0C269C statHealth                       kinds=[4]
+   37 0x400000053A7FAC13 staEnterIdle                     kinds=[3]
+   38 0x400000055EC4A513 cbtToughnessEnum                 kinds=[5]
+   39 0x400000057B5C4947 effTargetActiveSnare             kinds=[4]
+   40 0x400000057B5C4969 effTargetActiveHaste             kinds=[4]
+   41 0x40000005950224AE staCharacterEnemyCount           kinds=[2]
+   42 0x40000005A198CD3F staCharacterHydraLoopingAnim     kinds=[6]
+   43 0x40000005DFA840A2 brkIsSilenced                    kinds=[3]
+   44 0x4000000670408C37 effContainerEffectlessTags       kinds=[8, 2, 3]
+   45 0x400000076BCBC62B kynMsg_EndTime                   kinds=[4]
+   46 0x400000076BCBC62C kynMsg_StartTime                 kinds=[4]
+   47 0x400000076BCBC62D kynMsg_EndPos                    kinds=[18]
+   48 0x400000076BCBC62E kynMsg_EndYaw                    kinds=[4]
+   49 0x4000000772170844 chrNPCIsShipCompanion            kinds=[3]
+   50 0x40000007990F3A6D cbtWarzoneTeam                   kinds=[5]
+   51 0x40000007B22BC19E kynMsg_StartPos                  kinds=[18]
+   52 0x40000007B22BC1A4 kynMsg_StartYaw                  kinds=[4]
+   53 0x40000008623C1AE1 modMetaStatComputed_Shared       kinds=[8, 2, 8, 5, 4]
+   54 0x40000008F7BC2E23 chrAppearanceItemOverrides       kinds=[7, 6]
+   55 0x400000096BE48225 cbtTemporaryFactions             kinds=[7, 2]
+   56 0x40000009EFFE8FFA pvpFlagged                       kinds=[3]
+   57 0x40000009F4787F58 spnSpawnedSpec                   kinds=[1]
+   58 0x4000000A1D6B4920 ablUserAbilitySpecShared         kinds=[1]
+   59 0x4000000A4E63E82A chrAppearanceNppOverride         kinds=[1]
+   60 0x4000000A4EE28DFA tgtPrimaryTargetID               kinds=[1]
+   61 0x4000000A4EE28DFC tgtTargetIsTargetable            kinds=[3]
+   62 0x4000000ABBE55A97 chrCreatureTypeList              kinds=[7, 5]
+   63 0x4000000AF1ABD557 cbtFaction                       kinds=[2]
+   64 0x4000000B15C614F8 cbtEnemiesAttackers              kinds=[7, 1]
+   65 0x4000000B733BDCFA ablUserSpellPushbackCount        kinds=[2]
+   66 0x4000000BEC8F20D8 chrTemplateVisualIndex           kinds=[2]
+   67 0x4000000C66E19029 kynMsg_MoveSpeed                 kinds=[4]
+   68 0x4000000CEC9EB587 cbtCreatureType                  kinds=[5]
+   69 0x4000000E582939A7 brkResourceName                  kinds=[1]
+   70 0x4000000ED3CBD391 kynMsg_TurnSpeed                 kinds=[4]
+   71 0x4000000ED3CBD392 kynMsg_TurnAccel                 kinds=[4]
+   72 0x4000000ED3CBD393 kynMsg_MoveAccel                 kinds=[4]
+   73 0x4000000F146E15BF modStat_Fixed                    kinds=[8, 5, 8, 1, 4]
+   74 0x4000000F146E15C0 modStat_PercentOfCurrent         kinds=[8, 5, 8, 1, 4]
+   75 0x4000000F9C0C62E7 chrNpcIsHolocom                  kinds=[3]
+   76 0x4000001036F1A242 chrClass                         kinds=[1]
+   77 0x40000010520A477F _characterSpecification          kinds=[2]
+   78 0x4000001159E2D5A7 staCharacterUsingDynamicCover    kinds=[3]
+   79 0x400000118A7E6088 ablContainer                     kinds=[15]
+   80 0x400000118A7E6089 ablContainerAbilityRanks         kinds=[8, 1, 2]
+   81 0x400000118A7E608A ablContainerAbilityLevels        kinds=[8, 1, 2]
+   82 0x400000118D870CA7 ablPackageSpecList               kinds=[8, 1, 5]
+   83 0x400000118D870CA8 ablContainerGrantedAbilityRanks  kinds=[8, 1, 2]
+   84 0x400000118D870CA9 ablContainerSkillRanks           kinds=[8, 1, 2]
+   85 0x40000013F4E75DA5 chrLevel                         kinds=[2]
+   86 0x40000018A38A2E51 statResource                     kinds=[4]
+   87 0x4000001CBCBE3841 chrRestXp                        kinds=[4]
+   88 0x4000001CE8773A44 ablUserAutoCastActive            kinds=[8, 1, 3]
+   89 0x40000020F9D88CE0 ablUserModalActiveSpecs          kinds=[7, 1]
+   90 0x4000002787E87173 hydRunScriptProtoId              kinds=[1]
+   91 0x40000029D8D6E8D1 spnSpawnedEntryAppearance        kinds=[1]
+   92 0x4000002A08596290 kynMsg_InfoFlags                 kinds=[2]
+   93 0x4000003602998F40 npcHolocomStageId                kinds=[1]
+   94 0x4000003DE3850AC1 unnamed                          kinds=[8, 1, 2]

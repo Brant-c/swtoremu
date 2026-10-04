@@ -1,0 +1,104 @@
+  007FDE70: 55                 push        ebp
+  007FDE71: 8B EC              mov         ebp,esp
+  007FDE73: 8B 45 08           mov         eax,dword ptr [ebp+8]
+  007FDE76: 3D C1 3D 96 B4     cmp         eax,0B4963DC1h
+  007FDE7B: 75 56              jne         007FDED3
+  007FDE7D: 0F B6 55 0C        movzx       edx,byte ptr [ebp+0Ch]
+  007FDE81: 53                 push        ebx
+  007FDE82: C1 E2 0C           shl         edx,0Ch
+  007FDE85: 56                 push        esi
+  007FDE86: 8B B1 E0 00 00 00  mov         esi,dword ptr [ecx+000000E0h]
+  007FDE8C: 33 D6              xor         edx,esi
+  007FDE8E: 81 E2 00 10 00 00  and         edx,1000h
+  007FDE94: 8B DE              mov         ebx,esi
+  007FDE96: 33 D6              xor         edx,esi
+  007FDE98: C1 EB 0C           shr         ebx,0Ch
+  007FDE9B: 80 E3 01           and         bl,1
+  007FDE9E: 89 91 E0 00 00 00  mov         dword ptr [ecx+000000E0h],edx
+  007FDEA4: C1 EA 0C           shr         edx,0Ch
+  007FDEA7: 0F B6 C3           movzx       eax,bl
+  007FDEAA: 83 E2 01           and         edx,1
+  007FDEAD: 5E                 pop         esi
+  007FDEAE: 5B                 pop         ebx
+  007FDEAF: 3B C2              cmp         eax,edx
+  007FDEB1: 0F 84 DC 00 00 00  je          007FDF93
+  007FDEB7: 85 D2              test        edx,edx
+  007FDEB9: 74 0D              je          007FDEC8
+  007FDEBB: 8B C1              mov         eax,ecx
+  007FDEBD: E8 EE 70 ED FF     call        006D4FB0
+  007FDEC2: B0 01              mov         al,1
+  007FDEC4: 5D                 pop         ebp
+  007FDEC5: C2 08 00           ret         8
+  007FDEC8: E8 93 70 ED FF     call        006D4F60
+  007FDECD: B0 01              mov         al,1
+  007FDECF: 5D                 pop         ebp
+  007FDED0: C2 08 00           ret         8
+  007FDED3: 3D B5 C1 61 65     cmp         eax,6561C1B5h
+  007FDED8: 75 0F              jne         007FDEE9
+  007FDEDA: 8A 55 0C           mov         dl,byte ptr [ebp+0Ch]
+  007FDEDD: 88 91 55 01 00 00  mov         byte ptr [ecx+00000155h],dl
+  007FDEE3: B0 01              mov         al,1
+  007FDEE5: 5D                 pop         ebp
+  007FDEE6: C2 08 00           ret         8
+  007FDEE9: 3D 75 F1 12 16     cmp         eax,1612F175h
+  007FDEEE: 75 0F              jne         007FDEFF
+  007FDEF0: 8A 45 0C           mov         al,byte ptr [ebp+0Ch]
+  007FDEF3: 88 81 56 01 00 00  mov         byte ptr [ecx+00000156h],al
+  007FDEF9: B0 01              mov         al,1
+  007FDEFB: 5D                 pop         ebp
+  007FDEFC: C2 08 00           ret         8
+  007FDEFF: 3D B1 19 A7 0F     cmp         eax,0FA719B1h
+  007FDF04: 75 0F              jne         007FDF15
+  007FDF06: 8A 55 0C           mov         dl,byte ptr [ebp+0Ch]
+  007FDF09: 88 91 57 01 00 00  mov         byte ptr [ecx+00000157h],dl
+  007FDF0F: B0 01              mov         al,1
+  007FDF11: 5D                 pop         ebp
+  007FDF12: C2 08 00           ret         8
+  007FDF15: 3D A3 9D FA 5B     cmp         eax,5BFA9DA3h
+  007FDF1A: 75 0F              jne         007FDF2B
+  007FDF1C: 8A 45 0C           mov         al,byte ptr [ebp+0Ch]
+  007FDF1F: 88 81 54 01 00 00  mov         byte ptr [ecx+00000154h],al
+  007FDF25: B0 01              mov         al,1
+  007FDF27: 5D                 pop         ebp
+  007FDF28: C2 08 00           ret         8
+  007FDF2B: 3D 26 A6 7A F4     cmp         eax,0F47AA626h
+  007FDF30: 75 0F              jne         007FDF41
+  007FDF32: 8A 55 0C           mov         dl,byte ptr [ebp+0Ch]
+  007FDF35: 88 91 58 01 00 00  mov         byte ptr [ecx+00000158h],dl
+  007FDF3B: B0 01              mov         al,1
+  007FDF3D: 5D                 pop         ebp
+  007FDF3E: C2 08 00           ret         8
+  007FDF41: 3D C3 36 EC 38     cmp         eax,38EC36C3h
+  007FDF46: 75 0F              jne         007FDF57
+  007FDF48: 8A 45 0C           mov         al,byte ptr [ebp+0Ch]
+  007FDF4B: 88 81 53 01 00 00  mov         byte ptr [ecx+00000153h],al
+  007FDF51: B0 01              mov         al,1
+  007FDF53: 5D                 pop         ebp
+  007FDF54: C2 08 00           ret         8
+  007FDF57: 3D 2A 04 AD C6     cmp         eax,0C6AD042Ah
+  007FDF5C: 75 0F              jne         007FDF6D
+  007FDF5E: 8A 55 0C           mov         dl,byte ptr [ebp+0Ch]
+  007FDF61: 88 91 52 01 00 00  mov         byte ptr [ecx+00000152h],dl
+  007FDF67: B0 01              mov         al,1
+  007FDF69: 5D                 pop         ebp
+  007FDF6A: C2 08 00           ret         8
+  007FDF6D: 3D 17 6D 22 33     cmp         eax,33226D17h
+  007FDF72: 75 0F              jne         007FDF83
+  007FDF74: 8A 45 0C           mov         al,byte ptr [ebp+0Ch]
+  007FDF77: 88 81 51 01 00 00  mov         byte ptr [ecx+00000151h],al
+  007FDF7D: B0 01              mov         al,1
+  007FDF7F: 5D                 pop         ebp
+  007FDF80: C2 08 00           ret         8
+  007FDF83: 3D 38 4D B3 03     cmp         eax,3B34D38h
+  007FDF88: 75 0F              jne         007FDF99
+  007FDF8A: 8A 55 0C           mov         dl,byte ptr [ebp+0Ch]
+  007FDF8D: 88 91 50 01 00 00  mov         byte ptr [ecx+00000150h],dl
+  007FDF93: B0 01              mov         al,1
+  007FDF95: 5D                 pop         ebp
+  007FDF96: C2 08 00           ret         8
+  007FDF99: 8B 55 0C           mov         edx,dword ptr [ebp+0Ch]
+  007FDF9C: 52                 push        edx
+  007FDF9D: 50                 push        eax
+  007FDF9E: E8 3D 5A ED FF     call        006D39E0
+  007FDFA3: 5D                 pop         ebp
+  007FDFA4: C2 08 00           ret         8

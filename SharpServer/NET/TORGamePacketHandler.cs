@@ -224,10 +224,17 @@ namespace NexusToRServer.NET
                 iPacket.SetClient(Client);
                 iPacket.SetBuffers(Data);
                 //Log.Write(LogLevel.EDebug, "{0}", Data.ToHEX());
-                iPacket.Read();
-                iPacket.Run();
+                DecodeAndRun(iPacket);
             }
             
+        }
+
+        // Keep the execution gate shared with the offline contract regression.
+        internal static bool DecodeAndRun(IPacket packet)
+        {
+            if (!packet.Read()) return false;
+            packet.Run();
+            return true;
         }
 
         public static void InitPacket(byte[] inBuffer, TORGameClient Client)

@@ -1,0 +1,34 @@
+_JPEXTRACT\chrNonPlayerCharacter.txt:Beta · 6		4611686064529431191	chrCreatureTypeList	List of Enum npcCreatureType
+Tools\Hero\Hero\DeserializeLookupList.cs:  public class DeserializeLookupList : SerializeStateBase
+Tools\Hero\Hero\DeserializeLookupList.cs:    public DeserializeLookupList(PackedStream_2 stream, int valueState, HeroType defaultIndexerType)
+Tools\Hero\Hero\DeserializeLookupList.cs:      : base(stream, HeroTypes.LookupList)
+Tools\Hero\Hero\DeserializeLookupList.cs:        DeserializeLookupList deserializeLookupList = this;
+Tools\Hero\Hero\DeserializeLookupList.cs:        int num1 = (int) (deserializeLookupList.Count >> 1);
+Tools\Hero\Hero\DeserializeLookupList.cs:        deserializeLookupList.Count = (uint) num1;
+Tools\Hero\Hero\HeroType.cs:        case HeroTypes.LookupList:
+Tools\Hero\Hero\HeroType.cs:        case HeroTypes.LookupList:
+Tools\Hero\Hero\HeroType.cs:            return "lookuplist";
+Tools\Hero\Hero\HeroType.cs:            return "lookuplist indexed by " + this.Indexer.ToString();
+Tools\Hero\Hero\HeroType.cs:            return "lookuplist of " + this.Values.ToString();
+Tools\Hero\Hero\HeroType.cs:            return "lookuplist indexed by " + this.Indexer.ToString() + " of " + this.Values.ToString();
+Tools\Hero\Hero\HeroTypes.cs:    LookupList = 8,
+Tools\Hero\Hero\SerializeLookupList.cs:  public class SerializeLookupList : SerializeStateBase
+Tools\Hero\Hero\SerializeLookupList.cs:    public SerializeLookupList(PackedStream_2 stream, int valueState, HeroType type, int Count)
+Tools\Hero\Hero\SerializeLookupList.cs:      : base(stream, HeroTypes.LookupList)
+Tools\Hero\Hero\Types\HeroAnyValue.cs:        case HeroTypes.LookupList:
+Tools\Hero\Hero\Types\HeroAnyValue.cs:        case HeroTypes.LookupList:
+Tools\Hero\Hero\Types\HeroAnyValue.cs:        case HeroTypes.LookupList:
+Tools\Hero\Hero\Types\HeroAnyValue.cs:          return (HeroAnyValue) new HeroLookupList(type.Indexer, type.Values);
+Tools\Hero\Hero\Types\HeroClass.cs:              case HeroTypes.LookupList:
+Tools\Hero\Hero\Types\HeroLookupList.cs:  public class HeroLookupList : HeroAnyValue
+Tools\Hero\Hero\Types\HeroLookupList.cs:    public HeroLookupList(HeroType key = null, HeroType values = null)
+Tools\Hero\Hero\Types\HeroLookupList.cs:      this.Type = new HeroType(HeroTypes.LookupList);
+Tools\Hero\Hero\Types\HeroLookupList.cs:      DeserializeLookupList deserializeLookupList = new DeserializeLookupList(stream, 1, defaultIndexerType);
+Tools\Hero\Hero\Types\HeroLookupList.cs:        this.Type.Indexer = deserializeLookupList.indexerType;
+Tools\Hero\Hero\Types\HeroLookupList.cs:        deserializeLookupList.indexerType = this.Type.Indexer;
+Tools\Hero\Hero\Types\HeroLookupList.cs:        this.Type.Values = deserializeLookupList.valueType;
+Tools\Hero\Hero\Types\HeroLookupList.cs:        deserializeLookupList.valueType = this.Type.Values;
+Tools\Hero\Hero\Types\HeroLookupList.cs:      for (ulong index = 0UL; index < (ulong) deserializeLookupList.Count; ++index)
+Tools\Hero\Hero\Types\HeroLookupList.cs:        deserializeLookupList.GetKey(out key, out variableId);
+Tools\Hero\Hero\Types\HeroLookupList.cs:      SerializeLookupList serializeLookupList = new SerializeLookupList(stream, 1, this.Type, Count);
+Tools\Hero\Hero\Types\HeroLookupList.cs:        serializeLookupList.SetKey(keyValuePair.Key.Value, keyValuePair.Key.VarId);

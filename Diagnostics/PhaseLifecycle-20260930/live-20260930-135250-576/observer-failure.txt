@@ -1,0 +1,8 @@
+﻿Named lifecycle hooks were not installed before timeout.
+At D:\SWTORClassic\swtoremu\Diagnostics\PhaseLifecycle-20260930\Watch-PhaseLifecycle.ps1:154 char:105
++ ... nstalled')){throw 'Named lifecycle hooks were not installed before ti ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Named lifecycle...before timeout.:String) [], RuntimeException
+    + FullyQualifiedErrorId : Named lifecycle hooks were not installed before timeout.
+ 
+

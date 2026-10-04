@@ -1,0 +1,23 @@
+  60      Write-Output "VERIFIED: mode=$mode; Weller response=1; cleanup=1; movement tether refresh=1; phase reentry=1; authored-gateway timing=1; all runtime inputs pinned; CRT3=0; retry disabled. No processes launched."
+  61      exit 0
+  62  }
+  63  & (Join-Path $PSScriptRoot 'Preserve-CurrentLogs.ps1')
+  64  if (!$?) { throw 'Log preservation failed; launch aborted.' }
+  65  Get-Date -Format o | Set-Content -LiteralPath (Join-Path $PSScriptRoot 'launch-requested.txt')
+  66  Start-Process -FilePath $env:ComSpec -ArgumentList @('/d','/c',('""{0}""' -f $launcher)) -WindowStyle Hidden `
+  67      -RedirectStandardOutput (Join-Path $PSScriptRoot 'launcher-console.log') `
+  68      -RedirectStandardError (Join-Path $PSScriptRoot 'launcher-errors.log')
+  69  if ($CloneControl) { Write-Output "MERGED TAXI rung $TaxiRung launched. This is the REAL taxi record, not a stand-in. Rung 0 = as shipped (expect six script errors). Rung 1 = only _characterSpecification reverted to the captured donor value (8 bytes of 677). If the droid and its overhead taxi icon appear, the spec was the blocker. Close afterward for log review." }
+  70  else { Write-Output 'Taxi test launched. Leave the retreat and right-click the new taxi droid near the exit. If a map opens, select Gnarls once. Flight is pending; close afterward for log review.' }
+  71  }
+  72  finally {
+  73      # Restore the shell exactly as found. Remove anything the launcher set that was
+  74      # not there before, then put back any prior value. `exit 0` in verify mode and
+  75      # every `throw` above still pass through here.
+  76      foreach ($e in @(Get-ChildItem Env: | Where-Object Name -Like 'SWTOR_*')) {
+  77          if (-not $priorSwtor.ContainsKey($e.Name)) { Remove-Item -LiteralPath ('Env:' + $e.Name) -ErrorAction SilentlyContinue }
+  78      }
+  79      foreach ($name in $priorSwtor.Keys) {
+  80          Set-Item -LiteralPath ('Env:' + $name) -Value $priorSwtor[$name]
+  81      }
+  82  }

@@ -1,0 +1,82 @@
+  00D20960: 53                 push        ebx
+  00D20961: 8B DC              mov         ebx,esp
+  00D20963: 83 EC 08           sub         esp,8
+  00D20966: 83 E4 F0           and         esp,0FFFFFFF0h
+  00D20969: 83 C4 04           add         esp,4
+  00D2096C: 55                 push        ebp
+  00D2096D: 8B 6B 04           mov         ebp,dword ptr [ebx+4]
+  00D20970: 89 6C 24 04        mov         dword ptr [esp+4],ebp
+  00D20974: 8B EC              mov         ebp,esp
+  00D20976: 81 EC A8 00 00 00  sub         esp,0A8h
+  00D2097C: 8B 43 0C           mov         eax,dword ptr [ebx+0Ch]
+  00D2097F: 0F 28 08           movaps      xmm1,xmmword ptr [eax]
+  00D20982: F3 0F 10 43 10     movss       xmm0,dword ptr [ebx+10h]
+  00D20987: 56                 push        esi
+  00D20988: 8B 73 18           mov         esi,dword ptr [ebx+18h]
+  00D2098B: 8B 16              mov         edx,dword ptr [esi]
+  00D2098D: 8B 52 04           mov         edx,dword ptr [edx+4]
+  00D20990: 57                 push        edi
+  00D20991: 8B F9              mov         edi,ecx
+  00D20993: 8B 4B 08           mov         ecx,dword ptr [ebx+8]
+  00D20996: 0F C6 C0 00        shufps      xmm0,xmm0,0
+  00D2099A: 0F 59 C1           mulps       xmm0,xmm1
+  00D2099D: 0F 28 09           movaps      xmm1,xmmword ptr [ecx]
+  00D209A0: 8D 85 60 FF FF FF  lea         eax,[ebp+FFFFFF60h]
+  00D209A6: 0F 58 C1           addps       xmm0,xmm1
+  00D209A9: 50                 push        eax
+  00D209AA: 8B CE              mov         ecx,esi
+  00D209AC: 0F 29 45 E0        movaps      xmmword ptr [ebp-20h],xmm0
+  00D209B0: FF D2              call        edx
+  00D209B2: 8B 4B 08           mov         ecx,dword ptr [ebx+8]
+  00D209B5: 50                 push        eax
+  00D209B6: 8D 45 E0           lea         eax,[ebp-20h]
+  00D209B9: 50                 push        eax
+  00D209BA: 51                 push        ecx
+  00D209BB: 8D 4D A0           lea         ecx,[ebp-60h]
+  00D209BE: E8 6D F7 FF FF     call        00D20130
+  00D209C3: 8B 7F 04           mov         edi,dword ptr [edi+4]
+  00D209C6: F3 0F 10 45 D0     movss       xmm0,dword ptr [ebp-30h]
+  00D209CB: F3 0F 11 45 FC     movss       dword ptr [ebp-4],xmm0
+  00D209D0: 85 FF              test        edi,edi
+  00D209D2: 74 3A              je          00D20A0E
+  00D209D4: 8B 16              mov         edx,dword ptr [esi]
+  00D209D6: 8B 12              mov         edx,dword ptr [edx]
+  00D209D8: 56                 push        esi
+  00D209D9: 8D 85 60 FF FF FF  lea         eax,[ebp+FFFFFF60h]
+  00D209DF: 50                 push        eax
+  00D209E0: 8B CE              mov         ecx,esi
+  00D209E2: FF D2              call        edx
+  00D209E4: D9 45 FC           fld         dword ptr [ebp-4]
+  00D209E7: 8B 4B 14           mov         ecx,dword ptr [ebx+14h]
+  00D209EA: 50                 push        eax
+  00D209EB: 8B 43 1C           mov         eax,dword ptr [ebx+1Ch]
+  00D209EE: 50                 push        eax
+  00D209EF: 51                 push        ecx
+  00D209F0: 51                 push        ecx
+  00D209F1: D9 1C 24           fstp        dword ptr [esp]
+  00D209F4: 8D 55 C0           lea         edx,[ebp-40h]
+  00D209F7: 52                 push        edx
+  00D209F8: 8D 45 A0           lea         eax,[ebp-60h]
+  00D209FB: 50                 push        eax
+  00D209FC: 8B CF              mov         ecx,edi
+  00D209FE: E8 AD 3A 00 00     call        00D244B0
+  00D20A03: 5F                 pop         edi
+  00D20A04: 5E                 pop         esi
+  00D20A05: 8B E5              mov         esp,ebp
+  00D20A07: 5D                 pop         ebp
+  00D20A08: 8B E3              mov         esp,ebx
+  00D20A0A: 5B                 pop         ebx
+  00D20A0B: C2 18 00           ret         18h
+  00D20A0E: 5F                 pop         edi
+  00D20A0F: 32 C0              xor         al,al
+  00D20A11: 5E                 pop         esi
+  00D20A12: 8B E5              mov         esp,ebp
+  00D20A14: 5D                 pop         ebp
+  00D20A15: 8B E3              mov         esp,ebx
+  00D20A17: 5B                 pop         ebx
+  00D20A18: C2 18 00           ret         18h
+  00D20A1B: CC                 int         3
+  00D20A1C: CC                 int         3
+  00D20A1D: CC                 int         3
+  00D20A1E: CC                 int         3
+  00D20A1F: CC                 int         3

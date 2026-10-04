@@ -1,4 +1,5 @@
-using System;
+﻿using System;
+using System.Globalization;
 
 namespace NexusToRServer.NET.Packets.Server
 {
@@ -38,13 +39,50 @@ namespace NexusToRServer.NET.Packets.Server
             string areaCode = client._areaCode ?? string.Empty;
             UInt64 characterID = client.ActiveCharacter == null ? 0UL : client.ActiveCharacter._id;
 
+            // [EXPERIMENT] Send SetCharacter FIRST (before the hack pack / CRTs).
+            // The client's AreaManager waits for "server to notify area of new
+            // player" (SetCharacter) before it stages rooms/collision. Sending it
+            // first tests whether the collision loads when the notify precedes the
+            // rest of the startup bundle. See Diagnostics/RoomStreaming-Plan §3i.
+            if (client.ActiveCharacter != null)
+                client.SendPacket(new AreaSetCharacter(client.ActiveCharacter._id));
             client.SendPacket(new AreaHackPack(area, areaID, areaCode));
             client.SendPacket(new AreaUpdateTimeSource());
             client.SendPacket(new AreaSendAwarenessRange(9.000000f, 13.500000f));
             client.SendPacket(new AreaRequestRPC(new byte[] { 0xCF, 0x2B, 0x7E, 0x42, 0x02, 0x2E, 0x10, 0x03, 0x0D, 0x06, 0x00 }));
             client.SendPacket(new SetMailboxInteraction(false));
-            if (client.ActiveCharacter != null)
-                client.SendPacket(new AreaTeleportCharacter(client.ActiveCharacter._id, 0x01, -64.874100f, -6.906221f, -127.670998f, 0.000000f, -90.000198f, 0.000000f, 0x01));
+            // The captured placement is the Masters' Retreat doorway. The
+            // emulator never streams world objects after startup, so a
+            // character left there is boxed in by a room boundary with no
+            // replicated NPCs or triggers in reach. SWTOR_SPAWN_POSITION lets a
+            // diagnostic run place the character inside the captured object
+            // footprint instead, which is the only region the client has
+            // received content for.
+            float spawnX = -64.874100f;
+            float spawnY = -6.906221f;
+            float spawnZ = -127.670998f;
+            string spawnOverride = Environment.GetEnvironmentVariable("SWTOR_SPAWN_POSITION");
+            if (!String.IsNullOrEmpty(spawnOverride))
+            {
+                string[] parts = spawnOverride.Split(',');
+                float x, y, z;
+                if (parts.Length == 3 &&
+                    float.TryParse(parts[0], NumberStyles.Float, CultureInfo.InvariantCulture, out x) &&
+                    float.TryParse(parts[1], NumberStyles.Float, CultureInfo.InvariantCulture, out y) &&
+                    float.TryParse(parts[2], NumberStyles.Float, CultureInfo.InvariantCulture, out z))
+                {
+                    spawnX = x; spawnY = y; spawnZ = z;
+                    Log.Write(LogLevel.Warning,
+                        "AreaStartupBundle: spawn override applied ({0},{1},{2}); captured retreat placement is not used.",
+                        spawnX, spawnY, spawnZ);
+                }
+                else
+                {
+                    Log.Write(LogLevel.Warning,
+                        "AreaStartupBundle: SWTOR_SPAWN_POSITION='{0}' was not three floats; using captured retreat placement.",
+                        spawnOverride);
+                }
+            }
             client.SendPacket(new AreaClientReplicationTransaction(area, areaID, areaCode, 1, characterID));
             client.SendPacket(new AreaRequestRPC(new byte[] { 0xCF, 0x75, 0xDC, 0xE5, 0xC3, 0x03, 0x11, 0xA4, 0xC8 }));
             // Preserve the captured/original startup ordering. This call was
@@ -54,9 +92,13 @@ namespace NexusToRServer.NET.Packets.Server
             client.SendPacket(new AreaRequestRPC(new byte[] { 0xC7, 0x75, 0xA1, 0x1A, 0xAF, 0x77, 0x65, 0x06, 0x24, 0x03, 0x01 }));
             client.SendPacket(new AreaRequestRPC(new byte[] { 0xC7, 0x0C, 0x19, 0xE0, 0xBE, 0x7A, 0xDB, 0x81, 0x73 }));
             client.SendPacket(new AreaTalk("logon", "@str.gui.characterselection#199(" + area + ") (" + areaID + ") (" + areaCode + ")"));
-            if (client.ActiveCharacter != null)
-                client.SendPacket(new AreaSetCharacter(client.ActiveCharacter._id));
             client.SendPacket(new AreaClientReplicationTransaction(area, areaID, areaCode, 2, characterID));
+            // CRT2's create record carries character_position/character_rotation and
+            // overwrites any teleport sent before it (trap 1). The placement is
+            // therefore applied here, after the create, so SWTOR_SPAWN_POSITION is
+            // observable instead of being silently discarded.
+            if (client.ActiveCharacter != null)
+                client.SendPacket(new AreaTeleportCharacter(client.ActiveCharacter._id, 0x01, spawnX, spawnY, spawnZ, 0.000000f, -90.000198f, 0.000000f, 0x01));
             // Effect fixture 1 embeds prototype 0xE000B31E6D666C0F, resolved
             // from the matching game data as abl.state.safe_login/0/2
             // ("Safe Login Immunity", 59 game-time seconds). The emulator
@@ -71,28 +113,56 @@ namespace NexusToRServer.NET.Packets.Server
             client.SendPacket(new SystemRequestRPC(new byte[] { 0xC7, 0x07, 0xE5, 0x4B, 0x65, 0x7A, 0x20, 0x86, 0x83 }));
             client.SendPacket(new AreaRequestRPC(new byte[] { 0xCF, 0x75, 0xDC, 0xE5, 0xC3, 0x03, 0x11, 0xA4, 0xC8 }));
             client.SendPacket(new AreaRequestRPC(new byte[] { 0xC7, 0x07, 0xE5, 0x4B, 0x65, 0x48, 0x36, 0xA3, 0xC6, 0x08, 0x01, 0x03, 0x00, 0x00 }));
-            // CRT3 is not a complete captured replication transaction. The
-            // repository's native-reader investigation established that its
-            // style-7 body ends two bytes into the third component of a
-            // three-component value. A corrected sequence id makes the outer
-            // packet acceptable, but does not repair that truncated value and
-            // can leave the client's phase state half-applied. Keep the
-            // fixture available for focused decoder experiments only.
-            // Later schema reconstruction established that the 22-byte value
-            // region is complete for phsPlayerPhaseData; the isolated
-            // diagnostic override remaps only its mismatched structure number.
-            // Keep this opt-in until a client run validates the reconstructed
-            // schema and the original field-state byte together.
+            // Later schema reconstruction established that CRT3's 22-byte
+            // value region is complete for phsPlayerPhaseData. The paired
+            // diagnostic CRT1 supplies its missing compact schema and CRT3
+            // changes only that compact structure reference. The client has
+            // accepted this pair in a live world-entry run, but keep it opt-in
+            // until its phase-boundary semantics are validated.
             if (Environment.GetEnvironmentVariable("SWTOR_ENABLE_UNVERIFIED_CRT3") == "1")
                 client.SendPacket(new AreaClientReplicationTransaction(area, areaID, areaCode, 3, characterID));
             else
                 Log.Write(LogLevel.Warning,
-                    "AreaStartupBundle: suppressing known-incomplete CRT3; set SWTOR_ENABLE_UNVERIFIED_CRT3=1 only for decoder experiments.");
+                    "AreaStartupBundle: suppressing experimental player phase-data CRT3; set SWTOR_ENABLE_UNVERIFIED_CRT3=1 with the matched CRT override to test phase semantics.");
             client.SendPacket(new AreaRequestRPC(new byte[] { 0xCF, 0x05, 0x77, 0x43, 0xE1, 0xC6, 0xB9, 0xC0, 0x9A, 0x02, 0x00 }));
             if (client.ActiveCharacter != null)
                 client.SendPacket(new HasMail(client.ActiveCharacter._id));
             client.SendPacket(new AreaRequestRPC(new byte[] { 0xC7, 0x4F, 0x77, 0x41, 0xBD, 0xE7, 0xFF, 0x95, 0x39, 0x02, 0x05, 0x02, 0x05 }));
-            client.SendPacket(new AreaAwarenessEntered(area, areaID, areaCode, 1));
+            // Taxi experiment. In CONTROL mode the selected ladder rung is merged INTO
+            // awareness set 1 below rather than sent as its own packet.
+            //
+            // The rung fixtures are byte splices of the CAPTURED medcenter droid
+            // record (0x1AC68957EB), which the April client has always rendered.
+            // Rung 0 differs from that capture only by node identity and a 5 m X
+            // offset, so a visible second droid would prove transport, framing and
+            // placement end to end.
+            UInt64[] mergeNodes = AreaServer.TythonTaxi.MergeNodes();
+            if (mergeNodes != null)
+            {
+                AreaMergedAwareness merged;
+                AreaMergedAwareness.AreaTaxiRung rung = AreaMergedAwareness.SelectedRung;
+                // Never let a control experiment take down the whole area startup.
+                // A previous failure mode was an exception escaping this call, which
+                // aborted the rest of the bundle: no awareness set 1, no NPCs at all,
+                // and a player who could not move. Fall back to the untouched set.
+                try { merged = new AreaMergedAwareness(area, areaID, areaCode, 1,
+                                                        mergeNodes, rung); }
+                catch (Exception ex)
+                {
+                    Log.Write(LogLevel.Warning,
+                        "AreaStartupBundle: merged taxi construction failed ({0}); falling back to the captured awareness set 1 unchanged.", ex.Message);
+                    client.SendPacket(new AreaAwarenessEntered(area, areaID, areaCode, 1));
+                    AreaServer.TythonTaxi.LogCloneFailed();
+                    return;
+                }
+                client.SendPacket(merged);
+                AreaServer.TythonTaxi.LogCloneMerged(mergeNodes[0], (int)rung);
+            }
+            else
+            {
+                AreaServer.TythonTaxi.Initialize(client);
+                client.SendPacket(new AreaAwarenessEntered(area, areaID, areaCode, 1));
+            }
             client.SendPacket(CreateOnEnter(characterID));
             for (int eff = 2; eff <= 8; eff++)
                 client.SendPacket(new AreaEffEventMessage(area, areaID, areaCode, eff, characterID));

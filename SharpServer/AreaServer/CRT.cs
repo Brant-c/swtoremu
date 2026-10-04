@@ -53,6 +53,25 @@ namespace NexusToRServer.AreaServer
         }
 
         /// <summary>
+        /// True when the fixture (or an override of it) exists on disk, without
+        /// reading it. Lets a caller decide "drop-in present" vs "emit nothing"
+        /// before constructing a replication transaction, so a missing room
+        /// stream never becomes a malformed zero-length packet.
+        /// </summary>
+        public static bool Has(string Area, string AreaID, string AreaCode, int AwarenessID)
+        {
+            String FileName = String.Format(@"{0}-{1}-{2}.{3}.acrt", Area, AreaID, AreaCode, AwarenessID);
+            String OverrideDirectory = Environment.GetEnvironmentVariable("SWTOR_CRT_OVERRIDE_DIRECTORY");
+            if (!String.IsNullOrEmpty(OverrideDirectory))
+            {
+                String OverridePath = Path.Combine(OverrideDirectory, FileName);
+                if (File.Exists(OverridePath))
+                    return true;
+            }
+            return File.Exists(@"AreaServer\CRT\" + FileName);
+        }
+
+        /// <summary>
         /// True when SWTOR_CRT_MISSING_MODE=skip. A missing .acrt then
         /// suppresses the entire AreaClientReplicationTransaction packet
         /// instead of sending a zero-length one. This separates 'no packet'

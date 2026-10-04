@@ -1,0 +1,45 @@
+_JPEXTRACT\DAT\instances.txt:3748: asset name: \spn\location\tython\taxi\taxi_poi01_jediretreat_pad1.spn_c"><span style="color:orange"><mark>spn<span style="color:white">.</span><wbr>lo
+Diagnostics\GomCompatibility\all-defs.txt:14156: node	0xe00000dae72abfca	spn.exp.02.yavin_4.taxi.taxi_poi01_shared_landing_area_rep
+Diagnostics\GomCompatibility\all-defs.txt:15196: node	0xe000019790665a33	pth.location.hutta.taxi.taxi_poi07_rust_yards_to_taxi_poi01_jiguuna_emp
+Diagnostics\GomCompatibility\all-defs.txt:19013: node	0xe0000454a2d5b336	mpn.exp.02.yavin_iv.taxi.taxi_poi01_shared_landing_area_rep
+Diagnostics\GomCompatibility\all-defs.txt:70434: node	0xe0002926de712f41	npc.location.ilum.taxi.taxi_poi01_republic_base_camp_rep
+Diagnostics\GomCompatibility\all-defs.txt:71785: node	0xe0002a1f2cbf8197	pth.test.hesslabs.taxi.taxi_poi01_taxi1_to_taxi_poi02_taxi2_rep
+Diagnostics\GomCompatibility\all-defs.txt:72475: node	0xe0002aa27727a469	spn.exp.02.rishi.taxi.taxi_poi01_raiders_cove
+Diagnostics\GomCompatibility\all-defs.txt:79374: node	0xe0002f990e8a09a5	spn.location.hutta.taxi.taxi_poi01_jiguuna_cantina_emp
+Diagnostics\GomCompatibility\all-defs.txt:81626: node	0xe000312f9418e388	npc.exp.02.yavin_4.taxi.taxi_poi01_shared_landing_area_imp
+Diagnostics\GomCompatibility\all-defs.txt:86396: node	0xe000349d33913c05	mpn.location.ilum.taxi.taxi_poi01_republic_base_camp_rep
+Diagnostics\GomCompatibility\all-defs.txt:91994: node	0xe0003891094bd509	tax.quesh.taxi_poi01_rep_base_rep
+Diagnostics\GomCompatibility\all-defs.txt:99102: node	0xe0003db56613e4e5	tax.test.kquinn.taxi_poi01_crash_ship_rep
+Diagnostics\GomCompatibility\all-defs.txt:110375: node	0xe00045abcd329cd7	spn.location.ilum.taxi.taxi_poi01_republic_base_camp_rep
+Diagnostics\GomCompatibility\all-defs.txt:116016: node	0xe00049ae8348b685	tax.hutta.taxi_poi01_jiguuna_emp
+Diagnostics\GomCompatibility\all-defs.txt:118749: node	0xe0004ba2fd216ff2	pth.test.users.nkuehlem.taxi.taxi_poi01_taxi_to_taxi_poi02_taxi_2_neu
+Diagnostics\GomCompatibility\all-defs.txt:135302: node	0xe000577e12613106	plc.exp.01.open_worlds.taxi.sith_warrior.finale.taxi_poi01_staging_ground_to_poi02_gardens_of_knowlege
+Diagnostics\GomCompatibility\all-defs.txt:136519: node	0xe0005855213ca214	spn.location.tython.taxi.taxi_poi01_jediretreat_pad2
+Diagnostics\GomCompatibility\all-defs.txt:141034: node	0xe0005b9fed4454a6	tax.hutta.taxi_poi01_jiguuna_spaceport_emp
+Diagnostics\GomCompatibility\all-defs.txt:142491: node	0xe0005cab1e53b1e0	mpn.test.hesslabs.taxi.taxi_poi01_taxi1_rep
+Diagnostics\GomCompatibility\all-defs.txt:153361: node	0xe000645804cbd681	pth.location.dromund_kaas.taxi.taxi_poi01_spaceport_to_taxi_poi27_outpost_tempest_emp
+Diagnostics\GomCompatibility\all-defs.txt:163590: node	0xe0006bb5f75c1fe8	pth.test.kquinn.taxi.taxi_poi01_crash_ship_to_taxi_poi02_desert_valley_rep
+Diagnostics\GomCompatibility\all-defs.txt:166548: node	0xe0006ddcb4962d63	pth.exp.02.yavin_iv.taxi.taxi_poi01_shared_landing_site_to_poi02_imp_forward_base
+Diagnostics\GomCompatibility\all-defs.txt:174498: node	0xe00073892c34db90	pth.location.dromund_kaas.taxi.shunt_taxi_taxi_poi01_spaceport_to_poi02_kaas_city_central_emp
+Diagnostics\GomCompatibility\all-defs.txt:190875: node	0xe0007f64a64b512b	npc.test.users.nkuehlem.taxi.taxi_poi01_taxi_neu
+Diagnostics\GomCompatibility\all-defs.txt:197700: node	0xe00084475aafad09	pth.location.dromund_kaas.taxi.taxi_poi01_spaceport_to_taxi_poi02_kaas_city_entrance_emp
+Diagnostics\GomCompatibility\all-defs.txt:231826: node	0xe0009c88262b4493	mpn.location.flashpoint.shared.ilum.taxi.taxi_poi01_forward_operating_base_neu
+Diagnostics\GomCompatibility\all-defs.txt:232176: node	0xe0009ccd88e55c43	mpn.test.users.nkuehlem.taxi.taxi_poi01_taxi_neu
+Diagnostics\GomCompatibility\all-defs.txt:240846: node	0xe000a2e1e630ee61	pth.location.hutta.taxi.shunt_taxi_poi07_rust_yards_emp_to_taxi_poi01_jiguuna_spaceport_emp
+Diagnostics\GomCompatibility\all-defs.txt:243639: node	0xe000a4dbb2c84a09	mpn.qa.gameplay_persistence.game_systems.taxi.taxi_poi01_neu
+Diagnostics\GomCompatibility\all-defs.txt:245978: node	0xe000a6866172366a	pth.location.hutta.taxi.taxi_poi01_jiguuna_cantina_to_taxi_poi01_jiguuna_spaceport_emp
+Diagnostics\GomCompatibility\all-defs.txt:252962: node	0xe000ab6754e6b2a6	pth.location.quesh.taxi.taxi_poi01_rep_base_to_taxi_poi06_war_outpost_rep
+Diagnostics\GomCompatibility\all-defs.txt:265241: node	0xe000b422f3f9cf13	spn.test.users.nkuehlem.taxi.taxi_poi01_taxi_neu
+Diagnostics\GomCompatibility\all-defs.txt:287560: node	0xe000c42ff9cafdc4	npc.exp.02.yavin_4.taxi.taxi_poi01_shared_landing_area_rep
+Diagnostics\GomCompatibility\all-defs.txt:307919: node	0xe000d2ae0a48cf04	pth.qa.gameplay_persistence.game_systems.taxi.taxi_poi01_to_poi01_neu
+Diagnostics\GomCompatibility\all-defs.txt:312192: node	0xe000d5d8caf16196	pth.location.hutta.taxi.shunt_taxi_poi01_jiguuna_cantina_to_taxi_poi07_rust_yards_emp
+Diagnostics\GomCompatibility\all-defs.txt:317674: node	0xe000d9ccd271be16	mpn.test.kquinn.taxi.taxi_poi01_crash_ship_rep
+Diagnostics\GomCompatibility\all-defs.txt:343651: node	0xe000ec2ed6e0ba7a	mpn.exp.02.rishi.taxi.taxi_poi01_raiders_cove
+Diagnostics\GomCompatibility\all-defs.txt:353315: node	0xe000f2fd2256e6ab	mpn.location.hutta.taxi.taxi_poi01_jiguuna_cantina_emp
+Diagnostics\GomCompatibility\all-defs.txt:355179: node	0xe000f44914793159	npc.test.hesslabs.taxi.taxi_poi01_taxi1_rep
+Diagnostics\TaxiDevelopment-20261001\AUDIT.md:17: area instance row `spn.location.tython.taxi.taxi_poi01_jediretreat_pad1.spn_c`
+Diagnostics\TaxiDevelopment-20261001\fixture.json:68: "placement_source": "authored taxi_poi01_jediretreat_pad1.spn_c instance row (-535,-1255,-77); x=col1/10 z=col2/10 y=col3/10 calibrated against the ca
+Diagnostics\TaxiDevelopment-20261001\Generate-Taxi.py:252: 'placement':list(placement),'placement_source':'authored taxi_poi01_jediretreat_pad1.spn_c instance row (-535,-1255,-77); x=col1/10 z=col2/10 y=col3/1
+Diagnostics\TaxiDevelopment-20261001\HANDOFF-NEXT-SESSION.md:22: `spn.location.tython.taxi.taxi_poi01_jediretreat_pad1.spn_c` = (-535,-1255,-77).
+SharpServer\NET\Packets\Server\AreaTaxiAwareness.cs:9: // spn.location.tython.taxi.taxi_poi01_jediretreat_pad1.spn_c (-535,-1255,-77),
+TOTAL 44 hits for 'taxi_poi01'

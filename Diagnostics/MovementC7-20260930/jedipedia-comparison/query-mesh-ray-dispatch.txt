@@ -1,0 +1,178 @@
+  00D244B0: 53                 push        ebx
+  00D244B1: 8B DC              mov         ebx,esp
+  00D244B3: 83 EC 08           sub         esp,8
+  00D244B6: 83 E4 F0           and         esp,0FFFFFFF0h
+  00D244B9: 83 C4 04           add         esp,4
+  00D244BC: 55                 push        ebp
+  00D244BD: 8B 6B 04           mov         ebp,dword ptr [ebx+4]
+  00D244C0: 89 6C 24 04        mov         dword ptr [esp+4],ebp
+  00D244C4: 8B EC              mov         ebp,esp
+  00D244C6: 6A FF              push        0FFFFFFFFh
+  00D244C8: 68 A8 46 FB 00     push        0FB46A8h
+  00D244CD: 64 A1 00 00 00 00  mov         eax,dword ptr fs:[00000000h]
+  00D244D3: 50                 push        eax
+  00D244D4: 64 89 25 00 00 00  mov         dword ptr fs:[00000000h],esp
+  00D244DB: 53                 push        ebx
+  00D244DC: 83 EC 68           sub         esp,68h
+  00D244DF: 8A 41 18           mov         al,byte ptr [ecx+18h]
+  00D244E2: 56                 push        esi
+  00D244E3: 57                 push        edi
+  00D244E4: 89 4D E4           mov         dword ptr [ebp-1Ch],ecx
+  00D244E7: A8 02              test        al,2
+  00D244E9: 0F 85 07 02 00 00  jne         00D246F6
+  00D244EF: A8 01              test        al,1
+  00D244F1: 0F 84 FF 01 00 00  je          00D246F6
+  00D244F7: F3 0F 10 05 AC 9A  movss       xmm0,dword ptr ds:[010D9AACh]
+  00D244FF: F3 0F 10 4B 10     movss       xmm1,dword ptr [ebx+10h]
+  00D24504: 0F 2F C1           comiss      xmm0,xmm1
+  00D24507: 0F 87 E9 01 00 00  ja          00D246F6
+  00D2450D: 8B 43 0C           mov         eax,dword ptr [ebx+0Ch]
+  00D24510: 0F 28 00           movaps      xmm0,xmmword ptr [eax]
+  00D24513: 8B 7B 08           mov         edi,dword ptr [ebx+8]
+  00D24516: 0F C6 C9 00        shufps      xmm1,xmm1,0
+  00D2451A: 0F 59 C1           mulps       xmm0,xmm1
+  00D2451D: 0F 29 4D C0        movaps      xmmword ptr [ebp-40h],xmm1
+  00D24521: 0F 28 0F           movaps      xmm1,xmmword ptr [edi]
+  00D24524: 0F 58 C1           addps       xmm0,xmm1
+  00D24527: 68 38 3B 37 01     push        1373B38h
+  00D2452C: 0F 29 45 B0        movaps      xmmword ptr [ebp-50h],xmm0
+  00D24530: E8 2B E8 F0 FF     call        00C32D60
+  00D24535: D9 EE              fldz
+  00D24537: 8B 55 E4           mov         edx,dword ptr [ebp-1Ch]
+  00D2453A: D9 1C 24           fstp        dword ptr [esp]
+  00D2453D: 8D 4D B0           lea         ecx,[ebp-50h]
+  00D24540: 51                 push        ecx
+  00D24541: 57                 push        edi
+  00D24542: 6A 01              push        1
+  00D24544: 8B F0              mov         esi,eax
+  00D24546: 6A 00              push        0
+  00D24548: 83 C2 14           add         edx,14h
+  00D2454B: 52                 push        edx
+  00D2454C: 8B CE              mov         ecx,esi
+  00D2454E: E8 DD F4 FF FF     call        00D23A30
+  00D24553: 8B CE              mov         ecx,esi
+  00D24555: E8 56 F0 C2 FF     call        009535B0
+  00D2455A: 85 C0              test        eax,eax
+  00D2455C: 0F 85 94 01 00 00  jne         00D246F6
+  00D24562: FF 15 10 14 06 01  call        dword ptr ds:[01061410h]
+  00D24568: D9 5D E8           fstp        dword ptr [ebp-18h]
+  00D2456B: 8B CE              mov         ecx,esi
+  00D2456D: E8 6E F5 C2 FF     call        00953AE0
+  00D24572: 8B 76 10           mov         esi,dword ptr [esi+10h]
+  00D24575: 85 C0              test        eax,eax
+  00D24577: 0F 86 5B 01 00 00  jbe         00D246D8
+  00D2457D: 83 C6 40           add         esi,40h
+  00D24580: 89 75 EC           mov         dword ptr [ebp-14h],esi
+  00D24583: 8B 73 18           mov         esi,dword ptr [ebx+18h]
+  00D24586: 89 45 E0           mov         dword ptr [ebp-20h],eax
+  00D24589: 8D A4 24 00 00 00  lea         esp,[esp+00000000h]
+  00D24590: 8B 45 EC           mov         eax,dword ptr [ebp-14h]
+  00D24593: 8B 78 70           mov         edi,dword ptr [eax+70h]
+  00D24596: 8B 4F 40           mov         ecx,dword ptr [edi+40h]
+  00D24599: 83 39 03           cmp         dword ptr [ecx],3
+  00D2459C: 0F 85 25 01 00 00  jne         00D246C7
+  00D245A2: 83 7B 14 02        cmp         dword ptr [ebx+14h],2
+  00D245A6: 8B 55 E4           mov         edx,dword ptr [ebp-1Ch]
+  00D245A9: 8B 47 58           mov         eax,dword ptr [edi+58h]
+  00D245AC: 8B 0A              mov         ecx,dword ptr [edx]
+  00D245AE: 8D 04 81           lea         eax,[ecx+eax*4]
+  00D245B1: 89 45 DC           mov         dword ptr [ebp-24h],eax
+  00D245B4: 74 19              je          00D245CF
+  00D245B6: 8B 08              mov         ecx,dword ptr [eax]
+  00D245B8: 85 C9              test        ecx,ecx
+  00D245BA: 0F 84 07 01 00 00  je          00D246C7
+  00D245C0: 8B 11              mov         edx,dword ptr [ecx]
+  00D245C2: 8B 02              mov         eax,dword ptr [edx]
+  00D245C4: FF D0              call        eax
+  00D245C6: 39 43 14           cmp         dword ptr [ebx+14h],eax
+  00D245C9: 0F 85 F8 00 00 00  jne         00D246C7
+  00D245CF: 8B 55 EC           mov         edx,dword ptr [ebp-14h]
+  00D245D2: F3 0F 10 02        movss       xmm0,dword ptr [edx]
+  00D245D6: 8B 4B 0C           mov         ecx,dword ptr [ebx+0Ch]
+  00D245D9: 0F 28 09           movaps      xmm1,xmmword ptr [ecx]
+  00D245DC: 0F 59 4D C0        mulps       xmm1,xmmword ptr [ebp-40h]
+  00D245E0: 0F C6 C0 00        shufps      xmm0,xmm0,0
+  00D245E4: 0F 59 C1           mulps       xmm0,xmm1
+  00D245E7: 0F 59 C0           mulps       xmm0,xmm0
+  00D245EA: 0F 28 D0           movaps      xmm2,xmm0
+  00D245ED: 0F 28 C8           movaps      xmm1,xmm0
+  00D245F0: 0F C6 C8 02        shufps      xmm1,xmm0,2
+  00D245F4: 0F C6 D0 01        shufps      xmm2,xmm0,1
+  00D245F8: 0F 58 CA           addps       xmm1,xmm2
+  00D245FB: 0F 58 C8           addps       xmm1,xmm0
+  00D245FE: 0F 28 C1           movaps      xmm0,xmm1
+  00D24601: F3 0F 10 4D E8     movss       xmm1,dword ptr [ebp-18h]
+  00D24606: 0F C6 C0 00        shufps      xmm0,xmm0,0
+  00D2460A: 0F 29 45 B0        movaps      xmmword ptr [ebp-50h],xmm0
+  00D2460E: F3 0F 10 45 B0     movss       xmm0,dword ptr [ebp-50h]
+  00D24613: 0F 2F C8           comiss      xmm1,xmm0
+  00D24616: 0F 82 AB 00 00 00  jb          00D246C7
+  00D2461C: C7 46 14 02 00 00  mov         dword ptr [esi+14h],2
+  00D24623: F3 0F 11 45 E8     movss       dword ptr [ebp-18h],xmm0
+  00D24628: 0F 28 07           movaps      xmm0,xmmword ptr [edi]
+  00D2462B: 0F 29 46 50        movaps      xmmword ptr [esi+50h],xmm0
+  00D2462F: 0F 28 47 10        movaps      xmm0,xmmword ptr [edi+10h]
+  00D24633: 0F 29 46 60        movaps      xmmword ptr [esi+60h],xmm0
+  00D24637: 0F 28 47 20        movaps      xmm0,xmmword ptr [edi+20h]
+  00D2463B: 6A 00              push        0
+  00D2463D: 8D 45 A0           lea         eax,[ebp-60h]
+  00D24640: 50                 push        eax
+  00D24641: 8B CF              mov         ecx,edi
+  00D24643: 0F 29 46 70        movaps      xmmword ptr [esi+70h],xmm0
+  00D24647: E8 14 02 C3 FF     call        00954860
+  00D2464C: 8B 4B 20           mov         ecx,dword ptr [ebx+20h]
+  00D2464F: 8B 53 1C           mov         edx,dword ptr [ebx+1Ch]
+  00D24652: 89 8E 80 00 00 00  mov         dword ptr [esi+00000080h],ecx
+  00D24658: 52                 push        edx
+  00D24659: 8B CE              mov         ecx,esi
+  00D2465B: E8 00 EC E9 FF     call        00BC3260
+  00D24660: 8B 45 DC           mov         eax,dword ptr [ebp-24h]
+  00D24663: 51                 push        ecx
+  00D24664: 8B CC              mov         ecx,esp
+  00D24666: 89 65 D8           mov         dword ptr [ebp-28h],esp
+  00D24669: 50                 push        eax
+  00D2466A: E8 E1 5E A0 FF     call        0072A550
+  00D2466F: C7 45 FC 00 00 00  mov         dword ptr [ebp-4],0
+  00D24676: C7 45 FC FF FF FF  mov         dword ptr [ebp-4],0FFFFFFFFh
+  00D2467D: 8B CE              mov         ecx,esi
+  00D2467F: E8 EC F8 E9 FF     call        00BC3F70
+  00D24684: 8D 4D A0           lea         ecx,[ebp-60h]
+  00D24687: 51                 push        ecx
+  00D24688: 8B CE              mov         ecx,esi
+  00D2468A: E8 61 DD AC FF     call        007F23F0
+  00D2468F: 8B 7B 08           mov         edi,dword ptr [ebx+8]
+  00D24692: 57                 push        edi
+  00D24693: 8B CE              mov         ecx,esi
+  00D24695: E8 16 EC E9 FF     call        00BC32B0
+  00D2469A: 8B 53 0C           mov         edx,dword ptr [ebx+0Ch]
+  00D2469D: 8B 45 EC           mov         eax,dword ptr [ebp-14h]
+  00D246A0: 0F 28 0A           movaps      xmm1,xmmword ptr [edx]
+  00D246A3: 0F 59 4D C0        mulps       xmm1,xmmword ptr [ebp-40h]
+  00D246A7: F3 0F 10 00        movss       xmm0,dword ptr [eax]
+  00D246AB: 0F C6 C0 00        shufps      xmm0,xmm0,0
+  00D246AF: 0F 59 C8           mulps       xmm1,xmm0
+  00D246B2: 0F 28 07           movaps      xmm0,xmmword ptr [edi]
+  00D246B5: 8D 4D 90           lea         ecx,[ebp-70h]
+  00D246B8: 51                 push        ecx
+  00D246B9: 0F 58 C8           addps       xmm1,xmm0
+  00D246BC: 8B CE              mov         ecx,esi
+  00D246BE: 0F 29 4D 90        movaps      xmmword ptr [ebp-70h],xmm1
+  00D246C2: E8 59 DD AC FF     call        007F2420
+  00D246C7: 81 45 EC C0 00 00  add         dword ptr [ebp-14h],0C0h
+  00D246CE: 83 6D E0 01        sub         dword ptr [ebp-20h],1
+  00D246D2: 0F 85 B8 FE FF FF  jne         00D24590
+  00D246D8: FF 15 10 14 06 01  call        dword ptr ds:[01061410h]
+  00D246DE: D9 45 E8           fld         dword ptr [ebp-18h]
+  00D246E1: DF E9              fucomip     st,st(1)
+  00D246E3: DD D8              fstp        st(0)
+  00D246E5: 9F                 lahf
+  00D246E6: F6 C4 44           test        ah,44h
+  00D246E9: 7B 07              jnp         00D246F2
+  00D246EB: B8 01 00 00 00     mov         eax,1
+  00D246F0: EB 06              jmp         00D246F8
+  00D246F2: 33 C0              xor         eax,eax
+  00D246F4: EB 02              jmp         00D246F8
+  00D246F6: 32 C0              xor         al,al
+  00D246F8: 8B 4D F4           mov         ecx,dword ptr [ebp-0Ch]
+  00D246FB: 5F                 pop         edi
+  00D246FC: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx

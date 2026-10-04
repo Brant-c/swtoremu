@@ -1,0 +1,9 @@
+{
+  "warning": "Diagnostic only: omitted one modern field and its direct class reference. Scripts, prototypes, and network values may still require it.",
+  "omitted_field": "4611686316368904000",
+  "changed_class": "4611690223225570000",
+  "original_size": 921724,
+  "test_size": 921684,
+  "original_sha256": "f2dde747588cac8db34e4e37d44bc5e3b2b75f3154f61a3dd01ae5efc4cce034",
+  "test_sha256": "71a302e802a7f8f60c69625e9718c9e908d9ccdae4a4d44649a8a575a52334d7"
+}

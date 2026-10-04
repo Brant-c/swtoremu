@@ -1,0 +1,88 @@
+  0071C610: 8B 3D 20 6E 49 01  mov         edi,dword ptr ds:[01496E20h]
+  0071C616: 85 FF              test        edi,edi
+  0071C618: 0F 84 18 01 00 00  je          0071C736
+  0071C61E: 80 3D 3F 39 2E 01  cmp         byte ptr ds:[012E393Fh],0
+            00
+  0071C625: 0F 84 0B 01 00 00  je          0071C736
+  0071C62B: 80 3D 6A 27 49 01  cmp         byte ptr ds:[0149276Ah],0
+            00
+  0071C632: 0F 85 FE 00 00 00  jne         0071C736
+  0071C638: 8B 0D B0 27 49 01  mov         ecx,dword ptr ds:[014927B0h]
+  0071C63E: 85 C9              test        ecx,ecx
+  0071C640: 0F 84 F0 00 00 00  je          0071C736
+  0071C646: 83 B9 A8 01 00 00  cmp         dword ptr [ecx+000001A8h],0
+            00
+  0071C64D: 8D 81 94 01 00 00  lea         eax,[ecx+00000194h]
+  0071C653: 89 45 E4           mov         dword ptr [ebp-1Ch],eax
+  0071C656: 89 0D F0 A8 49 01  mov         dword ptr ds:[0149A8F0h],ecx
+  0071C65C: 0F 84 CA 00 00 00  je          0071C72C
+  0071C662: 8B 87 E0 03 00 00  mov         eax,dword ptr [edi+000003E0h]
+  0071C668: 8D 97 DC 03 00 00  lea         edx,[edi+000003DCh]
+  0071C66E: 89 55 D8           mov         dword ptr [ebp-28h],edx
+  0071C671: 89 45 E8           mov         dword ptr [ebp-18h],eax
+  0071C674: 3B C2              cmp         eax,edx
+  0071C676: 0F 84 B0 00 00 00  je          0071C72C
+  0071C67C: EB 14              jmp         0071C692
+  0071C67E: 8B FF              mov         edi,edi
+  0071C680: 8A 1D A2 26 49 01  mov         bl,byte ptr ds:[014926A2h]
+  0071C686: 8B 3D 20 6E 49 01  mov         edi,dword ptr ds:[01496E20h]
+  0071C68C: 8B 0D B0 27 49 01  mov         ecx,dword ptr ds:[014927B0h]
+  0071C692: 8B 55 E8           mov         edx,dword ptr [ebp-18h]
+  0071C695: 8B 72 20           mov         esi,dword ptr [edx+20h]
+  0071C698: 0F B6 C3           movzx       eax,bl
+  0071C69B: F7 D8              neg         eax
+  0071C69D: 1B C0              sbb         eax,eax
+  0071C69F: 23 C7              and         eax,edi
+  0071C6A1: 89 75 DC           mov         dword ptr [ebp-24h],esi
+  0071C6A4: 3B B0 A0 02 00 00  cmp         esi,dword ptr [eax+000002A0h]
+  0071C6AA: 74 38              je          0071C6E4
+  0071C6AC: 0F B6 C3           movzx       eax,bl
+  0071C6AF: F7 D8              neg         eax
+  0071C6B1: 1B C0              sbb         eax,eax
+  0071C6B3: 23 C1              and         eax,ecx
+  0071C6B5: 3B F0              cmp         esi,eax
+  0071C6B7: 74 2B              je          0071C6E4
+  0071C6B9: 8D 45 DC           lea         eax,[ebp-24h]
+  0071C6BC: 50                 push        eax
+  0071C6BD: 8D 4D D0           lea         ecx,[ebp-30h]
+  0071C6C0: 51                 push        ecx
+  0071C6C1: 8B 4D E4           mov         ecx,dword ptr [ebp-1Ch]
+  0071C6C4: E8 17 C0 2C 00     call        009E86E0
+  0071C6C9: 8B 4D E4           mov         ecx,dword ptr [ebp-1Ch]
+  0071C6CC: 83 C1 04           add         ecx,4
+  0071C6CF: 39 08              cmp         dword ptr [eax],ecx
+  0071C6D1: 75 11              jne         0071C6E4
+  0071C6D3: 0F B6 C3           movzx       eax,bl
+  0071C6D6: F7 D8              neg         eax
+  0071C6D8: 1B C0              sbb         eax,eax
+  0071C6DA: 23 C7              and         eax,edi
+  0071C6DC: 3B B0 00 04 00 00  cmp         esi,dword ptr [eax+00000400h]
+  0071C6E2: 75 18              jne         0071C6FC
+  0071C6E4: 83 BE 8C 00 00 00  cmp         dword ptr [esi+0000008Ch],3
+            03
+  0071C6EB: 74 27              je          0071C714
+  0071C6ED: 6A 00              push        0
+  0071C6EF: 6A 01              push        1
+  0071C6F1: 6A 00              push        0
+  0071C6F3: 8B CE              mov         ecx,esi
+  0071C6F5: E8 96 FC 45 00     call        00B7C390
+  0071C6FA: EB 18              jmp         0071C714
+  0071C6FC: 83 BE 8C 00 00 00  cmp         dword ptr [esi+0000008Ch],3
+            03
+  0071C703: 75 0F              jne         0071C714
+  0071C705: 6A 01              push        1
+  0071C707: 6A 00              push        0
+  0071C709: 6A 00              push        0
+  0071C70B: 6A 00              push        0
+  0071C70D: 8B CE              mov         ecx,esi
+  0071C70F: E8 9C 01 46 00     call        00B7C8B0
+  0071C714: 8B 55 E8           mov         edx,dword ptr [ebp-18h]
+  0071C717: 52                 push        edx
+  0071C718: E8 73 69 25 00     call        00973090
+  0071C71D: 83 C4 04           add         esp,4
+  0071C720: 89 45 E8           mov         dword ptr [ebp-18h],eax
+  0071C723: 3B 45 D8           cmp         eax,dword ptr [ebp-28h]
+  0071C726: 0F 85 54 FF FF FF  jne         0071C680
+  0071C72C: 8B 75 F0           mov         esi,dword ptr [ebp-10h]
+  0071C72F: C6 05 3F 39 2E 01  mov         byte ptr ds:[012E393Fh],0
+            00

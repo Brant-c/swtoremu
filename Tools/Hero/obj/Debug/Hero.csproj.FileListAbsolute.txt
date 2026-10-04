@@ -1,6 +1,0 @@
-D:\SWTORClassic\swtoremu\Tools\Hero\bin\Debug\Hero.dll
-D:\SWTORClassic\swtoremu\Tools\Hero\bin\Debug\Hero.pdb
-D:\SWTORClassic\swtoremu\Tools\Hero\obj\Debug\Hero.csproj.AssemblyReference.cache
-D:\SWTORClassic\swtoremu\Tools\Hero\obj\Debug\Hero.csproj.CoreCompileInputs.cache
-D:\SWTORClassic\swtoremu\Tools\Hero\obj\Debug\Hero.dll
-D:\SWTORClassic\swtoremu\Tools\Hero\obj\Debug\Hero.pdb

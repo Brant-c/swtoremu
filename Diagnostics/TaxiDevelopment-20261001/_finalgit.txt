@@ -1,0 +1,164 @@
+ M .gitignore
+ M .vscode/settings.json
+ M Client/Hook/Bin/x86/MemoryMan.pdb
+ M Client/Hook/Obj/x86/Release/SWToR-Hook/MemoryMan.iobj
+ M Client/Hook/Obj/x86/Release/SWToR-Hook/MemoryMan.ipdb
+ M Client/Hook/Obj/x86/Release/SWToR-Hook/SWToR-Hook.tlog/CL.read.1.tlog
+ M Client/Hook/Obj/x86/Release/SWToR-Hook/SWToR-Hook.tlog/link.read.1.tlog
+ M Client/Hook/Obj/x86/Release/SWToR-Hook/vc145.pdb
+ M Client/Hook/Src/ToR.cpp
+ M Diagnostics/CompatibilityLauncher.cpp
+ M Diagnostics/Decode-CrtValues.py
+ M Diagnostics/Decode-Style7Replication.py
+ M Diagnostics/Generate-MatchedPhaseCrtCandidate.py
+ M Diagnostics/GeneratedPhaseCandidate/README.md
+ M Diagnostics/GeneratedPhaseCandidate/tython_blockout-4611686019869492753-1.1.acrt
+ M Diagnostics/WorldEntry-Style7-Decode-20260924.md
+ D Diagnostics/__pycache__/Analyze-WorldEntryDump.cpython-311.pyc
+ D Diagnostics/__pycache__/extract-tor-paths.cpython-311.pyc
+ M Diagnostics/last-compatibility-run.log
+ M Diagnostics/last-nexus-hook.log
+ M Diagnostics/last-server-full.log
+ M Diagnostics/nexus-server.before-latest.log
+ M Diagnostics/nexus_hook.before-latest.log
+ M Diagnostics/startup-summary.log
+ M Run-SWTORClassic-Trace-Tython.cmd
+ M SharpServer/AreaServer/CRT.cs
+ M SharpServer/NET/Packets/Client/AreaPollExperiment.cs
+ M SharpServer/NET/Packets/Client/CMsg61116AD5.cs
+ M SharpServer/NET/Packets/Client/CMsgF96DCDB0.cs
+ M SharpServer/NET/Packets/Server/AreaEffEventMessage.cs
+ M SharpServer/NET/Packets/Server/AreaReplicationDestroy.cs
+ M SharpServer/NET/Packets/Server/AreaStartupBundle.cs
+ M SharpServer/NET/Packets/Server/AreaUpdateTimeSource.cs
+ M SharpServer/NET/Packets/Server/RpcReply.cs
+ M SharpServer/NET/TORGameClientPacket.cs
+ M SharpServer/NET/TORGamePacketHandler.cs
+ M SharpServer/NET/TORGameServerPacket.cs
+ M SharpServer/NexusToRServer.csproj
+ M SharpServer/bin/Debug/NexusToR.log
+ M SharpServer/bin/Debug/NexusToRServer.pdb
+ M SharpServer/obj/x86/Debug/NexusToRServer.csproj.CoreCompileInputs.cache
+ M SharpServer/obj/x86/Debug/NexusToRServer.pdb
+ M Tools/Hero/bin/Debug/Hero.pdb
+ M Tools/Hero/obj/Debug/Hero.csproj.CoreCompileInputs.cache
+ M Tools/Hero/obj/Debug/Hero.pdb
+ M Tools/tor_tools/GomLib/GomLib.csproj
+ M Tools/tor_tools/GomLib/obj/Debug/GomLib.csproj.AssemblyReference.cache
+ M Tools/tor_tools/GomLib/obj/Debug/GomLib.csproj.CoreCompileInputs.cache
+ M Tools/tor_tools/GomLib/obj/Debug/GomLib.csproj.FileListAbsolute.txt
+ M Tools/tor_tools/TorArchive/TorLib.csproj
+ M Tools/tor_tools/TorArchive/obj/Debug/TorLib.csproj.AssemblyReference.cache
+ M Tools/tor_tools/TorArchive/obj/Debug/TorLib.csproj.CoreCompileInputs.cache
+ M Tools/tor_tools/TorArchive/obj/Debug/TorLib.csproj.FileListAbsolute.txt
+ M Tools/tor_tools/tor_tools/obj/x86/Debug/SwtorTools.csproj.AssemblyReference.cache
+ M nexusclient/nexusclient/nexus_hook.log
+?? AGENTS.md
+?? Client/Hook/Src/MovementCollisionPrefixes.h
+?? Client/Hook/Src/MovementCollisionTrace.h
+?? Client/Hook/Src/PhaseUpdatePrefixes.h
+?? Client/Hook/Src/PhaseUpdateTrace.h
+?? Client/Hook/Src/RoomSelectionTrace.h
+?? Client/Hook/Src/TriggerCollisionPrefixes.h
+?? Client/Hook/Src/TriggerCollisionTrace.h
+?? Dependencies/
+?? Diagnostics/Ability-Result-Contract-20260926.md
+?? Diagnostics/Decode-AwarenessObjects.py
+?? Diagnostics/DecoderBaseline-20260930/
+?? Diagnostics/DoorwayControl-20260930/
+?? Diagnostics/Experiments/
+?? Diagnostics/Find-IdsInWorldDump.py
+?? Diagnostics/Find-PePattern.py
+?? Diagnostics/Find-StringsInWorldDump.py
+?? Diagnostics/Fixtures/
+?? Diagnostics/Generate-CrtValues.py
+?? Diagnostics/Generate-PhaseInstanceDuplicate.py
+?? Diagnostics/GeneratedPhaseCandidate/tython_blockout-4611686019869492753-1.18.acrt
+?? Diagnostics/GeneratedPhaseCandidate/tython_blockout-4611686019869492753-1.4.acrt
+?? Diagnostics/GomCompatibility/
+?? Diagnostics/Handover-20260928.md
+?? Diagnostics/Handover-20260929-Notify.md
+?? Diagnostics/MovementC7-20260930/
+?? Diagnostics/MovementCollision-20260930/
+?? Diagnostics/MovementTether-20260930/
+?? Diagnostics/New-ProtocolExperiment.ps1
+?? Diagnostics/PacketDecoderRegression.cs
+?? Diagnostics/PacketWorkbench.ps1
+?? Diagnostics/PacketWorkbench.psm1
+?? Diagnostics/Phase-Exit-Development-Plan.md
+?? Diagnostics/Phase-Mechanics-20260928.md
+?? Diagnostics/PhaseExit-Checkpoint-20260928.md
+?? Diagnostics/PhaseExitChainAudit-20260930/
+?? Diagnostics/PhaseFieldExit-20260930/
+?? Diagnostics/PhaseFormat-20260930/
+?? Diagnostics/PhaseLifecycle-20260930/
+?? Diagnostics/PhaseTransitionAudit-20260930/
+?? Diagnostics/PlayerMovement-20260930/
+?? Diagnostics/Protocol-Evidence-Registry.md
+?? Diagnostics/Protocol-Evidence.csv
+?? Diagnostics/ReferenceAudit-20260930/
+?? Diagnostics/RetreatGateway-20261001/
+?? Diagnostics/RetreatReentry-20260930/
+?? Diagnostics/RoomSelection-20260930/
+?? Diagnostics/RoomStreaming-Plan-20260928.md
+?? Diagnostics/Scan-StatMaps.py
+?? Diagnostics/SelectedPhaseExit-20260930/
+?? Diagnostics/TaxiDevelopment-20261001/
+?? Diagnostics/Test-PacketDecoder.ps1
+?? Diagnostics/Test-PacketWorkbench.ps1
+?? Diagnostics/Test-PhaseLifecycleDiscovery.ps1
+?? Diagnostics/Test-PhaseLifecycleReadiness.ps1
+?? Diagnostics/Test-PhaseLifecycleSignatures.ps1
+?? Diagnostics/Tooling-Map.md
+?? Diagnostics/TriggerCollision-20260930/
+?? Diagnostics/WellerStory-20261001/
+?? Diagnostics/decode-aaw.py
+?? Diagnostics/decode-acrt.py
+?? Diagnostics/decode-schema.py
+?? Diagnostics/decode-schema2.py
+?? Diagnostics/dump-contract.py
+?? Diagnostics/dump-triggers.py
+?? Diagnostics/extract-context.py
+?? Diagnostics/extract-strings.py
+?? Diagnostics/lookup-classes.py
+?? Diagnostics/parse-dat.py
+?? Diagnostics/pe-map.py
+?? Diagnostics/pe-map2.py
+?? Diagnostics/remove-old-setchar.py
+?? Diagnostics/search-disasm.py
+?? Diagnostics/test-msghash.py
+?? Diagnostics/test-msghash2.py
+?? Diagnostics/test-realpairs.py
+?? Run-SWTORClassic-MovementC7.cmd
+?? Run-SWTORClassic-MovementCollision.cmd
+?? Run-SWTORClassic-MovementTether.cmd
+?? Run-SWTORClassic-PhaseExitProbe.cmd
+?? Run-SWTORClassic-PhaseFieldExit.cmd
+?? Run-SWTORClassic-PhaseLifecycle-Crt3Off.cmd
+?? Run-SWTORClassic-PhaseLifecycle.cmd
+?? Run-SWTORClassic-RetreatGateway.cmd
+?? Run-SWTORClassic-RetreatReentry.cmd
+?? Run-SWTORClassic-RoomSelection.cmd
+?? Run-SWTORClassic-SelectedPhaseExit.cmd
+?? Run-SWTORClassic-Taxi.cmd
+?? Run-SWTORClassic-TriggerCollision.cmd
+?? Run-SWTORClassic-WellerStory.cmd
+?? SharpServer/AreaServer/PhaseExit.cs
+?? SharpServer/AreaServer/PhaseInstanceRetry.cs
+?? SharpServer/AreaServer/PlayerMovementState.cs
+?? SharpServer/AreaServer/RetreatGatewayState.cs
+?? SharpServer/AreaServer/TaxiClone.bin
+?? SharpServer/AreaServer/TaxiNpc.bin
+?? SharpServer/AreaServer/TaxiRecord1.bin
+?? SharpServer/AreaServer/TythonTaxi.cs
+?? SharpServer/AreaServer/WellerConversation.cs
+?? SharpServer/NET/Packets/Server/AreaAbilityEffectReplication.cs
+?? SharpServer/NET/Packets/Server/AreaMergedAwareness.cs
+?? SharpServer/NET/Packets/Server/AreaPlayerMovementUpdate.cs
+?? SharpServer/NET/Packets/Server/AreaTaxiAwareness.cs
+?? SharpServer/NET/Packets/Server/AreaTaxiCloneAwareness.cs
+?? SharpServer/NET/Packets/Server/AreaTaxiInteraction.cs
+?? SharpServer/NET/Packets/Server/AreaWellerConversation.cs
+?? SharpServer/NET/Protocol/
+?? "SharpServer/Templates/TOR Client Packet/"
+?? "SharpServer/Templates/TOR Server Packet/"

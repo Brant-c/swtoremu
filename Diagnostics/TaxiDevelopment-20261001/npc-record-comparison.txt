@@ -1,0 +1,151 @@
+
+########################################################################
+# Weller (works)
+# struct 62, node 0x1ac6f6dc6d, style 8, inner 429, present 30/96, template 0XE0004AC670BEAEC5
+########################################################################
+  field                              offset    value
+  character_position                 +0        -64.3023,-6.9079,-128.053
+  character_rotation                 +12       -0,-15,0
+  chrScale                           +24       1
+  chrMeleeDistance                   +28       0.1
+  staWeaponState                     +32       enum=2
+  phsPhase                           +33       0x1AC6F6DC1F
+  eqpEquipment                       +39       0x1AC6F6DC6F
+  effContainerPositive               +45       0x1AC6F6DC71
+  effContainerNegative               +51       0x1AC6F6DC72
+  effContainerOther                  +57       0x1AC6F6DC73
+  spnParentAnchorId                  +63       0x400000046E8FBB53
+  tmrContainer                       +72       0x1AC6F6DC6E
+  modStatComputed                    +78       33 entries
+  modStatBase                        +248      17 entries
+  statHealth                         +336      310
+  staEnterIdle                       +340      true
+  cbtToughnessEnum                   +340      enum=4
+  effTargetActiveSnare               +341      -1
+  effContainerEffectlessTags         +345      1 entries
+  cnvAlienConversationsRequiredLookup +347      0 entries
+  spnSpawnedSpec                     +348      0x2
+  tgtTargetIsTargetable              +349      true
+  chrCreatureTypeList                +349      <tail unresolved from here>
+  ---> walks 349/429 (PARTIAL)
+
+########################################################################
+# Vendor (model, no nameplate)
+# struct 64, node 0x1ac68957eb, style 8, inner 380, present 30/96, template 0XE0005CB11264F32D
+########################################################################
+  field                              offset    value
+  character_position                 +0        -59.7872,-6.8998,-128.335
+  character_rotation                 +12       -0,-112.041,0
+  chrScale                           +24       1
+  chrMeleeDistance                   +28       0.1
+  staWeaponState                     +32       enum=2
+  phsPhase                           +33       0x1
+  eqpEquipment                       +34       0x1AC68957ED
+  effContainerPositive               +40       0x1AC68957EF
+  effContainerNegative               +46       0x1AC68957F0
+  effContainerOther                  +52       0x1AC68957F1
+  spnParentAnchorId                  +58       0x400000136330355E
+  vndVendorCanRepair                 +67       true
+  tmrContainer                       +67       0x1AC68957EC
+  modStatComputed                    +73       31 entries
+  modStatBase                        +233      15 entries
+  statHealth                         +311      460
+  cbtToughnessEnum                   +315      enum=3
+  effTargetActiveSnare               +316      -1
+  effContainerEffectlessTags         +320      1 entries
+  spnSpawnedSpec                     +322      0x1
+  tgtTargetIsTargetable              +323      true
+  chrCreatureTypeList                +323      1 entries
+  cbtFaction                         +335      -878620586690540766 (0xF3CE833B45F70B22)
+  chrTemplateVisualIndex             +344      1 (0x1)
+  cbtCreatureType                    +345      enum=3
+  brkResourceName                    +346      0xE000C970F186EEC0
+  chrClass                           +355      0xE00012E558C83598
+  _characterSpecification            +364      6143443606678373173 (0x5541E56931B58335)
+  ablContainer                       +373      0x1AC68957EE
+  chrLevel                           +379      10 (0xA)
+  ---> walks 380/380 (EXACT)
+
+########################################################################
+# Taxi (ours)
+# struct 66, node 0x1ac7001000, style 8, inner 388, present 31/95, template 0XE0008B8CC0FAEA1D
+########################################################################
+  field                              offset    value
+  character_position                 +0        -53.5,-7.7,-125.5
+  character_rotation                 +12       -0,-112.041,0
+  chrGender                          +24       enum=5
+  chrScale                           +25       1
+  chrMeleeDistance                   +29       0.1
+  staWeaponState                     +33       enum=2
+  phsPhase                           +34       0x1
+  eqpEquipment                       +35       0x1AC7001001
+  effContainerPositive               +41       0x1AC7001002
+  effContainerNegative               +47       0x1AC7001003
+  effContainerOther                  +53       0x1AC7001004
+  taxTerminalSpec                    +59       0xE000DC42A2436F58
+  tmrContainer                       +68       0x1AC68957EC
+  modStatComputed                    +74       31 entries
+  modStatBase                        +234      15 entries
+  statHealth                         +312      460
+  staEnterIdle                       +316      true
+  cbtToughnessEnum                   +316      enum=3
+  effTargetActiveSnare               +317      -1
+  spnSpawnedSpec                     +321      0xE0008B8CC0FAEA1D
+  chrAppearanceNppOverride           +330      0x3
+  tgtTargetIsTargetable              +331      true
+  chrCreatureTypeList                +331      1 entries
+  cbtFaction                         +343      -878620586690540766 (0xF3CE833B45F70B22)
+  chrTemplateVisualIndex             +352      1 (0x1)
+  cbtCreatureType                    +353      enum=3
+  brkResourceName                    +354      0xE000AC918E7EA883
+  chrClass                           +363      0xE00012E558C83598
+  _characterSpecification            +372      16141054501145209373 (0xE0008B8CC0FAEA1D)
+  ablContainer                       +381      0x1AC68957EE
+  chrLevel                           +387      10 (0xA)
+  ---> walks 388/388 (EXACT)
+
+========================================================================
+DIFF vs the one NPC the client actually resolves
+========================================================================
+
+A. Replicated by Weller, NOT replicated by our taxi record:
+   cnvAlienConversationsRequiredLookup Weller=0 entries
+   effContainerEffectlessTags         Weller=1 entries
+   spnParentAnchorId                  Weller=0x400000046E8FBB53
+
+B. Replicated by our taxi, NOT by Weller (all must be vendor/template artifacts - the taxi surface is only 2 fields):
+   _characterSpecification            ours=16141054501145209373 (0xE0008B8CC0FAEA1D) vendor=6143443606678373173 (0x5541E56931B58335)
+   ablContainer                       ours=0x1AC68957EE           vendor=0x1AC68957EE
+   brkResourceName                    ours=0xE000AC918E7EA883     vendor=0xE000C970F186EEC0
+   cbtCreatureType                    ours=enum=3                 vendor=enum=3
+   cbtFaction                         ours=-878620586690540766 (0xF3CE833B45F70B22) vendor=-878620586690540766 (0xF3CE833B45F70B22)
+   chrAppearanceNppOverride           ours=0x3                    vendor=ABSENT
+   chrClass                           ours=0xE00012E558C83598     vendor=0xE00012E558C83598
+   chrCreatureTypeList                ours=1 entries              vendor=1 entries
+   chrGender                          ours=enum=5                 vendor=ABSENT
+   chrLevel                           ours=10 (0xA)               vendor=10 (0xA)
+   chrTemplateVisualIndex             ours=1 (0x1)                vendor=1 (0x1)
+   taxTerminalSpec                    ours=0xE000DC42A2436F58     vendor=ABSENT
+
+C. Replicated by all three but carrying DIFFERENT values:
+   cbtToughnessEnum                   ours=enum=3                   Weller=enum=4                   vendor=enum=3
+   character_position                 ours=-53.5,-7.7,-125.5        Weller=-64.3023,-6.9079,-128.053 vendor=-59.7872,-6.8998,-128.335
+   character_rotation                 ours=-0,-112.041,0            Weller=-0,-15,0                 vendor=-0,-112.041,0
+   effContainerNegative               ours=0x1AC7001003             Weller=0x1AC6F6DC72             vendor=0x1AC68957F0
+   effContainerOther                  ours=0x1AC7001004             Weller=0x1AC6F6DC73             vendor=0x1AC68957F1
+   effContainerPositive               ours=0x1AC7001002             Weller=0x1AC6F6DC71             vendor=0x1AC68957EF
+   eqpEquipment                       ours=0x1AC7001001             Weller=0x1AC6F6DC6F             vendor=0x1AC68957ED
+   modStatBase                        ours=15 entries               Weller=17 entries               vendor=15 entries
+   modStatComputed                    ours=31 entries               Weller=33 entries               vendor=31 entries
+   phsPhase                           ours=0x1                      Weller=0x1AC6F6DC1F             vendor=0x1
+   spnSpawnedSpec                     ours=0xE0008B8CC0FAEA1D       Weller=0x2                      vendor=0x1
+   statHealth                         ours=460                      Weller=310                      vendor=460
+   tmrContainer                       ours=0x1AC68957EC             Weller=0x1AC6F6DC6E             vendor=0x1AC68957EC
+
+D. Replicated by all three with the SAME value (control group):
+   chrMeleeDistance                   = 0.1
+   chrScale                           = 1
+   effTargetActiveSnare               = -1
+   staWeaponState                     = enum=2
+   tgtTargetIsTargetable              = true
+   (5 fields identical across all three)

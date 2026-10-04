@@ -1,0 +1,283 @@
+Primary goal
+Make the repository trustworthy again.
+I need to know:
+- what came from upstream
+- what I changed
+- what later AI/dev sessions added
+- what is a real implementation
+- what is a temporary compatibility patch
+- what is stale or redundant
+- what foundational systems are still incomplete
+Do not optimize this phase around making another visible game feature work.
+Instead, clean up the repo and establish a reliable technical understanding of the project so future work can be prioritized by subsystem dependencies.
+Phase 1 — Establish Git ancestry and upstream baseline
+Start by inspecting Git carefully.
+Determine:
+- current branch
+- remotes
+- upstream/origin relationship
+- fork point or best available upstream baseline
+- commit history
+- major divergence between upstream and my branch
+Use Git history, diff, and blame where useful.
+I want you to distinguish code approximately as:
+- UPSTREAM — inherited from the original SWTOR emulator project
+- LOCAL-VALIDATED — later changes that appear intentional and supported
+- EXPERIMENTAL — work still under investigation
+- PATCH/BYPASS — temporary behavior added to get farther into the client
+- AI/SESSION ARTIFACT — files or logic that appear to come from prior AI-assisted sessions and may no longer be relevant
+- UNKNOWN — origin or purpose unclear
+Do not attempt to classify every line mechanically. Focus on significant files, subsystems, and major modifications.
+If the upstream remote is missing but the fork point/history is still discoverable, reconstruct the best comparison you reasonably can.
+Do not reset my branch to upstream.
+Do not discard later progress simply because it is not upstream.
+Phase 2 — Inventory and classify the repository
+Inspect the entire repository structure before making major changes.
+Classify significant files/folders as:
+- KEEP
+- UPDATE
+- ARCHIVE
+- DELETE
+- INVESTIGATE
+Look specifically for:
+- abandoned experiments
+- duplicate implementations
+- stale generated output
+- temporary debug utilities
+- obsolete launch scripts
+- overlapping logging executables/runnables
+- old packet/log collectors
+- hard-coded local paths
+- dead config files
+- old AI plans
+- scratch markdown
+- outdated TODOs
+- stale architecture docs
+- conflicting AGENTS.md / agent.md files
+- old MCP/agent prototypes
+- generated caches/indexes
+- build artifacts accidentally committed
+- machine-specific configuration
+Do not delete anything important solely because it looks strange or old.
+If something may still be useful but is no longer part of the active architecture, archive it rather than deleting it immediately.
+Create a safe Git checkpoint/branch before destructive cleanup if appropriate.
+Phase 3 — Preserve working progress while identifying hacks
+This emulator has already made substantial progress beyond the original upstream state.
+Current functionality includes at least some ability to:
+- reach/load Tython
+- enter the world to a degree
+- use some abilities
+- interact with some story/NPC behavior
+- exercise partial phasing/world logic
+Preserve useful working progress.
+However, I am concerned that some progress was achieved by patching around foundational systems rather than implementing them correctly.
+When you encounter code that appears to be a temporary compatibility patch or bypass:
+1. identify it clearly,
+2. compare it to upstream behavior,
+3. determine what subsystem it bypasses or approximates,
+4. preserve it if current functionality depends on it,
+5. mark the subsystem as PATCHED or PARTIAL,
+6. document likely downstream consequences.
+Examples of potentially foundational areas include:
+- world entry
+- world streaming
+- shard/instance state
+- phase resolution
+- area/room loading
+- actor/entity replication
+- spawn selection
+- NPC/object lifecycle
+- interaction messaging
+Do not weigh those examples too heavily; derive the real architecture from the code.
+Phase 4 — Build a capability/dependency map
+The project should no longer be driven primarily by:
+“What visible feature should we make work next?”
+Instead, use:
+What is the earliest missing or incorrect foundational dependency that blocks multiple downstream systems?
+Build a concise subsystem/capability map.
+Possible categories include:
+- login/authentication
+- character selection
+- world handshake
+- world entry
+- area/room loading
+- streaming
+- shard/instance handling
+- phase resolution
+- entity lifecycle
+- replication
+- spawning
+- NPCs
+- objects
+- interaction
+- conversation/story state
+- combat
+- abilities/effects
+- travel/taxi
+- quests
+- persistence
+Do not assume this exact taxonomy or dependency order is correct.
+Derive it from:
+- upstream architecture
+- current code
+- runtime entry points
+- current patches
+- existing logs
+For each important subsystem, classify it roughly as:
+- WORKING
+- PARTIAL
+- PATCHED
+- BROKEN
+- UNKNOWN
+- NOT IMPLEMENTED
+Include concise evidence where practical.
+Also identify what downstream systems depend on each PATCHED/PARTIAL subsystem.
+Phase 5 — Clean up logging and runnables
+The repo contains messy logging/debugging utilities and possibly multiple overlapping ways to run or inspect the system.
+Review:
+- launch scripts
+- helper executables
+- logging tools
+- packet dumpers
+- debug modes
+- temporary runners
+- ad-hoc PowerShell/batch scripts
+- old session-specific utilities
+Consolidate where appropriate.
+I do not want five different partially-working logging paths if one clean approach can replace them.
+Preserve tools that are genuinely useful for emulator development and reverse engineering.
+Remove/archive redundant or obsolete ones.
+The desired result is:
+- obvious way to build
+- obvious way to launch server components
+- obvious way to collect useful logs
+- obvious place for logs
+- minimal temporary/debug clutter
+Do not launch the game client unless absolutely necessary for a safe validation step.
+Phase 6 — Clean up AI/agent instructions
+Review:
+- AGENTS.md
+- agent.md
+- CLAUDE.md
+- cursor/AI instruction files
+- old prompts
+- AI-generated planning docs
+- stale research summaries
+Do not trust them automatically.
+Verify their claims against:
+- upstream source/history
+- current implementation
+- build/runtime structure
+Remove or archive outdated instructions.
+If AGENTS.md remains, keep it short and operational.
+It should contain only things future coding agents actually need:
+- repo purpose
+- important directories
+- safe commands
+- things not to modify casually
+- coding conventions
+- where authoritative docs live
+Do not use it as project history.
+Phase 7 — Establish minimal authoritative documentation
+Consolidate documentation into a small number of maintained files.
+Prefer something like:
+- README.md
+- docs/architecture.md
+- docs/project-state.md
+- docs/research-workflow.md
+README.md
+Explain:
+- what the project is
+- that it is derived from an upstream SWTOR emulator
+- current high-level status
+- basic build/setup
+- how to run the active emulator components
+- where detailed docs live
+docs/architecture.md
+Explain:
+- upstream architecture where still relevant
+- current architecture
+- major divergences from upstream
+- important runtime components
+- boundaries between emulator runtime and future research/AI tooling
+docs/project-state.md
+Keep the subsystem/capability map here.
+Include:
+- status
+- known patches
+- important unknowns
+- major dependencies
+Keep it concise and factual.
+docs/research-workflow.md
+Define how future investigation should work.
+The guiding principle should be:
+Do not optimize for making the next visible feature work. First identify the earliest missing or incorrect protocol/game-system dependency.
+Future research should ideally compare:
+1. exact 2012 client evidence,
+2. original upstream emulator implementation,
+3. current emulator implementation,
+4. runtime/log evidence.
+Phase 8 — Repository hygiene
+Review .gitignore and tracked garbage.
+Ensure appropriate handling of:
+- logs
+- build output
+- caches
+- temporary files
+- IDE metadata
+- local config
+- generated indexes
+- virtual environments
+- AI scratch output
+- machine-specific paths
+- extracted/decompiled/generated data that should not be committed
+Check for secrets or accidental credentials.
+Do not remove required game/research assets without understanding their role.
+Phase 9 — Do not build the new AI tooling yet
+I eventually want to build a modern research layer around:
+- the April 2012 client assets
+- Jedipedia Reader/client.gom/scriptdef/nodes
+- decompiled client information
+- emulator source
+- runtime logs
+likely through a local read-only MCP/research interface for ChatGPT Work.
+Do not build that system yet.
+This cleanup phase should simply make the repository ready for it.
+Keep future AI/research tooling isolated from the emulator runtime.
+Validation
+After cleanup:
+- inspect the resulting tree
+- verify docs match reality
+- verify important paths/imports still work
+- perform safe builds/static checks where practical
+- compare important changed areas against upstream where useful
+- do not silently rewrite working runtime behavior just to make the repo prettier
+If something is uncertain, preserve it and document the uncertainty instead of guessing.
+Final deliverable
+Stop after this phase and give me:
+1. Upstream relationship
+   - what upstream/fork baseline you identified
+   - major areas where my branch diverged
+2. Removed
+   - deleted files/code and why
+3. Archived
+   - legacy/uncertain material retained for reference
+4. Updated
+   - files/docs/configuration cleaned up
+5. Preserved
+   - important working local modifications that differ from upstream
+6. Current repository tree
+   - important directories/files only
+7. Capability/dependency map
+   - WORKING / PARTIAL / PATCHED / BROKEN / UNKNOWN / NOT IMPLEMENTED
+8. Known patches/bypasses
+   - especially ones that may affect downstream systems
+9. Logging/runnable cleanup
+   - what the supported runtime/debug workflow now is
+10. Manual review
+    - things you intentionally did not change
+11. Top 3 highest-leverage technical investigations
+    - rank them by foundational importance, not by visual payoff
+12. Recommended Phase 2 prompt
+    - likely focused on building the client/Jedipedia/emulator/log research layer
+Do not continue into Phase 2 automatically. Stop and wait for my review.

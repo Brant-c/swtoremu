@@ -1,0 +1,14 @@
+  90  populate with a self-reference — but it changes record length, so it must be its
+  91  own run.
+  92  
+  93  ## Regression gate
+  94  
+  95  `Diagnostics/Test-TaxiValueWalk.ps1` re-walks every generated fixture and fails
+  96  unless each record consumes exactly its `inner_size`. Run it before and after any
+  97  fixture edit from now on.
+  98  
+  99  Date: 2026-10-02. Confidence: **Client-derived** (read from the April native
+ 100  client's own `Replication_PreCreate` handler plus the shipped GOM schema).
+ 101  
+ 102  ## The taxi's entire replicated surface is TWO fields
+ 103  

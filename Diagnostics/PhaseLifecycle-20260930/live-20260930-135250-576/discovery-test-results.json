@@ -1,0 +1,10 @@
+{
+  "status": "fulfilled",
+  "value": {
+    "chunk_id": "b4d955",
+    "wall_time_seconds": 3.4583856,
+    "exit_code": 0,
+    "original_token_count": 187,
+    "output": "Matcher.cpp\r\nPASS native lifecycle matcher: 220 fixed/relocation-byte mutations; four genuine captured prefixes accepted; seven unrelated short-signature candidates rejected.\r\nPASS phsPhaseInfo.OnReplicationNodeDestroy: 65A4399D0102A007.scpt +0x0B78\r\nPASS phsOracle.UpdateGatewayForInstance: C10C1F8290BE3551.scpt +0x32E3\r\nPASS phsPlayerPhaseData.OnReplicationNodeCreate: 9308DE76F6AAF774.scpt +0x00B1\r\nPASS phsPlayerPhaseData.OnReplicationNodeDestroy: 9308DE76F6AAF774.scpt +0x03A1\r\nPASS phase lifecycle signatures: pinned April resources, decrypted offsets, and hook patterns agree.\r\nPASS lifecycle readiness: valid four-identity baseline accepted; all 12 missing, duplicate and non-HeroNode cases rejected; observer parses without execution.\r\n"
+  }
+}

@@ -1,0 +1,9 @@
+﻿Baseline requires exactly one PlayerPhaseDataId HeroNode; found 0. No doorway attempt is permitted.
+At D:\SWTORClassic\swtoremu\Diagnostics\PhaseLifecycle-20260930\Watch-PhaseLifecycle.ps1:100 char:29
++ ... nd -ne 1) { throw "Baseline requires exactly one $kind HeroNode; foun ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Baseline requir...t is permitted.:String) [], RuntimeException
+    + FullyQualifiedErrorId : Baseline requires exactly one PlayerPhaseDataId HeroNode; found 0. No doorway attempt is 
+    permitted.
+ 
+

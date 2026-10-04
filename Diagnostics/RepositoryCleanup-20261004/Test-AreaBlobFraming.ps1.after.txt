@@ -1,0 +1,2 @@
+PASS: 38 packet bodies; all 17 CRTs and 2 awareness blobs preserved byte-for-byte after the 8-byte opcode/component header, with dynamic handles 8/19.
+Scope: serializer regression only; fixture compatibility with the client and successful world loading are not established by this test.

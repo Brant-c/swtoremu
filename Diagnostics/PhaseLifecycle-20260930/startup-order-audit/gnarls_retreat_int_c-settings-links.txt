@@ -1,0 +1,7 @@
+[VISIBLE]
+  gnarls_new
+  gnarls_retreat_int_d
+[SETTINGS]
+  BoundingBox=(0.,0.,0.) (0.,0.,0.)
+  EnviroScheme=interiorScheme
+  RoomGUID=4611686037462170535

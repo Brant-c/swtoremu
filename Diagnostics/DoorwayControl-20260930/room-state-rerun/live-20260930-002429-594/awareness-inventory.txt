@@ -1,0 +1,127 @@
+tython_blockout-4611686019869492753-1.1.aaw: flags=0x01 objects=77 bytes=13488
+    0 @0x0006 node=0x0000001ac688d53e flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE0004E7B39FDC98B hydPosition=(23.786400,0.094600,-44.724300)
+    1 @0x0032 node=0x0000001ac688d540 flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE0004C7B39FC3561 hydPosition=(21.372499,-0.285000,-42.092201)
+    2 @0x005E node=0x0000001ac688d542 flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE0004D7B39FC37DC hydPosition=(24.573799,-0.086300,-41.870998)
+    3 @0x008A node=0x0000001ac68967a3 flags=0x7A class=chrNonPlayerCharacter parent=0x0000001ac688be1e structure=42
+    4 @0x025C node=0x0000001ac68967a9 flags=0xAA class=effContainer parent=0x0000001ac68967a3 structure=13
+    5 @0x0299 node=0x0000001ac68967c4 flags=0x6A class=effEffect parent=0x0000001ac68967a9 structure=11
+    6 @0x02C5 node=0x0000001ac68967b9 flags=0x6A class=effEffect parent=0x0000001ac68967a9 structure=11
+    7 @0x02F1 node=0x0000001ac68967a7 flags=0xAA class=effContainer parent=0x0000001ac68967a3 structure=13
+    8 @0x031F node=0x0000001ac68967a5 flags=0xAA class=eqpContainer parent=0x0000001ac68967a3 structure=14
+    9 @0x035B node=0x0000001ac68967c6 flags=0x6A class=itmItem parent=0x0000001ac68967a5 structure=15
+   10 @0x03C3 node=0x0000001ac68967a8 flags=0xAA class=effContainer parent=0x0000001ac68967a3 structure=13
+   11 @0x03F1 node=0x0000001ac688d544 flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE000527FED31B0EB hydPosition=(-40.759201,-4.654100,-44.320599)
+   12 @0x041D node=0x0000001ac688d546 flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE00060D95CF8B33F hydPosition=(12.003700,-0.196500,-38.442902)
+   13 @0x0449 node=0x0000001ac68974b1 flags=0x7A class=dynPlaceable parent=0x0000001ac688d1e4 structure=48
+   14 @0x12E1 node=0x0000001ac688d547 flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE000899D3CDA46EC hydPosition=(17.490900,-0.544800,-29.416000)
+   15 @0x130D node=0x0000001ac688d548 flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE0007FC68327A330 hydPosition=(-13.545000,-7.828600,-45.130100)
+   16 @0x1339 node=0x0000001ac68957eb flags=0x7A class=chrNonPlayerCharacter parent=0x0000001ac688be1e structure=64
+   17 @0x1511 node=0x0000001ac68957f0 flags=0xAA class=effContainer parent=0x0000001ac68957eb structure=13
+   18 @0x153F node=0x0000001ac68957ef flags=0xAA class=effContainer parent=0x0000001ac68957eb structure=13
+   19 @0x156D node=0x0000001ac68957ed flags=0xAA class=eqpContainer parent=0x0000001ac68957eb structure=14
+   20 @0x15A1 node=0x0000001ac68957f1 flags=0xAA class=effContainer parent=0x0000001ac68957eb structure=13
+   21 @0x15D7 node=0x0000001ac6895802 flags=0x6A class=effEffect parent=0x0000001ac68957f1 structure=11
+   22 @0x1603 node=0x0000001ac688d549 flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE000A1127DBCBFF9 hydPosition=(-39.498402,-7.199500,-55.065601)
+   23 @0x162F node=0x0000001ac688d54a flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE000AB389E7B29C4 hydPosition=(-58.907902,-5.410000,-127.919800)
+   24 @0x165B node=0x0000001ac688d54c flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE000534FA9FAABC1 hydPosition=(-104.025200,0.553700,9.176900)
+   25 @0x1687 node=0x0000001ac688d54e flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE000BC48F9C4A736 hydPosition=(-42.009300,-5.024600,-43.607300)
+   26 @0x16B3 node=0x0000001ac688d54f flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE000B789D4D0CACB hydPosition=(-17.047001,-1.977500,-100.847801)
+   27 @0x16DF node=0x0000001ac688d551 flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE00077CB6E8710CF hydPosition=(-13.801100,-2.462400,-99.646599)
+   28 @0x170B node=0x0000001ac688d552 flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE0003678F02607AB hydPosition=(-14.313600,-2.298800,-93.309601)
+   29 @0x1737 node=0x0000001ac688d553 flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE000AB389E7B29C4 hydPosition=(-42.788101,-4.891000,-51.650600)
+   30 @0x1763 node=0x0000001ac688d555 flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE000AB389E7B29C4 hydPosition=(-100.163101,-99.453003,0.313500)
+   31 @0x178F node=0x0000001ac689748c flags=0x7A class=chrNonPlayerCharacter parent=0x0000001ac688be1e structure=42
+   32 @0x194D node=0x0000001ac6897490 flags=0xAA class=effContainer parent=0x0000001ac689748c structure=13
+   33 @0x197B node=0x0000001ac689748e flags=0xAA class=eqpContainer parent=0x0000001ac689748c structure=14
+   34 @0x19B7 node=0x0000001ac68974af flags=0x6A class=itmItem parent=0x0000001ac689748e structure=15
+   35 @0x1A1F node=0x0000001ac6897492 flags=0xAA class=effContainer parent=0x0000001ac689748c structure=13
+   36 @0x1A5C node=0x0000001ac68974ad flags=0x6A class=effEffect parent=0x0000001ac6897492 structure=11
+   37 @0x1A88 node=0x0000001ac68974a2 flags=0x6A class=effEffect parent=0x0000001ac6897492 structure=11
+   38 @0x1AB4 node=0x0000001ac6897491 flags=0xAA class=effContainer parent=0x0000001ac689748c structure=13
+   39 @0x1AE2 node=0x0000001ac688d557 flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE00048A6E3056D5F hydPosition=(13.379300,-0.943400,-25.381001)
+   40 @0x1B0E node=0x0000001ac688d559 flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE00003DED1CB1D86 hydPosition=(-58.885799,-6.433600,-127.530296)
+   41 @0x1B3A node=0x0000001ac688d55b flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE00098133CEB10CB hydPosition=(-24.519199,-7.323100,-44.364399)
+   42 @0x1B66 node=0x0000001ac688d55d flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE000A31A09B9CA22 hydPosition=(-32.892799,-6.703000,-44.589500)
+   43 @0x1B92 node=0x0000001ac688d55f flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE0000BE5301A409B hydPosition=(21.480000,-2.195300,-16.176399)
+   44 @0x1BBE node=0x0000001ac688d561 flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE00082AEAEA45396 hydPosition=(-4.774000,9.681000,95.376099)
+   45 @0x1BEA node=0x0000001ac688d563 flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE00040548BFC213C hydPosition=(13.513000,-0.562500,-25.531900)
+   46 @0x1C16 node=0x0000001ac688d565 flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE00042F4F5C6E5D9 hydPosition=(-28.160601,-6.998100,-44.510399)
+   47 @0x1C42 node=0x0000001ac688d567 flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE000BA41DE2628D4 hydPosition=(-22.361401,-2.303600,-7.954100)
+   48 @0x1C6E node=0x0000001ac68975a6 flags=0x7A class=chrNonPlayerCharacter parent=0x0000001ac688be1e structure=42
+   49 @0x1E2C node=0x0000001ac68975ac flags=0xAA class=effContainer parent=0x0000001ac68975a6 structure=13
+   50 @0x1E69 node=0x0000001ac68975c7 flags=0x6A class=effEffect parent=0x0000001ac68975ac structure=11
+   51 @0x1E95 node=0x0000001ac68975bc flags=0x6A class=effEffect parent=0x0000001ac68975ac structure=11
+   52 @0x1EC1 node=0x0000001ac68975aa flags=0xAA class=effContainer parent=0x0000001ac68975a6 structure=13
+   53 @0x1EEF node=0x0000001ac68975a8 flags=0xAA class=eqpContainer parent=0x0000001ac68975a6 structure=14
+   54 @0x1F2B node=0x0000001ac68975c9 flags=0x6A class=itmItem parent=0x0000001ac68975a8 structure=15
+   55 @0x1F93 node=0x0000001ac68975ab flags=0xAA class=effContainer parent=0x0000001ac68975a6 structure=13
+   56 @0x1FC1 node=0x0000001ac689385f flags=0x7A class=chrNonPlayerCharacter parent=0x0000001ac688be1e structure=42
+   57 @0x219C node=0x0000001ac6893865 flags=0xAA class=effContainer parent=0x0000001ac689385f structure=13
+   58 @0x21D9 node=0x0000001ac6893881 flags=0x6A class=effEffect parent=0x0000001ac6893865 structure=11
+   59 @0x2205 node=0x0000001ac6893876 flags=0x6A class=effEffect parent=0x0000001ac6893865 structure=11
+   60 @0x2231 node=0x0000001ac6893864 flags=0xAA class=effContainer parent=0x0000001ac689385f structure=13
+   61 @0x225F node=0x0000001ac6893863 flags=0xAA class=effContainer parent=0x0000001ac689385f structure=13
+   62 @0x228D node=0x0000001ac6893861 flags=0xAA class=eqpContainer parent=0x0000001ac689385f structure=14
+   63 @0x22D0 node=0x0000001ac6893884 flags=0x6A class=itmItem parent=0x0000001ac6893861 structure=15
+   64 @0x2338 node=0x0000001ac6893883 flags=0x6A class=itmItem parent=0x0000001ac6893861 structure=15
+   65 @0x23A0 node=0x0000001ac688d569 flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE0009EFA0CDA52C1 hydPosition=(-37.425201,-1.710500,-2.298600)
+   66 @0x23CC node=0x0000001ac688d535 flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE0004FE70B052D69 hydPosition=(-29.711500,-6.705800,-44.356899)
+   67 @0x23F8 node=0x0000001ac6890a01 flags=0xBA class=plcPlaceable parent=0x0000001ac688cbf5 structure=65
+   68 @0x24BF node=0x0000001ac688d56b flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE000B825510D98BB hydPosition=(-36.661301,-2.347200,-2.219700)
+   69 @0x24EB node=0x0000001ac688d537 flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE000AD01D5B81401 hydPosition=(-37.057098,-7.318800,-55.741402)
+   70 @0x2517 node=0x0000001ac688df92 flags=0x7A class=dynPlaceable parent=0x0000001ac688c9fd structure=48
+   71 @0x33A8 node=0x0000001ac688d56d flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE0003D16CDAD59A0 hydPosition=(-16.588900,-6.478600,-43.560398)
+   72 @0x33D4 node=0x0000001ac688d538 flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE000AD30732B9070 hydPosition=(-27.280500,-7.293900,-54.348999)
+   73 @0x3400 node=0x0000001ac688d539 flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE000A902CCABB285 hydPosition=(-6.205100,-2.230400,-56.718498)
+   74 @0x342C node=0x0000001ac688d56e flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE0001A104CD346FB hydPosition=(-8.411700,-2.682300,-99.524597)
+   75 @0x3458 node=0x0000001ac688d53b flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE000BF110753BC4E hydPosition=(-34.936001,-4.476800,-36.318100)
+   76 @0x3484 node=0x0000001ac688d53c flags=0xAA class=hydTriggerEntity parent=0x0000000000000000 structure=41
+      hydRunScriptProtoId=0xE000719359A63B3A hydPosition=(-9.980000,-3.169000,-92.292702)
+  classes: chrNonPlayerCharacterx5, dynPlaceablex2, effContainerx15, effEffectx9, eqpContainerx5, hydTriggerEntityx35, itmItemx5, plcPlaceablex1
+  end=0x34B0 of 0x34B0
+tython_blockout-4611686019869492753-1.2.aaw: flags=0x01 objects=9 bytes=1247
+    0 @0x0006 node=0x0000001ac6f6dc94 flags=0x7A class=dynPlaceable parent=0x0000001ac6f6dc22 structure=48
+    1 @0x0149 node=0x0000001ac6f6dc6d flags=0x7A class=chrNonPlayerCharacter parent=0x0000001ac688be1e structure=62
+    2 @0x034A node=0x0000001ac6f6dc6f flags=0xAA class=eqpContainer parent=0x0000001ac6f6dc6d structure=14
+    3 @0x0386 node=0x0000001ac6f6dc91 flags=0x6A class=itmItem parent=0x0000001ac6f6dc6f structure=15
+    4 @0x03EE node=0x0000001ac6f6dc71 flags=0xAA class=effContainer parent=0x0000001ac6f6dc6d structure=13
+    5 @0x041C node=0x0000001ac6f6dc73 flags=0xAA class=effContainer parent=0x0000001ac6f6dc6d structure=13
+    6 @0x0459 node=0x0000001ac6f6dc8f flags=0x6A class=effEffect parent=0x0000001ac6f6dc73 structure=11
+    7 @0x0485 node=0x0000001ac6f6dc84 flags=0x6A class=effEffect parent=0x0000001ac6f6dc73 structure=11
+    8 @0x04B1 node=0x0000001ac6f6dc72 flags=0xAA class=effContainer parent=0x0000001ac6f6dc6d structure=13
+  classes: chrNonPlayerCharacterx1, dynPlaceablex1, effContainerx3, effEffectx2, eqpContainerx1, itmItemx1
+  end=0x4DF of 0x4DF

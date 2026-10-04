@@ -1,0 +1,281 @@
+[
+  {
+    "name": ".?AVBehaviorPlayerCharacterBWA@@",
+    "descriptor": "0x1336a80",
+    "tables": [
+      {
+        "vtable": "0x1150a28",
+        "object_offset": 8,
+        "slots": [
+          "0x723dc0",
+          "0x605870",
+          "0x605870",
+          "0x7eafd0",
+          "0x87a0e0",
+          "0x7eb140"
+        ],
+        "code_operand_refs": [
+          "0x720dce",
+          "0x7211ac"
+        ]
+      },
+      {
+        "vtable": "0x115098c",
+        "object_offset": 0,
+        "slots": [
+          "0xb96cd0",
+          "0xb964d0",
+          "0xb97b60",
+          "0x605870",
+          "0xb96520",
+          "0xb97240",
+          "0x4df5f0",
+          "0x720b10",
+          "0x721ab0",
+          "0x722250",
+          "0x721a10",
+          "0x721a60",
+          "0x721a80",
+          "0x721a10",
+          "0x7231b0",
+          "0x7212a0",
+          "0x7213f0",
+          "0x7f6410",
+          "0x723200",
+          "0x605870",
+          "0x605870",
+          "0x605870",
+          "0x812a00",
+          "0x4dc410",
+          "0x4dc410",
+          "0x723450",
+          "0x7214f0",
+          "0x721640",
+          "0x720be0",
+          "0x4dc410",
+          "0x720bb0",
+          "0x720bc0",
+          "0x720bd0",
+          "0x7216f0",
+          "0x6c2af0",
+          "0x720ab0",
+          "0x720b90",
+          "0x720ba0"
+        ],
+        "code_operand_refs": [
+          "0x720dc7",
+          "0x7211a5"
+        ]
+      }
+    ]
+  },
+  {
+    "name": ".?AVCharacterNode@@",
+    "descriptor": "0x1336bd8",
+    "tables": [
+      {
+        "vtable": "0x1151424",
+        "object_offset": 528,
+        "slots": [
+          "0x724160",
+          "0x724170",
+          "0x724180",
+          "0x72a170",
+          "0x7241a0"
+        ],
+        "code_operand_refs": [
+          "0x724290",
+          "0x7246ba"
+        ]
+      },
+      {
+        "vtable": "0x1151408",
+        "object_offset": 272,
+        "slots": [
+          "0x72a640",
+          "0x729910",
+          "0x798270",
+          "0x724100",
+          "0x7af570",
+          "0x7af630"
+        ],
+        "code_operand_refs": [
+          "0x724286",
+          "0x7246b0"
+        ]
+      },
+      {
+        "vtable": "0x11513f0",
+        "object_offset": 8,
+        "slots": [
+          "0x72a650",
+          "0x72c6b0",
+          "0x86dd70",
+          "0x7f9ee0",
+          "0x798410"
+        ],
+        "code_operand_refs": [
+          "0x72427c",
+          "0x7246a6"
+        ]
+      },
+      {
+        "vtable": "0x11513d0",
+        "object_offset": 4,
+        "slots": [
+          "0x6d7a90",
+          "0x6d7ad0",
+          "0x6d7b10",
+          "0x6d7b60",
+          "0x6d7bc0",
+          "0x6d7be0",
+          "0x7fa2e0"
+        ],
+        "code_operand_refs": [
+          "0x724275",
+          "0x72469f"
+        ]
+      },
+      {
+        "vtable": "0x1151154",
+        "object_offset": 0,
+        "slots": [
+          "0x724900",
+          "0x727730",
+          "0x727260",
+          "0x727c30",
+          "0x78f9a0",
+          "0x7a2a50",
+          "0x724020",
+          "0x724100",
+          "0x779040",
+          "0x4dc410",
+          "0x8d34f0",
+          "0x8d34f0",
+          "0x605870",
+          "0x724cf0",
+          "0x7283a0",
+          "0x7283b0",
+          "0x7f6410",
+          "0x729d50",
+          "0x723f10",
+          "0x730640",
+          "0x724070",
+          "0x6d0b30",
+          "0x796820",
+          "0x7963f0",
+          "0x7946f0",
+          "0x7946b0",
+          "0x794720",
+          "0x798400",
+          "0x729710",
+          "0x799340",
+          "0x6d5170",
+          "0x7f6410",
+          "0x4dc410",
+          "0x90afb0",
+          "0x7415d0",
+          "0x798320",
+          "0x7982e0",
+          "0x6d4210"
+        ],
+        "code_operand_refs": [
+          "0x72426e",
+          "0x724698"
+        ]
+      }
+    ]
+  }
+]
+Verified player behavior instruction prefixes: 12846
+[
+  {
+    "name": "chrLocoAnim_PreAnimUpdate_CPP",
+    "hash": "0xd97553ea",
+    "source": "Jedipedia chrBehaviorClassMethods / chrStandDebugClassMethods dictionaries, April1.2.0",
+    "refs": [
+      {
+        "va": "0xafa53c",
+        "context": "8bf85756e8e7f0ffff6a0068ea5375d98bd8e8c9e9abff83c4146820a4af0089"
+      }
+    ]
+  },
+  {
+    "name": "GetBehaveMoveVector_w",
+    "hash": "0x9e01f9a0",
+    "source": "Jedipedia chrBehaviorClassMethods / chrStandDebugClassMethods dictionaries, April1.2.0",
+    "refs": [
+      {
+        "va": "0xc1d3d2",
+        "context": "8bf85756e801c7edff6a0068a0f9019e8bd8e833bb99ff83c41468e0a2c10089"
+      }
+    ]
+  },
+  {
+    "name": "GetBehaveActionTransformer_w",
+    "hash": "0x32d34133",
+    "source": "Jedipedia chrBehaviorClassMethods / chrStandDebugClassMethods dictionaries, April1.2.0",
+    "refs": [
+      {
+        "va": "0xc2cc5c",
+        "context": "8bf85756e8875efdff6a00683341d3328bd8e8a9c298ff83c41468b04ec20089"
+      }
+    ]
+  },
+  {
+    "name": "BehaviorPostAnimUpdate",
+    "hash": "0xeeed7b75",
+    "source": "Jedipedia chrBehaviorClassMethods / chrStandDebugClassMethods dictionaries, April1.2.0",
+    "refs": []
+  },
+  {
+    "name": "BehaviorFinalAnimUpdate",
+    "hash": "0xd742e6a9",
+    "source": "Jedipedia chrBehaviorClassMethods / chrStandDebugClassMethods dictionaries, April1.2.0",
+    "refs": []
+  },
+  {
+    "name": "GetCharacterColliderBounds_o",
+    "hash": "0x103589fd",
+    "source": "Jedipedia chrBehaviorClassMethods / chrStandDebugClassMethods dictionaries, April1.2.0",
+    "refs": [
+      {
+        "va": "0xc1dba0",
+        "context": "8bf85756e8434ffeff6a0068fd8935108bd8e865b399ff83c4146890aac10089"
+      }
+    ]
+  },
+  {
+    "name": "GetCharacterGroundingBounds_o",
+    "hash": "0x5bbe1820",
+    "source": "Jedipedia chrBehaviorClassMethods / chrStandDebugClassMethods dictionaries, April1.2.0",
+    "refs": [
+      {
+        "va": "0xc1dbd6",
+        "context": "8bf85756e8bdedffff6a00682018be5b8bd8e82fb399ff83c4146870abc10089"
+      }
+    ]
+  },
+  {
+    "name": "GetCharacterSlopeThreshold",
+    "hash": "0xced9bda4",
+    "source": "Jedipedia chrBehaviorClassMethods / chrStandDebugClassMethods dictionaries, April1.2.0",
+    "refs": [
+      {
+        "va": "0xc1d5b8",
+        "context": "8bf85756e8cbc3edff6a0068a4bdd9ce8bd8e84db999ff83c4146800a5c10089"
+      }
+    ]
+  },
+  {
+    "name": "GetSupportingSurface",
+    "hash": "0x9478901d",
+    "source": "Jedipedia chrBehaviorClassMethods / chrStandDebugClassMethods dictionaries, April1.2.0",
+    "refs": [
+      {
+        "va": "0xc19698",
+        "context": "8bf85756e8fbf7ffff6a00681d9078948bd8e86df899ff83c41468e050c10089"
+      }
+    ]
+  }
+]

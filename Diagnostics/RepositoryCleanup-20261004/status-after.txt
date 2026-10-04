@@ -1,0 +1,935 @@
+ M .gitignore
+ M .vscode/settings.json
+D  Client/Hook/.vs/SWToR-Hook/v18/.suo
+D  Client/Hook/.vs/SWToR-Hook/v18/Browse.VC.db
+D  Client/Hook/.vs/SWToR-Hook/v18/DocumentLayout.backup.json
+D  Client/Hook/.vs/SWToR-Hook/v18/DocumentLayout.json
+D  Client/Hook/.vs/SWToR-Hook/v18/Solution.VC.db
+D  Client/Hook/Bin/x86/MemoryMan.exp
+D  Client/Hook/Bin/x86/MemoryMan.pdb
+D  Client/Hook/Obj/x86/Release/SWToR-Hook/MemoryMan.dll.recipe
+D  Client/Hook/Obj/x86/Release/SWToR-Hook/MemoryMan.iobj
+D  Client/Hook/Obj/x86/Release/SWToR-Hook/MemoryMan.ipdb
+D  Client/Hook/Obj/x86/Release/SWToR-Hook/SWToR-Hook.log
+D  Client/Hook/Obj/x86/Release/SWToR-Hook/SWToR-Hook.tlog/CL.command.1.tlog
+D  Client/Hook/Obj/x86/Release/SWToR-Hook/SWToR-Hook.tlog/CL.read.1.tlog
+D  Client/Hook/Obj/x86/Release/SWToR-Hook/SWToR-Hook.tlog/CL.write.1.tlog
+D  Client/Hook/Obj/x86/Release/SWToR-Hook/SWToR-Hook.tlog/Cl.items.tlog
+D  Client/Hook/Obj/x86/Release/SWToR-Hook/SWToR-Hook.tlog/SWToR-Hook.lastbuildstate
+D  Client/Hook/Obj/x86/Release/SWToR-Hook/SWToR-Hook.tlog/link.command.1.tlog
+D  Client/Hook/Obj/x86/Release/SWToR-Hook/SWToR-Hook.tlog/link.read.1.tlog
+D  Client/Hook/Obj/x86/Release/SWToR-Hook/SWToR-Hook.tlog/link.secondary.1.tlog
+D  Client/Hook/Obj/x86/Release/SWToR-Hook/SWToR-Hook.tlog/link.write.1.tlog
+D  Client/Hook/Obj/x86/Release/SWToR-Hook/vc145.pdb
+ M Client/Hook/Src/ToR.cpp
+D  Client/NexusLauncher/NexusLauncher/obj/x86/Debug/App.g.cs
+D  Client/NexusLauncher/NexusLauncher/obj/x86/Debug/App.g.i.cs
+D  Client/NexusLauncher/NexusLauncher/obj/x86/Debug/Controls/Block.baml
+D  Client/NexusLauncher/NexusLauncher/obj/x86/Debug/Controls/Block.g.cs
+D  Client/NexusLauncher/NexusLauncher/obj/x86/Debug/Controls/Block.g.i.cs
+D  Client/NexusLauncher/NexusLauncher/obj/x86/Debug/Controls/GameItem.baml
+D  Client/NexusLauncher/NexusLauncher/obj/x86/Debug/Controls/GameItem.g.cs
+D  Client/NexusLauncher/NexusLauncher/obj/x86/Debug/Controls/GameItem.g.i.cs
+D  Client/NexusLauncher/NexusLauncher/obj/x86/Debug/Controls/LoadingAnimation.g.cs
+D  Client/NexusLauncher/NexusLauncher/obj/x86/Debug/Controls/LoadingAnimation.g.i.cs
+D  Client/NexusLauncher/NexusLauncher/obj/x86/Debug/GeneratedInternalTypeHelper.g.cs
+D  Client/NexusLauncher/NexusLauncher/obj/x86/Debug/GeneratedInternalTypeHelper.g.i.cs
+D  Client/NexusLauncher/NexusLauncher/obj/x86/Debug/MainWindow.g.cs
+D  Client/NexusLauncher/NexusLauncher/obj/x86/Debug/MainWindow.g.i.cs
+D  Client/NexusLauncher/NexusLauncher/obj/x86/Debug/NexusLauncher.csproj.AssemblyReference.cache
+D  Client/NexusLauncher/NexusLauncher/obj/x86/Debug/NexusLauncher_MarkupCompile.cache
+D  Client/NexusLauncher/NexusLauncher/obj/x86/Debug/NexusLauncher_MarkupCompile.lref
+D  Client/NexusTor/.vs/NexusTor/FileContentIndex/501298e9-2da0-45af-9617-8fa43a0beb08.vsidx
+D  Client/NexusTor/.vs/NexusTor/v18/.suo
+D  Client/NexusTor/.vs/NexusTor/v18/DocumentLayout.backup.json
+D  Client/NexusTor/.vs/NexusTor/v18/DocumentLayout.json
+D  Client/NexusTor/WindowsFormsApplication1/obj/x86/Debug/.NETFramework,Version=v4.0,Profile=Client.AssemblyAttributes.cs
+D  Client/NexusTor/WindowsFormsApplication1/obj/x86/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs
+D  Client/NexusTor/WindowsFormsApplication1/obj/x86/Debug/NexusTor.csproj.AssemblyReference.cache
+D  Client/NexusTor/WindowsFormsApplication1/obj/x86/Debug/NexusTor.csproj.CoreCompileInputs.cache
+D  Client/NexusTor/WindowsFormsApplication1/obj/x86/Debug/NexusTor.csproj.FileListAbsolute.txt
+D  Client/NexusTor/WindowsFormsApplication1/obj/x86/Debug/NexusTor.csproj.GenerateResource.cache
+D  Diagnostics/AreaFramingBuild/NexusToRServer.pdb
+D  Diagnostics/AreaPayloadBuild/NexusToRServer.pdb
+D  Diagnostics/AreaWireBuild/NexusToRServer.pdb
+D  Diagnostics/AreaWireBuild/obj/NexusToRServer.csproj.FileListAbsolute.txt
+D  Diagnostics/AreaWireBuild/obj/NexusToRServer.csprojResolveAssemblyReference.cache
+D  Diagnostics/AreaWireBuild/obj/NexusToRServer.pdb
+ M Diagnostics/CompatibilityLauncher.cpp
+ M Diagnostics/Decode-CrtValues.py
+ M Diagnostics/Decode-Style7Replication.py
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets.info
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/0.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/1.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/10.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/100.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/101.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/102.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/103.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/104.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/105.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/106.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/107.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/108.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/109.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/11.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/110.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/111.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/112.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/113.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/114.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/115.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/116.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/117.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/118.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/119.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/12.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/120.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/121.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/122.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/123.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/124.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/125.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/126.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/127.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/128.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/129.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/13.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/130.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/131.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/132.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/133.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/134.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/135.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/136.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/137.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/138.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/139.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/14.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/140.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/141.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/142.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/143.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/144.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/145.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/146.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/147.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/148.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/149.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/15.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/150.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/151.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/152.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/153.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/154.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/155.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/156.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/157.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/158.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/159.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/16.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/160.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/161.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/162.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/163.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/164.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/165.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/166.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/167.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/168.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/169.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/17.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/170.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/171.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/172.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/173.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/174.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/175.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/176.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/177.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/178.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/179.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/18.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/180.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/181.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/182.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/183.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/184.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/185.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/186.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/187.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/188.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/189.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/19.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/190.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/191.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/192.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/193.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/194.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/195.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/196.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/197.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/198.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/199.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/2.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/20.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/200.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/201.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/202.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/203.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/204.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/205.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/206.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/207.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/208.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/209.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/21.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/210.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/211.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/212.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/213.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/214.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/215.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/216.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/217.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/218.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/219.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/22.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/220.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/221.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/222.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/223.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/224.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/225.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/226.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/227.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/228.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/229.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/23.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/230.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/231.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/232.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/233.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/234.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/235.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/236.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/237.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/238.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/239.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/24.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/240.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/241.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/242.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/243.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/244.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/245.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/246.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/247.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/248.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/249.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/25.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/250.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/251.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/252.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/253.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/254.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/255.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/256.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/257.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/258.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/259.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/26.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/260.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/261.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/262.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/263.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/264.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/265.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/266.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/267.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/268.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/269.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/27.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/270.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/271.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/272.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/273.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/274.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/275.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/276.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/277.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/278.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/279.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/28.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/280.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/281.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/282.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/283.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/284.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/285.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/286.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/287.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/288.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/289.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/29.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/290.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/291.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/292.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/293.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/294.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/295.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/296.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/297.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/298.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/299.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/3.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/30.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/300.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/301.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/302.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/303.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/304.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/305.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/306.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/307.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/308.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/309.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/31.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/310.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/311.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/312.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/313.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/314.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/315.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/316.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/317.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/318.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/319.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/32.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/320.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/321.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/322.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/323.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/324.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/325.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/326.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/327.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/328.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/329.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/33.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/330.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/331.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/332.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/333.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/334.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/335.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/336.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/337.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/338.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/339.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/34.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/340.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/341.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/342.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/343.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/344.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/345.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/346.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/347.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/348.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/349.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/35.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/350.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/351.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/352.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/353.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/354.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/355.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/356.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/357.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/358.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/359.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/36.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/360.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/361.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/362.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/363.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/364.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/365.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/366.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/367.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/368.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/369.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/37.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/370.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/371.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/372.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/373.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/374.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/375.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/376.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/377.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/378.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/379.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/38.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/380.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/381.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/382.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/383.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/384.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/385.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/386.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/387.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/388.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/389.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/39.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/390.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/391.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/392.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/393.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/394.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/395.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/396.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/397.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/398.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/399.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/4.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/40.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/400.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/401.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/402.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/403.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/404.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/405.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/406.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/407.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/408.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/409.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/41.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/410.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/411.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/412.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/413.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/414.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/415.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/416.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/417.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/418.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/419.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/42.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/420.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/421.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/422.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/423.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/424.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/425.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/426.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/427.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/428.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/429.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/43.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/430.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/431.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/432.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/433.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/434.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/435.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/436.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/437.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/438.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/439.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/44.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/440.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/441.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/442.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/443.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/444.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/445.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/446.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/447.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/448.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/449.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/45.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/450.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/451.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/452.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/453.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/454.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/455.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/456.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/457.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/458.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/459.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/46.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/460.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/461.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/462.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/463.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/464.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/465.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/466.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/467.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/468.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/469.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/47.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/470.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/471.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/472.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/473.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/474.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/475.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/476.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/477.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/478.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/479.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/48.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/480.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/481.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/482.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/483.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/484.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/485.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/486.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/487.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/488.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/489.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/49.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/490.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/491.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/492.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/493.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/494.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/495.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/496.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/497.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/498.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/499.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/5.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/50.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/51.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/52.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/53.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/54.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/55.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/56.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/57.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/58.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/59.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/6.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/60.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/61.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/62.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/63.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/64.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/65.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/66.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/67.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/68.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/69.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/7.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/70.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/71.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/72.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/73.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/74.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/75.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/76.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/77.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/78.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/79.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/8.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/80.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/81.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/82.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/83.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/84.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/85.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/86.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/87.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/88.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/89.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/9.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/90.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/91.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/92.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/93.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/94.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/95.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/96.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/97.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/98.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/buckets/99.bkt
+D  Diagnostics/Extracted2012/resources/systemgenerated/client.gom
+D  Diagnostics/Extracted2012/resources/systemgenerated/prototypes.info
+D  Diagnostics/Extracted2012/resources/systemgenerated/scriptdef.list
+ M Diagnostics/Generate-MatchedPhaseCrtCandidate.py
+ M Diagnostics/GeneratedPhaseCandidate/README.md
+ M Diagnostics/GeneratedPhaseCandidate/tython_blockout-4611686019869492753-1.1.acrt
+D  Diagnostics/ProcessMonitor/Eula.txt
+D  Diagnostics/RepositoryValidationBuild/NexusToRServer.pdb
+D  Diagnostics/ServerTraceBuild/NexusToRServer.pdb
+ M Diagnostics/WorldEntry-Checkpoint-20260924.md
+ M Diagnostics/WorldEntry-Style7-Decode-20260924.md
+D  Diagnostics/__pycache__/Analyze-WorldEntryDump.cpython-311.pyc
+D  Diagnostics/__pycache__/extract-tor-paths.cpython-311.pyc
+D  Diagnostics/__pycache__/extract-tor-paths.cpython-312.pyc
+D  Diagnostics/last-compatibility-run.log
+D  Diagnostics/last-nexus-hook.log
+D  Diagnostics/last-server-full.log
+D  Diagnostics/last-server-out.log
+D  Diagnostics/nexus-server.before-latest.log
+D  Diagnostics/nexus_hook.before-latest.log
+D  Diagnostics/python-deps/zstandard-0.25.0.dist-info/INSTALLER
+D  Diagnostics/python-deps/zstandard-0.25.0.dist-info/METADATA
+D  Diagnostics/python-deps/zstandard-0.25.0.dist-info/RECORD
+D  Diagnostics/python-deps/zstandard-0.25.0.dist-info/REQUESTED
+D  Diagnostics/python-deps/zstandard-0.25.0.dist-info/WHEEL
+D  Diagnostics/python-deps/zstandard-0.25.0.dist-info/licenses/LICENSE
+D  Diagnostics/python-deps/zstandard-0.25.0.dist-info/top_level.txt
+D  Diagnostics/python-deps/zstandard/__init__.py
+D  Diagnostics/python-deps/zstandard/__init__.pyi
+D  Diagnostics/python-deps/zstandard/__pycache__/__init__.cpython-312.pyc
+D  Diagnostics/python-deps/zstandard/__pycache__/backend_cffi.cpython-312.pyc
+D  Diagnostics/python-deps/zstandard/_cffi.cp312-win_amd64.pyd
+D  Diagnostics/python-deps/zstandard/backend_c.cp312-win_amd64.pyd
+D  Diagnostics/python-deps/zstandard/backend_cffi.py
+D  Diagnostics/python-deps/zstandard/py.typed
+D  Diagnostics/startup-summary.log
+D  Hacks/Launcher/obj/x86/Debug/.NETFramework,Version=v4.0,Profile=Client.AssemblyAttributes.cs
+D  Hacks/Launcher/obj/x86/Debug/Launcher.csproj.AssemblyReference.cache
+ D Launch-Trace-Tython-F96Echo.cmd
+ D Launch-Trace-Tython.cmd
+ D Launch-TraceTython.cmd
+D  Parser/SWTORParser/obj/x86/Debug/.NETFramework,Version=v4.0,Profile=Client.AssemblyAttributes.cs
+D  Parser/SWTORParser/obj/x86/Debug/Forms/App.g.cs
+D  Parser/SWTORParser/obj/x86/Debug/Forms/App.g.i.cs
+D  Parser/SWTORParser/obj/x86/Debug/Forms/MainWindow.baml
+D  Parser/SWTORParser/obj/x86/Debug/Forms/MainWindow.g.cs
+D  Parser/SWTORParser/obj/x86/Debug/Forms/MainWindow.g.i.cs
+D  Parser/SWTORParser/obj/x86/Debug/SWTORParser.csproj.AssemblyReference.cache
+D  Parser/SWTORParser/obj/x86/Debug/SWTORParser_Content.g.cs
+D  Parser/SWTORParser/obj/x86/Debug/SWTORParser_Content.g.i.cs
+D  Parser/SWTORParser/obj/x86/Debug/SWTORParser_MarkupCompile.cache
+ M README.md
+ M Run-SWTORClassic-Trace-Tython.cmd
+ M START-HERE.md
+D  SharpServer/.vs/NexusToRServer/FileContentIndex/514043b2-1089-4926-ad37-6862040b1db6.vsidx
+D  SharpServer/.vs/NexusToRServer/FileContentIndex/53973dfa-a755-49fb-8d38-99f05e0b5741.vsidx
+D  SharpServer/.vs/NexusToRServer/v18/.suo
+D  SharpServer/.vs/NexusToRServer/v18/DocumentLayout.backup.json
+D  SharpServer/.vs/NexusToRServer/v18/DocumentLayout.json
+ M SharpServer/AreaServer/CRT.cs
+ M SharpServer/NET/Packets/Client/AreaPollExperiment.cs
+ M SharpServer/NET/Packets/Client/CMsg61116AD5.cs
+ M SharpServer/NET/Packets/Client/CMsgF96DCDB0.cs
+ M SharpServer/NET/Packets/Server/AreaEffEventMessage.cs
+ M SharpServer/NET/Packets/Server/AreaReplicationDestroy.cs
+ M SharpServer/NET/Packets/Server/AreaStartupBundle.cs
+ M SharpServer/NET/Packets/Server/AreaUpdateTimeSource.cs
+ M SharpServer/NET/Packets/Server/RpcReply.cs
+ M SharpServer/NET/TORGameClientPacket.cs
+ M SharpServer/NET/TORGamePacketHandler.cs
+ M SharpServer/NET/TORGameServerPacket.cs
+ M SharpServer/NexusToRServer.csproj
+D  SharpServer/ShardListServer/bin/Debug/ShardListServer.pdb
+D  SharpServer/ShardListServer/obj/x86/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs
+D  SharpServer/ShardListServer/obj/x86/Debug/ShardListServer.csproj.AssemblyReference.cache
+D  SharpServer/ShardListServer/obj/x86/Debug/ShardListServer.csproj.CoreCompileInputs.cache
+D  SharpServer/ShardListServer/obj/x86/Debug/ShardListServer.csproj.FileListAbsolute.txt
+D  SharpServer/ShardListServer/obj/x86/Debug/ShardListServer.pdb
+ M SharpServer/bin/Debug/NexusToR.log
+ M SharpServer/bin/Debug/NexusToRServer.pdb
+D  SharpServer/obj/x86/Debug/.NETFramework,Version=v4.0.AssemblyAttributes.cs
+D  SharpServer/obj/x86/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs
+D  SharpServer/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+D  SharpServer/obj/x86/Debug/NexusToRServer.csproj.AssemblyReference.cache
+D  SharpServer/obj/x86/Debug/NexusToRServer.csproj.CoreCompileInputs.cache
+D  SharpServer/obj/x86/Debug/NexusToRServer.csproj.FileListAbsolute.txt
+D  SharpServer/obj/x86/Debug/NexusToRServer.pdb
+ D ToolingProbe4.txt
+ D ToolingProbe5.txt
+ D ToolingProbe8.txt
+D  Tools/Hero/.vs/Hero/FileContentIndex/39e744f5-14a0-4284-bc7e-6a2b9fbfd4dc.vsidx
+D  Tools/Hero/.vs/Hero/v18/.suo
+D  Tools/Hero/.vs/Hero/v18/DocumentLayout.backup.json
+D  Tools/Hero/.vs/Hero/v18/DocumentLayout.json
+D  Tools/Hero/bin/Debug/Hero.pdb
+D  Tools/Hero/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+D  Tools/Hero/obj/Debug/Hero.csproj.AssemblyReference.cache
+D  Tools/Hero/obj/Debug/Hero.csproj.CoreCompileInputs.cache
+D  Tools/Hero/obj/Debug/Hero.csproj.FileListAbsolute.txt
+D  Tools/Hero/obj/Debug/Hero.pdb
+D  Tools/PacketAnalyser/obj/x86/Debug/.NETFramework,Version=v4.0.AssemblyAttributes.cs
+D  Tools/PacketAnalyser/obj/x86/Debug/PacketAnalyser.csproj.AssemblyReference.cache
+D  Tools/SCPTExtractor/obj/x86/Debug/.NETFramework,Version=v4.0.AssemblyAttributes.cs
+D  Tools/SCPTExtractor/obj/x86/Debug/App.g.cs
+D  Tools/SCPTExtractor/obj/x86/Debug/App.g.i.cs
+D  Tools/SCPTExtractor/obj/x86/Debug/MainWindow.baml
+D  Tools/SCPTExtractor/obj/x86/Debug/MainWindow.g.cs
+D  Tools/SCPTExtractor/obj/x86/Debug/MainWindow.g.i.cs
+D  Tools/SCPTExtractor/obj/x86/Debug/SCPTExtractor.csproj.AssemblyReference.cache
+D  Tools/SCPTExtractor/obj/x86/Debug/SCPTExtractor_MarkupCompile.cache
+D  Tools/SCPTExtractor/obj/x86/Debug/ScriptDialog.baml
+D  Tools/SCPTExtractor/obj/x86/Debug/ScriptDialog.g.cs
+D  Tools/SCPTExtractor/obj/x86/Debug/ScriptDialog.g.i.cs
+D  Tools/TorDataMiner/.vs/TorDataMiner.csproj.dtbcache.json
+D  Tools/TorDataMiner/.vs/TorDataMiner/FileContentIndex/836bc3a8-8f5a-436c-bdec-5dce99291117.vsidx
+D  Tools/TorDataMiner/.vs/TorDataMiner/v18/.suo
+D  Tools/TorDataMiner/.vs/TorDataMiner/v18/DocumentLayout.backup.json
+D  Tools/TorDataMiner/.vs/TorDataMiner/v18/DocumentLayout.json
+D  Tools/TorDataMiner/bin/Debug/TorDataMiner.pdb
+D  Tools/TorDataMiner/obj/x86/Debug/.NETFramework,Version=v4.0.AssemblyAttributes.cs
+D  Tools/TorDataMiner/obj/x86/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs
+D  Tools/TorDataMiner/obj/x86/Debug/App.g.cs
+D  Tools/TorDataMiner/obj/x86/Debug/App.g.i.cs
+D  Tools/TorDataMiner/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+D  Tools/TorDataMiner/obj/x86/Debug/LoginBox.baml
+D  Tools/TorDataMiner/obj/x86/Debug/LoginBox.g.cs
+D  Tools/TorDataMiner/obj/x86/Debug/LoginBox.g.i.cs
+D  Tools/TorDataMiner/obj/x86/Debug/MainWindow.baml
+D  Tools/TorDataMiner/obj/x86/Debug/MainWindow.g.cs
+D  Tools/TorDataMiner/obj/x86/Debug/MainWindow.g.i.cs
+D  Tools/TorDataMiner/obj/x86/Debug/TorDataMiner.Properties.Resources.resources
+D  Tools/TorDataMiner/obj/x86/Debug/TorDataMiner.csproj.AssemblyReference.cache
+D  Tools/TorDataMiner/obj/x86/Debug/TorDataMiner.csproj.CoreCompileInputs.cache
+D  Tools/TorDataMiner/obj/x86/Debug/TorDataMiner.csproj.FileListAbsolute.txt
+D  Tools/TorDataMiner/obj/x86/Debug/TorDataMiner.csproj.GenerateResource.cache
+D  Tools/TorDataMiner/obj/x86/Debug/TorDataMiner.g.resources
+D  Tools/TorDataMiner/obj/x86/Debug/TorDataMiner.pdb
+D  Tools/TorDataMiner/obj/x86/Debug/TorDataMiner_MarkupCompile.cache
+D  Tools/TorDataMiner/obj/x86/Debug/TorDataMiner_MarkupCompile.i.cache
+D  Tools/UpdateBuilder/UpdateBuilder/obj/x86/Debug/UpdateBuilder.csproj.AssemblyReference.cache
+D  Tools/tor_tools/.vs/tor_tools/FileContentIndex/6806478a-92a9-40b2-937e-41ba88c9e24d.vsidx
+D  Tools/tor_tools/.vs/tor_tools/v18/.suo
+D  Tools/tor_tools/.vs/tor_tools/v18/DocumentLayout.backup.json
+D  Tools/tor_tools/.vs/tor_tools/v18/DocumentLayout.json
+ M Tools/tor_tools/GomLib/GomLib.csproj
+D  Tools/tor_tools/GomLib/obj/Debug/.NETFramework,Version=v4.0.AssemblyAttributes.cs
+D  Tools/tor_tools/GomLib/obj/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs
+D  Tools/tor_tools/GomLib/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+D  Tools/tor_tools/GomLib/obj/Debug/GomLib.csproj.AssemblyReference.cache
+D  Tools/tor_tools/GomLib/obj/Debug/GomLib.csproj.CoreCompileInputs.cache
+D  Tools/tor_tools/GomLib/obj/Debug/GomLib.csproj.FileListAbsolute.txt
+D  Tools/tor_tools/Hero/obj/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs
+D  Tools/tor_tools/Hero/obj/Debug/Hero.csproj.AssemblyReference.cache
+D  Tools/tor_tools/Hero/obj/x86/Debug/.NETFramework,Version=v4.0.AssemblyAttributes.cs
+D  Tools/tor_tools/Hero/obj/x86/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs
+D  Tools/tor_tools/Hero/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+D  Tools/tor_tools/Hero/obj/x86/Debug/Hero.csproj.AssemblyReference.cache
+D  Tools/tor_tools/Hero/obj/x86/Debug/Hero.csproj.CoreCompileInputs.cache
+D  Tools/tor_tools/Hero/obj/x86/Debug/Hero.csproj.FileListAbsolute.txt
+ M Tools/tor_tools/TorArchive/TorLib.csproj
+D  Tools/tor_tools/TorArchive/obj/Debug/.NETFramework,Version=v4.0.AssemblyAttributes.cs
+D  Tools/tor_tools/TorArchive/obj/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs
+D  Tools/tor_tools/TorArchive/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+D  Tools/tor_tools/TorArchive/obj/Debug/TorLib.csproj.AssemblyReference.cache
+D  Tools/tor_tools/TorArchive/obj/Debug/TorLib.csproj.CoreCompileInputs.cache
+D  Tools/tor_tools/TorArchive/obj/Debug/TorLib.csproj.FileListAbsolute.txt
+D  Tools/tor_tools/tor_tools/obj/x86/Debug/.NETFramework,Version=v4.0.AssemblyAttributes.cs
+D  Tools/tor_tools/tor_tools/obj/x86/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs
+D  Tools/tor_tools/tor_tools/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+D  Tools/tor_tools/tor_tools/obj/x86/Debug/SwtorTools.csproj.AssemblyReference.cache
+D  Tools/tor_tools/tor_tools/obj/x86/Debug/SwtorTools.csproj.CoreCompileInputs.cache
+D  Tools/tor_tools/tor_tools/obj/x86/Debug/SwtorTools.csproj.FileListAbsolute.txt
+D  Tools/tor_tools/tor_tools/obj/x86/Debug/SwtorTools.csproj.GenerateResource.cache
+D  Tools/tor_tools/tor_tools/obj/x86/Debug/tor_tools.Properties.Resources.resources
+D  Tools/tor_tools/tor_tools/obj/x86/Debug/tor_tools.Tools.resources
+D  Tools/tor_tools/tor_tools/obj/x86/Debug/tor_tools.dumper.resources
+ D _build_verify.txt
+ D _crt3_status.txt
+ D _csproj_anchor.txt
+ D _csproj_probe.txt
+ D _csproj_section.txt
+ D _csproj_tail.txt
+ D _csproj_verify.txt
+ D _csproj_verify2.txt
+ D _dotnet_log.txt
+ D _dotnet_probe.txt
+ D _dotnet_wtest.txt
+ D _dotnet_wtest.txt.latin1
+ D _exe_strings.txt
+ D _exe_strings2.txt
+ D _exe_strings3.txt
+ D _launch_helper.ps1
+ D _log_window.txt
+ D _packet_contract.txt
+ D _probe_pa_and_tor.txt
+ D _state_probe.txt
+ D _state_probe2.txt
+ D _tooling_status.txt
+ D _verify_files.txt
+ D build-verify.ps1
+ D check-server-state.ps1
+ D crt3-and-tooling-probe.ps1
+ D csproj-anchor.ps1
+ D csproj-probe.ps1
+ D csproj-probe2.ps1
+ D csproj-section-probe.ps1
+ D csproj-tail-probe.ps1
+ D csproj-tail-probe2.ps1
+ D disable-crt3.ps1
+ D dotnet-probe.ps1
+ D dotnet-writetest.ps1
+ D exe-check.ps1
+ D exe-check2.ps1
+ D exe-check3.ps1
+ D launch-and-check.ps1
+ D monitor-trace.ps1
+D  nexusclient/nexusclient/.vs/ProjectSettings.json
+D  nexusclient/nexusclient/.vs/VSWorkspaceState.json
+D  nexusclient/nexusclient/.vs/nexusclient.slnx/FileContentIndex/0da0fcd7-4f67-4247-aa17-1ec9363f9906.vsidx
+D  nexusclient/nexusclient/.vs/nexusclient.slnx/v18/.wsuo
+D  nexusclient/nexusclient/.vs/nexusclient.slnx/v18/DocumentLayout.json
+D  nexusclient/nexusclient/.vs/slnx.sqlite
+D  nexusclient/nexusclient/.vs/swtor-emu/FileContentIndex/af72c36b-ac44-4392-b8de-5f945221376b.vsidx
+D  nexusclient/nexusclient/.vs/swtor-emu/v18/.suo
+D  nexusclient/nexusclient/Temp/Perf_Domo__2012_9_25.log
+D  nexusclient/nexusclient/nexus_hook.log
+ D packet-contract.ps1
+ D poll-after-launch.ps1
+ D probe-bin-debug.ps1
+ D probe-build-diag.ps1
+ D probe-csproj.ps1
+ D probe-diag.ps1
+ D probe-diag2.ps1
+ D probe-dotnet-build.ps1
+ D probe-dotnet.ps1
+ D probe-handler-fresh.ps1
+ D probe-running-server.ps1
+ D probe-server-state.ps1
+ D probe-simple-write.ps1
+ D probe-toolchain.ps1
+ D probe_pa_tor.ps1
+ D read-handler.ps1
+ D read-log-window.ps1
+ D rebuild_verify.ps1
+ D restart-trace.cmd.ps1
+ D state-check.ps1
+ D state-check2.ps1
+ D state-probe.ps1
+ D state-probe2.ps1
+ D tooling-probe4.ps1
+ D tooling-probe5.ps1
+ D tooling-probe6.ps1
+ D tooling-probe7.ps1
+ D tooling-probe8.ps1
+ D verify-files.ps1
+?? !emulator_clean_plan.txt
+?? AGENTS.md
+?? Archive/
+?? Client/Hook/Src/MovementCollisionPrefixes.h
+?? Client/Hook/Src/MovementCollisionTrace.h
+?? Client/Hook/Src/PhaseUpdatePrefixes.h
+?? Client/Hook/Src/PhaseUpdateTrace.h
+?? Client/Hook/Src/RoomSelectionTrace.h
+?? Client/Hook/Src/TriggerCollisionPrefixes.h
+?? Client/Hook/Src/TriggerCollisionTrace.h
+?? Dependencies/
+?? Diagnostics/Ability-Result-Contract-20260926.md
+?? Diagnostics/CURRENT-PICKUP.md
+?? Diagnostics/Decode-AwarenessObjects.py
+?? Diagnostics/DecoderBaseline-20260930/
+?? Diagnostics/Documentation-Status.md
+?? Diagnostics/DoorwayControl-20260930/
+?? Diagnostics/Experiments/
+?? Diagnostics/Find-IdsInWorldDump.py
+?? Diagnostics/Find-PePattern.py
+?? Diagnostics/Find-StringsInWorldDump.py
+?? Diagnostics/Fixtures/
+?? Diagnostics/Foundation-Audit-20261004.md
+?? Diagnostics/Generate-CrtValues.py
+?? Diagnostics/Generate-PhaseInstanceDuplicate.py
+?? Diagnostics/GeneratedPhaseCandidate/tython_blockout-4611686019869492753-1.18.acrt
+?? Diagnostics/GeneratedPhaseCandidate/tython_blockout-4611686019869492753-1.4.acrt
+?? Diagnostics/GomCompatibility/
+?? Diagnostics/Handover-20260928.md
+?? Diagnostics/Handover-20260929-Notify.md
+?? Diagnostics/Historical-Handoffs/
+?? Diagnostics/MovementC7-20260930/
+?? Diagnostics/MovementCollision-20260930/
+?? Diagnostics/MovementTether-20260930/
+?? Diagnostics/New-ProtocolExperiment.ps1
+?? Diagnostics/PacketDecoderRegression.cs
+?? Diagnostics/PacketWorkbench.ps1
+?? Diagnostics/PacketWorkbench.psm1
+?? Diagnostics/Phase-Exit-Development-Plan.md
+?? Diagnostics/Phase-Mechanics-20260928.md
+?? Diagnostics/PhaseExit-Checkpoint-20260928.md
+?? Diagnostics/PhaseExitChainAudit-20260930/
+?? Diagnostics/PhaseFieldExit-20260930/
+?? Diagnostics/PhaseFormat-20260930/
+?? Diagnostics/PhaseLifecycle-20260930/
+?? Diagnostics/PhaseTransitionAudit-20260930/
+?? Diagnostics/PlayerMovement-20260930/
+?? Diagnostics/Protocol-Evidence-Registry.md
+?? Diagnostics/Protocol-Evidence.csv
+?? Diagnostics/ReferenceAudit-20260930/
+?? Diagnostics/RepositoryCleanup-20261004/
+?? Diagnostics/RetreatGateway-20261001/
+?? Diagnostics/RetreatReentry-20260930/
+?? Diagnostics/RoomSelection-20260930/
+?? Diagnostics/RoomStreaming-Plan-20260928.md
+?? Diagnostics/Scan-StatMaps.py
+?? Diagnostics/SelectedPhaseExit-20260930/
+?? Diagnostics/TaxiDevelopment-20261001/
+?? Diagnostics/Test-PacketDecoder.ps1
+?? Diagnostics/Test-PacketWorkbench.ps1
+?? Diagnostics/Test-PhaseLifecycleDiscovery.ps1
+?? Diagnostics/Test-PhaseLifecycleReadiness.ps1
+?? Diagnostics/Test-PhaseLifecycleSignatures.ps1
+?? Diagnostics/Test-TaxiValueWalk.ps1
+?? Diagnostics/Tooling-Map.md
+?? Diagnostics/TriggerCollision-20260930/
+?? Diagnostics/WellerStory-20261001/
+?? Diagnostics/decode-aaw.py
+?? Diagnostics/decode-acrt.py
+?? Diagnostics/decode-schema.py
+?? Diagnostics/decode-schema2.py
+?? Diagnostics/dump-contract.py
+?? Diagnostics/dump-triggers.py
+?? Diagnostics/extract-context.py
+?? Diagnostics/extract-strings.py
+?? Diagnostics/lookup-classes.py
+?? Diagnostics/parse-dat.py
+?? Diagnostics/pe-map.py
+?? Diagnostics/pe-map2.py
+?? Diagnostics/remove-old-setchar.py
+?? Diagnostics/search-disasm.py
+?? Diagnostics/test-msghash.py
+?? Diagnostics/test-msghash2.py
+?? Diagnostics/test-realpairs.py
+?? Run-SWTORClassic-MovementC7.cmd
+?? Run-SWTORClassic-MovementCollision.cmd
+?? Run-SWTORClassic-MovementTether.cmd
+?? Run-SWTORClassic-PhaseExitProbe.cmd
+?? Run-SWTORClassic-PhaseFieldExit.cmd
+?? Run-SWTORClassic-PhaseLifecycle-Crt3Off.cmd
+?? Run-SWTORClassic-PhaseLifecycle.cmd
+?? Run-SWTORClassic-RetreatGateway.cmd
+?? Run-SWTORClassic-RetreatReentry.cmd
+?? Run-SWTORClassic-RoomSelection.cmd
+?? Run-SWTORClassic-SelectedPhaseExit.cmd
+?? Run-SWTORClassic-Taxi.cmd
+?? Run-SWTORClassic-TriggerCollision.cmd
+?? Run-SWTORClassic-WellerStory.cmd
+?? SharpServer/AreaServer/PhaseExit.cs
+?? SharpServer/AreaServer/PhaseInstanceRetry.cs
+?? SharpServer/AreaServer/PlayerMovementState.cs
+?? SharpServer/AreaServer/RetreatGatewayState.cs
+?? SharpServer/AreaServer/TaxiClone.bin
+?? SharpServer/AreaServer/TaxiNpc.bin
+?? SharpServer/AreaServer/TaxiRecord1.bin
+?? SharpServer/AreaServer/TythonTaxi.cs
+?? SharpServer/AreaServer/WellerConversation.cs
+?? SharpServer/NET/Packets/Server/AreaAbilityEffectReplication.cs
+?? SharpServer/NET/Packets/Server/AreaMergedAwareness.cs
+?? SharpServer/NET/Packets/Server/AreaPlayerMovementUpdate.cs
+?? SharpServer/NET/Packets/Server/AreaTaxiAwareness.cs
+?? SharpServer/NET/Packets/Server/AreaTaxiCloneAwareness.cs
+?? SharpServer/NET/Packets/Server/AreaTaxiInteraction.cs
+?? SharpServer/NET/Packets/Server/AreaWellerConversation.cs
+?? SharpServer/NET/Protocol/
+?? "SharpServer/Templates/TOR Client Packet/"
+?? "SharpServer/Templates/TOR Server Packet/"
+?? docs/
+?? scripts/

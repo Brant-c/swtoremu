@@ -1,0 +1,10 @@
+{
+  "BaselineSettings": 28,
+  "CurrentSettings": 29,
+  "Differences": {
+    "SWTOR_TRACE_ROOM_SELECTION": [
+      null,
+      "1"
+    ]
+  }
+}
